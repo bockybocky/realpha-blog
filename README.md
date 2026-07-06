@@ -18,6 +18,7 @@ public/
   robots.txt         Search and agent crawler policy
 scripts/
   postbuild.mjs      Generates llms.txt and llms-full.txt
+  serve_dist.mjs     Zero-dependency localhost server for dist/
 ```
 
 ## Commands
@@ -26,9 +27,18 @@ scripts/
 npm run dev
 npm run build
 npm run preview
+node scripts/serve_dist.mjs
 ```
 
 `npm run build` runs `astro build` and then generates `dist/llms.txt` plus `dist/llms-full.txt`.
+
+## Local Static Service
+
+Production serving on this machine is `node scripts/serve_dist.mjs`, bound only to `127.0.0.1:8377`. The Windows startup task is `RealphaBlogServe`.
+
+Update flow: edit content -> `npm run build` -> the service reads the refreshed `dist/` files directly, no restart needed.
+
+Comments use GitHub Discussions through giscus. The repo/category IDs are wired in `src/components/Giscus.astro`; Charles still needs to install the giscus GitHub App once at <https://github.com/apps/giscus>. Until then, the embedded comments area may show a giscus load/install error.
 
 ## New Post Flow
 
