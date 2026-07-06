@@ -113,6 +113,19 @@ select {
 	display: block;
 }
 
+.brand-logo-dark {
+	display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+	.brand-logo-light {
+		display: none;
+	}
+	.brand-logo-dark {
+		display: block;
+	}
+}
+
 .brand-suffix {
 	color: var(--accent);
 	font-size: 1.05rem;
