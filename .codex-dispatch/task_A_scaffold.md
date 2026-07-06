@@ -1,6 +1,6 @@
 MODE: worker
 WORKDIR: C:/Users/Charles/Projects/realpha-blog
-OBJECTIVE: 依 BLOG_MASTER_SPEC.md 建出完整可 build 的 Astro 雙語部落格（Phase A：站體＋主題＋SEO/agent 全套＋lab 示範，不含部署與正式內容）。
+OBJECTIVE: 依 BLOG_MASTER_SPEC.md 完成 Astro 雙語部落格 Phase A（站體＋主題＋SEO/agent 全套＋lab 示範）；上一輪已留部分骨架（astro.config/package.json/src 已在），續建不重砍。npm 長指令請週期性輸出進度訊息（避免 300 秒無輸出被 watchdog 誤殺）。
 
 CONTEXT:
 - 先讀 WORKDIR 下 BLOG_MASTER_SPEC.md——所有架構裁決已定，照做不重議。
@@ -19,8 +19,19 @@ DELIVERABLES（全部在 WORKDIR 內）:
 9. `npm run build` 成功，dist/ 產出上述所有 SEO 工件。
 
 WRITE SCOPE:
-- WORKDIR 全部（node_modules/dist 由工具生成沒關係）
-- 禁碰 WORKDIR 以外任何路徑；禁改全域 npm config、環境變數、settings、hooks、排程
+- src/
+- public/
+- scripts/
+- astro.config.mjs
+- package.json
+- package-lock.json
+- tsconfig.json
+- README.md
+- .gitignore
+
+ALLOW DIRTY OVERLAP: true
+
+（禁碰 WORKDIR 以外任何路徑；禁改全域 npm config、環境變數、settings、hooks、排程）
 
 NON-GOALS:
 - 不部署、不動 Cloudflare/tunnel/DNS、不建 GitHub repo（Phase C）
