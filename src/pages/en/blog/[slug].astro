@@ -49,7 +49,7 @@ const alternatePath = `/blog/${post.data.slug}/`;
 			<div class="prose">
 				<Content />
 				<p class="markdown-link"><a href={`/en/blog/${post.data.slug}.md`}>Raw Markdown</a></p>
-				{post.data.category === 'investing' && <p class="notice">Investment content is educational and method-focused. It is not investment advice.</p>}
+				{post.data.category === 'investing' && <p class="notice">This article is an educational discussion of investment method. It is not advice to buy or sell any individual security, offers no target prices, and does not analyze any current holding. Investing carries risk; make your own decisions or consult a qualified professional.</p>}
 			</div>
 		</article>
 		<Giscus />
