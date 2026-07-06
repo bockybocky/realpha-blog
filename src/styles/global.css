@@ -100,15 +100,23 @@ select {
 
 .brand {
 	display: inline-flex;
-	align-items: baseline;
-	gap: 0.35rem;
+	align-items: center;
+	gap: 0.45rem;
 	font-weight: 800;
 	text-decoration: none;
 	white-space: nowrap;
 }
 
-.brand span {
+.brand-logo {
+	height: 30px;
+	width: auto;
+	display: block;
+}
+
+.brand-suffix {
 	color: var(--accent);
+	font-size: 1.05rem;
+	letter-spacing: 0.02em;
 }
 
 .nav-links {

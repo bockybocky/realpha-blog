@@ -92,8 +92,10 @@ const nav = [
 		<link rel="alternate" hreflang="en" href={absoluteUrl(enPath)} />
 		<link rel="alternate" hreflang="x-default" href={absoluteUrl(zhPath)} />
 		<link rel="alternate" type="application/rss+xml" title={`${site.name} ${meta.rssLabel}`} href={withLocale(locale, '/rss.xml')} />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<meta property="og:type" content={article ? 'article' : 'website'} />
 		<meta property="og:site_name" content={site.name} />
 		<meta property="og:title" content={titleText} />
@@ -106,7 +108,10 @@ const nav = [
 	<body>
 		<header class="site-header">
 			<nav class="nav" aria-label="Primary">
-				<a class="brand" href={withLocale(locale, '/')}>Realpha <span>Blog</span></a>
+				<a class="brand" href={withLocale(locale, '/')} aria-label="Realpha Blog">
+					<img src="/brand/logo-lockup.svg" alt="Realpha" width="640" height="150" class="brand-logo" />
+					<span class="brand-suffix">Blog</span>
+				</a>
 				<div class="nav-links">
 					{nav.map((item) => <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>)}
 					<a class="lang-switch" href={alternatePath}>{meta.switchLabel}</a>
