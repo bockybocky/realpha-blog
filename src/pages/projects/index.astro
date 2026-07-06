@@ -1,0 +1,26 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getProjects } from '../../lib/content';
+import { formatDate } from '../../lib/site';
+
+const locale = 'zh-TW';
+const projects = await getProjects(locale);
+---
+
+<SiteLayout title="Projects" description="Realpha Blog 的開源作品集。" locale={locale} path="/projects/" alternatePath="/en/projects/" breadcrumbs={[{ name: 'Projects', path: '/projects/' }]}>
+	<main class="page">
+		<header class="section-header">
+			<h1 class="page-title">Projects</h1>
+			<p class="lead">開源作品、研究工具與站體工程紀錄。</p>
+		</header>
+		<div class="grid">
+			{projects.map((project) => (
+				<a class="entry" href={`/projects/${project.data.slug}/`}>
+					<div class="meta"><time datetime={project.data.pubDate.toISOString()}>{formatDate(project.data.pubDate, locale)}</time></div>
+					<h2>{project.data.title}</h2>
+					<p>{project.data.description}</p>
+				</a>
+			))}
+		</div>
+	</main>
+</SiteLayout>

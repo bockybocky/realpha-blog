@@ -1,0 +1,52 @@
+---
+title: "Why We Freeze an Expiry Date onto Every Prediction"
+description: "The design philosophy behind a prediction-scoring system: pre-register the criteria, pair naive hit rate with a benchmark, refuse to conclude on thin samples, and handle conditional forecasts honestly. It is really about how not to fool yourself."
+slug: "expiry-date-for-every-prediction"
+lang: "en"
+pubDate: 2026-07-06
+category: "systems"
+tags: ["forecasting", "calibration", "measurement", "design"]
+ogImage: "/og-default.svg"
+---
+
+"I said it would go up." That is the cheapest sentence there is. With no expiry date and no threshold, you can be right about anything after the fact.
+
+We built a system to score predictions, and its core design rule is a single line: **the moment a prediction enters the ledger, its expiry date and threshold are frozen; from then on you only check the answer, never edit the question.** This post names no specific forecast. It is about the philosophy underneath, which is really aimed at one thing: how people quietly fool themselves in hindsight.
+
+## One: pre-register the criteria
+
+The expiry date, the threshold, and the benchmark are locked at the instant of entry. Any later edit counts as cheating.
+
+So what if you need to change one? You void the original card and log a fresh one, leaving a trail. That way, "I meant a longer horizon" and "I said a different price level" become entirely useless as retroactive excuses. Pre-registration is borrowed from experimental science: declare what you are testing and what counts as success before you look at the result, because otherwise people unconsciously move the finish line to wherever the ball landed.
+
+When an author never states a horizon, a fixed rule fills it in: short-term language means about two weeks, swing language about six weeks, quarterly framing about a quarter, long-term views about a year. The rule itself is versioned; changing it only affects cards logged afterward and is never applied retroactively to old ones.
+
+## Two: pair naive hit rate with a benchmark
+
+Hit rate alone gets fooled by one kind of person: the perpetual bull.
+
+In a bull market, someone who calls "up" from start to finish will post a terrifyingly high hit rate. That is not skill; it is a gift from the index. They are standing still on an escalator while claiming to run.
+
+So scoring runs in two layers. The first is naive hit rate: was the direction right, did it clear the threshold? Easy to communicate. The second must compare against **the index return over the same horizon**, measuring how much they beat sitting still. If someone calls a 15% rise during a period the market rose 20%, they actually lost to the market. Put plainly, raw return is not excess return; we are just applying that idea to people. Without the second layer, you credit the escalator's speed to the person riding it.
+
+## Three: refuse to conclude on thin samples
+
+When n is small, any hit rate is just noise. Anointing someone on three calls, or dunking on them for three, is childish.
+
+We set a sample floor (mark "insufficient sample" below, say, 20), and it applies per bucket, not in aggregate. Directional calls and target-price calls are counted separately, and different horizons are counted separately, and each cell needs enough of its own samples to count. Someone might be sharp short-term and terrible long-term; blending them into one average smears out both signals. Better to honestly say "cannot tell yet" than to force a verdict out of a sample that is too small.
+
+## Four: handle conditional forecasts honestly
+
+"If A happens, then B will follow." That is a conditional forecast.
+
+And if A never happens? Then the call is neither right nor wrong; it is marked undecidable. Forcing a conditional into an unconditional verdict wrongs the author in one direction and overrates them in the other, and both are errors. The denominator always keeps a count of these undecidable cards, so it stays visible how many calls the market simply never tested.
+
+## What the system is for, and what it is not
+
+**What it is for:** calibration. Working out, for yourself and for outside sources, which kinds of judgment are trustworthy and which are just overconfidence. It is a mirror, and mostly it is pointed at yourself.
+
+**What it is not for:** a high hit rate is not a buy signal. This is a reputation layer, not a signal layer; being accurate does not mean the next thing out of someone's mouth is worth copying. It is not a weapon for humiliating anyone. And it does not backfill historical predictions, because that pollutes the data with hindsight; you only collect honestly, forward from the day it goes live.
+
+## Wrap-up
+
+The first principle of a good measurement system is not "how accurately it computes" but "it does not let you fool yourself." And of all the anti-cheating designs, **freezing an expiry date is the cheapest one** — it needs no elaborate statistics, only the honesty to nail the finish line to the ground at the moment you speak.

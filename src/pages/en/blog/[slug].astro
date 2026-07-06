@@ -1,0 +1,57 @@
+---
+import Giscus from '../../../components/Giscus.astro';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { getBlogPosts } from '../../../lib/content';
+import { formatDate } from '../../../lib/site';
+import { render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const posts = await getBlogPosts('en');
+	return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post } }));
+}
+
+const locale = 'en';
+const { post } = Astro.props;
+const { Content } = await render(post);
+const path = `/en/blog/${post.data.slug}/`;
+const alternatePath = `/blog/${post.data.slug}/`;
+---
+
+<SiteLayout
+	title={post.data.title}
+	description={post.data.description}
+	locale={locale}
+	path={path}
+	alternatePath={alternatePath}
+	image={post.data.ogImage}
+	breadcrumbs={[{ name: 'Blog', path: '/en/blog/' }, { name: post.data.title, path }]}
+	article={{
+		title: post.data.title,
+		description: post.data.description,
+		pubDate: post.data.pubDate,
+		updatedDate: post.data.updatedDate,
+		path,
+		tags: post.data.tags,
+		image: post.data.ogImage,
+	}}
+>
+	<main class="page article-shell">
+		<article>
+			<header class="article-header">
+				<div class="meta">
+					<time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate, locale)}</time>
+					<span>{post.data.category}</span>
+				</div>
+				<h1 class="article-title">{post.data.title}</h1>
+				<p class="lead">{post.data.description}</p>
+				<ul class="tag-list">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul>
+			</header>
+			<div class="prose">
+				<Content />
+				<p class="markdown-link"><a href={`/en/blog/${post.data.slug}.md`}>Raw Markdown</a></p>
+				{post.data.category === 'investing' && <p class="notice">Investment content is educational and method-focused. It is not investment advice.</p>}
+			</div>
+		</article>
+		<Giscus />
+	</main>
+</SiteLayout>

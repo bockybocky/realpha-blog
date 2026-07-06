@@ -1,0 +1,34 @@
+---
+import LabDemo from '../../components/LabDemo.astro';
+import SourceDisclosure from '../../components/SourceDisclosure.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getLabs } from '../../lib/content';
+import { formatDate } from '../../lib/site';
+import { render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const labs = await getLabs('zh-TW');
+	return labs.map((lab) => ({ params: { slug: lab.data.slug }, props: { lab } }));
+}
+
+const locale = 'zh-TW';
+const { lab } = Astro.props;
+const { Content } = await render(lab);
+const path = `/lab/${lab.data.slug}/`;
+const alternatePath = `/en/lab/${lab.data.slug}/`;
+---
+
+<SiteLayout title={lab.data.title} description={lab.data.description} locale={locale} path={path} alternatePath={alternatePath} breadcrumbs={[{ name: 'Lab', path: '/lab/' }, { name: lab.data.title, path }]}>
+	<main class="page article-shell">
+		<header class="article-header">
+			<div class="meta"><time datetime={lab.data.pubDate.toISOString()}>{formatDate(lab.data.pubDate, locale)}</time><span>{lab.data.demo}</span></div>
+			<h1 class="article-title">{lab.data.title}</h1>
+			<p class="lead">{lab.data.description}</p>
+		</header>
+		<div class="prose">
+			<Content />
+		</div>
+		<LabDemo demo={lab.data.demo} title={lab.data.title} />
+		<SourceDisclosure demo={lab.data.demo} locale={locale} />
+	</main>
+</SiteLayout>

@@ -1,0 +1,114 @@
+---
+title: "Turning Podcasts and YouTube into a Searchable Research Archive"
+description: "A subtitle-first, ASR-as-fallback fetch pipeline, plus three lessons learned the hard way: drip slowly against 429s, track state fully or spin in place, and treat missing captions as normal rather than a block signal. Includes reusable Python snippets."
+slug: "podcast-youtube-searchable-archive"
+lang: "en"
+pubDate: 2026-07-06
+featured: true
+category: "tech"
+tags: ["yt-dlp", "asr", "pipeline", "python"]
+ogImage: "/og-default.svg"
+---
+
+A lot of the good material in finance and tech lives inside podcasts and YouTube videos. The catch is that audio is the least searchable format there is. You listen once, forget it, and the only way back to a single sentence is re-listening for an hour. Instead of replaying, pull it all into plain text once and then query it in seconds with keywords or a vector index.
+
+This post covers how we designed a subtitle-first, ASR-as-fallback fetch pipeline, and three potholes we actually hit.
+
+## Why it is worth doing
+
+Once audio becomes text, everything opens up: you can `grep` it, feed it into a vector index, and cite it in research notes. Fetch once, query forever, marginal cost near zero. The whole idea in one line: **replace listening, a one-time act, with searching, a repeatable one.**
+
+## Pipeline design: two layers
+
+The key decision is not reaching for the heavy tool first. Fetching runs in two layers, cheap before expensive:
+
+**Layer one: subtitles first.** Many videos already ship human-authored captions, or platform-generated automatic ones. Downloading those is the fastest, most accurate, and cheapest path. Preference order is human captions over automatic captions. If something usable already exists, do not transcribe it yourself.
+
+**Layer two: ASR fallback.** Only when there are no captions at all do we hand the audio to speech-to-text (ASR). This layer is uneven in quality and expensive in compute, so it goes last and only handles what layer one missed.
+
+The reason to split is cost and quality. Human captions are the most accurate and nearly free; ASR is the most expensive and needs cleanup. Take the cheap wins first, save the costly path for what genuinely needs it.
+
+## Three lessons from the field
+
+**One: drip slowly against 429s.** Platforms throttle bulk requests. Hammering them earns you rate limits (HTTP 429) or a "prove you are human" wall. Rather than pushing through, wait a random few seconds between items, cap each run, and spread a full backfill across several days. And the moment you detect a 429 or a verification page, **stop immediately** instead of sending more requests and digging yourself into a longer ban.
+
+**Two: track state fully or spin in place.** Every item's outcome, whether it succeeded, how many times it failed, or that it was confirmed to have no captions, must be persisted so the next run resumes from a checkpoint. If state is incomplete, a rerun keeps re-querying known-captionless items, burns quota for nothing, and fills up the stop-loss counters. Anything already ruled captionless should be skipped outright and routed to the ASR queue, not poked again every cycle.
+
+**Three: missing captions are normal, not a block signal.** Talk-format and podcast-style videos often have no captions at all, in practice sometimes more than half. Hitting several captionless items in a row makes it tempting to conclude "I have been blocked" and stop. That is wrong. Blocking is what 429s and verification pages are for; missing captions just mean "this one needs a different channel (ASR)," not "the platform is shutting me out." Keep those two apart and the pipeline stops scaring itself into halting.
+
+## Reusable code snippets
+
+Clean illustrative versions with all project specifics stripped out, ready to borrow and adapt.
+
+Subtitle source selection, human first, automatic second, ASR if neither exists:
+
+```python
+def choose_subtitle(info, lang_priority=("en", "zh-TW", "zh")):
+    """Pick the best subtitle source from video metadata. Returns (kind, lang) or None."""
+    manual = info.get("subtitles") or {}
+    auto = info.get("automatic_captions") or {}
+    for lang in lang_priority:
+        if lang in manual:
+            return "manual", lang
+    for lang in lang_priority:
+        if lang in auto:
+            return "auto", lang
+    return None  # no captions -> hand off to ASR
+```
+
+Polite throttling plus block detection, drip between items and stop on a 429:
+
+```python
+import random
+import time
+
+
+BLOCK_MARKERS = ("too many requests", "http error 429", "confirm you are not a bot")
+
+
+class Blocked(RuntimeError):
+    """Rate limit or human-verification detected; stop immediately."""
+
+
+def guard_and_throttle(response_text, delay_range=(2.0, 5.0)):
+    low = response_text.lower()
+    if any(marker in low for marker in BLOCK_MARKERS):
+        raise Blocked("Likely 429 / verification wall; stop sending requests")
+    # Drip slowly: a random pause between items spreads the load out
+    time.sleep(random.uniform(*delay_range))
+```
+
+Checkpoint state plus atomic writes, so reruns do not reburn and a crash cannot corrupt the file:
+
+```python
+import json
+import os
+import tempfile
+from pathlib import Path
+
+
+def load_state(path):
+    p = Path(path)
+    if not p.exists():
+        return {"done": {}, "no_subtitle": {}, "failed": {}}
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def atomic_write_json(path, data):
+    p = Path(path)
+    fd, tmp = tempfile.mkstemp(dir=str(p.parent), suffix=".tmp")
+    with os.fdopen(fd, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    os.replace(tmp, p)  # atomic swap: a mid-write crash leaves no half file
+
+
+def should_skip(item_id, state, max_retry=3):
+    # done, known-captionless, or out of retries -> skip this round, do not reburn quota
+    if item_id in state["done"] or item_id in state["no_subtitle"]:
+        return True
+    return state["failed"].get(item_id, 0) >= max_retry
+```
+
+## Wrap-up
+
+None of this is specific to finance. It applies to any case where you want to turn a pile of audio and video into a searchable knowledge base. Three lines to remember: **do the cheap thing first, track state fully, and tell "absent" apart from "blocked."** Get those right and you have a pipeline that can grind quietly for weeks without banning itself and without spinning in place.

@@ -1,0 +1,26 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { getLabs } from '../../../lib/content';
+import { formatDate } from '../../../lib/site';
+
+const locale = 'en';
+const labs = await getLabs(locale);
+---
+
+<SiteLayout title="Lab" description="Interactive animation and data visualization demos from Realpha Blog." locale={locale} path="/en/lab/" alternatePath="/lab/" breadcrumbs={[{ name: 'Lab', path: '/en/lab/' }]}>
+	<main class="page">
+		<header class="section-header">
+			<h1 class="page-title">Lab</h1>
+			<p class="lead">Small interactive demos with bilingual page shells and shared demo code.</p>
+		</header>
+		<div class="grid">
+			{labs.map((lab) => (
+				<a class="entry" href={`/en/lab/${lab.data.slug}/`}>
+					<div class="meta"><time datetime={lab.data.pubDate.toISOString()}>{formatDate(lab.data.pubDate, locale)}</time><span>{lab.data.demo}</span></div>
+					<h2>{lab.data.title}</h2>
+					<p>{lab.data.description}</p>
+				</a>
+			))}
+		</div>
+	</main>
+</SiteLayout>

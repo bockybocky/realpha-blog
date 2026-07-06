@@ -1,0 +1,30 @@
+---
+import { giscusConfig } from '../lib/site';
+
+const ready = !giscusConfig.repoId.startsWith('PHASE_C') && !giscusConfig.categoryId.startsWith('PHASE_C');
+---
+
+<section class="giscus-box" aria-label="Comments">
+	{
+		ready ? (
+			<script
+				src="https://giscus.app/client.js"
+				data-repo={giscusConfig.repo}
+				data-repo-id={giscusConfig.repoId}
+				data-category={giscusConfig.category}
+				data-category-id={giscusConfig.categoryId}
+				data-mapping="pathname"
+				data-strict="0"
+				data-reactions-enabled="1"
+				data-emit-metadata="0"
+				data-input-position="top"
+				data-theme="preferred_color_scheme"
+				data-lang="zh-TW"
+				crossorigin="anonymous"
+				async
+			/>
+		) : (
+			<p class="notice">Comments will open after the Phase C GitHub Discussions setup.</p>
+		)
+	}
+</section>

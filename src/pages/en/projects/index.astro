@@ -1,0 +1,26 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { getProjects } from '../../../lib/content';
+import { formatDate } from '../../../lib/site';
+
+const locale = 'en';
+const projects = await getProjects(locale);
+---
+
+<SiteLayout title="Projects" description="Open-source project notes from Realpha Blog." locale={locale} path="/en/projects/" alternatePath="/projects/" breadcrumbs={[{ name: 'Projects', path: '/en/projects/' }]}>
+	<main class="page">
+		<header class="section-header">
+			<h1 class="page-title">Projects</h1>
+			<p class="lead">Open-source work, research tools, and site engineering notes.</p>
+		</header>
+		<div class="grid">
+			{projects.map((project) => (
+				<a class="entry" href={`/en/projects/${project.data.slug}/`}>
+					<div class="meta"><time datetime={project.data.pubDate.toISOString()}>{formatDate(project.data.pubDate, locale)}</time></div>
+					<h2>{project.data.title}</h2>
+					<p>{project.data.description}</p>
+				</a>
+			))}
+		</div>
+	</main>
+</SiteLayout>

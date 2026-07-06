@@ -1,0 +1,27 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { getBlogPosts } from '../../../lib/content';
+import { formatDate } from '../../../lib/site';
+
+const locale = 'en';
+const posts = await getBlogPosts(locale);
+---
+
+<SiteLayout title="Blog" description="English technical, systems, and investment research posts from Realpha Blog." locale={locale} path="/en/blog/" alternatePath="/blog/" breadcrumbs={[{ name: 'Blog', path: '/en/blog/' }]}>
+	<main class="page">
+		<header class="section-header">
+			<h1 class="page-title">Blog</h1>
+			<p class="lead">Every post ships with paired language pages, RSS, and raw Markdown output.</p>
+		</header>
+		<div class="grid">
+			{posts.map((post) => (
+				<a class="entry" href={`/en/blog/${post.data.slug}/`}>
+					<div class="meta"><time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate, locale)}</time><span>{post.data.category}</span></div>
+					<h2>{post.data.title}</h2>
+					<p>{post.data.description}</p>
+					<ul class="tag-list">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul>
+				</a>
+			))}
+		</div>
+	</main>
+</SiteLayout>

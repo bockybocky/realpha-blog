@@ -1,0 +1,31 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getProjects } from '../../lib/content';
+import { formatDate } from '../../lib/site';
+import { render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const projects = await getProjects('zh-TW');
+	return projects.map((project) => ({ params: { slug: project.data.slug }, props: { project } }));
+}
+
+const locale = 'zh-TW';
+const { project } = Astro.props;
+const { Content } = await render(project);
+const path = `/projects/${project.data.slug}/`;
+const alternatePath = `/en/projects/${project.data.slug}/`;
+---
+
+<SiteLayout title={project.data.title} description={project.data.description} locale={locale} path={path} alternatePath={alternatePath} breadcrumbs={[{ name: 'Projects', path: '/projects/' }, { name: project.data.title, path }]}>
+	<main class="page article-shell">
+		<header class="article-header">
+			<div class="meta"><time datetime={project.data.pubDate.toISOString()}>{formatDate(project.data.pubDate, locale)}</time></div>
+			<h1 class="article-title">{project.data.title}</h1>
+			<p class="lead">{project.data.description}</p>
+			{project.data.repoUrl && <p><a class="pill" href={project.data.repoUrl}>GitHub</a></p>}
+		</header>
+		<div class="prose">
+			<Content />
+		</div>
+	</main>
+</SiteLayout>

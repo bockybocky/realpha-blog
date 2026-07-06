@@ -1,0 +1,114 @@
+---
+title: "把 Podcast 和 YouTube 變成可搜尋的研究資料庫"
+description: "字幕優先、ASR 補課的抓取管線設計，加上三個踩過的坑：429 要慢速滴灌、狀態沒記全會原地空轉、無字幕是常態不是封鎖訊號。附可複製的通用 Python 片段。"
+slug: "podcast-youtube-searchable-archive"
+lang: "zh-TW"
+pubDate: 2026-07-06
+featured: true
+category: "tech"
+tags: ["yt-dlp", "asr", "pipeline", "python"]
+ogImage: "/og-default.svg"
+---
+
+財經跟技術的乾貨，很多藏在 podcast 跟 YouTube 影片裡。問題是音訊是最難搜尋的格式——聽完就忘，想回去找某句話只能重聽一小時。與其反覆重聽，不如把它們一次抓成純文字，之後用關鍵字或向量索引秒查。
+
+這篇講我們怎麼設計一條「字幕優先、ASR 補課」的抓取管線，以及三個真的踩過的坑。
+
+## 為什麼值得做
+
+音訊轉成文字之後，整個世界就打開了：可以 `grep`、可以餵進向量索引、可以當研究筆記的佐證來源。一次抓、長期查，邊際成本趨近於零。核心心法只有一句：**把「聽」這個一次性動作，換成「查」這個可重複動作。**
+
+## 管線設計：分兩層
+
+關鍵決策是不要一開始就上重武器。抓取分兩層，先便宜後貴：
+
+**第一層——字幕優先。** 很多影片本身就有人工上的字幕，或平台自動生成的字幕。直接下載字幕最快、最準、最省算力。優先序是：人工字幕 > 自動字幕。有現成的就別自己轉。
+
+**第二層——ASR 補課。** 真的沒有任何字幕的，才丟語音轉文字（ASR）。這一層品質參差、算力貴，所以留到最後，只處理第一層漏掉的。
+
+分層的理由就是成本與品質：人工字幕最準又幾乎免費，ASR 最貴又要校正。先撿便宜的，貴的留給非做不可的。
+
+## 三個實戰教訓
+
+**一、429 要慢速滴灌。** 平台會擋大量請求。一次抓爆的下場就是被限流（HTTP 429）甚至要你過人機驗證。與其硬衝，不如每支影片之間隨機等幾秒、每輪限量，把整批回補攤成好幾天慢慢滴。而且一旦偵測到 429 或驗證頁面，要**立刻停損**，不要繼續送請求把自己送進更長的黑名單。
+
+**二、狀態沒記全會原地空轉。** 每支影片的處理結果——成功、失敗第幾次、確認無字幕——都要落地寫檔，下一輪讀斷點續跑。如果狀態記不全，重跑就會把「已知無字幕」的影片一再重查，白燒配額，還會把停損閘的計數塞滿。已經判定無字幕的，要直接跳過並歸到 ASR 佇列，不要每輪都回頭騷擾它。
+
+**三、無字幕是常態不是封鎖訊號。** 談話型、podcast 型的影片天生就沒有字幕，實測可能占到一大半。連續遇到好幾支無字幕，很容易誤判成「我被封鎖了」而停手——這是錯的。封鎖該交給 429 與人機驗證頁面去偵測；無字幕只是代表「這支要換管道（ASR）」，不是「平台在擋我」。把這兩件事分清楚，管線才不會動不動就自己嚇自己停下來。
+
+## 可複製的程式碼片段
+
+以下是乾淨的示意版，抽掉了所有專案細節，可以直接借去改。
+
+字幕來源選擇——人工優先、自動次之、都沒有就交給 ASR：
+
+```python
+def choose_subtitle(info, lang_priority=("zh-TW", "zh", "en")):
+    """從影片 metadata 挑最好的字幕來源。回傳 (kind, lang) 或 None。"""
+    manual = info.get("subtitles") or {}
+    auto = info.get("automatic_captions") or {}
+    for lang in lang_priority:
+        if lang in manual:
+            return "manual", lang
+    for lang in lang_priority:
+        if lang in auto:
+            return "auto", lang
+    return None  # 無字幕 → 交給 ASR 補課
+```
+
+禮貌節流 + 封鎖偵測——每支之間慢速滴灌，撞到 429 就停損：
+
+```python
+import random
+import time
+
+
+BLOCK_MARKERS = ("too many requests", "http error 429", "confirm you are not a bot")
+
+
+class Blocked(RuntimeError):
+    """偵測到限流或人機驗證，立即停損。"""
+
+
+def guard_and_throttle(response_text, delay_range=(2.0, 5.0)):
+    low = response_text.lower()
+    if any(marker in low for marker in BLOCK_MARKERS):
+        raise Blocked("疑似 429 / 人機驗證，立即停止送請求")
+    # 慢速滴灌：每支之間隨機等待，把整批請求攤平
+    time.sleep(random.uniform(*delay_range))
+```
+
+斷點狀態 + 原子寫檔——重跑不重燒，中途當機也不會壞檔：
+
+```python
+import json
+import os
+import tempfile
+from pathlib import Path
+
+
+def load_state(path):
+    p = Path(path)
+    if not p.exists():
+        return {"done": {}, "no_subtitle": {}, "failed": {}}
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def atomic_write_json(path, data):
+    p = Path(path)
+    fd, tmp = tempfile.mkstemp(dir=str(p.parent), suffix=".tmp")
+    with os.fdopen(fd, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    os.replace(tmp, p)  # 原子替換：中途當機不會留下半截壞檔
+
+
+def should_skip(item_id, state, max_retry=3):
+    # 已完成、已知無字幕、重試爆表 → 這輪跳過，不重燒配額
+    if item_id in state["done"] or item_id in state["no_subtitle"]:
+        return True
+    return state["failed"].get(item_id, 0) >= max_retry
+```
+
+## 收尾
+
+這套思路不限財經內容——任何要把大量音視訊變成可搜尋知識庫的場景都適用。三句話總結：**便宜的先做、狀態記全、分清「沒有」跟「被擋」。** 把這三件事做對，你就有一條能自己慢慢跑好幾週、不會把自己送進黑名單、也不會原地空轉的管線。

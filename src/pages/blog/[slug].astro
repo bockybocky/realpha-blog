@@ -1,0 +1,57 @@
+---
+import Giscus from '../../components/Giscus.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getBlogPosts } from '../../lib/content';
+import { formatDate } from '../../lib/site';
+import { render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const posts = await getBlogPosts('zh-TW');
+	return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post } }));
+}
+
+const locale = 'zh-TW';
+const { post } = Astro.props;
+const { Content } = await render(post);
+const path = `/blog/${post.data.slug}/`;
+const alternatePath = `/en/blog/${post.data.slug}/`;
+---
+
+<SiteLayout
+	title={post.data.title}
+	description={post.data.description}
+	locale={locale}
+	path={path}
+	alternatePath={alternatePath}
+	image={post.data.ogImage}
+	breadcrumbs={[{ name: '文章', path: '/blog/' }, { name: post.data.title, path }]}
+	article={{
+		title: post.data.title,
+		description: post.data.description,
+		pubDate: post.data.pubDate,
+		updatedDate: post.data.updatedDate,
+		path,
+		tags: post.data.tags,
+		image: post.data.ogImage,
+	}}
+>
+	<main class="page article-shell">
+		<article>
+			<header class="article-header">
+				<div class="meta">
+					<time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate, locale)}</time>
+					<span>{post.data.category}</span>
+				</div>
+				<h1 class="article-title">{post.data.title}</h1>
+				<p class="lead">{post.data.description}</p>
+				<ul class="tag-list">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul>
+			</header>
+			<div class="prose">
+				<Content />
+				<p class="markdown-link"><a href={`/blog/${post.data.slug}.md`}>Markdown 原文</a></p>
+				{post.data.category === 'investing' && <p class="notice">投資內容僅供教育與方法論研究，不構成投資建議。</p>}
+			</div>
+		</article>
+		<Giscus />
+	</main>
+</SiteLayout>

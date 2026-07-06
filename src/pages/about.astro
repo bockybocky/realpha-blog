@@ -1,0 +1,28 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const locale = 'zh-TW';
+---
+
+<SiteLayout title="關於" description="Realpha Blog 的作者、協作方式與授權說明。" locale={locale} path="/about/" alternatePath="/en/about/" breadcrumbs={[{ name: '關於', path: '/about/' }]}>
+	<main class="page article-shell">
+		<header class="article-header">
+			<h1 class="article-title">關於 Realpha Blog</h1>
+			<p class="lead">Realpha 是一個技術與投資研究的分享站，公開發表可驗證、可複用、也能被 agent 直接讀懂的研究筆記。</p>
+		</header>
+		<div class="prose">
+			<h2>署名 Bocky</h2>
+			<p>本站文章統一署名 <strong>Bocky</strong>，連到 GitHub 的公開身分：<a href="https://github.com/bockybocky" rel="me">github.com/bockybocky</a>。程式碼、原始檔與 issue 都在那裡，歡迎直接讀、直接抄、直接開 PR。</p>
+
+			<h2>一位獨立研究者 + 一支 AI 研究團隊</h2>
+			<p>Realpha 是「人機協作」的產物，我們把這件事講清楚，不假裝全是人手寫、也不假裝全是 AI 自動生成。</p>
+			<p>分工大致是：<strong>方向、判斷、與最終取捨由人決定</strong>；AI 研究團隊負責資料整理、程式碼草稿、雙語改寫、測試與初稿協作。每一篇上站前都經過人審——AI 不是替人拍板，是幫人把粗活做完、把想法逼得更清楚。英文版是道地改寫而非逐字翻譯，同樣經人校對。</p>
+
+			<h2>授權</h2>
+			<p>文章內容採 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a>：可自由分享與改作，需標示出處、不得商用、衍生作品需以相同條款釋出。程式碼採 <strong>MIT</strong> 授權，隨你拿去用。</p>
+
+			<h2>免責聲明</h2>
+			<p>本站所有投資相關內容僅為教育與方法論分享，<strong>不構成任何個股買賣建議、不提供目標價、不針對當期標的</strong>。投資有風險，任何決策請自行判斷或諮詢合格的專業人士。</p>
+		</div>
+	</main>
+</SiteLayout>

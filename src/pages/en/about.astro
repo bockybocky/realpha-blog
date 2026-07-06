@@ -1,0 +1,28 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const locale = 'en';
+---
+
+<SiteLayout title="About" description="Author, collaboration, and licensing notes for Realpha Blog." locale={locale} path="/en/about/" alternatePath="/about/" breadcrumbs={[{ name: 'About', path: '/en/about/' }]}>
+	<main class="page article-shell">
+		<header class="article-header">
+			<h1 class="article-title">About Realpha Blog</h1>
+			<p class="lead">Realpha is a home for technical and investment research — verifiable, reusable notes published in the open, written to be read well by both humans and agents.</p>
+		</header>
+		<div class="prose">
+			<h2>Bylined as Bocky</h2>
+			<p>Everything here is bylined <strong>Bocky</strong>, linked to the public GitHub identity at <a href="https://github.com/bockybocky" rel="me">github.com/bockybocky</a>. Code, source files, and issues all live there — read it, copy it, or open a PR.</p>
+
+			<h2>One independent researcher plus an AI research team</h2>
+			<p>Realpha is the product of human–AI collaboration, and we say so plainly. We do not pretend it is all hand-written, and we do not pretend it is all machine-generated.</p>
+			<p>The split is roughly this: <strong>direction, judgment, and the final call are made by a human</strong>; the AI research team handles source wrangling, code drafts, bilingual rewriting, testing, and first drafts. Every post is reviewed by a human before it ships — the AI does not decide, it clears the grunt work and pushes the thinking to be sharper. The English edition is an idiomatic rewrite rather than a word-for-word translation, and it is proofed by a human too.</p>
+
+			<h2>Licensing</h2>
+			<p>Article content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a>: share and adapt freely, with attribution, non-commercially, and under the same terms. Code is licensed <strong>MIT</strong> — take it and use it.</p>
+
+			<h2>Disclaimer</h2>
+			<p>All investment-related content on this site is educational and method-focused. It is <strong>not advice to buy or sell any individual security, offers no target prices, and does not analyze any current holding</strong>. Investing carries risk; make your own decisions or consult a qualified professional.</p>
+		</div>
+	</main>
+</SiteLayout>

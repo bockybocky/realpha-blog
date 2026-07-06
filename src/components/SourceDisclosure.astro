@@ -1,0 +1,49 @@
+---
+interface Props {
+	demo: 'canvas-waves' | 'line-chart';
+	locale: 'zh-TW' | 'en';
+}
+
+const { demo, locale } = Astro.props;
+const summary = locale === 'zh-TW' ? '原始碼' : 'Source';
+const sources = {
+	'canvas-waves': `const canvas = document.querySelector('[data-lab-demo="canvas-waves"]');
+const ctx = canvas.getContext('2d');
+let frame = 0;
+
+function draw(width, height) {
+  ctx.clearRect(0, 0, width, height);
+  for (let layer = 0; layer < 4; layer += 1) {
+    ctx.beginPath();
+    const yBase = height * (0.28 + layer * 0.14);
+    for (let x = 0; x <= width; x += 8) {
+      const y = yBase + Math.sin(x * 0.018 + frame * 0.025 + layer * 1.7) * (16 + layer * 7);
+      if (x === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  }
+  frame += 1;
+  requestAnimationFrame(() => draw(width, height));
+}`,
+	'line-chart': `const data = [18, 22, 19, 28, 34, 31, 42, 39, 48, 51, 47, 58];
+const points = data.map((value, index) => ({
+  x: 36 + (index / (data.length - 1)) * 648,
+  y: 324 - ((value - Math.min(...data)) / (Math.max(...data) - Math.min(...data))) * 288,
+  value,
+}));
+
+svg.addEventListener('pointermove', (event) => {
+  const x = ((event.clientX - svg.getBoundingClientRect().left) / svg.clientWidth) * 720;
+  const nearest = points.reduce((best, point) =>
+    Math.abs(point.x - x) < Math.abs(best.x - x) ? point : best,
+  );
+  tooltip.textContent = nearest.value;
+});`,
+};
+---
+
+<details class="source-panel">
+	<summary>{summary}</summary>
+	<pre><button class="copy-code" type="button" data-copy-code aria-label="Copy source">Copy</button><code>{sources[demo]}</code></pre>
+</details>

@@ -1,0 +1,129 @@
+---
+import '../styles/global.css';
+import { absoluteUrl, localeMeta, site, withLocale, type Locale } from '../lib/site';
+
+type Breadcrumb = { name: string; path: string };
+type ArticleData = {
+	title: string;
+	description: string;
+	pubDate: Date;
+	updatedDate?: Date;
+	path: string;
+	tags: string[];
+	image?: string;
+};
+
+interface Props {
+	title: string;
+	description: string;
+	locale: Locale;
+	path: string;
+	alternatePath: string;
+	breadcrumbs?: Breadcrumb[];
+	article?: ArticleData;
+	image?: string;
+}
+
+const { title, description, locale, path, alternatePath, breadcrumbs = [], article, image = site.ogImage } = Astro.props;
+const meta = localeMeta[locale];
+const titleText = title === site.name ? title : `${title} | ${site.name}`;
+const canonical = absoluteUrl(path);
+const zhPath = locale === 'zh-TW' ? path : alternatePath;
+const enPath = locale === 'en' ? path : alternatePath;
+const graph = [
+	{
+		'@type': 'Organization',
+		'@id': absoluteUrl('/#organization'),
+		name: site.org,
+		url: absoluteUrl('/'),
+		logo: absoluteUrl(site.ogImage),
+	},
+	{
+		'@type': 'Person',
+		'@id': absoluteUrl('/#bocky'),
+		name: site.author,
+		url: site.github,
+		affiliation: { '@id': absoluteUrl('/#organization') },
+	},
+	{
+		'@type': 'BreadcrumbList',
+		itemListElement: [{ name: meta.home, path: withLocale(locale, '/') }, ...breadcrumbs].map((crumb, index) => ({
+			'@type': 'ListItem',
+			position: index + 1,
+			name: crumb.name,
+			item: absoluteUrl(crumb.path),
+		})),
+	},
+];
+if (article) {
+	graph.push({
+		'@type': 'Article',
+		'@id': absoluteUrl(article.path),
+		headline: article.title,
+		description: article.description,
+		datePublished: article.pubDate.toISOString(),
+		dateModified: (article.updatedDate ?? article.pubDate).toISOString(),
+		mainEntityOfPage: absoluteUrl(article.path),
+		image: absoluteUrl(article.image ?? site.ogImage),
+		keywords: article.tags,
+		author: { '@id': absoluteUrl('/#bocky') },
+		publisher: { '@id': absoluteUrl('/#organization') },
+	});
+}
+const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+const nav = [
+	{ href: withLocale(locale, '/blog/'), label: meta.blog },
+	{ href: withLocale(locale, '/lab/'), label: meta.lab },
+	{ href: withLocale(locale, '/projects/'), label: meta.projects },
+	{ href: withLocale(locale, '/about/'), label: meta.about },
+];
+---
+
+<!doctype html>
+<html lang={meta.htmlLang}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{titleText}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<link rel="alternate" hreflang="zh-TW" href={absoluteUrl(zhPath)} />
+		<link rel="alternate" hreflang="en" href={absoluteUrl(enPath)} />
+		<link rel="alternate" hreflang="x-default" href={absoluteUrl(zhPath)} />
+		<link rel="alternate" type="application/rss+xml" title={`${site.name} ${meta.rssLabel}`} href={withLocale(locale, '/rss.xml')} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta property="og:type" content={article ? 'article' : 'website'} />
+		<meta property="og:site_name" content={site.name} />
+		<meta property="og:title" content={titleText} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={absoluteUrl(image)} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<script type="application/ld+json" set:html={jsonLd}></script>
+	</head>
+	<body>
+		<header class="site-header">
+			<nav class="nav" aria-label="Primary">
+				<a class="brand" href={withLocale(locale, '/')}>Realpha <span>Blog</span></a>
+				<div class="nav-links">
+					{nav.map((item) => <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>)}
+					<a class="lang-switch" href={alternatePath}>{meta.switchLabel}</a>
+				</div>
+			</nav>
+		</header>
+		<slot />
+		<footer class="site-footer">
+			<div class="footer-inner">
+				<p>Articles CC BY-NC-SA 4.0. Code MIT.</p>
+				<nav aria-label="Footer">
+					<a href={withLocale(locale, '/rss.xml')}>RSS</a>
+					<a href={site.github}>GitHub</a>
+					<a href="/llms.txt">llms.txt</a>
+				</nav>
+			</div>
+		</footer>
+		<script src="/copy-code.js" defer></script>
+	</body>
+</html>

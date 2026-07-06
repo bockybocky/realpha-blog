@@ -1,0 +1,22 @@
+---
+interface Props {
+	demo: 'canvas-waves' | 'line-chart';
+	title: string;
+}
+
+const { demo, title } = Astro.props;
+---
+
+{
+	demo === 'canvas-waves' ? (
+		<div class="demo-frame" aria-label={title}>
+			<canvas data-lab-demo="canvas-waves" aria-label={title}></canvas>
+		</div>
+	) : (
+		<div data-lab-demo="line-chart" class="demo-frame" aria-label={title}>
+			<svg role="img" aria-label={title}></svg>
+			<div class="chart-tooltip" data-chart-tooltip></div>
+		</div>
+	)
+}
+<script src="/lab-demos.js" defer></script>
