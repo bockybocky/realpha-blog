@@ -1,0 +1,119 @@
+---
+title: "Passing AI-900 in Two Weeks: A Quant Investor's Study Method and Key Concepts"
+description: "How I passed Microsoft Azure AI Fundamentals (AI-900) in two weeks using block-based sprints, a one-page service cheat sheet, and spaced retrieval testing — plus a roundup of the most-tested, easiest-to-confuse concepts. A learning-method piece, not official courseware."
+slug: "how-i-passed-ai-900"
+lang: "en"
+pubDate: 2026-07-09
+category: "tech"
+tags: ["azure", "ai-900", "certification", "learning-method", "education"]
+ogImage: "/og-default.svg"
+tldr: "For anyone who already gets AI concepts, AI-900 isn't hard to understand — it's hard to memorize which Azure service does what. I bound five study blocks to the exam date, calibrated the real exam outline first, compressed everything into a one-page service map, and used spaced retrieval plus official practice tests as a gate. Passed in two weeks. Ends with the service mappings and the six confusions the exam loves most."
+---
+
+> This isn't official courseware. It's a record of how I actually prepared — and where I nearly tripped. I work in quantitative investing, so Azure was far from my world. That's exactly why this method works well for people who *understand AI concepts but have never touched the Azure service names*.
+
+## A counterintuitive takeaway first
+
+AI-900 (Azure AI Fundamentals) requires **zero coding** and you pass at 700/1000. If you use ChatGPT, Copilot, and write prompts every day, you already **understand** machine learning, computer vision, NLP, and generative AI.
+
+So the real work isn't "learning AI" — it's memorizing **which Azure service does which job**. That's a pile of **name mappings**, not concepts. Once that clicks, your whole strategy changes: don't grind through textbooks; drill the mapping table and fix your wrong answers.
+
+## My method: five reusable moves
+
+### 1. Bind study blocks to the exam date, not a daily schedule
+
+I tried a daily study calendar. Completion rate: zero. I'm the kind of learner who "does real work and patches gaps on contact" — calendar-based study doesn't work on me.
+
+But AI-900 has a **fixed syllabus and a hard exam date** — a *bounded* goal. So I switched to **5 blocks + a mock-exam gate**, anchored to the exam date rather than to any specific day: push a block whenever you have time. This is far more realistic for busy working people — you don't have to pretend you get a fixed two hours every day.
+
+### 2. Spend 10 minutes calibrating the *real* exam outline before anything else
+
+**Don't prepare from memory.** The first thing I did was open the official Microsoft Learn Study Guide and copy down the five domains and their weights (the outline was updated in 2025):
+
+| Domain | Weight |
+|---|---|
+| AI workloads and considerations | 15–20% |
+| Fundamentals of machine learning on Azure | 15–20% |
+| Computer vision | 15–20% |
+| Natural language processing (NLP) | 15–20% |
+| **Generative AI** | **20–25% (the biggest block)** |
+
+Generative AI carries the most weight and is a post-2024 addition — don't lean on common sense here, actually memorize it.
+
+### 3. Compress the whole exam into a one-page service map
+
+This is the core of the entire prep. I built a one-page cheat sheet answering exactly one thing: **which service does which job + the easy-to-confuse points**. By the final stretch, that single page was nearly all I reviewed. The distilled version is at the end of this post.
+
+### 4. Use spaced retrieval and re-testing, not re-reading
+
+**Fluency ≠ retention.** "I read it, I know it" is a trap. My approach was to **re-test** the same weak spots after a gap — not re-reading notes, but closing the material and actually answering. I fixed misses on the spot, re-tested the next day, and kept going until "I never miss the same *type* of question twice."
+
+### 5. Use official practice tests as a "booking gate"
+
+I set a hard rule: **book the exam only after scoring ≥85% twice in a row on the free official Practice Assessment.** Below that, don't schedule — just fix wrong answers, don't re-read everything. And classify each miss **into one of the five domains** rather than memorizing a single answer, so you're patching a whole area of weakness, not one question.
+
+### Bonus: what to do if you switch to the English exam last minute
+
+I studied in Chinese but switched to the English exam at the last moment. The fix was to convert concepts into a **"keyword recognition" method**: for each service, a set of trigger words — "see these English words → pick this service." You already know the concept; it's just a different language shell. You don't need to *spell* the words — you only need to **recognize which service the English words map to.**
+
+### How to answer questions
+
+When you hit a question, ask yourself one thing first: **"Which workload is this asking about?"** (Read text in an image? Extract invoice fields? Detect conversational intent? Generate content?) Lock the workload first, then pick the matching Azure service. Get that order right and most questions become free points.
+
+---
+
+## The most-tested, most-important concepts
+
+Here's the highest-ROI stuff to lock in.
+
+### Service rename map (both old and new names can appear on the exam)
+
+| Old name | Current name |
+|---|---|
+| Cognitive Services | **Azure AI services** |
+| Computer Vision | **Azure AI Vision** |
+| Form Recognizer | **Azure AI Document Intelligence** |
+| Text Analytics / LUIS / QnA Maker | **Azure AI Language** (all three merged) |
+| Translator Text | **Azure AI Translator** |
+
+### Responsible AI, six principles: the mnemonic FAR PIT
+
+**F**airness / **A**ccountability / **R**eliability & Safety / **P**rivacy & Security / **I**nclusiveness / **T**ransparency.
+
+The two most confused: **Inclusiveness** (usable by groups such as people with disabilities) vs **Transparency** (the model is explainable and documented).
+
+### Machine learning basics
+
+- **Supervised** (labeled) → regression (predict a number) / classification (predict a category); **unsupervised** (unlabeled) → clustering
+- **feature** (input signal) vs **label** (the answer you predict)
+- **AutoML** (auto-selects the best algorithm) vs **Designer** (drag-and-drop, no-code pipeline you build yourself)
+- Metrics: classification uses accuracy / precision / recall / F1; regression uses MAE / RMSE / R²
+
+### Services across vision / NLP / generative AI
+
+- **Vision**: Azure AI Vision (prebuilt image analysis + OCR), Face (faces), Custom Vision (you train it yourself), Document Intelligence (extract form/invoice fields)
+- **NLP**: Azure AI Language (sentiment / entities / summarization / CLU / Question Answering), Speech (speech-to-text / text-to-speech), Translator (text translation)
+- **Generative AI**: Azure OpenAI (GPT for text, Embeddings for vectors, DALL-E for images, Whisper for speech); reduce hallucination with **grounding / RAG**; responsible generative AI flow is **Identify → Measure → Mitigate → Operate**
+
+### The six confusions the exam loves most (best bang for your buck)
+
+| A vs B | One-line tell |
+|---|---|
+| **AI Vision OCR** vs **Document Intelligence** | Reading "general text in an image" → the former; extracting "structured form/invoice fields" → the latter |
+| **Custom Vision** vs **AI Vision** | Need to **train it yourself** → Custom; prebuilt → AI Vision |
+| **AutoML** vs **Designer** | Auto-pick the algorithm → AutoML; drag-and-drop it yourself → Designer |
+| **CLU** vs **Question Answering** | Intent/command ("turn on the light") → CLU; knowledge-base Q&A → Question Answering |
+| **Image classification** vs **object detection** | One label for the whole image → classification; box out each location → object detection |
+| **Recall** vs **Precision** | Afraid of missing (catch them all) → Recall; afraid of false alarms (catch them right) → Precision |
+
+### The one-line service picker
+
+> Need to train it yourself? → Custom. Extract a structured form? → Document Intelligence. Conversational intent? → CLU. Knowledge Q&A? → Question Answering. Generate content? → Azure OpenAI. Everything else prebuilt → AI Vision / AI Language.
+
+---
+
+## Closing thought
+
+The value of AI-900 isn't the certificate — it's that it forces you to turn "AI concepts scattered across your daily work" into a **structured map**. As a cross-domain learner, my biggest takeaway was this: the fastest way into a new but bounded field isn't "learn it from scratch," but to **first separate what you already understand from what's merely a name to memorize — then pour all your effort into the latter.**
+
+I'll reuse this playbook — calibrate the real scope, split concepts from names, compress to one page, space out the re-tests, gate on mock exams — for my next certification.

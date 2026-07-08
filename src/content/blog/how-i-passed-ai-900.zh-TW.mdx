@@ -1,0 +1,119 @@
+---
+title: "兩週考過 AI-900：一個量化投資人的準備方法與常考重點整理"
+description: "我如何用「區塊式衝刺 + 服務對應 cheatsheet + 間隔回想重測」兩週考過 Microsoft Azure AI Fundamentals（AI-900），並整理最常考、最容易混淆的核心觀念。學習方法論教育文，非官方教材。"
+slug: "how-i-passed-ai-900"
+lang: "zh-TW"
+pubDate: 2026-07-09
+category: "tech"
+tags: ["azure", "ai-900", "certification", "learning-method", "education"]
+ogImage: "/og-default.svg"
+tldr: "AI-900 對懂 AI 概念的人來說，難的不是理解，是背『哪個 Azure 服務做哪件事』。我用五區塊綁考試日、先校準真考綱、把觀念濃縮成一頁服務對應表、再用間隔回想重測與官方模考當閘門，兩週考過。文末整理最常考的服務對應與六組最會考的易混淆。"
+---
+
+> 這不是官方教材，是一份「我實際怎麼準備、哪裡差點翻車」的紀錄。我是做量化投資的，本來離 Azure 很遠——但正因為這樣，這套方法對「懂 AI 概念、但沒碰過 Azure 服務名」的人特別有用。
+
+## 先講一個反直覺的結論
+
+AI-900（Azure AI Fundamentals）**不需要寫任何程式**，700/1000 就過。對每天在用 ChatGPT、Copilot、寫 prompt 的人來說，機器學習、電腦視覺、NLP、生成式 AI 這些**概念你其實都懂**。
+
+所以真正要準備的，不是「學 AI」，而是背**「哪個 Azure 服務做哪件事」**——那是一堆**名詞對應**，不是觀念。想通這件事，準備方向就完全不一樣了：別去啃教科書，去背對應表、去刷題修錯。
+
+## 我的方法：五個可複用的動作
+
+### 1. 用「區塊式」綁考試日，不用「每日課表」
+
+我試過排每日課表，完成率是 0。我是那種「做真事、撞到缺口才當場補」的人，日曆式學習對我無效。
+
+但 AI-900 有**固定考綱 + 硬考試日**，是個**有邊界**的目標。所以我改成 **5 個區塊 + 模考閘門**，綁在考試日上、不綁哪一天做：有空就推一塊。這招對忙碌的上班族特別實際——你不用假裝每天有固定 2 小時。
+
+### 2. 動手前先花 10 分鐘校準「真實考綱」
+
+**別憑印象準備。** 開考前第一件事是上 Microsoft Learn 官方 Study Guide，把五大領域和權重抄下來（考綱 2025 年才更新過）：
+
+| 領域 | 權重 |
+|---|---|
+| AI 工作負載與考量 | 15–20% |
+| Azure 機器學習基礎 | 15–20% |
+| 電腦視覺 | 15–20% |
+| 自然語言處理 (NLP) | 15–20% |
+| **生成式 AI** | **20–25%（最大塊）** |
+
+生成式 AI 是佔比最高的一塊，也是 2024 年後新增的重點——不能只靠常識，要認真背。
+
+### 3. 把整個考試濃縮成「一頁服務對應表」
+
+這是整套準備的核心。我做了一張一頁 cheatsheet，只回答一件事：**哪個服務做哪件事 + 最容易混的點**。準備到後期，我幾乎只在背這張表。文末我把精華版整理出來給你。
+
+### 4. 用「間隔回想 + 重測」，不是「重讀」
+
+**流暢 ≠ 記得住。** 讀過覺得「我會了」是陷阱。我的做法是隔一段時間**重新測**同一批弱點——不是把筆記再看一遍，而是闔上資料真的答一次。答錯的當場解，隔天再測，直到「同一類題不會錯第二次」。
+
+### 5. 用官方模考當「約考閘門」
+
+我給自己訂了硬規則：**官方免費 Practice Assessment 連續兩次 ≥85%，才准去約考。** 沒到就別排考試，只修錯題、不重讀全部。而且錯題要**歸類到五大領域**，不要只記單題答案——這樣你補的是「一整片弱點」，不是「一題」。
+
+### 番外：臨時改考英文版怎麼辦
+
+我原本念中文，考前臨時改考英文版。解法是把中文觀念換成**「英文關鍵字認字法」**：每個服務給一組「看到這些英文字 → 就選它」的 trigger word。概念你懂，只是換一層語言外殼——不需要會拼單字，只要**看到英文字認得出對應哪個服務**就夠。
+
+### 考題怎麼答
+
+拿到題目，先問自己一句：**「它在問哪一種工作負載？」**（是要讀圖中文字？抽發票欄位？做對話意圖？生成內容？）先鎖定工作負載，再選對應的 Azure 服務。順序對了，大部分題目就是送分。
+
+---
+
+## 常考又重要的觀念整理
+
+以下是我覺得 CP 值最高、最該背熟的部分。
+
+### 服務改名對照（新舊名都可能出現在題目裡）
+
+| 舊名 | 現行新名 |
+|---|---|
+| Cognitive Services | **Azure AI services** |
+| Computer Vision | **Azure AI Vision** |
+| Form Recognizer | **Azure AI Document Intelligence** |
+| Text Analytics / LUIS / QnA Maker | **Azure AI Language**（三合一） |
+| Translator Text | **Azure AI Translator** |
+
+### 負責任 AI 六原則：口訣 FAR PIT
+
+**F**airness 公平性／**A**ccountability 當責／**R**eliability & Safety 可靠與安全／**P**rivacy & Security 隱私與安全／**I**nclusiveness 包容性／**T**ransparency 透明性。
+
+最會混的兩個：**包容性**（讓身障等群體也能用）vs **透明性**（模型可解釋、有文件）。
+
+### 機器學習基礎
+
+- **監督式**（有標籤）→ 回歸（預測數值）／分類（預測類別）；**非監督式**（無標籤）→ 分群（clustering）
+- **feature**（特徵／輸入線索） vs **label**（標籤／要預測的答案）
+- **AutoML**（自動挑最佳演算法） vs **Designer**（拖拉式、零 code 自己組 pipeline）
+- 評估指標：分類看 accuracy／precision／recall／F1；回歸看 MAE／RMSE／R²
+
+### 電腦視覺 / NLP / 生成式 AI 各服務
+
+- **視覺**：Azure AI Vision（現成圖片分析＋OCR）、Face（人臉）、Custom Vision（你自己訓練）、Document Intelligence（抽表單/發票欄位）
+- **NLP**：Azure AI Language（情感/實體/摘要/CLU/Question Answering）、Speech（語音轉文字/文字轉語音）、Translator（文字翻譯）
+- **生成式 AI**：Azure OpenAI（GPT 文字、Embeddings 向量、DALL-E 圖、Whisper 語音）；減少幻覺用 **grounding / RAG**；負責任生成式 AI 流程 **Identify → Measure → Mitigate → Operate**
+
+### 六組「最會考」的易混淆（背這段最划算）
+
+| A vs B | 一句話分辨 |
+|---|---|
+| **AI Vision OCR** vs **Document Intelligence** | 讀「圖中一般文字」用前者；抽「結構化表單/發票欄位」用後者 |
+| **Custom Vision** vs **AI Vision** | 要**自己訓練**用 Custom；現成預訓練用 AI Vision |
+| **AutoML** vs **Designer** | 自動挑演算法=AutoML；拖拉式自己組=Designer |
+| **CLU** vs **Question Answering** | 意圖/命令（開燈）=CLU；知識庫問答=Question Answering |
+| **影像分類** vs **物件偵測** | 整張圖一個標籤=分類；框出每個位置=物件偵測 |
+| **Recall** vs **Precision** | 怕漏掉（抓全）=Recall；怕誤報（抓準）=Precision |
+
+### 選服務一句話口訣
+
+> 要自己訓練？→ Custom。要抽結構化表單？→ Document Intelligence。要對話意圖？→ CLU。要知識問答？→ Question Answering。要生成內容？→ Azure OpenAI。其餘現成的 → AI Vision / AI Language。
+
+---
+
+## 最後的心得
+
+AI-900 的價值不在證照本身，而在它逼你把「零散在日常裡用到的 AI 概念」整理成一張**有結構的地圖**。對我這種跨領域的人，最大的收穫是：學一個有邊界的新領域，最快的路不是「從頭學」，而是**先分清楚「哪些我已經懂、哪些只是名詞要背」，然後把力氣全砸在後者**。
+
+這套「校準真範圍 → 分清概念與名詞 → 濃縮成一頁 → 間隔重測 → 模考閘門」的打法，我準備下一張證照還會再用一次。
