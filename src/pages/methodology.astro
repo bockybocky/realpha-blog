@@ -4,37 +4,23 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 const locale = 'zh-TW';
 ---
 
-<SiteLayout title="方法論" description="Realpha Blog 的六關驗證流程：處理偏差、基準對照、交易成本、顯著性校正與跨模型紅隊。" locale={locale} path="/methodology/" alternatePath="/en/methodology/" breadcrumbs={[{ name: '方法論', path: '/methodology/' }]}>
+<SiteLayout title="驗證標準" description="這個站只發表通過驗證的結論；過不了驗證的，以負結果誠實發表。" locale={locale} path="/methodology/" alternatePath="/en/methodology/" breadcrumbs={[{ name: '驗證標準', path: '/methodology/' }]}>
 	<main class="page article-shell">
 		<header class="article-header">
-			<h1 class="article-title">方法論</h1>
-			<p class="lead">這裡公開每個研究結論上站前必須通過的驗證閘門。</p>
+			<h1 class="article-title">驗證標準</h1>
 		</header>
 		<div class="prose">
-			<p>這個站上所有結論，都經過同一套流程：①資料含已下市股票（處理倖存者偏差）②訊號計算只用當下可得資訊（防前視偏差）③與『隨便買』基準對照，並拆分價格帶（防水餃股灌水）④扣除交易成本看淨報酬 ⑤重疊持有期用 Newey-West 校正顯著性 ⑥重大結論交給不同公司的 AI 模型當紅隊互審。過不了六關的結果，會標記為負結果誠實發表。</p>
-			<figure class="method-flow">
-				<svg class="flow-svg" viewBox="0 0 720 720" role="img" aria-labelledby="method-flow-title method-flow-desc">
-					<title id="method-flow-title">六關驗證流程</title>
-					<desc id="method-flow-desc">資料、訊號、基準、成本、顯著性與跨模型紅隊的線性流程。</desc>
-					<line x1="78" y1="82" x2="78" y2="598" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"></line>
-					{[
-						['1', '資料含已下市股票', '處理倖存者偏差', 72],
-						['2', '只用當下可得資訊', '防前視偏差', 176],
-						['3', '對照基準與價格帶', '防水餃股灌水', 280],
-						['4', '扣除交易成本', '看淨報酬', 384],
-						['5', 'Newey-West 校正', '處理重疊持有期', 488],
-						['6', '跨模型紅隊互審', '重大結論再挑戰', 592],
-					].map(([number, title, note, y]) => (
-						<g>
-							<circle cx="78" cy={y} r="28" fill="var(--paper)" stroke="var(--accent)" stroke-width="4"></circle>
-							<text x="78" y={Number(y) + 7} text-anchor="middle" font-size="22">{number}</text>
-							<rect x="130" y={Number(y) - 36} width="510" height="72" rx="10" fill="var(--paper)" stroke="var(--line)"></rect>
-							<text x="158" y={Number(y) - 6} font-size="21">{title}</text>
-							<text class="flow-note" x="158" y={Number(y) + 23} font-size="16">{note}</text>
-						</g>
-					))}
-				</svg>
-			</figure>
+			<p><strong>目標</strong>：這個站只發表通過驗證的結論。過不了驗證的，以負結果誠實發表——「我驗過什麼沒用」和「什麼有用」一樣重要。</p>
+			<p><strong>功能</strong>：分辨一個訊號是真的優勢，還是統計上的幻覺。市面上大多數「有效訊號」死在幾個經典陷阱：只用活下來的股票回測、不小心用了未來的資訊、被少數暴衝股灌水、忘了扣交易成本。這個站的驗證體系就是為了攔住這些陷阱而存在。</p>
+			<p><strong>規格</strong>——本站任何量化結論，發表前必須滿足：</p>
+			<ul>
+				<li>以<strong>含已下市股票</strong>的完整歷史樣本檢驗</li>
+				<li>訊號計算<strong>只使用當下可得的資訊</strong></li>
+				<li>以<strong>扣除交易成本後的淨報酬</strong>評估，並與「隨便買」基準對照</li>
+				<li>統計顯著性經過<strong>適當校正</strong></li>
+				<li>重大結論經過<strong>獨立複核</strong></li>
+			</ul>
+			<p>達不到規格的結論不會出現在這裡；已發表的結論若被推翻，會公開更正。驗證體系的內部設計不對外公開。</p>
 		</div>
 	</main>
 </SiteLayout>

@@ -4,37 +4,23 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 const locale = 'en';
 ---
 
-<SiteLayout title="Methodology" description="Realpha Blog's six-gate validation process: bias controls, baselines, trading costs, significance correction, and cross-model red-team review." locale={locale} path="/en/methodology/" alternatePath="/methodology/" breadcrumbs={[{ name: 'Methodology', path: '/en/methodology/' }]}>
+<SiteLayout title="Verification Standards" description="This site publishes only conclusions that have passed verification; conclusions that do not pass are published honestly as negative results." locale={locale} path="/en/methodology/" alternatePath="/methodology/" breadcrumbs={[{ name: 'Verification Standards', path: '/en/methodology/' }]}>
 	<main class="page article-shell">
 		<header class="article-header">
-			<h1 class="article-title">Methodology</h1>
-			<p class="lead">The validation gates every research conclusion must pass before it appears here.</p>
+			<h1 class="article-title">Verification Standards</h1>
 		</header>
 		<div class="prose">
-			<p>Every conclusion on this site goes through the same process: ① the dataset includes delisted stocks to handle survivorship bias; ② signal calculations use only information available at that point in time to prevent look-ahead bias; ③ results are compared with a naive buy-anything baseline and split by price band to prevent low-priced-stock inflation; ④ net returns are checked after trading costs; ⑤ overlapping holding periods use Newey-West correction for statistical significance; ⑥ major conclusions are handed to AI models from different companies for red-team review. Results that fail the six gates are labeled as negative results and published honestly.</p>
-			<figure class="method-flow">
-				<svg class="flow-svg" viewBox="0 0 720 720" role="img" aria-labelledby="method-flow-title method-flow-desc">
-					<title id="method-flow-title">Six-step validation flow</title>
-					<desc id="method-flow-desc">A linear flow covering data, signals, baselines, costs, significance, and cross-model red-team review.</desc>
-					<line x1="78" y1="82" x2="78" y2="598" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"></line>
-					{[
-						['1', 'Include delisted stocks', 'Control survivorship bias', 72],
-						['2', 'Use only then-known data', 'Prevent look-ahead bias', 176],
-						['3', 'Baseline and price bands', 'Control low-price inflation', 280],
-						['4', 'Subtract trading costs', 'Check net return', 384],
-						['5', 'Newey-West correction', 'Handle overlapping holds', 488],
-						['6', 'Cross-model red team', 'Challenge major claims', 592],
-					].map(([number, title, note, y]) => (
-						<g>
-							<circle cx="78" cy={y} r="28" fill="var(--paper)" stroke="var(--accent)" stroke-width="4"></circle>
-							<text x="78" y={Number(y) + 7} text-anchor="middle" font-size="22">{number}</text>
-							<rect x="130" y={Number(y) - 36} width="510" height="72" rx="10" fill="var(--paper)" stroke="var(--line)"></rect>
-							<text x="158" y={Number(y) - 6} font-size="21">{title}</text>
-							<text class="flow-note" x="158" y={Number(y) + 23} font-size="16">{note}</text>
-						</g>
-					))}
-				</svg>
-			</figure>
+			<p><strong>Goal</strong>: This site publishes only conclusions that have passed verification. Conclusions that do not pass are published honestly as negative results: "what I tested that did not work" is just as important as "what works."</p>
+			<p><strong>What it does</strong>: Distinguish whether a signal is a real edge or a statistical illusion. Most "effective signals" in the market die in a few classic traps: backtesting only on stocks that survived, accidentally using future information, getting inflated by a few stocks that exploded, or forgetting to subtract trading costs. This site's verification system exists to block those traps.</p>
+			<p><strong>Requirements</strong> -- Before publication, any quantitative conclusion on this site must satisfy:</p>
+			<ul>
+				<li>Tested on a complete historical sample that <strong>includes delisted stocks</strong></li>
+				<li>Signal calculations <strong>use only information available at the time</strong></li>
+				<li>Evaluated using <strong>net returns after trading costs</strong>, and compared against a "buy anything" baseline</li>
+				<li>Statistical significance is <strong>appropriately corrected</strong></li>
+				<li>Major conclusions receive <strong>independent review</strong></li>
+			</ul>
+			<p>Conclusions that do not meet the requirements will not appear here; if a published conclusion is overturned, it will be publicly corrected. The internal design of the verification system is not publicly disclosed.</p>
 		</div>
 	</main>
 </SiteLayout>
