@@ -1,0 +1,111 @@
+---
+title: "I Spent Hundreds of Hours Proving Moving-Average Crossovers Dont Work"
+description: "A negative-result study showing that after 11,151 U.S. stocks including delisted names, a 31.7% survival rate, price-band controls, and trading costs, moving-average crossovers have no tradable edge."
+slug: "proving-ma-crosses-dont-work"
+lang: "en"
+pubDate: 2026-07-08
+category: "lab"
+tags: ["negative-results", "backtesting", "survivorship-bias", "quant-validation"]
+ogImage: "/og-default.svg"
+tldr: "I retested moving-average crossovers on 11,151 U.S. stocks including delisted names, with a survival rate of only 31.7%. Golden crosses produced no excess return; the breakdown signal looked like +0.69% with a Newey-West t-stat of 8.2, but after isolating penny stocks and subtracting 60bps costs, 10/20/120-day net excess returns became −0.48%, −0.69%, and −1.22%."
+hypothesis: "Moving-average crossovers, used as buy/sell signals, should retain a tradable edge after including delisted stocks, using point-in-time data, subtracting costs, and comparing within peer groups."
+plan: "Use a Russell 3000 current-plus-historical universe including delisted names, test excess returns 10, 20, 60, and 120 trading days after dual-moving-average triggers, then split by price band, subtract trading costs, and correct overlapping holding periods."
+preregistered_at: 2026-07-08
+result: "negative result"
+---
+
+# I Spent Hundreds of Hours Proving Moving-Average Crossovers Dont Work
+
+There is a family of trading signals that looks especially like truth: **when the 30-day moving average crosses up through the 300-day moving average, it is called a "golden cross" and you should buy; when it crosses the other way, it is called a "death cross" and you should sell.** It looks clear on a chart, the names sound impressive, and the internet is full of screenshots saying, "See, it went up after this cross."
+
+I ran four rounds of validation on this family of signals, and I also brought in AI models from two different companies as red teams to challenge each other. The conclusion is blunt:
+
+**After stripping away what needs to be stripped away, moving-average crossovers have no tradable edge as buy/sell signals.**
+
+This post is not telling you to stop looking at moving averages. They are fine as a thermometer for "is the market going up or down right now." This post is meant to demonstrate something more important: **how a signal that looks reasonable gives itself away under honest testing**, and how you should test it yourself so a pretty backtest does not fool years out of your life.
+
+## One: pretty screenshots are the cheapest evidence
+
+For any signal, you can find piles of "successful cases" on historical charts. The problem is that you can also find piles of failures. Those failures usually do not get screenshotted, especially the stocks that crossed, drifted down, and eventually disappeared from the exchange. They were deleted from your charting software long ago.
+
+That is the first trap: **survivorship bias**. If your data only includes stocks that are still alive today, you already know who survived to the end, and then you look backward and say a signal was accurate. That is not validation. That is cheating.
+
+So from the start, I moved to a full U.S. stock sample **including delisted stocks**: Russell 3000 current plus historical constituents, 11,151 names in total, from 1996 to 2026, about 31 million daily rows. The key number: in this sample, **only about one-third are still alive** (survival ratio about 32%). In other words, most "moving-average crossovers work" backtests in the wild are simply ignoring the two-thirds that disappeared.
+
+## Two: pin the signal down, then strip it layer by layer
+
+I fixed the signal definition and left no room for vagueness: **the first candle that is simultaneously above (or simultaneously below) both the 30-day and 300-day moving averages** counts as the trigger. Then I checked returns 10, 20, 60, and 120 trading days after the trigger, adding pressure layer by layer:
+
+1. **Include delisted data** (strip out survivorship bias)
+2. **Use the correct point in time** (compute the 300-day moving average only from information available up to that point, with no future leakage)
+3. **Split by price band and compute "same-group excess"** (separate penny-stock spikes from the overall average)
+4. **Subtract trading costs** (the friction of one round trip)
+5. **Use Newey-West corrected t-stats for overlapping returns** (overlapping holding periods inflate statistical significance)
+6. **Bring in different models as red teams** (AI models from different companies challenge the work independently, reducing self-persuasion)
+
+## Three: two directions, two ways to die
+
+**Going long after breaking above both moving averages (the golden-cross family)**: for every holding period, 10, 20, 60, and 120 days, returns were **≤ the market**. There was not even a surface-level edge. Zero.
+
+**Going long after breaking below both moving averages**: this fooled me at first. The 10-day excess return was **+0.69%**, with a Newey-West corrected t-stat of **8.2**. Statistically, it looked highly significant. It looked like treasure.
+
+Then I did the third step: **split by price band**. The edge immediately revealed itself:
+
+| Price band | 10-day "same-group excess" after trigger | Share of triggers |
+|---|---|---|
+| < $5 (penny stocks) | **+1.33%** | 27% |
+| $5–20 | +0.13% | — |
+| $20–50 | +0.02% | — |
+| > $50 | +0.11% | — |
+
+**Almost the entire edge was concentrated in stocks below $5.** Once you strip away the beta that penny stocks are already prone to violent spikes and crashes, excess return in mid- and high-priced stocks evaporates to almost zero.
+
+Then came the fourth step: **remove penny stocks and subtract trading costs (60bps)**:
+
+| Holding period | Net excess after removing penny stocks |
+|---|---|
+| 10 days | **−0.48%** |
+| 20 days | **−0.69%** |
+| 120 days | **−1.22%** |
+
+Everything turned negative. The pretty +0.69% and the t-stat of 8.2, once opened up, were "penny-stock volatility plus bid-ask-spread microstructure illusion," not an edge you can take to the market and trade.
+
+**One honest addendum**: at first, the red team was most worried that stocks might delist very soon after a signal triggers, leaving you unable to sell. I tested it. The share of stocks delisted within 10 days after the trigger was only **0.18%**. So that concern was a **false alarm**. Honest validation means saying that too, even when the suspected fatal flaw turns out not to be one.
+
+## Four: not just once. Three structurally similar studies point to the same answer
+
+I did not test only this one moving-average crossover variant. Three independent studies agreed:
+
+- **The "predictability" of golden crosses is mathematical trivia**: the 30-day moving average will eventually cross the 300-day moving average. That is baked into the formula. For 43 stocks, almost everyone got it right, but "predictable" is not the same as "has an edge."
+- **One continuous moving-average signal**, after fixing a look-ahead bug, saw its Sharpe fall from 0.57 to 0.11. **Eighty percent of the performance was fake.**
+- **A four-layer consensus stacked on top of golden crosses** failed to beat the "buy on any random day" baseline (20-day baseline +0.84%, post-cross +0.79%, even lower).
+
+So when you see a new wrapper online saying "31 models voted, consensus predicts such-and-such will rise," remember this: **the more scientific the packaging looks, the more you need to ask whether it includes delisted stocks, subtracts costs, and splits out penny stocks.** A lot of these wrappers end with you joining a Telegram group or connecting a wallet.
+
+## Five: then why does everyone still use moving-average crossovers?
+
+It is not stupid. It is **behaviorally convenient**:
+
+- **It has a name and a picture.** "Golden cross" has built-in ritual force. You can see it at a glance on a chart. It is ten thousand times easier to understand than "same-group excess return after costs with a Newey-West t-stat."
+- **Successful examples are always available.** Survivorship bias guarantees that you can always screenshot "it rose after the cross." The failures already disappeared.
+- **It is free and built in.** Every charting package has it. You do not need to calculate anything yourself.
+- **It can always be repackaged.** Today it is a golden cross. Tomorrow it is multi-model consensus voting. The day after that it is an AI signal. The core is the same thing, but each time it looks like a new discovery.
+
+Easy to use, easy to teach, and easy to sell are different from "works."
+
+## Six: what I learned, and a framework you can use
+
+If you take away only one thing, take this checklist. The next time someone, including you, claims to have found a sure-win signal, ask it these six questions:
+
+1. **Does the data include delisted stocks?** If not, survivorship bias. Throw it out and start over.
+2. **Does the signal calculation leak the future?** If it uses information unavailable at the time, the performance is fake.
+3. **Is the edge concentrated in penny stocks?** Split by price band and compute "same-group excess." Do not let a small cluster of spiking stocks inflate the overall average.
+4. **What is left after trading costs?** Gross return is not yours. Net return is.
+5. **Were t-stats corrected for overlapping holding periods?** Without Newey-West, significance is inflated.
+6. **Did anyone, or any different model, red-team it?** Testing your own idea by yourself is the easiest way to persuade yourself.
+
+An "edge" that cannot pass these six gates is usually a pretty illusion.
+
+---
+
+*This article is an educational discussion of investment research methodology. It is not advice to buy or sell any individual security, offers no target prices, and does not address any current security. All numbers come from my personal validation using public U.S. equity data; the method and conclusion are open to rebuttal in the comments. Investing carries risk; make your own decisions or consult a qualified professional.*
