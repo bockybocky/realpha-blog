@@ -1,0 +1,40 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const locale = 'zh-TW';
+---
+
+<SiteLayout title="方法論" description="Realpha Blog 的六關驗證流程：處理偏差、基準對照、交易成本、顯著性校正與跨模型紅隊。" locale={locale} path="/methodology/" alternatePath="/en/methodology/" breadcrumbs={[{ name: '方法論', path: '/methodology/' }]}>
+	<main class="page article-shell">
+		<header class="article-header">
+			<h1 class="article-title">方法論</h1>
+			<p class="lead">這裡公開每個研究結論上站前必須通過的驗證閘門。</p>
+		</header>
+		<div class="prose">
+			<p>這個站上所有結論，都經過同一套流程：①資料含已下市股票（處理倖存者偏差）②訊號計算只用當下可得資訊（防前視偏差）③與『隨便買』基準對照，並拆分價格帶（防水餃股灌水）④扣除交易成本看淨報酬 ⑤重疊持有期用 Newey-West 校正顯著性 ⑥重大結論交給不同公司的 AI 模型當紅隊互審。過不了六關的結果，會標記為負結果誠實發表。</p>
+			<figure class="method-flow">
+				<svg class="flow-svg" viewBox="0 0 720 720" role="img" aria-labelledby="method-flow-title method-flow-desc">
+					<title id="method-flow-title">六關驗證流程</title>
+					<desc id="method-flow-desc">資料、訊號、基準、成本、顯著性與跨模型紅隊的線性流程。</desc>
+					<line x1="78" y1="82" x2="78" y2="598" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"></line>
+					{[
+						['1', '資料含已下市股票', '處理倖存者偏差', 72],
+						['2', '只用當下可得資訊', '防前視偏差', 176],
+						['3', '對照基準與價格帶', '防水餃股灌水', 280],
+						['4', '扣除交易成本', '看淨報酬', 384],
+						['5', 'Newey-West 校正', '處理重疊持有期', 488],
+						['6', '跨模型紅隊互審', '重大結論再挑戰', 592],
+					].map(([number, title, note, y]) => (
+						<g>
+							<circle cx="78" cy={y} r="28" fill="var(--paper)" stroke="var(--accent)" stroke-width="4"></circle>
+							<text x="78" y={Number(y) + 7} text-anchor="middle" font-size="22">{number}</text>
+							<rect x="130" y={Number(y) - 36} width="510" height="72" rx="10" fill="var(--paper)" stroke="var(--line)"></rect>
+							<text x="158" y={Number(y) - 6} font-size="21">{title}</text>
+							<text class="flow-note" x="158" y={Number(y) + 23} font-size="16">{note}</text>
+						</g>
+					))}
+				</svg>
+			</figure>
+		</div>
+	</main>
+</SiteLayout>

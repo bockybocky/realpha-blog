@@ -1,26 +1,51 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { getLabs } from '../../lib/content';
+import { getBlogPosts, getLabs } from '../../lib/content';
 import { formatDate } from '../../lib/site';
 
 const locale = 'zh-TW';
+const posts = await getBlogPosts(locale);
+const labPosts = posts.filter((post) => post.data.category === 'lab');
 const labs = await getLabs(locale);
 ---
 
-<SiteLayout title="Lab" description="Realpha Blog 的互動動畫與資料視覺化展示。" locale={locale} path="/lab/" alternatePath="/en/lab/" breadcrumbs={[{ name: 'Lab', path: '/lab/' }]}>
+<SiteLayout title="公開實驗室" description="Realpha Blog 在實驗前公開假設、驗證計畫與時間戳，並在結果出來後不論成敗照樣發表。" locale={locale} path="/lab/" alternatePath="/en/lab/" breadcrumbs={[{ name: 'Lab', path: '/lab/' }]}>
 	<main class="page">
 		<header class="section-header">
-			<h1 class="page-title">Lab</h1>
-			<p class="lead">小型互動 demo，頁面殼雙語，demo 本體共用。</p>
+			<h1 class="page-title">公開實驗室</h1>
+			<p class="lead">公開實驗室欄目會在實驗開始前先公開假設、驗證計畫與時間戳，把成功條件寫清楚再動手；結果出來後，不論支持、打臉或沒有訊號，都會照樣發表。讀者可以在結果公布前挑戰假設、提出反證或質疑設計，讓實驗先接受公開紅隊壓力。</p>
 		</header>
-		<div class="grid">
-			{labs.map((lab) => (
-				<a class="entry" href={`/lab/${lab.data.slug}/`}>
-					<div class="meta"><time datetime={lab.data.pubDate.toISOString()}>{formatDate(lab.data.pubDate, locale)}</time><span>{lab.data.demo}</span></div>
-					<h2>{lab.data.title}</h2>
-					<p>{lab.data.description}</p>
-				</a>
-			))}
-		</div>
+		{labPosts.length > 0 && (
+			<section class="section" aria-labelledby="lab-posts-title">
+				<div class="section-header">
+					<h2 id="lab-posts-title">預註冊紀錄</h2>
+					<p class="muted">假設、驗證計畫與結果會留在同一條公開紀錄裡。</p>
+				</div>
+				<div class="grid">
+					{labPosts.map((post) => (
+						<a class="entry" href={`/blog/${post.data.slug}/`}>
+							<div class="meta"><time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate, locale)}</time><span>{post.data.result}</span></div>
+							<h2>{post.data.title}</h2>
+							<p>{post.data.description}</p>
+						</a>
+					))}
+				</div>
+			</section>
+		)}
+		<section class="section" aria-labelledby="lab-demos-title">
+			<div class="section-header">
+				<h2 id="lab-demos-title">互動展示</h2>
+				<p class="muted">小型互動 demo，頁面殼雙語，demo 本體共用。</p>
+			</div>
+			<div class="grid">
+				{labs.map((lab) => (
+					<a class="entry" href={`/lab/${lab.data.slug}/`}>
+						<div class="meta"><time datetime={lab.data.pubDate.toISOString()}>{formatDate(lab.data.pubDate, locale)}</time><span>{lab.data.demo}</span></div>
+						<h2>{lab.data.title}</h2>
+						<p>{lab.data.description}</p>
+					</a>
+				))}
+			</div>
+		</section>
 	</main>
 </SiteLayout>

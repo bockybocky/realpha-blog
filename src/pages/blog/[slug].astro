@@ -15,6 +15,13 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const path = `/blog/${post.data.slug}/`;
 const alternatePath = `/en/blog/${post.data.slug}/`;
+const labLabels = {
+	hypothesis: '假設',
+	plan: '驗證計畫',
+	preregisteredAt: '預註冊時間',
+	result: '結果',
+};
+const hasPreregistration = post.data.category === 'lab' && (post.data.hypothesis || post.data.plan || post.data.preregistered_at || post.data.result);
 ---
 
 <SiteLayout
@@ -28,6 +35,7 @@ const alternatePath = `/en/blog/${post.data.slug}/`;
 	article={{
 		title: post.data.title,
 		description: post.data.description,
+		summary: post.data.tldr,
 		pubDate: post.data.pubDate,
 		updatedDate: post.data.updatedDate,
 		path,
@@ -47,6 +55,39 @@ const alternatePath = `/en/blog/${post.data.slug}/`;
 				<ul class="tag-list">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul>
 			</header>
 			<div class="prose">
+				{post.data.tldr && (
+					<aside class="tldr-panel" aria-labelledby="tldr-title">
+						<h2 id="tldr-title">TL;DR</h2>
+						<p>{post.data.tldr}</p>
+					</aside>
+				)}
+				{hasPreregistration && (
+					<aside class="preregistration-panel" aria-labelledby="preregistration-title">
+						<h2 id="preregistration-title">預註冊紀錄</h2>
+						<dl>
+							{post.data.hypothesis && (
+								<>
+									<dt>{labLabels.hypothesis}</dt>
+									<dd>{post.data.hypothesis}</dd>
+								</>
+							)}
+							{post.data.plan && (
+								<>
+									<dt>{labLabels.plan}</dt>
+									<dd>{post.data.plan}</dd>
+								</>
+							)}
+							{post.data.preregistered_at && (
+								<>
+									<dt>{labLabels.preregisteredAt}</dt>
+									<dd><time datetime={post.data.preregistered_at.toISOString()}>{formatDate(post.data.preregistered_at, locale)}</time></dd>
+								</>
+							)}
+							<dt>{labLabels.result}</dt>
+							<dd>{post.data.result}</dd>
+						</dl>
+					</aside>
+				)}
 				<Content />
 				<p class="markdown-link"><a href={`/blog/${post.data.slug}.md`}>Markdown 原文</a></p>
 				{post.data.category === 'investing' && <p class="notice">本文為投資方法論的教育性分享，不構成任何個股買賣建議、不提供目標價、不針對當期標的。投資有風險，任何決策請自行判斷或諮詢合格的專業人士。</p>}

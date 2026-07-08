@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('..', import.meta.url));
 const contentRoot = join(root, 'src', 'content');
 const distRoot = join(root, 'dist');
+const publicRoot = join(root, 'public');
 const siteUrl = 'https://blog.getrealpha.com';
 
 // # ponytail: this parser supports the simple scalar/list frontmatter used in Phase A; upgrade to gray-matter if nested content metadata arrives.
@@ -64,12 +65,6 @@ for (const file of files) {
 
 entries.sort((a, b) => String(b.data.pubDate || '').localeCompare(String(a.data.pubDate || '')));
 
-const navLines = entries.map((entry) => {
-	const path = pagePath(entry.collection, entry.data);
-	const md = entry.collection === 'blog' ? ` Markdown: ${siteUrl}${pagePath(entry.collection, entry.data, true)}` : '';
-	return `- [${entry.data.title}](${siteUrl}${path}) - ${entry.data.description || ''}${md}`;
-});
-
 const fullLines = entries.map((entry) => {
 	const path = pagePath(entry.collection, entry.data);
 	const md = entry.collection === 'blog' ? `\nMarkdown: ${siteUrl}${pagePath(entry.collection, entry.data, true)}` : '';
@@ -83,24 +78,10 @@ ${entry.body}`;
 });
 
 await mkdir(distRoot, { recursive: true });
+const publicLlms = await readFile(join(publicRoot, 'llms.txt'), 'utf8');
 await writeFile(
 	join(distRoot, 'llms.txt'),
-	`# Realpha Blog
-
-> Bilingual technical and investment research notes by Realpha, Bocky, and the AI research team.
-
-## Primary Links
-
-- Home: ${siteUrl}/
-- English Home: ${siteUrl}/en/
-- zh-TW RSS: ${siteUrl}/rss.xml
-- English RSS: ${siteUrl}/en/rss.xml
-- Full text: ${siteUrl}/llms-full.txt
-
-## Content
-
-${navLines.join('\n')}
-`,
+	`${publicLlms.trimEnd()}\n`,
 	'utf8',
 );
 

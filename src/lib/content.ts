@@ -18,6 +18,7 @@ export async function getProjects(locale: Locale) {
 }
 
 export function markdownForPost(post: CollectionEntry<'blog'>) {
+	const tldr = post.data.tldr ? `TL;DR: ${post.data.tldr}\n\n` : '';
 	return `# ${post.data.title}
 
 > ${post.data.description}
@@ -26,6 +27,7 @@ Published: ${post.data.pubDate.toISOString().slice(0, 10)}
 Locale: ${post.data.lang}
 Tags: ${post.data.tags.join(', ')}
 
+${tldr}
 ${post.body.trim()}
 `;
 }

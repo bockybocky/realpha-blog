@@ -15,6 +15,13 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const path = `/en/blog/${post.data.slug}/`;
 const alternatePath = `/blog/${post.data.slug}/`;
+const labLabels = {
+	hypothesis: 'Hypothesis',
+	plan: 'Validation plan',
+	preregisteredAt: 'Preregistered at',
+	result: 'Result',
+};
+const hasPreregistration = post.data.category === 'lab' && (post.data.hypothesis || post.data.plan || post.data.preregistered_at || post.data.result);
 ---
 
 <SiteLayout
@@ -28,6 +35,7 @@ const alternatePath = `/blog/${post.data.slug}/`;
 	article={{
 		title: post.data.title,
 		description: post.data.description,
+		summary: post.data.tldr,
 		pubDate: post.data.pubDate,
 		updatedDate: post.data.updatedDate,
 		path,
@@ -47,6 +55,39 @@ const alternatePath = `/blog/${post.data.slug}/`;
 				<ul class="tag-list">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul>
 			</header>
 			<div class="prose">
+				{post.data.tldr && (
+					<aside class="tldr-panel" aria-labelledby="tldr-title">
+						<h2 id="tldr-title">TL;DR</h2>
+						<p>{post.data.tldr}</p>
+					</aside>
+				)}
+				{hasPreregistration && (
+					<aside class="preregistration-panel" aria-labelledby="preregistration-title">
+						<h2 id="preregistration-title">Preregistration Record</h2>
+						<dl>
+							{post.data.hypothesis && (
+								<>
+									<dt>{labLabels.hypothesis}</dt>
+									<dd>{post.data.hypothesis}</dd>
+								</>
+							)}
+							{post.data.plan && (
+								<>
+									<dt>{labLabels.plan}</dt>
+									<dd>{post.data.plan}</dd>
+								</>
+							)}
+							{post.data.preregistered_at && (
+								<>
+									<dt>{labLabels.preregisteredAt}</dt>
+									<dd><time datetime={post.data.preregistered_at.toISOString()}>{formatDate(post.data.preregistered_at, locale)}</time></dd>
+								</>
+							)}
+							<dt>{labLabels.result}</dt>
+							<dd>{post.data.result}</dd>
+						</dl>
+					</aside>
+				)}
 				<Content />
 				<p class="markdown-link"><a href={`/en/blog/${post.data.slug}.md`}>Raw Markdown</a></p>
 				{post.data.category === 'investing' && <p class="notice">This article is an educational discussion of investment method. It is not advice to buy or sell any individual security, offers no target prices, and does not analyze any current holding. Investing carries risk; make your own decisions or consult a qualified professional.</p>}

@@ -7,6 +7,7 @@ type Breadcrumb = { name: string; path: string };
 type ArticleData = {
 	title: string;
 	description: string;
+	summary?: string;
 	pubDate: Date;
 	updatedDate?: Date;
 	path: string;
@@ -62,6 +63,7 @@ if (article) {
 		'@id': absoluteUrl(article.path),
 		headline: article.title,
 		description: article.description,
+		abstract: article.summary ?? article.description,
 		datePublished: article.pubDate.toISOString(),
 		dateModified: (article.updatedDate ?? article.pubDate).toISOString(),
 		mainEntityOfPage: absoluteUrl(article.path),
@@ -75,6 +77,7 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
 const nav = [
 	{ href: withLocale(locale, '/blog/'), label: meta.blog },
 	{ href: withLocale(locale, '/lab/'), label: meta.lab },
+	{ href: withLocale(locale, '/methodology/'), label: meta.methodology },
 	{ href: withLocale(locale, '/projects/'), label: meta.projects },
 	{ href: withLocale(locale, '/about/'), label: meta.about },
 ];

@@ -13,6 +13,13 @@ const base = z.object({
 	draft: z.boolean().default(false),
 });
 
+const preregistration = {
+	hypothesis: z.string().optional(),
+	plan: z.string().optional(),
+	preregistered_at: z.coerce.date().optional(),
+	result: z.string().default('驗證中'),
+};
+
 const blog = defineCollection({
 	loader: glob({
 		pattern: '**/*.{md,mdx}',
@@ -20,9 +27,11 @@ const blog = defineCollection({
 		generateId: ({ entry }) => entry.replace(/\.(md|mdx)$/, ''),
 	}),
 	schema: base.extend({
-		category: z.enum(['tech', 'investing', 'systems']).default('tech'),
+		category: z.enum(['tech', 'investing', 'systems', 'lab']).default('tech'),
 		tags: z.array(z.string()).default([]),
 		ogImage: z.string().default('/og-default.svg'),
+		tldr: z.string().optional(),
+		...preregistration,
 	}),
 });
 
@@ -34,6 +43,7 @@ const lab = defineCollection({
 	}),
 	schema: base.extend({
 		demo: z.enum(['canvas-waves', 'line-chart']),
+		...preregistration,
 	}),
 });
 
