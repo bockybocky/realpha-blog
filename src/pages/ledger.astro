@@ -1,0 +1,85 @@
+---
+import LedgerCard from '../components/LedgerCard.astro';
+import LedgerFilters from '../components/LedgerFilters.astro';
+import LedgerStats from '../components/LedgerStats.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ledgerCards from '../data/ledger.json';
+
+const locale = 'zh-TW';
+
+function taipeiYmd(date: Date) {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Taipei',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(date);
+  const get = (type: string) => parts.find((part) => part.type === type)?.value;
+  return `${get('year')}-${get('month')}-${get('day')}`;
+}
+
+const todayYmd = taipeiYmd(new Date());
+const cards = [...ledgerCards].sort((a, b) => {
+  const left = b.committed_at || b.deadline || b.card_id;
+  const right = a.committed_at || a.deadline || a.card_id;
+  return left.localeCompare(right);
+});
+---
+
+<SiteLayout
+  title="對答案熟成帳本"
+  description="Realpha 公開公證的市場判讀帳本：先鎖主張、判準與期限，到期再對答案。"
+  locale={locale}
+  path="/ledger/"
+  alternatePath="/ledger/"
+  breadcrumbs={[{ name: '對答案熟成帳本', path: '/ledger/' }]}
+>
+  <main class="page ledger-page">
+    <header class="ledger-hero">
+      <p class="eyebrow">Public verification ledger</p>
+      <h1 class="page-title">對答案熟成帳本</h1>
+      <p class="lead">每張判讀卡都先鎖主張、判準、期限與資料源，再等市場開獎。命中和證偽並列，樣本不足也直接亮出來。</p>
+    </header>
+
+    <LedgerStats cards={cards} />
+    <LedgerFilters cards={cards} />
+
+    <section class="ledger-list" aria-label="判讀卡列表">
+      {cards.map((card) => <LedgerCard card={card} todayYmd={todayYmd} />)}
+    </section>
+  </main>
+</SiteLayout>
+
+<style>
+  .ledger-page {
+    padding-top: clamp(2rem, 6vw, 4rem);
+  }
+
+  .ledger-hero {
+    display: grid;
+    gap: 0.9rem;
+    max-width: 760px;
+    padding-bottom: 1.5rem;
+  }
+
+  .eyebrow {
+    width: max-content;
+    max-width: 100%;
+    margin: 0;
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+    border-radius: 2rem;
+    padding: 0.18rem 0.62rem;
+    background: var(--accent-tint);
+    color: var(--accent-strong);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .ledger-list {
+    display: grid;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+</style>

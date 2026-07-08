@@ -1,0 +1,104 @@
+---
+const { cards } = Astro.props;
+const counts = cards.reduce(
+  (acc, card) => {
+    acc[card.status] = (acc[card.status] ?? 0) + 1;
+    acc.all += 1;
+    return acc;
+  },
+  { all: 0, hit: 0, miss: 0, aging: 0, undecidable: 0 },
+);
+
+const filters = [
+  { key: 'all', label: '全部' },
+  { key: 'aging', label: '熟成中' },
+  { key: 'hit', label: '命中' },
+  { key: 'miss', label: '證偽' },
+  { key: 'undecidable', label: '未成立' },
+];
+---
+
+<div class="ledger-filters" data-ledger-filters aria-label="狀態篩選">
+  {filters.map((filter, index) => (
+    <button
+      type="button"
+      class="ledger-filter"
+      data-ledger-filter={filter.key}
+      aria-pressed={index === 0 ? 'true' : 'false'}
+    >
+      <span>{filter.label}</span>
+      <strong>{counts[filter.key] ?? 0}</strong>
+    </button>
+  ))}
+</div>
+
+<script is:inline>
+  const ledgerFilterGroups = document.querySelectorAll('[data-ledger-filters]');
+  for (const group of ledgerFilterGroups) {
+    const buttons = group.querySelectorAll('[data-ledger-filter]');
+    const cards = document.querySelectorAll('[data-ledger-card]');
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-ledger-filter');
+        for (const peer of buttons) {
+          peer.setAttribute('aria-pressed', String(peer === button));
+        }
+        for (const card of cards) {
+          const status = card.getAttribute('data-status');
+          card.hidden = filter !== 'all' && status !== filter;
+        }
+      });
+    }
+  }
+</script>
+
+<style>
+  .ledger-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .ledger-filter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 2.45rem;
+    border: 1px solid var(--line);
+    border-radius: 2rem;
+    padding: 0.35rem 0.75rem;
+    background: color-mix(in srgb, var(--paper) 86%, transparent);
+    color: var(--muted);
+    cursor: pointer;
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      color 0.2s ease,
+      transform 0.16s ease;
+  }
+
+  .ledger-filter:hover,
+  .ledger-filter[aria-pressed='true'] {
+    border-color: color-mix(in srgb, var(--accent) 44%, var(--line));
+    background: var(--accent-tint);
+    color: var(--text);
+  }
+
+  .ledger-filter:active {
+    transform: translateY(1px);
+  }
+
+  .ledger-filter strong {
+    min-width: 1.45rem;
+    border-radius: 999px;
+    padding: 0.08rem 0.38rem;
+    background: color-mix(in srgb, var(--soft) 76%, var(--paper));
+    color: var(--accent-strong);
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+  }
+</style>

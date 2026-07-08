@@ -1,0 +1,50 @@
+---
+interface Props {
+  cardId: string;
+}
+
+const { cardId } = Astro.props;
+const repo = 'bockybocky/realpha-blog';
+const repoId = 'R_kgDOTO3aZw';
+const category = 'Announcements';
+const categoryId = 'DIC_kwDOTO3aZ84DAl6_';
+const term = `ledger:${cardId}`;
+---
+
+<section class="ledger-discussion" id={`discussion-${cardId}`} aria-label={`來反證我 ${cardId}`}>
+  <h3>來反證我</h3>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo={repo}
+    data-repo-id={repoId}
+    data-category={category}
+    data-category-id={categoryId}
+    data-mapping="specific"
+    data-term={term}
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-TW"
+    crossorigin="anonymous"
+    async
+  />
+</section>
+
+<style>
+  .ledger-discussion {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .ledger-discussion h3 {
+    margin: 0 0 0.75rem;
+    color: var(--muted);
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+</style>
