@@ -1,0 +1,92 @@
+---
+title: "AI-900, Part 2: How I Used AI to Turn a Question Bank Into the Fastest Review System"
+description: "The parts the first post skipped: where to get practice questions (and an honest caveat), how to use AI to build a personal question bank that auto-quizzes, grades, and logs your misses, how to get AI to teach you the 'concept tree' instead of memorizing service names, and how to use AI to make review tables that cover the most concepts in the least time. A learning-method piece, not official courseware."
+slug: "ai-900-part-2-ai-study-system"
+lang: "en"
+pubDate: 2026-07-09
+category: "tech"
+tags: ["azure", "ai-900", "certification", "learning-method", "ai-workflow", "education"]
+ogImage: "/covers/ai-900-part-2-ai-study-system-cover.png"
+cover: "/covers/ai-900-part-2-ai-study-system-cover.png"
+tldr: "Part 1 was the method's skeleton; this is how to run it fast with AI: (1) get practice questions mostly from the official assessment — community banks exist but with caveats (don't memorize answers); (2) use AI to turn questions into a personal system that auto-quizzes, grades, logs misses, and re-tests on a spacing; (3) get AI to teach you the 'concept tree' (every AI task = what is it guessing + from what clues) instead of leaf-names; (4) use AI to make mind maps, keyword cards, and a service map, then skim just three the last 45 minutes."
+---
+
+![Photorealistic magical-realism oil painting cover: a lone figure glides across a vast great river on a glowing boat at dawn — not a swimmer, yet carried far by the vessel, being good at making use of tools](/covers/ai-900-part-2-ai-study-system-cover.png)
+
+> *One who uses a boat and oars is no swimmer,*<br/>
+> *yet crosses the great rivers.*<br/>
+> *The noble person is not born different —*<br/>
+> *they are simply good at making use of things.*<br/>
+> — Xunzi, "Encouraging Learning" (Warring States, c. 3rd century BCE); translation mine
+
+> The first post, "Passing AI-900 in Two Weeks," got a lot of readers — thank you. That one covered the **skeleton of the method** (blocks, calibrating the outline, the service map, spaced retrieval, the mock-exam gate). This one adds what I skipped: **how to use AI to run it faster** — where the questions come from, how to work with AI once you have them, how to review the most concepts in the least time, and how to produce a whole set of review tables. A learning-method share, not official courseware.
+
+## 1. Where practice questions come from (an honest caveat first)
+
+The headline: **the thing you should use most is the official free Practice Assessment** (right on Microsoft Learn), because its style, tone, and grading are closest to the real exam. It's also what I used as my "booking gate."
+
+There are plenty of community-compiled banks online (the ExamTopics kind). I don't encourage them and I won't teach you how to obtain them — they often brush up against exam policy and copyright, and quality varies. If you do touch them, remember two caveats: **(1) don't use them to "memorize answers"** (many answers are crowd-voted and wrong), and **(2) they should only be used to find the concepts you don't know, not to memorize the "right" letter.** The moment you start memorizing option letters, the certificate loses its value for you.
+
+My own move: take whatever practice questions I have (wherever from) and **feed them all to AI, asking it to break each one down into "which concept is this testing"** — then I practice the concept, not the question. That way, even if a question itself is wrong, what I fix is my understanding.
+
+## 2. After you have the questions: use AI to build a system that auto-quizzes, grades, and logs misses
+
+This is the heart of the post. Instead of checking answers one by one, I had AI turn the practice questions into **a small system**:
+
+- **Structure first**: ask AI to parse a pile of questions (HTML/text) into clean JSON (stem, options, correct answer, explanation, which domain). Do it once, reuse forever.
+- **AI auto-quizzes**: a tiny program pulls a random batch (say 6 at a time); I only reply with the answer letters, and AI grades and explains each miss immediately.
+- **A wrong-answer log**: misses are auto-written to a `wrong-log` and **classified into the five domains** — so I can see "am I weak on the vision branch, or the NLP branch," not scattered one-offs.
+- **Spaced re-testing**: re-pull and re-test the same weak spots a few days later (I ran twenty-odd rounds). The point is to "close the material and actually answer," not re-read notes — **fluency ≠ retention.**
+
+In one line: **AI turns "grinding questions" from manual labor into a feedback loop that compounds and tells you where you're weak.** You don't need to be a strong programmer — just describe these requirements to AI and it'll generate them for you.
+
+## 3. The most important step: get AI to teach you the "concept tree," not the "leaves"
+
+I was once stuck at 7-9/10, unable to break through, and found the problem myself: **I was memorizing "leaves" (a pile of service names) without seeing the "tree" (the concepts).** So I asked AI to switch its teaching — **trunk first, leaves attached after.**
+
+- **The trunk in one line**: every AI question is asking "**what is it guessing + from what clues**" → mapping to the five workloads. Grab that line and questions shift from "recall a name" to "judge what it's doing."
+- **No name lists — active recall**: AI doesn't hand me a table to memorize; it **throws scenarios** ("find a fracture on an X-ray," "judge sentiment of a tweet," "a card suddenly spikes in spending") and I say which branch. Right = understanding; wrong = it plants a "concept anchor" on the spot.
+- **Anchors dissolve repeat mistakes**: I kept confusing Custom Vision vs Computer Vision; AI gave me one anchor — "**do you have to train it yourself?**" — and it dissolved in a second. The OCR vs Document Intelligence anchor is "**read text vs read structure.**" These anchors beat memorizing a name ten times.
+- **AI diagnoses your error patterns**: even better, AI watched my answers and generalized two systematic errors — "**over-generalizing**" (saying the umbrella "AI service" when it should be Azure OpenAI) and "**grabbing a leaf from the wrong branch**" (using the vision branch's Document Intelligence to answer NLP's entity recognition). Knowing *how* you err is worth far more than knowing *which* question you missed.
+
+AI is also great at gluing concepts with analogies: discriminative vs generative = "**a grading teacher vs an essay-writing student**"; an LLM = "**a word-chaining machine that only guesses the next word**"; hallucination = "the chaining machine isn't a fact-checker — a human must gate it." One good analogy beats a page of definitions.
+
+## 4. Most concepts in the least time: use AI to make review tables
+
+Once the concepts stuck, in the final sprint I did almost one thing: **ask AI to compress the whole outline into a few "review tables" from different angles**, and skim them repeatedly. I made several, each with a purpose:
+
+- **A one-page service map**: which service does which job + the six most-confused pairs.
+- **A speed mind map**: draw the tree structure of the five domains as one image — one glance and you see the whole forest.
+- **Keyword / English leaf-name cards**: when I switched to the English exam last-minute, AI paired each service with "see these English words → pick this."
+- **A confusion table**: OCR vs Document Intelligence, entity recognition vs key phrase, language detection vs translation… the most-tested traps side by side.
+
+The trick to making these tables: **don't type from scratch — feed AI your weakness list (the wrong-answer log) and tell it "make a side-by-side table for the pairs I keep missing"** — so each table is tailored to you, not a generic template. In the last 45 minutes I skimmed just three: the six Responsible AI principles, the service map, and my wrong-answer log. No new questions.
+
+## 5. The actual exam day: the details nobody tells you
+
+However well you prepare the method, one wrong detail on exam day can still sink you. The following are all things I hit personally.
+
+**The day before: triple-check the exam time.** My first attempt was a **no-show because I didn't notice that US time and Taiwan time are different** (miss the slot and it's void — luckily I could rebook). Online-proctored slots (OnVUE) often display in a US time zone; always convert to your local time and confirm it two or three times.
+
+**One hour before: sit down at the computer and get all equipment and software installed and tested.** Don't scramble right as it's about to start.
+
+**Thirty minutes before: the proctor comes online to collect your data.** A heads-up first — **the proctor is often speaking English with an Indian accent, and honestly it's not easy to follow**; if you can't understand, just ask them to repeat a few times, they'll oblige. The flow roughly:
+
+- **Photos**: take one shot each of your desk from the **front, back, left, and right**, a photo of your **passport information**, and a photo of **your own face** — upload them all, then wait in the exam room.
+- **Verification**: the proctor checks your data; if they have doubts they'll confirm with you again.
+- **Environment check**: **take off your watch**; the desk **must have no phone or anything extra on it**. During the prep window they'll ask you to **stand up and turn a full circle** so they can clearly see your hands, body, and desk for hidden items.
+
+**During the exam: the two things most likely to get you disqualified.**
+
+1. **No one else in the room.** The moment the system detects another **image or sound**, it first warns you by **text message**, and may even **cut in with voice** to speak to you; do it again, and it **ends the exam outright**. So pick a genuinely quiet room no one will walk into.
+2. **No other automation popping up on your computer.** Once it detects something (for example, your **browser being opened**), the exam software **auto-closes and drops out**, and you have to **log in again** — wasting precious exam time. Before the exam, **turn off every program, scheduled task, and notification** that can pop up on its own.
+
+**Time is actually plenty.** The exam is **45 minutes, about 43 questions**; as long as you're *answering* rather than wrestling with your equipment, you have more than enough.
+
+## Closing
+
+Part 1's skeleton plus this post's AI usage are really the same belief: **the fastest way into a new but bounded field is to first separate "what I already understand" from "what's merely a name to memorize," then use AI as a tool to make reviewing the latter both fast and personal.**
+
+Xunzi said it over two thousand years ago: the noble person isn't born more capable — they are simply **good at making use of things**. AI is the best "thing" of our era to make use of. You don't need to be great at coding; you just need to clearly tell it, "I want something that quizzes me, grades me, logs my misses, and makes my tables."
+
+(If you haven't read Part 1's method skeleton, start there — this is its sequel.)
