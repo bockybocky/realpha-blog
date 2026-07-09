@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""對答案帳本 — 開獎發布管線（cron 每日跑一次）。
+"""對獎簿 — 開獎發布管線（cron 每日跑一次）。
 
 流程：ledger_settle.py 開獎 → 若有機器卡真的被判定 → npm run build → git commit（開獎戳）
 → git push → 通知 Charles（inbox + 可選 email）。沒到期就安靜 no-op，零 LLM。
@@ -96,7 +96,7 @@ def main() -> int:
     args = parse_args()
     ledger = args.ledger.resolve()
     if not ledger.exists():
-        log(f"帳本不存在：{ledger}")
+        log(f"對獎簿資料不存在：{ledger}")
         return 1
 
     before = load_cards(ledger)
@@ -115,7 +115,7 @@ def main() -> int:
 
     # settle 失敗（如 yfinance 錯誤）→ 通知，不繼續發布
     if res.returncode != 0:
-        notify("⚠️ 帳本開獎異常（settle 非 0）",
+        notify("⚠️ 對獎簿開獎異常（settle 非 0）",
                f"settle 回傳 {res.returncode}，可能到期卡抓數據失敗，請查。\n\nstdout:\n{res.stdout}\n\nstderr:\n{res.stderr}")
         return 1
 
@@ -123,7 +123,7 @@ def main() -> int:
     if not newly:
         # settle 有寫人工提醒的話，stdout 會顯示 human_reminded>0
         if "human_reminded=0" not in res.stdout:
-            notify("📒 帳本有人工卡到期待裁決", f"settle 輸出：{res.stdout.strip()}\n請查 inbox 的 ledger_*.md 依判準裁決。")
+            notify("📒 對獎簿有人工卡到期待裁決", f"settle 輸出：{res.stdout.strip()}\n請查 inbox 的 ledger_*.md 依判準裁決。")
         log("無機器卡新開獎，結束（no-op 或僅人工提醒）")
         return 0
 
@@ -131,14 +131,14 @@ def main() -> int:
     log("新開獎：\n" + "\n".join(newly))
 
     if args.no_publish:
-        notify("📒 帳本開獎（未發布，--no-publish）", body)
+        notify("📒 對獎簿開獎（未發布，--no-publish）", body)
         log("--no-publish：跳過 build/commit/push")
         return 0
 
     # 2) build（把開獎結果打進 dist，服務直接吃）
     b = run(["npm", "run", "build"], timeout=900)
     if b.returncode != 0:
-        notify("⚠️ 帳本開獎後 build 失敗", f"{body}\n\nbuild stderr:\n{b.stderr[-2000:]}")
+        notify("⚠️ 對獎簿開獎後 build 失敗", f"{body}\n\nbuild stderr:\n{b.stderr[-2000:]}")
         log(f"build 失敗 rc={b.returncode}")
         return 1
     log("build 成功")
@@ -148,18 +148,18 @@ def main() -> int:
     run(["git", "add", "--", str(ledger.relative_to(REPO)).replace("\\", "/")])
     c = run(["git", "commit", "-m", f"ledger: 開獎 {ids}\n\n{chr(10).join(newly)}"])
     if c.returncode != 0:
-        notify("⚠️ 帳本開獎 commit 失敗", f"{body}\n\ncommit out:\n{c.stdout}\n{c.stderr}")
+        notify("⚠️ 對獎簿開獎 commit 失敗", f"{body}\n\ncommit out:\n{c.stdout}\n{c.stderr}")
         log(f"commit 失敗：{c.stdout} {c.stderr}")
         return 1
     p = run(["git", "push", "origin", "main"], timeout=120)
     if p.returncode != 0:
-        notify("⚠️ 帳本開獎 push 失敗（已 commit 未 push）",
+        notify("⚠️ 對獎簿開獎 push 失敗（已 commit 未 push）",
                f"{body}\n\npush stderr:\n{p.stderr}\n本機已 commit，請手動 push。")
         log(f"push 失敗：{p.stderr}")
         return 1
 
     log("開獎已發布並 push")
-    notify("📒 帳本開獎已上線", body)
+    notify("📒 對獎簿開獎已上線", body)
     return 0
 
 
