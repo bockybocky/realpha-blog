@@ -1,0 +1,97 @@
+---
+title: "A Subscription Is Not a Discount: Wiring Grok 4.5 into Claude Code, and One Security Self-Audit"
+description: "An overlooked billing trap: a subscription buys you quota inside the official app, while most third-party tools reach the model through the metered API. This is my attempt to run Grok 4.5 inside Claude Code and still bill it to my subscription, the grey-zone path I found, and the four-question security audit I ran on a third-party tool before letting it hold my account token. Tech notes and hands-on lessons, not a how-to."
+slug: "grok-claude-code-subscription-audit"
+lang: "en"
+pubDate: 2026-07-09
+category: "tech"
+tags: ["grok", "claude-code", "ai-tooling", "security-audit", "subscription", "education"]
+ogImage: "/covers/grok-claude-code-subscription-audit-cover.png"
+cover: "/covers/grok-claude-code-subscription-audit-cover.png"
+tldr: "① A subscription is not savings: it buys quota for the official app, while most third-party tools reach the model through the metered API, so the bill still runs; ② Running Grok 4.5 inside Claude Code and still billing the subscription is possible via a third-party relay, but it is grey-zone and the vendor can tighten the allowlist anytime; ③ Before letting a third-party tool hold your account OAuth token, audit it with four questions: which servers it talks to, where the token lives, whether it forwards anything, and whether you can turn off the extra outbound behaviour; ④ The last step, OAuth, can only be done by a human at the machine — accepting that line beats faking automation."
+---
+
+![Magical-realist oil painting: a small boat slips through a dark, narrow gap in the mountain and opens into a bright grove of peach blossoms — the passage was barely wide enough for one, and then, suddenly, everything opened up.](/covers/grok-claude-code-subscription-audit-cover.png)
+
+> *The hill had a small opening, and from it, a faint light seemed to come.*<br/>
+> *At first the passage was barely wide enough for one; a few dozen steps more, and it opened wide.*<br/>
+> —— Tao Yuanming, *Peach Blossom Spring* (Eastern Jin, c. 421 CE; translation mine)
+
+> Most of our instincts about "saving money" are wrong. You assume that because your subscription is linked, nothing gets charged — and then the bill runs anyway, because you were walking through a different billing door the whole time. This is the story of wiring Grok 4.5 into Claude Code: an overlooked billing trap, a path that works but sits in a grey zone, and the security audit I ran on a third-party tool before I installed it. Notes and lessons, not a how-to.
+
+## 1. The Door Nobody Looks At: Subscription vs. API Billing
+
+It started with one sentence: **"Even if you link your subscription, using it inside a third-party tool still goes through the API — and the quota burns far faster than you think."**
+
+That line exposes a mechanism many people never separate. Most AI services today have two billing doors:
+
+- **The subscription door**: you pay a monthly fee and get quota to use *inside the official app or CLI*.
+- **The API door**: you hold an API key and pay per token, a cent at a time.
+
+The catch: **most third-party tools — agent CLIs, IDE extensions — reach the model through an API key, not through your subscription entitlement.** So "I'm subscribed" and "this tool saves me money" are two different things. The tool is bound to a key, and the meter keeps running.
+
+An everyday analogy: you buy an all-you-can-train monthly gym membership, but you keep going to the pay-per-session personal-training studio next door. Both let you work out; the bills are nothing alike.
+
+## 2. What I Wanted, and Why It Was Hard
+
+I use Claude Code (a very good terminal AI coding tool) day to day. Grok 4.5 had just launched, pitched as "near-top-tier coding at a lower price," and I wanted to try wiring it in.
+
+"Wiring it in" alone is not hard — Claude Code lets you point its backend at a compatible relay, and the community already has tools that route it to other models. The hard part was my greedy version: **I wanted Grok 4.5, *and* I wanted it billed to my subscription, not burning separate API money.**
+
+The difficulty is exactly that first door: subscription credentials (the OAuth login) are usually locked inside the official app. Whether a third-party tool can reach the subscription door is the whole game. My first guess was "probably impossible — the OAuth is locked to first-party."
+
+**I was wrong.**
+
+## 3. The Search: There Is a Path, but It's Grey
+
+Digging in, I found an open-source relay (with a very high star count) that does one thing: **it borrows the official coding CLI's OAuth login surface, and the token it gets, when it hits the official inference endpoint, draws down the subscription quota instead of the API balance.** Someone had already run it for weeks and stated plainly that they were "staying inside the subscription package, not the one using API tokens."
+
+It sounds great, but I hit the brakes, because it is **grey zone**:
+
+- The vendor only sanctions first-party or partner use of that OAuth surface. A third-party relay is *borrowing the road*.
+- That allowlist can be **tightened at any time** (this tool's own community recorded a stretch when access was limited to the highest subscription tier, then loosened later).
+- And it has to hold your **account-level OAuth token** — far more powerful than a single API key.
+
+So I didn't rush to install. I did something more important first.
+
+## 4. Before Hitting Install: How I Audit a Third-Party Tool That Wants My Account
+
+(Editor's note: this section is the real thing I want you to keep.)
+
+Any third-party tool that wants your credentials is worth four questions before you install it. I pulled the whole source down and checked each one:
+
+**① Which servers does it talk to?**
+Sweep every outbound URL. The ideal: login only contacts the official auth domain, inference only the official inference domain, plus one local loopback callback. Any unfamiliar third-party domain that shows up is a red flag.
+
+**② Where does my token live, and how tight are the permissions?**
+Find the file-writing code and confirm the token is stored **locally**, in a directory locked to **owner-read-only**. As a bonus, check whether it validates the endpoint before authorizing (a good tool refuses non-official, unencrypted endpoints).
+
+**③ Could it quietly forward my token or my content elsewhere?**
+A relay like this sees everything you send by design. So confirm it *only forwards to the official endpoint* and doesn't ship your content to a third party. Pair that with one crucial move: **after starting it, actually use system tools to see which addresses it connects to.** Source code says one thing; what it connects to at runtime is another — see it with your own eyes. (That's how I caught one harmless background behaviour: every few hours it pings a version-check endpoint, carrying no credentials. Harmless, but I wrote it down instead of hiding it.)
+
+**④ Can I turn off the non-essential outbound behaviour?**
+Go through the settings and flags and disable anything that phones home — auto-update, remote management panels — anything not core. The smaller the attack surface, the better; bind the service to localhost only.
+
+None of this is a sophisticated process. It's the basic hygiene anyone should do before installing a tool that touches their account. The only difference is that **most people skip it.**
+
+## 5. Building and Getting Stuck: Honest Beats Pretty
+
+Only after the audit passed did I move: **compile it from source myself** (reversible, and no unknown binary), write a minimal config (localhost only, all non-essential outbound off), and run a boot test to confirm it listens only locally and doesn't reach out.
+
+Then I hit a wall — a beautiful one:
+
+**The final OAuth login can only be done by a real person, at that machine, in a browser.** The reason is concrete: the OAuth callback is hard-wired to "localhost," so if you log in from another device, the authorization code can't get back to that machine; and trying to drive it with an automated browser runs straight into the vendor's anti-bot protection.
+
+There's a larger lesson here: **a lot of things get stuck not because you aren't clever enough, but because they were designed to require a human present.** Recognizing that line — and honestly saying "this step is yours to do" — beats bolting together something that looks automated but is actually fragile.
+
+## 6. Three Takeaways
+
+**① A subscription is not pipeline-ready.** What a subscription gives you is quota for *manual use in the official app*; to feed an automated pipeline, you usually still need the metered API. If you want to save money, first figure out whether your use is "manual" or "automated" — they should walk through different doors.
+
+**② Audit a third-party tool before you let it touch your account.** Four questions: which servers, where the token lives, whether it forwards anything, whether you can turn off the extra outbound behaviour. Ten minutes reading source plus watching real connections at startup beats regret later.
+
+**③ Flag the grey zone honestly, and don't build on it.** A borrow-the-subscription method can be tightened by the vendor at any time. It can be a "money-saving side channel," but anything *critical and meant to be stable long-term* should still ride the officially supported path. Putting its fragility out in the open is being fair to yourself and to your reader.
+
+---
+
+*This is a personal record of a technical exploration, not a how-to. The tool and method described sit in a grey zone, and official policy can change at any time; if you try it, assess the risks and terms of service yourself, at your own responsibility.*
