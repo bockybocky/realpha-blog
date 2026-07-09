@@ -1,101 +1,76 @@
 [
   {
     "card_id": "LJ-2026-0001",
-    "claim": "示意卡：以 2026-07-08 收盤後公證起算，至 2026-10-31，QQQ 的區間報酬率將高於 SPY 至少 2 個百分點。",
+    "claim": "以 2026-07-08 美股收盤後公證起算，至 2026-09-30，美國 10 年期公債殖利率（^TNX）收盤值維持在 4.00% 以上（不跌破 4.00%）。要證偽需殖利率自 4.57% 下行逾 57 個基點，通常伴隨成長恐慌或聯準會急轉降息。",
     "claim_en": "",
-    "title": "示意：QQQ 相對 SPY 三個月偏強",
-    "title_en": "",
-    "claim_type": "relative",
-    "judge_mode": "machine",
-    "subject": {
-      "level": "index",
-      "name": "Nasdaq 100 ETF 相對 S&P 500 ETF",
-      "symbols": ["QQQ", "SPY"]
-    },
-    "criterion": {
-      "indicator": "QQQ 與 SPY 的 adjusted close 區間報酬差",
-      "threshold": "QQQ 報酬率 - SPY 報酬率 >= 2.0 個百分點",
-      "deadline": "2026-10-31",
-      "benchmark": "SPY, QQQ",
-      "data_source": "yfinance adjusted close",
-      "machine_rule": {
-        "metric": "relative_return",
-        "subject_symbol": "QQQ",
-        "benchmark_symbol": "SPY",
-        "operator": "gte",
-        "threshold_pct": 0.02,
-        "observation_start": "2026-07-08"
-      }
-    },
-    "committed_at": "2026-07-08T09:00:00+08:00",
-    "deadline": "2026-10-31",
-    "status": "aging",
-    "verdict": "",
-    "replay_ready_at": "",
-    "author_class": "internal",
-    "is_sample": true
-  },
-  {
-    "card_id": "LJ-2026-0002",
-    "claim": "示意卡：以 2026-07-08 收盤後公證起算，至 2026-09-30，美國 10 年期公債殖利率收盤值仍將高於 4.0%。",
-    "claim_en": "",
-    "title": "示意：10 年期美債殖利率維持高檔",
+    "title": "10 年期美債殖利率至 Q3 底維持 4% 以上",
     "title_en": "",
     "claim_type": "macro_regime",
     "judge_mode": "machine",
     "subject": {
       "level": "macro",
       "name": "美國 10 年期公債殖利率",
-      "symbols": ["^TNX"]
+      "symbols": [
+        "^TNX"
+      ]
     },
     "criterion": {
-      "indicator": "^TNX deadline 當日或前一有效交易日收盤值",
-      "threshold": "^TNX >= 4.0",
+      "indicator": "^TNX 於 deadline 當日（或前一有效交易日）收盤殖利率",
+      "threshold": "^TNX 收盤 >= 4.00",
       "deadline": "2026-09-30",
-      "benchmark": "SPY, QQQ",
-      "data_source": "yfinance close",
+      "benchmark": "絕對水位判準（無相對對照）；開獎仍記錄 SPY/QQQ 作 L2 脈絡",
+      "data_source": "yfinance ^TNX close",
       "machine_rule": {
         "metric": "level",
         "subject_symbol": "^TNX",
         "operator": "gte",
-        "threshold_value": 4.0,
+        "threshold_value": 4,
         "observation_start": "2026-07-08"
       }
     },
-    "committed_at": "2026-07-08T09:05:00+08:00",
+    "committed_at": "2026-07-09T09:22:07+08:00",
     "deadline": "2026-09-30",
     "status": "aging",
     "verdict": "",
     "replay_ready_at": "",
     "author_class": "internal",
-    "is_sample": true
+    "is_sample": false
   },
   {
-    "card_id": "LJ-2026-0003",
-    "claim": "示意卡：以 2026-07-08 收盤後公證起算，至 2026-08-31，XLV 相對 SPY 的抗跌幅度需要由人工按公證判準裁決。",
+    "card_id": "LJ-2026-0002",
+    "claim": "以 2026-07-08 收盤（QQQ 711.44）公證起算，至 2026-08-08，QQQ 尚未收復前高——即到期當日收盤價低於 745（2026-07 高點約 745.34）。這是賭近期科技熄火不會在一個月內 V 型收復。",
     "claim_en": "",
-    "title": "示意：防禦型類股相對大盤抗跌",
+    "title": "QQQ 一個月內未收復前高 745",
     "title_en": "",
-    "claim_type": "relative",
-    "judge_mode": "human",
+    "claim_type": "direction",
+    "judge_mode": "machine",
     "subject": {
-      "level": "sector_etf",
-      "name": "Health Care Select Sector ETF 相對 S&P 500 ETF",
-      "symbols": ["XLV", "SPY"]
+      "level": "index",
+      "name": "Nasdaq 100 ETF",
+      "symbols": [
+        "QQQ"
+      ]
     },
     "criterion": {
-      "indicator": "XLV 與 SPY 的 adjusted close 區間報酬差，並檢視同期間市場風險事件脈絡",
-      "threshold": "若 SPY 區間報酬為負，XLV 跌幅需少於 SPY 至少 1.0 個百分點；若 SPY 區間報酬為正，人工裁決為條件未成立",
-      "deadline": "2026-08-31",
-      "benchmark": "SPY, QQQ",
-      "data_source": "yfinance adjusted close + 人工裁決理由全文"
+      "indicator": "QQQ 於 deadline 當日（或前一有效交易日）收盤價",
+      "threshold": "QQQ 收盤 < 745",
+      "deadline": "2026-08-08",
+      "benchmark": "以自身前高 745 為絕對判準；開獎記錄 SPY/QQQ 作 L2 脈絡",
+      "data_source": "yfinance QQQ close",
+      "machine_rule": {
+        "metric": "level",
+        "subject_symbol": "QQQ",
+        "operator": "lt",
+        "threshold_value": 745,
+        "observation_start": "2026-07-08"
+      }
     },
-    "committed_at": "2026-07-08T09:10:00+08:00",
-    "deadline": "2026-08-31",
+    "committed_at": "2026-07-09T09:22:07+08:00",
+    "deadline": "2026-08-08",
     "status": "aging",
     "verdict": "",
     "replay_ready_at": "",
     "author_class": "internal",
-    "is_sample": true
+    "is_sample": false
   }
 ]
