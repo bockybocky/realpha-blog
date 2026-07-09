@@ -682,3 +682,31 @@ select {
 		transform: none;
 	}
 }
+
+
+/* ══ Premium polish (2026-07-09) ══ */
+/* Fine film grain — breaks the flat surface, tuned per theme, sits behind content */
+body::after {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	opacity: 0.03;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	background-size: 140px 140px;
+}
+@media (prefers-color-scheme: dark) {
+	body::after { opacity: 0.06; }
+}
+
+/* Editorial section headers — a short accent rule leads each section title */
+.section-header h2::before {
+	content: "";
+	display: block;
+	width: 2.4rem;
+	height: 3px;
+	margin-bottom: 0.9rem;
+	border-radius: 2px;
+	background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 12%, transparent));
+}
