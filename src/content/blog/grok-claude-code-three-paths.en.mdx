@@ -1,0 +1,68 @@
+---
+title: "After the OAuth Wall: Three Ways to Run Grok in Claude Code, and What I Actually Learned"
+description: "The OAuth cliffhanger from last time, resolved. A diagnostic mistake — reading a personal subscription as a team account — sent me the long way round; once cleared, there turned out to be three ways to run Grok in (or next to) Claude Code, each with a price. But the real takeaway isn't 'I found the method' — it's rethinking how to allocate tasks: unattended automation rides the stable billing path, and only human-in-the-loop work rides the cheap subscription path. First draft written by Grok 4.5 itself."
+slug: "grok-claude-code-three-paths"
+lang: "en"
+pubDate: 2026-07-09
+category: "tech"
+tags: ["grok", "claude-code", "ai-tooling", "task-allocation", "subscription", "education"]
+ogImage: "/covers/grok-claude-code-three-paths-cover.png"
+cover: "/covers/grok-claude-code-three-paths-cover.png"
+tldr: "① When you're stuck, first re-check your assumptions — reading my personal subscription as a team account sent me the long way round; ② three ways to run Grok: a subscription relay (cheap but grey-zone), an API key (stable, cheap, no grey-zone), the official CLI (cleanest first-party, but not inside Claude Code); ③ the real lesson isn't picking a tool, it's allocating tasks — unattended automation on the API key (stable), human-in-the-loop on the subscription (cheap), because the subscription path has three layers of fragility; ④ honest boundary: 'it works' ≠ 'it's free' — I haven't reconciled the billing yet. First draft written by Grok 4.5."
+---
+
+![Magical-realist oil painting: past layered mountains and winding streams, a village suddenly appears deep among shady willows, dotted with pink blossoms and opening wide — where the road seemed to end, another village appears.](/covers/grok-claude-code-three-paths-cover.png)
+
+> *Where hills pile on hills and streams twist back, the road seems to end;*<br/>
+> *then willows shade, flowers glow — another village appears.*<br/>
+> —— Lu You, *A Visit to Shanxi Village* (Southern Song, c. 1167 CE; translation mine)
+
+> This is a sequel. Last time the story stopped at "trying to bill Grok to my subscription inside Claude Code, stuck on the final OAuth step." This piece opens that up — there are three paths, there was one misunderstanding, and the thing actually worth keeping is how you split the work. **The first draft of this article was written by Grok 4.5 itself** (I asked it to write a piece on "how to run Grok in Claude Code" — so the author is the subject); I edited and polished.
+
+Last time, the story stopped somewhere awkward: I wanted to bill Grok to my subscription inside Claude Code, and it died at OAuth. The authorization screen popped up, but the tool just wouldn't connect — like watching something usable through a pane of glass and not being able to touch it. I thought I'd hit a dead end, closed the editor, went to bed, still weighing whether to just give up.
+
+Only later did I realize half of that glass I'd smeared on myself.
+
+## 1. A Diagnostic Mistake, the Long Way Round
+
+At first I was sure the blocker was a "team account." Official docs and community threads often mention extra restrictions on third-party login for team plans, so I naturally pinned the blame on account type and started hunting for workarounds and others with the same experience. It took a while before I confirmed, in the account settings, that this was actually a personal subscription.
+
+One simple factual misjudgment threw off every path choice that followed. It's not a profound lesson, but a practical one: when a tool won't log in, checking your assumed premises one by one often beats immediately drilling into technical detail. Mistaking a personal subscription for a team plan is like starting to find your way on the wrong map.
+
+Once that was cleared, things opened up. I found it wasn't "stuck dead at OAuth" at all, but three distinctly different paths to use Grok inside Claude Code, or right next to it. The trade-offs are nothing alike.
+
+## 2. Three Paths, Each with a Price
+
+**The first path** borrows the subscription authorization through an open-source relay tool. Conceptually, the subscription credential gets used by some intermediary layer in the background to call the model, so inside your Claude Code conversation you reach Grok directly, billed to the subscription rather than metered. The upside is obvious: people with a subscription save money. The downside is just as clear — it sits outside the vendor's explicitly sanctioned first-party path; it's a grey zone. The vendor only guarantees its own login and interface; a relay like this can fail at any time as policy tightens, and the credential can expire or be revoked. I'm deliberately not writing any implementation detail, because it shouldn't be promoted as a stable solution in the first place.
+
+**The second path** uses an official API key with a relay layer into Claude Code. It's metered — no thrill of "riding the subscription" — but it actually comes out cheap, and it's fully within what the vendor allows. No grey zone, no background keep-alive process, no worries about account type tripping you up. As long as the key is valid, anyone can use it; it's the most stable.
+
+**The third path** logs in directly with the vendor's own command-line tool. This is the cleanest first-party approach: OAuth completes within its own flow, and the interface is officially maintained. The only drawback: it's not inside Claude Code — it's a different command-line experience. If you insist on "typing in the same editor window," this one doesn't fit; if all you care about is the model itself helping you write code, debug, and think through architecture, it's the most trouble-free.
+
+## 3. How to Choose Depends on What You Want
+
+Want stable, simple, and no 3 a.m. "authorization expired" notification — take the API key path. Already have a subscription, budget-sensitive, and willing to accept grey-zone risk — you can try the subscription relay, but be clear it isn't a foundation. Just want the model to help you write code, without insisting the interface be Claude Code — the official CLI is cleanest.
+
+None of the three is absolutely "the strongest." There's only "fits the task at hand or not."
+
+## 4. The Real Takeaway: Not the Tool, but Task Allocation
+
+Writing this far, the biggest gain isn't "I finally found the method" — it's rethinking one thing clearly: how to allocate tasks.
+
+One sentence covers it: **unattended automation rides the stable billing path (the API key); human-in-the-loop interaction rides the cheap subscription path.**
+
+Why? Because the subscription path has three layers of fragility. First, the credential expires, and not necessarily when you expect. Second, it usually needs a background process or intermediary to keep it alive — things that can themselves crash, get killed by the system, or fail to auto-start after a reboot. Third, the grey-list can be tightened at any time; a relay that works today may be blocked tomorrow. Making that the foundation for automation that runs unattended at night is building the whole pipeline on sand that collapses on its own. When you're present, an authorization prompt is something you handle on the spot; when you're asleep, a failure is just a failure, with no window to fix it.
+
+Tools aren't for showing off. Connecting three models at once, riding a subscription, switching within one window — all cool, but cool isn't reliable. What's actually useful is letting each tool do what it's good at and can control the risk of: the stable path for automation, the cheap path for human-in-the-loop. Allocate it clearly, and you sleep at night.
+
+## 5. One Boundary, Stated Plainly
+
+"It works" does not equal "it's free." That subscription-relay path — I still haven't fully reconciled the billing, and I can't guarantee there's no quiet metering or quota consumption behind it. Some services nominally ride a subscription but may still trigger extra metering on the actual call. Until I've verified it myself, I won't tell anyone "this is a sure win." Saving money is the goal, but only if the accounting is clear; a saving you can't account for may just become another kind of cost.
+
+The OAuth cliffhanger from last time is, at this point, opened up. Three paths, one misunderstanding — and the thing actually worth taking away is how you split the work. Tools will change, policies will change, but "automation on the stable path, interaction on the cheap path" is a judgment that should hold for a while.
+
+---
+
+*This is a personal record of a technical exploration and security reflection, not a how-to. **The author does not encourage or recommend that anyone violate any terms of service or billing mechanism.** The "subscription relay" mentioned sits in a grey zone, **likely violates the service provider's terms of use, and could lead to account suspension or legal claims**; official policy can also change at any time. Whether to try it, and all consequences, are entirely the reader's own responsibility.*
+
+*(First draft written by Grok 4.5; edited and polished by Realpha.)*
