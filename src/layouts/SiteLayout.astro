@@ -76,8 +76,8 @@ if (article) {
 const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
 const nav = [
 	{ href: withLocale(locale, '/blog/'), label: meta.blog },
-	// 對獎簿 P0 目前只有 zh-TW 頁（無 /en/ledger），故僅在繁中導覽顯示，避免英文頁連到中文頁
-	...(locale === 'zh-TW' ? [{ href: '/ledger/', label: meta.ledger }] : []),
+	// 對獎簿 / 提案 P0 目前只有 zh-TW 頁，故僅在繁中導覽顯示，避免英文頁連到中文頁
+	...(locale === 'zh-TW' ? [{ href: '/ledger/', label: meta.ledger }, { href: '/propose/', label: meta.propose }] : []),
 	{ href: withLocale(locale, '/lab/'), label: meta.lab },
 	{ href: withLocale(locale, '/methodology/'), label: meta.methodology },
 	{ href: withLocale(locale, '/projects/'), label: meta.projects },

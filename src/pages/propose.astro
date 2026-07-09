@@ -1,0 +1,198 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Giscus from '../components/Giscus.astro';
+
+const locale = 'zh-TW';
+
+// 設定 Google 表單「嵌入用」網址（.../viewform?embedded=true）。留空則顯示「建置中」提示，不 render iframe。
+const GOOGLE_FORM_URL = '';
+---
+
+<SiteLayout
+  title="提案：你想驗證什麼？"
+  description="Realpha 公開實驗室的入口：提出一個你想公開驗證的市場、總經或方法問題。好的提案會被排進實驗記錄，甚至上對獎簿公證。"
+  locale={locale}
+  path="/propose/"
+  alternatePath="/propose/"
+  breadcrumbs={[{ name: '提案', path: '/propose/' }]}
+>
+  <main class="page article-shell">
+    <header class="article-header">
+      <span class="eyebrow">OPEN LAB · 出題給我</span>
+      <h1 class="article-title">你想驗證什麼？</h1>
+      <p class="lead">這是公開實驗室的入口。丟一個你想「攤在陽光下驗證」的市場、總經或方法問題進來——好的提案會被排進<a href="/blog/">實驗記錄</a>，甚至寫成有到期日的判斷、上<a href="/ledger/">對獎簿</a>公證。你出題，我來驗，成敗都公開。</p>
+    </header>
+
+    <div class="prose">
+      <!-- 兩段式漏斗 -->
+      <section class="funnel">
+        <div class="step">
+          <span class="step-n">1</span>
+          <div>
+            <h2>先寫下你的問題</h2>
+            <p>不用想得很完整，一句好奇就行。例如：<em>「AI 資料中心的電力是不是快不夠用了？」</em>、<em>「利率這麼高，公用事業類股會不會反而受惠？」</em></p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-n">2</span>
+          <div>
+            <h2>（選填）把它變成「可驗證」的樣子</h2>
+            <p>如果你願意再前進一步，試著把好奇改寫成一句<strong>有到期日、能被數據判對錯</strong>的主張——這正是我們把「感覺」變成「證據」的方法。不會寫也沒關係，這步交給我。</p>
+            <div class="turn">
+              <div><span class="turn-tag">好奇</span>AI 資料中心的電力快不夠了嗎？</div>
+              <div class="turn-arrow">↓ 變成可驗證版本</div>
+              <div><span class="turn-tag turn-tag--claim">可驗證主張</span>美國公用事業類股（XLU）在未來 6 個月（到 20XX-XX-XX）會跑贏大盤（SPY）。判準：以區間報酬率高低為準，資料源 yfinance 收盤。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 收什麼 / 不收什麼（合規護欄，框成「好提案長怎樣」） -->
+      <h2>什麼是好提案</h2>
+      <div class="rules">
+        <div class="rule rule--yes">
+          <h3>✓ 歡迎</h3>
+          <ul>
+            <li>大盤 / 類股 / 產業的方向與相對強弱（例：半導體會不會跑輸大盤）</li>
+            <li>總經與利率、通膨、景氣的可驗證判斷</li>
+            <li>市場「常識」對不對（例：高股息在升息期真的抗跌嗎）</li>
+            <li>方法問題：某個指標 / 訊號到底有沒有用</li>
+          </ul>
+        </div>
+        <div class="rule rule--no">
+          <h3>✗ 這裡不收</h3>
+          <ul>
+            <li><strong>「我該不該買 ○○ 這檔股票？」</strong>——我們不對個股給買賣建議</li>
+            <li>個股目標價、進出場點位</li>
+            <li>「幫我看我的持股」這類個人化理財諮詢</li>
+          </ul>
+          <p class="why">原因：本站是教育與公開驗證，<strong>不做個股買賣建議、不給目標價</strong>。把問題往「市場/類股/總經/方法」的層次提，我才驗得動、也才合規。</p>
+        </div>
+      </div>
+
+      <!-- 兩個提案管道 -->
+      <h2>兩種提案方式，挑順手的</h2>
+      <div class="channels">
+        <section class="channel">
+          <h3>🅐 提案表單（最快，不用帳號）</h3>
+          <p>填一張短表單，直接進我的待驗清單。適合只想丟問題、不想公開露臉的人。</p>
+          {GOOGLE_FORM_URL
+            ? (
+              <div class="form-embed">
+                <iframe src={GOOGLE_FORM_URL} title="Realpha 驗證提案表單" loading="lazy" width="100%" height="820">載入中…</iframe>
+                <p class="fallback"><a href={GOOGLE_FORM_URL.replace('?embedded=true', '')} target="_blank" rel="noopener">在新分頁開啟表單 →</a></p>
+              </div>
+            )
+            : (
+              <div class="soon">提案表單建置中，先用下方 GitHub Discussions 提案；表單上線後這裡會直接嵌入。</div>
+            )
+          }
+        </section>
+
+        <section class="channel">
+          <h3>🅑 公開提案（GitHub Discussions）</h3>
+          <p>用 GitHub 帳號在下方留言提案。好處是<strong>公開</strong>——別人能看到、討論、按讚，等於把提案也攤在陽光下。願意具名認真提的人，我會優先看。</p>
+          <div class="discuss-hint">留言格式建議：<code>【提案】一句問題</code> ＋（選填）你的可驗證版本 ＋ 為什麼想驗。</div>
+          <Giscus />
+        </section>
+      </div>
+
+      <!-- 提案之後 -->
+      <h2>提案之後會怎樣</h2>
+      <p>我會定期挑提案。被選中的，會先寫成「假設＋驗證計畫」發成<a href="/blog/">實驗記錄</a>（含時間戳），驗完不論成敗都公開；夠乾淨、能被機器判對錯的，會鎖成判準、上<a href="/ledger/">對獎簿</a>公證。</p>
+      <p class="honest">誠實說：不是每個提案都會被做——時間有限，我會挑「問得好、能驗、對多數人有用」的先做。但每一個提案我都會看。</p>
+
+      <p class="disclaimer">本站所有內容僅為教育與方法論分享，不構成任何個股買賣建議、不提供目標價、不針對當期標的。投資有風險，決策請自行判斷。</p>
+    </div>
+  </main>
+</SiteLayout>
+
+<style>
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--accent-strong);
+    background: var(--accent-tint);
+    border-radius: 2rem;
+    padding: 0.25rem 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .funnel {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0 2.4rem;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.9rem;
+    align-items: start;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: color-mix(in srgb, var(--paper) 86%, var(--soft));
+    padding: 1.1rem 1.2rem;
+  }
+  .step-n {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+  .step h2 { margin: 0.1rem 0 0.4rem; font-size: 1.2rem; }
+  .step p { margin: 0; }
+
+  .turn {
+    margin-top: 0.9rem;
+    display: grid;
+    gap: 0.5rem;
+    border-left: 3px solid var(--accent);
+    padding: 0.4rem 0 0.4rem 0.9rem;
+  }
+  .turn-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    border-radius: 0.4rem;
+    padding: 0.08rem 0.5rem;
+    margin-right: 0.5rem;
+    background: var(--soft);
+    color: var(--muted);
+  }
+  .turn-tag--claim { background: var(--accent-tint); color: var(--accent-strong); }
+  .turn-arrow { font-size: 0.85rem; color: var(--muted); }
+
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 2rem; }
+  .rule { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.1rem 1.2rem; }
+  .rule h3 { margin: 0 0 0.6rem; font-size: 1.05rem; }
+  .rule ul { margin: 0; padding-left: 1.1rem; }
+  .rule li { margin: 0.3rem 0; }
+  .rule--yes { background: color-mix(in srgb, #16a34a 8%, var(--paper)); border-color: color-mix(in srgb, #16a34a 30%, var(--line)); }
+  .rule--yes h3 { color: #15803d; }
+  .rule--no { background: color-mix(in srgb, #dc2626 7%, var(--paper)); border-color: color-mix(in srgb, #dc2626 28%, var(--line)); }
+  .rule--no h3 { color: #b91c1c; }
+  .rule .why { margin: 0.7rem 0 0; font-size: 0.9rem; color: var(--muted); }
+
+  .channels { display: grid; gap: 1.2rem; margin: 1rem 0 2rem; }
+  .channel { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.3rem; background: color-mix(in srgb, var(--paper) 88%, var(--soft)); }
+  .channel h3 { margin: 0 0 0.5rem; }
+  .form-embed iframe { border: 1px solid var(--line); border-radius: 8px; width: 100%; }
+  .form-embed .fallback { font-size: 0.9rem; margin-top: 0.5rem; }
+  .soon { border: 1px dashed var(--line); border-radius: 8px; padding: 0.9rem 1rem; color: var(--muted); font-size: 0.92rem; background: var(--soft); }
+  .discuss-hint { font-size: 0.9rem; color: var(--muted); margin: 0.2rem 0 0.9rem; }
+  .discuss-hint code { background: var(--soft); border-radius: 0.3rem; padding: 0.05rem 0.35rem; }
+
+  .honest { color: var(--muted); }
+  .disclaimer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+
+  @media (max-width: 640px) {
+    .rules { grid-template-columns: 1fr; }
+  }
+</style>
