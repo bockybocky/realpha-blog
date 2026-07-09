@@ -710,3 +710,63 @@ body::after {
 	border-radius: 2px;
 	background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 12%, transparent));
 }
+
+
+/* ══ Premium polish v2 (2026-07-09) — hero 加戲 / 卡片 spotlight+reveal / 節奏放大 ══ */
+
+/* 節奏放大：更大留白與專區間距 */
+.section { padding: clamp(3rem, 7.5vw, 6rem) 0; }
+.section-header { margin-bottom: clamp(1.6rem, 4vw, 2.6rem); }
+.grid { gap: clamp(1.1rem, 3vw, 1.9rem); }
+
+/* Hero 加戲：關鍵字 highlighter + 首屏專屬 ambient 背景 */
+.hero { position: relative; isolation: isolate; }
+.hero::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	inset: -8% -12% -20% -12%;
+	pointer-events: none;
+	background:
+		radial-gradient(38rem 26rem at 88% 6%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 60%),
+		radial-gradient(30rem 22rem at 6% 92%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 62%);
+	opacity: 0.7;
+	filter: blur(6px);
+}
+.hero h1 .mark {
+	position: relative;
+	white-space: nowrap;
+	background: linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 26%, transparent) 0);
+	padding: 0 0.05em;
+	border-radius: 2px;
+}
+
+/* 卡片：滑鼠 spotlight（跟游標的柔光）＋ 捲動淡入 */
+.entry { --mx: 50%; --my: 0%; }
+.entry::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	border-radius: inherit;
+	background: radial-gradient(18rem 18rem at var(--mx) var(--my), var(--glow), transparent 60%);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+.entry:hover::after { opacity: 1; }
+.entry > * { position: relative; z-index: 1; }
+
+@media (prefers-reduced-motion: no-preference) {
+	@supports (animation-timeline: view()) {
+		.grid .entry {
+			animation: entry-reveal linear both;
+			animation-timeline: view();
+			animation-range: entry 0% cover 20%;
+		}
+		@keyframes entry-reveal {
+			from { opacity: 0; }
+			to { opacity: 1; }
+		}
+	}
+}
