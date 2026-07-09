@@ -6,13 +6,20 @@ lang: "zh-TW"
 pubDate: 2026-07-08
 category: "lab"
 tags: ["negative-results", "backtesting", "survivorship-bias", "quant-validation"]
-ogImage: "/og-default.svg"
+ogImage: "/covers/proving-ma-crosses-dont-work-cover.png"
+cover: "/covers/proving-ma-crosses-dont-work-cover.png"
 tldr: "我用 11,151 檔含下市股票的美股樣本重驗均線交叉，樣本存活率只有 31.7%。黃金交叉沒有超額；跌破雙均線看似有 +0.69%、t 值 8.2，但拆出水餃股與扣 60bps 成本後，10/20/120 日淨超額變成 −0.48%、−0.69%、−1.22%。"
 hypothesis: "均線交叉作為買賣訊號，應該在含下市股票、正確時點、扣成本與同群比較後仍有可交易優勢。"
 plan: "用 Russell 3000 現在與歷史成分股、含下市資料的樣本，檢查雙均線觸發後 10、20、60、120 個交易日的超額報酬，並拆價格帶、扣交易成本、校正重疊持有期。"
 preregistered_at: 2026-07-08
 result: "負結果"
 ---
+
+![寫實魔幻油畫封面：雲霧繚繞的廬山，山嶺橫看成嶺側成峰，一人步至霧邊回望欲看清全貌](/covers/proving-ma-crosses-dont-work-cover.png)
+
+> *不識廬山真面目，*<br/>
+> *只緣身在此山中。*<br/>
+> —— 蘇軾《題西林壁》（北宋，1084 年）
 
 # 我花了幾百小時，證明均線交叉沒有用
 
