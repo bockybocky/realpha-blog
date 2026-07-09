@@ -30,6 +30,7 @@ const blog = defineCollection({
 		category: z.enum(['tech', 'investing', 'systems', 'lab']).default('tech'),
 		tags: z.array(z.string()).default([]),
 		ogImage: z.string().default('/og-default.svg'),
+		cover: z.string().optional(),
 		tldr: z.string().optional(),
 		...preregistration,
 	}),
