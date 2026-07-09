@@ -7,11 +7,11 @@ const locale = 'zh-TW';
 const posts = await getBlogPosts(locale);
 ---
 
-<SiteLayout title="文章" description="Realpha Blog 的繁中技術、系統與投資研究文章。" locale={locale} path="/blog/" alternatePath="/en/blog/" breadcrumbs={[{ name: '文章', path: '/blog/' }]}>
+<SiteLayout title="研究筆記" description="Realpha Blog 的繁中技術、系統與投資研究文章。" locale={locale} path="/blog/" alternatePath="/en/blog/" breadcrumbs={[{ name: '研究筆記', path: '/blog/' }]}>
 	<main class="page">
 		<header class="section-header">
-			<h1 class="page-title">文章</h1>
-			<p class="lead">每篇文章都提供雙語頁面、RSS 入口與純 Markdown 版本。</p>
+			<h1 class="page-title">研究筆記</h1>
+			<p class="lead">寫給人讀，也寫給 AI 引用——所以每個主張都留了出處、判準和被推翻的可能。</p>
 		</header>
 		<div class="grid">
 			{posts.map((post) => (

@@ -13,14 +13,14 @@ const featuredLabs = labs.filter((lab) => lab.data.featured).slice(0, 2);
 <SiteLayout title="Realpha Blog" description="Realpha、Bocky 與 AI 研究團隊的雙語技術與投資研究筆記。" locale={locale} path="/" alternatePath="/en/">
 	<main class="page">
 		<section class="hero" aria-labelledby="home-title">
-			<h1 id="home-title">技術筆記，給人也給 agent 讀。</h1>
-			<p>Realpha、Bocky 與 AI 研究團隊分享系統設計、投資研究方法論與互動實驗。</p>
+			<h1 id="home-title">觀點已經免費，驗證還是稀缺。</h1>
+			<p>Realpha 是一間公開實驗室：每個市場判讀發表當下就公證鎖死判準，到期用數據驗證——通過的留下，被推翻的置頂認錯。</p>
 		</section>
 
 		<section class="section" aria-labelledby="latest-title">
 			<div class="section-header">
-				<h2 id="latest-title">最新文章</h2>
-				<p class="muted">雙語、靜態輸出，附 Markdown 原文。</p>
+				<h2 id="latest-title">最新研究</h2>
+				<p class="muted">方法、實驗與市場判讀——寫完就攤在這裡，等時間驗證。</p>
 			</div>
 			<div class="grid">
 				{latest.map((post) => (
@@ -41,8 +41,8 @@ const featuredLabs = labs.filter((lab) => lab.data.featured).slice(0, 2);
 
 		<section class="section" aria-labelledby="lab-title">
 			<div class="section-header">
-				<h2 id="lab-title">精選 Lab</h2>
-				<p class="muted">用小型 island 展示動畫與資料視覺化。</p>
+				<h2 id="lab-title">動手玩 Lab</h2>
+				<p class="muted">資料不是拿來讀的，是拿來戳的——這裡的圖會動，假設可以親手驗。</p>
 			</div>
 			<div class="grid">
 				{featuredLabs.map((lab) => (
