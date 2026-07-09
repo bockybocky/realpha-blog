@@ -24,7 +24,12 @@ const featuredLabs = labs.filter((lab) => lab.data.featured).slice(0, 2);
 			</div>
 			<div class="grid">
 				{latest.map((post) => (
-					<a class="entry" href={`/blog/${post.data.slug}/`}>
+					<a class={`entry${post.data.cover ? ' has-cover' : ''}`} href={`/blog/${post.data.slug}/`}>
+						{post.data.cover && (
+							<div class="entry-cover">
+								<img src={post.data.cover} alt={post.data.title} loading="lazy" decoding="async" width="800" height="450" />
+							</div>
+						)}
 						<div class="meta"><time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate, locale)}</time></div>
 						<h3>{post.data.title}</h3>
 						<p>{post.data.description}</p>
@@ -51,3 +56,17 @@ const featuredLabs = labs.filter((lab) => lab.data.featured).slice(0, 2);
 		</section>
 	</main>
 </SiteLayout>
+
+<style>
+	/* 首頁最新文章封面（同 /blog 列表：滿版縮圖破出卡片 padding、圓上緣、16:9、lazy） */
+	.entry.has-cover { padding-top: 0; }
+	.entry-cover {
+		margin: 0 -1.25rem 0.25rem;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		border-radius: var(--radius) var(--radius) 0 0;
+		background: color-mix(in srgb, var(--soft) 60%, var(--paper));
+	}
+	.entry-cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
+	.entry.has-cover:hover .entry-cover img { transform: scale(1.03); }
+</style>
