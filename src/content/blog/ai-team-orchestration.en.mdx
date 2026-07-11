@@ -1,0 +1,69 @@
+---
+title: "When the Strongest GPT-5.6 Meets a Suddenly-Genius Grok 4.5: I Used Claude to Turn Three AIs Into One Team"
+description: "How a one-person AI company actually works: let Claude be the head coach that plans the hard problem and nails the interface, hand the execution to OpenAI's GPT-5.6 and a suddenly-sharper xAI Grok 4.5 running in parallel, then verify against reality. Three days of multi-vendor AI teamwork, shared as method and reflection."
+slug: "ai-team-orchestration"
+lang: "en"
+pubDate: 2026-07-11
+category: "systems"
+tags: ["ai", "multi-model", "orchestration", "engineering", "workflow"]
+tldr: "Three days in, I stopped chasing 'the single strongest model.' The pattern is three stages: (1) Claude as head coach, thinking the problem through and nailing down the interface between the two work chunks into a spec; (2) split execution into two non-overlapping chunks, handed to GPT-5.6 and Grok 4.5 in parallel; (3) verify against the real environment. Three takeaways: nail the interface first or the two collide, cheap hands don't make the key calls, and 'said it's done' is not 'the thing actually landed.'"
+---
+
+> *Stones from another hill can serve as whetstones.*<br/>
+> *Stones from another hill can polish jade.*<br/>
+> —— Classic of Poetry, "The Cranes Cry" (pre-Qin, ~6th c. BCE); translation mine
+
+> This week I did a small piece of engineering and accidentally understood, one layer deeper, how a single person runs an AI company. Sharing it. Method and reflection only, not investment advice.
+
+The thing I felt most this week was not another model topping a leaderboard. It was that I finally stopped wanting to find one strongest model to use.
+
+Because even if a strongest one exists, it will not be strongest at everything. These few days, xAI's **Grok 4.5** got sharp almost overnight. OpenAI's **GPT-5.6** is the best at writing code I have used. And Anthropic's **Claude** is the best at thinking a complex thing through, and the best at being a judge. So why pick one, instead of letting each play its position and forming a team?
+
+So I made Claude the head coach, GPT-5.6 and Grok 4.5 the forwards, and Google's Gemini the specialist for very long documents and second opinions. This is what running that setup for three days taught me.
+
+## Why not just find the one strongest model
+
+Three reasons.
+
+**One, spend where it counts.** The strongest brain is the most expensive. Using it to type out code from a finished spec is a waste. Keep planning and judgment for it, hand execution to cheaper hands.
+
+**Two, each vendor has its own gift.** You would not send your best passer to play goalkeeper. GPT-5.6 writes code steadily, Grok 4.5 has been reasoning hard lately, Claude sees architecture clearest, Gemini swallows long documents without blinking. Forcing one model to cover all of it is like making one person play all five positions the whole game.
+
+**Three, the counterintuitive one: a cross-vendor view catches your blind spots.** Models from the same house make the same kind of mistake. Ask one three times and you get three similar answers, an echo chamber. But a model from a different house pokes holes from an angle you never considered. I made this a rule: for any important judgment, bring in a model from a different company as the red team, not just a different size from the same one. That old line fits exactly: stones from another hill can polish jade.
+
+## The division of labor: coach, forward, keeper
+
+Three stages, simple.
+
+**The expensive brain plans.** For a hard task, let the strongest model interrogate the requirement first: what to build, what the interface looks like, what counts as done, all written into a clear spec. This step costs time and saves every round trip that comes after.
+
+**The cheap hands execute in parallel.** With the spec set, split the work into non-overlapping chunks and hand them to different vendors at once. Two lanes writing in parallel means the wall clock only counts the slowest chunk, not the sum.
+
+**Converge and verify against reality.** At the end I stitch each vendor's output together and run it against the real environment. Not whether they said it was done, whether the thing actually moves.
+
+One metaphor: Claude is the head coach, drawing the plays, making substitutions, ruling on whether the ball went in. GPT-5.6 and Grok 4.5 are the forwards who put it in the net. I am the one who reads the scoreboard last.
+
+## A real example (told in neutral terms)
+
+This week I was adding a feature to a learning site: letting the site's little tutor walk you through the content of a whole textbook, and discuss it across chapters.
+
+- **Plan**: I had Claude's strongest model go back and forth with me until the requirement was fully drained, then write a spec. The key move was nailing down the interface between the two work chunks, like agreeing how the baton gets passed before a relay so nobody drops it.
+- **Parallel execution**: the spec split into two chunks. How the backend organizes the material went to GPT-5.6; how the site connects to it went to Grok 4.5. Both worked at once, each editing its own files, meeting at the agreed interface so they never stepped on each other.
+- **Converge**: I stitched the two outputs together and ran them on the real site.
+- **The surprise**: one lane reported "done," but when I checked, nothing had actually landed. It had tossed the work into the background and called it finished. That "said done, not really done" trap is exactly what the final verify-against-reality step caught, and I filled the gap myself on the spot.
+
+The whole thing: parallel made it faster, cross-vendor made it steadier, verification kept it from shipping broken.
+
+## Three takeaways
+
+**One, nail the interface first or the two collide.** When several people (or models) work in parallel, the danger is two of them touching the same spot. Deciding up front who does which chunk and how they meet saves ten times the effort of merging afterward.
+
+**Two, cheap hands don't make the key calls.** Execution can be outsourced, but "is this right, should we design it this way" stays with the strongest brain. Handing the judge's whistle to a cheap model saves a little and loses the game.
+
+**Three, "said it's done" is not "the thing landed."** The most expensive lesson of my week. AI reports "done" in a tone that puts you at ease, but what it finished is often the trigger, not the result. Always verify against the real environment. Never trust the verbal report alone.
+
+## Closing
+
+This week made me more sure of one thing. The real edge in the AI era is not holding one god-tier model, it is whether you can run a team of AIs well: who plans, who executes, who verifies, cleanly divided, with one more gate that checks the result against reality.
+
+That is why a single person really can run an AI company now. You are not alone. You are a head coach, with OpenAI, xAI, Google, and Anthropic playing for you. The hard part was never finding the strongest player. It is arranging them into a team that wins.
