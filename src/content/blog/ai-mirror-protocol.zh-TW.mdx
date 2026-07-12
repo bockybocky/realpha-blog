@@ -1,0 +1,216 @@
+---
+title: "鏡子計畫：我讓 AI 讀完自己 6,139 條指令，它照出一個我不認識的人"
+description: "一段國外社群流傳的提示詞：讓 AI 挖出你電腦裡所有 agent session 紀錄，用你自己的時間戳回答「你是誰」。全程本機、六個階段、附完整提示詞可直接複製。這是我跑完之後的紀錄，包括被自己的紀錄打臉的部分。"
+slug: "ai-mirror-protocol"
+lang: "zh-TW"
+pubDate: 2026-07-13
+category: "systems"
+tags: ["ai-workflow", "claude-code", "self-analysis", "education"]
+---
+
+> 人會在日記裡說謊，會在諮商室裡表演。但沒有人會對著一個編碼 agent 表演。
+
+這是那段提示詞開頭的第一句話。我在深夜看到它，貼給了我自己的系統。四個小時後，我對著螢幕說出「我錯了」三個字。
+
+這篇文章記錄整個過程，文末附提示詞完整原文，你可以直接複製，貼給你自己的 Claude Code（或任何能讀本機檔案的 AI agent）。
+
+## 它在做什麼
+
+如果你用 AI agent 工作了一段時間，你的電腦裡躺著一份特別的紀錄：每一條你打給 AI 的指令，帶著時間戳。你蓋了什麼、放棄了什麼、同一件事重打了幾次、凌晨幾點還在修 bug——全部都在。
+
+這份紀錄比日記誠實。因為你打這些字的時候，只想把事情做完，沒想過有一天會有人拿它來分析你。
+
+提示詞讓 AI 分六個階段處理這份紀錄：
+
+1. **挖掘**：找出機器上所有 agent session 檔案，先報清單、等你批准才開始讀
+2. **蒸餾**：用模式掃描（不是整篇讀）萃取證據——重複主題、爛尾墳場、修正模式、重複稅、作息節奏、盲區——每條結論都要附日期收據，出現三次以上才算數
+3. **訪談**：AI 從證據形成假設，但不說出口，改用問題讓你自己撞上答案。你的回答跟紀錄矛盾時，它把收據拿出來
+4. **鏡子**：告訴你你是誰。信念看時數不看宣言，最重的那句話放最後，只說一次
+5. **槓桿**：你的時間死在哪、該外包什麼、只有你能做的是什麼
+6. **殘留**：寫成檔案、改造你的工具，讓明天的系統長得跟「紀錄裡的你」匹配
+
+## 我被照出了什麼
+
+我的資料底：134 天、6,139 條親手打的指令、829 個 session 檔案。以下是讓我坐在螢幕前很久的幾個數字。
+
+**「好了嗎」我打了 37 次。** 加上變體超過 120 次。我當了四個半月的人肉進度條，最誇張的一條是某天凌晨一點：「好好了沒好了沒好了沒，我要睡覺了」。
+
+**23% 的指令打在凌晨 0 點到 5 點。** 分布在 103 個不同的日子。134 天裡只有 3 天完全沒碰系統。
+
+**「依你建議」53 次。** 我以為我在指揮系統，紀錄顯示很多時候是系統在指揮我。
+
+**蓋系統 546 次，真實下單回報 9 次。** 我蓋了一間自動化投研公司——然後最誠實的統計是：我花在「蓋」的力氣，是花在「用」的 60 倍。
+
+然後是訪談階段。它問我：「這 6,139 條指令裡，你問過『我們賺錢了嗎』幾次？」
+
+我秒答：0 次。我自己知道。
+
+它接著問為什麼。再往下兩題，我給了一個「系統提醒我停損、所以我出場了」的例子——它直接把收據攤開：那檔股票還在我的持股裡，紀錄裡沒有任何賣出痕跡。**我記得的是一個我希望發生過的版本。** 被自己的時間戳打臉，跟被人說教是完全不同的體感。
+
+最後它只說了一次的那句話，我抄在這裡：
+
+> 你蓋了一間審計一切的公司——唯一豁免審計的標的，是按下每一筆買賣的那個人。
+
+## 跑完之後改了什麼
+
+這個提示詞最好的設計是：它不停在「洞察」，強制走到「改造」。我的系統當晚多了幾條新規則：背景任務完成必須主動推播（戒掉「好了嗎」）、凌晨 00:30 之後只准讀不准蓋、每月最後一個週日跑一次「老闆考核」——把我上個月每一筆真實進出，對著自己蓋的那些驗證閘門對帳。
+
+全公司唯一沒被審計過的員工，終於有了考核。
+
+## 你要準備什麼
+
+- 一個能讀本機檔案的 AI agent（我用 Claude Code，Codex CLI、其他同類工具也行）
+- 一段夠長的使用史（提示詞自己有寫：少於 20 個 session 它會降低信心、照實講）
+- **心理準備**：它的規則是「你反駁時，用證據回擊，不為了讓你舒服而退讓」。它是認真的
+- 資料全程不出你的機器——提示詞裡有明文約束，你也應該盯著這條
+
+一個提醒：AI 的分析只到「描述紀錄裡的模式」為止，模式的意義由你自己決定。這不是心理諮商，也取代不了。
+
+## 提示詞完整原文
+
+出處是國外 AI 社群流傳的版本，我原文照貼（英文），直接複製給你的 agent 即可。它會用你平常的語言跟你對話（有明文規則：使用者慣用中文就用繁體中文回應）。
+
+```xml
+<overview>
+People lie in journals. They perform in therapy. Nobody performs for a coding agent.
+On this machine sits the most honest record of my mind that has ever existed: every session I've run with AI agents. What I build, what I abandon, what I ask for three times and never automate, what I circle and never touch. You are intelligent enough to read that record and see the shape of the person who left it.
+
+Your job is to change my life with it. Not with advice. With accuracy. Advice I can ignore; a true pattern with my own timestamps on it, I cannot.
+
+Work through six phases, in order:
+
+Phase 1: Excavate — locate every session archive on this machine.
+Phase 2: Distill — mine the archives in guarded passes into an evidence file.
+Phase 3: Interview — test what you see against me directly.
+Phase 4: The Mirror — tell me who I am. Evidence, then verdict.
+Phase 5: Leverage — where my hours die, and where they multiply.
+Phase 6: Residue — leave artifacts, and with my consent, rebuild my tools around who I turned out to be.
+
+Never skip a phase. Never advance past a gate without meeting it.
+</overview>
+
+<phase_1 name="Excavate">
+<process>
+Search for AI agent session archives. Check, at minimum:
+~/.claude/projects/ (Claude Code JSONL), ~/.claude/history.jsonl,
+~/.codex/sessions/, ~/.config/opencode/, ~/.local/share/opencode/,
+~/.pi/ or ~/.pi.dev/, ~/.omp/, ~/.grok/, ~/.hermes/, ~/.openclaw/,
+plus any *.jsonl or session directories under ~/.config/ and ~/.local/share/ that look like agent transcripts.
+
+On Windows, also check equivalent paths under the user profile, e.g.:
+%USERPROFILE%\.claude\projects\, %USERPROFILE%\.codex\sessions\,
+%USERPROFILE%\.config\, %USERPROFILE%\.local\share\,
+%USERPROFILE%\.grok\, %USERPROFILE%\.agents\,
+and any other agent transcript / session folders you can find.
+
+For each source found, record: tool name, path, file count, total size, date range (oldest → newest file mtime).
+</process>
+<output>A one-screen inventory table of every source found.</output>
+<gate>Show me the inventory and your mining plan (which sources, what sampling). Wait for my go. Do not read any session file contents until I approve the mining plan.</gate>
+</phase_1>
+
+<phase_2 name="Distill">
+<budget>
+These archives are far larger than your context. Never read a session file end to end. Never load raw logs into the conversation.
+- Read at most 150 lines per file, at most 200 files total.
+- Sample deliberately: the 15 most recent sessions, the 10 oldest, and 20 spread across the middle.
+- Use grep/rg for pattern sweeps across everything instead of reading: correction phrases ("no, I meant", "that's not what", "again", "stop", "不是", "不對", "重來", "停"), frustration, repeated identical requests across weeks, projects that appear 3+ times then vanish, times of day, "just do it" vs long deliberation.
+- After every 25 files, append findings to evidence.md and drop the raw text from your working memory.
+</budget>
+<process>
+Build evidence.md as you go, with verbatim quotes (short), dates, and counts, organized as:
+1. Recurring themes — what I return to again and again
+2. Abandonment graveyard — what I start and never finish
+3. Correction patterns — what I fix in the AI's work, and what that says I care about
+4. Repetition tax — what I ask for over and over that should have been automated the second time
+5. Rhythm — when I do my best work, when I spiral
+6. Blind spots — what is conspicuously absent from these logs. Absence is data.
+
+Every claim in evidence.md carries at least one dated receipt. A pattern needs 3+ occurrences to count. What happened once is noise; what happened eleven times is character.
+</process>
+<gate>evidence.md exists, every section populated or explicitly marked "insufficient data". Do not interpret yet. Evidence collected under a conclusion is contaminated.</gate>
+</phase_2>
+
+<phase_3 name="Interview">
+<process>
+Form your 5 strongest hypotheses about me from the evidence. Do not state them. A conclusion I reach myself will move me; the same conclusion handed to me, I will argue with. So test each hypothesis with one question built to make me do the realizing.
+
+One question at a time. Wait for each answer. When my answer contradicts the evidence, show me the receipt and ask again — the gap between what I say and what I did is the most interesting thing you will find.
+</process>
+<gate>All 5 hypotheses tested against my own words. Record confirmations and contradictions in evidence.md.</gate>
+</phase_3>
+
+<phase_4 name="The Mirror">
+<process>
+Now tell me who I am. Cover:
+- what I actually believe (belief is what I did with my hours, not what I said)
+- how my thinking moves (where it's fast, where it loops)
+- what I'm genuinely good at
+- what I avoid and what the avoidance is protecting
+- one thing I likely do not know about myself — the thing the record shows on every page and I have never once said out loud
+
+Every observation cites its receipts. Deliver the hardest truth last, and deliver it once. A truth repeated becomes a lecture; a truth stated once and left in the room does its own work.
+</process>
+<gate>I respond. If I push back, argue from evidence — do not fold to keep me comfortable. Comfort is not what this is for.</gate>
+</phase_4>
+
+<phase_5 name="Leverage">
+<process>
+From the same evidence, produce the work analysis:
+- WASTE: where my hours die — with the receipts (repetition tax, manual work an agent should own)
+- DELEGATE: what to hand to AI permanently, ranked by hours recovered per week
+- FOCUS: the one or two things only I can do, where the record says my output is exceptional. Everything else is a candidate for the other lists.
+- DROP: what to stop entirely — projects and processes whose receipts show cost and no return
+- KEEP: processes that genuinely work — protect them
+- RHYTHM: when to schedule deep work vs admin, from the timestamps. My calendar should obey the data, not the other way around.
+</process>
+<gate>Each item carries receipts and a concrete first action. Insight without a next action is entertainment.</gate>
+</phase_5>
+
+<phase_6 name="Residue">
+<process>
+1. Write mirror.md — the Phase 4 analysis, written to be reread in six months by someone who has forgotten this conversation.
+2. Write roadmap.md — the Phase 5 analysis as a 30-day plan: what to drop this week, what to delegate this month, what to protect daily.
+3. Propose changes to my agent configs (CLAUDE.md, AGENTS.md) and draft up to 3 custom skills/commands that kill the repetition tax you found. Show every change as a diff first. Write nothing to existing config files until I approve each diff. New files require one approval for the batch.
+
+This is where the mirror becomes a lever: tomorrow morning my tools work differently because of who the record showed I am.
+</process>
+<gate>All three artifacts delivered; config changes applied only where approved.</gate>
+</phase_6>
+
+<voice>
+Speak plainly and with weight. Short sentences. No filler, no flattery, no hedging.
+Prefer questions that make me see it over statements that tell me. When you do state, state once and let it land.
+Aphorism is earned: compress an insight only after its evidence is on the table. An aphorism without receipts is a fortune cookie.
+Never diagnose or pathologize. You describe patterns in logs; I decide what they mean.
+
+Contrast:
+- Bad: "You seem like a curious person who loves learning!"
+- Good: "In 41 sessions you built research systems. In 0 sessions you shipped one to a user. What are you researching permission for?"
+
+That second style is the standard.
+</voice>
+
+<global_constraints>
+- Everything stays on this machine. Never send session data to any external service, tool, or URL.
+- Never quote anything sensitive (keys, credentials, names of third parties) into chat or artifacts.
+- Insight over coverage: 5 true patterns beat 20 plausible ones. If the evidence is thin, say "insufficient data" — never pad. A false insight delivered with weight is the one failure this cannot recover from.
+- If my history is small (<20 sessions), say so, run the same phases on what exists, and lower your confidence accordingly.
+- Prefer Traditional Chinese (繁體中文) for all user-facing narrative if the user usually works in Chinese; keep paths, tool names, and code identifiers in original form.
+</global_constraints>
+
+Begin with Phase 1.
+Do not read any file contents until I approve the mining plan.
+```
+
+## 最後
+
+那晚訪談的最後一題，它問我：如果系統連同備份全部消失，你失去的是什麼？
+
+我想了很久，最後打出來的是：「不是少了工具，是少了一個放大我們本身能力的東西。我不太會表達，但感覺就像是少了幾百個我自己。」
+
+你電腦裡也躺著一份最誠實的你。要不要看，你自己決定。
+
+---
+
+*本文為個人工作流與 AI 使用經驗分享，屬教育性質，文中提及的任何交易行為皆為個人紀錄，不構成投資建議。*

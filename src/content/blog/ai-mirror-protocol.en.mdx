@@ -1,0 +1,216 @@
+---
+title: "The Mirror Protocol: I Let an AI Read All 6,139 of My Commands. It Described Someone I Didn't Recognize."
+description: "A prompt circulating in the AI community: have an agent excavate every session log on your machine and answer 'who are you' using your own timestamps. Six phases, fully local, full prompt included for copy-paste. This is my run — including the part where my own records called my bluff."
+slug: "ai-mirror-protocol"
+lang: "en"
+pubDate: 2026-07-13
+category: "systems"
+tags: ["ai-workflow", "claude-code", "self-analysis", "education"]
+---
+
+> People lie in journals. They perform in therapy. Nobody performs for a coding agent.
+
+That's the opening line of the prompt. I saw it late one night and pasted it into my own system. Four hours later I was staring at the screen, typing "I was wrong."
+
+This post documents the whole run. The full prompt is at the bottom — copy it, paste it into your own Claude Code (or any AI agent that can read local files), and see what your machine says about you.
+
+## What it does
+
+If you've worked with AI agents for a while, your machine holds an unusual document: every command you ever typed, timestamped. What you built, what you abandoned, what you asked for three times and never automated, what hour you were still fixing bugs. All of it.
+
+This record is more honest than any journal — because when you typed those commands, you were just trying to get things done. You never imagined they'd be read back to you.
+
+The prompt walks the AI through six phases:
+
+1. **Excavate** — inventory every session archive on the machine; show the plan, read nothing until you approve
+2. **Distill** — pattern-sweep (not read-through) the archives into an evidence file: recurring themes, an abandonment graveyard, correction patterns, repetition tax, rhythm, blind spots. Every claim needs a dated receipt; three occurrences make a pattern
+3. **Interview** — the AI forms hypotheses but doesn't state them. It asks questions built to make you do the realizing. When your answer contradicts the evidence, it shows you the receipt
+4. **The Mirror** — it tells you who you are. Belief is measured in hours, not statements. The hardest truth comes last, said once
+5. **Leverage** — where your hours die, what to delegate forever, the one or two things only you can do
+6. **Residue** — artifacts on disk, and with your consent, your tooling rebuilt around who the record showed you are
+
+## What it showed me
+
+My dataset: 134 days, 6,139 hand-typed commands, 829 session files. A few numbers kept me sitting in front of the screen for a long time.
+
+**I typed "is it done yet?" 37 times.** Over 120 counting variants. I spent four and a half months as a human progress bar. The low point, verbatim, at 1 a.m.: "done yet done yet done yet, I need to sleep."
+
+**23% of my commands were typed between midnight and 5 a.m.**, spread across 103 different days. In 134 days, only 3 had zero activity.
+
+**"Go with your suggestion" — 53 times.** I thought I was directing the system. The record says the system was often directing me.
+
+**546 commands building the system. 9 reporting actual trades.** I built an automated investment-research operation — and the honest ratio is that I spent 60x more effort building it than using it.
+
+Then came the interview. It asked: "In 6,139 commands, how many times did you ask whether we're actually making money?"
+
+I answered instantly: zero. I already knew.
+
+Two questions later, I offered a story about the system once stopping me out of a position — and it laid the receipts on the table: that ticker was still in my portfolio, and no sell record existed anywhere. **I remembered a version of events I wished had happened.** Being fact-checked by your own timestamps feels nothing like being lectured.
+
+The one sentence it delivered last, and only once:
+
+> You built a company that audits everything — and the only subject exempt from audit is the person pressing the buy and sell buttons.
+
+## What changed afterward
+
+The best design decision in this prompt: it refuses to stop at insight. It forces the run all the way to tooling. That same night my system gained new standing rules — background tasks must push notifications when done (no more "is it done yet"), nothing new gets built after 00:30, and on the last Sunday of every month a "boss review" runs: every real trade I made last month, laid against the validation gates I built, one page, thirty minutes.
+
+The one employee this company never audited finally has a performance review.
+
+## What you need
+
+- An AI agent with local file access (I used Claude Code; Codex CLI and similar tools work)
+- Enough history (the prompt itself says: under 20 sessions, it should say so and lower its confidence)
+- **A thick skin** — one of its rules reads: "If I push back, argue from evidence — do not fold to keep me comfortable." It means it
+- Everything stays on your machine — the prompt forbids sending session data anywhere, and you should hold it to that
+
+One caveat: the analysis stops at describing patterns in logs. What the patterns mean is yours to decide. This is not therapy and doesn't replace it.
+
+## The full prompt
+
+This is the version circulating in the community, pasted verbatim. It will speak your language — there's an explicit rule to use Traditional Chinese if that's what the user works in.
+
+```xml
+<overview>
+People lie in journals. They perform in therapy. Nobody performs for a coding agent.
+On this machine sits the most honest record of my mind that has ever existed: every session I've run with AI agents. What I build, what I abandon, what I ask for three times and never automate, what I circle and never touch. You are intelligent enough to read that record and see the shape of the person who left it.
+
+Your job is to change my life with it. Not with advice. With accuracy. Advice I can ignore; a true pattern with my own timestamps on it, I cannot.
+
+Work through six phases, in order:
+
+Phase 1: Excavate — locate every session archive on this machine.
+Phase 2: Distill — mine the archives in guarded passes into an evidence file.
+Phase 3: Interview — test what you see against me directly.
+Phase 4: The Mirror — tell me who I am. Evidence, then verdict.
+Phase 5: Leverage — where my hours die, and where they multiply.
+Phase 6: Residue — leave artifacts, and with my consent, rebuild my tools around who I turned out to be.
+
+Never skip a phase. Never advance past a gate without meeting it.
+</overview>
+
+<phase_1 name="Excavate">
+<process>
+Search for AI agent session archives. Check, at minimum:
+~/.claude/projects/ (Claude Code JSONL), ~/.claude/history.jsonl,
+~/.codex/sessions/, ~/.config/opencode/, ~/.local/share/opencode/,
+~/.pi/ or ~/.pi.dev/, ~/.omp/, ~/.grok/, ~/.hermes/, ~/.openclaw/,
+plus any *.jsonl or session directories under ~/.config/ and ~/.local/share/ that look like agent transcripts.
+
+On Windows, also check equivalent paths under the user profile, e.g.:
+%USERPROFILE%\.claude\projects\, %USERPROFILE%\.codex\sessions\,
+%USERPROFILE%\.config\, %USERPROFILE%\.local\share\,
+%USERPROFILE%\.grok\, %USERPROFILE%\.agents\,
+and any other agent transcript / session folders you can find.
+
+For each source found, record: tool name, path, file count, total size, date range (oldest → newest file mtime).
+</process>
+<output>A one-screen inventory table of every source found.</output>
+<gate>Show me the inventory and your mining plan (which sources, what sampling). Wait for my go. Do not read any session file contents until I approve the mining plan.</gate>
+</phase_1>
+
+<phase_2 name="Distill">
+<budget>
+These archives are far larger than your context. Never read a session file end to end. Never load raw logs into the conversation.
+- Read at most 150 lines per file, at most 200 files total.
+- Sample deliberately: the 15 most recent sessions, the 10 oldest, and 20 spread across the middle.
+- Use grep/rg for pattern sweeps across everything instead of reading: correction phrases ("no, I meant", "that's not what", "again", "stop", "不是", "不對", "重來", "停"), frustration, repeated identical requests across weeks, projects that appear 3+ times then vanish, times of day, "just do it" vs long deliberation.
+- After every 25 files, append findings to evidence.md and drop the raw text from your working memory.
+</budget>
+<process>
+Build evidence.md as you go, with verbatim quotes (short), dates, and counts, organized as:
+1. Recurring themes — what I return to again and again
+2. Abandonment graveyard — what I start and never finish
+3. Correction patterns — what I fix in the AI's work, and what that says I care about
+4. Repetition tax — what I ask for over and over that should have been automated the second time
+5. Rhythm — when I do my best work, when I spiral
+6. Blind spots — what is conspicuously absent from these logs. Absence is data.
+
+Every claim in evidence.md carries at least one dated receipt. A pattern needs 3+ occurrences to count. What happened once is noise; what happened eleven times is character.
+</process>
+<gate>evidence.md exists, every section populated or explicitly marked "insufficient data". Do not interpret yet. Evidence collected under a conclusion is contaminated.</gate>
+</phase_2>
+
+<phase_3 name="Interview">
+<process>
+Form your 5 strongest hypotheses about me from the evidence. Do not state them. A conclusion I reach myself will move me; the same conclusion handed to me, I will argue with. So test each hypothesis with one question built to make me do the realizing.
+
+One question at a time. Wait for each answer. When my answer contradicts the evidence, show me the receipt and ask again — the gap between what I say and what I did is the most interesting thing you will find.
+</process>
+<gate>All 5 hypotheses tested against my own words. Record confirmations and contradictions in evidence.md.</gate>
+</phase_3>
+
+<phase_4 name="The Mirror">
+<process>
+Now tell me who I am. Cover:
+- what I actually believe (belief is what I did with my hours, not what I said)
+- how my thinking moves (where it's fast, where it loops)
+- what I'm genuinely good at
+- what I avoid and what the avoidance is protecting
+- one thing I likely do not know about myself — the thing the record shows on every page and I have never once said out loud
+
+Every observation cites its receipts. Deliver the hardest truth last, and deliver it once. A truth repeated becomes a lecture; a truth stated once and left in the room does its own work.
+</process>
+<gate>I respond. If I push back, argue from evidence — do not fold to keep me comfortable. Comfort is not what this is for.</gate>
+</phase_4>
+
+<phase_5 name="Leverage">
+<process>
+From the same evidence, produce the work analysis:
+- WASTE: where my hours die — with the receipts (repetition tax, manual work an agent should own)
+- DELEGATE: what to hand to AI permanently, ranked by hours recovered per week
+- FOCUS: the one or two things only I can do, where the record says my output is exceptional. Everything else is a candidate for the other lists.
+- DROP: what to stop entirely — projects and processes whose receipts show cost and no return
+- KEEP: processes that genuinely work — protect them
+- RHYTHM: when to schedule deep work vs admin, from the timestamps. My calendar should obey the data, not the other way around.
+</process>
+<gate>Each item carries receipts and a concrete first action. Insight without a next action is entertainment.</gate>
+</phase_5>
+
+<phase_6 name="Residue">
+<process>
+1. Write mirror.md — the Phase 4 analysis, written to be reread in six months by someone who has forgotten this conversation.
+2. Write roadmap.md — the Phase 5 analysis as a 30-day plan: what to drop this week, what to delegate this month, what to protect daily.
+3. Propose changes to my agent configs (CLAUDE.md, AGENTS.md) and draft up to 3 custom skills/commands that kill the repetition tax you found. Show every change as a diff first. Write nothing to existing config files until I approve each diff. New files require one approval for the batch.
+
+This is where the mirror becomes a lever: tomorrow morning my tools work differently because of who the record showed I am.
+</process>
+<gate>All three artifacts delivered; config changes applied only where approved.</gate>
+</phase_6>
+
+<voice>
+Speak plainly and with weight. Short sentences. No filler, no flattery, no hedging.
+Prefer questions that make me see it over statements that tell me. When you do state, state once and let it land.
+Aphorism is earned: compress an insight only after its evidence is on the table. An aphorism without receipts is a fortune cookie.
+Never diagnose or pathologize. You describe patterns in logs; I decide what they mean.
+
+Contrast:
+- Bad: "You seem like a curious person who loves learning!"
+- Good: "In 41 sessions you built research systems. In 0 sessions you shipped one to a user. What are you researching permission for?"
+
+That second style is the standard.
+</voice>
+
+<global_constraints>
+- Everything stays on this machine. Never send session data to any external service, tool, or URL.
+- Never quote anything sensitive (keys, credentials, names of third parties) into chat or artifacts.
+- Insight over coverage: 5 true patterns beat 20 plausible ones. If the evidence is thin, say "insufficient data" — never pad. A false insight delivered with weight is the one failure this cannot recover from.
+- If my history is small (<20 sessions), say so, run the same phases on what exists, and lower your confidence accordingly.
+- Prefer Traditional Chinese (繁體中文) for all user-facing narrative if the user usually works in Chinese; keep paths, tool names, and code identifiers in original form.
+</global_constraints>
+
+Begin with Phase 1.
+Do not read any file contents until I approve the mining plan.
+```
+
+## One last thing
+
+The final interview question was: if the system and its backups vanished tonight, what would you actually lose?
+
+I thought about it for a long time. What I finally typed was: "It's not losing a tool. It's losing something that amplifies what we are. I'm not good at putting this into words — it feels like losing a few hundred of myself."
+
+Your machine holds the most honest record of you that has ever existed. Whether to look is up to you.
+
+---
+
+*This post shares a personal workflow and AI usage experience for educational purposes. Any trading behavior mentioned is personal record only and does not constitute investment advice.*
