@@ -5,9 +5,9 @@ import path from 'node:path';
 import process from 'node:process';
 
 const DEFAULT_LEDGER = 'src/data/ledger.json';
-const CLAIM_TYPE_ALLOWLIST = new Set(['direction', 'macro_regime', 'relative', 'event']);
+const CLAIM_TYPE_ALLOWLIST = new Set(['direction', 'macro_regime', 'relative', 'event', 'forecast']);
 const JUDGE_MODE_ALLOWLIST = new Set(['machine', 'human']);
-const STATUS_ALLOWLIST = new Set(['aging', 'hit', 'miss', 'undecidable']);
+const STATUS_ALLOWLIST = new Set(['aging', 'hit', 'miss', 'undecidable', 'scored']);
 const SUBJECT_LEVEL_ALLOWLIST = new Set([
   'index',
   'market_index',
@@ -97,6 +97,186 @@ function isObject(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 }
 
+function taipeiTodayYmd() {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Taipei',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date());
+  const get = (type) => parts.find((part) => part.type === type)?.value;
+  return `${get('year')}-${get('month')}-${get('day')}`;
+}
+
+function isValidYmd(value) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value ?? ''));
+  if (!match) return false;
+  const [, year, month, day] = match.map(Number);
+  const parsed = new Date(Date.UTC(year, month - 1, day));
+  return parsed.getUTCFullYear() === year
+    && parsed.getUTCMonth() === month - 1
+    && parsed.getUTCDate() === day;
+}
+
+function assignCardId(card, existingLedger) {
+  if (String(card.card_id ?? '').trim()) return;
+  const year = taipeiTodayYmd().slice(0, 4);
+  const prefix = `LJ-${year}-`;
+  const latest = existingLedger.reduce((max, entry) => {
+    const id = String(entry.card_id ?? '');
+    if (!id.startsWith(prefix)) return max;
+    const sequence = Number(id.slice(prefix.length));
+    return Number.isInteger(sequence) ? Math.max(max, sequence) : max;
+  }, 0);
+  card.card_id = `${prefix}${String(latest + 1).padStart(4, '0')}`;
+}
+
+function forbiddenScenarioField(value) {
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const found = forbiddenScenarioField(item);
+      if (found) return found;
+    }
+    return '';
+  }
+  if (!isObject(value)) return '';
+  for (const [key, nested] of Object.entries(value)) {
+    const normalized = key.toLowerCase().replace(/[\s_-]+/g, '');
+    if (normalized.includes('playbook')
+      || (normalized.includes('counter') && normalized.includes('strateg'))
+      || key.includes('對策')
+      || key.includes('錦囊')) {
+      return key;
+    }
+    const found = forbiddenScenarioField(nested);
+    if (found) return found;
+  }
+  return '';
+}
+
+function validateForecast(card, errors) {
+  if (card.judge_mode !== 'machine') {
+    errors.push('拒收：forecast 卡的 judge_mode 必須是 machine。');
+  }
+
+  const subjectLevel = normalizeLevel(card.subject?.level ?? card.subject?.subject_level ?? card.subject?.type);
+  if (subjectLevel !== 'index') {
+    errors.push('拒收：forecast 卡的 subject.level 必須是 index，禁止個股 forecast。');
+  }
+  const symbols = card.subject?.symbols;
+  if (!Array.isArray(symbols) || symbols.length !== 1 || typeof symbols[0] !== 'string' || !symbols[0].startsWith('^')) {
+    errors.push('拒收：forecast 卡的 subject.symbols 必須只含一個 ^ 開頭的指數代號。');
+  }
+
+  if (!isValidYmd(card.deadline) || String(card.deadline) <= taipeiTodayYmd()) {
+    errors.push('拒收：forecast 卡的 deadline 必須是未來日期。');
+  }
+
+  const scenarios = card.scenarios;
+  if (!Array.isArray(scenarios) || scenarios.length < 2 || scenarios.length > 5) {
+    errors.push('拒收：forecast 卡的 scenarios 必須有 2 至 5 個情境。');
+    return;
+  }
+
+  const forbidden = forbiddenScenarioField(scenarios);
+  if (forbidden) {
+    errors.push(`拒收：scenarios 內不得出現 playbook 或對策欄位（發現 ${forbidden}）。`);
+  }
+
+  const ids = new Set();
+  let probabilityTotal = 0;
+  let rangesValid = true;
+  for (const [index, scenario] of scenarios.entries()) {
+    if (!isObject(scenario)) {
+      errors.push(`拒收：scenarios[${index}] 必須是 object。`);
+      rangesValid = false;
+      continue;
+    }
+    const allowedFields = new Set(['id', 'label', 'prob_pct', 'close_range', 'narrative']);
+    const unexpected = Object.keys(scenario).filter((key) => !allowedFields.has(key));
+    if (unexpected.length > 0) {
+      errors.push(`拒收：scenarios[${index}] 含未允許欄位：${unexpected.join(', ')}。`);
+    }
+    if (!scenario.id || typeof scenario.id !== 'string' || ids.has(scenario.id)) {
+      errors.push(`拒收：scenarios[${index}].id 必須是非空且不重複的字串。`);
+    } else {
+      ids.add(scenario.id);
+    }
+    if (!scenario.label || typeof scenario.label !== 'string') {
+      errors.push(`拒收：scenarios[${index}].label 必須是非空字串。`);
+    }
+    if (!scenario.narrative || typeof scenario.narrative !== 'string') {
+      errors.push(`拒收：scenarios[${index}].narrative 必須是非空字串。`);
+    }
+    if (!Number.isInteger(scenario.prob_pct)) {
+      errors.push(`拒收：scenarios[${index}].prob_pct 必須是整數。`);
+    } else {
+      probabilityTotal += scenario.prob_pct;
+    }
+
+    const range = scenario.close_range;
+    if (!isObject(range)) {
+      errors.push(`拒收：scenarios[${index}].close_range 必須是 {lo, hi}。`);
+      rangesValid = false;
+      continue;
+    }
+    for (const endpoint of ['lo', 'hi']) {
+      const value = range[endpoint];
+      if (value !== null && (typeof value !== 'number' || !Number.isFinite(value))) {
+        errors.push(`拒收：scenarios[${index}].close_range.${endpoint} 必須是有限數字或 null。`);
+        rangesValid = false;
+      }
+    }
+    if (range.lo !== null && range.hi !== null && range.lo >= range.hi) {
+      errors.push(`拒收：scenarios[${index}] 的 close_range 必須滿足 lo < hi。`);
+      rangesValid = false;
+    }
+  }
+
+  if (probabilityTotal !== 100) {
+    errors.push(`拒收：forecast 情境 prob_pct 加總必須恰為 100，目前為 ${probabilityTotal}。`);
+  }
+
+  if (rangesValid) {
+    const sorted = [...scenarios].sort((left, right) => {
+      const leftLo = left.close_range.lo;
+      const rightLo = right.close_range.lo;
+      if (leftLo === null) return rightLo === null ? 0 : -1;
+      if (rightLo === null) return 1;
+      return leftLo - rightLo;
+    });
+    if (sorted[0].close_range.lo !== null || sorted.at(-1).close_range.hi !== null) {
+      errors.push('拒收：forecast close_range 必須窮盡；排序後首段 lo=null、末段 hi=null。');
+    }
+    for (let index = 0; index < sorted.length - 1; index += 1) {
+      if (sorted[index].close_range.hi !== sorted[index + 1].close_range.lo) {
+        errors.push(`拒收：forecast close_range 必須互斥且無縫；排序後第 ${index + 1} 段 hi 必須等於下一段 lo。`);
+      }
+    }
+  }
+
+  const symbol = Array.isArray(symbols) ? symbols[0] : '';
+  const rule = card.criterion?.machine_rule;
+  if (!isObject(rule)
+    || rule.metric !== 'scenario_partition'
+    || rule.subject_symbol !== symbol
+    || rule.observation !== 'weekly_close_on_deadline') {
+    errors.push('拒收：forecast criterion.machine_rule 必須鎖定 scenario_partition、subject_symbol 與 weekly_close_on_deadline。');
+  }
+
+  const expectedCriterion = {
+    indicator: `${symbol} 於 deadline 當日或前一有效交易日收盤`,
+    threshold: '情境分段見 scenarios（互斥且窮盡）',
+    benchmark: '機率校準制（Brier），無二元對照',
+    data_source: `yfinance ${symbol} close`,
+  };
+  for (const [field, expected] of Object.entries(expectedCriterion)) {
+    if (card.criterion?.[field] !== expected) {
+      errors.push(`拒收：forecast criterion.${field} 必須是「${expected}」。`);
+    }
+  }
+}
+
 function copyCriterionAliases(card) {
   if (!isObject(card.criterion)) return;
   for (const [field, alias] of CRITERION_FIELDS) {
@@ -109,6 +289,7 @@ function copyCriterionAliases(card) {
 function validateCard(rawCard, existingLedger) {
   const errors = [];
   const card = structuredClone(rawCard);
+  assignCardId(card, existingLedger);
   copyCriterionAliases(card);
 
   if (!/^LJ-\d{4}-\d{4}$/.test(String(card.card_id ?? ''))) {
@@ -120,9 +301,9 @@ function validateCard(rawCard, existingLedger) {
   }
 
   if (card.claim_type === 'target_price') {
-    errors.push('拒收：claim_type=target_price 是目標價/喊單類型，帳本只允許 direction|macro_regime|relative|event。');
+    errors.push('拒收：claim_type=target_price 是目標價/喊單類型，帳本只允許 direction|macro_regime|relative|event|forecast。');
   } else if (!CLAIM_TYPE_ALLOWLIST.has(card.claim_type)) {
-    errors.push(`拒收：claim_type=${String(card.claim_type)} 不在白名單 direction|macro_regime|relative|event。`);
+    errors.push(`拒收：claim_type=${String(card.claim_type)} 不在白名單 direction|macro_regime|relative|event|forecast。`);
   }
 
   if (card.author_class !== 'internal') {
@@ -152,10 +333,14 @@ function validateCard(rawCard, existingLedger) {
     errors.push(`拒收：judge_mode=${String(card.judge_mode)} 不在 machine|human。`);
   }
   if (!STATUS_ALLOWLIST.has(card.status ?? 'aging')) {
-    errors.push(`拒收：status=${String(card.status)} 不在 aging|hit|miss|undecidable。`);
+    errors.push(`拒收：status=${String(card.status)} 不在 aging|hit|miss|undecidable|scored。`);
   }
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(card.deadline ?? ''))) {
+  if (!isValidYmd(card.deadline)) {
     errors.push('拒收：deadline 必須是 YYYY-MM-DD。');
+  }
+
+  if (card.claim_type === 'forecast') {
+    validateForecast(card, errors);
   }
 
   if (!isObject(card.criterion)) {

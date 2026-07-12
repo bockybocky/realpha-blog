@@ -1,9 +1,40 @@
 ---
 import LedgerCard from '../components/LedgerCard.astro';
+import LedgerDiscussion from '../components/LedgerDiscussion.astro';
 import LedgerFilters from '../components/LedgerFilters.astro';
 import LedgerStats from '../components/LedgerStats.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import ledgerCards from '../data/ledger.json';
+import { absoluteUrl, site } from '../lib/site';
+
+interface ForecastScenario {
+  id: string;
+  label: string;
+  prob_pct: number;
+  close_range: { lo: number | null; hi: number | null };
+  narrative: string;
+}
+
+interface LedgerCardData {
+  card_id: string;
+  claim: string;
+  title: string;
+  claim_type: string;
+  judge_mode: string;
+  criterion: {
+    indicator: string;
+    threshold: string;
+    deadline: string;
+    benchmark: string;
+    data_source: string;
+  };
+  committed_at: string;
+  deadline: string;
+  status: string;
+  verdict: string | Record<string, any>;
+  is_sample: boolean;
+  scenarios?: ForecastScenario[];
+}
 
 const locale = 'zh-TW';
 
@@ -19,11 +50,95 @@ function taipeiYmd(date: Date) {
 }
 
 const todayYmd = taipeiYmd(new Date());
-const cards = [...ledgerCards].sort((a, b) => {
+const cards = ([...ledgerCards] as LedgerCardData[]).sort((a, b) => {
   const left = b.committed_at || b.deadline || b.card_id;
   const right = a.committed_at || a.deadline || a.card_id;
   return left.localeCompare(right);
 });
+
+function ymdTime(value: string) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+  const [year, month, day] = value.split('-').map(Number);
+  return Date.UTC(year, month - 1, day);
+}
+
+function daysUntil(value: string) {
+  const target = ymdTime(value);
+  const today = ymdTime(todayYmd);
+  if (target === null || today === null) return null;
+  return Math.ceil((target - today) / 86_400_000);
+}
+
+function dayBadge(value: number | null) {
+  if (value === null) return '';
+  return value >= 0 ? `D-${value}` : `D+${Math.abs(value)}`;
+}
+
+function formatYmd(value: string) {
+  const time = ymdTime(value);
+  if (time === null) return value || '未填';
+  return new Intl.DateTimeFormat('zh-TW', {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+  }).format(new Date(time));
+}
+
+function formatDateTime(value: string) {
+  if (!value) return '以 git commit timestamp 為準';
+  return new Intl.DateTimeFormat('zh-TW', {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).format(new Date(value));
+}
+
+function formatNumber(value: number) {
+  return new Intl.NumberFormat('zh-TW', { maximumFractionDigits: 4 }).format(value);
+}
+
+function formatRange(range: ForecastScenario['close_range']) {
+  if (range.lo === null) return `${formatNumber(range.hi as number)} 以下（含）`;
+  if (range.hi === null) return `高於 ${formatNumber(range.lo)}`;
+  return `高於 ${formatNumber(range.lo)}、${formatNumber(range.hi)} 以下（含）`;
+}
+
+function verdictObject(card: LedgerCardData) {
+  return card.verdict && typeof card.verdict === 'object' ? card.verdict : null;
+}
+
+function verdictSummary(card: LedgerCardData) {
+  return typeof card.verdict === 'string' ? card.verdict : String(verdictObject(card)?.summary ?? '');
+}
+
+function forecastJsonLd(card: LedgerCardData) {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ClaimReview',
+    '@id': absoluteUrl(`/ledger/#${card.card_id}`),
+    url: absoluteUrl(`/ledger/#${card.card_id}`),
+    claimReviewed: card.claim,
+    datePublished: card.committed_at || undefined,
+    author: {
+      '@type': 'Organization',
+      name: site.org,
+      url: absoluteUrl('/'),
+    },
+    itemReviewed: {
+      '@type': 'Claim',
+      text: card.claim,
+      datePublished: card.committed_at || undefined,
+      author: {
+        '@type': 'Organization',
+        name: site.org,
+        url: absoluteUrl('/'),
+      },
+    },
+  });
+}
 ---
 
 <SiteLayout
@@ -45,7 +160,88 @@ const cards = [...ledgerCards].sort((a, b) => {
     <LedgerFilters cards={cards} />
 
     <section class="ledger-list" aria-label="判讀卡列表">
-      {cards.map((card) => <LedgerCard card={card} todayYmd={todayYmd} />)}
+      {cards.map((card) => card.claim_type === 'forecast' ? (
+        <article class={`forecast-card status-${card.status}`} id={card.card_id} data-ledger-card data-status={card.status}>
+          <script type="application/ld+json" set:html={forecastJsonLd(card)}></script>
+          <header class="forecast-header">
+            <div class="badge-row" aria-label="卡片狀態">
+              {card.is_sample && <span class="badge sample">示意卡</span>}
+              <span class={`badge state state-${card.status}`}>
+                {card.status === 'scored' ? '已評分' : card.status === 'aging' ? '熟成中' : '條件未成立'}
+              </span>
+              <span class="badge judge">🤖 機器判定</span>
+              <span class="badge type">機率預報</span>
+            </div>
+            <div class="title-row">
+              <p class="card-id">{card.card_id}</p>
+              <h2>{card.title}</h2>
+            </div>
+            <p class="claim">{card.claim}</p>
+          </header>
+
+          <div class="scenario-table-wrap">
+            <table class="scenario-table">
+              <caption>公證情境與機率</caption>
+              <thead>
+                <tr>
+                  <th scope="col">情境</th>
+                  <th scope="col">機率</th>
+                  <th scope="col">收盤區間</th>
+                </tr>
+              </thead>
+              <tbody>
+                {(card.scenarios ?? []).map((scenario) => {
+                  const realized = verdictObject(card)?.realized_scenario_id === scenario.id;
+                  return (
+                    <tr class:list={{ realized }}>
+                      <th scope="row">
+                        {scenario.label}
+                        {realized && <span class="realized-mark">已實現</span>}
+                      </th>
+                      <td>{scenario.prob_pct}%</td>
+                      <td>{formatRange(scenario.close_range)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+
+          <dl class="criterion-grid">
+            <div><dt>指標</dt><dd>{card.criterion.indicator}</dd></div>
+            <div><dt>門檻</dt><dd>{card.criterion.threshold}</dd></div>
+            <div>
+              <dt>期限</dt>
+              <dd>
+                <time datetime={card.deadline}>{formatYmd(card.deadline)}</time>
+                {card.status === 'aging' && <span class="inline-count">{dayBadge(daysUntil(card.deadline))}</span>}
+              </dd>
+            </div>
+            <div><dt>基準</dt><dd>{card.criterion.benchmark}</dd></div>
+            <div><dt>資料源</dt><dd>{card.criterion.data_source}</dd></div>
+            <div><dt>公證</dt><dd>{formatDateTime(card.committed_at)}</dd></div>
+          </dl>
+
+          <section class="forecast-verdict" id={`${card.card_id}-verdict`} aria-label="開獎結果">
+            {card.status === 'aging' && (
+              <p>這張機率預報卡仍在熟成期，距期限 <strong>{dayBadge(daysUntil(card.deadline))}</strong>；期限前不改口、不刪文。</p>
+            )}
+            {card.status === 'scored' && (
+              <div class="scored-result">
+                <p>{verdictSummary(card)}</p>
+                <span class="brier-chip">本卡 Brier {Number(verdictObject(card)?.brier).toFixed(3)}</span>
+              </div>
+            )}
+            {card.status === 'undecidable' && (
+              <p>{verdictSummary(card) || '情境區間無法對應實際收盤，已轉交人工覆核。'}</p>
+            )}
+          </section>
+
+          <LedgerDiscussion cardId={card.card_id} />
+        </article>
+      ) : (
+        <LedgerCard card={card as any} todayYmd={todayYmd} />
+      ))}
     </section>
   </main>
 </SiteLayout>
@@ -81,5 +277,225 @@ const cards = [...ledgerCards].sort((a, b) => {
     display: grid;
     gap: 1rem;
     padding-bottom: 1rem;
+  }
+
+  .forecast-card {
+    display: grid;
+    gap: 1.15rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: clamp(1rem, 3vw, 1.35rem);
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--paper) 95%, transparent), color-mix(in srgb, var(--soft) 52%, var(--paper))),
+      var(--paper);
+    box-shadow: var(--shadow-rest);
+  }
+
+  .forecast-card.status-scored {
+    border-color: color-mix(in srgb, #16a34a 34%, var(--line));
+  }
+
+  .forecast-card.status-undecidable {
+    border-color: color-mix(in srgb, #ca8a04 34%, var(--line));
+  }
+
+  .forecast-header {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.75rem;
+    border: 1px solid var(--line);
+    border-radius: 2rem;
+    padding: 0.16rem 0.6rem;
+    color: var(--muted);
+    background: color-mix(in srgb, var(--paper) 72%, var(--soft));
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .sample {
+    border-color: color-mix(in srgb, #d97706 42%, var(--line));
+    color: color-mix(in srgb, #b45309 82%, var(--text));
+  }
+
+  .state-aging {
+    border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
+    color: var(--accent-strong);
+  }
+
+  .state-scored {
+    border-color: color-mix(in srgb, #16a34a 42%, var(--line));
+    color: #15803d;
+  }
+
+  .state-undecidable {
+    border-color: color-mix(in srgb, #ca8a04 42%, var(--line));
+    color: #a16207;
+  }
+
+  .title-row {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .card-id {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .claim {
+    max-width: 72ch;
+    margin: 0;
+    color: color-mix(in srgb, var(--text) 88%, var(--muted));
+    font-size: 1.03rem;
+    text-wrap: pretty;
+  }
+
+  .scenario-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+
+  .scenario-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .scenario-table caption {
+    padding: 0.75rem 0.85rem 0.45rem;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .scenario-table th,
+  .scenario-table td {
+    border-top: 1px solid var(--line);
+    padding: 0.72rem 0.85rem;
+    text-align: left;
+  }
+
+  .scenario-table thead th {
+    color: var(--muted);
+    font-size: 0.78rem;
+  }
+
+  .scenario-table tbody th {
+    font-weight: 650;
+  }
+
+  .scenario-table tr.realized {
+    background: color-mix(in srgb, #16a34a 12%, var(--paper));
+  }
+
+  .realized-mark,
+  .brier-chip,
+  .inline-count {
+    display: inline-flex;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .realized-mark {
+    margin-left: 0.45rem;
+    padding: 0.05rem 0.4rem;
+    background: color-mix(in srgb, #16a34a 16%, var(--paper));
+    color: #15803d;
+  }
+
+  .criterion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 0;
+  }
+
+  .criterion-grid div {
+    min-width: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 0.7rem;
+  }
+
+  dt {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  dd {
+    margin: 0.18rem 0 0;
+    color: var(--text);
+    overflow-wrap: anywhere;
+  }
+
+  .inline-count {
+    margin-left: 0.45rem;
+    padding: 0.05rem 0.45rem;
+    background: var(--accent-tint);
+    color: var(--accent-strong);
+  }
+
+  .forecast-verdict {
+    border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--line));
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem;
+    background: color-mix(in srgb, var(--paper) 76%, var(--accent-tint));
+  }
+
+  .forecast-verdict p {
+    margin: 0;
+    color: color-mix(in srgb, var(--text) 86%, var(--muted));
+  }
+
+  .scored-result {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .brier-chip {
+    width: max-content;
+    max-width: 100%;
+    border: 1px solid color-mix(in srgb, #16a34a 34%, var(--line));
+    padding: 0.28rem 0.7rem;
+    background: color-mix(in srgb, #16a34a 10%, var(--paper));
+    color: #15803d;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 720px) {
+    .criterion-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .scenario-table th,
+    .scenario-table td {
+      min-width: 8rem;
+    }
   }
 </style>

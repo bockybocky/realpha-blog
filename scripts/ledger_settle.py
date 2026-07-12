@@ -7,7 +7,7 @@ import sys
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 
 DEFAULT_LEDGER = Path("src/data/ledger.json")
@@ -43,6 +43,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--ledger", type=Path, default=DEFAULT_LEDGER, help="Path to ledger.json")
     parser.add_argument("--today", default=None, help="Override today's date as YYYY-MM-DD")
     parser.add_argument("--inbox", type=Path, default=DEFAULT_INBOX, help="Iris inbox directory for human reminders")
+    parser.add_argument("--self-test", action="store_true", help="Run forecast settlement unit tests without network access")
     return parser.parse_args()
 
 
@@ -66,7 +67,7 @@ def is_due(card: dict[str, Any], today: date) -> bool:
     if card.get("status") != "aging":
         return False
     deadline = parse_day(str(card.get("deadline", "")))
-    return deadline < today
+    return deadline <= today
 
 
 def import_yfinance():
@@ -146,6 +147,109 @@ def fetch_price_points(symbols: list[str], start: date, end: date) -> dict[str, 
     return points
 
 
+def fetch_deadline_close(symbol: str, deadline: date) -> tuple[str, float]:
+    point = fetch_price_points([symbol], deadline - timedelta(days=10), deadline)[symbol]
+    return point.end_date, point.end_close
+
+
+def scenario_contains(scenario: dict[str, Any], close: float) -> bool:
+    close_range = scenario.get("close_range") or {}
+    lo = close_range.get("lo")
+    hi = close_range.get("hi")
+    return (lo is None or float(lo) < close) and (hi is None or close <= float(hi))
+
+
+def forecast_brier(scenarios: list[dict[str, Any]], realized_id: str) -> float:
+    score = 0.0
+    for scenario in scenarios:
+        probability = float(scenario.get("prob_pct")) / 100.0
+        observed = 1.0 if str(scenario.get("id")) == realized_id else 0.0
+        score += (probability - observed) ** 2
+    return round(score, 3)
+
+
+def cumulative_forecast_brier(ledger: list[dict[str, Any]]) -> tuple[float, int]:
+    values: list[float] = []
+    for card in ledger:
+        if card.get("claim_type") != "forecast" or card.get("status") != "scored":
+            continue
+        verdict = card.get("verdict") or {}
+        if isinstance(verdict, dict) and isinstance(verdict.get("brier"), (int, float)):
+            values.append(float(verdict["brier"]))
+    if not values:
+        raise ValueError("no scored forecast Brier values found")
+    return round(sum(values) / len(values), 3), len(values)
+
+
+def display_number(value: float) -> str:
+    return f"{value:.4f}".rstrip("0").rstrip(".")
+
+
+def settle_forecast(
+    card: dict[str, Any],
+    today: date,
+    ledger: list[dict[str, Any]],
+    close_fetcher: Callable[[str, date], tuple[str, float]] = fetch_deadline_close,
+) -> dict[str, Any]:
+    criterion = card.get("criterion") or {}
+    rule = criterion.get("machine_rule") or {}
+    if not isinstance(rule, dict):
+        raise ValueError(f"{card.get('card_id')} missing criterion.machine_rule")
+    if rule.get("metric") != "scenario_partition":
+        raise ValueError(f"{card.get('card_id')} forecast metric must be scenario_partition")
+
+    symbol = str(rule.get("subject_symbol") or "")
+    if not symbol:
+        raise ValueError(f"{card.get('card_id')} missing machine_rule.subject_symbol")
+    deadline = parse_day(str(card.get("deadline")))
+    close_date, close = close_fetcher(symbol, deadline)
+    scenarios = card.get("scenarios")
+    if not isinstance(scenarios, list):
+        raise ValueError(f"{card.get('card_id')} missing scenarios")
+
+    realized = next((scenario for scenario in scenarios if scenario_contains(scenario, close)), None)
+    if realized is None:
+        card["status"] = "undecidable"
+        card["verdict"] = {
+            "settled_at": today.isoformat(),
+            "judge_mode": "machine",
+            "outcome": "undecidable",
+            "summary": (
+                f"機器無法裁決：{symbol} 於 {close_date} 收盤 {display_number(close)}，"
+                "但沒有任何公證情境區間包含該收盤值，已轉交人工覆核。"
+            ),
+            "actual_close": close,
+            "close_date": close_date,
+        }
+        return card
+
+    realized_id = str(realized.get("id"))
+    brier = forecast_brier(scenarios, realized_id)
+    card["status"] = "scored"
+    card["replay_ready_at"] = ""
+    card["verdict"] = {
+        "settled_at": today.isoformat(),
+        "judge_mode": "machine",
+        "outcome": "scored",
+        "realized_scenario_id": realized_id,
+        "realized_scenario_label": str(realized.get("label")),
+        "actual_close": close,
+        "close_date": close_date,
+        "assigned_prob_pct": int(realized.get("prob_pct")),
+        "brier": brier,
+    }
+    cumulative_average, cumulative_n = cumulative_forecast_brier(ledger)
+    card["verdict"]["cumulative_brier_avg"] = cumulative_average
+    card["verdict"]["cumulative_n"] = cumulative_n
+    card["verdict"]["summary"] = (
+        f"機器判定：實現情境「{realized.get('label')}」，{symbol} 於 {close_date} 收盤 "
+        f"{display_number(close)}，當初賦予機率 {int(realized.get('prob_pct'))}%，"
+        f"本卡 Brier {brier:.3f}。"
+        f"全站 forecast 卡累積 Brier 平均 {cumulative_average:.3f}（n={cumulative_n}）。"
+    )
+    return card
+
+
 def compare(value: float, operator: str, threshold: float, upper: float | None = None) -> bool:
     if operator == "gt":
         return value > threshold
@@ -166,7 +270,15 @@ def pct(value: float) -> str:
     return f"{value * 100.0:.2f}%"
 
 
-def settle_machine(card: dict[str, Any], today: date) -> dict[str, Any]:
+def settle_machine(
+    card: dict[str, Any],
+    today: date,
+    ledger: list[dict[str, Any]] | None = None,
+    forecast_close_fetcher: Callable[[str, date], tuple[str, float]] = fetch_deadline_close,
+) -> dict[str, Any]:
+    if card.get("claim_type") == "forecast":
+        return settle_forecast(card, today, ledger or [card], forecast_close_fetcher)
+
     criterion = card.get("criterion") or {}
     rule = criterion.get("machine_rule") or {}
     if not isinstance(rule, dict):
@@ -264,14 +376,71 @@ def write_human_reminder(card: dict[str, Any], inbox: Path, today: date) -> bool
         f"- 基準: {criterion.get('benchmark')}",
         f"- 資料源: {criterion.get('data_source')}",
         "",
-        "請 Charles 依公證判準裁決 hit / miss / undecidable，並附裁決理由全文；原 verdict 不得覆寫。",
+        (
+            "請 Charles 覆核 forecast 情境分割與收盤資料，裁決後附理由全文；原 verdict 不得覆寫。"
+            if card.get("claim_type") == "forecast"
+            else "請 Charles 依公證判準裁決 hit / miss / undecidable，並附裁決理由全文；原 verdict 不得覆寫。"
+        ),
     ]
     reminder_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return True
 
 
+def run_forecast_self_test() -> int:
+    scenarios = [
+        {"id": "s1", "label": "低檔", "prob_pct": 20, "close_range": {"lo": None, "hi": 100}, "narrative": "低檔情境"},
+        {"id": "s2", "label": "中段", "prob_pct": 50, "close_range": {"lo": 100, "hi": 200}, "narrative": "中段情境"},
+        {"id": "s3", "label": "高檔", "prob_pct": 30, "close_range": {"lo": 200, "hi": None}, "narrative": "高檔情境"},
+    ]
+    cases = [
+        (50.0, "s1", 0.98),
+        (100.0, "s1", 0.98),
+        (150.0, "s2", 0.38),
+        (200.0, "s2", 0.38),
+        (250.0, "s3", 0.78),
+    ]
+    for index, (close, expected_id, expected_brier) in enumerate(cases, start=1):
+        card = {
+            "card_id": f"LJ-2099-{index:04d}",
+            "claim_type": "forecast",
+            "judge_mode": "machine",
+            "deadline": "2099-12-18",
+            "scenarios": scenarios,
+            "criterion": {
+                "machine_rule": {
+                    "metric": "scenario_partition",
+                    "subject_symbol": "^GSPC",
+                    "observation": "weekly_close_on_deadline",
+                }
+            },
+            "status": "aging",
+            "verdict": "",
+        }
+
+        def mock_close(_symbol: str, _deadline: date, value: float = close) -> tuple[str, float]:
+            return "2099-12-18", value
+
+        settle_machine(card, date(2099, 12, 18), [card], mock_close)
+        verdict = card.get("verdict") or {}
+        actual_id = verdict.get("realized_scenario_id")
+        actual_brier = verdict.get("brier")
+        assert card.get("status") == "scored"
+        assert actual_id == expected_id, (close, actual_id, expected_id)
+        assert actual_brier == expected_brier, (close, actual_brier, expected_brier)
+        assert verdict.get("cumulative_brier_avg") == expected_brier
+        assert verdict.get("cumulative_n") == 1
+        print(
+            f"forecast_settlement: close={display_number(close)} "
+            f"realized={actual_id} brier={actual_brier:.3f} passed"
+        )
+    print("forecast_settlement: all scenario and boundary cases passed")
+    return 0
+
+
 def main() -> int:
     args = parse_args()
+    if args.self_test:
+        return run_forecast_self_test()
     today = parse_day(args.today) if args.today else date.today()
     ledger = load_ledger(args.ledger)
     changed = False
@@ -289,8 +458,12 @@ def main() -> int:
 
         if card.get("judge_mode") == "machine":
             try:
-                settle_machine(card, today)
-                machine_settled += 1
+                settle_machine(card, today, ledger)
+                if card.get("status") == "undecidable":
+                    if write_human_reminder(card, args.inbox, today):
+                        human_reminded += 1
+                else:
+                    machine_settled += 1
                 changed = True
             except Exception as exc:  # yfinance/network/data errors should surface to cron.
                 errors.append(f"{card.get('card_id')}: machine settlement failed: {exc}")
