@@ -447,19 +447,31 @@ select {
 	font-variant-numeric: tabular-nums;
 }
 
+/* 長程式碼收進固定高度視窗：牆變窗；按鈕掛在不捲動的 wrapper 右上角 */
+.code-wrap {
+	position: relative;
+}
+
+.prose .code-block {
+	max-height: min(30rem, 70vh);
+	overflow-y: auto;
+}
+
 .copy-code {
-	position: sticky;
-	left: 100%;
-	top: 0.25rem;
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
 	z-index: 2;
-	min-width: 4.2rem;
-	border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+	min-width: 4.6rem;
+	border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
 	border-radius: var(--radius);
-	padding: 0.25rem 0.45rem;
-	background: color-mix(in srgb, var(--accent) 22%, var(--code-bg));
+	padding: 0.3rem 0.6rem;
+	background: color-mix(in srgb, var(--accent) 38%, var(--code-bg));
 	color: white;
 	cursor: pointer;
-	font-size: 0.78rem;
+	font-size: 0.8rem;
+	font-weight: 600;
+	box-shadow: 0 1px 6px rgb(0 0 0 / 0.35);
 	transition: background 0.2s ease, transform 0.1s ease;
 }
 

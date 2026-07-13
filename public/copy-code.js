@@ -1,6 +1,6 @@
 (() => {
 	async function copyText(button) {
-		const container = button.closest('pre, .source-panel');
+		const container = button.closest('.code-wrap, pre, .source-panel');
 		const code = container?.querySelector('code');
 		const text = code?.innerText?.trimEnd() ?? '';
 		if (!text) return;
