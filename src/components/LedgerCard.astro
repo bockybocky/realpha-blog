@@ -16,6 +16,12 @@ interface LedgerCriterion {
   data_source: string;
 }
 
+interface LedgerPlain {
+  what: string;
+  win: string;
+  lose: string;
+}
+
 interface LedgerCardData {
   card_id: string;
   claim: string;
@@ -33,6 +39,7 @@ interface LedgerCardData {
   replay_ready_at: string;
   author_class: 'internal';
   is_sample: boolean;
+  plain?: LedgerPlain;
 }
 
 interface Props {
@@ -42,18 +49,18 @@ interface Props {
 
 const { card, todayYmd } = Astro.props;
 const statusLabels = {
-  aging: '熟成中',
-  hit: '命中',
-  miss: '證偽',
-  undecidable: '條件未成立',
+  aging: '等開獎',
+  hit: '說中了',
+  miss: '沒說中',
+  undecidable: '無法判定',
 };
 const claimTypeLabels = {
-  direction: '方向',
-  macro_regime: '總經 regime',
+  direction: '漲跌方向',
+  macro_regime: '大環境',
   relative: '相對強弱',
   event: '事件',
 };
-const judgeLabel = card.judge_mode === 'machine' ? '🤖 機器判定' : '👤 人工判定';
+const judgeLabel = card.judge_mode === 'machine' ? '🤖 電腦自動對答案' : '👤 人工評判';
 const verdictObject = card.verdict && typeof card.verdict === 'object' ? card.verdict : null;
 const verdictSummary = typeof card.verdict === 'string' ? card.verdict : (verdictObject?.summary ?? '');
 const l2Benchmark = (verdictObject?.l2_benchmark && typeof verdictObject.l2_benchmark === 'object'
@@ -151,66 +158,84 @@ const jsonLd = JSON.stringify(claimReview);
       <p class="card-id">{card.card_id}</p>
       <h2>{card.title}</h2>
     </div>
-    <p class="claim">{card.claim}</p>
+    {!card.plain && <p class="claim">{card.claim}</p>}
   </header>
 
-  <dl class="criterion-grid">
-    <div>
-      <dt>指標</dt>
-      <dd>{card.criterion.indicator}</dd>
+  {card.plain && (
+    <div class="plain-block" aria-label="白話說明">
+      <p class="plain-what">{card.plain.what}</p>
+      <div class="plain-rules">
+        <p><span class="rule-mark win">✓ 怎麼算說中</span>{card.plain.win}</p>
+        <p><span class="rule-mark lose">✗ 怎麼算說錯</span>{card.plain.lose}</p>
+      </div>
     </div>
-    <div>
-      <dt>門檻</dt>
-      <dd>{card.criterion.threshold}</dd>
-    </div>
-    <div>
-      <dt>期限</dt>
-      <dd>
-        <time datetime={card.deadline}>{formatYmd(card.deadline)}</time>
-        {card.status === 'aging' && deadlineDays !== null && <span class="inline-count">{dayBadge(deadlineDays)}</span>}
-      </dd>
-    </div>
-    <div>
-      <dt>基準</dt>
-      <dd>{card.criterion.benchmark}</dd>
-    </div>
-    <div>
-      <dt>資料源</dt>
-      <dd>{card.criterion.data_source}</dd>
-    </div>
-    <div>
-      <dt>公證</dt>
-      <dd>{formatDateTime(card.committed_at)}</dd>
-    </div>
-  </dl>
+  )}
+
+  <p class="deadline-line">
+    <span class="deadline-label">📅 開獎日</span>
+    <time datetime={card.deadline}>{formatYmd(card.deadline)}</time>
+    {card.status === 'aging' && deadlineDays !== null && <span class="inline-count">還有 {deadlineDays} 天</span>}
+  </p>
+
+  <details class="notary">
+    <summary>📜 公證原文與技術判準（登記當下寫死、之後不可改，供任何人查帳）</summary>
+    <p class="claim">{card.claim}</p>
+    <dl class="criterion-grid">
+      <div>
+        <dt>看什麼數字</dt>
+        <dd>{card.criterion.indicator}</dd>
+      </div>
+      <div>
+        <dt>過線標準</dt>
+        <dd>{card.criterion.threshold}</dd>
+      </div>
+      <div>
+        <dt>期限</dt>
+        <dd><time datetime={card.deadline}>{formatYmd(card.deadline)}</time></dd>
+      </div>
+      <div>
+        <dt>跟誰比</dt>
+        <dd>{card.criterion.benchmark}</dd>
+      </div>
+      <div>
+        <dt>數據來源</dt>
+        <dd>{card.criterion.data_source}</dd>
+      </div>
+      <div>
+        <dt>登記時間</dt>
+        <dd>{formatDateTime(card.committed_at)}</dd>
+      </div>
+    </dl>
+  </details>
 
   <section class="verdict" id={`${card.card_id}-verdict`} aria-label="開獎結果">
     {card.status === 'aging' && (
-      <p>這張卡仍在熟成期，期限前不改口、不刪文。</p>
+      <p>還沒到開獎日。開獎前我們不改口、不刪文——這張卡的內容從登記那一刻起就鎖死了。</p>
     )}
 
     {card.status === 'miss' && (
       <div class="result-block">
-        <p>{verdictSummary || '此卡已證偽，復盤內容公開可讀。'}</p>
-        <a class="replay-link" href={missReplayHref}>證偽復盤：免費閱讀</a>
+        <p>{verdictSummary || '這張卡沒說中。哪裡想錯了，檢討全文公開。'}</p>
+        <a class="replay-link" href={missReplayHref}>認錯檢討：免費閱讀</a>
       </div>
     )}
 
     {card.status === 'hit' && (
       <div class="result-block">
-        <p>{verdictSummary || '此卡已命中，深度復盤仍在第二次熟成期。'}</p>
+        <p>{verdictSummary || '這張卡說中了。完整檢討稍後公開（先冷卻一段時間，避免馬後炮式的自誇）。'}</p>
         <span class="replay-hold">
-          深度復盤：{replayDays !== null && replayDays > 0 ? `熟成中 ${dayBadge(replayDays)}` : '已熟成'}
+          深度檢討：{replayDays !== null && replayDays > 0 ? `${replayDays} 天後公開` : '已公開'}
         </span>
       </div>
     )}
 
     {card.status === 'undecidable' && (
-      <p>{verdictSummary || '條件未成立，保留原始判準與裁決理由。'}</p>
+      <p>{verdictSummary || '這張卡的前提條件沒有發生，無法判定對錯。原始判準與理由照樣保留。'}</p>
     )}
 
     {l2Benchmark.length > 0 && (
-      <div class="benchmark-strip" aria-label="L2 基準對照">
+      <div class="benchmark-strip" aria-label="同期大盤對照">
+        <span class="benchmark-note">同一段時間大盤表現（對照用）：</span>
         {l2Benchmark.map((row) => (
           <div>
             <span>{row.symbol}</span>
@@ -330,6 +355,95 @@ const jsonLd = JSON.stringify(claimReview);
     color: color-mix(in srgb, var(--text) 88%, var(--muted));
     font-size: 1.03rem;
     text-wrap: pretty;
+  }
+
+  .plain-block {
+    display: grid;
+    gap: 0.7rem;
+    border-left: 3px solid color-mix(in srgb, var(--accent) 55%, transparent);
+    padding: 0.15rem 0 0.15rem 0.85rem;
+  }
+
+  .plain-what {
+    margin: 0;
+    font-size: 1.06rem;
+    line-height: 1.75;
+    color: var(--text);
+    text-wrap: pretty;
+  }
+
+  .plain-rules {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .plain-rules p {
+    margin: 0;
+    color: color-mix(in srgb, var(--text) 86%, var(--muted));
+    line-height: 1.7;
+  }
+
+  .rule-mark {
+    display: inline-block;
+    margin-right: 0.45rem;
+    border-radius: 999px;
+    padding: 0.05rem 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .rule-mark.win {
+    background: color-mix(in srgb, #16a34a 14%, var(--paper));
+    color: #15803d;
+  }
+
+  .rule-mark.lose {
+    background: color-mix(in srgb, #dc2626 12%, var(--paper));
+    color: #b91c1c;
+  }
+
+  .deadline-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .deadline-label {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .notary {
+    border: 1px dashed var(--line);
+    border-radius: var(--radius);
+    padding: 0.6rem 0.85rem;
+  }
+
+  .notary summary {
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  .notary[open] summary {
+    margin-bottom: 0.75rem;
+  }
+
+  .notary .claim {
+    margin-bottom: 0.85rem;
+  }
+
+  .benchmark-note {
+    display: block;
+    width: 100%;
+    color: var(--muted);
+    font-size: 0.82rem;
   }
 
   .criterion-grid {

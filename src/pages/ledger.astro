@@ -153,7 +153,7 @@ function forecastJsonLd(card: LedgerCardData) {
     <header class="ledger-hero">
       <p class="eyebrow">公開驗證</p>
       <h1 class="page-title">驗證簿</h1>
-      <p class="lead">每張判讀卡發表當下就鎖死主張、判準、期限與資料源，到期用數據驗證——通過與被推翻並列，樣本不夠也照樣亮出來，錯的置頂認錯。</p>
+      <p class="lead">我們把每一個市場判斷寫成一張卡：<strong>當下就寫死「賭什麼、怎麼算說中、哪天開獎」</strong>，之後一個字都不能改。時間到，用真實數據對答案——說中和說錯都留在這裡，說錯的還會公開檢討。你可以把這頁當成我們的成績單：先看說錯的怎麼認錯，再決定要不要信說中的。</p>
     </header>
 
     <LedgerStats cards={cards} />
@@ -167,16 +167,20 @@ function forecastJsonLd(card: LedgerCardData) {
             <div class="badge-row" aria-label="卡片狀態">
               {card.is_sample && <span class="badge sample">示意卡</span>}
               <span class={`badge state state-${card.status}`}>
-                {card.status === 'scored' ? '已評分' : card.status === 'aging' ? '熟成中' : '條件未成立'}
+                {card.status === 'scored' ? '已開獎' : card.status === 'aging' ? '等開獎' : '無法判定'}
               </span>
-              <span class="badge judge">🤖 機器判定</span>
+              <span class="badge judge">🤖 電腦自動對答案</span>
               <span class="badge type">機率預報</span>
             </div>
             <div class="title-row">
               <p class="card-id">{card.card_id}</p>
               <h2>{card.title}</h2>
             </div>
-            <p class="claim">{card.claim}</p>
+            <p class="forecast-plain">這種卡不押單一答案，而是先寫下每種走勢發生的機率（下表）。開獎後看實際落在哪個情境，並用「Brier 分數」檢驗我們給的機率準不準——分數越低越準，亂猜大約是 0.25。</p>
+            <details class="notary">
+              <summary>📜 公證原文（登記當下寫死、之後不可改，供任何人查帳）</summary>
+              <p class="claim">{card.claim}</p>
+            </details>
           </header>
 
           <div class="scenario-table-wrap">
@@ -208,32 +212,32 @@ function forecastJsonLd(card: LedgerCardData) {
           </div>
 
           <dl class="criterion-grid">
-            <div><dt>指標</dt><dd>{card.criterion.indicator}</dd></div>
-            <div><dt>門檻</dt><dd>{card.criterion.threshold}</dd></div>
+            <div><dt>看什麼數字</dt><dd>{card.criterion.indicator}</dd></div>
+            <div><dt>過線標準</dt><dd>{card.criterion.threshold}</dd></div>
             <div>
-              <dt>期限</dt>
+              <dt>開獎日</dt>
               <dd>
                 <time datetime={card.deadline}>{formatYmd(card.deadline)}</time>
-                {card.status === 'aging' && <span class="inline-count">{dayBadge(daysUntil(card.deadline))}</span>}
+                {card.status === 'aging' && <span class="inline-count">還有 {daysUntil(card.deadline)} 天</span>}
               </dd>
             </div>
-            <div><dt>基準</dt><dd>{card.criterion.benchmark}</dd></div>
-            <div><dt>資料源</dt><dd>{card.criterion.data_source}</dd></div>
-            <div><dt>公證</dt><dd>{formatDateTime(card.committed_at)}</dd></div>
+            <div><dt>跟誰比</dt><dd>{card.criterion.benchmark}</dd></div>
+            <div><dt>數據來源</dt><dd>{card.criterion.data_source}</dd></div>
+            <div><dt>登記時間</dt><dd>{formatDateTime(card.committed_at)}</dd></div>
           </dl>
 
           <section class="forecast-verdict" id={`${card.card_id}-verdict`} aria-label="開獎結果">
             {card.status === 'aging' && (
-              <p>這張機率預報卡仍在熟成期，距期限 <strong>{dayBadge(daysUntil(card.deadline))}</strong>；期限前不改口、不刪文。</p>
+              <p>還沒到開獎日（還有 <strong>{daysUntil(card.deadline)}</strong> 天）。開獎前我們不改口、不刪文。</p>
             )}
             {card.status === 'scored' && (
               <div class="scored-result">
                 <p>{verdictSummary(card)}</p>
-                <span class="brier-chip">本卡 Brier {Number(verdictObject(card)?.brier).toFixed(3)}</span>
+                <span class="brier-chip">準度分數（Brier）{Number(verdictObject(card)?.brier).toFixed(3)}，越低越準（亂猜約 0.25）</span>
               </div>
             )}
             {card.status === 'undecidable' && (
-              <p>{verdictSummary(card) || '情境區間無法對應實際收盤，已轉交人工覆核。'}</p>
+              <p>{verdictSummary(card) || '實際收盤對不上任何一個預先寫好的情境區間，這張卡無法判定，轉人工覆核。'}</p>
             )}
           </section>
 
@@ -277,6 +281,34 @@ function forecastJsonLd(card: LedgerCardData) {
     display: grid;
     gap: 1rem;
     padding-bottom: 1rem;
+  }
+
+  .forecast-plain {
+    max-width: 72ch;
+    margin: 0;
+    border-left: 3px solid color-mix(in srgb, var(--accent) 55%, transparent);
+    padding-left: 0.85rem;
+    color: var(--text);
+    font-size: 1.03rem;
+    line-height: 1.75;
+    text-wrap: pretty;
+  }
+
+  .notary {
+    border: 1px dashed var(--line);
+    border-radius: var(--radius);
+    padding: 0.6rem 0.85rem;
+  }
+
+  .notary summary {
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  .notary[open] summary {
+    margin-bottom: 0.75rem;
   }
 
   .forecast-card {
