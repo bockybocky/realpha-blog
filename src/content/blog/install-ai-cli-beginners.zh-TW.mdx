@@ -1,0 +1,269 @@
+---
+title: "Claude Code / Codex / Grok / Antigravity 安裝教學：零基礎、Mac＋Windows 一步一步"
+description: "完全沒碰過終端機也能跟著裝。手把手教你在 Mac 與 Windows 安裝四個桌面版 AI 命令列工具（Claude Code、Codex、Grok Build、Antigravity agy）：怎麼開終端機、複製貼上哪一行、裝完怎麼登入怎麼用，還有新手最常卡的坑。挑你訂的那一個裝就好。教學文。"
+slug: "install-ai-cli-beginners"
+lang: "zh-TW"
+pubDate: 2026-07-17
+category: "tech"
+tags: ["claude-code", "codex", "grok", "antigravity", "cli", "tutorial", "beginner", "education"]
+tldr: "訂了 AI 卻不會裝電腦版？這篇手把手：① 先教你在 Mac／Windows 開終端機（含 Windows 四種終端機怎麼選、怎麼開 PowerShell）；② 四個工具（Claude Code／Codex／Grok／agy）各自獨立一段，挑你訂的那個複製貼上就裝好；③ 裝完怎麼登入、怎麼用中文叫它做事；④ 新手最常卡的坑（PATH、SmartScreen、執行原則、防毒、怎麼確認裝好沒）。四個挑一個裝就好，不用全裝。"
+---
+
+> 這篇寫給**完全沒碰過終端機、看到黑色視窗會怕**的人。你訂了哪一個 AI 工具，就跟著那一段一步一步複製貼上，就能在電腦上裝好、開始用。**四個（Claude Code / Codex / Grok / Antigravity）挑一個裝就好，不用全裝。** Mac、Windows 都有；不同終端機也都講清楚。
+
+---
+
+## 先搞懂三個名詞（30 秒）
+
+- **終端機（Terminal）**：一個可以打字下指令給電腦的黑色（或白色）視窗。你等一下所有動作，都是「在終端機裡貼一行字、按 Enter」。
+- **CLI**：Command Line Interface，命令列。就是「用打字、而不是點滑鼠」來操作程式。
+- **AI 命令列助手**：像 Claude Code 這種，你在終端機裡用**自然語言**（中文也行）叫它幫你寫程式、改檔案、查資料，它會自己動手做。
+
+**你不需要會寫程式。** 你只需要會「複製一行指令、貼進終端機、按 Enter」。
+
+---
+
+## 第 0 步：先打開終端機
+
+### 🍎 Mac
+
+- **內建終端機**：按 `Command + 空白鍵` 打開 Spotlight，輸入 `Terminal`（終端機），按 Enter。
+- **想更好用（選配）**：可以裝 [iTerm2](https://iterm2.com/)（免費，功能更多），但**內建的就完全夠用**，新手直接用內建。
+
+### 🪟 Windows（請放心，一步一步來）
+
+Windows 的「終端機」有好幾種，名字很像、很容易搞混。先看這張表，知道各是什麼、什麼時候用哪個就好，**不用全部背**：
+
+| 終端機名稱 | 它是什麼 | 這篇什麼時候用它 |
+|---|---|---|
+| **PowerShell** | Windows 內建的藍色（或黑色）視窗 | 裝 Claude Code、Codex、agy 都用它 ✅ |
+| **Windows Terminal** | 比較新、比較漂亮的外殼，裡面一樣能開 PowerShell | 有就用，沒有也沒差 |
+| **Git Bash** | 讓 Windows 也能跑 Mac/Linux 指令的視窗（要另外裝） | 這篇四個工具都用不到（進階才會用） |
+| **命令提示字元（cmd）** | 很舊的黑色視窗 | 這篇用不到，別選它 |
+
+**新手只要記一句：這篇 Windows 全部都開「PowerShell」就好。**（另外還有 Git Bash、WSL 等進階終端機，新手先完全不用管。）
+
+#### 怎麼打開 PowerShell（跟著做，一步都別跳）
+
+1. 按鍵盤左下角的 **開始鍵**（有 Windows 田字標誌那顆），或用滑鼠點螢幕左下角的開始按鈕。
+2. **直接用鍵盤打字**：`powershell`（不用先點任何框，打了它就會自己開始搜尋）。
+3. 畫面上方會出現「**Windows PowerShell**」的圖示（一個藍色、有 `>_` 符號的圖案）。**用滑鼠點它一下**。
+4. 跳出一個藍色（或黑色）的視窗、裡面有游標在閃 → **成功了！這就是「終端機」**。等一下所有指令都是貼進這個視窗、按 Enter。
+
+> 💡 **關於「系統管理員」**：這篇大部分步驟**不需要**管理員權限，直接照上面開就好。萬一某一步真的叫你要管理員，再回到第 3 步時：對「Windows PowerShell」圖示**按滑鼠右鍵 → 選「以系統管理員身分執行」**。
+>
+> 💡 **怎麼把指令貼進 PowerShell**：先在網頁上複製指令，滑鼠移到 PowerShell 視窗裡面，**按一下右鍵**就會自動貼上（或按鍵盤 `Ctrl + V`），再按 Enter。
+
+---
+
+## 先挑你要裝的那一個（重要）
+
+**你不用四個都裝——挑你已經訂閱的那一個，往下找那一段跟著做就好：**
+
+- 我訂了 **Claude（Anthropic）** → 看〈安裝 Claude Code〉
+- 我訂了 **ChatGPT（OpenAI）** → 看〈安裝 Codex CLI〉
+- 我訂了 **Grok / SuperGrok（xAI）** → 看〈安裝 Grok CLI〉
+- 我用 **Google（Gemini／Antigravity）** → 看〈安裝 agy〉
+
+下面每一段都是**完整獨立**的，跟著你那一段做完、能打字叫它做事，就結束了。四個用法幾乎一樣，會一個就會用全部。
+
+> ⚠️ **開始前兩個小提醒：**
+> - **安全**：安裝指令會「下載並直接執行」網路上的東西，所以**只從本文列出的官方網址複製指令**，別從搜尋廣告、論壇、來路不明的貼文複製「安裝指令」（那可能是假的）。
+> - **系統太舊可能裝不上**：大致要 macOS 13 以上 ／ Windows 10 以上；太舊的電腦可能裝到一半失敗。
+
+---
+
+## 安裝 Claude Code（Anthropic）
+
+Claude Code 是 Anthropic 出的 AI 命令列助手。有**兩種裝法**，新手用第一種就好。
+
+### 方法 A：官方安裝器（推薦，不用先裝別的東西）
+
+這種方式**不需要先裝 Node.js**，它會自己處理好一切，還會自動更新。
+
+**🍎 Mac / Linux** — 打開終端機，貼上這行按 Enter：
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+**🪟 Windows（一步一步，別跳）：**
+
+1. 照前面「怎麼打開 PowerShell」開好那個藍色視窗。
+2. 複製下面這一整行，滑鼠移到 PowerShell 視窗裡**按右鍵**貼上（或 `Ctrl + V`），按 **Enter**：
+
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+3. 它會開始自己下載、安裝，畫面會跑一堆字，**你什麼都不用做，等它跑完、出現一個新的游標在閃**就好（大約 1–2 分鐘，慢一點正常）。
+
+裝完後（Mac、Windows 都一樣）：**把這個終端機視窗整個關掉，重新打開一個新的**（很重要，不然它認不得剛裝好的指令），在新視窗輸入：
+
+```bash
+claude
+```
+
+第一次執行，它會自動跳出瀏覽器要你**登入你已訂閱的 Claude 帳號**，照著點一點就完成。
+
+### 方法 B：用 npm 安裝（進階／已經有 Node.js 的人）
+
+如果你之後想寫程式，或已經裝過 Node.js，可以用這種。**需要 Node.js 22 以上版本。**
+
+先確認有沒有 Node（在終端機輸入）：
+
+```bash
+node --version
+```
+
+沒有的話，去 [nodejs.org](https://nodejs.org/) 下載「LTS」版裝好。有了之後：
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+> ⚠️ **不要**在前面加 `sudo`。如果出現權限錯誤，正確做法是改用 nvm（把 Node 裝在你自己的資料夾），不要用系統管理員硬裝。
+
+### 裝好之後怎麼用（第一次上手）
+
+1. 先建一個**乾淨的練習資料夾**再進去（不要直接在桌面、文件、或放機密的資料夾裡跑）：
+   - Mac：`mkdir -p ~/Desktop/ai-practice && cd ~/Desktop/ai-practice`
+   - Windows：`mkdir $HOME\Desktop\ai-practice ; cd $HOME\Desktop\ai-practice`
+2. 輸入 `claude` 進入。
+3. 直接用**中文**打你要它做的事，例如：
+   - 「幫我在這個資料夾建一個簡單的網頁，標題寫『我的第一頁』」
+   - 「這個資料夾在幹嘛？用白話解釋給我聽」
+4. 它會提出計畫、動手改檔案，**做重要動作前會問你同不同意——看清楚再答應，別無腦一直按「全部允許」**。
+5. 常用：打 `/help` 看指令、`/clear` 清空重來、`/exit` 離開。
+
+**裝好了，這樣你就會用了。** 如果你只訂 Claude，到這裡就結束，不用往下看其他工具。
+
+---
+
+## 安裝 Codex CLI（OpenAI）
+
+Codex 是 OpenAI 的 AI 命令列助手，工程能力很強。
+
+**🍎 Mac / Linux（推薦，最簡單）** — 貼上這行按 Enter：
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+**🍎 Mac（已經裝過 Homebrew 的人才用這個）：**
+
+```bash
+brew install --cask codex
+```
+
+> ⚠️ 沒裝過 Homebrew 的話，這行會顯示 `brew: command not found`——新手直接用上面那行官方腳本就好，不用碰 Homebrew。
+
+**🪟 Windows** — 照前面「怎麼打開 PowerShell」開好視窗，貼上這一整行按 Enter：
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
+```
+
+**用 npm（跨平台，需先裝 Node.js，建議裝最新 LTS 版）：**
+
+```bash
+npm install -g @openai/codex
+```
+
+裝完關掉終端機重開，輸入：
+
+```bash
+codex
+```
+
+第一次會要你**用你已訂閱的 ChatGPT 帳號登入**（瀏覽器點一下）。
+
+- **小技巧**：在一個 **git 資料夾**裡跑 Codex，改動比較好追蹤、還原——但注意 git 只能還原「已經提交」的檔案，不是萬能復原，重要資料自己先另外備份。
+- **怎麼用**：進到你的資料夾輸入 `codex`，直接打**中文**叫它做事（例：「幫我在這個資料夾建一個簡單網頁」）；打 `/` 看指令、`/exit` 離開。
+
+---
+
+## 安裝 Grok CLI（xAI，叫 Grok Build）
+
+Grok Build 是 xAI（馬斯克的 AI 公司）出的，底層是 Grok 4.5。
+
+**🍎 Mac / Linux** — 打開終端機，貼上這行按 Enter：
+
+```bash
+curl -fsSL https://x.ai/cli/install.sh | bash
+```
+
+**🪟 Windows** — 照前面「怎麼打開 PowerShell」開好視窗，貼上這行按 Enter：
+
+```powershell
+irm https://x.ai/cli/install.ps1 | iex
+```
+
+裝完關掉終端機重開，到你的資料夾輸入：
+
+```bash
+grok
+```
+
+第一次會打開瀏覽器要你登入（用你付費的 xAI 帳號）。
+
+- **怎麼用**：進到你的資料夾輸入 `grok`，直接打**中文**叫它做事；打 `/` 看指令、`/exit` 離開。
+
+---
+
+## 安裝 agy（Google Antigravity CLI）
+
+`agy` 是 Google 出的 AI 命令列助手，是舊「Gemini CLI」的接班人（Gemini CLI 已於 2026 年退役）。它是**單一執行檔，不需要 Node 或 Python**。
+
+**🍎 Mac / Linux：**
+
+```bash
+curl -fsSL https://antigravity.google/cli/install.sh | bash
+```
+
+**🪟 Windows** — 照前面「怎麼打開 PowerShell」開好視窗，貼上這行按 Enter：
+
+```powershell
+irm https://antigravity.google/cli/install.ps1 | iex
+```
+
+裝完關掉終端機重開，輸入：
+
+```bash
+agy
+```
+
+第一次執行會**自動用你的 Google 帳號登入**，跟著畫面點一點就好。如果你以前用過 Gemini CLI，它會自動幫你把舊設定搬過來。
+
+- 開新對話：`agy`；接續上一次對話：`agy -c`。
+- **怎麼用**：進到你的資料夾輸入 `agy`，直接打**中文**叫它做事。
+
+---
+
+## 懶人總表
+
+| 工具 | 出品 | 安裝難度 |
+|---|---|---|
+| **Claude Code** | Anthropic | ⭐ 最簡單 |
+| **Codex CLI** | OpenAI | ⭐ 簡單 |
+| **Grok CLI** | xAI | ⭐ 簡單 |
+| **agy** | Google | ⭐ 簡單 |
+
+**一句話**：你訂了哪個就裝哪個。四個都是「在終端機打自然語言叫它做事」，會用一個就會用全部。
+
+---
+
+## 常見卡關（新手必看）
+
+- **找不到指令 / command not found**：先把終端機整個關掉、重開一個新的（新指令要重開才生效）。還是找不到，多半是「PATH 沒設好」：Mac 打 `command -v claude`、Windows 打 `Get-Command claude`（其他工具換名字）看找不找得到；照安裝完顯示的路徑把它加進 PATH 再重開。
+- **裝完怎麼確認成功？**：打 `claude --version`（或換成你裝的 `codex` / `grok` / `agy`），**有跳出版本號才算裝好**；只跳紅色錯誤字＝沒成功，別當作好了。
+- **Windows 出現藍色「Windows 已保護你的電腦」（SmartScreen）**：點「其他資訊」→「仍要執行」。（只在你是從本文的官方網址安裝時才這樣做。）
+- **Windows 說「無法載入腳本／執行原則限制」**：先在 PowerShell 貼 `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` 按 Enter、輸入 `Y`，再重跑安裝指令。
+- **Mac 跳「要安裝命令列工具」或「無法驗證開發者」**：前者按「安裝」同意；後者到「系統設定 →『隱私權與安全性』」按「仍要打開」。
+- **公司電腦／防毒把下載擋掉**：**不要**關掉防毒；交給公司 IT，或換自己的電腦裝。
+- **叫我加 sudo？**：只有 Mac/Linux 用 npm 全域安裝才會遇到權限問題，**不要**用 `sudo` 硬裝（照官方建議用 nvm）；Windows 沒有 sudo。
+- **登入視窗沒跳出來**：把終端機顯示的那串網址複製、貼到瀏覽器打開；並確認瀏覽器已經登入你「付費的那個帳號」。
+
+---
+
+*這篇之後可能會更新（這些工具版本更新很快）。安裝前若指令跑不動，以各家官方頁為準：[Claude Code](https://code.claude.com/docs/en/setup)、[Codex](https://developers.openai.com/codex/cli)、[Grok Build](https://x.ai/cli)、[Antigravity](https://antigravity.google/docs/cli-install)。*

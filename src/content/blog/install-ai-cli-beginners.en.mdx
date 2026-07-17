@@ -1,0 +1,269 @@
+---
+title: "How to Install Claude Code / Codex / Grok / Antigravity: A Beginner's Step-by-Step (Mac + Windows)"
+description: "Never touched a terminal? You can still follow this. Step-by-step install for four desktop AI command-line tools (Claude Code, Codex, Grok Build, Antigravity agy) on Mac and Windows: how to open the terminal, which line to paste, how to log in and use it, and the mistakes beginners hit most. Pick the one you already pay for. Tutorial."
+slug: "install-ai-cli-beginners"
+lang: "en"
+pubDate: 2026-07-17
+category: "tech"
+tags: ["claude-code", "codex", "grok", "antigravity", "cli", "tutorial", "beginner", "education"]
+tldr: "Paying for an AI tool but stuck on installing the desktop version? Hand-held guide: (1) how to open a terminal on Mac/Windows (including which of Windows' several terminals to pick and how to open PowerShell); (2) four tools (Claude Code / Codex / Grok / agy), each its own standalone section — pick the one you subscribe to and paste one line; (3) how to log in and drive it in plain language; (4) the traps beginners hit most (PATH, SmartScreen, execution policy, antivirus, confirming it actually installed). Install one, not all four."
+---
+
+> This one is for people who have **never touched a terminal and get nervous at a black window**. Whichever AI tool you pay for, jump to that section, paste along step by step, and you'll have it installed and running. **Pick one of the four (Claude Code / Codex / Grok / Antigravity) — you don't need all of them.** Mac and Windows are both covered, and I explain the different terminals too.
+
+---
+
+## Three words to get straight first (30 seconds)
+
+- **Terminal**: a black (or white) window where you type commands to your computer. Everything below is just "paste one line into the terminal and press Enter."
+- **CLI**: Command Line Interface. Operating a program by typing instead of clicking.
+- **AI command-line assistant**: something like Claude Code, where you type a request in **plain language** (your own language is fine) in the terminal and it goes and writes code, edits files, or looks things up for you.
+
+**You don't need to know how to program.** You only need to "copy one line, paste it into the terminal, press Enter."
+
+---
+
+## Step 0: Open a terminal first
+
+### 🍎 Mac
+
+- **Built-in Terminal**: press `Command + Space` to open Spotlight, type `Terminal`, press Enter.
+- **A nicer option (optional)**: you can install [iTerm2](https://iterm2.com/) (free, more features), but **the built-in one is more than enough** — beginners, just use the built-in.
+
+### 🪟 Windows (relax, one step at a time)
+
+Windows has several "terminals" and the names look alike, so they're easy to mix up. Read this table once, know what each is and when to use which — **you don't need to memorize it all**:
+
+| Terminal | What it is | When this guide uses it |
+|---|---|---|
+| **PowerShell** | Windows' built-in blue (or black) window | Installing Claude Code, Codex, agy all use this ✅ |
+| **Windows Terminal** | A newer, prettier shell that can also open PowerShell inside it | Use it if you have it; no difference if you don't |
+| **Git Bash** | A window that lets Windows run Mac/Linux commands (installed separately) | None of the four tools here need it (advanced use only) |
+| **Command Prompt (cmd)** | A very old black window | Not used here; don't pick it |
+
+**Beginners only need one sentence: on Windows, open "PowerShell" for everything here.** (There are also advanced terminals like Git Bash and WSL — ignore them for now.)
+
+#### How to open PowerShell (follow along, don't skip a step)
+
+1. Press the **Start key** on your keyboard (the one with the Windows logo), or click the Start button at the bottom-left of the screen.
+2. **Just type on the keyboard**: `powershell` (no need to click any box first — typing starts the search).
+3. At the top you'll see the "**Windows PowerShell**" icon (a blue icon with a `>_` symbol). **Click it once.**
+4. A blue (or black) window opens with a blinking cursor → **done, this is the "terminal."** Every command below gets pasted into this window and run with Enter.
+
+> 💡 **About "Administrator"**: most steps here **do not** need admin rights, just open it normally. If some step really asks for admin, go back to step 3 and instead **right-click the "Windows PowerShell" icon → "Run as administrator."**
+>
+> 💡 **How to paste a command into PowerShell**: copy the command from the web page, move your mouse into the PowerShell window, and **right-click once** to paste (or press `Ctrl + V`), then press Enter.
+
+---
+
+## Pick the one you want to install (important)
+
+**You don't install all four — pick the one you already subscribe to and find that section below:**
+
+- I pay for **Claude (Anthropic)** → see 〈Install Claude Code〉
+- I pay for **ChatGPT (OpenAI)** → see 〈Install Codex CLI〉
+- I pay for **Grok / SuperGrok (xAI)** → see 〈Install Grok CLI〉
+- I use **Google (Gemini / Antigravity)** → see 〈Install agy〉
+
+Each section below is **fully self-contained** — finish your section, get it typing back to you, and you're done. All four work almost the same way; learn one and you can use them all.
+
+> ⚠️ **Two reminders before you start:**
+> - **Safety**: these install commands "download and run something from the internet directly," so **only copy commands from the official URLs listed in this article**. Don't copy "install commands" from search ads, forums, or random posts — those can be fake.
+> - **Too old a system may not install**: roughly you need macOS 13+ / Windows 10+; a very old machine may fail partway.
+
+---
+
+## Install Claude Code (Anthropic)
+
+Claude Code is Anthropic's AI command-line assistant. There are **two ways** to install it — beginners, use the first.
+
+### Method A: official installer (recommended, nothing else to install first)
+
+This way **does not need Node.js first** — it sets everything up itself and even auto-updates.
+
+**🍎 Mac / Linux** — open the terminal, paste this line and press Enter:
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+**🪟 Windows (step by step, don't skip):**
+
+1. Open that blue window with "How to open PowerShell" above.
+2. Copy the whole line below, move your mouse into the PowerShell window, **right-click** to paste (or `Ctrl + V`), and press **Enter**:
+
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+3. It starts downloading and installing on its own; text scrolls by. **You don't need to do anything — just wait until it finishes and a fresh cursor is blinking** (about 1–2 minutes; slower is fine).
+
+After it's installed (same on Mac and Windows): **close this terminal window entirely and open a new one** (important, or it won't recognize the command you just installed), then in the new window type:
+
+```bash
+claude
+```
+
+The first time, it pops open your browser to **log in to the Claude account you already pay for** — click through and you're done.
+
+### Method B: install with npm (advanced / if you already have Node.js)
+
+If you plan to code later, or already have Node.js, you can use this. **Needs Node.js version 22 or higher.**
+
+First check whether you have Node (type in the terminal):
+
+```bash
+node --version
+```
+
+If not, go to [nodejs.org](https://nodejs.org/), download the "LTS" version and install it. Then:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+> ⚠️ **Do not** put `sudo` in front. If you get a permission error, the right fix is to switch to nvm (which installs Node in your own folder), not to force it as administrator.
+
+### How to use it once installed (your first run)
+
+1. First make a **clean practice folder** and go into it (don't run it straight in your Desktop, Documents, or a folder with private files):
+   - Mac: `mkdir -p ~/Desktop/ai-practice && cd ~/Desktop/ai-practice`
+   - Windows: `mkdir $HOME\Desktop\ai-practice ; cd $HOME\Desktop\ai-practice`
+2. Type `claude` to go in.
+3. Just type what you want in **plain language**, for example:
+   - "Build me a simple web page in this folder, with the title 'My First Page'"
+   - "What is this folder for? Explain it to me in plain words"
+4. It proposes a plan and edits files, and **it asks before doing anything important — read it and then say yes; don't just keep hitting 'always allow.'**
+5. Handy: type `/help` for commands, `/clear` to start over, `/exit` to leave.
+
+**Installed, and now you can use it.** If Claude is the only tool you pay for, you're done here — no need to read the rest.
+
+---
+
+## Install Codex CLI (OpenAI)
+
+Codex is OpenAI's AI command-line assistant, strong at engineering work.
+
+**🍎 Mac / Linux (recommended, simplest)** — paste this line and press Enter:
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+**🍎 Mac (only if you already have Homebrew):**
+
+```bash
+brew install --cask codex
+```
+
+> ⚠️ If you've never installed Homebrew, this line shows `brew: command not found` — beginners, just use the official script above and don't bother with Homebrew.
+
+**🪟 Windows** — open PowerShell (see above), paste this whole line and press Enter:
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
+```
+
+**With npm (cross-platform, install Node.js first — use the latest LTS):**
+
+```bash
+npm install -g @openai/codex
+```
+
+Close the terminal, reopen it, and type:
+
+```bash
+codex
+```
+
+The first time it asks you to **log in with the ChatGPT account you already pay for** (one click in the browser).
+
+- **Tip**: run Codex in a **git folder** so changes are easier to track and roll back — but note git only restores files you've already committed, it isn't a magic undo, so back up important data separately first.
+- **How to use it**: go into your folder, type `codex`, and just tell it what to do in plain language (e.g. "build a simple web page in this folder"); type `/` for commands, `/exit` to leave.
+
+---
+
+## Install Grok CLI (xAI, called Grok Build)
+
+Grok Build is from xAI (Musk's AI company), running on Grok 4.5 underneath.
+
+**🍎 Mac / Linux** — open the terminal, paste this line and press Enter:
+
+```bash
+curl -fsSL https://x.ai/cli/install.sh | bash
+```
+
+**🪟 Windows** — open PowerShell (see above), paste this line and press Enter:
+
+```powershell
+irm https://x.ai/cli/install.ps1 | iex
+```
+
+Close the terminal, reopen it, go to your folder and type:
+
+```bash
+grok
+```
+
+The first time it opens your browser to log in (use the xAI account you pay for).
+
+- **How to use it**: go into your folder, type `grok`, and tell it what to do in plain language; type `/` for commands, `/exit` to leave.
+
+---
+
+## Install agy (Google Antigravity CLI)
+
+`agy` is Google's AI command-line assistant, the successor to the old "Gemini CLI" (which was retired in 2026). It's a **single executable — no Node or Python needed**.
+
+**🍎 Mac / Linux:**
+
+```bash
+curl -fsSL https://antigravity.google/cli/install.sh | bash
+```
+
+**🪟 Windows** — open PowerShell (see above), paste this line and press Enter:
+
+```powershell
+irm https://antigravity.google/cli/install.ps1 | iex
+```
+
+Close the terminal, reopen it, and type:
+
+```bash
+agy
+```
+
+The first run **signs you in with your Google account automatically** — just click through. If you used Gemini CLI before, it moves your old settings over for you.
+
+- New conversation: `agy`; continue the last one: `agy -c`.
+- **How to use it**: go into your folder, type `agy`, and tell it what to do in plain language.
+
+---
+
+## Cheat sheet
+
+| Tool | Maker | Install difficulty |
+|---|---|---|
+| **Claude Code** | Anthropic | ⭐ easiest |
+| **Codex CLI** | OpenAI | ⭐ easy |
+| **Grok CLI** | xAI | ⭐ easy |
+| **agy** | Google | ⭐ easy |
+
+**One line**: install whichever one you pay for. All four are "type plain language in a terminal and it does the work" — learn one and you can use them all.
+
+---
+
+## Where beginners get stuck (read this)
+
+- **"command not found" after pasting**: first close the terminal entirely and open a new one (new commands only register after a restart). Still not found? Usually PATH isn't set: on Mac type `command -v claude`, on Windows type `Get-Command claude` (swap in the other tool's name) to see if it's found; add the path the installer showed you to PATH and reopen.
+- **How do I confirm it installed?**: type `claude --version` (or `codex` / `grok` / `agy` for whichever you installed). **A version number means it's installed**; only red error text means it didn't — don't assume it worked.
+- **Windows shows the blue "Windows protected your PC" (SmartScreen)**: click "More info" → "Run anyway." (Only do this when installing from the official URLs in this article.)
+- **Windows says "cannot load script / execution policy"**: paste `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` in PowerShell, press Enter, type `Y`, then run the install command again.
+- **Mac says "install command line tools" or "cannot verify developer"**: for the first, click "Install"; for the second, go to "System Settings → Privacy & Security" and click "Open Anyway."
+- **A work computer / antivirus blocks the download**: **do not** turn off antivirus; hand it to your company's IT, or install on your own machine.
+- **Told to add sudo?**: only Mac/Linux global npm installs hit permission errors — **do not** force it with `sudo` (use nvm as the docs recommend); Windows has no sudo.
+- **The login window didn't pop up**: copy the URL the terminal shows and paste it into your browser; and make sure the browser is signed in to the account you actually pay for.
+
+---
+
+*This will probably be updated (these tools version fast). If a command doesn't run, defer to each official page: [Claude Code](https://code.claude.com/docs/en/setup), [Codex](https://developers.openai.com/codex/cli), [Grok Build](https://x.ai/cli), [Antigravity](https://antigravity.google/docs/cli-install).*
