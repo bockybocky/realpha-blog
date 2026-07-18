@@ -1,6 +1,6 @@
 ---
-title: "生成式 AI 認證 考前重點總整理（完整版）：21 個關鍵名詞 ＋ 四大面向逐章考點速查"
-description: "資策會生成式 AI 能力認證的考前速查工具：21 個最容易被漏掉的關鍵名詞（分五組），加上基礎知識／Prompt／應用技能／倫理法律四大面向、逐章的高頻考點與「看到 X 選 Y」對應。搭配我的準備方法文一起服用。學習分享，非販售題庫。"
+title: "生成式 AI 認證 考前重點總整理（完整版）：71 個關鍵名詞速查 ＋ 四大面向逐章考點"
+description: "資策會生成式 AI 能力認證的考前速查工具：71 個關鍵名詞完整速查表（分五組，每個附「怎麼考」），加上基礎知識／Prompt／應用技能／倫理法律四大面向、逐章的高頻考點與「看到 X 選 Y」對應。搭配我的準備方法文一起服用。學習分享，非販售題庫。"
 slug: "genai-cert-exam-cheatsheet"
 lang: "zh-TW"
 pubDate: 2026-07-18
@@ -8,7 +8,7 @@ category: "tech"
 tags: ["ai", "genai", "certification", "iiiedu", "study", "cheatsheet", "education"]
 ogImage: "/covers/genai-cert-exam-cheatsheet.png"
 cover: "/covers/genai-cert-exam-cheatsheet.png"
-tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。上半＝21 個最易漏的關鍵名詞（原理架構／Prompt&Agent／工具應用／資料治理MLOps／倫理法律五組，含 Word2Vec、Ground Truth、Data Drift、同態加密、Red Teaming、LAWS…）；下半＝四大面向逐章考點（1.1 Scaling Laws/Token/Temperature、1.3 參數vs超參數/CLM vs MLM、2.2 Data Drift vs Concept Drift/RBAC vs ABAC、3.4 TTS/STT/S2S、4.4 PETs 隱私增強技術家族…），每組附『看到 X 選 Y』的辨析鉤。全部概念層、不含任何真題。搭配同站『我怎麼用 AI 協作準備』方法文一起看。"
+tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。上半＝71 個關鍵名詞完整速查表（原理架構／Prompt&Agent／工具應用／資料治理MLOps／倫理法律五組，含 RAG、Transformer、RLHF、Diffusion、MoE、Data Drift、同態加密、聯邦學習、Red Teaming、LAWS、EU AI Act…每個附怎麼考）；下半＝四大面向逐章考點（1.1 Scaling Laws/Token/Temperature、1.3 參數vs超參數/CLM vs MLM、2.2 Data Drift vs Concept Drift/RBAC vs ABAC、3.4 TTS/STT/S2S、4.4 PETs 隱私增強技術家族…），每組附『看到 X 選 Y』的辨析鉤。全部概念層、不含任何真題。搭配同站『我怎麼用 AI 協作準備』方法文一起看。"
 ---
 
 ![一整面由暖光書頁與符號構成的巨大速查牆，一位學習者站在牆前伸手點亮其中一格，格子亮起如被理解的知識節點，四周浮著細小的名詞光點；晨光柔和，秩序而溫暖](/covers/genai-cert-exam-cheatsheet.png)
@@ -25,43 +25,95 @@ tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。
 
 ---
 
-# 一、21 個關鍵名詞（分五組）
+# 一、關鍵名詞完整速查表（71 個，分五組）
+
+每個名詞附「🎯 怎麼用／怎麼考」，標【必考／經典／易混】的最會考、務必分清誰是誰。
 
 ## 原理與架構
 
+- **RAG 檢索增強生成**：先從外部知識庫檢索再交給模型生成。🎯 問「如何解決知識過時或幻覺」→ 選 RAG，不必重訓模型。
+- **Attention 注意力機制**：讓模型關注輸入序列不同位置的語義關係。🎯 「為何 Transformer 能抓長距離關聯」。
+- **Transformer**：Encoder 理解輸入、Decoder 生成輸出。🎯 GPT＝Decoder-only、BERT＝Encoder。
+- **RLHF 人類回饋強化學習**：用人類回饋微調使符合人類偏好。🎯 ChatGPT 為何比原始 GPT 更聽話安全的關鍵。
 - **Word2Vec**：把詞映射成向量，語意近的靠在一起。🎯 靜態嵌入（同字同向量）↔ 對比 BERT 情境嵌入。
-- **Ground Truth**：標準答案／標籤，評估模型準不準的基準。🎯 看到「驗證預測是否正確的標準答案」選它。
-- **Open Weights vs Open Source**：開放權重但有授權限制 ≠ 嚴格開源。🎯 Llama 算 Open Weights（能下載本地跑、授權有限）。
+- **Embedding 嵌入**：把文字／圖像轉成向量。🎯 RAG／語意搜尋／推薦都靠它算相似度，是向量庫存的東西。
+- **Tokenizer / Token**：把文字切成 Token，一中文字約 0.5~1 Token。🎯 估 API 費用與上下文長度都以 Token 算。
+- **CNN 卷積神經網路**：傳統影像辨識架構。🎯 陷阱：「影像一定要用 CNN 嗎」→ 錯，Transformer 也能且更強。
+- **GAN 生成對抗網路**：生成器 vs 判別器對抗訓練。🎯 誰提出→ Ian Goodfellow；對比擴散模型。
+- **Diffusion 擴散模型**：從隨機雜訊逐步去噪生成圖像。🎯 SD／Sora 核心，「加噪再學去噪」，別跟 GAN 混。
+- **Pre-training 預訓練**：海量無標註資料學通用知識。🎯 三階段：預訓練（通用）→ 微調（專業/行為）→ RAG（外部即時）；最耗運算＝預訓練。
+- **Fine-tuning 微調**：改變模型行為或注入專業知識。🎯【最愛考分辨】改口氣/學專業領域用微調；補會變的資料用 RAG。
+- **Overfitting 過擬合**：訓練好、測試差、缺泛化。🎯 解法：Dropout、資料增強、正則化。
+- **Temperature 溫度**：控制輸出隨機性/創造性。🎯 發想調高、要精準調低；=0 每次選最高機率詞。
+- **Context Length 上下文長度**：一次能處理的 Token 上限。🎯「長對話後期忘了最初指令」＝超過它。
+- **Ground Truth**：標準答案／標籤。🎯 評估模型準不準的基準。
+- **Open Weights vs Open Source**：開放權重但授權有限 ≠ 嚴格開源。🎯 Llama 算 Open Weights。
+- **NLU / NLG / NLP**：NLP 分 NLU（理解）與 NLG（生成）。🎯 聊天機器人先 NLU 懂你、再 NLG 回答。
+- **Quantization 量化**：降精度（32→8/4-bit）減體積加速。🎯「減記憶體、加速、略降精度」把大模型塞進手機。
+- **Distillation 蒸餾**：大模型（Teacher）知識轉給小模型（Student）。🎯 看到 Teacher/Student 就是它。
+- **Hallucination 幻覺**：生成看似合理但不正確／虛構的資訊。🎯「一本正經地胡說」；要 RAG／事實查核的根因。
+- **Zero/One/Few-shot**：不給／給一個／給多個範例。🎯 效果差就從 Zero 升級到 Few-shot。
+- **Chain-of-Thought 思維鏈**：讓模型先產生中間推理步驟。🎯 解數學/邏輯題加「think step by step」。
+- **MoE 混合專家**：多專家、每次只活化部分。🎯「參數超大但推理成本可控」（Grok-1、Mixtral、GPT-4）。
 
 ## Prompt 與 Agent
 
 - **System vs User Prompt**：System 設長期角色／規則；User 是當下指令。🎯 設人設寫 System、日常提問是 User。
-- **Prompt Tuning / Soft Prompts**：只訓練少量「軟提示」向量，不動主體權重。🎯 低成本客製，對比全參數微調更省。
-- **Tool Use / Function Calling**：讓模型呼叫外部工具／API（查即時資料、算數、發信）。🎯 Agent 的核心能力。
-- **LangChain / LlamaIndex**：開發 LLM 應用的框架。🎯 LangChain 通用串接；LlamaIndex 專接私有數據。
+- **Prompt Tuning / Soft Prompts**：只訓練少量軟提示向量，不動主體權重。🎯 低成本客製，對比全參數微調更省。
+- **Agent / AI Agent**：能自主規劃、用工具、多步驟執行。🎯 對比只會聊天的 Chatbot。
+- **Tool Use / Function Calling**：讓模型呼叫外部工具／API。🎯 查即時股價、算數、發信；Agent 核心能力。
+- **LangChain / LlamaIndex**：開發 LLM 應用框架。🎯 LangChain 通用串接；LlamaIndex 專接私有數據。
+- **ReAct**：邊推理邊行動（呼叫工具/搜尋）。🎯「Reasoning + Acting 交替」的 Agent 經典範式。
 - **Multi-agent 多代理**：多個角色 Agent 協作（一個寫、一個測、一個寫文件）。
-- **Jailbreak 越獄**：繞過安全過濾使模型答被禁內容。🎯 「用話術突破安全限制」（如祖母漏洞）。
+- **Jailbreak 越獄**：繞過安全過濾使模型答被禁內容。🎯「用話術突破安全限制」（如祖母漏洞）。
+- **Prompt Injection 提示注入**：把惡意指令藏進輸入劫持模型。🎯【易混】Jailbreak（破安全）vs Injection（注入惡意指令）。
 - **Self-Consistency**：多次推理取多數決，提高穩定／正確率。
 
 ## 工具與應用
 
-- **ControlNet**：加控制條件精確控制圖像構圖。🎯 OpenPose 控人物骨架姿勢、Canny 控邊緣。
-- **AutoML**：自動選模型、調超參，降低 ML 門檻。🎯 「讓非專業者也能建模」。
+- **Text-to-Video 文生影**：文字直接生成影片。🎯 代表 Sora；對比 Image-to-Video（要先給一張圖）。
+- **TTS / STT / S2S**：文字轉語音／語音轉文字／語音對語音翻譯。🎯 配音 TTS、字幕 STT、即時跨語通話 S2S。
+- **ControlNet**：加控制條件精確控制圖像構圖。🎯 OpenPose 控人物骨架、Canny 控邊緣。
+- **Inpainting / Outpainting**：局部重繪／向外擴圖。🎯 移除路人用 Inpainting；畫面往外延伸用 Outpainting。
+- **Upscaling 超解析度**：放大圖像同時補細節。🎯「放大並智能補細節」，老照片變高清。
+- **Style Transfer 風格遷移**：把一張圖的風格套到另一張的內容。🎯 照片變梵谷風，別跟 Inpainting/Outpainting 混。
+- **LoRA**：只訓練極少參數學特定人物/畫風。🎯 檔小、學某角色/畫風；屬 PEFT 高效微調。
+- **Voice Cloning / Voice Banking**：複製聲音／為失聲者預存嗓音。🎯 醫療上 ALS 患者術前 Voice Banking。
+- **Stable Diffusion / Midjourney**：主流圖像生成工具。🎯 Midjourney 用 --ar 控長寬比；SD 可搭 ControlNet/LoRA。
+- **Suno / ElevenLabs**：Suno 生成歌曲；ElevenLabs 語音合成/複製。🎯 要含人聲完整歌曲用 Suno。
+- **AutoML**：自動選模型、調超參，降低 ML 門檻。🎯「讓非專業者也能建模」。
+- **Deepfake 深偽**：合成/換臉換聲造假。🎯 倫理必考：正面（演員回春）、負面（詐騙），需偵測+透明度標示。
+- **聊天機器人三要素**：NLU 理解、Dialog 對話管理、NLG 生成。🎯 分辨 Intent（意圖）/ Entity（實體）/ 上下文追蹤。
 
 ## 資料治理與 MLOps
 
-- **Data Drift vs Concept Drift**【經典必考】：輸入分佈變 vs 輸入-輸出關係／定義變。🎯 新詞出現＝Data Drift；「垃圾郵件的定義本身變了」＝Concept Drift。
-- **Data Lineage 資料血緣**：追蹤資料來源→轉換→去向。🎯 要追「這數字哪來的、經過哪些處理」＋合規稽核。
-- **PII 個人可識別資訊**：姓名／身分證／地址等。🎯 處理前要去識別化或加密。
-- **Homomorphic Encryption 同態加密**：加密狀態下直接運算。🎯 「密文直接運算」。
-- **SMPC 安全多方計算**：多方不洩露各自輸入、共同計算。🎯 多家銀行想合算又不給對方看資料。
+- **MLOps / Feature Store**：集中管理 ML 特徵確保訓練/推理一致。🎯「避免訓練和上線特徵不一致」。
+- **Data Drift vs Concept Drift**【經典必考】：輸入分佈變 vs 輸入-輸出關係/定義變。🎯 新詞出現＝Data Drift；「垃圾郵件定義本身變了」＝Concept Drift。
+- **Data Lineage 資料血緣**：追蹤資料來源→轉換→去向。🎯 追「這數字哪來的」＋合規稽核。
+- **PII 個人可識別資訊**：姓名/身分證/地址等。🎯 處理前要去識別化或加密。
+- **Anonymization vs Pseudonymization**【必考】：匿名化不可逆 vs 假名化可逆。🎯 完全無法還原＝匿名化；還想對回本人＝假名化。
+- **Differential Privacy 差分隱私**：加數學雜訊使無法回推個體。🎯「加雜訊、數學保證」公開統計又不洩露個人。
+- **Homomorphic Encryption 同態加密**：加密狀態下直接運算。🎯「密文直接運算」。
+- **Federated Learning 聯邦學習**：本地訓練只回傳參數。🎯 口訣「資料不動、模型動」（手機鍵盤預測、醫院合作）。
+- **SMPC 安全多方計算**：多方不洩輸入共同計算。🎯 多家銀行想合算又不給對方看資料。
+- **XAI 可解釋 AI**：提高決策透明可理解。🎯 醫療/金融/司法要能解釋「為何這樣判」；分全局/局部。
 - **Red Teaming 紅隊**：專家扮攻擊者主動找漏洞。🎯 重點是「主動攻擊視角」。
-- **Data Poisoning 數據投毒**：訓練資料注入惡意數據讓模型學壞。
+- **Data Poisoning 數據投毒**：訓練資料注入惡意數據讓模型學壞。🎯 防禦要驗證資料來源。
+- **Model Inversion Attack**：從輸出逆推訓練資料敏感資訊。🎯 隱私威脅，如從人臉模型反推訓練用人臉。
 - **Zero Trust 零信任**：永不信任、始終驗證。🎯 每次存取都驗證，不論來源。
 
 ## 倫理與法律
 
 - **LAWS 致命自主武器系統**：能自主選定並攻擊目標的武器。🎯 軍事 AI 必考爭議：國際禁令、人道法、「人類須保有控制權」。
+- **Copyright / Fair Use**：用受版權作品訓練是否算合理使用。🎯 AI 訓練侵權爭議核心；也考 AI 生成內容版權歸誰。
+- **GDPR / Machine Unlearning**：被遺忘權；進權重後極難精確刪。🎯「用戶要求刪個資但已訓練進模型」的技術困境。
+- **EU AI Act**：歐盟 AI 法，依風險分四級。🎯 全球首部全面 AI 法規：不可接受/高/有限/最低。
+- **CCPA / PIPL / 台灣個資法**：加州/中國/台灣的個資法。🎯 台灣＝個資法，需當事人同意+安全措施。
+- **Opt-in / Opt-out / Consent**：管理用戶對個資使用的同意。🎯「記錄與管理用戶同意狀態」。
+- **Accountability 問責**：可追究 AI 決策的責任。🎯 六大倫理原則之一，「出事要能追責」。
+- **Transparency 透明度**：運作方式與決策邏輯公開可理解。🎯 對比 Accountability（追責）vs Transparency（公開可懂）。
+- **Digital Divide 數位落差**：缺網路/設備/素養者更難享 AI。🎯 延伸「數位殖民主義」「文化同質化」。
+- **MHC 有意義的人類控制**：人類保有理解/判斷/干預能力。🎯 比 Human-in-the-loop 更強調人類要真的能懂能改。
 
 ---
 

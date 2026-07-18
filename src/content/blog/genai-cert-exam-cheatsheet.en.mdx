@@ -1,6 +1,6 @@
 ---
-title: "Generative AI Certification — Complete Exam Cheat Sheet: 21 Key Terms + Chapter-by-Chapter Study Points"
-description: "A last-hours review tool for Taiwan's III Generative AI certification: 21 easy-to-miss key terms in five groups, plus the high-frequency points and 'see X, pick Y' distinctions across all four areas — fundamentals, prompting, applied skills, ethics and law. A companion to my prep-method post. Educational sharing, not a question bank."
+title: "Generative AI Certification — Complete Exam Cheat Sheet: 71 Key Terms + Chapter-by-Chapter Study Points"
+description: "A last-hours review tool for Taiwan's III Generative AI certification: a full 71-term key-terms reference in five groups, plus the high-frequency points and 'see X, pick Y' distinctions across all four areas — fundamentals, prompting, applied skills, ethics and law. A companion to my prep-method post. Educational sharing, not a question bank."
 slug: "genai-cert-exam-cheatsheet"
 lang: "en"
 pubDate: 2026-07-18
@@ -8,7 +8,7 @@ category: "tech"
 tags: ["ai", "genai", "certification", "iiiedu", "study", "cheatsheet", "education"]
 ogImage: "/covers/genai-cert-exam-cheatsheet.png"
 cover: "/covers/genai-cert-exam-cheatsheet.png"
-tldr: "The complete last-hours review tool for the III Generative AI certification. Top half: 21 easy-to-miss key terms in five groups (fundamentals/architecture, prompt & agent, tools & applications, data governance & MLOps, ethics & law — Word2Vec, Ground Truth, Data Drift, homomorphic encryption, Red Teaming, LAWS, and more). Bottom half: chapter-by-chapter study points across all four areas (Scaling Laws/Token/Temperature, parameters vs hyperparameters, CLM vs MLM, Data Drift vs Concept Drift, RBAC vs ABAC, TTS/STT/S2S, the PETs privacy family, and so on), each with a 'see X, pick Y' hook. All concept-level, no actual exam questions. Read it alongside my 'how I used AI to prep' method post."
+tldr: "The complete last-hours review tool for the III Generative AI certification. Top half: a full 71-term key-terms reference in five groups (fundamentals/architecture, prompt & agent, tools & applications, data governance & MLOps, ethics & law — Word2Vec, Ground Truth, Data Drift, homomorphic encryption, Red Teaming, LAWS, and more). Bottom half: chapter-by-chapter study points across all four areas (Scaling Laws/Token/Temperature, parameters vs hyperparameters, CLM vs MLM, Data Drift vs Concept Drift, RBAC vs ABAC, TTS/STT/S2S, the PETs privacy family, and so on), each with a 'see X, pick Y' hook. All concept-level, no actual exam questions. Read it alongside my 'how I used AI to prep' method post."
 ---
 
 ![A vast luminous wall of warm glowing pages and floating knowledge cells in a grid, like a giant living cheat sheet; a lone learner reaches out to touch one cell that lights up as if suddenly understood, small glowing symbol-motes drifting around in soft morning light](/covers/genai-cert-exam-cheatsheet.png)
@@ -25,43 +25,95 @@ Concept-level, **no actual exam questions** (those are copyrighted). If you'd ra
 
 ---
 
-# Part 1 — 21 Key Terms (five groups)
+# Part 1 — Full Key-Terms Reference (71 terms, five groups)
+
+Each term has a "🎯 how it's used / how it's tested." Items marked [must-know / classic / easily-confused] are the highest-yield — learn to tell them apart.
 
 ## Fundamentals & architecture
 
-- **Word2Vec**: maps words to vectors, with similar meanings placed close together. 🎯 Static embedding (same word → same vector) ↔ contrast with BERT's contextual embedding.
-- **Ground Truth**: the correct answer/label, the baseline for judging accuracy. 🎯 "the standard answer used to verify a prediction" → this.
-- **Open Weights vs Open Source**: open weights but with license restrictions ≠ strictly open source. 🎯 Llama counts as Open Weights (downloadable to run locally, limited license).
+- **RAG (Retrieval-Augmented Generation)**: retrieve from an external knowledge base first, then generate. 🎯 "how to solve stale knowledge or hallucination" → RAG, no retraining needed.
+- **Attention**: lets the model weigh relationships between different positions in the input. 🎯 "why Transformers capture long-range dependencies."
+- **Transformer**: Encoder understands input, Decoder generates output. 🎯 GPT = Decoder-only, BERT = Encoder.
+- **RLHF (Reinforcement Learning from Human Feedback)**: fine-tune with human feedback to match human preferences. 🎯 why ChatGPT is more obedient/safe than raw GPT.
+- **Word2Vec**: maps words to vectors, similar meanings close together. 🎯 static embedding (same word → same vector) ↔ contrast BERT's contextual embedding.
+- **Embedding**: turns text/images into vectors. 🎯 RAG / semantic search / recommendation all use it for similarity; it's what a vector DB stores.
+- **Tokenizer / Token**: splits text into tokens; a Chinese character ≈ 0.5–1 token. 🎯 API cost and context length are counted in tokens.
+- **CNN**: traditional image-recognition architecture. 🎯 trap: "must images use CNN?" → no, Transformers can too and better.
+- **GAN**: generator vs discriminator trained adversarially. 🎯 who proposed it → Ian Goodfellow; contrast with diffusion.
+- **Diffusion**: generate images by progressively denoising random noise. 🎯 core of SD / Sora; "add noise then learn to denoise," don't confuse with GAN.
+- **Pre-training**: learn general knowledge from massive unlabeled data. 🎯 three stages: pre-train (general) → fine-tune (domain/behavior) → RAG (external/live); most compute-heavy = pre-training.
+- **Fine-tuning**: change model behavior or inject domain knowledge. 🎯 [most-tested distinction] tone/domain → fine-tuning; changing data → RAG.
+- **Overfitting**: great on training, poor on test, no generalization. 🎯 fixes: Dropout, data augmentation, regularization.
+- **Temperature**: controls output randomness/creativity. 🎯 raise for brainstorming, lower for precision; =0 always picks the top-probability word.
+- **Context Length**: max tokens the model can process at once. 🎯 "forgets the original instruction late in a long chat" = exceeding it.
+- **Ground Truth**: the correct answer/label. 🎯 the baseline for judging accuracy.
+- **Open Weights vs Open Source**: open weights but restricted license ≠ strictly open source. 🎯 Llama counts as Open Weights.
+- **NLU / NLG / NLP**: NLP splits into NLU (understanding) and NLG (generation). 🎯 a chatbot first NLU's your meaning, then NLG's a reply.
+- **Quantization**: lower precision (32→8/4-bit) for smaller/faster. 🎯 "less memory, faster, slight accuracy loss" fits big models onto phones.
+- **Distillation**: transfer a big model's (Teacher) knowledge to a small one (Student). 🎯 see Teacher/Student → this.
+- **Hallucination**: plausible-looking but incorrect/fabricated output. 🎯 "confidently wrong"; the reason for RAG / fact-checking.
+- **Zero/One/Few-shot**: give zero / one / several examples. 🎯 if results are poor, upgrade Zero → Few-shot.
+- **Chain-of-Thought**: have the model produce intermediate reasoning steps. 🎯 add "think step by step" for math/logic.
+- **MoE (Mixture of Experts)**: many experts, only some activated each time. 🎯 "huge params but controllable inference cost" (Grok-1, Mixtral, GPT-4).
 
 ## Prompt & agent
 
 - **System vs User Prompt**: System sets the long-term role/rules; User is the immediate instruction. 🎯 Persona/rules → System; everyday questions → User.
-- **Prompt Tuning / Soft Prompts**: train only a few "soft prompt" vectors, leaving the main weights untouched. 🎯 Low-cost customization vs full fine-tuning.
-- **Tool Use / Function Calling**: lets the model call external tools/APIs (live data, math, email). 🎯 The core capability of an Agent.
-- **LangChain / LlamaIndex**: frameworks for building LLM apps. 🎯 LangChain is general-purpose glue; LlamaIndex specializes in connecting private data.
+- **Prompt Tuning / Soft Prompts**: train only a few soft-prompt vectors, main weights untouched. 🎯 low-cost customization vs full fine-tuning.
+- **Agent / AI Agent**: plans autonomously, uses tools, executes multi-step. 🎯 contrast with a chat-only Chatbot.
+- **Tool Use / Function Calling**: lets the model call external tools/APIs. 🎯 live prices, math, email; a core Agent capability.
+- **LangChain / LlamaIndex**: frameworks for building LLM apps. 🎯 LangChain is general glue; LlamaIndex specializes in private data.
+- **ReAct**: reason and act (call tools/search) in alternation. 🎯 the classic "Reasoning + Acting" agent pattern.
 - **Multi-agent**: multiple role-based agents collaborating (one writes, one tests, one documents).
-- **Jailbreak**: bypassing safety filters to make the model produce banned content. 🎯 "breaking safety limits with wordplay" (e.g. the grandma exploit).
-- **Self-Consistency**: run inference several times and take the majority vote for stability/accuracy.
+- **Jailbreak**: bypass safety filters to produce banned content. 🎯 "breaking safety limits with wordplay" (grandma exploit).
+- **Prompt Injection**: hide malicious instructions in the input to hijack the model. 🎯 [easily-confused] Jailbreak (break safety) vs Injection (inject malicious instructions).
+- **Self-Consistency**: run inference several times, take the majority vote.
 
 ## Tools & applications
 
-- **ControlNet**: adds control conditions to precisely steer image composition. 🎯 OpenPose controls the figure's pose, Canny controls edges.
-- **AutoML**: automatically selects models and tunes hyperparameters, lowering the ML barrier. 🎯 "lets non-experts build models."
+- **Text-to-Video**: text directly generates video. 🎯 e.g. Sora; contrast Image-to-Video (needs a still image first).
+- **TTS / STT / S2S**: text→speech / speech→text / speech-to-speech translation. 🎯 dubbing TTS, subtitles STT, live cross-lingual call S2S.
+- **ControlNet**: adds control conditions to steer image composition. 🎯 OpenPose controls pose, Canny controls edges.
+- **Inpainting / Outpainting**: local repaint / extend the canvas outward. 🎯 remove a passerby with Inpainting; extend the frame with Outpainting.
+- **Upscaling**: enlarge and fill in detail. 🎯 "enlarge and intelligently add detail," old photos to HD.
+- **Style Transfer**: apply one image's style to another's content. 🎯 photo into Van Gogh style; don't confuse with Inpainting/Outpainting.
+- **LoRA**: train very few params to learn a specific character/style. 🎯 small file, learns a character/style; a form of PEFT.
+- **Voice Cloning / Voice Banking**: clone a voice / bank a voice for those who may lose it. 🎯 medically, ALS patients bank their voice pre-op.
+- **Stable Diffusion / Midjourney**: mainstream image generators. 🎯 Midjourney uses --ar for aspect ratio; SD pairs with ControlNet/LoRA.
+- **Suno / ElevenLabs**: Suno generates songs; ElevenLabs does voice synthesis/cloning. 🎯 for a full vocal song use Suno.
+- **AutoML**: auto-selects models and tunes hyperparameters. 🎯 "lets non-experts build models."
+- **Deepfake**: synthesized/face-swapped/voice-cloned fakery. 🎯 ethics must-know: positive (de-aging), negative (fraud); needs detection + transparency labeling.
+- **The three chatbot elements**: NLU (understanding), Dialog management, NLG (generation). 🎯 distinguish Intent / Entity / context tracking.
 
 ## Data governance & MLOps
 
-- **Data Drift vs Concept Drift** [classic must-know]: input distribution changes vs the input→output relationship/definition changes. 🎯 new words appearing = Data Drift; "the definition of spam itself changed" = Concept Drift.
-- **Data Lineage**: tracing data from source → transformation → destination. 🎯 tracing "where did this number come from, what processing did it go through" + compliance audit.
+- **MLOps / Feature Store**: centrally manage ML features so training/inference stay consistent. 🎯 "avoid mismatch between training and serving features."
+- **Data Drift vs Concept Drift** [classic must-know]: input distribution changes vs the input→output relationship/definition changes. 🎯 new words = Data Drift; "the definition of spam itself changed" = Concept Drift.
+- **Data Lineage**: trace data from source → transformation → destination. 🎯 trace "where did this number come from" + compliance audit.
 - **PII**: personally identifiable information (name, ID, address). 🎯 de-identify or encrypt before processing.
+- **Anonymization vs Pseudonymization** [must-know]: anonymization is irreversible vs pseudonymization is reversible. 🎯 fully unrecoverable = anonymization; can map back to the person = pseudonymization.
+- **Differential Privacy**: add mathematical noise so individuals can't be recovered. 🎯 "add noise, mathematical guarantee" — publish stats without leaking anyone.
 - **Homomorphic Encryption**: compute directly on encrypted data. 🎯 "operate on ciphertext directly."
-- **SMPC (Secure Multi-Party Computation)**: multiple parties compute jointly without revealing their own inputs. 🎯 banks that want to compute together without showing each other their data.
-- **Red Teaming**: experts play the attacker to actively find holes. 🎯 the point is the "active attacker perspective."
-- **Data Poisoning**: injecting malicious data into training so the model learns badly.
+- **Federated Learning**: train locally, only send parameters back. 🎯 mnemonic "data stays put, the model moves" (phone keyboard prediction, hospital collaboration).
+- **SMPC (Secure Multi-Party Computation)**: parties compute jointly without revealing inputs. 🎯 banks computing together without showing each other their data.
+- **XAI (Explainable AI)**: make decisions transparent and understandable. 🎯 medical/finance/legal need to explain "why this decision"; global vs local.
+- **Red Teaming**: experts play attacker to actively find holes. 🎯 the point is the "active attacker perspective."
+- **Data Poisoning**: inject malicious data into training so the model learns badly. 🎯 defense: verify data provenance.
+- **Model Inversion Attack**: reconstruct sensitive training data from outputs. 🎯 privacy threat, e.g. reconstruct faces from a face-recognition model.
 - **Zero Trust**: never trust, always verify. 🎯 verify every access regardless of source.
 
 ## Ethics & law
 
 - **LAWS (Lethal Autonomous Weapons Systems)**: weapons that autonomously select and attack targets. 🎯 the classic military-AI controversy: international bans, humanitarian law, "humans must retain control."
+- **Copyright / Fair Use**: whether training on copyrighted works is fair use. 🎯 core of the AI-training infringement dispute; also who owns AI-generated content.
+- **GDPR / Machine Unlearning**: right to be forgotten; very hard to precisely delete once in weights. 🎯 "user asks to delete data already trained into the model."
+- **EU AI Act**: EU's AI law, risk-tiered into four levels. 🎯 world's first comprehensive AI law: unacceptable / high / limited / minimal.
+- **CCPA / PIPL / Taiwan PDPA**: California / China / Taiwan data laws. 🎯 Taiwan = PDPA, needs consent + security measures.
+- **Opt-in / Opt-out / Consent**: managing user consent for personal data use. 🎯 "record and manage consent status."
+- **Accountability**: being answerable for AI decisions. 🎯 one of the six ethics principles, "trace responsibility when things go wrong."
+- **Transparency**: operation and decision logic are open and understandable. 🎯 contrast Accountability (answerability) vs Transparency (openness).
+- **Digital Divide**: those lacking network/devices/literacy benefit less from AI. 🎯 extends to "digital colonialism," "cultural homogenization."
+- **MHC (Meaningful Human Control)**: humans retain understanding/judgment/intervention. 🎯 stronger than Human-in-the-loop — humans must truly understand and be able to change it.
 
 ---
 
