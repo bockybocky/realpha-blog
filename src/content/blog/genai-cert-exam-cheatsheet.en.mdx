@@ -1,0 +1,284 @@
+---
+title: "Generative AI Certification — Complete Exam Cheat Sheet: 21 Key Terms + Chapter-by-Chapter Study Points"
+description: "A last-hours review tool for Taiwan's III Generative AI certification: 21 easy-to-miss key terms in five groups, plus the high-frequency points and 'see X, pick Y' distinctions across all four areas — fundamentals, prompting, applied skills, ethics and law. A companion to my prep-method post. Educational sharing, not a question bank."
+slug: "genai-cert-exam-cheatsheet"
+lang: "en"
+pubDate: 2026-07-18
+category: "tech"
+tags: ["ai", "genai", "certification", "iiiedu", "study", "cheatsheet", "education"]
+ogImage: "/covers/genai-cert-exam-cheatsheet.png"
+cover: "/covers/genai-cert-exam-cheatsheet.png"
+tldr: "The complete last-hours review tool for the III Generative AI certification. Top half: 21 easy-to-miss key terms in five groups (fundamentals/architecture, prompt & agent, tools & applications, data governance & MLOps, ethics & law — Word2Vec, Ground Truth, Data Drift, homomorphic encryption, Red Teaming, LAWS, and more). Bottom half: chapter-by-chapter study points across all four areas (Scaling Laws/Token/Temperature, parameters vs hyperparameters, CLM vs MLM, Data Drift vs Concept Drift, RBAC vs ABAC, TTS/STT/S2S, the PETs privacy family, and so on), each with a 'see X, pick Y' hook. All concept-level, no actual exam questions. Read it alongside my 'how I used AI to prep' method post."
+---
+
+![A vast luminous wall of warm glowing pages and floating knowledge cells in a grid, like a giant living cheat sheet; a lone learner reaches out to touch one cell that lights up as if suddenly understood, small glowing symbol-motes drifting around in soft morning light](/covers/genai-cert-exam-cheatsheet.png)
+
+> *Study it widely, question it closely,*<br/>
+> *reflect on it carefully, discern it clearly, and practice it faithfully.*<br/>
+> —— The Doctrine of the Mean (pre-Qin classic); translation mine
+
+---
+
+This is the **complete cheat sheet** for Taiwan's III Generative AI certification. It isn't a textbook — it's the **fill-the-gaps card for the last hours before the exam**: every term and study point that's easy to miss or easy to confuse, each with a "see X, pick Y" hook.
+
+Concept-level, **no actual exam questions** (those are copyrighted). If you'd rather first read *how* I prepared and passed two certs in two months, here's the companion post: [Two AI Certs in Two Months](/en/blog/genai-cert-exam-prep/).
+
+---
+
+# Part 1 — 21 Key Terms (five groups)
+
+## Fundamentals & architecture
+
+- **Word2Vec**: maps words to vectors, with similar meanings placed close together. 🎯 Static embedding (same word → same vector) ↔ contrast with BERT's contextual embedding.
+- **Ground Truth**: the correct answer/label, the baseline for judging accuracy. 🎯 "the standard answer used to verify a prediction" → this.
+- **Open Weights vs Open Source**: open weights but with license restrictions ≠ strictly open source. 🎯 Llama counts as Open Weights (downloadable to run locally, limited license).
+
+## Prompt & agent
+
+- **System vs User Prompt**: System sets the long-term role/rules; User is the immediate instruction. 🎯 Persona/rules → System; everyday questions → User.
+- **Prompt Tuning / Soft Prompts**: train only a few "soft prompt" vectors, leaving the main weights untouched. 🎯 Low-cost customization vs full fine-tuning.
+- **Tool Use / Function Calling**: lets the model call external tools/APIs (live data, math, email). 🎯 The core capability of an Agent.
+- **LangChain / LlamaIndex**: frameworks for building LLM apps. 🎯 LangChain is general-purpose glue; LlamaIndex specializes in connecting private data.
+- **Multi-agent**: multiple role-based agents collaborating (one writes, one tests, one documents).
+- **Jailbreak**: bypassing safety filters to make the model produce banned content. 🎯 "breaking safety limits with wordplay" (e.g. the grandma exploit).
+- **Self-Consistency**: run inference several times and take the majority vote for stability/accuracy.
+
+## Tools & applications
+
+- **ControlNet**: adds control conditions to precisely steer image composition. 🎯 OpenPose controls the figure's pose, Canny controls edges.
+- **AutoML**: automatically selects models and tunes hyperparameters, lowering the ML barrier. 🎯 "lets non-experts build models."
+
+## Data governance & MLOps
+
+- **Data Drift vs Concept Drift** [classic must-know]: input distribution changes vs the input→output relationship/definition changes. 🎯 new words appearing = Data Drift; "the definition of spam itself changed" = Concept Drift.
+- **Data Lineage**: tracing data from source → transformation → destination. 🎯 tracing "where did this number come from, what processing did it go through" + compliance audit.
+- **PII**: personally identifiable information (name, ID, address). 🎯 de-identify or encrypt before processing.
+- **Homomorphic Encryption**: compute directly on encrypted data. 🎯 "operate on ciphertext directly."
+- **SMPC (Secure Multi-Party Computation)**: multiple parties compute jointly without revealing their own inputs. 🎯 banks that want to compute together without showing each other their data.
+- **Red Teaming**: experts play the attacker to actively find holes. 🎯 the point is the "active attacker perspective."
+- **Data Poisoning**: injecting malicious data into training so the model learns badly.
+- **Zero Trust**: never trust, always verify. 🎯 verify every access regardless of source.
+
+## Ethics & law
+
+- **LAWS (Lethal Autonomous Weapons Systems)**: weapons that autonomously select and attack targets. 🎯 the classic military-AI controversy: international bans, humanitarian law, "humans must retain control."
+
+---
+
+# Part 2 — Chapter-by-Chapter Study Points
+
+## Area 1 — Fundamentals
+
+### 1.1 Basic concepts of generative AI
+- **Scaling Laws**: more compute/data/parameters → predictably better performance.
+- **Token**: a Chinese character is roughly 0.5–1 token, and it's also the billing unit.
+- **Temperature** (controls randomness), **Top-P (nucleus sampling)** (sample from the smallest set of words whose cumulative probability reaches P); results vary because of probabilistic sampling.
+- **Hallucination**: plausible-looking but incorrect/fabricated output.
+- **GAN** (generator vs discriminator, Goodfellow 2014) vs **diffusion models** (add noise to destroy → learn to reverse and denoise).
+- Term to know: **vertical AI** = trained and optimized for a specific industry.
+
+### 1.2 Application domains
+- Whole-chapter theme: from "automation" to **"augmentation and collaboration"** — boosting professionals, not wholesale replacement.
+- Academic norms: AI may assist with polishing/ideation, may not ghost-write, and must be disclosed.
+- Human-AI collaboration: fiction = human sets premise/outline, AI expands; translation = translator shifts to **post-editing**.
+- **Proof of Concept (PoC)**: test feasibility at small scale before deciding to scale up.
+- High-frequency ethics: resume screening can discriminate; therapy AI most fears giving wrong medical advice / mishandling a crisis; policy drafting needs strict human review.
+- Content moderation: AI understands context and subtle hate speech better than keyword filters.
+- Enterprise RAG: solves keyword search's failure to grasp meaning and synthesize across documents.
+- Manufacturing: **generative design** (optimize weight/strength/cost), **predictive maintenance**, quality control **generating rare defect samples**.
+- Automated journalism fits structured earnings/sports briefs, not investigative pieces or editorials.
+- Term to know: **Procedural Content** = AI generates game art/levels to cut cost.
+
+### 1.3 Technical terminology
+- **Parameters** (learned by the model) vs **hyperparameters** (set by humans, e.g. learning rate, batch size).
+- **Backpropagation** (compute gradients and update weights during training) vs **Inference** (predict on new data after deployment).
+- **Overfitting** (great on training, poor on test — no generalization) vs **Underfitting** (too simple); Bias-Variance Tradeoff (high bias = underfitting, high variance = overfitting).
+- **Precision vs Recall** trade off; **F1** is their **harmonic mean** (trap: not the arithmetic mean).
+- Decoding: Greedy (repetitive), **Beam Search (width=1 equals Greedy)**, Top-K, Temperature=0 most deterministic.
+- Architecture: Encoder-Decoder → Seq2Seq (translation); Decoder-only (GPT continuation); Self-Attention (words within a sentence); Cross-Attention (across two sequences).
+- **RNN** hard to parallelize + long-range forgetting; **LSTM** gating solves vanishing gradients; **GRU** is a simplified LSTM.
+- **Word2Vec** (static, same word same vector) vs **BERT** (contextual, same word changes with context, like "bank").
+- Pretraining tasks: GPT = **CLM** (causal/unidirectional); BERT = **MLM** (masked/bidirectional).
+- Terms: Ground Truth, Dropout (randomly disable neurons to fight overfitting), Data Augmentation (rotate/crop/add noise), Quantization (32→8/4-bit, smaller and faster), LLM-as-a-Judge, Ablation Study (remove a component to see its effect).
+
+### 1.4 Technical principles
+- **SD ecosystem**: Automatic1111 (most complete WebUI), ComfyUI (node-based), Fooocus (minimal, high quality), Civitai (model/LoRA community).
+- Parameters: **CFG Scale** (how closely the image follows the prompt), Sampler (detail/convergence), **Checkpoint** (full model, sets style), **LoRA** (small file, learns a specific character/style).
+- ControlNet preprocessors: Canny (edges), OpenPose (pose).
+- RAG tools: LangChain (glue framework), LlamaIndex (connect private data to an LLM).
+- Local LLM: Ollama, LM Studio, **GGUF (a "format," not software)**, GPT4All.
+- Search-type: **Perplexity.ai** (cites sources, fights hallucination), Poe (aggregates many models).
+- Inference optimization: TensorRT (NVIDIA acceleration), ONNX (cross-framework format), QAT (quantize during training) vs PTQ (quantize after training).
+- Edge: Edge AI is **not** "unlimited compute"; NPU for low-power inference; TOPS measures AI chip performance.
+- Terms: **MoE** (Mixture of Experts, only part activated each time), IP-Adapter (use an image as a prompt), Delimiter (separates instructions from data, blocks injection), Pipeline (Hugging Face wraps pre/inference/post into a one-line API).
+
+## Area 2 — Prompting
+
+### 2.1 Prompt optimization
+- A good prompt states: goal / audience / tone / length and other concrete constraints.
+- Reasoning guidance: **CoT** (think step by step), Least-to-Most (break into sub-questions), Step-Back (abstract first), Tree of Thoughts (multi-path + backtrack), Self-Consistency (majority vote).
+- Long-conversation failures: **Prompt Decay** (forgets the original instruction), Instruction Creep (instructions pile up messily), **Lost in the Middle** (ignores the middle).
+- Security: **Prompt Injection (broad) ⊃ Jailbreak (a subclass)**; Prompt Leaking (trick out the System Prompt); defenses = Sandwich Defense, Instruction Defense.
+- Delimiters (```, ###, XML) separate instructions from data to block injection; Claude is good at XML.
+- Temperature high = creative; Top-P low = conservative/deterministic.
+- Best way to reduce hallucination: require "answer only from the provided data; say you don't know if you don't."
+- Image parameters: --stylize (artistic), --chaos (variety), :: (weighting), Seed (lock composition), Negative Prompt (exclude elements).
+- Bias: English prompts tend to be higher quality; without a specified culture, output skews Western (Wedding defaults to a white dress).
+- Terms: Meta-Prompting (ask AI to write your prompt), Grandma Exploit, Flipped Interaction (the model asks you questions instead).
+
+### 2.2 Data governance
+- **Data Drift** (input distribution changes) vs **Concept Drift** (input-output relationship changes) [classic mix-up].
+- Access control: **RBAC** (role-based) vs **ABAC** (attribute-based, finer-grained).
+- Data architecture: Data Lake (unstructured) / Warehouse (ACID) / Lakehouse (combined) / Fabric (unified access) / Mesh (decentralized, data as a product).
+- GDPR right-to-be-forgotten technical challenge = **Machine Unlearning** (very hard to precisely delete once trained into weights).
+- Terms: Golden Record (the single cleaned, correct version / SSOT), Dark Data (collected but never analyzed), Data Poisoning, Shadow AI (employees using unapproved AI tools), HNSW (approximate nearest-neighbor vector algorithm).
+
+### 2.3 Recent developments
+- Linear-complexity architectures (solving Transformer's quadratic cost): Mamba (SSM), RWKV, RetNet, Griffin, Jamba (hybrid).
+- Inference acceleration: Flash Attention (IO-aware), PagedAttention (KV cache paging, vLLM), Speculative Decoding (small model drafts, large model verifies).
+- Quantization extreme: BitNet b1.58 (weights of -1/0/1, ≈1.58 bit).
+- RAG variants: Graph RAG (knowledge graph), Self-RAG (self-reflective), CRAG (assesses relevance, triggers web search), Agentic RAG.
+- MoE: Grok-1 (314B but ~25% used per pass), DBRX, Mixtral; large total params, controllable inference cost.
+- Post-training (RLHF/RLAIF) decides safety/alignment, key to reasoning models like o1.
+- AI Agent vs Chatbot: Agent has planning/tools/loops; e.g. Devin, SWE-agent.
+- Science breakthroughs: AlphaFold 3 (protein/DNA/RNA), GraphCast (weather), GNoME (new crystals), AlphaGeometry (geometry proofs).
+- Natively multimodal (Gemini 1.5, end-to-end) beats stitching models together.
+- Terms: Compound AI Systems (multiple models/tools combined), Model Merging (merge fine-tuned weights), Sovereign AI (nations build their own AI infrastructure), SynthID (invisible watermark), Embodied AI (AI in physical robots).
+
+### 2.4 Self-directed learning
+- Methods: **Feynman technique** (explain it to a novice to test real understanding), Project-Based, Building in Public, Peer Learning.
+- Dev tools: Cursor (AI editor that understands the whole project), VS Code+Copilot, Replit (in-browser), Colab (free GPU).
+- Cloud certs: Google PMLE / Azure AI Engineer / AWS ML-Specialty.
+- **Data preprocessing often takes 80%+ of an AI project's time.**
+- Math mapping: linear algebra → matrices/tensors; calculus → gradient descent/backprop; probability/statistics → predicting the next token.
+- **First step of self-learning = get hands-on** (sign up for ChatGPT/Midjourney and try it yourself).
+- Terms: roadmap.sh, Pomodoro (25+5), Growth Mindset vs Abundance Mindset, AutoGPT / BabyAGI.
+
+## Area 3 — Applied skills (eight generation tools)
+
+### 3.1 Text generation
+- Core positioning = **"intelligent copilot"**: boost efficiency, replace repetitive low-value writing, not human creation.
+- Task names (loves testing "pick the right function"): Summarization / Paraphrasing / Expansion / Translation / Sentiment Analysis.
+- Customer-service rule: AI tries first, then hands off seamlessly to a human (with a summary) for professional/medical/legal/sensitive matters.
+- Professional docs (legal/medical/financial): AI is only a draft/aid, human review required.
+- Consistency control: Glossary/Style Guide, brand tone-of-voice guide, persona prompt.
+- Fairness: job descriptions avoid gender/age/race bias; news uses factual statements.
+- Multimodal bridging: text AI often acts as the "input layer" (video scripts, image prompts, narration) but doesn't make images/audio itself.
+- Personalized recommendations: not just right/wrong, but explanations + avoiding filter bubbles.
+- Tools: Grammarly (grammar + tone), Persona-based Content, Style Guide / Glossary.
+
+### 3.2 Image generation
+- Three editing techniques (loves the distinction): **Inpainting** (remove/repair local), **Outpainting** (extend the canvas), **Upscaling** (enlarge and fill detail).
+- ControlNet/OpenPose for precise composition/pose control.
+- Career impact = replaces some repetitive work, still needs human creative direction/taste/finishing.
+- E-commerce: composite product photos into scene backgrounds / virtual models.
+- Copyright & ethics: complex ownership, bias from training data, must label AI-generated and be traceable.
+- Ethics line: no porn/violence/hate, no non-consensual Deepfake.
+- Prompt keywords "photorealistic"/"8k" = more realistic detail (not size change / speed-up).
+- Tools: Stable Diffusion, Virtual Staging, virtual try-on/makeup, Remini (photo restoration).
+
+### 3.3 Presentation generation
+- Core principle **"Less is More"**: minimal text, more visuals.
+- Script/outline needs: topic, target audience, talk length, core arguments.
+- **Speaker Notes** = each slide's expanded explanation / data source / speaking prompts.
+- Three stages: before (content review) / during (delivery analysis) / after (summary report).
+- Storytelling: Problem-Solution, STAR frameworks.
+- Visual consistency, distinguish: visual coherence / language style / brand norms.
+- Fact-checking: needs reliable data + human review, not just AI auto-correction.
+- **Alt Text** = auto-generated image description for screen readers = accessibility.
+- Data functions in three layers: live updates / data sync (Excel/Sheets) / data governance.
+- Interactivity: Q&A hosting, polls, quizzes, gamification (points/leaderboard/badges).
+- Virtual Presenter, version control (revert to any version), chart selection (recommends by data type + goal).
+
+### 3.4 Audio generation
+- **The three voice conversions** (loves testing): **TTS** (text→speech), **STT** (speech→text), **S2S** (speech-to-speech translation, converts directly to speech).
+- TTS naturalness = simulating pitch/intonation/stress/rhythm.
+- Vocaloid-type = turning text into a "singing voice" of a specific timbre.
+- Music generation: rhythm / harmony / arrangement / composition.
+- Dubbing / ADR (automated dialogue replacement) = synthesized speech matching lip-sync/emotion.
+- Audio editing: Adobe Podcast (Enhance Speech) removes noise/echo, lifts to studio quality.
+- **Three security items** (easily confused): voice biometrics (identity verification) / AI voice forensics (detect if AI-generated/tampered) / audio watermark (provenance).
+- AI voice fraud = cloning a relative's voice to scam (the most concrete ethical risk).
+- Two-way emotion: voice emotion recognition vs emotion expression generation — don't mix.
+- Foley Sound / 3D spatial audio.
+
+### 3.5 Video generation
+- Covers the full pre- to post-production pipeline.
+- **Text-to-Video vs Image-to-Video** (the latter needs one still image + an action prompt).
+- Facial animation (from voice/emotion/mocap), voice cloning, De-aging, visual style transfer.
+- Generative Fill (remove objects/extend background), video background removal, Upscaling.
+- **Deepfake = the biggest ethical controversy** → needs detection + transparency labeling.
+- Ethics: no porn/violence/hate/non-consensual Deepfake.
+- For professionals = faster and cheaper, still needs human creative direction; promotes the "democratization of filmmaking."
+- Tools: Pika Labs (Motion Brush), HeyGen (Lip-syncing).
+
+### 3.6 Code generation & websites
+- AI Pair Programming (a virtual programmer collaborating in real time).
+- Code Refactoring (optimize structure/readability without changing external behavior).
+- Auto-generate unit tests; natural language to SQL (lets non-technical users query databases).
+- IaC (Terraform/CloudFormation, manage infrastructure as code), containerization (Dockerfile/K8s), CI/CD (GitHub Actions).
+- Web integration: payments (Stripe/PayPal), CRM (Salesforce), ERP (SAP).
+
+### 3.7 Data analysis
+- Core = auto-detect patterns/anomalies/trends.
+- AutoML (auto modeling, lower barrier), BI (natural-language charts/reports, NL-to-SQL).
+- Feature engineering, data cleaning, anomaly detection (fraud/failure).
+- Customer churn prediction vs customer lifetime value (LTV) prediction.
+- Data visualization (auto chart choice) / data storytelling, predictive maintenance, supply-chain optimization.
+
+### 3.8 Chatbots
+- **Intent Recognition** ("book a flight") / **Entity Extraction** ("tomorrow," "Taipei").
+- Rule-based (needs all paths defined manually, inflexible) vs AI-powered.
+- Proactive Assistance, Emotional Intelligence (empathetic responses).
+- Customer service: multi-channel, self-service, seamless handoff with summary, multilingual.
+- Crisis handling: detect suicidal ideation → immediately provide professional resources and referral.
+
+## Area 4 — Ethics & law
+
+### 4.1 Social and individual impact
+- Whole-chapter theme "**double-edged sword**": every domain brings efficiency and new risk at once.
+- Augmentation vs substitution.
+- **Automation Bias**: over-trusting AI, blindly following even when it's wrong.
+- Deepfakes / disinformation threaten elections, news credibility, social trust.
+- Echo Chamber / Filter Bubble → social polarization.
+- Human-AI emotional attachment, cognitive decline.
+- Digital divide, three variants: digital divide (lack of devices/literacy) / digital colonialism (loss of data sovereignty) / cultural homogenization (marginalizing minorities).
+- Labor: Upskilling/Reskilling, **UBI (universal basic income)**, **Ghost Work** (the low-paid labeling/moderation labor behind AI).
+- Environmental cost: training/inference energy use → higher carbon emissions (a problem, not a green benefit).
+
+### 4.2 Ethical principles
+- **Non-maleficence (do no harm, passive) vs Beneficence (do good, active)**.
+- Human control gradient: Human-in-the-loop → **Meaningful Human Control (MHC)** (retain understanding/judgment/intervention).
+- XAI two layers: global explainability (whole model) vs local explainability (single prediction).
+- **EU AI Act**: the world's first comprehensive AI law, risk-tiered.
+- **NIST AI RMF**: voluntary, four stages — govern/map/measure/manage.
+- Bias: detection (diversity analysis + fairness testing + counterfactual) vs mitigation (pre-processing + training constraints + post-processing).
+- Alignment, Double-use Problem, Red Teaming.
+- Terms: MHC, global vs local explainability, regulatory sandbox (evaluate ethical impact in a controlled environment).
+
+### 4.3 Laws and regulations
+- US **AI Bill of Rights**: non-binding guiding principles (not law).
+- Liability: when AI errs, it's **not "the AI is responsible"** — it falls on designer/manufacturer/deployer/user.
+- Copyright: disputes over ownership of AI-generated content; whether training on copyrighted works infringes; whether AI can be an inventor.
+- Data sovereignty / localization: data must be stored in a specific geography.
+- Military: LAWS international bans, humanitarian law, chain-of-command responsibility.
+- Digital ethics codes have no legal force (a code ≠ a law); AI legal personhood is still debated, unresolved.
+- Terms: AI Bill of Rights, PIPL (China's data law) / Taiwan's data law, Data Localization, LAWS.
+
+### 4.4 Privacy and data security
+- **Privacy-Enhancing Technologies (PETs) family [the most-tested distinction of the chapter]**:
+  - Differential privacy (add mathematical noise, can't identify an individual)
+  - Homomorphic encryption (compute directly on encrypted data)
+  - Federated learning (train locally, only send parameters — data stays put, the model moves)
+  - Secure Multi-Party Computation (SMPC) (parties compute jointly without leaking inputs)
+  - Data masking (replace with correctly-formatted fake data for test environments)
+- Access control: RBAC (role) / ABAC (attribute, finer) / ACL (list) / least privilege.
+- **Zero Trust architecture**: "never trust, always verify."
+- Encryption's three states: at Rest / in Transit / KMS key management.
+- Threats: Data Poisoning, Model Inversion Attack (reconstruct training data such as faces), Adversarial Robustness (resisting adversarial samples, a defensive goal).
+- AI security applications: SIEM (unified monitoring), IDS (intrusion detection), SOC (security operations center).
+- Isolation: **TEE (Trusted Execution Environment, hardware isolation)**, Secure Data Enclaves; MFA, separation of duties.
+
+---
+
+**How to use it**: the day before, run through "Part 1 — terms" and the distinction pairs (Data Drift vs Concept Drift, TTS/STT/S2S, Precision vs Recall, Non-maleficence vs Beneficence, the PETs family) twice; skim the rest for recognition. Good luck out there — for the method, see the companion post: [Two AI Certs in Two Months](/en/blog/genai-cert-exam-prep/).

@@ -1,0 +1,284 @@
+---
+title: "生成式 AI 認證 考前重點總整理（完整版）：21 個關鍵名詞 ＋ 四大面向逐章考點速查"
+description: "資策會生成式 AI 能力認證的考前速查工具：21 個最容易被漏掉的關鍵名詞（分五組），加上基礎知識／Prompt／應用技能／倫理法律四大面向、逐章的高頻考點與「看到 X 選 Y」對應。搭配我的準備方法文一起服用。學習分享，非販售題庫。"
+slug: "genai-cert-exam-cheatsheet"
+lang: "zh-TW"
+pubDate: 2026-07-18
+category: "tech"
+tags: ["ai", "genai", "certification", "iiiedu", "study", "cheatsheet", "education"]
+ogImage: "/covers/genai-cert-exam-cheatsheet.png"
+cover: "/covers/genai-cert-exam-cheatsheet.png"
+tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。上半＝21 個最易漏的關鍵名詞（原理架構／Prompt&Agent／工具應用／資料治理MLOps／倫理法律五組，含 Word2Vec、Ground Truth、Data Drift、同態加密、Red Teaming、LAWS…）；下半＝四大面向逐章考點（1.1 Scaling Laws/Token/Temperature、1.3 參數vs超參數/CLM vs MLM、2.2 Data Drift vs Concept Drift/RBAC vs ABAC、3.4 TTS/STT/S2S、4.4 PETs 隱私增強技術家族…），每組附『看到 X 選 Y』的辨析鉤。全部概念層、不含任何真題。搭配同站『我怎麼用 AI 協作準備』方法文一起看。"
+---
+
+![一整面由暖光書頁與符號構成的巨大速查牆，一位學習者站在牆前伸手點亮其中一格，格子亮起如被理解的知識節點，四周浮著細小的名詞光點；晨光柔和，秩序而溫暖](/covers/genai-cert-exam-cheatsheet.png)
+
+> *博學之，審問之，*<br/>
+> *慎思之，明辨之，篤行之。*<br/>
+> —— 《禮記·中庸》（先秦）
+
+---
+
+這是資策會生成式 AI 能力認證的**考前速查工具（完整版）**。它不是教材，是**臨考前最後幾小時的補漏牌**——把最容易被漏掉、最容易搞混的名詞與考點一次列齊，每個都附「看到 X 選 Y」的辨析鉤。
+
+概念層整理、**不含任何真題**（那是版權）。想先看「我怎麼用 AI 協作、兩個月考兩張」的方法，讀這篇的姊妹文：〈[兩個月考兩張 AI 證照](/blog/genai-cert-exam-prep/)〉。
+
+---
+
+# 一、21 個關鍵名詞（分五組）
+
+## 原理與架構
+
+- **Word2Vec**：把詞映射成向量，語意近的靠在一起。🎯 靜態嵌入（同字同向量）↔ 對比 BERT 情境嵌入。
+- **Ground Truth**：標準答案／標籤，評估模型準不準的基準。🎯 看到「驗證預測是否正確的標準答案」選它。
+- **Open Weights vs Open Source**：開放權重但有授權限制 ≠ 嚴格開源。🎯 Llama 算 Open Weights（能下載本地跑、授權有限）。
+
+## Prompt 與 Agent
+
+- **System vs User Prompt**：System 設長期角色／規則；User 是當下指令。🎯 設人設寫 System、日常提問是 User。
+- **Prompt Tuning / Soft Prompts**：只訓練少量「軟提示」向量，不動主體權重。🎯 低成本客製，對比全參數微調更省。
+- **Tool Use / Function Calling**：讓模型呼叫外部工具／API（查即時資料、算數、發信）。🎯 Agent 的核心能力。
+- **LangChain / LlamaIndex**：開發 LLM 應用的框架。🎯 LangChain 通用串接；LlamaIndex 專接私有數據。
+- **Multi-agent 多代理**：多個角色 Agent 協作（一個寫、一個測、一個寫文件）。
+- **Jailbreak 越獄**：繞過安全過濾使模型答被禁內容。🎯 「用話術突破安全限制」（如祖母漏洞）。
+- **Self-Consistency**：多次推理取多數決，提高穩定／正確率。
+
+## 工具與應用
+
+- **ControlNet**：加控制條件精確控制圖像構圖。🎯 OpenPose 控人物骨架姿勢、Canny 控邊緣。
+- **AutoML**：自動選模型、調超參，降低 ML 門檻。🎯 「讓非專業者也能建模」。
+
+## 資料治理與 MLOps
+
+- **Data Drift vs Concept Drift**【經典必考】：輸入分佈變 vs 輸入-輸出關係／定義變。🎯 新詞出現＝Data Drift；「垃圾郵件的定義本身變了」＝Concept Drift。
+- **Data Lineage 資料血緣**：追蹤資料來源→轉換→去向。🎯 要追「這數字哪來的、經過哪些處理」＋合規稽核。
+- **PII 個人可識別資訊**：姓名／身分證／地址等。🎯 處理前要去識別化或加密。
+- **Homomorphic Encryption 同態加密**：加密狀態下直接運算。🎯 「密文直接運算」。
+- **SMPC 安全多方計算**：多方不洩露各自輸入、共同計算。🎯 多家銀行想合算又不給對方看資料。
+- **Red Teaming 紅隊**：專家扮攻擊者主動找漏洞。🎯 重點是「主動攻擊視角」。
+- **Data Poisoning 數據投毒**：訓練資料注入惡意數據讓模型學壞。
+- **Zero Trust 零信任**：永不信任、始終驗證。🎯 每次存取都驗證，不論來源。
+
+## 倫理與法律
+
+- **LAWS 致命自主武器系統**：能自主選定並攻擊目標的武器。🎯 軍事 AI 必考爭議：國際禁令、人道法、「人類須保有控制權」。
+
+---
+
+# 二、四大面向 · 逐章考點速查
+
+## 第一面向：基礎知識
+
+### 1.1 生成式 AI 基本概念
+- **Scaling Laws**：運算／資料／參數增加，效能可預測提升。
+- **Token**：中文字約 0.5~1 個 Token，也是計費單位。
+- **Temperature**（控隨機性）、**Top-P（核採樣）**（從累積機率達 P 的最小詞集採樣）；結果不同因機率採樣。
+- **幻覺（Hallucination）**：生成看似合理但不正確／虛構的資訊。
+- **GAN**（生成器 vs 判別器競爭，Goodfellow 2014）vs **擴散模型**（加噪破壞→學逆向去噪）。
+- 必記：**垂直 AI**＝針對特定產業訓練優化。
+
+### 1.2 生成式 AI 應用領域
+- 全章主軸：從「自動化」轉向**「增強與協作」**，提升專業人士效率而非全面取代。
+- 學術規範：AI 可輔助潤飾／發想，禁直接代寫，且需揭露。
+- 人機協作：小說＝人設大綱、AI 擴寫；翻譯＝譯者轉為「**譯後編輯（Post-editing）**」。
+- **概念驗證（PoC）**：先小範圍測可行性再決定是否擴大。
+- 倫理風險高頻：履歷篩選可能歧視；心理諮商 AI 最怕給錯醫療建議／處理不了危機；政策起草須人類嚴審。
+- 內容審核：AI 能理解上下文與隱晦仇恨言論，比關鍵字過濾精準。
+- 企業 RAG：解決關鍵字搜尋無法理解語意、難跨文件綜合的痛點。
+- 製造：**生成式設計**（探索方案優化重量／強度／成本）、**預測性維護**、品管**生成罕見瑕疵樣本**。
+- 自動新聞最適合結構化強的財報／體育快訊，非深度調查／社論。
+- 必記：**程序化內容（Procedural Content）**＝AI 生成遊戲美術／關卡降成本。
+
+### 1.3 生成式 AI 技術術語
+- **參數**（模型學出來）vs **超參數**（人設定，如學習率／Batch Size）。
+- **反向傳播**（訓練時算梯度更新權重）vs **推理 Inference**（部署後對新資料預測）。
+- **Overfitting**（訓練好、測試差，缺泛化）vs **Underfitting**（太簡單）；Bias-Variance Tradeoff（高偏差＝欠擬合、高變異＝過擬合）。
+- **Precision vs Recall** 有權衡；**F1** 是兩者**調和平均**（陷阱：不是算術平均）。
+- 解碼策略：Greedy（易重複）、**Beam Search（width=1 等同 Greedy）**、Top-K、Temperature=0 最確定。
+- 架構：Encoder-Decoder→Seq2Seq（翻譯）；Decoder-only（GPT 續寫）；Self-Attention（句內字與字）；Cross-Attention（跨兩串）。
+- **RNN** 難平行化＋長距離遺忘；**LSTM** 門控解梯度消失；**GRU** 是 LSTM 簡化版。
+- **Word2Vec**（靜態，同字同向量）vs **BERT**（情境化，同字隨上下文變，如 bank）。
+- 預訓練任務：GPT＝**CLM**（因果／單向）；BERT＝**MLM**（遮罩／雙向）。
+- 必記：Ground Truth、Dropout（隨機關神經元防過擬合）、Data Augmentation（旋轉裁切加噪增資料）、Quantization（32→8/4-bit 縮體積加速）、LLM-as-a-Judge、Ablation Study（消融，移除組件看影響）。
+
+### 1.4 生成式 AI 技術原理
+- **SD 生態**：Automatic1111（最完整 WebUI）、ComfyUI（節點式）、Fooocus（極簡高畫質）、Civitai（模型／LoRA 社群）。
+- 參數：**CFG Scale**（圖與 Prompt 相關度）、Sampler（細節／收斂）、**Checkpoint**（完整模型決定風格）、**LoRA**（檔小、學特定人物／畫風）。
+- ControlNet 預處理：Canny（邊緣）、OpenPose（骨架）。
+- RAG 工具：LangChain（串接框架）、LlamaIndex（私有數據接 LLM）。
+- 本地 LLM：Ollama、LM Studio、**GGUF（是「格式」不是軟體）**、GPT4All。
+- 搜尋型：**Perplexity.ai**（附引用來源解幻覺）、Poe（聚合多模型）。
+- 推理優化：TensorRT（NVIDIA 加速）、ONNX（跨框架格式）、QAT（訓練時量化）vs PTQ（訓練後量化）。
+- 邊緣：Edge AI**非**「無限算力」；NPU 低功耗推理；TOPS 衡量 AI 晶片效能。
+- 必記：**MoE**（混合專家，每次只活化部分）、IP-Adapter（把圖片當 Prompt）、Delimiter（分隔符，區隔指令與資料防注入）、Pipeline（Hugging Face 封裝前處理／推理／後處理成一行 API）。
+
+## 第二面向：能力強化（Prompt）
+
+### 2.1 Prompt 優化能力
+- 好 Prompt 要含：目標／對象／語氣／字數等具體限制。
+- 推理引導：**CoT**（一步一步想）、Least-to-Most（拆子問題）、Step-Back（先抽象）、Tree of Thoughts（多路徑＋回溯）、Self-Consistency（多次取多數決）。
+- 長對話失效：**Prompt Decay**（忘最初指令）、Instruction Creep（指令越疊越亂）、**Lost in the Middle**（忽略中段）。
+- 安全攻防：**Prompt Injection（廣義）⊃ Jailbreak（越獄子類）**；Prompt Leaking（騙出 System Prompt）；防禦＝Sandwich Defense、Instruction Defense。
+- 分隔符（```、###、XML）區隔指令與資料防注入；Claude 擅長 XML。
+- Temperature 高＝創意；Top-P 低＝保守確定。
+- 降幻覺最有效：要求「僅依提供資料回答，不知道就說不知道」。
+- 圖像參數：--stylize（藝術化）、--chaos（多樣性）、::（加權）、Seed（鎖定構圖）、Negative Prompt（排除元素）。
+- 偏見：英文 Prompt 品質通常較高；不指定文化則偏歐美（Wedding 預設白紗）。
+- 必記：Meta-Prompting（要 AI 幫你寫 Prompt）、Grandma Exploit（祖母漏洞）、Flipped Interaction（模型反過來問你）。
+
+### 2.2 生成式 AI 資料治理
+- **Data Drift**（輸入分佈變）vs **Concept Drift**（輸入輸出對應關係變）【經典易混】。
+- 存取控制：**RBAC**（角色）vs **ABAC**（屬性，更細粒度）。
+- 資料架構：Data Lake（非結構化）／Warehouse（ACID）／Lakehouse（結合）／Fabric（統一存取）／Mesh（去中心化、資料即產品）。
+- GDPR 被遺忘權技術挑戰＝**Machine Unlearning**（訓練進權重後極難精確刪）。
+- 必記：Golden Record（清洗整合後唯一正確版本／SSOT）、Dark Data（收集卻從未分析）、Data Poisoning、Shadow AI（員工私用未核准 AI 工具）、HNSW（向量近似最近鄰演算法）。
+
+### 2.3 生成式 AI 最新發展
+- 線性複雜度架構（解 Transformer 二次方）：Mamba（SSM）、RWKV、RetNet、Griffin、Jamba（混合）。
+- 推理加速：Flash Attention（IO-aware）、PagedAttention（KV Cache 分頁，vLLM）、Speculative Decoding（小模型草擬、大模型驗）。
+- 量化極限：BitNet b1.58（權重 -1/0/1 三態，≈1.58 bit）。
+- RAG 變體：Graph RAG（知識圖譜）、Self-RAG（反思自評）、CRAG（評相關性觸發網搜）、Agentic RAG。
+- MoE：Grok-1（314B 但每次用約 25%）、DBRX、Mixtral；總參數大但推理成本可控。
+- Post-training（RLHF／RLAIF）決定安全／對齊，是推理模型（如 o1）突破關鍵。
+- AI Agent vs Chatbot：Agent 有規劃／工具／循環；代表 Devin、SWE-agent。
+- 科學突破：AlphaFold 3（蛋白質/DNA/RNA）、GraphCast（氣象）、GNoME（新晶體）、AlphaGeometry（幾何證明）。
+- 多模態原生（Gemini 1.5，端到端）優於拼接。
+- 必記：Compound AI Systems（多模型／工具組合）、Model Merging（合併微調權重）、Sovereign AI（各國自建 AI 基建）、SynthID（隱形浮水印）、Embodied AI（AI 進實體機器人）。
+
+### 2.4 自主學習方法和工具
+- 學習法：**費曼學習法**（講給不懂的人聽驗證真懂）、Project-Based、Building in Public、Peer Learning。
+- 開發工具：Cursor（理解整專案的 AI 編輯器）、VS Code+Copilot、Replit（瀏覽器內）、Colab（免費 GPU）。
+- 雲廠證照：Google PMLE／Azure AI Engineer／AWS ML-Specialty。
+- **資料前處理常佔 AI 專案 80%+ 時間**。
+- 數學對應：線性代數→矩陣／張量；微積分→梯度下降／反向傳播；機率統計→預測下一詞機率。
+- **自學第一步＝動手玩**（先註冊 ChatGPT／Midjourney 親自試）。
+- 必記：roadmap.sh、Pomodoro（番茄鐘 25+5）、Growth Mindset vs Abundance Mindset、AutoGPT／BabyAGI。
+
+## 第三面向：應用技能（八種生成工具）
+
+### 3.1 文字生成工具
+- 核心定位＝**「智慧副駕」**：增強效率、取代重複性低價值寫作，不是取代人類創作。
+- 任務分工（愛考「選對功能名」）：摘要（Summarization）／改寫（Paraphrasing）／擴寫（Expansion）／翻譯／情感分析（Sentiment Analysis）。
+- 客服鐵則：AI 先試解決，遇專業／醫療／法律／敏感個資 → 無縫轉真人並附摘要。
+- 專業文件（法律／醫療／財務）：AI 只是草稿／輔助，必須人工審核。
+- 一致性控制：詞彙表／Style Guide、品牌語氣指南、角色設定 Prompt。
+- 公平性：職缺描述避免性別／年齡／種族偏見詞；新聞用事實陳述。
+- 多模態橋接：文字 AI 常當「輸入層」（生影片劇本、圖片 Prompt、旁白），本身不做圖／聲。
+- 個人化推薦：不只給對錯，要給解釋＋避免資訊繭房。
+- 工具：Grammarly（語法＋語氣）、Persona-based Content、Style Guide／Glossary。
+
+### 3.2 圖片生成工具
+- 三大編輯技術（愛考辨析）：**Inpainting**（移除／修局部）、**Outpainting**（向外擴畫布）、**Upscaling**（放大補細節）。
+- ControlNet／OpenPose 精確控制構圖／姿勢。
+- 職業影響＝取代部分重複工作，仍需人類創意指導／審美／後期。
+- 電商：產品圖合成到情境背景／虛擬模特兒。
+- 版權與倫理：版權歸屬複雜、偏見源自訓練資料、要標示 AI 生成並可溯源。
+- 道德紅線：禁色情／暴力／仇恨、禁未經同意 Deepfake。
+- Prompt 關鍵字 "photorealistic"／"8k" ＝更真實細節（不是改尺寸／加速）。
+- 工具：Stable Diffusion、Virtual Staging（虛擬樣板房）、虛擬試穿／試妝、Remini（修舊照）。
+
+### 3.3 簡報生成工具
+- 核心原則 **「Less is More」**：文字精簡、多用視覺。
+- 講稿／大綱要提供：主題、目標聽眾、演講時間、核心論點。
+- **Speaker Notes（備註）**＝每張投影片的擴充解釋／數據來源／演講提示。
+- 三階段：事前（內容審查）／事中（演講分析）／事後（總結報告）。
+- Storytelling：Problem-Solution、STAR 敘事框架。
+- 視覺一致性要分清：視覺連貫／語言風格／品牌規範。
+- 事實查核：須可靠數據＋人工審核，不能只靠 AI 自動更正。
+- **Alt Text（替代文本）**＝自動辨識圖片生成、供螢幕閱讀器＝無障礙。
+- 數據三層：即時更新／數據同步（連 Excel/Sheets）／數據治理。
+- 互動：Q&A 主持、投票、測驗、遊戲化（積分／排行榜／徽章）。
+- Virtual Presenter（虛擬演講者）、版本控制（可回溯任一版本）、圖表選擇（依數據類型＋目標推薦）。
+
+### 3.4 聲音生成工具
+- **語音三分法**（愛考）：**TTS**（文字→語音）、**STT**（語音→文字）、**S2S**（語音→語音翻譯，直接轉語音）。
+- TTS 自然度＝模擬音高／語調／重音／節奏。
+- Vocaloid 類＝把文字轉成特定音色的「歌聲」。
+- 音樂生成：節奏／和聲／配器／編曲。
+- Dubbing（配音）／ADR（自動對白替換）＝合成符合嘴型／情感的語音。
+- 音訊編輯：Adobe Podcast（Enhance Speech）去雜音回音、提升到錄音室品質。
+- **安全三項**（愛混）：語音生物辨識（身份驗證）／AI 語音鑑識（偵測是否 AI 假造）／音訊浮水印（溯源）。
+- AI 語音詐騙＝複製親友聲音詐騙（最具體倫理風險）。
+- 情緒雙向：語音情緒識別 vs 情緒表達生成，勿混。
+- Foley Sound（擬音）／3D 空間音效。
+
+### 3.5 影片生成工具
+- 涵蓋前製到後製全流程。
+- **Text-to-Video vs Image-to-Video**（後者需一張靜圖＋動作 Prompt）。
+- 面部動畫（依語音／情緒／動捕）、語音複製、De-aging（年輕化）、視覺風格遷移。
+- Generative Fill（移除物件／擴背景）、影片去背、Upscaling。
+- **Deepfake ＝最大倫理爭議** → 需偵測技術＋透明度標示。
+- 道德：禁色情／暴力／仇恨／未經同意 Deepfake。
+- 對從業者＝加速降成本，仍需人類創意指導；促進「電影製作民主化」。
+- 工具：Pika Labs（Motion Brush）、HeyGen（Lip-syncing）。
+
+### 3.6 程式生成與網站
+- AI Pair Programming（虛擬程式員即時協作）。
+- Code Refactoring（不改外部行為、優化結構可讀性）。
+- 自動生成單元測試；自然語言轉 SQL（讓非技術者操作資料庫）。
+- IaC（Terraform／CloudFormation，用程式碼管基礎設施）、容器化（Dockerfile／K8s）、CI/CD（GitHub Actions）。
+- 網頁整合：支付（Stripe/PayPal）、CRM（Salesforce）、ERP（SAP）。
+
+### 3.7 數據分析工具
+- 核心＝自動識別模式／異常／趨勢。
+- AutoML（自動建模降門檻）、BI（自然語言生成圖表報告／轉 SQL）。
+- 特徵工程、數據清洗、異常檢測（詐欺／故障）。
+- 客戶流失預測 vs 客戶終身價值（LTV）預測。
+- 數據可視化（自動選圖表）／數據故事化、預測性維護、供應鏈優化。
+
+### 3.8 聊天機器人工具
+- **Intent Recognition**（意圖：「訂機票」）／**Entity Extraction**（實體：「明天」「台北」）。
+- Rule-based（需人工定義所有路徑、缺彈性）vs AI-powered。
+- Proactive Assistance（主動協助）、Emotional Intelligence（同理回應）。
+- 客服：多渠道、自助、無縫轉真人附摘要、多語言。
+- 危機處理：偵測自殺意念 → 立即提供專業資源、轉介。
+
+## 第四面向：倫理與法律
+
+### 4.1 社會和個人影響
+- 全章主軸「**雙面刃**」：各領域同時帶來效率與新風險。
+- 增強效應（augmentation）vs 替代效應（substitution）。
+- **自動化偏見（Automation Bias）**：過度信任 AI、即使出錯也盲從。
+- Deepfake／假訊息威脅選舉、新聞公信力、社會信任。
+- 迴聲室效應（Echo Chamber）／濾泡效應（Filter Bubble）→ 社會極化。
+- 人機情感依附、認知退化。
+- 數位落差三變體：數位落差（缺設備／素養）／數位殖民主義（喪失數據主權）／文化同質化（邊緣化小眾）。
+- 勞動：Upskilling／Reskilling、**UBI（全民基本收入）**、**Ghost Work（幽靈勞動：背後低薪標註／審核人力）**。
+- 環境代價：訓練／推論耗能→碳排增加（是問題非環保）。
+
+### 4.2 倫理準則和規範
+- **Non-maleficence（不作惡，消極）vs Beneficence（行善，積極）**。
+- 人類控制遞進：Human-in-the-loop → **Meaningful Human Control（MHC）**（保有理解／判斷／干預）。
+- XAI 兩層：全局可解釋（整個模型）vs 局部可解釋（單一預測）。
+- **EU AI Act**：全球首部全面 AI 法規，依風險分級。
+- **NIST AI RMF**：自願性，治理／映射／測量／管理四階段。
+- 偏見：偵測（多元性分析＋公平性測試＋反事實）vs 緩解（前處理＋訓練約束＋後處理）。
+- Alignment（對齊）、Double-use Problem（雙重用途）、Red Teaming（紅隊）。
+- 必記：MHC、全局 vs 局部可解釋、監管沙盒（受控環境評估倫理影響）。
+
+### 4.3 法律法規
+- 美國 **AI Bill of Rights**：非強制指導原則（非法律）。
+- 責任歸屬：AI 出錯**不是「AI 自己負責」**，歸設計者／製造商／部署者／使用者。
+- 著作權：AI 生成內容版權歸屬爭議；訓練用受版權作品是否侵權；AI 能否當發明人。
+- 數據主權／本地化（Data Localization）：數據須存特定地理區域。
+- 軍事：致命自主武器系統（LAWS）國際禁令、人道法、指揮鏈責任。
+- 數位倫理準則無法律效力（準則≠法律）；AI 法律人格仍在討論、無定論。
+- 必記：AI Bill of Rights、PIPL（中國個資法）／台灣個資法、Data Localization、LAWS。
+
+### 4.4 隱私保護和資料安全
+- **隱私增強技術（PETs）家族【全章最常考辨析】**：
+  - 差分隱私（加數學雜訊，無法識別單一個體）
+  - 同態加密（加密狀態直接運算）
+  - 聯邦學習（本地訓練只傳參數，資料不動模型動）
+  - 安全多方計算 SMPC（多方不洩輸入共算）
+  - 數據遮罩（替換成格式正確的假資料，測試環境用）
+- 存取控制：RBAC（角色）／ABAC（屬性，更細）／ACL（清單）／最小權限原則。
+- **零信任架構**：「永不信任，始終驗證」。
+- 加密三態：靜態加密（at Rest）／傳輸加密（in Transit）／KMS 密鑰管理。
+- 威脅：Data Poisoning、Model Inversion Attack（逆向推訓練資料如人臉重建）、Adversarial Robustness（抗對抗樣本，是防禦目標）。
+- AI 資安應用：SIEM（統一監控）、IDS（入侵檢測）、SOC（安全運營中心）。
+- 隔離：**TEE（可信執行環境，硬體隔離）**、Secure Data Enclaves；MFA（多因素認證）、職責分離。
+
+---
+
+**用法建議**：考前一天把「一、名詞」與「三分法／辨析類」（Data Drift vs Concept Drift、TTS/STT/S2S、Precision vs Recall、Non-maleficence vs Beneficence、PETs 家族）過兩遍就好，其餘掃過混臉熟。祝上考場順利——方法看姊妹文〈[兩個月考兩張 AI 證照](/blog/genai-cert-exam-prep/)〉。
