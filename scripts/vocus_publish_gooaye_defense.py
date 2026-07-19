@@ -12,7 +12,7 @@ SC = r'D:\Temp\claude\C--Users-Charles\c6c379aa-ee7a-4c56-b0ad-7a73915234f1\scra
 TOK = open(os.path.join(SC, 'vocus_token.txt'), encoding='utf-8').read().strip().strip('"')
 
 COVER_PNG = r'C:\Users\Charles\Projects\realpha-blog\public\covers\gooaye-index-steady-stocks-bleeding.png'
-TITLE = '「指數穩、個股慘」的真兇是誰？股癌主委最新一集：回撤 15% 轉防守、台積電被錯殺，與那個被誤讀的 AI 利空｜聽後筆記'
+TITLE = '「指數穩、個股慘」的真兇是誰？股癌 EP680 主委：回撤 15% 轉防守、台積電被錯殺，與那個被誤讀的 AI 利空｜聽後筆記'
 BLOG_URL = 'https://blog.getrealpha.com/blog/gooaye-index-steady-stocks-bleeding/'
 ABSTRACT = ('股癌最新一集，主委的核心判讀：這波「指數穩、個股慘」的真兇是韓國高槓桿 ETF 爆倉、全球估值倍數被系統性下修，'
             '不是產業利空；台積電法說全面轉佳卻被錯殺是資金情緒問題；Kimi K3 的 AI 利空論是 DeepSeek 重演，本質是 Jevons Paradox。'
