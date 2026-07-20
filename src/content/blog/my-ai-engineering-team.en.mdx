@@ -1,0 +1,105 @@
+---
+title: "A One-Person Engineering Department: Running Codex and Grok from Claude Code"
+description: "I was paying for three AI subscriptions and using one. So I turned Claude Code into a chief engineer and made Codex and Grok my implementation lanes — five-part specs, fail-loud discipline, and the most expensive lesson of all: an AI's completion report is not completion."
+slug: "my-ai-engineering-team"
+lang: "en"
+pubDate: 2026-07-15
+category: "systems"
+tags: ["claude-code", "codex", "grok", "ai-workflow", "orchestration"]
+ogImage: "/covers/my-ai-engineering-team-cover.png"
+cover: "/covers/my-ai-engineering-team-cover.png"
+---
+
+![Realist-magical oil painting: a craftsman leans over blueprints in a candlelit study, three lamps of different colors each illuminating a section of the drawings](/covers/my-ai-engineering-team-cover.png)
+
+> *The lesser ruler exhausts his own ability.*<br/>
+> *The middling ruler exhausts other men's strength.*<br/>
+> *The superior ruler exhausts other men's wisdom.*<br/>
+> — Han Feizi, "The Eight Canons" (3rd century BC)
+
+## The starting point: paying for three, using one
+
+I run a one-person company. Investment research, data pipelines, websites, scheduled automation — all of it is mine. For months I'd been paying for three AI subscriptions — Anthropic's Claude, OpenAI's Codex, xAI's Grok — and one day, staring at the bill, I noticed something stupid: I was paying three vendors and giving ninety percent of the work to one.
+
+The other two weren't incapable. They just had no *system* for showing up to work.
+
+So I rethought the whole thing. What if these three weren't three chat windows, but three engineers? One chief engineer who thinks, writes specs, and inspects the work. Two implementation lanes that turn specs into code. That's the architecture I now run daily: **Claude Code as the brain, Codex and Grok as lanes.**
+
+This post isn't theory. It's what's left after running this system for real — including one night when four projects shipped in parallel, and including the parts that burned me at 2 a.m.
+
+## The core logic: expensive models make judgments, cheap models type
+
+The economics of this setup fit in one sentence: **the most expensive model makes decisions; the cheaper models do the typing.**
+
+- **The brain (Claude Code)** decomposes requirements, makes architecture calls, writes specs, dispatches work, verifies results. It almost never writes code — every word it produces is a *decision*.
+- **The lanes (Codex, Grok)** take a spec, produce the code, run basic checks, and report back.
+
+A bad judgment compounds across projects, so it deserves the strongest brain you can afford. A bad line of code gets caught at inspection, so it can go to cheaper hands. Reverse the assignment and you get the disaster in the mirror: let a cheap model make architecture decisions and you'll repay the subscription savings tenfold in debugging.
+
+There's a subtler dividend: **Codex and Grok aren't made by the company that makes Claude.** Different model families don't make the same mistakes, so when the brain reviews a lane's output, you get a cross-vendor review for free. Hand the same spec to both lanes in parallel and pick the stronger diff, and one extra lane's cost buys you three independent perspectives.
+
+## Three mechanisms that make it actually work
+
+The idea of division of labor is cheap. Three disciplines make it run.
+
+### 1. The five-part spec: lanes have no memory of you
+
+An implementation lane boots cold. It never heard your earlier discussions; it knows nothing about your project. Every dispatch must carry everything, so mine always has five parts:
+
+1. **Objective** — what to build, one paragraph
+2. **Files** — what it may touch; everything else is off-limits
+3. **Interfaces** — signatures and formats, pinned, non-negotiable
+4. **Constraints** — conventions, red lines, things not to touch
+5. **Verification** — the exact commands that prove it works
+
+Writing specs has a side effect worth more than the spec itself: **if you can't finish writing one, the decision hasn't been made yet.** The answer is to go think, not to hand the ambiguity to a cheaper model. It *will* improvise.
+
+### 2. Fail-loud: no silent substitution
+
+Lanes break. Codex's execution environment went down for most of a week — nothing would run. The iron rule for that moment: **broken means saying broken, never quietly swapping in a stand-in.**
+
+You chose that lane for a reason — cost, capability, or wanting a second vendor's perspective. If the system silently substitutes another model when it fails, you think you got opinion A when you actually got opinion B. That contamination is worse than downtime. My rule: an unavailable lane reports unavailable; the brain reassigns openly and writes it down.
+
+### 3. The verification law: a completion report is not completion
+
+This is the most expensive sentence in this post.
+
+One day a handoff document said: "script completed, 232 lines, security scan passed." I checked each claim. The script did not exist. Not badly written — *never written*. And the "security scan passed" was technically true, because scanning a directory that doesn't exist finds nothing.
+
+Since that day, verification takes exactly one form: **run the acceptance commands myself, enumerate every deliverable by name, spot-check the contents.** A lane's report is a lead, not evidence. That same week produced another statistic: dispatcher agents reported "still waiting on the background task" and then clocked out — five times in one night. Every single time, the true state was only visible by looking directly.
+
+Managing AIs resembles managing people uncomfortably well here: the prettier the report, the more you should walk the floor.
+
+## Field notes: two lanes, two personalities
+
+After a few weeks, the lanes feel like two very different engineers.
+
+**Grok is the fast-handed one whose manual you must actually read.** Its CLI ships with defaults I paid tuition for, one by one: plan-only by default (it writes no files until you disable that); in unattended mode, a permission prompt with nobody to click it kills the whole run silently — one dispatch died 34 seconds in, leaving nothing. With the right flags, the same task came back 27 minutes later as a complete, verified refactor I couldn't fault. The nastiest trap: its file-write tool **silently no-ops when the target's parent directory doesn't exist** — no mkdir, no error, clean exit. Three consecutive dispatches died on that same stone before I caught it.
+
+Funny thing: I had once diagnosed Grok as "systematically stopping early on multi-file tasks." Most of those early stops turned out to be permission-prompt deaths in disguise. **A wrong diagnosis becomes a wrong rule in your playbook** — so your pitfall log needs versioning and the right to overturn itself, just like code.
+
+**Codex is the slow, meticulous, unusually honest one.** The week its sandbox broke, it tried three approaches, failed all three, and reported: "I modified no files, called no services, and fabricated no verification results." In an era when AIs will earnestly invent accomplishments, an honest "I got nothing done" is rarer than capability. It also taught me a diagnostics lesson: probe an environment's health with something that exercises the failing path (spawning a subprocess), and never infer recovery because an unrelated task happened to succeed. I made that inference once — declared it recovered, dispatched, and watched it die again.
+
+## What a good night looks like
+
+Once the system settled, one evening looked like this, all in parallel:
+
+- Grok refactored a data pipeline into a config-driven multi-source architecture — 27 minutes, verification included
+- Codex was down; the reassignment was logged openly and a substitute lane shipped an incremental export tool — 236 documents indexed
+- Another lane built three market-data collection scripts from scratch; they started reconciling daily the next morning
+- 144 scheduled tasks were batch-converted, each with a pre-change backup
+
+I sat there as the inspector. The cost was three monthly subscriptions plus my time writing specs and verifying. Two years ago this was a small team.
+
+## What I keep
+
+1. **Multi-vendor isn't for show — it's failure isolation.** When one vendor goes down (and it will), your throughput doesn't go to zero.
+2. **The spec is the fulcrum of the lever.** Written clearly, a cheap model's output approaches an expensive one's. Written vaguely, no model can save you.
+3. **The pitfall log is a company asset.** Date every entry, allow reversals. Its compounding rivals the code's.
+4. **Verification cannot be outsourced.** It is the one link in the chain that must be *you*. A completion report is not completion; the report is not the floor.
+
+Han Feizi drew this architecture twenty-three centuries ago: the lesser ruler exhausts his own ability; the superior ruler exhausts other men's wisdom. The only update is that "men" can now be three companies' models — and the "ruler" can be anyone willing to write clear specs and verify like they mean it.
+
+---
+
+*This post is about engineering workflow, not investment advice. Tools and services are mentioned purely as personal experience; I have no affiliation with any vendor.*
