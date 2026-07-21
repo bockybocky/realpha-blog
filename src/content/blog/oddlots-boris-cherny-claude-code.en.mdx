@@ -1,0 +1,98 @@
+---
+title: "Should the Computer Sit in the Corner of the Office, or at the Center?"
+description: "Notes after listening to Odd Lots interview Boris Cherny, who runs Claude Code at Anthropic. The part that stayed with me wasn't how capable the tool is. It was a study from the 1990s he brought up: companies bought the same computers, and only some of them got any productivity out of it. The difference was never the purchase."
+slug: "oddlots-boris-cherny-claude-code"
+lang: "en"
+pubDate: 2026-07-21
+category: "investing"
+tags: ["podcast-notes", "ai", "productivity", "moats", "software"]
+ogImage: "/covers/oddlots-boris-cherny-claude-code-cover-v2.png"
+cover: "/covers/oddlots-boris-cherny-claude-code-cover-v2.png"
+tldr: "Tools don't produce productivity. Rebuilt processes do. Among the classic moats, switching costs are being devalued right now — but good companies were never running on that one alone."
+---
+
+![Realistic oil painting cover: at dusk, an old farmer in a head wrap stands barefoot in a flooded terrace, tipping a clay jar to water the young rice shoots, his back turned to a modern city glittering across the valley](/covers/oddlots-boris-cherny-claude-code-cover-v2.png)
+
+> *Where there are machines, there will be machine-work;*<br/>
+> *where there is machine-work, there will be a machine-heart.*<br/>
+> —— Zhuangzi, "Heaven and Earth" (Warring States period, c. 3rd century BCE)
+
+## First, the show
+
+Odd Lots is Bloomberg's finance podcast, started in 2015 and hosted by Joe Weisenthal and Tracy Alloway. It covers finance, markets, economics and business, and it has become close to required listening on Wall Street.
+
+I listen to it regularly because it picks different subjects. Most finance shows chase this week's price action. Odd Lots chases the plumbing underneath — how container freight rates actually get set, how power grids price electricity, why some component nobody has heard of is holding up an entire supply chain. It covers structure rather than noise, which is why the episodes age well. One from two years ago is often still useful.
+
+**Joe Weisenthal** started out running his own finance site, TheStalwart.com, then went to Business Insider, and is now executive editor of news for Bloomberg's digital brands. He asks follow-ups. If you deflect, he asks again.
+
+**Tracy Alloway** has close to two decades in financial journalism. Before Bloomberg she was US financial correspondent at the Financial Times covering banks and markets, and deputy editor of FT Alphaville; at Bloomberg she ran the Asia Pacific news desk for a while. Her questions tend to come in sideways, usually from the angle of what a change actually does to the people doing the work.
+
+The combination works: one chases the logic, the other chases the shop floor.
+
+## Then, the guest
+
+**Boris Cherny** runs Claude Code at Anthropic and built the original version of it.
+
+Before Anthropic he spent years at Meta, reaching principal engineer, leading several large codebase modernizations and migrations at Instagram, and owning code quality across the company. He also wrote a programming language book for O'Reilly (*Programming TypeScript*) — which comes up obliquely in the interview, where he describes himself as a languages nerd who loves type systems. He joined Anthropic around the Sonnet 3.5 era and built the first Claude Code prototype on the model of that time.
+
+One personal detail from the episode: his grandfather wrote programs in the Soviet Union using punch cards, and his mother, as a child, used to draw on the stacks of punch cards he brought home. That detail turns into the starting point for the best history he tells.
+
+## What the episode is about
+
+One sentence for what I took away: **what actually changed over the last two years is not the capability of the tool but the position of the line between human work and machine work — it moved up two levels, and most organizations have not moved their processes up with it.**
+
+## What I took down
+
+- **The product is a byproduct of safety research.** He says models have no bodies; the way they act on the world is by writing code. So if you want to study whether a model is safe, you first have to make it very good at code, then put it in people's hands and watch what actually happens.
+
+- **The growth came from the model, not the wrapper.** Asked directly whether the surge was the harness or the model, he answers plainly: almost entirely the model. He also notes they use the same public interface every customer uses, with no privileged internal channel.
+
+- **The blindfolded sculptor.** My favorite analogy in the episode. Even if you are the best sculptor alive, working blindfolded and forbidden to touch the stone, the result will be mediocre. Let you peek with one eye and it improves. Let you see it fully and revise as you go, and it can become extraordinary. Same for a model — the first cut gets better as the model improves, but the ceiling is set by whether it can see what it just did.
+
+- **Fifty years with two changes; two years with two more.** He traces the line from his grandfather's punch cards to operating systems becoming software, and notes it then sat still for roughly fifty years. Now developers have stopped writing software directly and talk to a model instead — and there is already another level on top, where you talk to a model, that model talks to other models, and those write the source.
+
+- **One moat is being devalued.** Using the Seven Powers framework, he argues switching costs specifically will weaken, because migrating vendors is now something you can hand to a model. But he immediately qualifies it: real businesses were never built on a single moat. Switching costs stacked with network effects, stacked with a cornered resource — that's where the power comes from. So one weakens; most of the rest hold.
+
+- **A category of project moved from "doesn't pencil" to "pencils."** He cites a real codebase language migration: one person, roughly eleven days, about fifty thousand dollars of credits — work that used to mean several engineers for a year. "We just never would have done that." The interesting part isn't the speedup multiple. It's that **an entire class of work that never happened because it never justified itself will now happen.**
+
+- **That study from 1996.** The most valuable stretch of the episode. The question at the time: personal computers have arrived, so why aren't companies seeing productivity gains? The answer was that some firms simply put a computer in the corner and assigned someone to type data into it while the actual process stayed on paper — which just adds a job. The firms that gained moved the computer to the center, digitized the paper, **threw the filing cabinets away**, then worked through bottlenecks one at a time until the process itself had been rebuilt.
+
+- **The hosts' closing riff outlasts the interview.** Roughly: can a person reach the top of a field without ever doing the grunt work? Joe uses guitarists — the good ones have opinions about strings, pickup placement, which tubes go in the amp. None of that is music theory, but it is where their feel comes from. If everyone moves up to orchestrating, and nobody is the one repairing the instrument, does something get lost? His own conclusion: we'll find out within our lifetimes.
+
+## Where I take it further
+
+**One: "computer in the corner" describes most AI rollouts happening right now.**
+
+Buy a pile of seats, hand them out, wait for productivity to appear. That is precisely what the companies with no gains were doing in 1996. The difference is whether anyone is willing to work through the bottlenecks one at a time and actually throw the old filing cabinets out. And throwing out a filing cabinet has always been a political problem rather than a technical one, because that cabinet is usually somebody's job description.
+
+This holds for me too. Everything I built this past year where the tool got bolted on but the process stayed the same has since been abandoned. The things that saved real time were the ones where I forced myself to tear out a whole step and rewrite it.
+
+**Two: when a moat gets devalued, be specific about which one.**
+
+The market conversation about AI killing software tends to be all-or-nothing — either the industry is finished or nothing changes. His version has structure: switching costs weaken, the other powers don't. That is far more usable when you're reading a single company. You can ask what the moat is actually made of. If the pricing power rests mainly on customers not being able to leave, the risk is real. If it also has network effects, or sits on a step nobody can route around, then a market that sells everything at once is a market that lets you tell them apart.
+
+Following that thread, the thing I keep coming back to is chokepoints — whether a step has a substitute, whether it can be routed around. Switching costs are a manufactured chokepoint and can be dissolved by tooling. Physical, capacity, and specification chokepoints cannot. On a financial statement both show up as pricing power, and in this cycle their fates are nothing alike.
+
+**Three: feedback loops matter more than instructions, and this is badly underrated.**
+
+The sculptor analogy changed how I work. When a model does something poorly, most people — me included — respond by writing a more detailed instruction. But by his account, a better instruction only sharpens the first cut; the ceiling is whether it can see what it did. So the better question is: **does this task have a signal the machine can check itself against?** If not, build that signal first. It beats another five hundred words of prompt.
+
+This is the same problem as investing. A judgment with no expiry date and no way to be checked will never improve, because it never gets to be wrong in public. We put a date and a criterion on every call we publish for exactly this reason — not to prove we're right, but to give ourselves a chance of learning where we were wrong.
+
+## Where my head is at
+
+Honestly, when he mentioned that 100% of his own code has been written by the model since last November, my first reaction wasn't excitement. It was a small sinking feeling.
+
+In the Zhuangzi passage, an old man is watering his field by carrying a clay jar back and forth. A visitor suggests a simple machine that would save him the effort. The old man replies that machines bring machine-work, and machine-work brings a machine-heart. I used to read that as sanctimonious. Now it reads differently: he wasn't ignorant of the device. He understood it and then declined.
+
+I'm not going to imitate him. I use the tools, and I use them harder than most people. But I can't shrug off the hosts' last question: when the fundamentals can be outsourced, does judgment still develop? My working answer is that judgment grows out of how many times you've been proven wrong, not out of how many keys you've pressed. So the fundamentals can be outsourced. Checking your answers cannot.
+
+## If you want the source
+
+The show is Bloomberg's Odd Lots. The episode went up on 20 July 2026, runs about sixty-six minutes, and the guest is Boris Cherny.
+
+I'd listen to the audio rather than any summary, including this one. Three reasons: he is restrained and says so when he isn't sure; the hosts push hard, including the "are you putting people out of work" question, and don't accept a dodge; and the closing ten minutes are the hosts thinking out loud rather than a guest promoting anything, which is worth as much as the interview. There is a video version, and one short stretch in the middle is a live demo worth seeing rather than hearing.
+
+---
+
+*This is a listener's notes and personal commentary, not a full account of the episode's contents, and not investment advice. Companies named here are mentioned only in relaying the conversation and are not buy or sell recommendations.*
