@@ -129,6 +129,51 @@ def parse_runs(text):
     return [(seg, 1 if i % 2 else 0) for i, seg in enumerate(parts) if seg != '']
 
 
+LINK_RE = re.compile(r'\[([^\]]+)\]\((https?://[^)]+)\)')
+
+
+def split_links(text):
+    """把 [文字](網址) 切出來 → [('t', 純文字, None) | ('a', 連結文字, 網址)]。"""
+    out, pos = [], 0
+    for m in LINK_RE.finditer(text):
+        if m.start() > pos:
+            out.append(('t', text[pos:m.start()], None))
+        out.append(('a', m.group(1), m.group(2)))
+        pos = m.end()
+    if pos < len(text):
+        out.append(('t', text[pos:], None))
+    return out
+
+
+def link_node(text, url):
+    return {'children': [t_node(text)], 'direction': 'ltr', 'format': '', 'indent': 0,
+            'type': 'link', 'version': 1, 'rel': None, 'target': None,
+            'title': None, 'url': url}
+
+
+def inline_nodes(text):
+    """段落/清單項的 lexical children：支援 **粗體** 與 [文字](網址)。"""
+    kids = []
+    for kind, seg, url in split_links(text):
+        if kind == 'a':
+            kids.append(link_node(seg, url))
+        else:
+            kids.extend(t_node(s, f) for s, f in parse_runs(seg))
+    return kids
+
+
+def inline_html(text):
+    """對應的 HTML：連結出 <a>，其餘沿用 runs_html 的粗體處理。"""
+    out = []
+    for kind, seg, url in split_links(text):
+        if kind == 'a':
+            esc = seg.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+            out.append(f'<a href="{url}" target="_blank" rel="noopener">{esc}</a>')
+        else:
+            out.append(runs_html(seg))
+    return ''.join(out)
+
+
 def t_node(text, fmt=0):
     return {'detail': 0, 'format': fmt, 'mode': 'normal', 'style': '',
             'text': text, 'type': 'text', 'version': 1}
@@ -152,7 +197,7 @@ def image_node(url, w, h):
 
 
 def list_node(items):
-    children = [{'children': [t_node(s, f) for s, f in parse_runs(it)],
+    children = [{'children': inline_nodes(it),
                  'direction': 'ltr', 'format': '', 'indent': 0,
                  'type': 'listitem', 'version': 1, 'value': n + 1}
                 for n, it in enumerate(items)]
@@ -186,8 +231,8 @@ def build(art, meta):
             html.append('<p>' + '<br>'.join(f'<em>{l}</em>' for l in b[1]) + '</p>')
             plain.extend(b[1])
         elif kind == 'p':
-            lex.append(para([t_node(s, f) for s, f in parse_runs(b[1])]))
-            html.append('<p>' + runs_html(b[1]) + '</p>')
+            lex.append(para(inline_nodes(b[1])))
+            html.append('<p>' + inline_html(b[1]) + '</p>')
             plain.append(b[1].replace('**', ''))
         elif kind == 'p_italic':
             lex.append(para([t_node(s, 2) for s, _ in parse_runs(b[1])]))
@@ -199,7 +244,7 @@ def build(art, meta):
             plain.append(b[1])
         elif kind == 'ul':
             lex.append(list_node(b[1]))
-            html.append('<ul>' + ''.join(f'<li>{runs_html(i)}</li>' for i in b[1]) + '</ul>')
+            html.append('<ul>' + ''.join(f'<li>{inline_html(i)}</li>' for i in b[1]) + '</ul>')
             plain.extend(i.replace('**', '') for i in b[1])
         else:
             raise ValueError('未知 block: ' + kind)
