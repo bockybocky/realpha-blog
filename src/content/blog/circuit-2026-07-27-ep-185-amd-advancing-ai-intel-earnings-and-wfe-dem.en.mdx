@@ -1,0 +1,117 @@
+---
+title: "Where the Emptiness Does the Work: A Gigawatt Data Center Holds a Thousand Racks"
+description: "The Circuit EP.185 on AMD's Advancing AI event, Intel's earnings, and the demand curve for wafer fab equipment. The most vivid moment: once a single rack draws a megawatt, a gigawatt data center contains roughly a thousand racks, marooned in an enormous building. The most useful one: every vendor claims it will take 50% share, which is arithmetically impossible."
+slug: "circuit-2026-07-27-ep-185-amd-advancing-ai-intel-earnings-and-wfe-dem"
+lang: "en"
+pubDate: 2026-08-04
+category: "investing"
+tags: ["the-circuit", "podcast-notes", "semiconductors", "AMD", "Intel", "wafer-fab-equipment", "rack-scale", "english-finance-media"]
+ogImage: "/covers/circuit-2026-07-27-ep-185-amd-advancing-ai-intel-earnings-and-wfe-dem-cover.png"
+cover: "/covers/circuit-2026-07-27-ep-185-amd-advancing-ai-intel-earnings-and-wfe-dem-cover.png"
+---
+
+![Realist oil painting: the interior of a vast, almost empty data center hall, its polished concrete floor receding to a single vanishing point, a small cluster of illuminated server racks alone at the centre, pale morning light falling through high clerestory windows, and the tiny silhouette of one technician standing beside the racks](/covers/circuit-2026-07-27-ep-185-amd-advancing-ai-intel-earnings-and-wfe-dem-cover.png)
+
+> *Thirty spokes share one hub; it is the emptiness at its centre that makes the cart useful.*<br/>
+> *Knead clay into a vessel; it is the hollow within that makes the vessel useful.*<br/>
+> *So what is there gives advantage, and what is not there does the work.*<br/>
+> —— *Tao Te Ching*, ch. 11
+
+## What this episode is about
+
+Episode 185 of *The Circuit*: Ben Bajarin and Jay Goldberg walk through a busy week in semiconductors. Both had just come back from AMD's Advancing AI event, so they cover the products and the positioning — including the details you only get from kneeling on the floor with your face against the plexiglass. Then they turn to Intel's earnings, released the same day: a clean beat that popped after hours and gave it all back the next morning. Finally they tie the two together into one thread — if everyone who owns a fab is expanding, what does that do to demand for wafer fab equipment?
+
+**Original episode**: The Circuit EP.185, "AMD Advancing AI, Intel Earnings and WFE Demand" (2026-07-27)
+
+## The notes I took
+
+**"It was a boring event, but in a good way."** That is probably the sharpest line in the episode about AMD. Both hosts land in the same place: for this company, the best available story is simply executing on what it said it would do, and that was never going to be adrenal. They also spend real time on Lisa Su's stage craft — the guest executives came up and were actually interviewed rather than delivering speeches, with a bit of visibly off-the-cuff commentary mixed in. Doing that in a high-stakes keynote is hard, and the hosts thought she pulled it off.
+
+**The products held no surprises; the word choice did.** The Helios rack had already been teased, so the event filled in technical detail; more CPU investment was expected. What got noticed was the phrase "undisputed leadership," applied not just to CPUs but to accelerators. The hosts' read: this is not a company that inflates its adjectives, so when it makes a strong claim, there is usually specific data behind it.
+
+**But "the product is good" and "we will take share" are two different statements.** This is the part I most wanted to write down. The addressable market is now being quoted around $1.4 trillion, everyone forecasts growth, nobody disputes that AMD is growing — and yet the market is structurally hard to take share in, because of the incumbent's ramp, supply chain lock-in and the diversion of volume into custom silicon. The hosts put it bluntly: **all seven vendors are claiming 50% share, which is mathematically impossible.** They also question how much rigor sits behind these market-size estimates, especially when things like in-house accelerators do not fit into any share bucket at all.
+
+**Everyone is working with everyone, and competing with everyone.** Anthropic was the partner announced on stage. One host had built a matrix of every accelerator vendor against the seven big buyers, and the conclusion was that the data center has become a scene of universal affection — the names not yet announced are mostly the ones with their own silicon, or the ones that never issue press releases anyway. Stranger still, the vendors are filling each other's gaps: AMD partnering with Cerebras, Nvidia sourcing CPUs from Intel. Competing on one front and cooperating on another is now the norm.
+
+**The reason is that nobody sells chips anymore; they sell racks.** One host coins a phrase I liked: a *unified fabric of compute*. When one rack is a single machine, and racks must cooperate across one fabric, any hole in your portfolio has to be filled by someone else's part — because the company across the table may be vertically integrated.
+
+**Training and inference are different decisions, and this got explained cleanly.** In the training era, customers deliberately chose their hardware. In inference, what the buyer wants is the best tokens at the best margin — so the provider routes workloads to whichever silicon returns the most for that job, and the end customer never sees any of it. The implication is direct: **inference is a heterogeneous world, and if your total cost of ownership and your tokens-per-watt are good enough, someone will deploy you.**
+
+**Rack-scale is still very early.** The hosts stress that full-rack integration is barely beginning to proliferate; the first generation has only just been stood up. And the hard part turned out not to be design but manufacturing, assembly and installation — these things are large enough to need a crane to fit the back door. AMD bought ZT Systems precisely for this, but the honest assessment is that some of it can only be learned by doing, and both leaders are still learning. Anyone further back is a long way from this line.
+
+**AMD's real ballast is CPUs, and this cycle happens to have re-elevated them.** An enormous installed base of general-purpose cloud servers already runs on its processors, and that is not changing soon. When everyone concedes CPUs matter more than they thought, rack-scale comparisons stop being accelerator-versus-accelerator. The hosts also relay a figure from a technical breakout on the company's DPU — the card that sits on the server managing network traffic and isolation — claiming it can cut the number of head-node processors needed by something like 15 to 20%. **That is not a spec-sheet win; it is a total-cost-of-ownership win.**
+
+**The weakness gets named just as directly: networking.** One large competitor makes its own lasers; another is investing across the board and locking up networking components. Meanwhile the Helios rack has someone else's switch inside it. The pointed question follows: when networking parts get tight, who does the company holding that capacity serve first — the customer buying its custom silicon, or the customer putting its switch inside a rival's rack? That is not a question about product quality. It is a question about who controls allocation.
+
+**The double-wide rack is not about compute density.** This part was a genuine surprise. One host went in assuming the extra width was a sacrifice in compute per square foot, and was told that customers do not see floor space as the problem — concrete is cheap. The real complaint was serviceability: a wider rack lets a technician get their arms and shoulders in. The second benefit is shorter cable runs, which cuts latency. And he only realised afterwards that a competing rack needs two more cabinets standing beside it to run at all, so the total width may not favour the thin design anyway. **"Concrete is cheaper than silicon" is worth keeping on its own.**
+
+**Then comes the number that stops both of them.** Looking out a couple of years, when a single rack draws on the order of a megawatt, a gigawatt-scale data center will contain about a thousand racks. The image offered is a preposterously large building with a few lonely clusters glowing in the middle. One host mentions driving past a 100-megawatt site under construction on his weekly run to the warehouse store, and being unable to picture the gigawatt version.
+
+**Intel's quarter: no flaw to find, and the stock went down anyway.** Revenue beat by a billion dollars, EPS came in near double expectations, guidance was similarly strong, gross margin returned to the 40s for the first time in three years, and operating margin was the best in years. The leading node has customers, and the following node was confirmed for real — which usually means it has customers too. The stock was up almost 15% after hours and traded down the next day.
+
+**The one "defect" was that they refused to say it out loud.** A large share of the Q&A was analysts trying to get management to formally confirm a wafer customer. Every signal points that way; they simply would not state it. The hosts' explanation is reasonable: nobody in this industry names customers, and the real sensitivity is not wanting the incumbent foundry to hear it first.
+
+**The more interesting explanation is that the analysts' mental model has expired.** A cohort of senior semiconductor analysts grew up covering this company at its peak. Now that it has left survival mode, they are reverting to the old questions — including "why aren't you spending more?" One host's reaction to that question is close to indignation: less than a year ago this company was in genuine distress, and back then the whole street disliked the previous CEO for spending too much. **The same people, within a year, went from "you spend too much" to "you don't spend enough."** His conclusion: everyone should take a breath, and actually update the model.
+
+**The capex increase is what connects to equipment.** No formal guide for next year, but everything implies it goes up and lands on a big number. The reasoning that follows is clean: at the leading edge there are really only five customers that matter — three memory makers, the foundry leader, and this company. The memory makers are adding capacity aggressively, the foundry leader is adding but not enough, and the fifth leg, absent for years, is back. The hosts also mention a possible sixth entrant about which almost nothing is known, other than that every sign says it is real.
+
+**For the equipment makers the arithmetic is simple: the cost of a fab is not the concrete, it is what goes inside.** And capacity is tight, so prices go up too. One host's own view is that consensus estimates for the size of the equipment market by 2030 are still too low — while cheerfully conceding that forecasts are educated guesses. He adds a timing point that matters a great deal: **capex historically leads recognised revenue by anywhere from eighteen months to three years**, so today's orders show up in the numbers later, and the inflection tends to be steeper than people expect.
+
+**They also decline to pretend they can see the other end of the cycle.** Both say plainly that when this industry turns, it turns ugly and fast — they just cannot see the turn from here; and if the argument has moved to the memory outlook three years out, that is very far away.
+
+**Last, analog.** Texas Instruments printed a good quarter — end markets bottoming and inflecting upward, the data center business roughly doubling again, and no clear hook for a bearish case on the call. The stock sold off anyway, which the hosts attribute mostly to how far it had already run. Looking forward, the 800-volt transition is next year at the earliest and people are waking up to the fact that it will take longer than hoped; but when it ramps, the pull for power semiconductors will be strong and durable. One concrete image: in that rack, twelve rack units are reserved for power semiconductors alone — close to a quarter of the height of the machine.
+
+## What I took away
+
+**1. "Everyone claims 50% share" is a ruler worth carrying around.**
+
+The line generalises well beyond accelerators. Take any hot category, stack every participant's deck, and the share claims routinely sum to more than one. **A sum greater than one means at least one of those expectations is wrong — and the price is usually treating all of them as right.**
+
+The practical move is easy: after reading one company's growth story, go read what its competitor says about the same market. If both stories require the other to be wrong, you are not looking at two opportunities. You are looking at one unresolved dispute.
+
+**2. The bottleneck moves, and it usually moves to the layer you weren't watching.**
+
+My habitual move in industry work is to walk up the supply chain and find the layer that breaks first when demand doubles. This episode is a good reminder that in this cycle the fragile layer may not be compute at all. Allocation of networking components, power semiconductor capacity, equipment lead times, even the engineering skill to physically stand a rack up in a building — all are candidates.
+
+The sharpest question in the episode is exactly this: **when parts get tight, who does the holder of capacity serve first?** That is an allocation question, not a specification question, and allocation rarely appears on a launch-event slide. Follow that thread and the most interesting research question is often not whose accelerator is fastest, but **who gets to decide the order when scarcity arrives**.
+
+**3. The Intel segment is a textbook case of an expired mental model.**
+
+A group of people who know this company extremely well applied a rigorous — but fifteen-year-old — line of questioning, and ended up asking "why aren't you spending more?" of a quarter with almost nothing wrong in it. What makes this frightening is that **they were not lazier than everyone else. They were more familiar. The familiarity was the trap.**
+
+The operational takeaway: for every company I track long term, write down in three sentences what kind of company I currently believe it is, and date it. Come back later, and if not a single word has changed, that probably is not evidence the company stood still.
+
+**4. Good news plus a falling stock is the best available teaching material on valuation discipline.**
+
+Two examples sit in this one episode: a near-flawless quarter that popped after hours and reversed, and a clean analog quarter with no bearish hook that sold off anyway. In both cases the hosts' explanation points the same way — it had already run.
+
+**That separates the two things that get conflated constantly.** Fundamentals answer "is this company getting better?" Price answers "how much better does the market already assume it gets?" When the first is good and the second is better, you get exactly the picture in this episode: every number right, stock down. So the question after a beautiful print is not "is it strong," it is **"how much of the good news have I already paid for?"**
+
+**5. Capex leads revenue by eighteen months to three years — a rare falsifiable variable.**
+
+Most industry narratives cannot be disproved. This one can. Orders, capex guidance, tool lead times, fab floor space: all observable, all recordable, all checkable after the fact, with a defined lag.
+
+So this kind of judgment deserves to be written as a prediction plus a timestamp plus a checkpoint: I expect this line to show up in the numbers around then; come back and mark it. **A prediction you never wrote down will always be remembered as roughly what you thought all along.** Worth noting too, the hosts model the honest version of this — saying openly that forecasts are educated guesses, and that they cannot see where the cycle turns. **Marking the boundary of what you don't know is more worth copying than the conclusion itself.**
+
+**6. Noise versus structure — the episode conveniently supplies a control group.**
+
+A 15% after-hours move that reverses by lunch is noise, because it changed no capacity curve and no order book. The two genuinely structural items are delivered almost casually: **the fifth major leading-edge customer is back in the market**, and **once each rack draws a megawatt, the shape of a data center changes entirely**. The first alters the denominator of equipment demand. The second alters the design premise of every facility built from here.
+
+Which gives me the ruler I keep trying to calibrate against: does the item that makes me want to act today change the structure, or does it only raise the temperature of the story? **Usually the loudest thing is the noise, and the structural thing sounds boring.**
+
+**7. Back to the empty room — be precise about which layer is actually scarce.**
+
+A gigawatt building holding a thousand racks. Racks made deliberately wider so a person's shoulders fit. Concrete cheaper than silicon. All three point the same way: **what is scarce in this buildout was never the space. It is what goes into the space — tools, power, network parts, and people who know how to install them.**
+
+The classic investing error is paying for the layer that is visibly there while the value accrues to the layer that isn't. Laozi was talking about wheels, pots and rooms, but the mechanics are identical: what is there provides the advantage, and what is not there does the work.
+
+## Further reading
+
+- The episode: The Circuit EP.185, "AMD Advancing AI, Intel Earnings and WFE Demand" (2026-07-27), hosted by Ben Bajarin and Jay Goldberg
+- AMD's public Advancing AI keynote and accompanying press materials
+- Intel's and Texas Instruments' published results, earnings call transcripts and investor decks, all available from the companies' own investor relations sites
+- The lines from the *Tao Te Ching* (ch. 11) are my own footnote to the episode, not part of it
+
+---
+
+**Disclaimer**: This is a listener's reflection and general education, **not investment advice, an offer, or a solicitation**. Companies, products and claims mentioned come from the public episode and public sources; nothing here recommends any security or offers a price target. Investing carries risk — judge for yourself against your own circumstances, and consult a qualified professional if needed. Copyright in the original episode belongs to its producers; please go listen and support them.

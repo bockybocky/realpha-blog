@@ -1,0 +1,112 @@
+---
+title: "Sharpen the Tools First: Applied Intuition and a Billion Intelligent Machines"
+description: "Business Breakdowns EP.248 with the co-founders of Applied Intuition. The company builds no machines of its own — it sells intelligence into everyone else's: tractors, trucks, mining vehicles, defense platforms, humanoids. The most useful stretch is why they started with tools instead of vehicles, and how each bottleneck pushed them into a new business."
+slug: "breakdowns-2026-07-27-applied-intuition-a-billion-intelligent-machines-b"
+lang: "en"
+pubDate: 2026-08-04
+category: "investing"
+tags: ["business-breakdowns", "podcast-notes", "physical AI", "bottlenecks", "horizontal platforms", "english-finance-media"]
+ogImage: "/covers/breakdowns-2026-07-27-applied-intuition-a-billion-intelligent-machines-b-cover.png"
+cover: "/covers/breakdowns-2026-07-27-applied-intuition-a-billion-intelligent-machines-b-cover.png"
+---
+
+![Realist oil painting: dawn over a field, seen from just behind the empty glass cab of an autonomous combine harvester, crop rows receding to a single vanishing point, the small lights of other machines still working the far edge of the land, the sky turning from blue-violet to warm orange](/covers/breakdowns-2026-07-27-applied-intuition-a-billion-intelligent-machines-b-cover.png)
+
+> *The craftsman who would do his work well must first sharpen his tools.*<br/>
+> —— *The Analects*, Book XV
+
+## What this episode is about
+
+Episode 248 of *Business Breakdowns* takes apart **Applied Intuition** — a company founded in 2017 by two co-founders, with a mission stated at maximum ambition: make a billion machines intelligent.
+
+The simplest way to understand it: **they build the brain for machines, and the tools other companies use to build those brains.** If a manufacturer wants its tractor, truck or mining vehicle to drive itself, it can buy the intelligence outright or use the platform to develop its own. The analogy the episode reaches for is a good one: just as one company sells chips into everyone else's machines, this one sells intelligence into everyone else's machines — across automotive, defense, mining, agriculture and robotics — without building a single machine itself.
+
+**Original episode**: Business Breakdowns EP.248, "Applied Intuition: A Billion Intelligent Machines" (2026-07-27)
+
+## The notes I took
+
+**Physical AI differs from digital AI in kind, not degree.** The founders spend real time on this. Digital AI puts a result on a screen; physical AI moves something through the actual world, usually a world with people in it. Three constraints get named repeatedly: **safety criticality**, **real-time behaviour** (a chatbot can take twenty seconds to answer; a machine at highway speed does not have twenty seconds), and one they call badly under-reported — **the compute and cost envelope**. You do not throw endless compute at the problem. You fit it inside the silicon, the power budget and the price point that this particular machine allows.
+
+**They think the biggest economic impact lands in industries where things physically move.** Industrials, manufacturing, healthcare, energy — to get the benefit of AI there, you have to reach the physical system. And the reason they give isn't efficiency, it's people: the average American farmer is fifty-eight; long-haul trucking has record shortages; mining is roughly one percent of the world's workforce but accounts for about eight percent of work-related fatalities. Their framing is that digital AI has a debate about who gets displaced, while physical AI has the opposite problem — **the AI cannot get there fast enough**, because nobody wants a career spent away from family in unsafe conditions.
+
+**"Start with tools, not vehicles" is the best piece of strategic reasoning in the episode.** One of the founders was COO of Y Combinator before starting the company, and he is blunt: **timing is everything**, and most companies fail by being too early rather than too late — build two years ahead of the market and you burn money waiting for it to mature. They actually discussed a robotaxi company in the early 2010s and concluded that neither the technology nor the business model was settled, two unknowns at once, so they didn't. Revisiting the question in 2016, they judged that automotive was heading toward software-first machines, and that where automotive goes, defense, construction, mining and agriculture follow — those machines are cousins of a car.
+
+But there was a second layer: **if you build software now and try to sell it to manufacturers, they won't buy it from a young company** — these are safety-critical systems that demand track record and heft, and a fifty-person team simply cannot build an autonomous vehicle; there are too many subsystems. So they started with tools.
+
+**Bottlenecks pushed them into each new business.** Structurally this is the best passage in the show. After a few years of tools they hit something: the problem was much bigger than tools. Getting the technology onto the machine, updating software reliably, running diagnostics, executing neural networks on-vehicle — **the operating system became the bottleneck**, so they were forced into that business. Only once they had both the tooling platform and the OS platform did the full solution — their own models, the vertical autonomy stack — become feasible. They describe it as internal disruption they have to inflict on themselves: roughly every two years this field produces a breakthrough that changes how you have to think, and not adapting makes you obsolete.
+
+**The news peg is Dana, their agentic development platform.** The argument runs: why aren't there intelligent machines everywhere today? Not because we can't make the chips or the hardware — **because building this stuff is genuinely hard.** Dana exists to drop the barrier to entry. The contrast they draw is very concrete: a high-schooler can ship a phone app today, because the ecosystem has abstracted away the hard parts; but building a campus delivery robot or a small machine that cleans your house is daunting even for a computer scientist — you have to stitch together a pile of disparate products and tools, then somehow get the software onto the physical machine.
+
+**On "why can't a general-purpose coding assistant just do this," their answer is firm.** General models are great, but when you're dealing with something life-critical sitting on top of a very deep development toolchain, **the model is maybe one percent of the full solution.** Their analogy: why can't you use a general assistant to build the Linux kernel? Because the kernel is an enormously complex artifact accumulated over years with many other tools.
+
+**The lawnmower example makes "complex" imaginable.** Say you're building an autonomous mower. You need sensors and compute. You need software that understands *this* yard — the physical space it works in, and where not to go. Then you need scenarios it must pass in simulation, which means building a simulated version of that backyard (they note in passing that simulation alone is a large industry with companies worth tens of billions, and that simulation is where they started). Then you orchestrate those scenario runs in the cloud. Then, once fidelity is good enough, you deploy the first version onto a real mower — and a pile of things don't work, and you have to figure out why actuation didn't behave as expected and why the control systems are off. **That entire loop is not what a large language model was built for.**
+
+**The data loop, and the cross-machine sense of physics, is the most counterintuitive part.** Machines run in the real world, encounter scenarios they handle badly, and those get flagged and taught — via human-driven demonstration data or synthetic environments. That much is familiar. The interesting claim is next: when they feed in data from drones, or from the autonomous trucks they operate in Japan, **model performance improves in meaningfully different environments too.** Their reading is that the model is acquiring a sense of real-world physics — the same generalisation arc chatbots went through.
+
+There's also a structural difference from digital AI here: general language models train mostly on internet text, whereas **almost all physical-AI data is proprietary** — collected from their own vehicles and through partnerships with customers, because it simply doesn't exist online. They also note that doing reliable, high-quality data collection is itself a surprisingly deep tech stack that few companies anywhere have. Technically, the bet is **imitation learning as the base, complemented by high-performance reinforcement learning in simulation** to smooth out the failure cases — which they see as the unlock for physical AI at scale.
+
+**The diffusion passage is the most practical thing in the episode for an investor.** A new model ships and it runs on your phone and laptop immediately, because those environments were standardised by browsers, operating systems and app stores. The physical world has no such layer. The example anyone can follow: suppose you bought a car yesterday, and tomorrow self-driving becomes free — **you still own the car you bought yesterday.** More than half of Americans live on modest savings; a car is a big purchase, and it gets used for ten or fifteen years regardless of what else exists in the market. So intelligence diffuses into machines against far more friction than it does into phones. But he adds the other half: **those frictions become moats.** Once you've worked out how to make a mine or a farm autonomous, you're inside it — sticky in the way silicon is sticky.
+
+**The business model is deliberately boring.** Licensing; a classic product business; a little over a thousand engineers. The line I liked: **be very innovative on the technology and very boring on the business model** — it's the other way round, dull products and inventive accounting, that gets you in trouble. He notes their recent rounds came from traditional institutions that do real diligence, and offers founders a rule: customers should understand exactly what your incentives are and where you make money and where you don't.
+
+**The customer base is more spread out than outsiders assume.** The host cites eighteen of the top twenty automotive manufacturers as customers, but the founder pushes back on the inference: many people think this is an automotive company, and **automotive is a minority of the business** — the verticals are fairly evenly split. Customers are typically manufacturers, but also mining operators and port operators running heterogeneous fleets that have to work together. Internationalisation came early: the first three offices were Detroit, Japan and Germany, with Washington added as defense work grew.
+
+**The passage on competition is the best thinking exercise in the show.** They start by defining the word: is a robotaxi company a competitor? Not really — **it isn't taking money out of the same bucket**; one sells to manufacturers, the other to consumers. The deeper point is market structure: competition is decisive in a town of a thousand people with one or two shoe stores, because that's zero-sum. Then comes the image I liked most — the textbook solar system puts Earth next to the Sun, but at true scale the Earth is a ballpoint-pen dot tens of feet away with nothing but black space between. **Markets are like that: people fixate on how close these companies look on the diagram, when the markets are so vast the companies barely affect each other's gravity.** His conclusion: if we don't succeed, it'll be because of us.
+
+**New hardware entrants are treated as customers, not threats.** Asked whether the current wave of people building physical and hardware companies dampens demand, the answer is the opposite: once the barrier drops, hundreds or thousands of organisations start building things, and what those things are will come from human creativity — **all of them are potential customers.** He adds a historical note: Google started in 1998 with several publicly traded search engines already in the market; a podcast that year would have called the market saturated.
+
+**They raised roughly a billion dollars and have essentially not spent it.** Their explanation is honest enough: not by design — every raise was intended to be spent, and they simply grew faster than they could deploy it. Capital is treated as one variable on the path to the mission — **if the bottleneck is capital, fix capital; if it's technology, fix that; if it's customers or products, fix those.** But the first thing on their mind each morning is still the product, because in safety-critical systems "good enough" isn't.
+
+**Asked to name comparable public companies, they say there essentially aren't any.** And they think that's precisely where the enthusiasm comes from: the problem and the solution are easy to understand, the market is big, and they lead the category. As for three to five years out, the first adjective they reach for is **safer**.
+
+## What I took away
+
+**1. This episode shows the bottleneck moving — from inside the company.**
+
+Their path is unusually legible: build tools → hit the operating system as a bottleneck → get forced into building an OS → only then build the full autonomy stack. **A bottleneck isn't a static coordinate; it's a rope that drags you forward.**
+
+When I analyse an industry, my standard move is to walk upstream and find the layer that snaps first when demand doubles. This episode reminds me of two things. First, that layer relocates — so every bottleneck conclusion deserves an expiry date and an explicit "what would have to happen for this to stop being the bottleneck." Second, **the location of the bottleneck is usually announced by an insider who happens to sell the solution to it.** "We know how to make the chips and the hardware; the constraint is development" is a statement that serves their business very well. It may well be true. It needs to be independently verified, not quoted.
+
+**2. The horizontal/vertical fork determines what you are actually paying for.**
+
+The episode draws the line clearly: vertical companies build and sell the machine; horizontal companies sell technology to a broad base of customers who package it. Under the same theme, **those two shapes are levered to entirely different variables.**
+
+The vertical one benefits when its own product sells. The horizontal one benefits when **there are more entrants** — which is why "all these new hardware companies are potential customers" isn't politeness, it's a direct consequence of the model. Conversely, the real risk to a horizontal supplier usually isn't a rival breaking in; it's **customers insourcing**, once a large customer has the scale, the talent, and the belief that this is core. The show mentions eighteen of the top twenty automakers as customers, and also that automotive is a minority of the business — the second statement is quietly answering the risk in the first.
+
+Translated into a framework: when analysing a horizontal supplier, **track customer concentration and the insourcing incentive curve, not how good the technology is.**
+
+**3. The diffusion friction is the ruler that separates narrative from installed base.**
+
+The car you already bought gets driven for ten to fifteen years. That single sentence explains the multi-year gap between "the technology works" and "the demand shows up" better than any roadmap. Automation of the physical world is gated not only by models but by **capital-goods depreciation cycles, safety regulation, and whether the operating site will accept it.**
+
+So when a theme heats up, I hold that ruler against it: **did this news change capability, or did it change installed base?** A demo video, or more autonomous vehicles visible on one city's streets, changes capability and perception. A multi-year production contract, or an actual worksite taking people off the machine, changes installed base. The first is noise, the second is structure — and in your feed they look identical, but only the second ever reaches an income statement.
+
+**4. "One sentence hits half the book" is especially dangerous in this theme.**
+
+The physical-AI chain is long: sensors, automotive silicon, simulation software, industrial machinery, power, defense platforms. Holding many of them looks diversified — but they may all rest on one sentence: **"automation of the physical world lands at scale within the next decade."**
+
+The episode effectively supplies the precondition attached to that sentence: diffusion friction. And the friction is asymmetric in a specific way — **less friction than expected and most positions win together; more friction and most positions get postponed together.** That isn't six positions. That's one. The real portfolio question is never "how many industries do I hold," it's "is there a single sentence that, if wrong, hits half of what I own."
+
+**5. They publicly marked one of their own forecasts — and the answer was "we decided not to."**
+
+In the early 2010s they evaluated a robotaxi company and passed, because neither the technology nor the business model was settled. A decade later, that judgment is checkable. **That is a rare, publicly timestamped decision.**
+
+What I take is the act, not the conclusion: **write the judgment down, timestamp it, come back and mark it.** Their test is worth stealing too — when deciding whether a theme is investable *now*, ask two independent questions: is the technology settled? is the business model settled? **If neither is, you're looking at a research project, not a business.** And their line that most companies die of being early rather than late applies equally to capital: the cost of being early isn't a loss, it's **the opportunity cost time quietly collects during the wait** — a bill almost nobody records.
+
+**6. "No comparable public company" is where narrative escapes gravity — so valuation discipline has to stand guard there.**
+
+The closing question is a good one: if forced to point an investor at public comparables, where would you point? The answer is essentially nowhere. **"No comparables" plus "category leader" plus "enormous market" is an extremely attractive set of adjectives, and precisely the set that removes the anchor from a price.**
+
+The discipline here isn't doubting whether the company is good — from the episode it has clearly done a lot of hard things well. The discipline is this: **don't let a private company with no public financials and no comparable set become the anchor you use to price public companies.** That's the standard contagion path — one private round's number gets treated as a valuation floor for an entire supply chain, with not one verifiable step in between.
+
+The crude way to break it apart: **ask what's left if the technology is matched tomorrow.** The episode gives their own answer — a decade of hardware abstraction, a proprietary data-collection stack, and a sticky position once embedded in the machine. Those three are observable and testable over time. "We are the category leader" is not.
+
+## Further reading
+
+- The episode: Business Breakdowns EP.248, "Applied Intuition: A Billion Intelligent Machines" (2026-07-27); published publicly by Colossus at joincolossus.com
+- Other breakdowns in the same series, and the other shows under Colossus
+- The line from *The Analects* (Book XV) is my own footnote to the episode, not part of it
+
+---
+
+**Disclaimer**: This is a listener's reflection and general education, **not investment advice, an offer, or a solicitation**. Companies, products and claims mentioned come from the public episode and public sources; nothing here recommends any security or offers a price target. Investing carries risk — judge for yourself against your own circumstances, and consult a qualified professional if needed. Copyright in the original episode belongs to its producers; please go listen and support them.
