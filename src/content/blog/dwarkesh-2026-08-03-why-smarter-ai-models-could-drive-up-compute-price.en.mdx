@@ -1,0 +1,127 @@
+---
+title: "The Smarter the Model, the More Expensive the Compute"
+description: "Dwarkesh works through a small piece of arithmetic: if lab revenue grows 10x a year while lab compute grows only 3x, who closes the gap? He rules out the exits one by one and lands on rising compute prices. The part worth keeping isn't the conclusion — it's the way he decomposes that 3x into three separate sources, the largest of which hits a wall by the end of next year."
+slug: "dwarkesh-2026-08-03-why-smarter-ai-models-could-drive-up-compute-price"
+lang: "en"
+pubDate: 2026-08-05
+category: "investing"
+tags: ["dwarkesh", "podcast-notes", "ai-compute", "semiconductors", "bottleneck-analysis", "valuation-discipline"]
+ogImage: "/covers/dwarkesh-2026-08-03-why-smarter-ai-models-could-drive-up-compute-price-cover.png"
+cover: "/covers/dwarkesh-2026-08-03-why-smarter-ai-models-could-drive-up-compute-price-cover.png"
+---
+
+![Deep-perspective photograph down the cold aisle of an immense data hall: ranks of black server cabinets recede to a distant vanishing point, status LEDs thinning into cold blue haze; the nearest rack bay stands empty, its bare rails lit by the room's only warm work lamp, the brightest thing in the frame; a tiny technician stands far down the aisle](/covers/dwarkesh-2026-08-03-why-smarter-ai-models-could-drive-up-compute-price-cover.png)
+
+> *Weigh what is abundant against what is scarce, and you will know what is dear and what is cheap.*<br/>
+> *What rises to an extreme turns cheap; what falls to an extreme turns dear.*<br/>
+> —— Sima Qian, *Records of the Grand Historian*, "Biographies of the Money-Makers" (1st c. BC)
+
+Sima Qian was writing about grain and cloth. He was making one point only: **work out whether a thing is abundant or scarce, and the price will tell you the rest**. That is exactly what this episode does. The thing in question happens to be compute.
+
+## What this episode is about
+
+*Dwarkesh Podcast* is usually a long-form interview show. This one isn't — it's the host, Dwarkesh Patel, reading out a short post from his own site. Under twenty minutes, no guest. The format works better than an interview here, because you can see every step of the argument.
+
+It starts with a small piece of arithmetic.
+
+For three consecutive years, Anthropic's revenue has grown 10x. They ended last year at nine billion dollars, and he guesses this year ends somewhere between one hundred and one hundred and fifty billion. For that trend to hold one more year, they'd need **a trillion dollars in revenue by the end of next year**. He immediately adds the caveat himself: there's no deep reason this has to be true, it's a wild conclusion, and it ultimately comes down to how useful AI actually gets.
+
+But the question he wants to answer isn't whether it happens. It's — **suppose it does. What does that world look like?**
+
+Because there's a second trend running alongside it: **lab compute only grows 3x a year**.
+
+10x against 3x. There's a gap.
+
+**Original episode**: Dwarkesh Podcast, "Why smarter AI models could drive up compute prices 10x," 3 August 2026, ~20 minutes. The same piece is published as a post on his site.
+
+## The notes I took
+
+**There are only three ways to close the gap, and all three are already happening.** For revenue to 10x while compute only 3x's, one of the following has to give: lab margins rise, compute prices rise, or the share of compute going to inference rather than training rises. His understanding is that all three are underway. Inference margins reportedly went from 40% in the middle of last year to upwards of 80% now on the top models. Spot compute prices are more than 40% above February's trough. And per Epoch, OpenAI was spending a quarter of its compute on inference in 2024; that number is probably closer to half now, if not higher.
+
+**But the labs badly do not want the third one.** This is the best bit of psychology in the piece. In the labs' worldview, the whole point of inference revenue is to convince investors to give you more money so you can train the next, bigger, better model. **If most of your compute goes to inference, you're effectively announcing that AI progress has stalled and you're now a cloud provider** — a far less compelling business than building AGI. They don't want to be in it, and they don't think they're in that world. They believe that within a year they'll have models that make the current ones look terrible, and getting there requires putting the majority of their compute into training and experiments.
+
+**So the third exit is crossed off, leaving two.** Either lab margins rise and the surplus stays at the lab, or compute prices rise and the surplus goes to everyone below the lab in the stack. He says he genuinely doesn't know which world we end up in.
+
+**But he's sceptical of the margin path.** Going from 80% to above 90% would require the leading model to be so far ahead that nobody can substitute for it — **because the reason margins exist in a market economy is that what you're serving is so much better than what the buyer could go get instead**. He finds it wild to imagine that margins on something like intelligence stay above 90% without being competed away.
+
+**Which leaves one: compute has to get more expensive. And the tranche frontier labs actually need is rising faster than the headline.** They can't just buy spot instances — they need enough scale for real efficiency and flexibility, and they need compute that meets the security requirements for their own weights and their customers' data. His case study: Google and Anthropic renting from SpaceX. Google pays **$900 million a month for 110,000 GPUs**, a blend of GB200s and GB300s — **twice the spot price per hour** for those chips. And spot is already 40%+ above February.
+
+**The core conclusion is one sentence: as models get smarter, they monetise the same compute better.** He gives a crude but effective calculation. If a true human-level software engineer could run on an H100 equivalent, then at today's software engineering salaries, **that H100 should rent for over $250,000 a year — more than 15x its current spot price.** And that's before accounting for the fact that your AI works nights and weekends.
+
+**He states the objection himself, then takes it apart.** Surely if ten million extra software engineers suddenly appeared, the marginal value of a software engineer would fall, and the H100 wouldn't generate 15x. But he isn't sure that's true — **apply the same argument to people and it's the classic lump of labour fallacy.** Economists generally hold that high-skill immigration doesn't depress wages in the long run, because innovation and specialisation raise the value of labour. Maybe this labour supply shock is so large and so fast that the old heuristic breaks. But **if you believe standard economics, the marginal value of labour — and therefore of compute — stays astonishingly high.**
+
+**Three consequences follow.** First, **as the top labs get better at monetising compute and compute gets pricier, it gets harder for anyone else to compete**, because you're bidding for the same resource against someone who can simply make better use of it.
+
+Second — and he calls this the most interesting implication of the whole exercise — **if you can train the best, most efficient model, you can charge much fatter margins than today.** This is the Alchian–Allen effect. Put plainly: if an H100 costs twenty dollars an hour, using a weaker, less efficient model is extremely stupid, because it burns more tokens on your expensive compute to reach the same result. **A model that gets the same result with less compute has, in a sense, created compute — and the value of compute rises accordingly.**
+
+Third, **a lot of today's popular AI applications get priced out.** AI is relatively cheap right now because it still can't do many of the things top humans can do. That won't stay true. At that point, Google or Anthropic or OpenAI will pay more for the tokens to automate AI research than you or I will pay to generate more AI slop.
+
+**Then he stops and doubts himself, which is the most instructive passage in the episode.** He says this kind of analysis pattern-matches uncomfortably onto historical arguments about scarcity that turned out wrong — the Simon–Ehrlich bet, for instance. Ehrlich, the population doomer, bet that a basket of commodities would rise in price over the decade to 1990, lost, and became the standard illustration of how market signals and human ingenuity find cheaper ways to economise on scarce inputs. But he thinks the analogy probably fails, for two reasons: **other analysis shows Ehrlich might well have won had the bet been struck in a different decade; and more fundamentally, the supply of compute is far less elastic, far less able to absorb large demand shocks, and far less substitutable than metal extraction.**
+
+**Then he decomposes the 3x, and this is the part I most want to keep.** That 3x is three sources multiplied together:
+
+- **1.4x from Moore's Law** — far from accelerating, he thinks it'll be a miracle to keep it going a few more years.
+- **1.2x from new fabs** — bottlenecked out to 2030 and probably beyond by how many ASML EUV machines can be built. He points to his own earlier episode with Dylan Patel for the detail.
+- **1.8x from AI absorbing wafer allocation that used to go to smartphones and PCs** — and **this one hits a wall by the end of next year**, when AI goes from 60% to 86% of leading-edge N3 at TSMC. Once you've taken all the leading-edge capacity, that number can't keep climbing.
+
+His conclusion is blunt: **I don't know how we even continue to do 3x a year for the next few years, much less go beyond it.**
+
+**He closes with two footnotes.** One is a time boundary: **compute will get cheap again eventually** — once robots can turn shores of silica sand and mines of copper into chips, the price of compute is basically raw inputs plus tooling. He's describing only **the current pre-singularity regime**, where compute merely 3x's a year, which isn't enough to offset how much more valuable AI is becoming.
+
+The other footnote carries visible discomfort. The fact that revenue 10x's while compute 3x's illustrates **how strong the economies of scale are in the model business**. Training is a one-time cost to learn skills that are then shared across every user — utterly unlike human labour, where each instance has to be retrained from scratch. **"I wish we didn't live in a world with such strong economies of scale for intelligence, because I'm worried about power concentration. But it seems we do."**
+
+## What I took away
+
+**1. Decomposing 3x into 1.4 × 1.2 × 1.8 is a bottleneck-analysis lesson on its own.**
+
+Most people discussing industry growth quote a single number. What he does is break that number back into **three sources, each with its own physical ceiling**, then ask of each: can this one go faster?
+
+Once decomposed, the conclusion changes character. "Compute grows 3x a year" sounds like a stable background assumption. Broken apart, you see that **the largest chunk (1.8x) is a one-off transfer of an existing stock** — reallocating wafer capacity from phones and PCs to AI. Once transferred, it's gone, and he gives you the date: end of next year, when leading-edge AI share goes 60% → 86%.
+
+It's the cleanest demonstration of bottleneck thinking I've seen in a while: **don't ask whether an industry can keep growing; ask what each piece of its growth rests on, and how much of that is left.** The question ports directly to any industry with physical constraints.
+
+**2. The whole chain hangs on one premise, and he flags it in his first breath.**
+
+"Revenue 10x's" is not a fact. It's an assumption. He says so up front: no deep reason it has to be true, it ultimately comes down to AI capability.
+
+I take that as a model of valuation discipline. **A beautiful chain of reasoning is worth exactly the strength of its weakest link** — if 10x becomes 4x, the gap itself shrinks a lot, and the pressure forcing compute prices up eases with it. That doesn't make him wrong; it tells you **which variable you're actually supposed to be watching.**
+
+The mistake I make most often is writing down someone's **conclusion** without writing down their **premise**. Six months later the premise has moved and the conclusion is still sitting in my head being treated as fact. **A note that doesn't go down to the premise isn't a note.**
+
+**3. Which numbers are noise and which are structure? This episode is good practice.**
+
+Spot up 40% from February, $900 million a month in rent, a 2x premium to spot — these are all **price levels**. They move with supply, demand and the capex cycle. They're the evidence in the piece, not the skeleton.
+
+The skeleton is two **relationships**: that compute supply is far less elastic than metal extraction, and the Alchian–Allen point that a rising common cost pushes demand toward higher-grade items. **Relationships outlast levels** — spot can fall back next month and both of those still hold.
+
+My test is one question: **if this number reversed, would the story collapse?** Spot reversing doesn't break it. Compute supply suddenly becoming elastic does. The first is noise, the second is structure. When I can't tell them apart, I'm usually making decisions on noise.
+
+**4. The economies-of-scale passage that worries him is also a portfolio-risk problem.**
+
+His worry is power concentration. Viewed from a portfolio angle, the same force says something else: **when the winners' advantage comes from economies of scale, holding a spread of beneficiaries may just be holding many copies of one risk factor.**
+
+Their fates aren't independent. They all rest on the same thing being true: **AI capability keeps improving and monetisation keeps rising.** If that premise loosens, it doesn't loosen for one of them. Different names, different sector labels, different financials — one pillar underneath.
+
+The episode says nothing about portfolios, but it draws that pillar very clearly. **Diversification isn't about how many names you hold. It's about whether each holding depends on a different thing being true.**
+
+**5. Using the Simon–Ehrlich bet against himself is the move I most want to copy.**
+
+He didn't have to bring it up. He went and found the historical argument that most closely resembles his own *and was wrong*, then explained why he thinks this time differs — with specifics: **Ehrlich wins that bet in a different decade, and compute supply elasticity isn't comparable to metal extraction.**
+
+That's worth more than the conclusion. **Find the prior case that's structurally identical to your claim and was falsified, then articulate the difference** — that's what red-teaming looks like, and he ran it on himself.
+
+He also leaves something checkable: **leading-edge AI share going 60% → 86%, wall hit by the end of next year.** A number, a date, something verifiable. Compare that to "compute will be expensive," which can never be wrong.
+
+**I increasingly only want to keep the first kind.** One statement that future facts can embarrass is worth ten that are always right.
+
+## Further reading
+
+- The episode: Dwarkesh Podcast, "Why smarter AI models could drive up compute prices 10x" (3 August 2026, ~20 min). The same piece is published in text on dwarkesh.com
+- Epoch AI's estimates of frontier-lab training vs inference compute are public; the "a quarter of compute on inference in 2024" figure comes from there
+- On EUV tooling limits, the host points to his own earlier episode with Dylan Patel, which covers it in far more detail
+- The Alchian–Allen effect and the Simon–Ehrlich bet are both public, well-documented, and easy to check for yourself
+- The couplet from Sima Qian's *Records of the Grand Historian* is my own footnote to the episode, not part of it
+
+---
+
+**Disclaimer**: This is a listener's reflection and general education, **not investment advice, an offer, or a solicitation**. Companies, figures and prices mentioned come from the public episode and public sources; nothing here recommends any security, or offers a price target or entry point. Investing carries risk — judge for yourself against your own circumstances, and consult a qualified professional if needed. Copyright in the original episode belongs to its producers; please go listen and support them.
