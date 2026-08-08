@@ -1,0 +1,97 @@
+---
+title: "TechWave EP147: When You Can No Longer Tell Which Model Is Smarter, the Ruler Changes"
+description: "Notes on TechWave EP147: four frontier models landed in two weeks, but the top two are separated by a single point on a composite index and it takes dozens of tasks to feel the difference. Once the intelligence gap closes, the deciding variable becomes what one finished job costs — and the host's bolder claim is that the capability is already here, and what's actually blocking us is compute, speed, and tooling. Educational notes, not investment advice."
+slug: "techwave-2026-07-13-ep147-gpt-5-6-fable-meta-spacexai"
+lang: "en"
+pubDate: 2026-08-08
+category: "investing"
+tags: ["techwave", "podcast-notes", "ai", "compute", "mindset", "education"]
+ogImage: "/covers/techwave-2026-07-13-ep147-gpt-5-6-fable-meta-spacexai-cover.png"
+cover: "/covers/techwave-2026-07-13-ep147-gpt-5-6-fable-meta-spacexai-cover.png"
+tldr: "When the top two are one point apart and it takes dozens of tasks to tell them apart, the selection criterion quietly shifts from 'which is smarter' to 'what does one finished job cost' — and this episode's boldest line is that the capability may already be here, with compute and tooling as the real constraint."
+---
+
+![Realist oil painting cover: a vast data hall at night seen straight down one long central aisle receding to a distant vanishing point; the two nearest rows of cabinets glow brilliantly from within, warm amber status light spilling across a polished floor while cooling vapour drifts slowly upward between them; identical cabinets further down the aisle catch progressively less light, fading through cold blue-grey into near-darkness until the far end is suggested only by a thin receding line of ceiling fixtures; two-thirds of the way down, in the dim zone, a lone technician stands rendered very small, a handheld lamp lighting only a small pool at their feet](/covers/techwave-2026-07-13-ep147-gpt-5-6-fable-meta-spacexai-cover.png)
+
+> *Pile up earth into a mountain, and wind and rain rise from it;*<br/>
+> *pile up water into a deep pool, and dragons are born in it.*<br/>
+> *A thoroughbred's single leap cannot cover ten paces;*<br/>
+> *a plodding nag pulling for ten days succeeds by not stopping.*<br/>
+> —— *Xunzi*, "An Exhortation to Learning"
+
+> These are my **personal notes** on TechWave **EP147** (released 2026-07-13). They are not a transcript and not official content. Please listen to the original show in full. What follows is what the episode sparked, organised the way I think about it.
+
+## What the episode is about
+
+In one line: **on the surface this episode ranks models; what it is really about is that once the ranking becomes indistinguishable, the ruler changes hands.**
+
+Across two days, July 8th and 9th, three companies shipped new models: OpenAI's GPT-5.6, SpaceXAI's Grok-4.5, and Meta's Muse Spark 1.1. Add Fable 5, which returned the week before, and four frontier models arrived in a fortnight. The host says he cannot remember it ever being this dense — labs used to ship every six months, then two of them started crowding into the same week, and now it is three in one.
+
+The first half walks through the three releases; the second half gives a three-tier ranking and then steers everything toward what he considers the key open question: how far are we from Digital AGI. His answer is bold — he thinks the model capability is already there, and what is actually blocking us is compute, speed, and tooling.
+
+Xunzi fits neatly here. "A thoroughbred's single leap cannot cover ten paces; a plodding nag pulling for ten days succeeds by not stopping" is precisely the argument in the second half: what determines how far you get is often not how fast the horse is, but how many days you let it run.
+
+Incidentally, the host is a month out from launching an online learning platform he has been building since Lunar New Year. He says he has worked essentially every day, with fewer than three genuine days off — and his definition of a day off is working less than three hours. Then the final sprint month collided with the World Cup and the League of Legends mid-season invitational, so there are matches to watch every single day. A show about the model wars that opens by complaining about being tempted by football — that is exactly the sort of thing a summary throws away.
+
+## The main points
+
+**1. The top two are one point apart, and it takes dozens of tasks to see it.** The third-party composite index he follows puts Fable 5 first at 60, GPT-5.6 in its largest size second at 59, and Opus 4.8 third at a noticeably lower 56. He knows any single benchmark is partial and often contaminated; his explanation for trusting the composite is that nine differently-biased tests tend to cancel each other's error, and the resulting order has matched his own hands-on impression for a year. As for why the old arena-style voting stopped working, he is blunt: **models now do multi-step work, not one-shot replies**, and you cannot judge that at a glance.
+
+**2. He calls that one-point gap "big model smell."** One or two tests will not reveal it; only after four or five uses does it show up in small places. Fable 5 occasionally produces a line you feel no other model was capable of producing, or performs an extra check nobody asked for but that clearly should have been done. **The description is itself informative — when the lead can only be identified at that resolution, intelligence has stopped being the deciding variable for a user choosing between them.**
+
+**3. The cost ruler measures a finished job, not the sticker price per million tokens.** The same evaluation reports average tokens burned per question, including reasoning: about 33,000 for Fable 5, 15,000 for GPT-5.6, and 41,000 for Opus 4.8. Which produces a counter-intuitive result — **GPT-5.6 lists at a higher price than Opus 4.8 but costs less to finish the same question, while also scoring higher.** The sticker is a unit price; token efficiency is what decides the money that actually leaves your account. Reading only the sticker inverts the ordering.
+
+**4. Output quality improved, and he estimates seven-tenths of that is not the model getting smarter.** OpenAI shipped a dedicated knowledge-work harness alongside the model — the layer of tools and process wrapped around it. His test: migrating a forty-odd-item calendar into another calendar, with every time, label, and note correct, and with the model independently recognising the entries that already existed and declining to duplicate them. The previous generation would typically have botched one or two. Slide layout problems dropped sharply too, and he found a big part of the reason is that the harness reviews the output page by page afterwards. His conclusion is roughly seventy per cent harness, thirty per cent model, and he adds that "where the improvement came from doesn't matter, the result does." **For a user, true. For judging who is ahead, it matters a great deal — harness improvements are far cheaper to copy than base-model improvements.**
+
+**5. He has a private exam of his own: build a Clash Royale clone.** The difficulty is that the model must first go and research the game's mechanics itself — his prompt does not supply them — then implement eight troop types with distinct ranges, health, and movement speeds, plus the elixir and tower rules, and finally write a computer opponent that genuinely plays. GPT-5.6 delivered in sixteen minutes a version with nearly every mechanic correct, and one he loses to when playing seriously: he drops a goblin gang, the opponent clears it with arrows; he drops a giant, the opponent sends a small high-damage unit to cut it down. The control group is Gemini 2.5 Pro, fifteen months earlier, the first model to produce anything barely playable at all — before that you saw dots drifting on a screen. **The value of this test is that it has never been published, so what it measures is ability rather than recall.**
+
+**6. Grok-4.5 matters not for its rank but because it is version one of a new foundation.** The previous generation was a 500-billion-parameter model; this one is 1.5 trillion. The version number moved 0.2 while the model was replaced wholesale — it is the first complete delivery from a team that was substantially reorganised. Capability lands around the Opus 4.7 level at roughly a third of the cost, which puts it on what the host translates plainly as "the best available trade-off boundary between performance and cost" — you cannot find anything as smart and cheaper, or as cheap and smarter. And the lab is reportedly training 6-trillion and 10-trillion-parameter models internally. **So the thing to read here is the slope, not the position: this is what the first version off the new foundation looks like, and the foundation is not used up.**
+
+**7. Meta is betting on the shape of its data, not on the model.** It has installed tracking software on tens of thousands of employee machines to record how work actually gets done, and converted three thousand senior engineers into a team that produces training tasks and environments; morale has suffered, and the host does not pretend the employee-rights question is settled. But from a model-iteration angle he draws a sharp distinction: **OpenAI and Anthropic collect data on the work their harnesses already do well; Meta collects data on all real work, regardless of whether AI can currently do it** — start state, end state, and every trajectory in between, with the same task performed several different ways across functions and countries. Add the compute he looked up, which is far above peers for this year's deployments. Two of the three pieces — data and compute — are in place. The missing one is research culture, which he frames as mercenaries versus missionaries: money buys people, not shared conviction.
+
+**8. The boldest claim: the capability is already here, compute and tooling are the constraint — and he offers a way to test it.** He cites a researcher who works on thinking time: every current evaluation gives models fifteen or twenty minutes, and scores keep climbing when you give them two hours, with no clear point of diminishing returns observed so far. His own example is a screenshot cropped badly inside a deck. His test is this — **take that image out, show it to the model on its own, and ask what's wrong. It sees the problem. If it can see it in isolation, then failing to fix it earlier was a budget problem, not an intelligence problem.** Following that line, the two numbers he wants optimised are tokens per second (still at chat speed, fine for a human reader, hopeless for a hundred-step task) and cost per token (a single deck cannot plausibly cost a fortune). If the cost trend merely continues without accelerating, he estimates a year and a half to two years.
+
+**9. But he draws the boundary clearly: completing 60–80% of the work is not replacing 60–80% of the workers.** The remaining fifth is usually the most valuable part — defining the goal, and checking whether the output meets it. Low-level goals like "pass the test" the model can verify for itself; but if the goal is "make this interface feel more human," he thinks no amount of compute gets there, **because that is a shortfall in understanding people, not in thinking long enough**. That boundary matters: it confines "more compute makes it better" to work whose correctness can actually be checked.
+
+## Going further
+
+### 1. When the gap is visible, judge capability; when it isn't, judge cost per job
+
+The most useful numbers in the episode are those three token counts. The top two differ by one point in intelligence and by more than double in tokens consumed, while the third-place model is both less capable and the most expensive to run per question. When product differences in a market can only be identified across dozens of tasks, **the selection criterion slides automatically from "which is best" to "which is cheapest per unit of work"** — that is not anyone's preference, it is what happens when differentiation disappears.
+
+The structure is the same one you use on companies. The sticker price is never the cost; **the cost is what you pay per unit of the thing you actually wanted**. Something that looks expensive but finishes the job with half the resources is the cheap one; something cheap on paper that has to be rerun three times bills the difference to you. Which is exactly why comparing headline prices per million tokens inverts the ranking — that number measures something other than what you want.
+
+The failure condition has to be written down too, otherwise this collapses into "always buy the cheap one." **This reasoning only holds while the capability gap is invisible.** The host left the seam himself: on some workflows Fable 5 still delivers something GPT-5.6 does not, which is why he keeps paying for a second subscription just for it. In other words, the moment a difference appears that you can see on the first try, the ruler swaps back to capability. So the thing worth periodically rechecking is not the leaderboard but **which of the two regimes you are currently in**.
+
+Why not the competing explanation — that habit and switching costs decide this? Because the episode is its own counterexample: the host says plainly that he moved his workflow across, and the price of moving was one subscription. **A moat is thin wherever switching is cheap** — and that holds well beyond this industry.
+
+### 2. The bottleneck isn't necessarily in the layer you're staring at
+
+If the host is right, the binding constraint is no longer "who has the smartest model" but tokens per second, cost per token, and whether the tools are any good. His tooling example is almost comically small: the calendar integration he uses can create events but cannot create tasks. When the assistant fails to add your to-do, that has nothing whatsoever to do with how smart the model is.
+
+This is a textbook bottleneck question: **which layer snaps first when demand doubles.** And the part worth copying is not his conclusion but his test — pull the failing piece out and ask about it in isolation; if the model handles it alone, the earlier failure was budget, not ability. That test earns its keep because it genuinely discriminates between the two explanations. Without it, "it's just compute" is nothing more than an excuse.
+
+And because there is a test, a boundary comes with it: **it only applies to work whose correctness can be checked.** "Make the interface feel more human" has no self-check available, so more compute will not improve it — which is the line the host drew himself. So "the bottleneck is compute" is a bounded claim, not a universal explanation.
+
+Applied to one's own notes, what should change is where the verification point sits, not the conclusion. **A reason for holding something that reads "AI capability will keep improving" has not written down anything that can ever be scored.** If the constraint really has moved to inference cost and speed, then what deserves tracking is the slope of cost per token, inference throughput, and how mature the tooling layer becomes — not one more refreshed leaderboard. Watch the wrong layer and you will repeatedly declare yourself right or wrong on a metric unrelated to your reason.
+
+### 3. Only a prediction with an expiry date can be scored
+
+There is a rare moment in this episode: the host marks his own homework from two months earlier. In EP138 he described a voice model that listens and speaks at the same time and can be interrupted mid-sentence, and his call was that this approach is better than the old one under all conditions, that the technical barrier is not high, and that anyone who wants to train one can — so the mainstream would inevitably move to it. Two months later, it happened.
+
+What is worth noticing is not that he was right but that **the prediction was shaped so it could be scored**: it had a mechanism (why the switch is forced), a scope (mainstream voice), and an implicit failure condition (if the barrier really were high, no second lab would appear this fast). The same shape shows up in his big claim this episode — a definition (60–80% of digital work), a timeframe (eighteen months to two years), and a stated dependency (the cost trend continues, without needing to accelerate). **That formulation can be falsified, which is what makes it worth anything.**
+
+The genuinely useful move is deciding in advance how to read a miss. If two years pass and it hasn't arrived, the question is which link broke — costs didn't fall on trend, the tooling layer didn't keep up, or the capability was never there. Those three answers lead to completely different conclusions, and collapsing them gives you only "he was wrong," which carries no information at all.
+
+As for "the capability is already here," I would file it as a **hypothesis awaiting verification** rather than an established fact — it rests on extrapolating that unlimited compute keeps producing better output, and that extrapolation is currently supported by not having observed a point of diminishing returns. Not having seen one is not the same as there not being one. Xunzi's plodding nag says both halves of this at once: extra days really can close a gap in speed, provided the road actually goes there.
+
+## Worth a look
+
+- **TechWave EP147** (released 2026-07-13) — the source of these notes; please listen to the original in full and support the creator
+- **TechWave EP138** — where the prediction being marked in this episode was made, on the listen-and-speak-simultaneously voice paradigm
+- *Xunzi*, "An Exhortation to Learning" — the source of "pile up earth into a mountain" and the thoroughbred-and-nag lines, which map onto this episode's entire argument about thinking time and accumulated cost
+- The third-party composite model evaluation used in the episode for its ranking, which also publishes average tokens and cost per question — a reasonable place to start if you want to look at the numbers yourself, and the point is to read the cost column alongside the score
+
+---
+
+**Disclaimer**: This article consists of personal listening notes and study material. It is educational content and **does not constitute investment advice, an offer, or a solicitation**. It recommends no specific security and provides no price targets, and it neither evaluates nor endorses any individual company, industry, or product mentioned in the episode; company names appear only because they are the subjects of the news being discussed, and the surrounding description exists solely to illustrate reasoning. Observations, figures, impressions, and personal experiences from the episode are the host's own; they are quoted here to illustrate a method of reasoning and have not been, and cannot be, independently verified. Investing carries risk, past performance does not indicate future results, and you should form your own judgement based on your financial situation and risk tolerance, consulting a qualified professional where appropriate. The author may hold positions in the types of assets discussed.
