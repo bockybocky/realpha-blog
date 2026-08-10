@@ -1,0 +1,112 @@
+---
+title: "The Roundabout Route Arrives First: They Didn't Buy the Memory, They Dug It Back Up"
+description: "The Circuit EP.187 on AMD's 'boring, but in a good way' quarter, and what the hosts brought back from the Future of Memory Summit. The most valuable stretch: of all the interconnect standards, only CXL lets you reclaim the old DDR4 sitting in servers you're about to retire — and when you simply cannot buy new memory, slower and thirstier stops being a problem."
+slug: "circuit-2026-08-09-ep-187-inside-the-future-of-memory-summit-amd-s-bo"
+lang: "en"
+pubDate: 2026-08-10
+category: "investing"
+tags: ["the-circuit", "podcast-notes", "semiconductors", "memory", "CXL", "AMD", "rack-scale", "english-finance-media"]
+ogImage: "/covers/circuit-2026-08-09-ep-187-inside-the-future-of-memory-summit-amd-s-bo-cover.png"
+cover: "/covers/circuit-2026-08-09-ep-187-inside-the-future-of-memory-summit-amd-s-bo-cover.png"
+tldr: "Memory is expensive enough that people would rather take the long way round: hyperscalers are pulling old DDR4 out of retiring servers, re-qualifying it, and hanging it off CXL to build inference capacity — because the alternative isn't more expensive, it's nothing."
+---
+
+![Realist oil painting: one long data center aisle, its floor receding to a single vanishing point deep in the frame; in the warm dim foreground two technicians crouch beside a wheeled cart stacked with green memory modules just pulled from an open, decommissioned server chassis, lit by a handheld work lamp; the same unbroken aisle runs into the distance where new racks glow cool blue-white and throw long reflections across the polished floor, with dust hanging in the light](/covers/circuit-2026-08-09-ep-187-inside-the-future-of-memory-summit-amd-s-bo-cover.png)
+
+> *The difficulty of manoeuvre is to make the roundabout route the direct one, and to turn misfortune into advantage.*<br/>
+> *So take the winding path, and dangle a bait before him;*<br/>
+> *set out after him, and arrive before him.*<br/>
+> *This is to know the calculus of the circuitous and the direct.*<br/>
+> —— *Sun Tzu, The Art of War*, "Manoeuvring"
+
+## What this episode is about
+
+Episode 187 of *The Circuit*. Ben Bajarin and Jay Goldberg start with AMD's quarter — the numbers were fine, the reaction was flat — and then Ben unpacks what he saw at the Future of Memory Summit, including something that had never happened to him in fifteen years of attending, and what he thinks the show actually signalled: that CXL, an old standard that got hyped and then forgotten, has finally reached the moment where it is useful. They close on how long memory pricing can hold, and why a small timing-chip company is being carried along by the rack-scale era.
+
+**Original episode**: The Circuit EP.187, "Inside the Future of Memory Summit & AMD's 'Boring' Bullishness" (2026-08-09)
+
+## The notes I took
+
+**1. "Boring, but in a good way" — and the market clearly wanted something more exciting.**
+
+AMD beat across the metrics, data center roughly doubled year on year, and the guidance wasn't weak; the stock fell the next day anyway. Both hosts land in the same place: this was a pure execution quarter. The company had already delivered all its good news at its own event two weeks earlier, so this quarter was just shipping to the roadmap. The criticisms that followed were mostly second-order — somebody didn't like a particular data center number, somebody was startled that capex jumped from an expected couple of hundred million to around eight hundred million. Jay's read on the latter: competing at this level has simply become expensive, you have to do far more for your customers now, and that shows up as spending. What may actually be unsettling investors isn't the money itself but all the financing arrangements the industry has been doing to win business this year, and the worry that AMD eventually has to play that game too.
+
+**2. The constraint is capacity, not demand — and "share" has gone a bit out of focus.**
+
+They sell as many chips as TSMC will make for them, and so does everyone else. Jay reckons AMD has about the best access to TSMC allocation of anyone, and is also the most reliable forecaster in the group: they don't put out numbers they can't hit. That has an ironic consequence — when peers promise spectacular growth and AMD promises reasonable growth, reasonable looks dull. Ben added the line worth keeping: Lisa Su is not someone who oversells, so when her tone on growth gets emphatic, the tone itself is the signal.
+
+On share, Jay is blunt that arguing about it right now isn't very useful: the whole pie is growing so fast that share movements get blurred out. One more detail is worth holding onto — first-half CPU supply was tight because that demand hadn't been forecast, whereas 2027's volume is in the forecast, so the wafers are secured. Ben reads that as a positive: this isn't "we hope to grow that much," it's "we've already booked the inputs." Whether they can get the memory is an entirely separate question.
+
+**3. For the first time in fifteen years, there was nowhere to park.**
+
+This is the most vivid stretch of the episode. Ben has been going to this memory conference on and off for fifteen years. The venue is the Santa Clara Convention Center — not large, not new — and he had never once failed to get into the free lot beside it. This year he drove in on day one and there was not a single space. He assumed it was his bad luck, until every industry friend he ran into said the same sentence: I have never not been able to park here. People parked at Levi's Stadium. People parked across the street. Inside, the Samsung, SK Hynix, Micron and Marvell booths were all big and all mobbed, and the floor was too small for the traffic. He thinks the show has to move. **Crowd density isn't a line in a financial statement, but it is another reading of the same thing.**
+
+**4. CXL: a standard that got hyped, got forgotten, and then happened to become useful.**
+
+Some background: CXL is a protocol for letting different chips talk to one another — think of it, roughly, as USB at the chip level. It was heavily hyped in 2021 and 2022, when the imagined use case was complicated systems-on-chip. Then AI arrived, everyone cared only about memory bandwidth, and CXL got shelved. Jay remembers a piece written around 2023 arguing that CXL wasn't dead, but that nobody would care about it until it became useful for AI.
+
+The turn is that memory has become expensive and scarce enough to be the bottleneck itself, so people will now do almost anything to route around the memory tax. Ben thinks two other things pushed the ecosystem over the line. One is the rack-scale era: once the deployment unit is a whole rack rather than a server, you have real optionality in how you mix and match inside it, and CXL is what gives you that flexibility. The other is inference — an inference cluster serving thousands or hundreds of thousands of concurrent users and agents is enormously memory-hungry. This year the entire chain showed up, from controllers to optical transceivers to switches; it's the first time he has seen the surrounding parts all present at once. Jay's reaction is the fun one: **he loves this dynamic, where an old topic gets hyped well past reason, then forgotten, and only then turns out to be genuinely useful.**
+
+**5. The most valuable stretch: only CXL lets you reclaim old memory.**
+
+Ben says his own scepticism going in was simple — this all sounds great, but where is the memory coming from? It doesn't grow on trees. You can't announce a server stuffed with memory and then have no memory to stuff it with. The answer he brought back, and the spine of his whole set of notes, is this: **of the available approaches, only CXL supports memory reuse.** Every other path requires you to go buy brand new DDR5. CXL lets you take the DDR4 out of the general-purpose servers you're retiring and put it to work in your CXL racks.
+
+The reason that isn't hand-waving is that hyperscalers already have the muscle for it: they run internal component reclamation and re-qualification programmes, and have done this for years with old GPUs and old networking gear — not necessarily back into tier-one systems, but genuinely back into service. Jay's reaction is the image it puts in his head: data centers up on cinder blocks while somebody strips the parts. Ben concedes some memory is soldered down and unrecoverable, but a good chunk isn't.
+
+Then the trade-offs. DDR4 is slower than DDR5 and less power efficient; both true. Ben's argument is that when the answer is "you don't have to go buy a pile of memory, you already own it," none of that matters much. Jay puts it more bluntly: **you take whatever hit you have to, because the alternative is nothing.**
+
+There's an elegant loop on top of it. Because the memory can be reused, hyperscalers are *more* motivated to decommission old CPUs and bring in new ones — the memory isn't wasted, and refreshing CPUs is something they already want to do for agentic workloads. Ben's conclusion is that this is a point in favour of hyperscaler CPU demand too. He personally thinks Marvell has the most complete stack along this line, while being clear that other approaches will also get deployed; this isn't winner-take-all. (That's his view on the show, not a judgement about what anyone should own.)
+
+Worth noting: Ben draws the boundary of his own argument. **The reuse dividend belongs to the three hyperscalers actually sitting on mountains of old memory, plus Oracle to some degree.** Nobody else gets it. His counterargument is that those three or four are large enough to pull the whole ecosystem along — but that premise is the reader's to keep in view.
+
+**6. Memory pricing: the margin-maxing days are over, and the sellers may have chosen that.**
+
+Ben uses a coinage of his own: margin maxing. His read after talking to the memory companies is that the phase is over, and for good reasons — customers want predictable pricing, so contracts now carry price floors and ceilings, and the sellers aren't trying to make their customers' lives miserable.
+
+The more informative part is how he reads long-term agreements. These have been signed before, and the standing objection is that customers can cancel at will, so an LTA doesn't prove much. What the vendors offered him wasn't "these ones won't be cancelled" but two different variables: **how many customers are signing, and at what price and margin profile.** Historically an LTA meant one or two enormous customers trading volume for a very low price. Now many customers are signing, at prices and margins far above prior cycles, with four-to-five-year terms as the average. Ben's inference: supply chain professionals who expected this to ease in a couple of years would be out of a job for signing that.
+
+Jay adds a data point from the same week: SanDisk's numbers were monstrous, gross margin held steady in the low eighties rather than climbing, and the stock barely moved. He offers two readings of that margin — one is disappointment, why isn't it ninety given the demand; the more reasoned one is that this is discipline, even mercy. Taking price to its theoretical maximum would create lasting ill will, and **it would accelerate every workaround people are already exploring to escape the memory tax.**
+
+So the episode reframes the debate. Ben cites a Morgan Stanley analyst's argument that the market keeps staring at gross margin when it should be looking at revenue quality and duration. Jay recasts the question: rather than arguing whether prices go up another 60% or triple from here, ask **how long this pricing and these margins can be sustained.** He is also refreshingly direct about not having a view — he isn't a memory analyst, the people who really know this line have deep connections in Korea, Japan, Taiwan and Idaho, and he'll only lay out the range: one end says this is still a cycle that equilibrates within a year; the other says the structure is different and elevated margins persist for a long time; the extreme version says the industry has been permanently restructured.
+
+**7. Rack content as a yardstick, and a small company that makes clocks.**
+
+They close on SiTime, which makes timing and synchronisation parts using MEMS to replace older analog components. Ben offers a heuristic you can carry around: **in the rack-scale era, look for companies whose sheer content per rack rises as rack scale rises.** One concrete signal he mentions: the company is seeing demand rise for synchronisation products, not just timing ones — and synchronisation is what you need *between* racks, so they're capturing both scale-up and scale-out. Jay has lost track of how many hundreds of these parts now show up in a single rack. They both note the longer arc: memory, optics, anything pushing forward is going to need more complex, programmable timing.
+
+## Further thoughts
+
+**1. "The alternative is nothing" — a spec sheet cannot analyse this kind of demand.**
+
+The counter-intuitive core of this episode is that a clearly inferior thing — slower, thirstier, routed over PCIe — is winning, for reasons that have nothing to do with its specs. **When the alternative is "you can't get any," the buyer's decision function isn't better-versus-worse, it's something-versus-nothing.** Every spec-based competitive analysis returns the wrong answer in that regime.
+
+But the inference has a failure condition that has to be written down, and the episode supplies it: **the economics of memory reuse are a product of scarcity, not of technology.** If memory supply loosens and prices fall back, the relative appeal of stripping old DIMMs and re-qualifying them drops — you'd just buy new DDR5, which is faster and more efficient, and re-qualification isn't free. So "CXL is about to inflect" is not really a bet on CXL's merits; it's hitched to how long memory stays tight.
+
+That ties two apparently separate topics into one line. **How excited you're entitled to be about section five should be capped by your view on section six.** If you believe memory eases within a year, you cannot simultaneously believe reuse economics grows into a large business. Those two optimisms don't compose.
+
+**2. A bottleneck manufactures its own workaround — and whether the seller suppresses that workaround is observable.**
+
+My habit in industry analysis is to walk upstream and find the layer that breaks first when demand doubles. This episode supplies the sequel that rarely gets said out loud: **a bottleneck doesn't sit still while you monetise it, it forces workarounds into existence, and those workarounds are themselves businesses.** Memory is expensive, so people go find reuse, find CXL, find any way to buy one fewer DIMM. Timing and synchronisation parts riding the rack transition are another branch of the same mechanism.
+
+What makes it genuinely interesting is that the episode also names the feedback loop: one reason memory makers hold margin in the low eighties rather than the high nineties is that they don't want to push customers onto the workarounds. **That is a seller giving up near-term price to protect long-term pricing power.** If that reading is right, gross margin stops being purely a profitability metric and doubles as a self-reported signal about how long the sellers think this lasts — how much room they leave customers reflects how badly they'd rather customers didn't go study the alternatives seriously.
+
+And this line is unusually observable. Gross margin, the number of customers signing long-term agreements, the term lengths — these get disclosed over time. **If margin keeps climbing while customers start complaining, that's harvesting rather than relationship maintenance, and the workarounds accelerate; if margin holds where it is, they're playing the long game.** The two situations imply very different downstream outcomes, and they look almost identical from the outside.
+
+**3. Swapping "how much higher" for "how much longer" changes what can be checked.**
+
+Jay's reframing is the methodological piece I most want to keep. The original debate — does pricing rise another 60%, double, or triple — isn't just hard to answer; **whatever answer you pick, you will never know when you were wrong.** It has no expiry date and no checkpoint.
+
+Recast as "how long can this pricing and margin hold," the character changes: **you can list observable variables — number of LTAs, average term, contract price structure, the margin trend — set a date, and come back to mark your own homework.** That is a judgement worth writing into a record.
+
+One more thing worth stealing: Jay's honesty. He says plainly that he isn't a memory analyst, that the people who really understand this are a small group with deep relationships across Korea, Japan, Taiwan and Idaho, and so he won't offer a conclusion — only the boundaries of the argument, cycle at one end and structure at the other. **Marking the edge of what you don't know is worth more than the conclusion itself.** There's also a practical portfolio note buried here: a variable you can't judge — and openly admit you can't judge — shouldn't quietly be the shared assumption underneath several of your positions. Memory pricing is playing exactly that role right now, feeding into memory makers, server builders, cloud cost structures, and every "I have a business because memory is expensive" workaround at once. **When several of your ideas turn out to rest on the same unresolved premise, those aren't several opportunities. That's one bet placed repeatedly.**
+
+## Further reading
+
+- The episode: The Circuit EP.187, "Inside the Future of Memory Summit & AMD's 'Boring' Bullishness" (2026-08-09), hosted by Ben Bajarin and Jay Goldberg
+- AMD's and SanDisk's published quarterly results, earnings call transcripts and investor decks, all available from the companies' own investor relations sites
+- The CXL Consortium's public specifications and white papers, for the boundaries of what the standard actually does
+- The public agenda and keynote materials from the Future of Memory Summit
+- The lines from Sun Tzu's "Manoeuvring" chapter are my own footnote to the episode, not part of it
+
+---
+
+**Disclaimer**: This is a listener's reflection and general education, **not investment advice, an offer, or a solicitation**. Companies, products and claims mentioned come from the public episode and public sources; nothing here recommends any security or offers a price target. Investing carries risk — judge for yourself against your own circumstances, and consult a qualified professional if needed. Copyright in the original episode belongs to its producers; please go listen and support them.
