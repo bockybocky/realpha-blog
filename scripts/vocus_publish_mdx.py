@@ -28,6 +28,7 @@ TAGS = {
     'gooaye-ep683-cannot-see-the-mountain': ['股癌', '槓桿', '風險管理', '回測'],
     'gooaye-ep684-liquidity-carries-and-capsizes': ['股癌', '流動性', '風險管理'],
     'macromicro-ep209-the-half-eaten-peach': ['財經M平方', '資本支出', '自由現金流', '聯準會'],
+    'serenity-x-reading-method': ['光通訊', '研究方法', '美股', '投資心得'],
 }
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
