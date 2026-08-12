@@ -136,7 +136,8 @@ def main() -> int:
         return 0
 
     # 2) build（把開獎結果打進 dist，服務直接吃）
-    b = run(["npm", "run", "build"], timeout=900)
+    # Windows CreateProcess 不補副檔名，npm 的實體是 npm.cmd（2026-08-09 修：原本 ["npm"] 必炸 WinError 2）
+    b = run(["npm.cmd", "run", "build"], timeout=900)
     if b.returncode != 0:
         notify("⚠️ 驗證簿開獎後 build 失敗", f"{body}\n\nbuild stderr:\n{b.stderr[-2000:]}")
         log(f"build 失敗 rc={b.returncode}")

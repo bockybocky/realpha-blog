@@ -72,9 +72,57 @@
     },
     "committed_at": "2026-07-09T09:22:07+08:00",
     "deadline": "2026-08-08",
-    "status": "aging",
-    "verdict": "",
-    "replay_ready_at": "",
+    "status": "hit",
+    "verdict": {
+      "settled_at": "2026-08-08",
+      "judge_mode": "machine",
+      "outcome": "hit",
+      "summary": "機器判定：命中。QQQ deadline 收盤值 723.0300。",
+      "rule": {
+        "metric": "level",
+        "operator": "lt",
+        "threshold": 745.0,
+        "threshold_upper": null,
+        "unit": "level"
+      },
+      "l2_benchmark": {
+        "SPY": {
+          "symbol": "SPY",
+          "start_date": "2026-07-08",
+          "start_close": 745.400024,
+          "end_date": "2026-08-07",
+          "end_close": 773.26001,
+          "return_pct": 3.7376
+        },
+        "QQQ": {
+          "symbol": "QQQ",
+          "start_date": "2026-07-08",
+          "start_close": 711.440002,
+          "end_date": "2026-08-07",
+          "end_close": 723.030029,
+          "return_pct": 1.6291
+        }
+      },
+      "source_snapshots": [
+        {
+          "symbol": "QQQ",
+          "start_date": "2026-07-08",
+          "start_close": 711.440002,
+          "end_date": "2026-08-07",
+          "end_close": 723.030029,
+          "return_pct": 1.6291
+        },
+        {
+          "symbol": "SPY",
+          "start_date": "2026-07-08",
+          "start_close": 745.400024,
+          "end_date": "2026-08-07",
+          "end_close": 773.26001,
+          "return_pct": 3.7376
+        }
+      ]
+    },
+    "replay_ready_at": "2026-11-06",
     "author_class": "internal",
     "is_sample": false,
     "plain": {
