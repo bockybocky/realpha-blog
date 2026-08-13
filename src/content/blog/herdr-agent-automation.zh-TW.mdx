@@ -1,0 +1,94 @@
+---
+title: "herdr：同時養一群 AI agent 的人，遲早要回答「誰在做事、誰卡住了」"
+description: "herdr 是什麼、怎麼裝、怎麼用，以及我們沒把它裝進生產線、卻把它最好的兩個設計搬回家的經驗——教育與方法論分享。"
+slug: "herdr-agent-automation"
+lang: "zh-TW"
+pubDate: "2026-08-13"
+category: "systems"
+tags: ["agents", "automation", "tools", "terminal"]
+---
+
+如果你同時跑過兩個以上的 coding agent——一個 Claude Code 在改後端、一個 Codex 在寫測試——你大概遇過這個場景：終端機開了四五個分割窗格，每個看起來都「在跑」，你去泡了杯咖啡回來，才發現其中一個從二十分鐘前就停在「要不要允許這個操作？(y/n)」，一直在等你。
+
+它沒有死，也沒有在工作。它卡住了。而你的眼睛掃過去的時候，它跟旁邊那個真的在算的窗格長得一模一樣。
+
+herdr 就是為這件事而生的工具。
+
+## herdr 是什麼
+
+herdr（[herdr.dev](https://herdr.dev)）是一個滑鼠優先的終端多工器——你可以把它理解成 tmux 或 zellij 的替代品，但它多了一層別人沒有的東西：agent 自動化 API。它認得市面上二十一種 coding agent（Claude Code、Codex、Gemini CLI、Copilot、Grok、Cursor、opencode⋯⋯，完整清單見官方文件，2026-08-13 查核），你可以用 shell script 開一個 agent、丟 prompt 給它、等它做完、把結果收回來。
+
+它的世界只有三個原語：
+
+- 版面（workspace、tab 與窗格拓樸）：建立與組織終端的位置
+- 窗格（pane）：控制一個原始終端——跑指令、送輸入、讀輸出
+- agent：控制一個被認出來的 coding agent，並且知道它的生命週期狀態
+
+最後那半句是重點，等一下回來講。
+
+## 怎麼裝
+
+Linux 和 macOS 有穩定版，一行搞定：
+
+```bash
+curl -fsSL https://herdr.dev/install.sh | sh
+```
+
+也支援 Homebrew（`brew install herdr`）、mise、Nix。
+
+Windows 目前只有 preview beta，官方給的是 PowerShell 一行安裝器。我們自己在 Windows 上裝的時候遇到一個小插曲：那行「下載遠端腳本直接執行」的指令被我們自己的安全防護攔下來了——這其實是防護在正確做它的工作，這類樣式本來就該被攔。替代路線是去 GitHub releases 抓 prerelease zip 解壓，這也是官方文件承認的正路。順帶欣賞一個細節：herdr 的安裝器用版本資料夾加一個 current 連結指過去，更新的時候不需要蓋掉正在執行的 herdr.exe。這種小地方見功夫。
+
+我們裝到的版本是 0.8.0-preview（2026-08-04 build）。Windows 使用者要有心理準備：beta 就是 beta。
+
+## 怎麼用
+
+最基本的編排流程，四行 script 就能體會：
+
+```bash
+split=$(herdr pane split --current --direction right --no-focus)
+review_pane=$(printf '%s\n' "$split" | jq -r '.result.pane.pane_id')
+herdr agent start reviewer --kind codex --pane "$review_pane" -- -m gpt-5.4
+herdr agent prompt reviewer "Review the current diff" --wait --timeout 120000
+```
+
+切一個新窗格、在裡面開一個 Codex、取名 reviewer、丟一句 prompt 給它，然後等它做完。做完之後 `herdr agent read reviewer` 把它的輸出讀回來。
+
+另一個值得認識的指令是等待狀態：
+
+```bash
+herdr agent wait reviewer --until blocked --timeout 120000
+```
+
+意思是「等這個 agent 進入 blocked 狀態再叫我」——也就是等它開始等你。這個指令存在的前提，是 herdr 把 agent 的生命週期拆成了五種狀態：working（真的在算）、blocked（在等核准或等輸入）、idle、done、unknown。
+
+## 我們怎麼用：坦白說，沒把工具裝進生產線
+
+這裡要誠實。我們的多 agent 派工是 headless 的——script 直接呼叫、背景執行、產出落檔——不需要「把 agent 開在看得見的窗格裡」這件事。加上 Windows 支援還在 beta，所以評估之後，herdr 本體只裝來把玩，沒有接進每天在跑的系統。
+
+但我們從它的文件裡搬走了兩個設計，而且其中一個馬上就抓到了自己系統裡的一個問題。
+
+第一個設計：blocked 是獨立狀態，不是 working 的一種。這句話看起來平凡，想通了會出汗。一個程序在工作和一個程序卡在提示符等你按 y，從外面看——程序活著、記憶體佔著、時間一直走——讀數完全相同。如果你的監控只問「還活著嗎」和「跑多久了」這兩個問題，你在數學上就分不出這兩者。一個跑三小時的正經任務，和一個卡了三小時的等待，長得一模一樣。
+
+第二個設計：同一件事有兩個觀測管道時，要事先寫死誰是權威。herdr 有兩套狀態偵測（掃終端畫面猜，以及生命週期 hook），文件明講裝了 hook 之後 hook 就是權威——理由是防止兩個狀態源各說各話。這條元規則比它的實作更值錢。
+
+## 搬回家之後，馬上抓到一隻
+
+拿「blocked 不是 working」這副眼鏡回頭看自己的機器（2026-08-08 本機觀測），我們找到一個開著 51 小時的互動 agent 視窗：最後一次對話寫入停在開始後 3 分鐘，之後兩天多零寫入；底下吊著 22 個 MCP 子程序；程序本身累計吃掉約 94 分鐘的 CPU 時間。
+
+這三個數字合起來說了一個故事：它不是在安靜等待（安靜等待的 CPU 應該接近零），是畫面重繪迴圈空轉卡死——herdr 分類裡的 blocked，而且是會偷燒資源的那一種。它也不是誰的失誤造成的失控程序，就只是一個開著沒關的視窗。但重點是：在我們原本的監控裡，它完全隱形。沒有任何東西告訴我們「這東西已經開兩天了、還吊著 22 個程序」。
+
+順著這條線我們還發現，自己的程序監控腳本只掃 Python 程序——其他執行檔一律隱形，而且註解宣稱的覆蓋範圍比實際寬。這些都是同一副眼鏡照出來的。
+
+由此我們多學到一課，把 herdr 的分類再往下切了一刀：blocked 其實有兩種——安靜等待（CPU 趨近零）和空轉卡死（CPU 持續非零）。兩種都不是 working，但只有後者在偷燒你的資源，值得分開告警。
+
+## 有什麼好處：兩層答案
+
+如果你是同時跑多個 agent 的人：herdr 給你一個可以腳本化的編排層——開 agent、派工、等狀態、收結果，全部指令化，而且它替你維護了「這個 agent 現在到底在幹嘛」的答案。光是 `agent wait --until blocked` 這一個指令，就能把「泡咖啡回來發現 agent 等了你二十分鐘」變成「agent 一開始等你，你就知道」。
+
+如果你暫時不打算裝它：那個狀態分類法本身就值回票價。回去看看你自己的自動化——不管是 agent、排程還是背景服務——你的監控分得出「在做事」和「卡住了」嗎？如果它只問活著沒有、跑多久了，答案就是分不出。這不是工具問題，是問題問錯了。
+
+工具是別人的，見識搬回家就是你的。這是我們讀開源專案的一貫姿勢：先讀文件再決定裝不裝，就算不裝，好的設計判斷照樣帶走。
+
+---
+
+資料來源：herdr 官方文件（herdr.dev，2026-08-13 查核）；本機觀測數據為 2026-08-08 自家系統紀錄。本文為工程方法論分享，與投資無關。

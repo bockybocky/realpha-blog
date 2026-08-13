@@ -1,0 +1,94 @@
+---
+title: "herdr: if you run a herd of AI agents, sooner or later you must answer \"who's working, who's stuck?\""
+description: "What herdr is, how to install and use it, and why we ended up borrowing its two best design ideas instead of wiring the tool into production."
+slug: "herdr-agent-automation"
+lang: "en"
+pubDate: "2026-08-13"
+category: "systems"
+tags: ["agents", "automation", "tools", "terminal"]
+---
+
+If you have ever run more than one coding agent at a time, say a Claude Code session refactoring the backend while a Codex instance writes tests, you know this scene. Four or five terminal panes, all of them apparently busy. You go make coffee. You come back and discover that one of them stopped twenty minutes ago at "Allow this operation? (y/n)" and has been waiting for you the whole time.
+
+It isn't dead. It isn't working either. It's stuck. And when your eyes sweep across the panes, the stuck one looks exactly like the one that's actually computing.
+
+herdr exists because of that scene.
+
+## What it is
+
+herdr ([herdr.dev](https://herdr.dev)) is a mouse-first terminal multiplexer, roughly a tmux or zellij alternative, with one layer the others don't have: an agent automation API. It recognizes twenty-one kinds of coding agents (Claude Code, Codex, Gemini CLI, Copilot, Grok, Cursor, opencode and more; full list in the official docs, checked 2026-08-13). From a shell script you can start an agent, hand it a prompt, wait for it to finish, and collect the result.
+
+Its whole world has three primitives:
+
+- Layout (workspaces, tabs, pane topology): create and organize terminal locations
+- Pane: control a raw terminal — run commands, send input, read output
+- Agent: control a recognized coding agent, including its lifecycle state
+
+That last clause is the interesting part. We'll come back to it.
+
+## Installing
+
+Linux and macOS get stable binaries, one line:
+
+```bash
+curl -fsSL https://herdr.dev/install.sh | sh
+```
+
+Homebrew (`brew install herdr`), mise and Nix also work.
+
+Windows is preview-only beta, installed via a PowerShell one-liner. A small story from our own Windows install: that "download a remote script and execute it" one-liner got blocked by our own security guard. Which is the guard doing its job, honestly; that pattern deserves to be flagged. The workaround was grabbing the prerelease zip from GitHub releases, which the docs list as a legitimate path anyway. One detail worth admiring: the installer uses versioned folders plus a `current` link, so an update never has to overwrite a running herdr.exe. Small touches like that tell you something about a project.
+
+We got 0.8.0-preview (built 2026-08-04). If you're on Windows, calibrate expectations. Beta means beta.
+
+## Using it
+
+The basic orchestration loop fits in four lines:
+
+```bash
+split=$(herdr pane split --current --direction right --no-focus)
+review_pane=$(printf '%s\n' "$split" | jq -r '.result.pane.pane_id')
+herdr agent start reviewer --kind codex --pane "$review_pane" -- -m gpt-5.4
+herdr agent prompt reviewer "Review the current diff" --wait --timeout 120000
+```
+
+Split a pane, start a Codex in it, name it `reviewer`, hand it a prompt, wait. Afterwards `herdr agent read reviewer` pulls the output back.
+
+The other command worth knowing:
+
+```bash
+herdr agent wait reviewer --until blocked --timeout 120000
+```
+
+"Wake me when this agent enters the blocked state." In other words: tell me the moment it starts waiting for me. This command can exist because herdr splits an agent's lifecycle into five states: working (actually computing), blocked (waiting for approval or input), idle, done, unknown.
+
+## How we use it: we didn't wire it in, and that's the point
+
+Full honesty here. Our multi-agent dispatch is headless: scripts invoke agents directly, work runs in the background, and results land as files. We have no use for "put the agent in a visible pane." Add the beta status of Windows support, and the verdict was easy: we installed herdr to play with it, not to run it in production.
+
+But we walked away with two design ideas from its documentation, and one of them immediately caught a problem in our own system.
+
+First idea: blocked is its own state, not a flavor of working. Sounds trivial until you sit with it. A process doing real work and a process stuck at a y/n prompt look identical from the outside. Alive, holding memory, clock still ticking. If your monitoring only asks "is it alive?" and "how long has it been running?", then mathematically you cannot tell these two apart. A serious three-hour task and a three-hour wait for a keypress produce the same readings.
+
+Second idea: when two channels observe the same thing, declare in advance which one wins. herdr detects state two ways (screen-scraping the terminal, and lifecycle hooks), and the docs state plainly that once hooks are installed, hooks are authoritative. The reason: stop the two sources from contradicting each other. That meta-rule is worth more than the implementation.
+
+## We took the lens home and it caught something within a day
+
+Wearing the "blocked is not working" lens, we looked back at our own machine on 2026-08-08 and found an interactive agent window that had been open for 51 hours. Its last conversation write happened 3 minutes after it started; then two-plus days of silence. Hanging under it: 22 MCP server subprocesses. The process itself had burned roughly 94 minutes of accumulated CPU time.
+
+Those three numbers tell one story. It was not waiting quietly; a quiet wait should sit near zero CPU. It was stuck in a redraw loop, spinning. In herdr's taxonomy: blocked, and the expensive kind. It wasn't anyone's runaway process either; just a window somebody opened and forgot. The point is that in our existing monitoring it was completely invisible. Nothing anywhere said "this thing has been open for two days and is holding 22 processes."
+
+Pulling the same thread, we then noticed our process-health script only scans Python processes, which leaves every other executable invisible to it, and its docstring claims broader coverage than the code delivers. Same lens, more catches.
+
+Which taught us to cut herdr's taxonomy one level finer: blocked comes in two kinds. Quiet waiting (CPU near zero) and spinning (CPU steadily nonzero). Neither is working, but only the second one burns resources while it waits, so only the second one deserves a louder alarm.
+
+## What you get out of it
+
+If you run several agents at once: herdr gives you a scriptable orchestration layer (start agents, dispatch work, wait on states, collect results), and it maintains the answer to "what is this agent doing right now" so you don't have to guess from a screen. `agent wait --until blocked` alone turns "came back from coffee to find the agent waited twenty minutes" into "the moment it waits, you know."
+
+If you don't plan to install it: the state taxonomy is the souvenir. Go look at your own automation, agents or cron jobs or anything that runs unattended, and ask whether your monitoring can distinguish "working" from "stuck." If all it asks is alive-and-uptime, it can't, and no amount of extra tooling fixes a question that was wrong to begin with.
+
+The tool belongs to someone else; the judgment you carry home is yours. This is how we read open-source projects: docs first, install maybe, and even when we skip the install, the good design decisions come with us.
+
+---
+
+Sources: herdr official documentation (herdr.dev, checked 2026-08-13); incident numbers are from our own system logs, 2026-08-08. Engineering notes only; nothing here is investment advice.
