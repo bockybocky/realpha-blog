@@ -1,0 +1,127 @@
+---
+title: "Bound by What You Were Taught: Eighteen Companies in Twelve Years"
+description: "Invest Like the Best EP.486 with Benchmark's Eric Vishria. Same hardware, same open-weights model, a 5x speed gap. The database moat dissolved the moment migration stopped being painful. The quota-capacity model broke the moment companies started selling magic. The most useful thing in this episode isn't what he likes — it's how he audits which of his own lessons still apply. Educational content, not investment advice."
+slug: "iltb-2026-08-11-eric-vishria-a-decade-of-lessons-investing-in-soft"
+lang: "en"
+pubDate: 2026-08-13
+category: "investing"
+tldr: "The most expensive mistakes this cycle aren't wrong company picks — they're last cycle's criteria carried over unexamined. Eric Vishria walks through which of his own lessons survived, one at a time."
+tags: ["invest-like-the-best", "podcast-notes", "venture-capital", "ai-infrastructure", "bottleneck-layer", "english-finance-media"]
+ogImage: "/covers/iltb-2026-08-11-eric-vishria-a-decade-of-lessons-investing-in-soft-cover.png"
+cover: "/covers/iltb-2026-08-11-eric-vishria-a-decade-of-lessons-investing-in-soft-cover.png"
+---
+
+![Realist oil painting cover: a par-three green at dawn, a dozen white balls scattered in the dew-wet grass around the flagstick, the fairway receding into depth, with the backlit silhouettes of a vast substation and transmission towers on the far horizon](/covers/iltb-2026-08-11-eric-vishria-a-decade-of-lessons-investing-in-soft-cover.png)
+
+> *You cannot speak of the ocean to a frog in a well — it is bound by its space.*<br/>
+> *You cannot speak of ice to a summer insect — it is bound by its season.*<br/>
+> *You cannot speak of the Way to a narrow scholar — he is bound by what he was taught.*<br/>
+> —— Zhuangzi, "Autumn Floods" (Warring States period, China)
+
+## What This Episode Is About
+
+Invest Like the Best EP.486: Patrick O'Shaughnessy interviews Eric Vishria, general partner at Benchmark. He joined the venture business in 2014 and has made eighteen investments in twelve years — one to two a year.
+
+The conversation spans several of his positions: model inference infrastructure, enterprise applications, wafer-scale silicon, robotics, and why he went back and raised a growth fund after a long gap. But the real spine of the episode is a single question he keeps returning to: how much of what he learned before still applies.
+
+The sharpest of Zhuangzi's three lines is the third. The frog is limited by space, the insect by time — both are excusable. The narrow scholar is "bound by what he was taught," the only one of the three limits that is self-inflicted. Most of this episode is about what that looks like in venture and in operating companies.
+
+Source episode: Invest Like the Best EP.486, "Eric Vishria — A Decade of Lessons Investing in Software & Hardware" (2026-08-11)
+
+## Key Takeaways
+
+### 1. Same hardware, same open model, a 5x speed gap — so "this layer is just resale" was wrong
+
+Everyone from the hyperscalers to the neoclouds to the specialist inference providers runs the same stock open-weights models on the same accelerators. Yet in practice a specialist runs roughly 5x faster than a cloud provider, with a further multiple-x gap in throughput that isn't visible from outside.
+
+He points at the contradiction only visible if you know the economics: these companies rent the cloud providers' machines, pay their margin, run on top of them — and still make money. Same model, same silicon; no resale operation produces that spread. Which leaves one explanation: running these models well is genuinely hard, and it is a very specific expertise.
+
+His historical comparison: storage and compute services launched in 2006, and the following year's shareholder letter spent real space explaining why they mattered. Put thirty of the smartest investors of that era in a room and ask whether this would be a durable, high-margin, non-commodity business — his guess is you'd have gone zero for thirty.
+
+### 2. The market is too big for one winner — but "it all works" is not "everyone works"
+
+The 2014 consensus was that cloud would eat everything: 8% gross margins beating 85% gross margins, infrastructure first, then applications.
+
+Twelve years later, Snowflake out-Amazoned Amazon on Amazon; Confluent, Elastic, MongoDB and Databricks all thrived; Datadog faced a competing first-party offering and is a hundred-billion-dollar company today. But he says the biggest error wasn't any of those. The truly enormous miss was that the two clouds considered irrelevant at the time are now extraordinary businesses, ending in a roughly 40-30-20 oligopoly — plus Cloudflare, a different kind of cloud, emerging as another hundred-billion-dollar company outside the big three.
+
+The conclusion is one sentence: the market was so large that no single vendor could consume it. Then he immediately applies the brake — this is not an argument for spray and pray. There was plenty of roadkill, and picking the relative winner still matters. He sharpens this later: when he says every layer works, he means something closer to the opposite of optimism, because it implies most companies in each layer will not work, which makes real differentiation more important than before, not less.
+
+### 3. The hardest moat in databases dissolved because three things went away at once
+
+Databases were a wonderful business for decades for a simple reason: app developers wrote against a specific interface, data accumulated, and migration was the single project nobody wanted to undertake. Stickiness that high supports excellent margins.
+
+Three things changed simultaneously. First, the thing writing against the database interface is now a model, not a person. Second, database interfaces are extremely well specified — and well-specified translation is exactly what models are best at. Third, agents don't get tired of monotonous specification work. Stack those, and the thing you would never do in software becomes a matter of pointing some money at it.
+
+His point isn't that databases stop mattering. It's that the criteria changed: experimentation is cheap, so far more applications get started, so what matters now is scaling from literally zero usage all the way through, spinning up and tearing down repeatedly, iteration speed, and ultimately cost as the arbiter. That's a completely different test from "I specced this for a use case, procured a license, and ran it on that hardware."
+
+### 4. Every day you hit your plan, you are destroying equity value
+
+He describes saying this to management teams in the room: every day you hit plan, you are destroying value.
+
+It lands hard because everyone's entire career taught the opposite — lay out a plan, execute relentlessly, hit or exceed it, compound. That's the muscle memory of every executive team. He says the point of saying it isn't to scold, it's to set them free. A friend's version is more vivid: CEOs at hundreds of millions in revenue were working the core business from 8am to 5pm and doing AI from 5 to 8 — and it needs to be inverted, with inertia being the only reason it isn't.
+
+He also puts a price on not changing: get to AI, or be worth three times revenue. Then the arithmetic almost nobody states: these companies traded at thirty times in 2021, have since grown 4x, and the multiple compressed by a factor of six — so you're four times bigger, at breakeven, and worth less.
+
+### 5. The quota-capacity model breaks when what you're selling is magic
+
+For twenty years the standard model was: each rep carries a quota, $1.2–1.5M early, enterprise reps scaling to $2.5M, financial models built up from that, discounted for attainment. What nobody registered, he says, is that the whole apparatus assumes you are pushing demand.
+
+These companies are selling something that feels like magic to the customer, and they got there first. In that situation the volume isn't in the $2M range at all — he's seen individual reps do $10M, $20M, $30M; Patrick says he saw $50M recently. Quota capacity still matters somewhat, but it is emphatically not the first-order constraint.
+
+This explains an industry-wide pattern: excellent leaders from four or five years ago joining fast-scaling AI companies and flaming out. Not a competence problem — an impedance mismatch between the model they bring and the situation. His line to candidates now is to check everything at the door and rebuild from first principles: where are the real bottlenecks on delivery, where are the bottlenecks on demand. And the best salesperson in any of these companies, he says, is the founder — because the founder is doing exactly one thing: bridging the jagged edge of model capability to what the customer can absorb.
+
+### 6. The jagged edge, and the people building sandcastles
+
+The phrase worth stealing from this episode: model capability has a jagged edge, not the smooth human arc our intuitions are built on. One spike far exceeds expectations, the valley right next to it doesn't, and new capabilities emerge roughly every four weeks. What an application company actually does is understand the shape of that edge, find which spike maps to which customer problem, and fill in the gaps.
+
+Bret Taylor's framing is sandcastles: we used to build castles — brick by brick, foundations meant to last a hundred years — and now we build sandcastles that get washed away. The artisan mindset doesn't survive. Cursor went from IDE to tab autocomplete to agentic work, obsoleting its own six-month-old work over and over.
+
+From this he derives a counterintuitive conclusion. Traditional product management says the PM should understand technology but not specify implementation — their job is to understand the customer and translate the problem to engineers. He says that is now a horrible way to work. You have to hold the nuances of model capability and the customer problem at once, and bridge them yourself. Which leaves three roles that actually matter: people who understand customer problems, people who have taste, and people who are curious about the jagged edge — and whether the business card says engineer, PM or designer is irrelevant. Patrick names the irony: the returns to being technical are rising, precisely as models are supposed to be erasing technical edge.
+
+### 7. The bottleneck moved again — from compute to energy
+
+He compresses the chain into one sentence: what models do is convert compute into intelligence, very effectively. Demand for intelligence looks close to unlimited. So demand for compute keeps climbing — and compute runs on energy.
+
+His specific number: China is bringing on roughly ten times as much energy next year as the US. If energy is the binding constraint on compute and demand for intelligence is unbounded, then less energy means fewer tokens or more expensive tokens; more expensive tokens means, by supply and demand, less intelligence available. He's careful to say he's not a macroeconomist — but this concerns him more than distillation or open-source competition, and it will show up in twenty different forms: gas turbines, natural gas, solar, nuclear, rare earths.
+
+## Extended Thoughts
+
+### 1. Hinton on radiology: the reasoning was right and the conclusion was wrong
+
+The most methodologically useful passage is his treatment of Geoffrey Hinton's 2016 claim that we should stop training radiologists.
+
+He states the fair version first: Hinton is orders of magnitude smarter than he is, and the reasoning behind the claim was entirely correct — these images should be readable by a model better than by a human, and studies have since shown that in specific areas. What failed wasn't the reasoning. It was the two layers underneath it.
+
+The first is data coverage. What actually got built targets narrow slices like chest CTs, while a working radiologist reads X-rays, CTs and MRIs across the whole body every day. Climbing steeply on one narrow item is marginally helpful when it's one of twenty or forty things read that day. The second is real-world stickiness: the entire reimbursement system is oriented around a physician issuing a readout, and behind that sit liability, the consequences of a miss, and malpractice exposure. Add a reverse effect on top — imaging gets cheaper, so more of it gets ordered, and in the near term you need more radiologists, not fewer.
+
+The implication for valuation discipline is direct. A thesis founded on "this is technically possible" is still missing two floors: does the narrow thing the technology does well cover the majority of the actual job, and do the institutional and liability structures permit substitution? Until both have answers, the honest statement isn't "this will happen" but "this will happen, and I don't know in how many years" — and on an asset priced in years, the number of years is the whole answer.
+
+He classifies every confident claim about mass unemployment as the identical setup: a very smart person, a correct read on capability, stopping short of putting that read back into the real-world application environment.
+
+### 2. The line between "it all works" and "everyone works" is where portfolio risk lives
+
+Asked where value accrues, he answers that nearly every layer produces winners: cloud providers, neoclouds, inference specialists, the incumbent chip giant, some chip startups, edge inference on phones, big models in datacenters. But the sentence right after is the load-bearing one — he says this means close to the opposite of optimism, because it implies most companies within each of those layers will fail.
+
+That's easy to hear backwards, and it has direct implications for how positions are built. A book spanning silicon, power, datacenters, cloud and applications looks diversified. But if each slot holds the second or third player in its layer, what's been diversified away is layer risk, while the concentrated bet is the assumption that picking the right layer is enough. His whole argument is that picking the right layer isn't enough, because attrition inside each layer is rising.
+
+What does "taken to its logical extreme" look like concretely? Cerebras is his own example: there are exactly three known ways to accelerate deep learning in hardware — more cores, more communication between cores, memory closer to compute — and they pushed all three to the physical limit at once, one chip per wafer, 450,000 cores, memory sitting on the die. That shape of answer is a different species from "our model is smarter."
+
+### 3. Software's 80% versus hardware's 2%: price what's controllable separately
+
+A comparison I liked: in software, once you have the logical block diagram and know why it works, you're roughly 80% of the way there and the rest is go-to-market execution. In hardware, the same diagram gets you about 2% — because there's physics, and thirty vendors you've never heard of, each of whom can sink you.
+
+He adds a brutal detail: the number your simulations produce is the roofline, the best it will ever be, and every layer of real compilers, kernels and reality subtracts from it. You might bring the part up at 10% of the roofline, then grind for years to climb toward it. At a 2019 board meeting the thing was literally melting, half a billion dollars had gone in, and he sat there thinking they were going to lose all of it. Asked whether the experience made him want to do more hardware investing, his answer was two words: fuck no. He then says it's among the investments he's proudest of — funding something people have failed at for fifty years but that now looks achievable is exactly what venture capital is for.
+
+This is useful for separating noise from structure. A one-quarter delay at a software company is usually an execution problem; at a hardware company it may be a supply chain or geopolitical problem, and the latter sits outside management's control. Cerebras's 2024 IPO attempt failed on foreign-investment review, unrelated to the product; eighteen months later the valuation was in a different universe. The same quality of execution is worth one price in a company that owns its whole stack and another price in one that doesn't — two different assets, and they shouldn't be measured with the same ruler.
+
+His closing frame is worth keeping. At twenty, working at an investment bank, a slightly older colleague asked if he golfed, then said: on a par three you keep practicing, keep putting the ball close to the pin — that's the hard work, that's working smart. The hole-in-one is luck. You can't manufacture luck directly, but you can raise the odds of it, and the way to do that is to get a lot of balls close to the pin until one drops. Eighteen companies in twelve years is his version of getting the ball close.
+
+## Further Reading
+
+- Source episode: Invest Like the Best EP.486, "Eric Vishria — A Decade of Lessons Investing in Software & Hardware" (2026-08-11), published publicly by Colossus
+- Patrick O'Shaughnessy's show itself and related Colossus publications
+- The three lines from Zhuangzi's "Autumn Floods" are my own gloss while listening, not part of the episode; the reading of "bound by what he was taught" is my extension
+
+---
+
+Disclaimer: This article is a personal listening note and learning log, published as educational content. It does not constitute investment advice, an offer, or a solicitation. Companies, products and claims mentioned come from publicly available podcast content and public information; no specific security is recommended and no price targets are given. The interviewee's views are their own and do not represent the position of this site. Investing carries risk — evaluate independently based on your own financial situation and risk tolerance, and consult a qualified professional where appropriate. Copyright in quoted material remains with the original program; please listen to the original episode and support the creators.
