@@ -23,18 +23,23 @@ IDS_PATH = os.path.join(SP, 'vocus_ids.json')
 CATEGORY = {'_id': '5a978e00fd897800016874cc', 'title': '投資理財', 'score': 0}
 BLOG = 'https://blog.getrealpha.com'
 
+# 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
+NON_INVESTMENT = {'herdr-agent-automation-vocus'}
+
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
     'gooaye-ep683-cannot-see-the-mountain': ['股癌', '槓桿', '風險管理', '回測'],
     'gooaye-ep684-liquidity-carries-and-capsizes': ['股癌', '流動性', '風險管理'],
     'macromicro-ep209-the-half-eaten-peach': ['財經M平方', '資本支出', '自由現金流', '聯準會'],
     'serenity-x-reading-method': ['光通訊', '研究方法', '美股', '投資心得'],
+    'herdr-agent-automation-vocus': ['AI', '終端機', '自動化', '工程方法', 'coding agent'],
 }
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
 COVERS = {
     'gooaye-ep683-cannot-see-the-mountain': 'gooaye-ep683-cover.png',
     'gooaye-ep684-liquidity-carries-and-capsizes': 'gooaye-ep684-cover.png',
+    'herdr-agent-automation-vocus': 'herdr-agent-automation.png',
 }
 
 
@@ -350,7 +355,8 @@ def cmd_push(slugs, publish):
             'thumbnailUrl': meta['imgUrl'], 'noThumbnailImage': False,
             'ogImageType': 'thumbnail', 'coverSource': 'upload',
             'tags': [{'title': t} for t in art['tags']], 'newCategory': CATEGORY,
-            'isInvestment': True, 'setInvestment': True, 'adult': False,
+            'isInvestment': slug not in NON_INVESTMENT,
+            'setInvestment': slug not in NON_INVESTMENT, 'adult': False,
             'lexicalObj': lexical_obj})
         print(f'[{slug}] metadata PATCH: {st} {body[:60]}')
 
