@@ -1,0 +1,94 @@
+---
+title: "Where the Emptiness Is: Statementdog EP544 on OCP — Power, Water, Light, and One Sentence Worth Chewing On"
+description: "Statementdog EP544 covers the week's OCP summit: AMD putting the CPU-to-GPU ratio at one-to-one, a data-centre power roadmap that finally has years attached to it, passive components that are short only in specific part numbers, cold plates whose real barrier turns out to be brazing, and a TSMC executive saying they are close to meeting customer demand. My notes cover six things worth keeping and three layers of follow-on thinking: why bottlenecks land in the least glamorous places, why valuation prices acceleration rather than level, and what an open standard actually changes. Educational notes, not investment advice."
+slug: "caibaogou-2026-08-13-544-ocp"
+lang: "en"
+pubDate: 2026-08-14
+category: "investing"
+tags: ["statementdog", "podcast-notes", "data-centre", "power-architecture", "optical-networking", "passive-components"]
+ogImage: "/covers/caibaogou-2026-08-13-544-ocp-cover.png"
+cover: "/covers/caibaogou-2026-08-13-544-ocp-cover.png"
+tldr: "This episode moves the data-centre bottleneck off compute and onto three things — power, water, light — and in all three the scarcity shows up somewhere unglamorous: one capacitor part number, one brazed seam, two metres of copper. The keeper is the TSMC line about being close to meeting demand: good news on the supply side can be the opposite signal on the valuation side."
+---
+
+![Magical-realist oil painting: a single continuous scene down the central aisle of a data hall in deep perspective, an opened rack panel in the shadowed foreground revealing the dense copper tubing of a cold plate and a heavy busbar, an engineer in the mid-ground bent over the copper plate in his hands, and a bundle of optical fibre at the far end of the aisle throwing warm light back along the corridor](/covers/caibaogou-2026-08-13-544-ocp-cover.png)
+
+> *Thirty spokes share one hub; in its emptiness lies the use of the cart.*<br/>
+> *Knead clay into a vessel; in its emptiness lies the use of the vessel.*<br/>
+> *Cut doors and windows for a room; in their emptiness lies the use of the room.*<br/>
+> *So what is there gives advantage, and what is not there gives use.*<br/>
+> —— *Tao Te Ching*, ch. 11
+
+## What this episode is about
+
+*Statementdog* (財報狗) is a Taiwanese investing podcast. Its "market magnifier" format is two hosts working through a week of industry news in one sitting, and this week's spine is the OCP (Open Compute Project) summit — the open-standards body founded by Meta, Microsoft and Google, which once a year puts everything inside a server rack, from power and cooling to interconnect, out on the table.
+
+**Original episode**: Statementdog Podcast EP544, "Market Magnifier: Watching the OCP Trends" (2026-08-13, in Mandarin).
+
+One thing is worth saying up front: this was recorded while the material was still unpublished. The full agenda and video only go up about a month later, so what was available at recording time was slide photos taken by attendees, second-hand summaries on social media, and clips of the Taiwan sessions being reshared by overseas investors — the hosts even noticed a Japanese writer taking notes in Chinese about an English-language conference, and found it delightfully strange. The whole hour is therefore peppered with "I wasn't there," "I don't know the original wording," "I haven't seen the context." That honesty makes it more useful, not less: you can tell which parts are solid and which are leads awaiting confirmation. What follows are my own notes, not a recap.
+
+## The notes I took
+
+**AMD took one ratio all the way down: CPU to GPU, from eight-to-one to one-to-one.** The host called this the single most decisive line of the summit. The ratio walked down from eight-to-one through four-to-one and two-to-one; now it's flat. What makes it interesting is AMD's parallel argument about robotics: robots need more CPU than GPU, so the direction is to put as little discrete GPU into a robot as possible — ideally none. The host immediately turned it around: if the robot doesn't carry the compute, the compute has to sit in the cloud, which is exactly the script NVIDIA has been writing — three brains per robot, a data centre on every factory floor. Today's robots do keep moving when the network drops, but they get noticeably stupid; the real judgement still runs on a large model somewhere else. So the disagreement isn't about whose silicon is better. It's about which end the inference happens at.
+
+**Power architecture now has more than a direction — it has years attached.** This is the part that changes investment reading the most. OCP published low-voltage and high-voltage DC white papers in March and July; NVIDIA put out its own 800V architecture paper within the last few days. For the first time the roadmap is written in three dated stages: rack-level power now; a 2MW power centre next year; and finally data-centre-scale distribution at 4.8MW per point, delivered via solid-state transformers, targeted at 2029. The host's read is right: the timing used to be left blank so everyone could guess, and writing it down means they want people to build against it. An explicit architecture tells you who benefits; an explicit date tells you when to go check the answer.
+
+**This generation isn't DC yet — it's AC at a higher voltage, and that extra layer is itself a business.** Easy to skip past. The high-voltage DC everyone talks about is still ahead; what the white paper actually pins down for the current phase is 400 to 480 volts AC, up from the earlier 230–277V era. In other words, a transitional layer of high-voltage AC has been wedged in between AC and DC. The trend line doesn't change — rack power keeps climbing, so passive and power component content climbs with it. But AC and DC applications differ: power-factor correction lands at different voltage tiers, and the breakers, relays and contactors doing the isolating all change specification. At an earnings call this same week, one contract manufacturer's CTO put it bluntly: whoever can secure power distribution units decides where this bottleneck sits.
+
+**Passives are short in specific part numbers, and the mechanism is crowding-out.** A distributor named an actual part on its call — a 47-microfarad device in one of the larger case sizes, a high-capacitance speciality part. Only a handful of Japanese makers build it. The shortage isn't because the industry grew; it's because this part never had much capacity in the first place. Phones use smaller cases at lower voltages and never needed the big high-voltage parts. The killer is the crowding: if an ordinary part number stacks a hundred layers and the speciality part stacks over a thousand, the speciality part eats ten times the capacity and the ordinary one gets squeezed out. The host reached for 2018 as the analogy — back then a major supplier shifted capacity to automotive; today everyone is shifting it to AI. Same shape. And here's the counterintuitive detail: the high-voltage DC era hasn't even begun, and we're already badly short at 480V AC.
+
+An aside from the show, worth keeping for a different reason: a fund started by a former AI researcher has built a stake of around ten percent in one Japanese passive-component maker, and people on social media couldn't work out why — hadn't the two larger suppliers already taken all the AI-related passive business? The explanation offered was that this maker is genuinely ahead in certain speciality capacitors. What's interesting isn't who bought what. It's that within a single well-covered theme, the market's understanding of who can actually make a given part can be off by that much.
+
+**The barrier to liquid cooling isn't liquid cooling. It's brazing.** The most vivid stretch of the hour. A cold plate is, stripped down, a machined copper part plus a joint. The difficulty: the channels are now fine, there must be no swarf left inside after machining, the joint has to hold — and if it doesn't hold, it sprays water. The host was candid about getting this wrong. He used to look at thick old heatsinks and think it was the same as welding on a building site; he now describes it as extremely fine handwork, a matter of which copper, matched to which filler, matched to which flame. And that explains something often misread: why moving this capacity out of China is slow. The metalworking base sat in Guangdong, and you can't simply buy the plates and braze them yourself — a bad joint leaks, like a balloon.
+
+**On the optical side, the point is scale-up, not scale-out.** OCP has set up an open scale-up protocol, and optical circuit switching has been pulled under its umbrella too. The distinction the host keeps hammering: the volume in scaling out is nothing next to the volume in scaling up inside the rack, and scale-up is where the imagination lives. The physics is blunt — as per-lane rates climb, copper only reaches about two metres, and after that it has to be light. As for why OCP wants all of this written as open standards, the target is barely disguised: one interview framed proprietary interfaces as the thing holding collective progress back. The market response was immediate — one large optical supplier's call amounted to "demand outrunning us, supply outrunning us," with high-power lasers sold out into near- and co-packaged optics, while a Taiwanese supplier guided to third-quarter revenue up more than 28% sequentially.
+
+**Whether anyone is actually short depends on who they are — an on-air correction to last week.** The host explicitly walked back his own "not that short" from the previous episode: it depends on the company. The capable ones aren't short; the rest are; the difference is customer and supply-chain relationships. This week's calls provided the control pair — one company said its shortage was already handled and it had its ways; another said plainly that it was short of power components. Same week, same chain, opposite answers.
+
+**The TSMC line is the most chewable thing in the episode.** A TSMC executive walked through advanced-packaging progress, yield figures and the reticle-area roadmap for the coming years, but the sentence the host kept returning to was a different one: *we're getting close to being able to meet customer demand.* In a supply chain that has said "short, short, short" for two years, someone suddenly saying "looks like we're nearly there" is a slightly frightening sound. He flagged his own limits — no original wording, no context, wasn't in the room. Pair it with another major assembler saying that 2027 growth still depends on chip supply, which implies chips stay relatively tight, and you get a very clean question mark hanging over 2028.
+
+## Follow-on thinking
+
+**1. Bottlenecks land in the least glamorous places, and you can reason out why in advance.**
+
+Three bottlenecks in one episode: a 47-microfarad capacitor, a brazed seam on a copper plate, two metres of copper cable. None of them is the most expensive or most advanced thing in the industry.
+
+Why? Not because the hard things stopped being hard, but because incentive and lead time are mismatched. The leading edge — advanced nodes, advanced packaging — carries high unit prices, high visibility, and capital markets willing to fund it, so its capacity gets chased. Speciality capacitors and cold-plate brazing were low-priced, low-volume, and nobody would commit capacity to them; now demand steps up and capacity doesn't appear in a quarter, especially for brazing, where the constraint isn't equipment but accumulated yield experience.
+
+So the test I'm taking from this episode is one question: **why did this thing not have capacity before?** If the answer is "nobody needed it," it will stay short for a while, because it has to be built from nothing. If the answer is "the capacity was doing something else," the shortage is crowding-out, and it loosens as soon as that something else cools — a much shorter clock. Two very different holding periods, and two very different kill conditions.
+
+The kill condition is stated openly in the episode: everyone is raising capacity on exactly these parts right now. So the lifespan of this scarcity depends on how fast new capacity lands, not on how strong AI demand is. **No demand narrative, however good, buys a crowding-out effect another year.**
+
+**2. Valuation prices acceleration, not level — which is why "close to meeting demand" is good news operationally and bad news for the multiple.**
+
+The reason that TSMC line is worth writing down isn't what it forecasts. It's the distinction it demonstrates, one that gets blurred constantly.
+
+The *level* of supply and demand is: are we short right now. The *acceleration* is: is the shortage getting worse or better. A multiple never reflects the level — the level is already in the reported numbers and already priced — it reflects the market's expectation of the rate of change. The host's framing is exactly right: the capacity additions have largely been caught and at least partly priced, so what matters now is whether the acceleration of this demand is rising, and if it falls, the expectation embedded in the share price falls with it.
+
+Push that through and you get the result: "we're close to meeting customer demand" is good operationally — capacity finally caught up — and the opposite signal for valuation, because the scarcity rent is about to compress. Demand doesn't have to turn negative. The second derivative changing sign is enough. It's also why tightly supplied industries so often turn while still printing record profits: nobody is betting they'll lose money, they're betting the shortage won't get worse.
+
+But there's a boundary to hold here: **this sentence is a lead, not evidence.** The show flagged it clearly — no transcript, no context, nobody in the room, and the fact that both the English and Chinese second-hand versions read similarly makes the original wording more uncertain, not less. So the right use isn't to file "advanced packaging is loosening" as a conclusion. It's to convert it into something to check: at the next call, in the next roadmap, does advanced-packaging capex guidance and lead time go up or down?
+
+My habit is the same one I wrote down last episode: conclusions expire, questions don't. Two questions to keep from this one — has the acceleration in advanced packaging turned? And is chip supply still tight in 2028? Someone has already drawn half that line for us: 2027 is fine. The year after that line is where to look.
+
+**3. An open standard doesn't change who ships. It changes who collects rent.**
+
+OCP has pulled the scale-up protocol and optical circuit switching under open standards, and the motive needs no guessing — an interview already called proprietary interfaces the thing blocking progress. What that means for investment reading, though, isn't most people's first instinct.
+
+An open standard doesn't make anyone sell an extra server. What it changes is where value sits. Standardise an interface and the interface's premium gets competed away, so value migrates to both ends — up into genuinely scarce compute, and down into the physical layer that standardisation can't commoditise: optical modules, connectors, power distribution, cold plates, all the things gated by yield and craft. Which is the same point as elsewhere in this episode, seen from the other side: the protocol can be opened, the brazed seam cannot.
+
+So if a company is held on the thesis that it sits on the open-standard side, I'd mark that thesis unverified, because it carries a very practical kill condition: a standard counts only if it's adopted, and the incumbent is never obliged to cooperate. The thing to track isn't another alliance or another published protocol — those arrive every year — it's **whether racks actually shipping are built to it**. The first is news. The second is an order.
+
+One last thing the episode itself demonstrates. It was recorded while the primary material was still a month from publication, and everything in circulation was photographed slides and second-hand summaries. That gap is where mistakes get made: you're reading fragments somebody else selected, and their purpose in selecting them isn't necessarily yours. What the show does well is say out loud which lines it isn't sure about. **Before the primary sources land, marking the uncertain things as uncertain is worth more than rushing to a conclusion — because it's the only way that, when the material does come out, you can tell what you actually got wrong.**
+
+## Further reading
+
+- Original episode: Statementdog Podcast EP544, "Market Magnifier: Watching the OCP Trends" (2026-08-13, in Mandarin)
+- On power architecture: the open specifications and white papers on OCP's own site (the low- and high-voltage DC papers were published in March and July this year), plus NVIDIA's published 800V DC architecture documentation
+- On the summit itself: OCP agendas and session video generally go public after the event — the show suggests roughly a month for a reasonably complete picture
+- On the actual state of the supply chain: for the contract manufacturers, optical suppliers and component distributors referenced here, the investor-relations pages carry the call decks and quarterly outlooks, which beat second-hand summaries
+- The four lines from *Tao Te Ching* ch. 11 are my own footnote to the episode, not part of the show
+
+---
+
+**Disclaimer**: These are personal listening notes and study material, published for educational purposes. **Nothing here is investment advice, an offer, or a solicitation.** Companies and industries mentioned come from publicly broadcast content and public information; no specific security is recommended and no price targets are given. Investing carries risk — make your own judgement based on your financial situation and risk tolerance, and consult a qualified professional where appropriate. Copyright in the quoted material belongs to the original show; please listen to it and support the creators.
