@@ -24,7 +24,7 @@ CATEGORY = {'_id': '5a978e00fd897800016874cc', 'title': '投資理財', 'score':
 BLOG = 'https://blog.getrealpha.com'
 
 # 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
-NON_INVESTMENT = {'herdr-agent-automation-vocus'}
+NON_INVESTMENT = {'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory'}
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
@@ -33,6 +33,7 @@ TAGS = {
     'macromicro-ep209-the-half-eaten-peach': ['財經M平方', '資本支出', '自由現金流', '聯準會'],
     'serenity-x-reading-method': ['光通訊', '研究方法', '美股', '投資心得'],
     'herdr-agent-automation-vocus': ['AI', '終端機', '自動化', '工程方法', 'coding agent'],
+    'lunchuizhe-2026-08-11-ai-content-factory': ['AI', '創作者經濟', 'YouTube', 'AI內容', '自媒體'],
 }
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
