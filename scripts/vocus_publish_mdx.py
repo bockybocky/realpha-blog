@@ -37,6 +37,7 @@ TAGS = {
     'sk-hynix-hbm-moat': ['半導體', '記憶體', 'HBM', '護城河', '美股'],
     'central-bank-two-traps': ['央行', '總體經濟', '穩定幣', '通膨'],
     'hardware-is-hard': ['硬體', '供應鏈', '新創', '護城河'],
+    'supply-chained-midyear-2026': ['AI', '半導體', '供應鏈', '通膨', '美股'],
 }
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
