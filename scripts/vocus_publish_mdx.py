@@ -24,7 +24,7 @@ CATEGORY = {'_id': '5a978e00fd897800016874cc', 'title': '投資理財', 'score':
 BLOG = 'https://blog.getrealpha.com'
 
 # 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
-NON_INVESTMENT = {'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory'}
+NON_INVESTMENT = {'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard'}
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
@@ -34,6 +34,9 @@ TAGS = {
     'serenity-x-reading-method': ['光通訊', '研究方法', '美股', '投資心得'],
     'herdr-agent-automation-vocus': ['AI', '終端機', '自動化', '工程方法', 'coding agent'],
     'lunchuizhe-2026-08-11-ai-content-factory': ['AI', '創作者經濟', 'YouTube', 'AI內容', '自媒體'],
+    'sk-hynix-hbm-moat': ['半導體', '記憶體', 'HBM', '護城河', '美股'],
+    'central-bank-two-traps': ['央行', '總體經濟', '穩定幣', '通膨'],
+    'hardware-is-hard': ['硬體', '供應鏈', '新創', '護城河'],
 }
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
