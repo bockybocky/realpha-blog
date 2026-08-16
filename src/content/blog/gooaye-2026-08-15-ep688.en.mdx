@@ -1,0 +1,96 @@
+---
+title: "The Layer You Can't See: From a Power White Paper to the Day You Sold at the Bottom"
+description: "Notes on Gooaye EP688. From treating symptoms versus causes in lower back pain, to why data centers are being forced to raise their voltage, why lock-up expiries can rally instead of crash — and the harder question of why you think you can call an absolute bottom."
+slug: "gooaye-2026-08-15-ep688"
+lang: "en"
+pubDate: 2026-08-16
+category: "investing"
+tags: ["Gooaye", "data center", "power architecture", "share supply", "investing mindset"]
+ogImage: "/covers/gooaye-2026-08-15-ep688-cover.png"
+cover: "/covers/gooaye-2026-08-15-ep688-cover.png"
+---
+
+![A poolside lounger at dawn, a tablet resting on the listener's lap, faint engineering charts reflected on the water, the view receding toward misty palms and a distant ridge](/covers/gooaye-2026-08-15-ep688-cover.png)
+
+> From the side, a range; from the end, a single peak —
+> near, far, high, low, no two views the same.
+> I cannot know the true face of Mount Lu,
+> only because I am standing on it.
+> — Su Shi, "Written on the Wall of West Forest Temple," Song dynasty
+
+## What this episode is about
+
+The host spends the first half on his own lower back pain. It sounds like a health show that wandered into the wrong studio, but it's the best possible setup for everything that follows.
+
+He had tried every symptomatic fix: a pillow under the legs, an absurdly expensive office chair, every gadget that promises to save your spine. All of them worked. All of them worked briefly. What finally started to help was something he found through functional training — the problem wasn't in his back at all. It was uneven loading between his two legs, and the few degrees his toes splayed outward when he walked. He corrected his gait; his back improved.
+
+One line is worth writing down: every posture that feels comfortable to me is a posture that's hurting me. But he immediately adds the more important turn — it isn't that the body likes bad posture. It's that you've used the wrong posture so long that only the wrong one registers as comfortable. Which is exactly why correcting anyone is so hard.
+
+The second half turns to markets: the lock-up expiries at SpaceX and Cerebras, and an 800V DC power architecture white paper circulating furiously among investors. The listener Q&A then runs from "how do you know the bad news is actually over" all the way to parenting anxiety — and the host himself ties them into one question.
+
+## The main points
+
+One, the sequence around a lock-up expiry is the opposite of what most people expect. The assumption was that shares would get dumped the moment they unlocked. What actually happened was selling pressure before the unlock, and a base followed by a move higher after it. The first tranche carries the largest impact; later ones matter less at the margin — every share dumped is a share someone else picks up, and the more participants, the more dispersed the ownership.
+
+Two, more liquidity is a good thing. This is counterintuitive. When only a few hands control a stock, one person can dictate the price, you have no idea where consensus sits, and you get played on entry. Once ownership disperses, price behavior starts to make sense — and only then do chart levels mean anything.
+
+Three, Cerebras is interesting because of how inference is being split. Break inference into a long-context processing stage and a token-by-token generation stage: the first is a throughput problem, the second a memory-bandwidth and latency problem. Their collaboration with AMD hands the front half to one architecture and uses very large silicon with SRAM to attack the low-latency back half. Push that logic to its extreme and you get model logic burned directly into chips — high-frequency trading shops already do this, where a few milliseconds is worth a fortune.
+
+Four, 800V isn't a story — it's physics forcing the issue. As per-rack power moves from a hundred-odd kilowatts toward three hundred and five hundred, the wall a 54V architecture hits isn't conversion efficiency. It's the physical size of low-voltage, high-current delivery: busbar cross-sections, cable weight and bend radius, connector size and insertion force — all eating the space that was supposed to go to compute and cooling. For the same power, 54V means roughly six thousand amps; 800V means around four hundred. Raising the voltage is how you reduce the number of things you have to change.
+
+Five, read a white paper by first cutting it along the time axis. Which parts generate revenue within a year or two, and which are theoretically excellent but belong to 2030 and beyond. The host splits it into three phases: near term, the mainstream architecture still relies on the existing power shelf approach, so the beneficiaries are power supplies, capacitors, connectors and busbars; mid term brings centralized power, where silicon carbide and especially gallium nitride start to tighten — some companies have publicly admitted the shortage exceeded their own expectations; only later come full DC power blocks, storage and systems integration. And there's a constraint people forget: the data center is already built, the electrical gear is already installed. You work with what's there, you don't demolish and start over. Commerce always returns to price — an inelegant solution that requires an extra conversion step will still win if it's cheap and reliable.
+
+Six, passive and power components have visibly decoupled from their own fundamentals. On the way up, everyone believed unconditionally; on the way down, forum posts started asking whether prices ever rose at all. But revenue keeps making new highs, and profit is growing faster than revenue — which tells you pricing and terms are in fact improving. He also draws a line: price increases in the AI domain can keep running, while the crowding-out increases in automotive and consumer electronics hit a level where price destruction begins.
+
+Seven, you cannot call an absolute bottom. This is the hardest line in the episode. On the last flush he was buying — and being underwater — a full week before the actual low. What you can judge is a relative position. His test is event plus price action: first check whether the bad news has genuinely landed, then ask whether the rebound is the kind that shows up every two or three months, or the kind that shows up once every year or two and sets records. The latter isn't something a few retail buyers can lift; that's large-scale capital coming back.
+
+## Going further
+
+### 1. "The bad news isn't over — why is it already rallying?"
+
+This is where most people get stuck. You can see nine or ten more tranches coming; arithmetically supply is still rising; and yet it won't go down.
+
+The error is treating "the event" and "the pricing" as the same thing. Markets don't react when an event occurs, they react when it becomes predictable. An unlock schedule is public, so the real selling lands before the date — nobody who wants out waits for the day everyone else can leave. By the time the bell rings, the sellers have sold, and what's left are the people waiting to buy.
+
+The layer underneath is the useful part: why does the first tranche hit harder than the rest? Because the first one resolves more than supply — it resolves uncertainty. Before it, nobody knows whether unlock day will crash the stock or how far. After it, that question has an answer, and every later tranche is downgraded from unknown risk to a known calendar item. Markets price known events far more efficiently than they price unknown risk.
+
+So next time you see unrealized bad news and a stock that moves anyway, ask three things: is the schedule public? If so, the selling should already be visible earlier on the chart — can I find it? And if I can't, does that mean the market never cared in the first place?
+
+The failure case matters too. If the bad news is unbounded in scale — a regulatory ruling, a litigation award, a sudden geopolitical shock — this reasoning breaks, because a schedule can't defuse uncertainty that has no known size. Predictable bad news gets priced early; unquantifiable bad news detonates all at once when the answer arrives.
+
+### 2. "The white paper sounds great — should I act on it?"
+
+The episode demonstrates a reading method most people don't apply to industry documents.
+
+The first cut is time. Within a single document, some things ship next year and some belong to 2030 and only in newly built facilities designed specifically for it. Blend the two and you arrive at "everything looks great, buy all of it" — and then you buy on the wrong tempo. The paper mentions around 5% penetration within a year, which sounds trivial, but the host's reaction is telling: we'll happily buy things we can't even see two or three years out, so something with 5% next year is absolutely worth looking at. The same number flips from "nothing" to "imminent" depending on the time scale you hold it against.
+
+The second cut is constraints. The theoretically optimal design frequently loses in reality because the building exists, the electrical infrastructure exists, and permitting may block you anyway. What wins tends to be the cheapest, most stable option that requires the least demolition of money already spent. Rather than asking whether a new architecture is the best technology, ask how much sunk cost the adopter has to tear out.
+
+The third cut is pricing maturity. The episode notes that phase one of the paper is what the market has already been trading — it supports the valuation floor rather than giving you room to revise numbers upward. The three phases in one document sit at completely different stages of being priced. Where it's already reflected, you're buying fundamentals delivering. Where nobody is looking yet, you're buying the expectation gap.
+
+There's a bonus observation buried here: these names had been falling for months with nobody interested, precisely because everyone had already researched them and already owned them. He calls it the curse of knowledge. You assume that having seen something means the opportunity is gone — but what the market needs is a reason to look again, and a widely forwarded document is exactly that reason. Research doesn't lose value because you've done it. It just waits for a catalyst.
+
+### 3. "I sold at the low — am I just not built for this?"
+
+A listener asked how you confirm the bad news is truly over. The answer is the most important passage in the episode: you can't confirm it with certainty, and anyone who tells you they can is running a scam.
+
+That isn't fatalism. He offers something operable: event, plus price action, plus sample size. The event is the necessary condition, the strength of the move is the confirmation, and sample size is the only way to judge how rare that move actually is. A rebound that shows up every couple of months can't mark a bottom. One that shows up once every year or two, at record magnitude, implies large-scale capital returning and institutional participation — that kind of low is hard to break, and if it does break, the information content of that failure is itself valuable.
+
+Put differently: the question isn't "is this the bottom." It's "how infrequently has this signal appeared historically." The second question is quantifiable and can be checked against the record. The first isn't.
+
+The second layer is capital management. The episode gives an honest picture: during the 2025 tariff episode, he went for a health check with a friend who, while being sedated, told the doctor he was about to go buy the dip — except the host himself had already run out of cash to deploy. You assume 20% off is the bottom; it goes to 40%, then 50%; and once your ammunition is gone you're left waiting on the mountain or swapping out at a loss. So scale in, and treat "I ran out before it bottomed" as the base case rather than an accident.
+
+The third layer is the one most often skipped: separate what you earned from selection versus what you earned from the market. The episode describes someone who started in late July and now believes he's a stock-picking genius whose every call lands — without realizing it was the index rebounding. The reverse is also true: getting destroyed near the low doesn't mean you picked wrong. If you don't separate the two, you'll learn the wrong lesson in a bull market and pay tuition for it in the next bear one.
+
+Back to the lower back. It took him a long time to discover that the place that hurts isn't the place that's broken — and that because the wrong posture had been held so long, the wrong one felt better. The investing version reads like this: the moves that feel comfortable — chasing what has already run, cutting what has already fallen, acting only once things are certain — are usually the ones injuring you over time. Fixing that, as with the back, doesn't happen by massaging the part that hurts. You have to go back and look at those few degrees.
+
+## Further reading
+
+- Gooaye, EP688 (2026-08-15), available on Apple Podcasts, Spotify and other platforms
+- To understand why 800V DC distribution is being pushed, start from the physical limits of low-voltage high-current delivery inside a rack and read public technical material on data center power architecture
+- For the split between long-context processing and token generation in inference, see chip vendors' public breakdowns of inference workloads
+- On functional training and unilateral strength imbalance, consult a qualified physiotherapist or coach directly; online material is background context only
+
+## Disclaimer
+
+This article is a personal reflection on a podcast episode, written for educational purposes. It does not constitute investment advice, an offer, or a recommendation. Companies, industries and technologies are mentioned solely to illustrate a line of reasoning, not as buy or sell suggestions, and no price targets are given. Investing involves risk; past performance does not indicate future results. Do your own research, bear your own outcomes, and consult a qualified professional where appropriate. References to the episode are commentary; any misreading is the author's responsibility, not the show's. Health and training content likewise is not medical advice.
