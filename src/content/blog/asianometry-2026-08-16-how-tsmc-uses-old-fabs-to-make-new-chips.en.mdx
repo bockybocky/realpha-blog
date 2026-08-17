@@ -1,0 +1,132 @@
+---
+title: "How TSMC Makes New Chips in Old Fabs: A Fleet of Trucks Holding Up the AI Buildout"
+description: "Notes after listening to Asianometry's 2026-08-16 episode on cross-node utilization: process node names are fluid, tool overlap decides whether capacity can be moved, and the thing doing the moving turns out to be ordinary trucks on Taiwan's highways. Educational, not investment advice."
+slug: "asianometry-2026-08-16-how-tsmc-uses-old-fabs-to-make-new-chips"
+lang: "en"
+pubDate: 2026-08-17
+category: "investing"
+tags: ["semiconductors", "TSMC", "capacity", "AI infrastructure", "manufacturing"]
+ogImage: "/covers/asianometry-2026-08-16-how-tsmc-uses-old-fabs-to-make-new-chips-cover.png"
+cover: "/covers/asianometry-2026-08-16-how-tsmc-uses-old-fabs-to-make-new-chips-cover.png"
+---
+
+![A night highway in Taiwan, an ordinary container truck with a wafer emblem on its side heading toward an enormous illuminated fab complex at the foot of distant mountains, its lights glowing at the far end of a deep perspective](/covers/asianometry-2026-08-16-how-tsmc-uses-old-fabs-to-make-new-chips-cover.png)
+
+> An old cutting pushed into fresh earth —
+> dry wood, you'd say, yet it buds;
+> its roots won't leave the stone they hold,
+> and one night's thunder fills the hill.
+
+(Author's own lines, not a quotation.)
+
+I went looking for something suitably poetic to open with, and gave up. This episode is stubbornly industrial — and its heart is a very unpoetic, rather moving fact: the most critical piece of scheduling in a world-class technology empire is done by a fleet of ordinary trucks on the freeway.
+
+## What this episode is about
+
+Asianometry's 2026-08-16 episode is titled "How TSMC Uses Old Fabs to Make New Chips."
+
+It opens on an arithmetic problem. TSMC has allocated over $60 billion of capital expenditure for 2026, with simultaneous builds in Baoshan, Nanzih and Taitung, plus advanced packaging fabs going up in Chiayi and Miaoli. But management says it plainly: money spent in 2026 doesn't reach the market until 2028, maybe slightly earlier.
+
+The problem is that AI demand wants chips now. Buyers can't wait until 2028.
+
+So how do you bridge two years? The host's answer is a mechanism that sounds technical and is actually quite intuitive: **cross-node utilization**. And the best part of the episode is that in order to explain it, he takes the term "process node" apart down to the bone — and by the end you realise the technology ladder you pictured is actually a pile of blocks that can be re-stacked.
+
+## Key points
+
+**1. A node name means nothing. A node is a recipe.**
+The host opens with what he calls one of the worst-kept secrets in semiconductor manufacturing: logic process node names have no physical meaning. His mental model is genuinely useful — a fab is a collection of tools; the wafer is carried around, visiting tools and being treated by them according to a preset recipe. A "node" is that recipe, plus the set of tools it needs. The name is marketing; the recipe is the thing.
+
+**2. A node is iterative. It isn't finished when it's designed.**
+This is the highest-information stretch of the episode. R&D assembles a package of technologies, business development curates and prices it for the customer, it goes into the fab — and it still isn't done. The manufacturing team keeps running experiments on that node, squeezing yield point by point, until over months it climbs to something like the mid-80s. Someone once whimsically told the host that these fab engineers are "far overqualified for their positions." And when the improvements accumulate far enough, management may repackage and rebrand the node as something new — that's essentially how N6 was born out of N7. Sometimes they even hold improvements back deliberately, reserving them for a future node.
+
+**3. The TSMC-versus-Intel difference in build style has an accounting layer underneath.**
+TSMC is perceived to build whole new fabs for new nodes (Fab 15 in Taichung for N7, the enormous Fab 18 in Tainan for N5). Intel tends to build one big shell and upgrade tools inside it over time. One reason is the customer base: Intel has no real need for a 45nm CPU in 2025, whereas TSMC's clients can in theory buy the same chip for years. The other is depreciation — one of a fab's largest costs, a non-cash charge representing a tool's useful life. After five to seven years the fab is fully depreciated and revenue net of operating costs becomes, in theory, all profit. The host immediately adds the caveat: in reality tools break and need maintenance constantly, depreciation is a real expense, and this is precisely why Charlie Munger called EBITDA "BS earnings."
+
+**4. When a big customer climbs the node ladder, it leaves a hole in the old fab — that's the stranding risk.**
+Picture a customer the size of Apple, whose iPhone volumes are large enough that TSMC might build a whole fab to accommodate them. When they shift from N7 to N5, those volumes leave Taichung for Tainan, and the manager of that Taichung fab is left with an Apple-sized hole in production volume that they now have to fill. The consequence is concrete: if utilization drops too far — roughly below 60 to 70% — the fab loses money. If the market doesn't turn around, it may never earn back its cost and becomes a stranded investment. TSMC has felt this: when the post-COVID chip bust hit mobile, their N7 fabs in Taichung dropped under 70% utilization.
+
+**5. N7 is now stuck in no man's land, which is a worse problem than being old.**
+The host walks the current state of the ladder, and it's worth copying down. N2 is too new and immature for most customers, and slightly odd besides since it uses the new gate-all-around transistor — but those customers are coming. N3 is the sweet spot between newness and performance, what the biggest customers are on right now (he notes Nvidia's latest Vera Rubin platform runs on N3). N4 is older but well-established and still very leading edge; plenty of high-performance compute customers will use it, including AI accelerator startups. And N7/N6? Almost ten years old, far from the leading edge — yet expensive and complex for trailing-edge customers, who would rather have something cheaper and more mature like 28nm with its planar transistors. **It isn't too old. It's neither old enough nor new enough.**
+
+**6. The real solution is hiding in the physical structure of the chip: tool overlap.**
+Chips are built up in layers. At the bottom are transistors; above them the copper or aluminium interconnects — the fine metal wires that carry power and data across the chip, laid down in the back end of the line. The finest wires sit at the lowest metal layers, M1 and M2 (in N5, M1 might be 28 to 30nm centre-to-centre). Higher layers get wider, until at the top you might have interconnects 1.5 or even 3 micrometres across. **The crucial part: this structure is shared by every node.** So N16, N10, N7, N6, N5, N4 and N3 differ sharply at the critical transistor layers — but much of everything above them, say layers four through fifteen, may be similar or identical. This is also why fabs still use a great deal of older DUV equipment: it's for those upper layers.
+
+TSMC has been exploiting this overlap to avoid strandings for at least a decade, and has said so publicly. In 2015 then co-CEO Mark Liu told an analyst call that their 20nm and 16nm nodes had 95% tool overlap — meaning a customer wanting to move up could be served by converting existing 20nm capacity rather than building anything new. In 2018 co-CEO C.C. Wei cited 90% overlap across N10, N7 and N7+. CFO Laura Ho added that N7 to N5 would again exceed 90%. **Put together, those remarks say one thing: TSMC manages several nodes as a single large pool of capacity.**
+
+**7. And then there are the trucks.**
+In 2024 TSMC explained it was converting N5 capacity to N3, taking a gross margin hit to do so. On the Q1 2024 call someone asked whether N7 capacity could be converted to N3 the same way. Wei said that would be far harder — N5 and N3 have more overlap, and crucially **both live inside the same fab**, Tainan's Fab 18, with a massive wafer bridge connecting the phases, which makes conversion that much easier. N7 is in Taichung, roughly 100 miles away as the crow flies.
+
+By early 2025 the tune had changed: they had figured out a way to use N7 capacity to support N5. How? The Tainan fabs produce the critical layers of an N3 or N5 wafer and nothing more. Then those **unfinished wafers** go into a truck, drive 100 miles up to Taichung, and an under-utilized N7/N6 fab finishes the rest. Which leaves the Tainan fab spending all of its time and capacity on critical work.
+
+And the trucks are just trucks. The host says this is one of his favourite things about TSMC: after wafers come out of the front-end fabs they need to reach advanced packaging in Miaoli or Chiayi — so a bunch of FOUPs go into a semi-customized truck and it drives a few dozen miles. When he first heard this he found it immensely amusing that ordinary-looking trucks are puttering along Taiwan's highways with likely tens of millions of dollars of chip inventory inside. He can't help asking: what if one of them crashes? Will Nvidia miss earnings because of it?
+
+## Going further
+
+### 1. "I don't know what to make of this news, because the money doesn't land for two years"
+
+Here's where a lot of people get stuck. A company announces enormous capital expenditure, the coverage is breathless, and a voice in your head says: that takes two years to build, then tool install, then yield ramp — so what am I buying today? If this is another burn-first-and-see, am I paying now for someone's third year out?
+
+The episode offers a concrete way to split it. The same capex line is really two different things:
+
+**The newly built part** is capacity two to three years out, with engineering risk, tool lead times and yield ramp in between. What you're buying there is time plus execution.
+
+**The part reallocated on existing foundations** is capacity on a timescale of months, because the tools are already there, the building is already there, the people are already there. The price of moving it is a bite out of gross margin, and some output riding in a truck. What you're buying there is scheduling ability.
+
+So the next time you see a giant capex headline, add one question: **does this company have a path to more output that doesn't require a new building?** If yes, its near-term and mid-term engines are two different machines. If no, you're simply waiting on something two or three years away. The risk profiles are entirely different, and one press release usually sells them as the same thing.
+
+Note the **failure condition** on that test, too: high tool overlap does not mean capacity can be moved whenever you like. Wei said N7-to-N3 conversion was hard in 2024 and only found a way in 2025 — and what changed in between wasn't the overlap (that's physics; it didn't move). What changed was working out how to cut the process in two, how to move half-finished wafers, and how quality control bridges the seam. **Overlap is a necessary condition, not a sufficient one.** It's also why "no other company can do this, and it can only be done in Taiwan" isn't patriotic sentiment — a 100-mile drive, a dense cluster of fabs, and a common operating system across them are geography and accumulation, not something capex buys.
+
+### 2. "My worry is it's already run up — isn't this priced in?"
+
+This is the part of the episode I think is easiest to misread, so let me take it seriously.
+
+The host confesses it himself at the end: this isn't groundbreaking news, Wei has been mentioning it on calls for years. So if they've been saying it all along, what's the information worth?
+
+It's worth something, but not as a bet on direction. It's worth something as **calibration on the precision of your understanding of a mechanism**. Price can absorb the conclusion "TSMC capacity will expand" very quickly. Price will not answer these for you:
+
+- If AI demand gaps out for a quarter, how does this reallocation machinery respond? (Probably by shifting back the other way rather than idling — because the tools are shared.)
+- If demand stays ferocious, what's next? (The host's guess is that N7/N6 gets converted too; he calls it "a natural next step.")
+- Under what conditions does this mechanism stop working? (Reallocation requires something to be idle. If every node is full at once, the valve has no travel left.)
+
+The third one matters most, because it's the only falsifiable thing in the episode. **Cross-node utilization works as a buffer precisely because some node is under-utilized.** When utilization is tight everywhere, the same mechanism becomes robbing Peter to pay Paul, and the gap shows up at the mature-node end.
+
+So when someone says "it's priced in," the question worth asking back is: **priced in at which layer?** The conclusion that capacity will grow, or the constraint that the mechanism has a limit to its travel? The former has been in the price for years. The latter usually isn't. And the latter is the only thing you have to lean on when demand turns.
+
+### 3. "How do I tell whether something old is genuinely obsolete, or just carrying an old name?"
+
+This one is useful well outside investing.
+
+N7 is a beautiful case. It isn't broken. It works fine. The tools are excellent. Its problem is purely **positioning**: too slow for the leading edge, too expensive for the trailing edge. In the host's phrase, it fell into no man's land.
+
+If the story stopped there, the conclusion would be to retire it. But TSMC didn't retire it. It took the fab's **capabilities apart and re-used them**: it can't run the full N3 recipe, but it can run N3's upper metal layers — because those layers were always nearly identical.
+
+There's a generalisable reading method here, and it has little to do with stocks: **to judge whether something is obsolete, don't read its overall label — read its capability list and ask which entries the next generation still needs.** The N7 fab's label is dated. But one line on its capability list — "lay down upper metal interconnects" — is something N3 needs completely. The label and the capability list are two different objects, and we almost always read only the label.
+
+That maps onto people rather directly. Someone fifteen years into an industry may carry a label that looks stale against a new wave. But their capability list usually holds several entries the new wave hasn't built yet and badly needs — negotiating, compressing a chaotic process into an SOP, judging whether a promise will hold. People who read the label conclude they've been made obsolete. People who read the capability list find they just need a different production line.
+
+An honest caveat: not every N7 can be saved, and the reason it can be saved here is physical — the structure genuinely is shared. **If a thing shares no structure at all with the next generation, it's Kodak, not N7.** The difference lies in whether you actually went and checked which layers are shared, rather than being optimistic by feel.
+
+## Worth looking into
+
+- The Asianometry channel itself. Its distinguishing habit is spending a whole video explaining what a term actually means rather than chasing news. Almost all the value here is in the "what is a node, really" stretch.
+- Public earnings call transcripts. Every overlap figure the episode cites — 95% in 2015, 90% in 2018, 90%-plus from N7 to N5 — comes from public calls anyone can look up, and management stating a technical parameter directly is usually far more precise than the same figure relayed second-hand.
+- Depreciation and utilization in the filings. Both key financial ideas here — depreciation is a real expense, and a fab below roughly 60 to 70% utilization loses money — are trackable in public reports without any special access.
+- Munger's line about EBITDA. It isn't a quip; it's a concrete checking action. When someone uses EBITDA to describe the earning power of a capital-heavy manufacturer, add depreciation back and look again.
+
+## The one thing to take away
+
+**The idea: whether something is obsolete depends on the intersection of its capability list with the next generation's needs — not on its label.**
+
+N7's label is "a nearly ten-year-old process." Its capability list contains "lay down those dozen-odd upper metal layers," and that is something the most advanced N3 needs completely. TSMC neither upgraded it nor retired it — it re-matched the capability list to new demand, and sent trucks to bridge the gap. A label is one sentence; a capability list is a table. When we judge people, tools, or ourselves, we almost always use the sentence.
+
+**The exercise you can do today: write your own capability list, then deliberately match it against someone else's needs.**
+
+Take a sheet of paper, two columns.
+
+Left column: your **label** — the one line you introduce yourself with (title, industry, years in). One line only.
+
+Right column: five to eight capabilities specific enough that **someone else could verify them**. Not "good communicator" but "can turn a three-person argument into a one-page process everyone signs off on." Not "know the industry" but "can look at a quote and tell within thirty seconds whether costs are buried in it." This column takes real time, because we never think about ourselves at this granularity.
+
+Then the step that matters: **pick a domain you're entirely outside of** — the new thing your friend is building, your kid's school parents' committee, something you'd like to help with but feel unqualified for — and ask: of those eight entries, which one is that domain short of right now?
+
+Most people find at least one or two that fit. And the reason you hadn't gone before is that you were matching with the left column — and that single line never fits anything.
