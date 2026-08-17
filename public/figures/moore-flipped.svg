@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="晶片上市後的價格走勢：過去二十年一路變便宜，現在的 AI 晶片反而愈放愈貴">
+  <style>
+    svg {
+      --page: #ffffff;
+      --line: #dde3ee;
+      --ink: #1a212b;
+      --dim: #57616f;
+      --grey: #9aa5b5;
+      --warn: #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page: #0d1117;
+        --line: #272e39;
+        --ink: #e6edf3;
+        --dim: #8b949e;
+        --grey: #6b7686;
+        --warn: #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .labW  { font-size: 20px; font-weight: 700; fill: var(--warn); }
+    .labG  { font-size: 20px; font-weight: 700; fill: var(--dim); }
+    .ax    { font-size: 16px; fill: var(--dim); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+    .quote { font-size: 16px; fill: var(--dim); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">一顆晶片上市之後，價格往哪裡走？</text>
+
+    <!-- 上市價參考線 -->
+    <line x1="120" y1="241" x2="880" y2="241" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="5,5"/>
+    <text x="112" y="247" class="ax" text-anchor="end">上市價</text>
+
+    <!-- 上揚線標籤 -->
+    <text x="500" y="110" class="labW" text-anchor="middle">現在的 AI 晶片：上架後不跌反漲</text>
+
+    <!-- 上揚曲線 -->
+    <path d="M120,241 C200,215 250,203 305,196 C380,184 440,160 490,147 C550,137 630,130 675,128 C740,125 810,122 860,120"
+          fill="none" stroke="var(--warn)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="860" cy="120" r="7" fill="var(--warn)"/>
+
+    <!-- 下滑曲線 -->
+    <path d="M120,241 C200,262 250,278 305,286 C380,298 440,328 490,347 C560,370 620,382 675,392 C740,403 810,422 860,430"
+          fill="none" stroke="var(--grey)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="860" cy="430" r="7" fill="var(--grey)"/>
+
+    <!-- 分岔起點 -->
+    <circle cx="120" cy="241" r="5.5" fill="var(--ink)"/>
+
+    <!-- 下滑線標籤 -->
+    <text x="415" y="398" class="labG" text-anchor="middle">過去二十年：六個月後就開始變便宜</text>
+
+    <!-- X 軸 -->
+    <line x1="120" y1="440" x2="880" y2="440" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="120" y="466" class="ax" text-anchor="middle">上市</text>
+    <text x="305" y="466" class="ax" text-anchor="middle">半年</text>
+    <text x="490" y="466" class="ax" text-anchor="middle">一年</text>
+    <text x="860" y="466" class="ax" text-anchor="middle">兩年</text>
+
+    <!-- takeaway -->
+    <text x="480" y="518" class="kick" text-anchor="middle">摩爾定律被翻了面——但這是短暫異常，不是新常態。</text>
+    <text x="480" y="552" class="quote" text-anchor="middle">主持人 Tim Culpan：「有人開基金賭同型 GPU 價格會逐季持續上漲，我一定放空你。」</text>
+  </g>
+</svg>
