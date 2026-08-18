@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="左格三棵逐漸長大的樹與一條穩定上升的線，右格是不斷下滑再靠買進跳回的鋸齒線">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:19px; font-weight:700; }
+    .b { font-size:15px; fill:var(--dim); }
+    .a { font-size:15px; fill:var(--accent); }
+    .w { font-size:15px; fill:var(--warn); }
+    .c { font-size:22px; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="50" y="56">不會過時的資產，和每代都得換的設備</text>
+
+<text class="g" x="250" y="98" text-anchor="middle">土地・果園</text>
+<rect x="50" y="110" width="400" height="300" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<line x1="80" y1="370" x2="420" y2="370" stroke="var(--line)" stroke-width="2"/>
+<rect x="146" y="350" width="8" height="20" fill="var(--grey)"/>
+<circle cx="150" cy="334" r="16" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<rect x="246" y="342" width="8" height="28" fill="var(--grey)"/>
+<circle cx="250" cy="318" r="24" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<rect x="346" y="334" width="8" height="36" fill="var(--grey)"/>
+<circle cx="350" cy="302" r="32" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<polyline points="150,318 250,294 350,270" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 5"/>
+<text class="a" x="350" y="252" text-anchor="middle">愈放愈大</text>
+<text class="b" x="250" y="396" text-anchor="middle">不必砍掉重種</text>
+
+<text class="g" x="710" y="98" text-anchor="middle">算力</text>
+<rect x="510" y="110" width="400" height="300" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<line x1="540" y1="300" x2="880" y2="300" stroke="var(--grey)" stroke-dasharray="4 4"/>
+<text class="b" x="880" y="292" text-anchor="end">競爭力水準</text>
+<polyline points="540,288 620,360" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<polyline points="620,278 700,358" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<polyline points="700,268 780,356" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<polyline points="780,258 870,352" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<line x1="620" y1="360" x2="620" y2="288" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="614,290 620,276 626,290" fill="var(--warn)"/>
+<line x1="700" y1="358" x2="700" y2="278" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="694,280 700,266 706,280" fill="var(--warn)"/>
+<line x1="780" y1="356" x2="780" y2="268" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="774,270 780,256 786,270" fill="var(--warn)"/>
+<text class="w" x="628" y="330">再買一次</text>
+<text class="b" x="710" y="396" text-anchor="middle">每一代都得追</text>
+
+<text class="c" x="480" y="478" text-anchor="middle">一個放著會長大，一個放著會過期</text>
+</svg>
