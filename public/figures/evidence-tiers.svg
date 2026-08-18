@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="資訊品質三階：公司自述、法規強制揭露、第三方查核，品質逐階升高，但多數人讀的時候把三階壓成同一句公司說">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --mid:    #7aa5e8;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --mid:    #3d6fb5;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .step  { font-size: 20px; font-weight: 700; fill: var(--ink); }
+    .who   { font-size: 15.5px; fill: var(--page); }
+    .ax    { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .warnl { font-size: 18px; font-weight: 700; fill: var(--warn); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">同一句「我們很安全」，可信度差三階</text>
+
+    <!-- 縱軸提示 -->
+    <text x="92" y="188" class="ax" text-anchor="end">可信度</text>
+    <text x="92" y="212" class="ax" text-anchor="end">愈高 ↑</text>
+
+    <!-- 階梯 -->
+    <rect x="120" y="352" width="240" height="80" rx="4" fill="var(--grey)"/>
+    <text x="240" y="336" class="step" text-anchor="middle">公司自己說</text>
+    <text x="240" y="384" class="who" text-anchor="middle">自己跑測試</text>
+    <text x="240" y="408" class="who" text-anchor="middle">自己決定寫幾頁</text>
+
+    <rect x="368" y="266" width="240" height="166" rx="4" fill="var(--mid)"/>
+    <text x="488" y="250" class="step" text-anchor="middle">法規強制揭露</text>
+    <text x="488" y="298" class="who" text-anchor="middle">被規定要講</text>
+    <text x="488" y="322" class="who" text-anchor="middle">但格式沒人管</text>
+    <text x="488" y="346" class="who" text-anchor="middle">三百頁也算交差</text>
+
+    <rect x="616" y="180" width="240" height="252" rx="4" fill="var(--accent)"/>
+    <text x="736" y="164" class="step" text-anchor="middle">第三方查核</text>
+    <text x="736" y="212" class="who" text-anchor="middle">外人來確認</text>
+    <text x="736" y="236" class="who" text-anchor="middle">說跑過的真的跑過</text>
+    <text x="736" y="260" class="who" text-anchor="middle">被審的跟上線的</text>
+    <text x="736" y="284" class="who" text-anchor="middle">是同一個</text>
+
+    <!-- 地面 -->
+    <line x1="100" y1="432" x2="880" y2="432" stroke="var(--ink)" stroke-width="1.5"/>
+
+    <!-- 壓扁註記 -->
+    <rect x="120" y="456" width="736" height="46" rx="6" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7,5"/>
+    <text x="488" y="486" class="warnl" text-anchor="middle">多數人讀的時候，三階被壓成同一句：「公司說」</text>
+
+    <text x="480" y="546" class="kick" text-anchor="middle">先問這句話是誰產生的、又是誰查的。</text>
+  </g>
+</svg>

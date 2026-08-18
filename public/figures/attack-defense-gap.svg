@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="攻守不對稱：攻擊方用的是還在測試中的最強模型，防守方只能用已經核准上架的，兩條能力線之間有一道持續存在的落差">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #9aa5b5;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+      --gap:    #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+        --gap:    #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .labW  { font-size: 20px; font-weight: 700; fill: var(--warn); }
+    .labG  { font-size: 20px; font-weight: 700; fill: var(--dim); }
+    .sub   { font-size: 16px; fill: var(--dim); }
+    .ax    { font-size: 16px; fill: var(--dim); }
+    .gaplb { font-size: 17px; font-weight: 700; fill: var(--gap); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+    .note  { font-size: 16px; fill: var(--dim); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">攻擊方用的，永遠比防守方能用的新</text>
+
+    <!-- 落差區塊：兩線之間填色 -->
+    <path d="M120,300 C260,258 400,214 560,176 C680,150 790,134 880,124
+             L880,214 C790,222 680,236 560,254 C400,278 260,304 120,336 Z"
+          fill="var(--gap)" opacity="0.13"/>
+
+    <!-- 攻擊方曲線 -->
+    <path d="M120,300 C260,258 400,214 560,176 C680,150 790,134 880,124"
+          fill="none" stroke="var(--warn)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="880" cy="124" r="7" fill="var(--warn)"/>
+    <text x="876" y="96" class="labW" text-anchor="end">攻擊方：還在測試中的最強模型</text>
+
+    <!-- 防守方曲線 -->
+    <path d="M120,336 C260,304 400,278 560,254 C680,236 790,222 880,214"
+          fill="none" stroke="var(--grey)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="880" cy="214" r="7" fill="var(--grey)"/>
+    <text x="876" y="248" class="labG" text-anchor="end">防守方：已核准上架的模型</text>
+
+    <!-- 落差標註 -->
+    <line x1="700" y1="146" x2="700" y2="230" stroke="var(--gap)" stroke-width="2" stroke-dasharray="5,4"/>
+    <text x="688" y="176" class="gaplb" text-anchor="end">這道落差</text>
+    <text x="688" y="198" class="gaplb" text-anchor="end">不會補上</text>
+
+    <!-- 軸 -->
+    <line x1="120" y1="380" x2="880" y2="380" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="120" y="406" class="ax" text-anchor="start">時間</text>
+    <text x="880" y="406" class="ax" text-anchor="end">能力愈來愈強 →</text>
+
+    <!-- 數量不對稱 -->
+    <line x1="120" y1="432" x2="880" y2="432" stroke="var(--line)" stroke-width="1"/>
+    <text x="120" y="462" class="sub">而且：防守方要守住</text>
+    <text x="292" y="462" class="labG">所有的門</text>
+    <text x="384" y="462" class="sub">，攻擊方只要找到</text>
+    <text x="536" y="462" class="labW">一個洞</text>
+    <text x="600" y="462" class="sub">。</text>
+
+    <text x="480" y="512" class="kick" text-anchor="middle">最強的在測試中，能上場的是已核准的。</text>
+    <text x="480" y="542" class="note" text-anchor="middle">這不是一次性事件，是持續存在的結構落差——修一次補不起來。</text>
+  </g>
+</svg>

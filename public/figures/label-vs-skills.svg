@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊的標籤只有一行，中間的能力清單有六項，其中兩項用線連到右邊下一代的需求；標籤裝不下能力清單，而真正有用的是清單裡的其中幾項">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --accbg:  #eef2f9;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --accbg:  #12233d;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .col   { font-size: 17px; font-weight: 700; fill: var(--dim); }
+    .lab   { font-size: 18px; font-weight: 700; fill: var(--dim); }
+    .item  { font-size: 16px; fill: var(--dim); }
+    .hit   { font-size: 16px; font-weight: 700; fill: var(--accent); }
+    .need  { font-size: 16px; font-weight: 700; fill: var(--accent); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">你用哪一個判斷它過不過時？</text>
+
+    <!-- 欄標 -->
+    <text x="150" y="94" class="col" text-anchor="middle">標籤</text>
+    <text x="450" y="94" class="col" text-anchor="middle">能力清單</text>
+    <text x="810" y="94" class="col" text-anchor="middle">下一代需要什麼</text>
+
+    <!-- 左：標籤，只有一行、框很小 -->
+    <rect x="50" y="230" width="200" height="52" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="150" y="262" class="lab" text-anchor="middle">快十歲的舊製程</text>
+
+    <!-- 中：能力清單，框很大 -->
+    <rect x="300" y="110" width="300" height="300" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+    <circle cx="326" cy="152" r="5" fill="var(--accent)"/>
+    <text x="342" y="158" class="hit">鋪上面那十幾層金屬線</text>
+    <circle cx="326" cy="200" r="5" fill="var(--accent)"/>
+    <text x="342" y="206" class="hit">舊的深紫外光機台</text>
+    <circle cx="326" cy="248" r="5" fill="var(--grey)"/>
+    <text x="342" y="254" class="item">成熟的良率管理</text>
+    <circle cx="326" cy="296" r="5" fill="var(--grey)"/>
+    <text x="342" y="302" class="item">跑完整的新世代配方</text>
+    <circle cx="326" cy="344" r="5" fill="var(--grey)"/>
+    <text x="342" y="350" class="item">最細的那兩層金屬線</text>
+    <circle cx="326" cy="386" r="5" fill="var(--grey)"/>
+    <text x="342" y="392" class="item">最前沿的電晶體</text>
+
+    <!-- 右：下一代需求 -->
+    <rect x="700" y="126" width="220" height="120" rx="6" fill="var(--accbg)" stroke="var(--accent)" stroke-width="1.5"/>
+    <text x="722" y="164" class="need">上面那十幾層</text>
+    <text x="722" y="194" class="need">產能緩衝</text>
+    <text x="722" y="226" class="item">（新廠還要兩年）</text>
+
+    <!-- 連線：只有兩項連得上 -->
+    <path d="M600,152 C650,152 660,160 700,160" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+    <path d="M600,200 C650,200 660,190 700,186" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+
+    <!-- 標籤連不上：畫一條斷掉的線 -->
+    <path d="M250,256 C280,256 288,256 300,256" fill="none" stroke="var(--line)" stroke-width="2"/>
+
+    <text x="480" y="466" class="kick" text-anchor="middle">標籤是一句話，能力清單是一張表。</text>
+    <text x="480" y="506" class="kick" text-anchor="middle">我們判斷人、判斷工具、判斷自己，幾乎都只用那一句話。</text>
+  </g>
+</svg>

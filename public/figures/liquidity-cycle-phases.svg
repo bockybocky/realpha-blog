@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="流動性增速的起伏曲線分成平靜、投機、動盪、反彈四段，目前的位置標在從高點下滑的投機段">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #9aa5b5;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+      --warnbg: #fdf4e7;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+        --warnbg: #2b2411;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .ph    { font-size: 20px; font-weight: 700; fill: var(--dim); }
+    .phN   { font-size: 20px; font-weight: 700; fill: var(--warn); }
+    .desc  { font-size: 15px; fill: var(--dim); }
+    .here  { font-size: 17px; font-weight: 700; fill: var(--warn); }
+    .ax    { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .kick  { font-size: 21px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">我們站在流動性週期的哪一格？</text>
+
+    <!-- 現在所在段落底色 -->
+    <rect x="300" y="86" width="200" height="300" fill="var(--warnbg)"/>
+
+    <!-- 分段虛線 -->
+    <g stroke="var(--line)" stroke-width="1.5" stroke-dasharray="5,5">
+      <line x1="300" y1="86" x2="300" y2="386"/>
+      <line x1="500" y1="86" x2="500" y2="386"/>
+      <line x1="700" y1="86" x2="700" y2="386"/>
+    </g>
+
+    <!-- 曲線 -->
+    <path d="M120,200 C200,170 262,180 300,220 C356,282 420,332 500,356 C580,378 640,360 700,330 C782,288 842,238 880,208"
+          fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- 現在的位置 -->
+    <circle cx="420" cy="332" r="10" fill="var(--warn)"/>
+    <line x1="420" y1="342" x2="420" y2="392" stroke="var(--warn)" stroke-width="2.5"/>
+    <text x="420" y="416" class="here" text-anchor="middle">我們在這</text>
+
+    <!-- 分段名稱 -->
+    <text x="210" y="122" class="ph" text-anchor="middle">平靜</text>
+    <text x="400" y="122" class="phN" text-anchor="middle">投機</text>
+    <text x="600" y="122" class="ph" text-anchor="middle">動盪</text>
+    <text x="790" y="122" class="ph" text-anchor="middle">反彈</text>
+
+    <text x="210" y="454" class="desc" text-anchor="middle">拿著大盤就好</text>
+    <text x="210" y="476" class="desc" text-anchor="middle">什麼都會漲</text>
+
+    <text x="400" y="454" class="desc" text-anchor="middle" fill="var(--warn)">還賺得到報酬</text>
+    <text x="400" y="476" class="desc" text-anchor="middle" fill="var(--warn)">但波動很高、品質很差</text>
+
+    <text x="600" y="454" class="desc" text-anchor="middle">最難熬的一段</text>
+    <text x="790" y="454" class="desc" text-anchor="middle">要等曲線牛市趨陡</text>
+    <text x="790" y="476" class="desc" text-anchor="middle">才確認轉過來了</text>
+
+    <!-- 軸 -->
+    <line x1="100" y1="386" x2="900" y2="386" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="80" y="200" class="ax" text-anchor="end">流動性</text>
+    <text x="80" y="222" class="ax" text-anchor="end">增速 ↑</text>
+
+    <text x="480" y="524" class="kick" text-anchor="middle">指數在創高，操盤的人卻在苦戰</text>
+    <text x="480" y="552" class="kick" text-anchor="middle">——這正是「投機」這一格的長相。</text>
+  </g>
+</svg>

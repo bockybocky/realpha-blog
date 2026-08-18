@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="兩個世代晶片的層狀結構並排：底下幾層的電晶體與最細金屬線差很多，上面十幾層的金屬層幾乎完全相同，所以機台可以共用">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+      --okbg:   #eef2f9;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+        --okbg:   #12233d;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .cap   { font-size: 20px; font-weight: 700; fill: var(--ink); }
+    .same  { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .diff  { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .sub   { font-size: 15.5px; fill: var(--dim); }
+    .kick  { font-size: 23px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">一顆晶片是疊出來的，上面那十幾層幾乎一樣</text>
+
+    <!-- 相同區底色 -->
+    <rect x="196" y="96" width="424" height="252" rx="6" fill="var(--okbg)"/>
+
+    <!-- 左堆：舊世代 -->
+    <text x="290" y="82" class="cap" text-anchor="middle">舊世代（N7／N6）</text>
+    <rect x="230" y="108" width="120" height="228" rx="3" fill="var(--grey)"/>
+    <rect x="230" y="348" width="120" height="72" rx="3" fill="var(--warn)"/>
+
+    <!-- 右堆：新世代 -->
+    <text x="526" y="82" class="cap" text-anchor="middle">新世代（N3／N5）</text>
+    <rect x="466" y="108" width="120" height="228" rx="3" fill="var(--grey)"/>
+    <rect x="466" y="348" width="120" height="72" rx="3" fill="var(--accent)"/>
+
+    <!-- 分層線：上層各 12 格 -->
+    <g stroke="var(--page)" stroke-width="2.5">
+      <line x1="230" y1="127" x2="350" y2="127"/><line x1="466" y1="127" x2="586" y2="127"/>
+      <line x1="230" y1="146" x2="350" y2="146"/><line x1="466" y1="146" x2="586" y2="146"/>
+      <line x1="230" y1="165" x2="350" y2="165"/><line x1="466" y1="165" x2="586" y2="165"/>
+      <line x1="230" y1="184" x2="350" y2="184"/><line x1="466" y1="184" x2="586" y2="184"/>
+      <line x1="230" y1="203" x2="350" y2="203"/><line x1="466" y1="203" x2="586" y2="203"/>
+      <line x1="230" y1="222" x2="350" y2="222"/><line x1="466" y1="222" x2="586" y2="222"/>
+      <line x1="230" y1="241" x2="350" y2="241"/><line x1="466" y1="241" x2="586" y2="241"/>
+      <line x1="230" y1="260" x2="350" y2="260"/><line x1="466" y1="260" x2="586" y2="260"/>
+      <line x1="230" y1="279" x2="350" y2="279"/><line x1="466" y1="279" x2="586" y2="279"/>
+      <line x1="230" y1="298" x2="350" y2="298"/><line x1="466" y1="298" x2="586" y2="298"/>
+      <line x1="230" y1="317" x2="350" y2="317"/><line x1="466" y1="317" x2="586" y2="317"/>
+      <!-- 底層 3 格 -->
+      <line x1="230" y1="372" x2="350" y2="372"/><line x1="466" y1="372" x2="586" y2="372"/>
+      <line x1="230" y1="396" x2="350" y2="396"/><line x1="466" y1="396" x2="586" y2="396"/>
+    </g>
+
+    <!-- 右側說明 -->
+    <text x="648" y="150" class="same">上面這十幾層</text>
+    <text x="648" y="178" class="same">幾乎完全相同</text>
+    <text x="648" y="212" class="sub">負責把電力和訊號</text>
+    <text x="648" y="234" class="sub">送到晶片各處的金屬線，</text>
+    <text x="648" y="256" class="sub">越往上越寬。</text>
+    <text x="648" y="292" class="sub">舊機台做得動，</text>
+    <text x="648" y="314" class="sub">所以兩個世代共用。</text>
+
+    <text x="648" y="376" class="diff">底下這幾層</text>
+    <text x="648" y="404" class="diff">差很多</text>
+    <text x="648" y="436" class="sub">電晶體與最細的金屬線。</text>
+
+    <!-- 地面 -->
+    <line x1="196" y1="420" x2="620" y2="420" stroke="var(--ink)" stroke-width="1.5"/>
+
+    <text x="408" y="500" class="kick" text-anchor="middle">機台重疊率九成以上。</text>
+    <text x="480" y="546" class="kick" text-anchor="middle">所以好幾個世代，其實是同一個水池在管。</text>
+  </g>
+</svg>

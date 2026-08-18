@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊是地板系統：每家銀行只跟央行往來，連成星狀；右邊是市場優先：銀行彼此互相拆借連成網狀，央行退到後面只當後盾">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .capW  { font-size: 20px; font-weight: 700; fill: var(--warn); }
+    .capA  { font-size: 20px; font-weight: 700; fill: var(--accent); }
+    .sub   { font-size: 15.5px; fill: var(--dim); }
+    .tag   { font-size: 14px; fill: var(--dim); }
+    .ctr   { font-size: 15px; font-weight: 700; fill: var(--page); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">錢從哪裡來，決定了市場長什麼樣</text>
+
+    <!-- ===== 左：地板系統（星狀）===== -->
+    <text x="250" y="86" class="capW" text-anchor="middle">地板系統</text>
+
+    <g stroke="var(--warn)" stroke-width="2">
+      <line x1="250" y1="145" x2="250" y2="222"/>
+      <line x1="160" y1="197" x2="222" y2="238"/>
+      <line x1="160" y1="303" x2="222" y2="262"/>
+      <line x1="250" y1="355" x2="250" y2="278"/>
+      <line x1="340" y1="303" x2="278" y2="262"/>
+      <line x1="340" y1="197" x2="278" y2="238"/>
+    </g>
+
+    <circle cx="250" cy="130" r="17" fill="var(--grey)"/>
+    <circle cx="148" cy="190" r="17" fill="var(--grey)"/>
+    <circle cx="148" cy="310" r="17" fill="var(--grey)"/>
+    <circle cx="250" cy="370" r="17" fill="var(--grey)"/>
+    <circle cx="352" cy="310" r="17" fill="var(--grey)"/>
+    <circle cx="352" cy="190" r="17" fill="var(--grey)"/>
+    <text x="250" y="106" class="tag" text-anchor="middle">銀行</text>
+
+    <rect x="212" y="228" width="76" height="44" rx="6" fill="var(--warn)"/>
+    <text x="250" y="256" class="ctr" text-anchor="middle">央行</text>
+
+    <text x="250" y="424" class="sub" text-anchor="middle">錢都存在央行，領利息。</text>
+    <text x="250" y="448" class="sub" text-anchor="middle">銀行彼此不必往來。</text>
+
+    <!-- ===== 右：市場優先（網狀）===== -->
+    <text x="700" y="86" class="capA" text-anchor="middle">市場優先</text>
+
+    <g stroke="var(--accent)" stroke-width="2">
+      <line x1="700" y1="130" x2="598" y2="190"/>
+      <line x1="700" y1="130" x2="802" y2="190"/>
+      <line x1="700" y1="130" x2="598" y2="310"/>
+      <line x1="598" y1="190" x2="802" y2="190"/>
+      <line x1="598" y1="190" x2="598" y2="310"/>
+      <line x1="598" y1="190" x2="700" y2="370"/>
+      <line x1="802" y1="190" x2="802" y2="310"/>
+      <line x1="802" y1="190" x2="700" y2="370"/>
+      <line x1="598" y1="310" x2="802" y2="310"/>
+      <line x1="598" y1="310" x2="700" y2="370"/>
+      <line x1="802" y1="310" x2="700" y2="370"/>
+      <line x1="700" y1="130" x2="802" y2="310"/>
+    </g>
+
+    <circle cx="700" cy="130" r="17" fill="var(--grey)"/>
+    <circle cx="598" cy="190" r="17" fill="var(--grey)"/>
+    <circle cx="598" cy="310" r="17" fill="var(--grey)"/>
+    <circle cx="700" cy="370" r="17" fill="var(--grey)"/>
+    <circle cx="802" cy="310" r="17" fill="var(--grey)"/>
+    <circle cx="802" cy="190" r="17" fill="var(--grey)"/>
+
+    <rect x="866" y="228" width="76" height="44" rx="6" fill="none" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <text x="904" y="256" class="tag" text-anchor="middle">央行</text>
+    <line x1="820" y1="250" x2="862" y2="250" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <text x="904" y="292" class="tag" text-anchor="middle">只當後盾</text>
+
+    <text x="700" y="424" class="sub" text-anchor="middle">銀行先跟彼此借，</text>
+    <text x="700" y="448" class="sub" text-anchor="middle">央行退到後面。</text>
+
+    <text x="480" y="508" class="kick" text-anchor="middle">地板系統的代價，是它壓死了銀行彼此之間的市場。</text>
+  </g>
+</svg>

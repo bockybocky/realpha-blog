@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="台南的廠只做最關鍵的幾層，沒完成的晶圓裝上普通卡車開一百英里到台中，由稼動率不足的舊廠把剩下的十幾層做完">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .fabA  { font-size: 21px; font-weight: 700; fill: var(--accent); }
+    .fabW  { font-size: 21px; font-weight: 700; fill: var(--warn); }
+    .job   { font-size: 16px; fill: var(--ink); }
+    .sub   { font-size: 15px; fill: var(--dim); }
+    .dist  { font-size: 18px; font-weight: 700; fill: var(--dim); }
+    .cargo { font-size: 15.5px; font-weight: 700; fill: var(--dim); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">最關鍵的那段調度，是高速公路上的普通卡車</text>
+
+    <!-- 左廠 -->
+    <rect x="70" y="120" width="250" height="150" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <rect x="70" y="120" width="250" height="6" rx="3" fill="var(--accent)"/>
+    <text x="195" y="160" class="fabA" text-anchor="middle">台南　N3／N5</text>
+    <text x="195" y="196" class="job" text-anchor="middle">只做最關鍵的那幾層</text>
+    <text x="195" y="226" class="sub" text-anchor="middle">做完就停手，</text>
+    <text x="195" y="248" class="sub" text-anchor="middle">產能全部花在刀口上。</text>
+
+    <!-- 右廠 -->
+    <rect x="640" y="120" width="250" height="150" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+    <rect x="640" y="120" width="250" height="6" rx="3" fill="var(--warn)"/>
+    <text x="765" y="160" class="fabW" text-anchor="middle">台中　N7／N6</text>
+    <text x="765" y="196" class="job" text-anchor="middle">把剩下的十幾層做完</text>
+    <text x="765" y="226" class="sub" text-anchor="middle">原本稼動率不足，</text>
+    <text x="765" y="248" class="sub" text-anchor="middle">空著的產能被填滿。</text>
+
+    <!-- 路 -->
+    <line x1="330" y1="230" x2="628" y2="230" stroke="var(--line)" stroke-width="10" stroke-linecap="round"/>
+    <path d="M600,230 L628,230" stroke="var(--dim)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M616,220 L630,230 L616,240" fill="none" stroke="var(--dim)" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 卡車 -->
+    <rect x="404" y="176" width="96" height="42" rx="4" fill="var(--grey)"/>
+    <rect x="500" y="190" width="38" height="28" rx="4" fill="var(--dim)"/>
+    <circle cx="428" cy="224" r="9" fill="var(--ink)"/>
+    <circle cx="480" cy="224" r="9" fill="var(--ink)"/>
+    <circle cx="524" cy="224" r="9" fill="var(--ink)"/>
+    <text x="452" y="166" class="cargo" text-anchor="middle">還沒做完的晶圓</text>
+
+    <text x="470" y="268" class="dist" text-anchor="middle">一百英里</text>
+
+    <!-- 底部說明 -->
+    <line x1="70" y1="326" x2="890" y2="326" stroke="var(--line)" stroke-width="1"/>
+    <text x="480" y="364" class="sub" text-anchor="middle">為什麼搬得動？因為上面那十幾層兩邊本來就長得幾乎一樣，舊機台做得動。</text>
+    <text x="480" y="396" class="sub" text-anchor="middle">為什麼值得搬？因為新廠要蓋兩年，而需求現在就要。</text>
+
+    <text x="480" y="464" class="kick" text-anchor="middle">貨櫃裡是數千萬美元的晶圓，車看起來跟別台沒兩樣。</text>
+  </g>
+</svg>

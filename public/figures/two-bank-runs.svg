@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="兩家銀行同樣被擠兌，一條線急速下墜到無序倒閉，另一條平緩落地從容收攤；差別不在資產好壞，在有沒有事先把借款通道走通過">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #9aa5b5;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+      --warnbg: #fdf4e7;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+        --warnbg: #2b2411;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .nameW { font-size: 20px; font-weight: 700; fill: var(--warn); }
+    .nameA { font-size: 20px; font-weight: 700; fill: var(--accent); }
+    .step  { font-size: 15px; fill: var(--dim); }
+    .end   { font-size: 17px; font-weight: 700; }
+    .start { font-size: 17px; font-weight: 700; fill: var(--ink); }
+    .key   { font-size: 16.5px; font-weight: 700; fill: var(--ink); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">同樣被擠兌，走出兩條形狀完全不同的路</text>
+
+    <!-- 共同起點 -->
+    <circle cx="120" cy="200" r="8" fill="var(--ink)"/>
+    <text x="120" y="176" class="start" text-anchor="middle">被擠兌</text>
+
+    <!-- SVB：急墜 -->
+    <path d="M120,200 C220,206 280,222 360,262 C440,302 500,360 580,398 C660,432 720,444 830,452"
+          fill="none" stroke="var(--warn)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="830" cy="452" r="8" fill="var(--warn)"/>
+    <text x="200" y="228" class="nameW">SVB</text>
+    <text x="300" y="262" class="step">賣證券，虧損攤在陽光下</text>
+    <text x="452" y="330" class="step">週四擠兌</text>
+    <text x="556" y="402" class="step">週五中午關門</text>
+    <text x="826" y="486" class="end" fill="var(--warn)" text-anchor="end">無序倒閉，接一串補救</text>
+
+    <!-- Silvergate：平緩 -->
+    <path d="M120,200 C240,196 340,190 460,184 C580,178 700,172 830,168"
+          fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="830" cy="168" r="8" fill="var(--accent)"/>
+    <text x="200" y="164" class="nameA">Silvergate</text>
+    <text x="330" y="152" class="step">拿抵押品去貼現窗口借</text>
+    <text x="560" y="146" class="step">慢慢賣抵押品還款</text>
+    <text x="826" y="134" class="end" fill="var(--accent)" text-anchor="end">自行清算，沒有恐慌</text>
+
+    <!-- 關鍵差別 -->
+    <rect x="120" y="510" width="720" height="0" />
+    <line x1="80" y1="506" x2="880" y2="506" stroke="var(--line)" stroke-width="1"/>
+    <text x="480" y="538" class="key" text-anchor="middle">差別不在資產好壞——SVB 手上滿是優質資產。差別在有沒有事先把借錢那條路走通過。</text>
+
+    <text x="480" y="574" class="kick" text-anchor="middle">重點不是它能不能不倒，是它本來可以有秩序地倒。</text>
+  </g>
+</svg>

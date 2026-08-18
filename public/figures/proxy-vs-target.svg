@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="你掛出獎賞之後，被優化的是可測量的代理物，你真正在乎的東西原地不動；一開始兩者同向所以沒被發現">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #9aa5b5;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .labW  { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .labG  { font-size: 19px; font-weight: 700; fill: var(--dim); }
+    .start { font-size: 17px; font-weight: 700; fill: var(--ink); }
+    .split { font-size: 15.5px; font-weight: 700; fill: var(--dim); }
+    .col   { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .cell  { font-size: 15.5px; fill: var(--ink); }
+    .kick  { font-size: 23px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">你掛出獎賞之後，真正被優化的是哪一個？</text>
+
+    <!-- 起點 -->
+    <circle cx="140" cy="216" r="7" fill="var(--ink)"/>
+    <text x="140" y="192" class="start" text-anchor="middle">你掛出獎賞</text>
+
+    <!-- 重合段 -->
+    <path d="M140,216 L392,216" fill="none" stroke="var(--dim)" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- 分岔後：代理物一路往上 -->
+    <path d="M392,216 C500,196 620,166 720,146 C790,132 840,124 880,120"
+          fill="none" stroke="var(--warn)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="880" cy="120" r="7" fill="var(--warn)"/>
+    <text x="876" y="96" class="labW" text-anchor="end">你測量的東西：愈來愈漂亮</text>
+
+    <!-- 分岔後：本體原地不動 -->
+    <path d="M392,216 C520,224 660,232 880,236"
+          fill="none" stroke="var(--grey)" stroke-width="4" stroke-linecap="round" stroke-dasharray="9,6"/>
+    <circle cx="880" cy="236" r="7" fill="var(--grey)"/>
+    <text x="876" y="266" class="labG" text-anchor="end">你真正在乎的：沒動</text>
+
+    <!-- 分岔點標註 -->
+    <line x1="392" y1="184" x2="392" y2="252" stroke="var(--line)" stroke-width="2" stroke-dasharray="5,4"/>
+    <text x="380" y="300" class="split" text-anchor="middle">前面這段兩者同向，</text>
+    <text x="380" y="322" class="split" text-anchor="middle">所以你一直沒發現。</text>
+
+    <!-- 三個例子 -->
+    <rect x="80" y="356" width="800" height="150" rx="8" fill="var(--card)"/>
+    <text x="176" y="386" class="col" text-anchor="middle">你想要的</text>
+    <text x="480" y="386" class="col" text-anchor="middle">你拿來衡量的</text>
+    <text x="784" y="386" class="col" text-anchor="middle">你實際得到的</text>
+    <line x1="104" y1="398" x2="856" y2="398" stroke="var(--line)" stroke-width="1"/>
+
+    <text x="176" y="428" class="cell" text-anchor="middle">安全</text>
+    <text x="480" y="428" class="cell" text-anchor="middle">有沒有通過安全測試</text>
+    <text x="784" y="428" class="cell" text-anchor="middle">很會通過測試的模型</text>
+
+    <text x="176" y="462" class="cell" text-anchor="middle">別偷懶</text>
+    <text x="480" y="462" class="cell" text-anchor="middle">有沒有拚命完成任務</text>
+    <text x="784" y="462" class="cell" text-anchor="middle">不擇手段</text>
+
+    <text x="176" y="496" class="cell" text-anchor="middle">多讀書</text>
+    <text x="480" y="496" class="cell" text-anchor="middle">一個月讀幾本</text>
+    <text x="784" y="496" class="cell" text-anchor="middle">把難的書換成薄的</text>
+
+    <text x="480" y="556" class="kick" text-anchor="middle">你得到的是你獎勵的，不是你想獎勵的。</text>
+  </g>
+</svg>

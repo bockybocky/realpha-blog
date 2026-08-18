@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一百格代表整個指數，必需消費只佔其中四格半、可選消費不到十格，其餘八十幾格是別的類股">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #ccd4e0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #39424f;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .lgW   { font-size: 18px; font-weight: 700; fill: var(--warn); }
+    .lgA   { font-size: 18px; font-weight: 700; fill: var(--accent); }
+    .lgG   { font-size: 18px; font-weight: 700; fill: var(--dim); }
+    .sub   { font-size: 15px; fill: var(--dim); }
+    .note  { font-size: 16.5px; font-weight: 700; fill: var(--ink); }
+    .kick  { font-size: 23px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">一百格是整個指數，防禦型剩這麼多</text>
+
+    <!-- 100 格：每格 1% -->
+    <!-- 第 1 排：必需消費 4 格 + 半格，其餘可選消費 -->
+    <g>
+      <rect x="120" y="86" width="30" height="30" rx="2" fill="var(--warn)"/>
+      <rect x="153" y="86" width="30" height="30" rx="2" fill="var(--warn)"/>
+      <rect x="186" y="86" width="30" height="30" rx="2" fill="var(--warn)"/>
+      <rect x="219" y="86" width="30" height="30" rx="2" fill="var(--warn)"/>
+      <rect x="252" y="86" width="15" height="30" rx="2" fill="var(--warn)"/>
+      <rect x="267" y="86" width="15" height="30" rx="2" fill="var(--accent)"/>
+      <rect x="285" y="86" width="30" height="30" rx="2" fill="var(--accent)"/>
+      <rect x="318" y="86" width="30" height="30" rx="2" fill="var(--accent)"/>
+      <rect x="351" y="86" width="30" height="30" rx="2" fill="var(--accent)"/>
+      <rect x="384" y="86" width="30" height="30" rx="2" fill="var(--accent)"/>
+    </g>
+    <!-- 第 2 排：可選消費剩下 4 格，其餘灰 -->
+    <g>
+      <rect x="120" y="119" width="30" height="30" rx="2" fill="var(--accent)"/>
+      <rect x="153" y="119" width="30" height="30" rx="2" fill="var(--accent)"/>
+      <rect x="186" y="119" width="30" height="30" rx="2" fill="var(--accent)"/>
+      <rect x="219" y="119" width="30" height="30" rx="2" fill="var(--accent)"/>
+      <rect x="252" y="119" width="30" height="30" rx="2" fill="var(--grey)"/>
+      <rect x="285" y="119" width="30" height="30" rx="2" fill="var(--grey)"/>
+      <rect x="318" y="119" width="30" height="30" rx="2" fill="var(--grey)"/>
+      <rect x="351" y="119" width="30" height="30" rx="2" fill="var(--grey)"/>
+      <rect x="384" y="119" width="30" height="30" rx="2" fill="var(--grey)"/>
+    </g>
+    <!-- 第 3～10 排全灰 -->
+    <g fill="var(--grey)">
+      <rect x="120" y="152" width="30" height="30" rx="2"/><rect x="153" y="152" width="30" height="30" rx="2"/><rect x="186" y="152" width="30" height="30" rx="2"/><rect x="219" y="152" width="30" height="30" rx="2"/><rect x="252" y="152" width="30" height="30" rx="2"/><rect x="285" y="152" width="30" height="30" rx="2"/><rect x="318" y="152" width="30" height="30" rx="2"/><rect x="351" y="152" width="30" height="30" rx="2"/><rect x="384" y="152" width="30" height="30" rx="2"/>
+      <rect x="120" y="185" width="30" height="30" rx="2"/><rect x="153" y="185" width="30" height="30" rx="2"/><rect x="186" y="185" width="30" height="30" rx="2"/><rect x="219" y="185" width="30" height="30" rx="2"/><rect x="252" y="185" width="30" height="30" rx="2"/><rect x="285" y="185" width="30" height="30" rx="2"/><rect x="318" y="185" width="30" height="30" rx="2"/><rect x="351" y="185" width="30" height="30" rx="2"/><rect x="384" y="185" width="30" height="30" rx="2"/>
+      <rect x="120" y="218" width="30" height="30" rx="2"/><rect x="153" y="218" width="30" height="30" rx="2"/><rect x="186" y="218" width="30" height="30" rx="2"/><rect x="219" y="218" width="30" height="30" rx="2"/><rect x="252" y="218" width="30" height="30" rx="2"/><rect x="285" y="218" width="30" height="30" rx="2"/><rect x="318" y="218" width="30" height="30" rx="2"/><rect x="351" y="218" width="30" height="30" rx="2"/><rect x="384" y="218" width="30" height="30" rx="2"/>
+      <rect x="120" y="251" width="30" height="30" rx="2"/><rect x="153" y="251" width="30" height="30" rx="2"/><rect x="186" y="251" width="30" height="30" rx="2"/><rect x="219" y="251" width="30" height="30" rx="2"/><rect x="252" y="251" width="30" height="30" rx="2"/><rect x="285" y="251" width="30" height="30" rx="2"/><rect x="318" y="251" width="30" height="30" rx="2"/><rect x="351" y="251" width="30" height="30" rx="2"/><rect x="384" y="251" width="30" height="30" rx="2"/>
+      <rect x="120" y="284" width="30" height="30" rx="2"/><rect x="153" y="284" width="30" height="30" rx="2"/><rect x="186" y="284" width="30" height="30" rx="2"/><rect x="219" y="284" width="30" height="30" rx="2"/><rect x="252" y="284" width="30" height="30" rx="2"/><rect x="285" y="284" width="30" height="30" rx="2"/><rect x="318" y="284" width="30" height="30" rx="2"/><rect x="351" y="284" width="30" height="30" rx="2"/><rect x="384" y="284" width="30" height="30" rx="2"/>
+      <rect x="120" y="317" width="30" height="30" rx="2"/><rect x="153" y="317" width="30" height="30" rx="2"/><rect x="186" y="317" width="30" height="30" rx="2"/><rect x="219" y="317" width="30" height="30" rx="2"/><rect x="252" y="317" width="30" height="30" rx="2"/><rect x="285" y="317" width="30" height="30" rx="2"/><rect x="318" y="317" width="30" height="30" rx="2"/><rect x="351" y="317" width="30" height="30" rx="2"/><rect x="384" y="317" width="30" height="30" rx="2"/>
+      <rect x="120" y="350" width="30" height="30" rx="2"/><rect x="153" y="350" width="30" height="30" rx="2"/><rect x="186" y="350" width="30" height="30" rx="2"/><rect x="219" y="350" width="30" height="30" rx="2"/><rect x="252" y="350" width="30" height="30" rx="2"/><rect x="285" y="350" width="30" height="30" rx="2"/><rect x="318" y="350" width="30" height="30" rx="2"/><rect x="351" y="350" width="30" height="30" rx="2"/><rect x="384" y="350" width="30" height="30" rx="2"/>
+      <rect x="120" y="383" width="30" height="30" rx="2"/><rect x="153" y="383" width="30" height="30" rx="2"/><rect x="186" y="383" width="30" height="30" rx="2"/><rect x="219" y="383" width="30" height="30" rx="2"/><rect x="252" y="383" width="30" height="30" rx="2"/><rect x="285" y="383" width="30" height="30" rx="2"/><rect x="318" y="383" width="30" height="30" rx="2"/><rect x="351" y="383" width="30" height="30" rx="2"/><rect x="384" y="383" width="30" height="30" rx="2"/>
+    </g>
+
+    <!-- 圖例 -->
+    <rect x="470" y="120" width="24" height="24" rx="3" fill="var(--warn)"/>
+    <text x="506" y="139" class="lgW">必需消費　4.5%</text>
+    <text x="506" y="165" class="sub">整個指數裡只剩這四格半</text>
+
+    <rect x="470" y="204" width="24" height="24" rx="3" fill="var(--accent)"/>
+    <text x="506" y="223" class="lgA">可選消費　不到 10%</text>
+    <text x="506" y="249" class="sub">這種權重通常只在景氣糟的時候出現</text>
+
+    <rect x="470" y="288" width="24" height="24" rx="3" fill="var(--grey)"/>
+    <text x="506" y="307" class="lgG">其他　八成五以上</text>
+    <text x="506" y="333" class="sub">科技股把整個分母撐大了</text>
+
+    <text x="506" y="392" class="note">但現在景氣並不糟。</text>
+
+    <text x="480" y="476" class="kick" text-anchor="middle">牛市，而且沒人喝酒了。</text>
+    <text x="480" y="520" class="sub" text-anchor="middle">在一個選擇權收益商品滿地都是的年代，沒有人需要靠必需消費股來拿殖利率了。</text>
+  </g>
+</svg>

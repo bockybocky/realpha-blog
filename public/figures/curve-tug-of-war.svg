@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="同一條殖利率曲線被兩股力量往相反方向拉：主席希望長端自己漲上去讓曲線變陡，市場在流動性下行期的自然傾向卻是趨平">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #9aa5b5;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .labA  { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .labW  { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .labG  { font-size: 17px; font-weight: 700; fill: var(--dim); }
+    .sub   { font-size: 15px; fill: var(--dim); }
+    .ax    { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">同一條曲線，兩股力量往反方向拉</text>
+
+    <!-- 現況 -->
+    <path d="M150,300 C300,286 480,268 700,254 C780,249 830,246 856,244"
+          fill="none" stroke="var(--grey)" stroke-width="3.5" stroke-linecap="round"/>
+    <text x="700" y="284" class="labG">現在的曲線</text>
+
+    <!-- 主席要的：變陡 -->
+    <path d="M150,300 C300,278 460,228 640,186 C740,164 810,152 856,146"
+          fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-dasharray="10,7"/>
+    <circle cx="856" cy="146" r="7" fill="var(--accent)"/>
+    <text x="850" y="120" class="labA" text-anchor="end">主席想要：變陡</text>
+    <text x="850" y="168" class="sub" text-anchor="end">讓市場替他完成緊縮——長端自己漲上去</text>
+
+    <!-- 市場的自然傾向：趨平 -->
+    <path d="M150,300 C320,300 520,298 700,296 C780,295 830,294 856,294"
+          fill="none" stroke="var(--warn)" stroke-width="4" stroke-linecap="round" stroke-dasharray="10,7"/>
+    <circle cx="856" cy="294" r="7" fill="var(--warn)"/>
+    <text x="850" y="330" class="labW" text-anchor="end">市場的自然傾向：趨平</text>
+    <text x="850" y="356" class="sub" text-anchor="end">流動性下行期本來就會這樣走</text>
+
+    <!-- 起點 -->
+    <circle cx="150" cy="300" r="7" fill="var(--ink)"/>
+    <text x="150" y="278" class="sub" text-anchor="middle">短端</text>
+
+    <!-- 軸 -->
+    <line x1="150" y1="404" x2="880" y2="404" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="150" y="430" class="ax" text-anchor="start">短天期</text>
+    <text x="880" y="430" class="ax" text-anchor="end">長天期 →</text>
+
+    <text x="480" y="490" class="kick" text-anchor="middle">不是誰討厭誰，</text>
+    <text x="480" y="522" class="kick" text-anchor="middle">是兩套機制在拉扯同一條曲線。</text>
+  </g>
+</svg>
