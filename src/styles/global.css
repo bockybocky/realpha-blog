@@ -580,6 +580,17 @@ select {
 	height: 100%;
 }
 
+/* 互動工具卡片：內容高度由內容決定，不套 16:9 也不裁切 */
+.demo-frame.tool {
+	aspect-ratio: auto;
+	overflow: visible;
+	height: auto;
+}
+
+.demo-frame.tool svg {
+	height: auto;
+}
+
 .chart-axis {
 	stroke: color-mix(in srgb, var(--muted) 50%, transparent);
 	stroke-width: 1.5;

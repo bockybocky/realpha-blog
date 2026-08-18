@@ -1,14 +1,52 @@
 ---
 interface Props {
-	demo: 'canvas-waves' | 'line-chart';
+	demo: 'canvas-waves' | 'line-chart' | 'price-volume' | 'leverage-decay' | 'survivorship';
 	title: string;
 }
+
+import survivorship from '../data/survivorship.json';
 
 const { demo, title } = Astro.props;
 ---
 
 {
-	demo === 'canvas-waves' ? (
+	demo === 'survivorship' ? (
+		<div data-lab-demo="survivorship" class="demo-frame tool" aria-label={title}>
+			<script type="application/json" data-sv="data" set:html={JSON.stringify(survivorship)}></script>
+			<label class="sv-switch">
+				<input data-sv="toggle" type="checkbox" />
+				<span>只看現在還活著的公司（多數回測工具的預設）</span>
+			</label>
+			<div class="sv-grid" data-sv="grid" aria-hidden="true"></div>
+			<p class="tool-out" data-sv="stat" role="status" aria-live="polite"></p>
+			<p class="sv-caption">每一年消失的家數（1990 起）</p>
+			<div class="sv-years" data-sv="years" aria-hidden="true"></div>
+			<p class="tool-note">資料是自己建的：1990 年起、含 8,562 檔已下市股。你用的回測工具，資料裡有這些嗎？<a href="/blog/proving-ma-crosses-dont-work/">看這件事怎麼推翻一個訊號 →</a></p>
+		</div>
+	) : demo === 'price-volume' ? (
+		<div data-lab-demo="price-volume" class="demo-frame tool" aria-label={title}>
+			<div class="tool-inputs">
+				<label>營收成長率（%）<input data-pv="rev" type="number" value="40" step="1" /></label>
+				<label>出貨量成長率（%）<input data-pv="vol" type="number" value="0" step="1" /></label>
+			</div>
+			<div class="tool-bars">
+				<div class="seg seg-vol" data-pv="bar-vol"><span>量</span></div>
+				<div class="seg seg-price" data-pv="bar-price"><span>價</span></div>
+			</div>
+			<p class="tool-out" data-pv="out" role="status" aria-live="polite"></p>
+			<p class="tool-note">同樣的成長，量推的和價推的是兩個完全不同的故事。<a href="/blog/supply-chained-midyear-2026/">看這個概念是怎麼來的 →</a></p>
+		</div>
+	) : demo === 'leverage-decay' ? (
+		<div data-lab-demo="leverage-decay" class="demo-frame tool" aria-label={title}>
+			<div class="tool-inputs">
+				<label class="wide">每天的漲跌（%），用逗號分開<input data-ld="seq" type="text" value="-20, 25, -20, 25, -20, 25" /></label>
+				<label>槓桿倍數<input data-ld="mult" type="number" value="2" min="1" max="5" step="1" /></label>
+			</div>
+			<div class="ld-bars" data-ld="bars"></div>
+			<p class="tool-out" data-ld="out" role="status" aria-live="polite"></p>
+			<p class="tool-note">同一段行情來回三次：指數還是 100，兩倍槓桿只剩 72.9。震盪愈多次，缺口愈大。<a href="/blog/compound-2026-08-14-it-s-a-bull-market-and-nobody-drinks-anymore/">看這個概念是怎麼來的 →</a></p>
+		</div>
+	) : demo === 'canvas-waves' ? (
 		<div class="demo-frame" aria-label={title}>
 			<canvas data-lab-demo="canvas-waves" aria-label={title}></canvas>
 		</div>
@@ -20,3 +58,61 @@ const { demo, title } = Astro.props;
 	)
 }
 <script src="/lab-demos.js" defer></script>
+
+<style>
+	.tool { padding: 1.25rem; }
+	.tool-inputs {
+		display: flex; flex-wrap: wrap; gap: 0.9rem 1.4rem; margin-bottom: 1.1rem;
+	}
+	.tool-inputs label {
+		display: flex; flex-direction: column; gap: 0.35rem;
+		font-size: 0.9rem; color: var(--muted);
+	}
+	.tool-inputs label.wide { flex: 1 1 18rem; }
+	.tool-inputs input {
+		padding: 0.5rem 0.65rem; font-size: 1rem;
+		border: 1px solid var(--line); border-radius: 8px;
+		background: var(--paper); color: var(--text);
+	}
+	.tool-inputs input:focus { outline: 2px solid var(--accent-tint); border-color: var(--accent); }
+	.tool-bars { display: flex; height: 2.4rem; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; }
+	.tool-bars .seg {
+		display: flex; align-items: center; justify-content: center;
+		font-size: 0.85rem; font-weight: 700; color: #fff; transition: width 0.18s ease; min-width: 0;
+	}
+	.seg-vol { background: var(--accent); }
+	.seg-price { background: #d97706; }
+	.ld-bars { display: flex; align-items: flex-end; gap: 1.6rem; height: 8rem; margin-bottom: 1rem; }
+	.ld-bars :global(.ld-bar) { flex: 0 0 4.5rem; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
+	.ld-bars :global(.ld-bar span) { display: block; background: var(--accent); border-radius: 4px 4px 0 0; transition: height 0.18s ease; }
+	.ld-bars :global(.ld-lev span:not(.ld-gap)) { background: #d97706; }
+	/* 缺口：畫出槓桿比指數少掉的那一段，讓差距自己變成形狀 */
+	.ld-bars :global(.ld-bar span.ld-gap) {
+		display: flex; align-items: flex-end; justify-content: center;
+		background: transparent;
+		border: 1.5px dashed #d97706; border-bottom: none;
+		border-radius: 4px 4px 0 0;
+		color: #9a5b06; font-size: 0.78rem; font-weight: 700;
+		padding-bottom: 3px; box-sizing: border-box;
+		transition: height 0.18s ease;
+	}
+	.ld-bars :global(.ld-bar.ld-lev span:not(.ld-gap)) { background: #d97706; }
+	.ld-bars :global(.ld-bar em) { font-style: normal; font-size: 0.82rem; color: var(--muted); text-align: center; padding-top: 0.35rem; }
+	.sv-switch {
+		display: flex; align-items: center; gap: 0.55rem;
+		font-size: 0.92rem; color: var(--text); margin-bottom: 1rem; cursor: pointer;
+	}
+	.sv-switch input { width: 1.05rem; height: 1.05rem; accent-color: var(--accent); }
+	.sv-grid {
+		display: grid; grid-template-columns: repeat(25, 1fr); gap: 3px; margin-bottom: 1rem;
+	}
+	.sv-grid :global(i) { display: block; aspect-ratio: 1; border-radius: 2px; transition: opacity 0.25s ease, background 0.25s ease; }
+	.sv-grid :global(.sv-alive) { background: var(--accent); }
+	.sv-grid :global(.sv-dead) { background: #c4ccd8; }
+	.sv-grid[data-mode="alive"] :global(.sv-dead) { opacity: 0.12; }
+	.sv-caption { margin: 1.1rem 0 0.4rem; font-size: 0.85rem; color: var(--muted); }
+	.sv-years { margin-bottom: 1rem; color: var(--ink); }
+	.tool-out { margin: 0 0 0.75rem; line-height: 1.7; color: var(--text); }
+	.tool-note { margin: 0; font-size: 0.88rem; color: var(--muted); }
+	.tool-note a { color: var(--accent-strong); text-decoration: none; border-bottom: 1px solid var(--accent-tint); }
+</style>
