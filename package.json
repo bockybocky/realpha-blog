@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/postbuild.mjs",
+    "build": "node scripts/sync-vocus-links.mjs && astro build && node scripts/postbuild.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

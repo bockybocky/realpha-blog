@@ -1,0 +1,86 @@
+---
+// 部落格文章底部的方格子引流區塊。
+// 誘因用真實差異，不編造：本站留言是 giscus（要 GitHub 帳號），
+// 方格子那邊留言與追蹤的門檻低很多。
+// 對應表由 scripts/sync-vocus-links.mjs 從 blog_auto/vocus_ids.json 產生。
+import links from '../data/vocus-links.json';
+
+interface Props {
+	slug: string;
+}
+
+const { slug } = Astro.props;
+const SALON = 'https://vocus.cc/salon/6a1e9e1a9da94e81ec5c81e6';
+const articleId = (links as Record<string, string>)[slug];
+const articleUrl = articleId ? `https://vocus.cc/article/${articleId}` : null;
+---
+
+<aside class="vocus">
+	<p class="vocus-title">想聊兩句、或想接著看下去的話</p>
+	<p class="vocus-lead">
+		這個站的留言要有 GitHub 帳號，門檻有點高。
+		{articleUrl ? '這篇在方格子也放了一份，' : '我在方格子也有一個地方，'}
+		那邊留言只要一般帳號就行；訂閱沙龍是免費的，新文章出來會收到通知。
+	</p>
+	<p class="vocus-links">
+		{articleUrl && (
+			<a class="vocus-primary" href={articleUrl} target="_blank" rel="noopener">
+				到方格子讀這篇並留言
+			</a>
+		)}
+		<a class="vocus-primary" href={SALON} target="_blank" rel="noopener">
+			免費訂閱沙龍
+		</a>
+		<span class="vocus-secondary">Realpha 讀世界｜市場判讀筆記</span>
+	</p>
+</aside>
+
+<style>
+	.vocus {
+		margin: 3rem auto 0;
+		max-width: var(--measure);
+		padding: 1.35rem 1.5rem;
+		border: 1px solid var(--line);
+		border-left: 3px solid var(--accent);
+		border-radius: var(--radius);
+		background: var(--soft);
+	}
+	.vocus-title {
+		margin: 0 0 0.5rem;
+		font-family: var(--font-display);
+		font-size: 1.02rem;
+		font-weight: 700;
+		color: var(--text);
+	}
+	.vocus-lead {
+		margin: 0 0 1rem;
+		color: var(--muted);
+		font-size: 0.95rem;
+		line-height: 1.75;
+	}
+	.vocus-links {
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem 1.1rem;
+		align-items: center;
+	}
+	.vocus-primary {
+		font-weight: 600;
+		color: var(--accent-strong);
+		text-decoration: none;
+		border-bottom: 2px solid var(--accent-tint);
+	}
+	.vocus-primary:hover {
+		border-bottom-color: var(--accent);
+	}
+	.vocus-secondary {
+		color: var(--muted);
+		font-size: 0.92rem;
+		text-decoration: none;
+		border-bottom: 1px solid var(--line);
+	}
+	.vocus-secondary {
+		border-bottom: none;
+	}
+</style>
