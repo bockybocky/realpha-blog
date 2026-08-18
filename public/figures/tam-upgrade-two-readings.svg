@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩根長條，舊預測矮、新預測高三倍多；一支箭頭向上讀市場，一支虛線箭頭回指舊預測讀預測者">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .l { font-size:16px; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <defs>
+    <marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="w4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+  <text class="t" x="60" y="62">同一個上調，兩個訊息</text>
+
+  <line x1="120" y1="420" x2="900" y2="420" stroke="var(--line)" stroke-width="2"/>
+  <rect x="180" y="330" width="110" height="90" rx="6" fill="var(--grey)"/>
+  <rect x="420" y="120" width="110" height="300" rx="6" fill="var(--accent)"/>
+  <text class="l" x="180" y="450">兩年前 一百二十億</text>
+  <text class="l" x="420" y="450">現在 五百億</text>
+
+  <path d="M 570 300 C 620 300 620 200 660 180" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#a4)"/>
+  <text class="g" x="672" y="176">讀市場</text>
+  <text class="n" x="672" y="206">結構性變大</text>
+
+  <path d="M 400 150 C 330 150 300 220 262 305" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#w4)"/>
+  <text class="g" x="120" y="196">讀預測者</text>
+  <text class="n" x="120" y="226">同一來源，錯四倍</text>
+
+  <text class="c" x="60" y="510">多數人只讀了上面那個</text>
+</svg>

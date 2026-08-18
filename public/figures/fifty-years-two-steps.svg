@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="階梯線圖：左側三階緩慢上升後拉出一段很長的平坦線，右側在很短的距離內連跳兩階，右邊的落差明顯高過左邊。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--dim); }
+    .l { font-size:16px; fill:var(--dim); }
+    .a { font-size:16px; fill:var(--accent); font-weight:700; }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="52">五十年只動兩層，這兩年跳了兩次</text>
+
+  <path d="M 60 470 L 60 120" stroke="var(--line)" stroke-width="2" fill="none"/>
+  <text class="l" x="60" y="106">抽象層級</text>
+  <text class="l" x="900" y="470" text-anchor="end">時間</text>
+
+  <path d="M 90 430 L 200 430 L 200 380 L 300 380 L 300 330 L 660 330"
+        stroke="var(--grey)" stroke-width="5" fill="none" stroke-linejoin="round"/>
+  <path d="M 660 330 L 660 250 L 745 250 L 745 170 L 880 170"
+        stroke="var(--accent)" stroke-width="6" fill="none" stroke-linejoin="round"/>
+
+  <text class="l" x="94" y="418">打孔卡</text>
+  <text class="l" x="206" y="368">程式語言</text>
+  <text class="l" x="306" y="318">作業系統</text>
+  <text class="a" x="666" y="238">人講，模型寫</text>
+  <text class="a" x="751" y="158">模型指揮模型</text>
+
+  <path d="M 310 358 L 650 358" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6" fill="none"/>
+  <path d="M 310 358 L 322 352 L 322 364 Z" fill="var(--grey)"/>
+  <path d="M 650 358 L 638 352 L 638 364 Z" fill="var(--grey)"/>
+  <text class="g" x="480" y="384" text-anchor="middle">約五十年沒動</text>
+
+  <text class="c" x="480" y="508" text-anchor="middle">動的是分工線，不是工具</text>
+</svg>

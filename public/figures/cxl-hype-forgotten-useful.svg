@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-label="一條熱度折線先衝高、再墜到谷底、然後從谷底重新往上爬，前兩段是灰色的過去，最後一段是彩色的現在">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text x="60" y="70" font-size="27" fill="var(--ink)">被吹過頭，被遺忘，然後才有用</text>
+  <text x="60" y="200" font-size="15" fill="var(--dim)">熱度</text>
+
+  <line x1="90" y1="470" x2="900" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <polyline points="150,320 250,190 470,400" fill="none" stroke="var(--grey)" stroke-width="5"/>
+  <polyline points="470,400 870,215" fill="none" stroke="var(--accent)" stroke-width="5"/>
+
+  <circle cx="250" cy="190" r="8" fill="var(--grey)"/>
+  <circle cx="470" cy="400" r="8" fill="var(--grey)"/>
+  <circle cx="870" cy="215" r="8" fill="var(--accent)"/>
+
+  <text x="205" y="160" font-size="16" fill="var(--ink)">被吹過頭</text>
+  <text x="428" y="372" font-size="16" fill="var(--ink)">被遺忘</text>
+  <text x="746" y="185" font-size="16" fill="var(--ink)">零件到齊</text>
+
+  <text x="205" y="505" font-size="15" fill="var(--dim)">2021–2022</text>
+  <text x="440" y="505" font-size="15" fill="var(--dim)">2023</text>
+  <text x="840" y="505" font-size="15" fill="var(--dim)">2026</text>
+
+  <text x="60" y="560" font-size="22" fill="var(--accent)">繞一圈才變有用</text>
+</svg>

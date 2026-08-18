@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊六個未相連的方塊，右邊同樣六個方塊被連線串起並被一個外框包住成為單一整體。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .a { font-size:15px; font-weight:700; fill:var(--accent); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="60">連得起來，才算一台</text>
+
+  <rect x="70" y="120" width="340" height="300" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="240" y="162" text-anchor="middle">節點很多</text>
+  <rect x="92" y="200" width="76" height="56" rx="8" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+  <rect x="204" y="200" width="76" height="56" rx="8" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+  <rect x="316" y="200" width="76" height="56" rx="8" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+  <rect x="92" y="290" width="76" height="56" rx="8" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+  <rect x="204" y="290" width="76" height="56" rx="8" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+  <rect x="316" y="290" width="76" height="56" rx="8" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+  <text class="s" x="240" y="388" text-anchor="middle">各做各的</text>
+
+  <text class="s" x="480" y="252" text-anchor="middle">互聯</text>
+  <line x1="425" y1="270" x2="520" y2="270" stroke="var(--dim)" stroke-width="3"/>
+  <polygon points="520,262 538,270 520,278" fill="var(--dim)"/>
+
+  <rect x="550" y="120" width="340" height="300" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="720" y="162" text-anchor="middle">節點一樣多</text>
+  <rect x="562" y="188" width="320" height="168" rx="12" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="7 6"/>
+  <line x1="610" y1="228" x2="834" y2="228" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="610" y1="318" x2="834" y2="318" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="610" y1="228" x2="610" y2="318" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="722" y1="228" x2="722" y2="318" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="834" y1="228" x2="834" y2="318" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="572" y="200" width="76" height="56" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="684" y="200" width="76" height="56" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="796" y="200" width="76" height="56" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="572" y="290" width="76" height="56" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="684" y="290" width="76" height="56" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="796" y="290" width="76" height="56" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="a" x="722" y="388" text-anchor="middle">＝一台</text>
+
+  <text class="c" x="480" y="492" text-anchor="middle">頻寬與延遲，決定它是很多台還是一台</text>
+</svg>

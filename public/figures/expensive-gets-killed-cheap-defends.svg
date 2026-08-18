@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩根往下的柱子比較跌幅：高本益比那根深達三到五成，便宜有業績那根只有一兩成，一道箭頭從深的那邊彎向淺的那邊">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .n { font-size:16px; fill:var(--page); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--dim)"/>
+    </marker>
+  </defs>
+
+  <text class="t" x="60" y="60">貴的先被殺，錢躲到便宜的那邊</text>
+
+  <path d="M360,152 C440,96 520,96 600,148" fill="none" stroke="var(--dim)" stroke-width="2" marker-end="url(#ar1)"/>
+  <text class="s" x="480" y="98" text-anchor="middle">資金移動</text>
+
+  <line x1="120" y1="190" x2="840" y2="190" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="s" x="120" y="180">起跌點</text>
+
+  <rect x="210" y="190" width="140" height="240" fill="var(--warn)"/>
+  <text class="n" x="280" y="320" text-anchor="middle">－三到五成</text>
+
+  <rect x="610" y="190" width="140" height="80" fill="var(--accent)"/>
+  <text class="n" x="680" y="238" text-anchor="middle">－一兩成</text>
+
+  <line x1="680" y1="270" x2="680" y2="446" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 6"/>
+  <line x1="280" y1="430" x2="280" y2="446" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 6"/>
+
+  <text class="g" x="280" y="472" text-anchor="middle">高本益比</text>
+  <text class="g" x="680" y="472" text-anchor="middle">便宜、有業績</text>
+
+  <text class="c" x="480" y="516" text-anchor="middle">便宜的不是更會漲，是更不會再跌</text>
+</svg>

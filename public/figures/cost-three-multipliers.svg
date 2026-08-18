@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="以旗艦成本為一的三根長條：先降到三分之一，再回升到三分之二，仍在基準線下方；右側一支向上箭頭代表時間拉長">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="48" y="62">便宜多少，要三個數字乘完</text>
+  <text class="b" x="48" y="92">以旗艦模型的總成本為 1</text>
+  <rect x="40" y="118" width="880" height="364" rx="14" fill="var(--card)"/>
+  <line x1="100" y1="190" x2="880" y2="190" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="b" x="880" y="180" text-anchor="end">旗艦基準</text>
+  <line x1="100" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <rect x="120" y="190" width="130" height="240" rx="6" fill="var(--grey)"/>
+  <rect x="350" y="351" width="130" height="79" rx="6" fill="var(--accent)"/>
+  <rect x="580" y="269" width="130" height="161" rx="6" fill="var(--accent)"/>
+  <text class="b" x="185" y="178" text-anchor="middle">1.0</text>
+  <text class="b" x="415" y="339" text-anchor="middle">0.33</text>
+  <text class="b" x="645" y="257" text-anchor="middle">0.67</text>
+  <text class="g" x="185" y="462" text-anchor="middle">旗艦</text>
+  <text class="g" x="415" y="462" text-anchor="middle">單價</text>
+  <text class="g" x="645" y="462" text-anchor="middle">總帳</text>
+  <line x1="258" y1="412" x2="336" y2="412" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="336,412 326,407 326,417" fill="var(--dim)"/>
+  <text class="g" x="297" y="400" text-anchor="middle">× ⅓</text>
+  <line x1="488" y1="412" x2="566" y2="412" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="566,412 556,407 556,417" fill="var(--dim)"/>
+  <text class="g" x="527" y="400" text-anchor="middle">× 2</text>
+  <text class="b" x="527" y="382" text-anchor="middle">繞路</text>
+  <line x1="820" y1="430" x2="820" y2="300" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="820,292 812,306 828,306" fill="var(--warn)"/>
+  <text class="g" x="820" y="278" text-anchor="middle" fill="var(--warn)">時間</text>
+  <text class="c" x="48" y="518">總帳便宜，但慢</text>
+</svg>

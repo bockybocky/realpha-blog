@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊三層平整疊層上有三根垂直貫穿的通孔；右邊同樣三層拱成弧形，通孔上下兩段錯開接不上。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="480" y="54" font-size="27" text-anchor="middle">圓改方，難的是它會彎</text>
+
+  <text x="260" y="126" font-size="20" text-anchor="middle">常溫</text>
+  <rect x="100" y="280" width="320" height="24" fill="var(--line)"/>
+  <rect x="100" y="304" width="320" height="24" fill="var(--grey)"/>
+  <rect x="100" y="328" width="320" height="24" fill="var(--line)"/>
+  <line x1="180" y1="250" x2="180" y2="372" stroke="var(--accent)" stroke-width="5"/>
+  <line x1="260" y1="250" x2="260" y2="372" stroke="var(--accent)" stroke-width="5"/>
+  <line x1="340" y1="250" x2="340" y2="372" stroke="var(--accent)" stroke-width="5"/>
+  <text x="260" y="425" font-size="15" text-anchor="middle" fill="var(--dim)">每層對得準</text>
+
+  <text x="700" y="126" font-size="20" text-anchor="middle">高溫之後</text>
+  <path d="M540 292 Q700 212 860 292" fill="none" stroke="var(--line)" stroke-width="24"/>
+  <path d="M540 316 Q700 236 860 316" fill="none" stroke="var(--grey)" stroke-width="24"/>
+  <path d="M540 340 Q700 260 860 340" fill="none" stroke="var(--line)" stroke-width="24"/>
+  <line x1="660" y1="180" x2="660" y2="238" stroke="var(--warn)" stroke-width="5"/>
+  <line x1="684" y1="314" x2="684" y2="372" stroke="var(--warn)" stroke-width="5"/>
+  <line x1="660" y1="238" x2="684" y2="314" stroke="var(--warn)" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="700" y="425" font-size="15" text-anchor="middle" fill="var(--warn)">上下對不上</text>
+
+  <text x="480" y="505" font-size="22" text-anchor="middle">後面每一步，都假設它是平的</text>
+</svg>

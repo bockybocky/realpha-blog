@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="同一根等高的庫存柱子往左右分岔，左邊是原料備料等投產，右邊是成品堆在倉庫賣不掉">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .bd { font-size:16px; fill:var(--dim); }
+    .cc { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t ttl" x="60" y="66">庫存變高，看的是性質不是高度</text>
+
+  <rect x="420" y="110" width="120" height="110" rx="8" fill="var(--card)" stroke="var(--ink)" stroke-width="3"/>
+  <text class="t grp" x="424" y="252" text-anchor="start">七十六天</text>
+
+  <path d="M420 165 L300 165 L300 300" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <polygon points="288,300 300,330 312,300" fill="var(--accent)"/>
+  <path d="M540 165 L660 165 L660 300" fill="none" stroke="var(--warn)" stroke-width="4"/>
+  <polygon points="648,300 660,330 672,300" fill="var(--warn)"/>
+
+  <rect x="90" y="340" width="330" height="160" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t grp" x="116" y="380" fill="var(--accent)">備料</text>
+  <text class="t bd" x="116" y="416">位置：投產前</text>
+  <text class="t bd" x="116" y="446">形態：原料與在製</text>
+  <text class="t bd" x="116" y="476">去向：已排定的產能</text>
+
+  <rect x="540" y="340" width="330" height="160" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+  <text class="t grp" x="566" y="380" fill="var(--warn)">滯銷</text>
+  <text class="t bd" x="566" y="416">位置：出貨後</text>
+  <text class="t bd" x="566" y="446">形態：成品</text>
+  <text class="t bd" x="566" y="476">去向：等買主</text>
+
+  <rect x="112" y="352" width="26" height="26" fill="var(--accent)" opacity="0.001"/>
+  <rect x="380" y="356" width="24" height="130" rx="4" fill="var(--accent)" opacity="0.25"/>
+  <rect x="556" y="356" width="24" height="130" rx="4" fill="var(--warn)" opacity="0.25"/>
+
+  <text class="t cc" x="60" y="540">同樣的數字，兩條相反的路</text>
+</svg>

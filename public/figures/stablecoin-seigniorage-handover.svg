@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="之前之後兩格對比：兩根等高的柱代表貨幣總量沒變，右邊那根被切成銀行存款與穩定幣兩段，利差箭頭從指向銀行改為指向發行商。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <defs>
+    <marker id="ag" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="var(--dim)"/>
+    </marker>
+    <marker id="aa" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+
+  <text class="t" x="480" y="50" text-anchor="middle" font-size="27" font-weight="700" fill="var(--ink)">總量沒變，變的是利差歸誰</text>
+
+  <rect x="60" y="90" width="380" height="330" rx="10" fill="var(--card)"/>
+  <rect x="520" y="90" width="380" height="330" rx="10" fill="var(--card)"/>
+
+  <text class="t" x="120" y="124" text-anchor="middle" font-size="19" font-weight="700" fill="var(--dim)">之前</text>
+  <text class="t" x="580" y="124" text-anchor="middle" font-size="19" font-weight="700" fill="var(--dim)">之後</text>
+
+  <line x1="100" y1="180" x2="860" y2="180" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="t" x="480" y="170" text-anchor="middle" font-size="16" fill="var(--dim)">總量不變</text>
+
+  <rect x="140" y="180" width="120" height="200" fill="var(--grey)"/>
+  <text class="t" x="200" y="286" text-anchor="middle" font-size="16" font-weight="700" fill="var(--ink)">銀行存款</text>
+
+  <rect x="600" y="260" width="120" height="120" fill="var(--grey)"/>
+  <rect x="600" y="180" width="120" height="80" fill="var(--accent)"/>
+  <text class="t" x="660" y="326" text-anchor="middle" font-size="16" font-weight="700" fill="var(--ink)">銀行存款</text>
+  <text class="t" x="660" y="226" text-anchor="middle" font-size="16" font-weight="700" fill="var(--page)">穩定幣</text>
+
+  <line x1="270" y1="300" x2="340" y2="300" stroke="var(--dim)" stroke-width="2.5" marker-end="url(#ag)"/>
+  <text class="t" x="305" y="288" text-anchor="middle" font-size="15" fill="var(--dim)">利差</text>
+  <text class="t" x="386" y="306" text-anchor="middle" font-size="16" font-weight="700" fill="var(--ink)">銀行</text>
+
+  <line x1="730" y1="220" x2="800" y2="220" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#aa)"/>
+  <text class="t" x="765" y="208" text-anchor="middle" font-size="15" fill="var(--accent)">利差</text>
+  <text class="t" x="845" y="226" text-anchor="middle" font-size="16" font-weight="700" fill="var(--accent)">發行商</text>
+
+  <line x1="120" y1="380" x2="290" y2="380" stroke="var(--line)" stroke-width="2"/>
+  <line x1="580" y1="380" x2="750" y2="380" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="200" y="404" text-anchor="middle" font-size="15" fill="var(--dim)">貨幣總量</text>
+  <text class="t" x="660" y="404" text-anchor="middle" font-size="15" fill="var(--dim)">貨幣總量</text>
+
+  <text class="t" x="480" y="470" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)">鑄幣稅換手，不是印錢</text>
+</svg>

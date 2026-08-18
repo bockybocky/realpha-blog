@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="三層橫條由下往上代表供應鏈往上游，缺口段一層比一層寬：下游資料中心仍不夠、中游記憶體只拿到六到七成、上游雷射缺口最大">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="66" font-size="27" font-weight="700" fill="var(--ink)">同一條供應鏈，越往上游缺口越大</text>
+
+  <line x1="72" y1="420" x2="72" y2="140" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="72,128 79,144 65,144" fill="var(--grey)"/>
+  <text class="t" x="52" y="290" font-size="16" fill="var(--dim)" transform="rotate(-90 52 290)" text-anchor="middle">往上游</text>
+
+  <text class="t" x="110" y="176" font-size="19" font-weight="700" fill="var(--ink)">InP 雷射</text>
+  <text class="t" x="110" y="200" font-size="15" fill="var(--dim)">上游</text>
+  <rect x="330" y="150" width="480" height="40" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="330" y="150" width="288" height="40" fill="var(--accent)"/>
+  <rect x="618" y="150" width="192" height="40" fill="var(--warn)"/>
+  <text class="t" x="810" y="212" font-size="15" text-anchor="end" fill="var(--warn)">缺口 逾三成・業內稱更嚴重</text>
+
+  <text class="t" x="110" y="286" font-size="19" font-weight="700" fill="var(--ink)">記憶體 DRAM／HBM</text>
+  <text class="t" x="110" y="310" font-size="15" fill="var(--dim)">中游</text>
+  <rect x="330" y="260" width="480" height="40" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="330" y="260" width="312" height="40" fill="var(--accent)"/>
+  <rect x="642" y="260" width="168" height="40" fill="var(--warn)"/>
+  <text class="t" x="810" y="322" font-size="15" text-anchor="end" fill="var(--warn)">只拿到請求量的六到七成</text>
+
+  <text class="t" x="110" y="396" font-size="19" font-weight="700" fill="var(--ink)">資料中心</text>
+  <text class="t" x="110" y="420" font-size="15" fill="var(--dim)">下游</text>
+  <rect x="330" y="370" width="480" height="40" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="330" y="370" width="432" height="40" fill="var(--accent)"/>
+  <rect x="762" y="370" width="48" height="40" fill="var(--warn)"/>
+  <text class="t" x="810" y="432" font-size="15" text-anchor="end" fill="var(--warn)">資本支出照加，仍不夠</text>
+
+  <line x1="60" y1="470" x2="900" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="60" y="508" font-size="22" font-weight="700" fill="var(--ink)">最緊的那層，未必是最多人在談的那層</text>
+  <text class="t" x="900" y="508" font-size="14" text-anchor="end" fill="var(--dim)">示意，非等比</text>
+</svg>

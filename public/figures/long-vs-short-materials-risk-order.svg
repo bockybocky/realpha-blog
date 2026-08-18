@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="三個由矮到高的方塊由左至右排列，前兩個在虛線左側屬循環波動，最高的第三個在右側屬趨勢轉向">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.h{font-size:27px;font-weight:700;fill:var(--ink)}
+.g{font-size:20px;font-weight:700;fill:var(--dim)}
+.n{font-size:19px;font-weight:700;fill:var(--ink)}
+.s{font-size:16px;fill:var(--dim)}
+.num{font-size:19px;font-weight:700;fill:var(--grey)}
+.c{font-size:22px;font-weight:700;fill:var(--ink)}
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="h" x="70" y="56">風險有順序：前兩個是波動，第三個才是轉向</text>
+
+<line x1="615" y1="120" x2="615" y2="492" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 7"/>
+<text class="g" x="320" y="152" text-anchor="middle">循環波動</text>
+<text class="g" x="770" y="152" text-anchor="middle">趨勢轉向</text>
+
+<text class="num" x="185" y="346" text-anchor="middle">1</text>
+<rect x="70" y="360" width="230" height="110" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="n" x="185" y="402" text-anchor="middle">伺服器組裝廠庫存</text>
+<text class="s" x="185" y="432" text-anchor="middle">長料堆積</text>
+
+<text class="num" x="455" y="296" text-anchor="middle">2</text>
+<rect x="340" y="310" width="230" height="160" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="n" x="455" y="352" text-anchor="middle">終端轉嫁能力</text>
+<text class="s" x="455" y="382" text-anchor="middle">消費與車用砍單</text>
+
+<text class="num" x="770" y="206" text-anchor="middle">3</text>
+<rect x="650" y="220" width="240" height="250" rx="10" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+<text class="n" x="770" y="262" text-anchor="middle">資本支出指引</text>
+<text class="s" x="770" y="292" text-anchor="middle">短料被砍</text>
+
+<line x1="50" y1="470" x2="910" y2="470" stroke="var(--line)" stroke-width="2"/>
+<text class="c" x="480" y="524" text-anchor="middle">先看前兩層鬆不鬆，再看第三層</text>
+</svg>

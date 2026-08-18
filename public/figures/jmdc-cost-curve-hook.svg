@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一條累積獲利曲線先往下探底再急速翹起，谷底剛回升處標著接手的時點">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="60" y="58" font-size="27" fill="var(--ink)">同一條曲線的兩端</text>
+  <rect x="70" y="96" width="820" height="396" rx="14" fill="var(--card)"/>
+  <text x="96" y="126" font-size="15" fill="var(--dim)">累積獲利</text>
+  <line x1="110" y1="330" x2="890" y2="330" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="96" y="336" font-size="15" fill="var(--dim)" text-anchor="end">0</text>
+  <path d="M110,330 C210,400 330,446 430,442 C500,439 540,392 570,330 C640,214 780,162 880,146" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="503" cy="399" r="8" fill="var(--accent)"/>
+  <text x="528" y="404" font-size="20" fill="var(--ink)">接手</text>
+  <text x="528" y="428" font-size="15" fill="var(--dim)">營收 10 億</text>
+  <text x="250" y="472" font-size="19" fill="var(--dim)" text-anchor="middle">燒錢十年</text>
+  <text x="250" y="497" font-size="15" fill="var(--dim)" text-anchor="middle">累積 −30 億</text>
+  <text x="770" y="366" font-size="19" fill="var(--ink)" text-anchor="middle">跨過門檻</text>
+  <text x="770" y="392" font-size="15" fill="var(--dim)" text-anchor="middle">複製成本 趨近零</text>
+  <text x="110" y="527" font-size="15" fill="var(--dim)">創業</text>
+  <text x="890" y="527" font-size="15" fill="var(--dim)" text-anchor="end">十年後</text>
+</svg>

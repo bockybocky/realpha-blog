@@ -45,6 +45,9 @@ COVERS = {
     'gooaye-ep683-cannot-see-the-mountain': 'gooaye-ep683-cover.png',
     'gooaye-ep684-liquidity-carries-and-capsizes': 'gooaye-ep684-cover.png',
     'herdr-agent-automation-vocus': 'herdr-agent-automation.png',
+    # 2026-08-18：前後編兩篇共用同一張封面（後編的專屬封面當初沒產生成功，
+    # mdx 指向的檔案是 404，已一併改指這張）
+    'invsunday-2026-08-02-rehacq-interfm': 'invsunday-rehacq-takahashi-media-cover.png',
 }
 
 

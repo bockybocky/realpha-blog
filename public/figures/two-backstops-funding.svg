@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="銀行的後盾在倒閉前就累積成一根柱子，壽險的後盾在倒閉前是空白、倒閉後才向同業與納稅人收取">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<defs>
+<marker id="arC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+</marker>
+<marker id="arCw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="var(--warn)"/>
+</marker>
+</defs>
+<text x="48" y="58" font-size="27" fill="var(--ink)">兩套後盾，兩種付費方式</text>
+<path d="M480,96 L480,470" stroke="var(--line)" stroke-width="1.5" fill="none"/>
+
+<text x="80" y="112" font-size="19" fill="var(--ink)">銀行｜FDIC</text>
+<path d="M80,330 L440,330" stroke="var(--line)" stroke-width="2" fill="none"/>
+<text x="96" y="300" font-size="15" fill="var(--dim)">每季繳保費</text>
+<rect x="96" y="312" width="16" height="16" fill="var(--accent)"/>
+<rect x="136" y="312" width="16" height="16" fill="var(--accent)"/>
+<rect x="176" y="312" width="16" height="16" fill="var(--accent)"/>
+<rect x="216" y="312" width="16" height="16" fill="var(--accent)"/>
+<rect x="256" y="312" width="16" height="16" fill="var(--accent)"/>
+<rect x="296" y="312" width="16" height="16" fill="var(--accent)"/>
+<rect x="330" y="230" width="56" height="100" fill="var(--accent)" fill-opacity="0.28" stroke="var(--accent)"/>
+<text x="358" y="220" font-size="15" fill="var(--dim)" text-anchor="middle">存保基金</text>
+<path d="M415,200 L415,352" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+<text x="415" y="370" font-size="15" fill="var(--dim)" text-anchor="middle">倒閉</text>
+<rect x="80" y="410" width="240" height="44" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text x="200" y="438" font-size="15" fill="var(--dim)" text-anchor="middle">基金耗盡→政府信用</text>
+<text x="80" y="492" font-size="15" fill="var(--accent)">事前繳・按風險計費</text>
+
+<text x="520" y="112" font-size="19" fill="var(--ink)">壽險｜州保證基金</text>
+<path d="M520,330 L880,330" stroke="var(--line)" stroke-width="2" fill="none"/>
+<text x="540" y="300" font-size="15" fill="var(--grey)">事前：零</text>
+<path d="M700,190 L700,352" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+<text x="700" y="370" font-size="15" fill="var(--dim)" text-anchor="middle">倒閉</text>
+<rect x="720" y="200" width="160" height="44" rx="8" fill="var(--card)" stroke="var(--accent)"/>
+<text x="800" y="228" font-size="15" fill="var(--ink)" text-anchor="middle">存活的同業</text>
+<path d="M800,248 L800,318" stroke="var(--accent)" stroke-width="2.5" fill="none" marker-end="url(#arC)"/>
+<path d="M718,232 L642,396" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="6 4" fill="none" marker-end="url(#arCw)"/>
+<text x="520" y="384" font-size="15" fill="var(--warn)">稅額抵減 100%（約 34 州）</text>
+<rect x="520" y="410" width="220" height="44" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-dasharray="5 4"/>
+<text x="630" y="438" font-size="15" fill="var(--warn)" text-anchor="middle">納稅人</text>
+<text x="520" y="492" font-size="15" fill="var(--warn)">事後攤・按保費規模</text>
+
+<text x="480" y="552" font-size="22" fill="var(--ink)" text-anchor="middle">倒掉的那一家，事前貢獻了零元</text>
+</svg>

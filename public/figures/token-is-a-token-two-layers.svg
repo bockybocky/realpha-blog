@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一條開源模型的分岔線指向兩層，上層毛利長條大幅縮短，下層算力需求長條反而變長，兩層方向相反">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text x="60" y="56" font-size="27" fill="var(--ink)">同一則恐慌，打在兩層上的結果相反</text>
+
+  <text x="60" y="127" font-size="20" fill="var(--ink)">開源模型</text>
+  <path d="M170 120 H240 V200 H282" fill="none" stroke="var(--dim)" stroke-width="2"/>
+  <path d="M240 120 V400 H282" fill="none" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="282,194 294,200 282,206" fill="var(--dim)"/>
+  <polygon points="282,394 294,400 282,406" fill="var(--dim)"/>
+
+  <rect x="298" y="150" width="602" height="150" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text x="326" y="192" font-size="20" fill="var(--ink)">前沿模型層</text>
+  <text x="326" y="224" font-size="16" fill="var(--dim)">毛利</text>
+  <text x="460" y="192" font-size="16" fill="var(--dim)">開源前</text>
+  <text x="460" y="252" font-size="16" fill="var(--dim)">開源後</text>
+  <rect x="556" y="172" width="280" height="26" rx="4" fill="var(--grey)"/>
+  <text x="846" y="192" font-size="16" fill="var(--dim)">9 成</text>
+  <rect x="556" y="232" width="93" height="26" rx="4" fill="var(--warn)"/>
+  <text x="659" y="252" font-size="16" fill="var(--dim)">3 成</text>
+
+  <rect x="298" y="350" width="602" height="150" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text x="326" y="392" font-size="20" fill="var(--ink)">算力層</text>
+  <text x="326" y="424" font-size="16" fill="var(--dim)">token 需求</text>
+  <text x="460" y="392" font-size="16" fill="var(--dim)">開源前</text>
+  <text x="460" y="452" font-size="16" fill="var(--dim)">開源後</text>
+  <rect x="556" y="372" width="200" height="26" rx="4" fill="var(--grey)"/>
+  <rect x="556" y="432" width="248" height="26" rx="4" fill="var(--accent)"/>
+  <text x="814" y="452" font-size="16" fill="var(--dim)">不減</text>
+
+  <text x="60" y="534" font-size="22" fill="var(--ink)">同一條鏈，一層被壓縮，另一層沒有</text>
+</svg>

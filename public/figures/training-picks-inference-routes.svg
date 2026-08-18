@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左右兩格對照，訓練那格是客戶直線連到一個指定硬體，推論那格是使用者隔著一道看不見的虛線牆，由服務方路由分派到三種不同硬體">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="60" y="62" font-size="27" fill="var(--ink)">誰在挑硬體</text>
+
+  <rect x="60" y="96" width="380" height="378" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="88" y="134" font-size="20" fill="var(--ink)">訓練</text>
+  <rect x="180" y="176" width="140" height="54" rx="6" fill="var(--page)" stroke="var(--dim)" stroke-width="2"/>
+  <text x="250" y="209" font-size="16" fill="var(--ink)" text-anchor="middle">客戶</text>
+  <line x1="250" y1="230" x2="250" y2="292" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="250,306 243,290 257,290" fill="var(--accent)"/>
+  <rect x="180" y="306" width="140" height="54" rx="6" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="250" y="339" font-size="16" fill="var(--ink)" text-anchor="middle">指定硬體</text>
+  <text x="250" y="410" font-size="16" fill="var(--dim)" text-anchor="middle">自己挑</text>
+
+  <rect x="520" y="96" width="380" height="378" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="548" y="134" font-size="20" fill="var(--ink)">推論</text>
+  <rect x="640" y="164" width="140" height="50" rx="6" fill="var(--page)" stroke="var(--dim)" stroke-width="2"/>
+  <text x="710" y="195" font-size="16" fill="var(--ink)" text-anchor="middle">使用者</text>
+  <line x1="710" y1="214" x2="710" y2="242" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="546" y1="252" x2="874" y2="252" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="874" y="244" font-size="15" fill="var(--dim)" text-anchor="end">看不見</text>
+  <line x1="710" y1="262" x2="710" y2="278" stroke="var(--accent)" stroke-width="3"/>
+  <rect x="618" y="278" width="184" height="50" rx="6" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="710" y="309" font-size="16" fill="var(--ink)" text-anchor="middle">服務方路由</text>
+  <line x1="710" y1="328" x2="710" y2="346" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="605" y1="346" x2="815" y2="346" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="605" y1="346" x2="605" y2="372" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="710" y1="346" x2="710" y2="372" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="815" y1="346" x2="815" y2="372" stroke="var(--accent)" stroke-width="3"/>
+  <rect x="558" y="372" width="94" height="48" rx="6" fill="var(--page)" stroke="var(--dim)" stroke-width="2"/>
+  <text x="605" y="402" font-size="15" fill="var(--ink)" text-anchor="middle">硬體 A</text>
+  <rect x="663" y="372" width="94" height="48" rx="6" fill="var(--page)" stroke="var(--dim)" stroke-width="2"/>
+  <text x="710" y="402" font-size="15" fill="var(--ink)" text-anchor="middle">硬體 B</text>
+  <rect x="768" y="372" width="94" height="48" rx="6" fill="var(--page)" stroke="var(--dim)" stroke-width="2"/>
+  <text x="815" y="402" font-size="15" fill="var(--ink)" text-anchor="middle">硬體 C</text>
+  <text x="710" y="452" font-size="16" fill="var(--dim)" text-anchor="middle">按每瓦權杖分派</text>
+
+  <text x="60" y="522" font-size="22" fill="var(--ink)">推論的世界是異質的</text>
+</svg>

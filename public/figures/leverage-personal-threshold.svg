@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一條槓桿刻度尺，上方曲線在 1.8 倍後陡然上揚，1.3 倍處有一條標記線">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    svg { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+
+  <text class="t" x="60" y="66">找出自己的那條線</text>
+
+  <rect x="515" y="135" width="345" height="205" fill="var(--warn)" fill-opacity="0.10"/>
+
+  <line x1="120" y1="340" x2="890" y2="340" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="135" x2="120" y2="340" stroke="var(--line)" stroke-width="2"/>
+
+  <line x1="268" y1="135" x2="268" y2="340" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="515" y1="135" x2="515" y2="340" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <path d="M 120 322 C 240 320, 330 314, 420 304 C 470 297, 500 288, 515 278 C 560 244, 620 198, 700 172 C 770 152, 820 146, 860 142"
+        fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <circle cx="268" cy="318" r="7" fill="var(--accent)"/>
+  <circle cx="515" cy="278" r="7" fill="var(--warn)"/>
+
+  <text class="g" x="268" y="120" fill="var(--accent)" text-anchor="middle">他自己的線 1.3x</text>
+  <text class="g" x="560" y="120" fill="var(--warn)">壓力起點 1.8x</text>
+
+  <text class="b" x="120" y="366" text-anchor="middle">1.0x</text>
+  <text class="b" x="367" y="366" text-anchor="middle">1.5x</text>
+  <text class="b" x="613" y="366" text-anchor="middle">2.0x</text>
+  <text class="b" x="860" y="366" text-anchor="middle">2.5x</text>
+  <text class="b" x="890" y="396" text-anchor="end">槓桿倍數</text>
+
+  <text class="b" x="92" y="240" transform="rotate(-90 92 240)" text-anchor="middle">生活受影響</text>
+
+  <text class="c" x="480" y="468" text-anchor="middle">重點不是倍數，是知道自己的線在哪</text>
+</svg>

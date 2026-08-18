@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊平面地圖上最短路徑是一條往上弓的弧線，右邊球面上同一條路徑筆直">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:15px; fill:var(--dim); }
+    .a { font-size:16px; fill:var(--accent); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="56">同一條路徑，換一張紙就換一個樣子</text>
+
+  <rect x="60" y="92" width="400" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="84" y="128">攤平的地圖</text>
+  <line x1="90" y1="200" x2="430" y2="200" stroke="var(--line)"/>
+  <line x1="90" y1="260" x2="430" y2="260" stroke="var(--line)"/>
+  <line x1="90" y1="320" x2="430" y2="320" stroke="var(--line)"/>
+  <line x1="160" y1="170" x2="160" y2="360" stroke="var(--line)"/>
+  <line x1="260" y1="170" x2="260" y2="360" stroke="var(--line)"/>
+  <line x1="360" y1="170" x2="360" y2="360" stroke="var(--line)"/>
+  <path d="M120 300 L400 288" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6" fill="none"/>
+  <path d="M120 300 Q260 176 400 288" stroke="var(--accent)" stroke-width="4" fill="none"/>
+  <circle cx="120" cy="300" r="6" fill="var(--ink)"/>
+  <circle cx="400" cy="288" r="6" fill="var(--ink)"/>
+  <text class="s" x="104" y="326">起點</text>
+  <text class="s" x="384" y="314">終點</text>
+  <text class="a" x="200" y="168">最短</text>
+  <text class="s" x="196" y="352">看起來直</text>
+
+  <rect x="500" y="92" width="400" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="524" y="128">球面</text>
+  <circle cx="700" cy="272" r="118" fill="none" stroke="var(--line)" stroke-width="2"/>
+  <ellipse cx="700" cy="272" rx="118" ry="42" fill="none" stroke="var(--line)"/>
+  <ellipse cx="700" cy="272" rx="46" ry="118" fill="none" stroke="var(--line)"/>
+  <path d="M622 214 Q700 176 778 214" stroke="var(--accent)" stroke-width="4" fill="none"/>
+  <circle cx="622" cy="214" r="6" fill="var(--ink)"/>
+  <circle cx="778" cy="214" r="6" fill="var(--ink)"/>
+  <text class="a" x="668" y="164">同一條</text>
+
+  <text class="c" x="60" y="490">把彎的攤成平的，直線就會長得像繞路</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊兩根逐季升高的庫存柱狀向右分岔成兩條箭頭，一條通往主動補庫存、一條通往被動補庫存">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.h{font-size:27px;font-weight:700;fill:var(--ink)}
+.n{font-size:20px;font-weight:700;fill:var(--ink)}
+.s{font-size:16px;fill:var(--dim)}
+.c{font-size:22px;font-weight:700;fill:var(--ink)}
+</style>
+<defs>
+<marker id="mA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+<marker id="mW" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="var(--warn)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="h" x="60" y="56">庫存上升沒有方向，方向由需求決定</text>
+
+<rect x="60" y="140" width="300" height="250" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="n" x="90" y="180">台積電庫存</text>
+<text class="s" x="90" y="208">連兩季上升</text>
+<rect x="130" y="290" width="60" height="60" fill="var(--grey)"/>
+<rect x="230" y="240" width="60" height="110" fill="var(--grey)"/>
+<line x1="100" y1="350" x2="330" y2="350" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="160" y="374" text-anchor="middle">前季</text>
+<text class="s" x="260" y="374" text-anchor="middle">本季</text>
+
+<line x1="380" y1="255" x2="548" y2="182" stroke="var(--accent)" stroke-width="3" marker-end="url(#mA)"/>
+<text class="s" x="462" y="200" text-anchor="middle">需求走強</text>
+<line x1="380" y1="268" x2="548" y2="366" stroke="var(--warn)" stroke-width="3" marker-end="url(#mW)"/>
+<text class="s" x="462" y="342" text-anchor="middle">需求轉弱</text>
+
+<rect x="560" y="150" width="340" height="110" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="n" x="730" y="192" text-anchor="middle">主動補庫存</text>
+<text class="s" x="730" y="222" text-anchor="middle">訂單搶進</text>
+
+<rect x="560" y="310" width="340" height="110" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+<text class="n" x="730" y="352" text-anchor="middle">被動補庫存</text>
+<text class="s" x="730" y="382" text-anchor="middle">高檔轉弱</text>
+
+<text class="c" x="480" y="500" text-anchor="middle">同一個數字，兩種讀法</text>
+</svg>

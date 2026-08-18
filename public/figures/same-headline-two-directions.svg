@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="費率上漲往右分岔，一條粗線往上、五條細線往下，兩端方向相反">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+    .h{font-size:27px;font-weight:700;fill:var(--ink)}
+    .g{font-size:20px;font-weight:700;fill:var(--ink)}
+    .b{font-size:16px;fill:var(--dim)}
+    .c{font-size:22px;font-weight:700;fill:var(--ink)}
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="h" x="60" y="56">同一則新聞，兩端相反</text>
+
+  <rect x="60" y="250" width="200" height="80" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="160" y="298" text-anchor="middle">費率上漲</text>
+
+  <path d="M260 272 C 400 236, 540 196, 686 180" fill="none" stroke="var(--accent)" stroke-width="7"/>
+  <polygon points="686,171 686,189 704,180" fill="var(--accent)"/>
+  <text class="b" x="466" y="204" text-anchor="middle" fill="var(--accent)">少數</text>
+  <text class="g" x="720" y="176" fill="var(--accent)">受惠</text>
+  <text class="b" x="720" y="206">有評等・接得上</text>
+
+  <path d="M260 312 C 400 340, 540 372, 686 392" fill="none" stroke="var(--warn)" stroke-width="2.5"/>
+  <path d="M260 316 C 400 352, 540 396, 686 418" fill="none" stroke="var(--warn)" stroke-width="2.5"/>
+  <path d="M260 320 C 400 364, 540 418, 686 444" fill="none" stroke="var(--warn)" stroke-width="2.5"/>
+  <path d="M260 324 C 400 376, 540 440, 686 470" fill="none" stroke="var(--warn)" stroke-width="2.5"/>
+  <path d="M260 328 C 400 388, 540 462, 686 496" fill="none" stroke="var(--warn)" stroke-width="2.5"/>
+  <polygon points="686,435 686,453 704,444" fill="var(--warn)"/>
+  <text class="b" x="466" y="424" text-anchor="middle" fill="var(--warn)">絕大多數</text>
+  <text class="g" x="720" y="418" fill="var(--warn)">受害</text>
+  <text class="b" x="720" y="448">長尾小車隊</text>
+
+  <text class="c" x="480" y="548" text-anchor="middle">受惠的少，受害的多</text>
+</svg>

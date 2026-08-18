@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊一個很大的導體截面圓幾乎撐滿方框，右邊同樣功率下的截面圓只有一小顆">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--dim); font-weight:700; }
+    .ga { font-size:20px; fill:var(--accent); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="480" y="56" text-anchor="middle">同樣的功率，換一個電壓</text>
+  <text class="s" x="480" y="92" text-anchor="middle">導體截面示意</text>
+
+  <rect x="140" y="160" width="280" height="280" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+  <circle cx="280" cy="300" r="110" fill="var(--card)" stroke="var(--grey)" stroke-width="3"/>
+  <text class="g" x="280" y="146" text-anchor="middle">54V</text>
+  <text class="s" x="280" y="306" text-anchor="middle">約 6000 安培</text>
+  <text class="s" x="140" y="472">機櫃裡被吃掉的空間</text>
+
+  <rect x="663" y="263" width="74" height="74" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="7 6"/>
+  <circle cx="700" cy="300" r="29" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="ga" x="700" y="146" text-anchor="middle">800V</text>
+  <text class="s" x="700" y="372" text-anchor="middle">約 400 安培</text>
+  <text class="s" x="700" y="472" text-anchor="middle">留給運算與散熱</text>
+
+  <text class="c" x="480" y="512" text-anchor="middle">電壓拉高，要改的東西才變少</text>
+</svg>

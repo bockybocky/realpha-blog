@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊五個方塊各有一根自己的柱子，右邊五個方塊共用同一根粗柱">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62">同樣是五個名字</text>
+
+  <line x1="480" y1="100" x2="480" y2="440" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="g" x="60" y="130">以為的分散</text>
+  <text class="s" x="60" y="156">五個名字，五件事成立</text>
+
+  <g fill="var(--card)" stroke="var(--line)" stroke-width="2">
+    <rect x="60" y="200" width="60" height="40" rx="6"/>
+    <rect x="140" y="200" width="60" height="40" rx="6"/>
+    <rect x="220" y="200" width="60" height="40" rx="6"/>
+    <rect x="300" y="200" width="60" height="40" rx="6"/>
+    <rect x="380" y="200" width="60" height="40" rx="6"/>
+  </g>
+  <g fill="var(--grey)">
+    <rect x="84" y="240" width="12" height="150"/>
+    <rect x="164" y="240" width="12" height="150"/>
+    <rect x="244" y="240" width="12" height="150"/>
+    <rect x="324" y="240" width="12" height="150"/>
+    <rect x="404" y="240" width="12" height="150"/>
+  </g>
+  <rect x="50" y="390" width="400" height="8" fill="var(--line)"/>
+
+  <text class="g" x="520" y="130">實際的分散</text>
+  <text class="s" x="520" y="156">五個名字，同一件事成立</text>
+
+  <g fill="var(--card)" stroke="var(--line)" stroke-width="2">
+    <rect x="520" y="200" width="60" height="40" rx="6"/>
+    <rect x="600" y="200" width="60" height="40" rx="6"/>
+    <rect x="680" y="200" width="60" height="40" rx="6"/>
+    <rect x="760" y="200" width="60" height="40" rx="6"/>
+    <rect x="840" y="200" width="60" height="40" rx="6"/>
+  </g>
+  <g stroke="var(--accent)" stroke-width="2">
+    <line x1="550" y1="240" x2="700" y2="290"/>
+    <line x1="630" y1="240" x2="700" y2="290"/>
+    <line x1="710" y1="240" x2="710" y2="290"/>
+    <line x1="790" y1="240" x2="720" y2="290"/>
+    <line x1="870" y1="240" x2="720" y2="290"/>
+  </g>
+  <rect x="680" y="290" width="60" height="100" fill="var(--accent)"/>
+  <rect x="510" y="390" width="400" height="8" fill="var(--line)"/>
+
+  <text class="c" x="60" y="490">分散看的是理由，不是數量</text>
+</svg>

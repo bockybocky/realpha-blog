@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條從同一點出發的曲線愈拉愈開，中間夾出一塊愈來愈寬的缺口區域">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62">同一個起點，兩種速度</text>
+
+  <line x1="130" y1="430" x2="830" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <line x1="130" y1="100" x2="130" y2="430" stroke="var(--line)" stroke-width="2"/>
+
+  <path d="M150,410 C350,400 520,330 800,140 L800,330 C560,395 350,412 150,410 Z" fill="var(--accent)" opacity="0.12"/>
+  <path d="M150,410 C350,400 520,330 800,140" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <path d="M150,410 C350,412 560,395 800,330" fill="none" stroke="var(--grey)" stroke-width="4"/>
+
+  <circle cx="150" cy="410" r="6" fill="var(--ink)"/>
+
+  <text class="g" x="812" y="134">營收</text>
+  <text class="s" x="812" y="156">10×／年</text>
+  <text class="g" x="812" y="326">算力</text>
+  <text class="s" x="812" y="348">3×／年</text>
+
+  <text class="g" x="470" y="300" fill="var(--accent)">缺口</text>
+
+  <text class="s" x="150" y="456" text-anchor="middle">今年</text>
+  <text class="s" x="800" y="456" text-anchor="middle">明年</text>
+
+  <text class="c" x="60" y="502">缺口愈往後愈寬，總得有人吸收</text>
+</svg>

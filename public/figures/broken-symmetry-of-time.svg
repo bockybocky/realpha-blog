@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左圖兩支箭頭互相對指代表誰都不比誰更對，右圖兩支箭頭同時指向重力井深處">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:15px; fill:var(--dim); }
+    .a { font-size:16px; fill:var(--accent); font-weight:700; }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="a2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0 0 L8 3 L0 6 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="g2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0 0 L8 3 L0 6 z" fill="var(--grey)"/>
+    </marker>
+  </defs>
+  <text class="t" x="60" y="56">誰的錶比較慢，有時有答案有時沒有</text>
+
+  <rect x="60" y="92" width="400" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="84" y="128">只是相對運動</text>
+  <circle cx="150" cy="250" r="26" fill="var(--grey)"/>
+  <circle cx="370" cy="250" r="26" fill="var(--grey)"/>
+  <line x1="184" y1="234" x2="336" y2="234" stroke="var(--grey)" stroke-width="3" marker-end="url(#g2)"/>
+  <line x1="336" y1="272" x2="184" y2="272" stroke="var(--grey)" stroke-width="3" marker-end="url(#g2)"/>
+  <text class="s" x="260" y="220" text-anchor="middle">你比較慢</text>
+  <text class="s" x="260" y="306" text-anchor="middle">你比較慢</text>
+  <text class="s" x="260" y="380" text-anchor="middle">誰都不比誰更對</text>
+
+  <rect x="500" y="92" width="400" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="524" y="128">有重物在</text>
+  <path d="M530 200 Q700 400 870 200" stroke="var(--line)" stroke-width="3" fill="none"/>
+  <circle cx="700" cy="342" r="20" fill="var(--accent)"/>
+  <circle cx="866" cy="204" r="20" fill="var(--grey)"/>
+  <line x1="846" y1="228" x2="736" y2="330" stroke="var(--accent)" stroke-width="3" marker-end="url(#a2)"/>
+  <path d="M690 316 Q676 288 692 268" stroke="var(--accent)" stroke-width="3" fill="none" marker-end="url(#a2)"/>
+  <text class="a" x="700" y="248" text-anchor="middle">都指向井底</text>
+  <text class="s" x="700" y="392" text-anchor="middle">兩個人一致同意</text>
+
+  <text class="c" x="60" y="486">有東西打破對稱，觀點才分得出高下</text>
+</svg>

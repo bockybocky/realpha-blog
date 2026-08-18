@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩格對照：高處視角的視線錐罩住整條長而深的下墜曲線，低處視角的視線錐只罩住一小段先跌後更高的線，其餘部分呈灰色">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="66" font-size="27" fill="var(--ink)">同一場海嘯，站的位置不同</text>
+
+  <rect x="60" y="110" width="400" height="340" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="500" y="110" width="400" height="340" fill="var(--card)" stroke="var(--line)"/>
+
+  <text class="t" x="80" y="148" font-size="20" fill="var(--accent)">總經位置</text>
+  <text class="t" x="520" y="148" font-size="20" fill="var(--accent)">產業位置</text>
+
+  <circle cx="100" cy="190" r="8" fill="var(--accent)"/>
+  <polygon points="100,190 440,240 440,430" fill="var(--accent)" fill-opacity="0.10" stroke="var(--accent)" stroke-width="1"/>
+  <polyline points="100,250 170,262 240,300 310,368 380,404 440,412" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <text class="t" x="440" y="188" font-size="16" fill="var(--dim)" text-anchor="end">房貸違約・庫存・新屋</text>
+  <text class="t" x="260" y="434" font-size="16" fill="var(--ink)" text-anchor="middle">看見：整個循環在下沉</text>
+
+  <polyline points="520,300 570,306 620,336 660,348" fill="none" stroke="var(--grey)" stroke-width="3" stroke-dasharray="6 6"/>
+  <polyline points="660,348 700,372 740,330 790,286 860,258" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <circle cx="700" cy="418" r="8" fill="var(--warn)"/>
+  <polygon points="700,418 660,352 790,290" fill="var(--warn)" fill-opacity="0.12" stroke="var(--warn)" stroke-width="1"/>
+  <text class="t" x="560" y="286" font-size="16" fill="var(--grey)">看不到</text>
+  <text class="t" x="820" y="238" font-size="16" fill="var(--ink)" text-anchor="middle">更強</text>
+  <text class="t" x="700" y="440" font-size="16" fill="var(--ink)" text-anchor="middle">看見：太陽能・LED 短跌就復甦</text>
+
+  <text class="t" x="60" y="510" font-size="22" fill="var(--ink)">位置決定你看得見哪一種災難</text>
+</svg>

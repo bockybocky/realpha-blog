@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩個分數並排，分子方塊一樣大，右邊的分母方塊被拉長，右邊算出來的倍數因此變小" font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+
+  <text x="80" y="70" font-size="27" font-weight="700" fill="var(--ink)">價格沒有動，動的是分母</text>
+
+  <rect x="125" y="190" width="150" height="56" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="200" y="226" font-size="17" fill="var(--ink)" text-anchor="middle">價格</text>
+  <line x1="110" y1="262" x2="290" y2="262" stroke="var(--ink)" stroke-width="3"/>
+  <rect x="170" y="278" width="60" height="44" rx="6" fill="var(--grey)"/>
+  <text x="200" y="352" font-size="15" fill="var(--dim)" text-anchor="middle">營收</text>
+  <text x="310" y="272" font-size="22" font-weight="700" fill="var(--ink)">= 100×</text>
+
+  <line x1="430" y1="262" x2="495" y2="262" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="512,262 494,254 494,270" fill="var(--accent)"/>
+  <text x="466" y="243" font-size="15" fill="var(--accent)" text-anchor="middle">30 天</text>
+
+  <rect x="545" y="190" width="150" height="56" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="620" y="226" font-size="17" fill="var(--ink)" text-anchor="middle">價格</text>
+  <line x1="530" y1="262" x2="730" y2="262" stroke="var(--ink)" stroke-width="3"/>
+  <rect x="525" y="278" width="190" height="44" rx="6" fill="var(--accent)"/>
+  <text x="620" y="352" font-size="15" fill="var(--dim)" text-anchor="middle">營收</text>
+  <text x="760" y="272" font-size="22" font-weight="700" fill="var(--accent)">= 39×</text>
+
+  <text x="80" y="452" font-size="22" font-weight="700" fill="var(--ink)">分母在被重寫的時候，倍數不是錨</text>
+</svg>

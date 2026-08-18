@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩條線從同一起點出發，指數線幾乎持平、個股線陡降，右端拉開一大段垂直落差，標示為倍數壓縮" font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text x="60" y="58" font-size="27" fill="var(--ink)" font-weight="700">指數沒事，個股倒一片</text>
+
+  <rect x="60" y="100" width="840" height="350" rx="10" fill="var(--card)"/>
+
+  <line x1="150" y1="130" x2="150" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <text x="100" y="160" font-size="15" fill="var(--dim)">同一起點</text>
+  <circle cx="150" cy="180" r="6" fill="var(--ink)"/>
+
+  <polyline points="150,180 300,196 450,188 600,214 700,208 760,226"
+            fill="none" stroke="var(--grey)" stroke-width="4" stroke-linejoin="round"/>
+  <polyline points="150,180 300,246 450,302 600,346 700,382 760,404"
+            fill="none" stroke="var(--accent)" stroke-width="4" stroke-linejoin="round"/>
+
+  <text x="430" y="180" font-size="20" fill="var(--ink)" font-weight="700">指數</text>
+  <text x="430" y="204" font-size="15" fill="var(--dim)">權值股撐盤</text>
+  <text x="380" y="392" font-size="20" fill="var(--accent)" font-weight="700">個股</text>
+  <text x="380" y="416" font-size="15" fill="var(--dim)">中小型・高 Beta</text>
+
+  <line x1="790" y1="226" x2="790" y2="404" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="782" y1="234" x2="790" y2="226" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="798" y1="234" x2="790" y2="226" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="782" y1="396" x2="790" y2="404" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="798" y1="396" x2="790" y2="404" stroke="var(--warn)" stroke-width="3"/>
+  <text x="810" y="304" font-size="20" fill="var(--warn)" font-weight="700">落差</text>
+  <text x="810" y="328" font-size="15" fill="var(--dim)">倍數壓縮</text>
+
+  <text x="60" y="500" font-size="22" fill="var(--ink)" font-weight="700">全面性的落差，指向資金面，不是產業利空</text>
+  <text x="60" y="530" font-size="15" fill="var(--dim)">走勢為示意</text>
+</svg>

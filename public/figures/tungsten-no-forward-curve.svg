@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="銅有一條可讀的遠期曲線，鎢只有一片三百到三千的寬色帶，沒有線">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t  { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1 { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g  { font-size:20px; fill:var(--ink); font-weight:600; }
+    .ga { font-size:20px; fill:var(--accent); font-weight:600; }
+    .gw { font-size:20px; fill:var(--warn); font-weight:600; }
+    .m  { font-size:16px; fill:var(--dim); }
+    .mw { font-size:16px; fill:var(--warn); }
+    .ma { font-size:16px; fill:var(--accent); }
+    .s  { font-size:15px; fill:var(--dim); }
+    .c  { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t h1" x="60" y="62">一邊是一條線，一邊是一片霧</text>
+
+  <rect x="60" y="120" width="400" height="300" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t g" x="86" y="160">銅</text>
+  <line x1="100" y1="380" x2="430" y2="380" stroke="var(--line)" stroke-width="2"/>
+  <polyline points="110,344 170,330 230,318 290,304 350,292 410,282" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="110" cy="344" r="4" fill="var(--accent)"/>
+  <circle cx="170" cy="330" r="4" fill="var(--accent)"/>
+  <circle cx="230" cy="318" r="4" fill="var(--accent)"/>
+  <circle cx="290" cy="304" r="4" fill="var(--accent)"/>
+  <circle cx="350" cy="292" r="4" fill="var(--accent)"/>
+  <circle cx="410" cy="282" r="4" fill="var(--accent)"/>
+  <text class="t ma" x="410" y="262" text-anchor="end">遠期曲線</text>
+  <text class="t s" x="110" y="400">今天</text>
+  <text class="t s" x="430" y="400" text-anchor="end">五年後</text>
+  <text class="t ga" x="260" y="200" text-anchor="middle">可抵押</text>
+
+  <rect x="500" y="120" width="400" height="300" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t g" x="526" y="160">鎢</text>
+  <rect x="560" y="240" width="230" height="140" fill="var(--warn)" fill-opacity="0.16" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 6"/>
+  <text class="t s" x="806" y="248">3,000</text>
+  <text class="t s" x="806" y="384">300</text>
+  <text class="t mw" x="675" y="316" text-anchor="middle">都算合理</text>
+  <text class="t gw" x="700" y="200" text-anchor="middle">不可抵押</text>
+
+  <text class="t c" x="60" y="490">擋住開礦的不是地質，是沒有可抵押的未來</text>
+</svg>

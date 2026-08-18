@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊是一個窄機櫃再加兩個附屬櫃、線材要跨櫃拉得很長，右邊是一個雙倍寬單櫃、線在櫃內很短，底下兩把量尺顯示總寬度其實差不多">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="60" y="62" font-size="27" fill="var(--ink)">機架變寬，換到的是什麼</text>
+
+  <text x="90" y="128" font-size="19" fill="var(--dim)">窄櫃＋兩個附屬櫃</text>
+  <rect x="90" y="150" width="86" height="220" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <rect x="186" y="150" width="70" height="220" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <rect x="266" y="150" width="70" height="220" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <polyline points="120,236 120,196 226,196 226,258 300,258 300,220" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <text x="90" y="398" font-size="16" fill="var(--dim)">線要跨櫃</text>
+
+  <text x="560" y="128" font-size="19" fill="var(--dim)">雙倍寬單櫃</text>
+  <rect x="560" y="150" width="190" height="220" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <polyline points="600,236 600,206 660,206 660,236" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <text x="560" y="398" font-size="16" fill="var(--dim)">線在櫃內</text>
+  <circle cx="800" cy="238" r="13" fill="var(--dim)"/>
+  <path d="M800 254 L800 316 M776 272 L824 272 M800 316 L784 358 M800 316 L816 358" stroke="var(--dim)" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <text x="838" y="272" font-size="16" fill="var(--dim)">肩膀進得去</text>
+
+  <line x1="90" y1="432" x2="336" y2="432" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="90,432 102,426 102,438" fill="var(--dim)"/>
+  <polygon points="336,432 324,426 324,438" fill="var(--dim)"/>
+  <text x="213" y="422" font-size="15" fill="var(--dim)" text-anchor="middle">總寬度</text>
+  <line x1="560" y1="432" x2="750" y2="432" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="560,432 572,426 572,438" fill="var(--dim)"/>
+  <polygon points="750,432 738,426 738,438" fill="var(--dim)"/>
+  <text x="655" y="422" font-size="15" fill="var(--dim)" text-anchor="middle">總寬度</text>
+
+  <text x="60" y="502" font-size="22" fill="var(--ink)">省的不是空間，是維修與線長</text>
+</svg>

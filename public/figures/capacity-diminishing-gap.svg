@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一條先陡後平的曲線：資產從低往上時生活差距急升，越過某個水位後幾乎持平">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="cap-f1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="cap-f1b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <text x="60" y="66" font-size="27" font-weight="600" fill="var(--ink)">資產再往上，生活差距用完了</text>
+
+  <rect x="520" y="112" width="360" height="318" fill="var(--card)"/>
+  <text x="700" y="146" font-size="19" fill="var(--dim)" text-anchor="middle">幾乎沒感覺</text>
+
+  <line x1="120" y1="430" x2="890" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="112" x2="120" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <text x="890" y="458" font-size="15" fill="var(--dim)" text-anchor="end">資產水位</text>
+  <text x="112" y="104" font-size="15" fill="var(--dim)">生活的差距</text>
+
+  <path d="M150,400 C240,396 268,236 360,182 C452,140 600,128 880,122" fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round"/>
+
+  <circle cx="150" cy="400" r="6" fill="var(--accent)"/>
+  <circle cx="360" cy="182" r="6" fill="var(--accent)"/>
+  <circle cx="620" cy="126" r="6" fill="var(--accent)"/>
+  <text x="150" y="418" font-size="16" fill="var(--ink)" text-anchor="middle">沙發</text>
+  <text x="360" y="164" font-size="16" fill="var(--ink)" text-anchor="middle">經濟艙</text>
+  <text x="620" y="110" font-size="16" fill="var(--ink)" text-anchor="middle">商務艙</text>
+
+  <line x1="266" y1="398" x2="266" y2="206" stroke="var(--accent)" stroke-width="2" marker-end="url(#cap-f1)"/>
+  <text x="280" y="304" font-size="16" fill="var(--accent)">最有感</text>
+
+  <text x="60" y="502" font-size="22" font-weight="600" fill="var(--ink)">差距在前段就用完了</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="持股比例從百分之二十七往下穿過百分之二十的門檻線到百分之十九，門檻上下的會計待遇不同">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .bd { font-size:16px; fill:var(--dim); }
+    .cc { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t ttl" x="60" y="66">跨過那條線，帳就換一本記</text>
+
+  <rect x="330" y="110" width="560" height="150" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t grp" x="356" y="150">線以上</text>
+  <text class="t bd" x="356" y="186">有實質影響力</text>
+  <text class="t bd" x="356" y="216">參與治理</text>
+  <text class="t bd" x="356" y="246">投資收益入本業旁</text>
+
+  <rect x="330" y="320" width="560" height="150" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t grp" x="356" y="360" fill="var(--accent)">線以下</text>
+  <text class="t bd" x="356" y="396">放手治理</text>
+  <text class="t bd" x="356" y="426">處分利益一次入業外</text>
+  <text class="t bd" x="356" y="456">資源收攏到先進製程</text>
+
+  <line x1="120" y1="120" x2="120" y2="470" stroke="var(--line)" stroke-width="3"/>
+  <text class="t bd" x="60" y="116">持股</text>
+
+  <line x1="70" y1="290" x2="900" y2="290" stroke="var(--warn)" stroke-width="3" stroke-dasharray="10 8"/>
+  <text class="t grp" x="70" y="278" fill="var(--warn)">二成</text>
+
+  <circle cx="120" cy="176" r="9" fill="var(--accent)"/>
+  <text class="t grp" x="146" y="182" fill="var(--accent)">二成七</text>
+  <circle cx="120" cy="404" r="9" fill="var(--accent)"/>
+  <text class="t grp" x="146" y="410" fill="var(--accent)">一成九</text>
+  <line x1="120" y1="190" x2="120" y2="386" stroke="var(--accent)" stroke-width="5"/>
+  <polygon points="108,386 120,416 132,386" fill="var(--accent)"/>
+
+  <text class="t cc" x="60" y="512">稅前淨利率高於毛利率，答案在這條線上</text>
+</svg>

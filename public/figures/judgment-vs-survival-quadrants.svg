@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="四象限：橫軸判斷對錯、縱軸部位存活與否，僥倖與賠光的正確兩格位於對角線，是只看結果會判錯的區域">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text class="t" x="60" y="66" font-size="27" font-weight="700" fill="var(--ink)">判斷的對錯，與部位的存活</text>
+
+  <rect x="300" y="120" width="270" height="160" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+  <rect x="570" y="120" width="270" height="160" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="300" y="280" width="270" height="160" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="570" y="280" width="270" height="160" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+
+  <text class="t" x="435" y="208" font-size="20" font-weight="700" text-anchor="middle" fill="var(--ink)">僥倖</text>
+  <text class="t" x="705" y="208" font-size="20" font-weight="700" text-anchor="middle" fill="var(--accent)">複利</text>
+  <text class="t" x="435" y="368" font-size="20" font-weight="700" text-anchor="middle" fill="var(--dim)">應驗</text>
+  <text class="t" x="705" y="368" font-size="20" font-weight="700" text-anchor="middle" fill="var(--ink)">賠光的正確</text>
+
+  <text class="t" x="286" y="206" font-size="16" text-anchor="end" fill="var(--dim)">存活</text>
+  <text class="t" x="286" y="366" font-size="16" text-anchor="end" fill="var(--dim)">爆掉</text>
+  <text class="t" x="230" y="280" font-size="19" fill="var(--dim)" transform="rotate(-90 230 280)" text-anchor="middle">部位</text>
+
+  <text class="t" x="435" y="472" font-size="16" text-anchor="middle" fill="var(--dim)">看錯</text>
+  <text class="t" x="705" y="472" font-size="16" text-anchor="middle" fill="var(--dim)">看對</text>
+  <text class="t" x="570" y="504" font-size="19" text-anchor="middle" fill="var(--dim)">判斷</text>
+
+  <line x1="60" y1="536" x2="900" y2="536" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="60" y="574" font-size="22" font-weight="700" fill="var(--ink)">爆倉不等於看錯，賺錢不等於看對</text>
+  <rect x="700" y="560" width="14" height="14" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <text class="t" x="724" y="573" font-size="15" fill="var(--dim)">結果與判斷不一致</text>
+</svg>

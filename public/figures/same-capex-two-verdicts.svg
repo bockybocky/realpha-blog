@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩格並排，同一根等高的資本支出柱子，左格判定為遠見、右格判定為罪狀，下方市場提問由「敢投多少」換成「還剩多少現金」">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .v { font-size:20px; font-weight:700; }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="58">同一筆資本支出，兩季兩種評價</text>
+
+  <rect x="60" y="96" width="390" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="510" y="96" width="390" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <text class="g" x="84" y="134">上一季</text>
+  <text class="g" x="534" y="134">這一季</text>
+
+  <text class="b" x="255" y="176" text-anchor="middle">資本支出</text>
+  <text class="b" x="705" y="176" text-anchor="middle">資本支出</text>
+
+  <rect x="195" y="188" width="120" height="168" rx="4" fill="var(--accent)"/>
+  <rect x="645" y="188" width="120" height="168" rx="4" fill="var(--warn)"/>
+
+  <line x1="90" y1="356" x2="420" y2="356" stroke="var(--line)" stroke-width="2"/>
+  <line x1="540" y1="356" x2="870" y2="356" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="v" x="255" y="384" text-anchor="middle" fill="var(--accent)">遠見</text>
+  <text class="v" x="705" y="384" text-anchor="middle" fill="var(--warn)">罪狀</text>
+
+  <text class="b" x="60" y="444">市場在問</text>
+  <text class="g" x="255" y="444" text-anchor="middle" fill="var(--ink)">敢投多少</text>
+  <text class="g" x="705" y="444" text-anchor="middle" fill="var(--ink)">還剩多少現金</text>
+
+  <line x1="60" y1="476" x2="900" y2="476" stroke="var(--grey)" stroke-width="1" stroke-dasharray="6 6"/>
+  <text class="c" x="480" y="518" text-anchor="middle">變的是計價的項目</text>
+</svg>

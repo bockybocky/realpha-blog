@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="左邊外力區塊有箭頭往右推，中間一道虛線門檻，跨過門檻才到右邊變成自己的區塊">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .l { font-size:16px; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <defs>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <text class="t" x="60" y="62">機會是誰給的，決定你追蹤什麼</text>
+
+  <rect x="60" y="120" width="330" height="250" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="88" y="162">外力給的</text>
+  <text class="l" x="88" y="216">規則變了</text>
+  <text class="l" x="88" y="256">隔壁漲價</text>
+  <text class="n" x="88" y="330">追：執法力道、價差</text>
+
+  <line x1="400" y1="215" x2="452" y2="215" stroke="var(--accent)" stroke-width="3" marker-end="url(#a2)"/>
+  <line x1="400" y1="255" x2="452" y2="255" stroke="var(--accent)" stroke-width="3" marker-end="url(#a2)"/>
+
+  <line x1="480" y1="110" x2="480" y2="400" stroke="var(--accent)" stroke-width="3" stroke-dasharray="8 8"/>
+  <text class="g" x="480" y="96" text-anchor="middle">資本支出沉下去</text>
+
+  <line x1="508" y1="215" x2="560" y2="215" stroke="var(--accent)" stroke-width="3" marker-end="url(#a2)"/>
+  <line x1="508" y1="255" x2="560" y2="255" stroke="var(--accent)" stroke-width="3" marker-end="url(#a2)"/>
+
+  <rect x="570" y="120" width="330" height="250" rx="14" fill="var(--card)" stroke="var(--accent)"/>
+  <text class="g" x="598" y="162">變成自己的</text>
+  <text class="l" x="598" y="216">產能蓋起來</text>
+  <text class="l" x="598" y="256">良率磨出來</text>
+  <text class="n" x="598" y="330">追：良率、認證</text>
+
+  <text class="c" x="60" y="470">沒沉下去，拿到的只是一段時間的量</text>
+  <text class="n" x="60" y="510">一紙公告一季就能改掉，技術優勢要幾年才追得上</text>
+</svg>

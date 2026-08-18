@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="兩條被切斷的流向並排，上排切斷金融資產後結果線仍起伏延續，下排切斷實體商品後結果線直接中止。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .bdy { font-size:16px; fill:var(--dim); }
+    .end { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text class="ttl" x="60" y="62">切斷哪一條，後果不一樣</text>
+  <rect x="60" y="160" width="180" height="80" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="1"/>
+  <text class="grp" x="150" y="207" text-anchor="middle">金融資產</text>
+  <line x1="250" y1="200" x2="480" y2="200" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="500,200 478,190 478,210" fill="var(--grey)"/>
+  <line x1="352" y1="182" x2="388" y2="218" stroke="var(--warn)" stroke-width="4"/>
+  <line x1="388" y1="182" x2="352" y2="218" stroke="var(--warn)" stroke-width="4"/>
+  <text class="grp" x="540" y="152">匯率走弱</text>
+  <polyline points="540,200 600,180 660,215 720,190 780,208 900,198" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <text class="bdy" x="540" y="252">線還在走</text>
+  <rect x="60" y="360" width="180" height="80" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="1"/>
+  <text class="grp" x="150" y="407" text-anchor="middle">實體商品</text>
+  <line x1="250" y1="400" x2="480" y2="400" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="500,400 478,390 478,410" fill="var(--grey)"/>
+  <line x1="352" y1="382" x2="388" y2="418" stroke="var(--warn)" stroke-width="4"/>
+  <line x1="388" y1="382" x2="352" y2="418" stroke="var(--warn)" stroke-width="4"/>
+  <text class="grp" x="540" y="352">生產線停</text>
+  <line x1="540" y1="400" x2="700" y2="400" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="700" y1="376" x2="700" y2="424" stroke="var(--warn)" stroke-width="3"/>
+  <text class="bdy" x="720" y="406">停在這裡</text>
+  <text class="bdy" x="540" y="452">沒有替代來源</text>
+  <text class="end" x="60" y="556">一邊變慢，一邊停住</text>
+</svg>

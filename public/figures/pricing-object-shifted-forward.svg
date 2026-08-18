@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="時間軸上市場的定價視窗從左邊的本季獲利移到右邊的未來三年，右邊有一條往下傾斜的毛利率斜線">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .bd { font-size:16px; fill:var(--dim); }
+    .cc { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t ttl" x="60" y="66">市場在替哪一段時間定價</text>
+
+  <line x1="60" y1="180" x2="900" y2="180" stroke="var(--line)" stroke-width="3"/>
+  <text class="t bd" x="60" y="152">時間</text>
+  <text class="t bd" x="860" y="152">→</text>
+
+  <rect x="60" y="200" width="240" height="150" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t grp" x="84" y="240">這一季</text>
+  <text class="t bd" x="84" y="276">營收</text>
+  <text class="t bd" x="84" y="304">毛利率</text>
+  <text class="t bd" x="84" y="332">每股盈餘</text>
+  <text class="t grp" x="200" y="276" fill="var(--accent)">勝</text>
+  <text class="t grp" x="200" y="304" fill="var(--accent)">勝</text>
+  <text class="t grp" x="200" y="332" fill="var(--accent)">勝</text>
+
+  <rect x="420" y="200" width="480" height="230" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t grp" x="446" y="240" fill="var(--accent)">未來三年</text>
+  <text class="t bd" x="446" y="272">折舊表</text>
+  <text class="t bd" x="446" y="300">海外廠</text>
+  <text class="t bd" x="446" y="328">毛利率結構</text>
+
+  <polyline points="640,270 730,300 820,336 870,352" fill="none" stroke="var(--warn)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="640" cy="270" r="6" fill="var(--warn)"/>
+  <circle cx="870" cy="352" r="6" fill="var(--warn)"/>
+  <text class="t bd" x="640" y="392" fill="var(--warn)">稀釋</text>
+
+  <text class="t bd" x="60" y="386">已成事實</text>
+  <text class="t cc" x="60" y="480">定價的對象，往右邊移了</text>
+  <line x1="300" y1="180" x2="420" y2="180" stroke="var(--accent)" stroke-width="6"/>
+  <polygon points="420,168 452,180 420,192" fill="var(--accent)"/>
+</svg>

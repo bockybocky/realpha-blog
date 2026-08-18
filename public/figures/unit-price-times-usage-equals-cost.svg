@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" role="img" aria-label="兩個面積相同的長方形並排，左邊寬而矮、右邊窄而高，寬是單價、高是用量，形狀不同但面積一樣" font-family='"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif'>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="620" fill="var(--page)"/>
+<text x="60" y="66" font-size="27" fill="var(--ink)">單價乘以用量，才是一件事的花費</text>
+
+<rect x="150" y="310" width="320" height="160" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text x="310" y="288" font-size="20" fill="var(--dim)" text-anchor="middle">對照組</text>
+<text x="310" y="400" font-size="16" fill="var(--dim)" text-anchor="middle">總花費</text>
+
+<rect x="650" y="150" width="160" height="320" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="730" y="128" font-size="20" fill="var(--accent)" text-anchor="middle">這一邊</text>
+<text x="730" y="318" font-size="16" fill="var(--dim)" text-anchor="middle">總花費</text>
+
+<text x="560" y="404" font-size="32" fill="var(--dim)" text-anchor="middle">=</text>
+
+<line x1="100" y1="470" x2="900" y2="470" stroke="var(--line)" stroke-width="2"/>
+
+<line x1="150" y1="502" x2="470" y2="502" stroke="var(--dim)" stroke-width="1.5"/>
+<polygon points="150,502 162,497 162,507" fill="var(--dim)"/>
+<polygon points="470,502 458,497 458,507" fill="var(--dim)"/>
+<text x="310" y="526" font-size="16" fill="var(--dim)" text-anchor="middle">單價 1</text>
+
+<line x1="650" y1="502" x2="810" y2="502" stroke="var(--accent)" stroke-width="1.5"/>
+<polygon points="650,502 662,497 662,507" fill="var(--accent)"/>
+<polygon points="810,502 798,497 798,507" fill="var(--accent)"/>
+<text x="730" y="526" font-size="16" fill="var(--accent)" text-anchor="middle">單價 0.5</text>
+
+<line x1="132" y1="310" x2="132" y2="470" stroke="var(--dim)" stroke-width="1.5"/>
+<polygon points="132,310 127,322 137,322" fill="var(--dim)"/>
+<polygon points="132,470 127,458 137,458" fill="var(--dim)"/>
+<text x="118" y="396" font-size="16" fill="var(--dim)" text-anchor="end">用量 1</text>
+
+<line x1="632" y1="150" x2="632" y2="470" stroke="var(--accent)" stroke-width="1.5"/>
+<polygon points="632,150 627,162 637,162" fill="var(--accent)"/>
+<polygon points="632,470 627,458 637,458" fill="var(--accent)"/>
+<text x="618" y="316" font-size="16" fill="var(--accent)" text-anchor="end">用量 2</text>
+
+<text x="480" y="580" font-size="22" fill="var(--ink)" text-anchor="middle">面積一樣，每件事的花費打平</text>
+</svg>

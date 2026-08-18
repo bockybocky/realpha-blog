@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左圓右方對照：圓形中心到邊緣距離一致、剖面平坦；方形中心到角比到邊遠、剖面四角翹起">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text x="60" y="58" font-size="27" font-weight="700" fill="var(--ink)">由圓變方，翹曲從哪裡來</text>
+
+  <rect x="60" y="90" width="380" height="300" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="1"/>
+  <text x="250" y="122" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">圓形晶圓</text>
+  <circle cx="250" cy="245" r="100" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <g stroke="var(--accent)" stroke-width="2" opacity="0.75">
+    <line x1="250" y1="245" x2="350" y2="245"/>
+    <line x1="250" y1="245" x2="320.7" y2="315.7"/>
+    <line x1="250" y1="245" x2="250" y2="345"/>
+    <line x1="250" y1="245" x2="179.3" y2="315.7"/>
+    <line x1="250" y1="245" x2="150" y2="245"/>
+    <line x1="250" y1="245" x2="179.3" y2="174.3"/>
+    <line x1="250" y1="245" x2="250" y2="145"/>
+    <line x1="250" y1="245" x2="320.7" y2="174.3"/>
+  </g>
+  <circle cx="250" cy="245" r="5" fill="var(--accent)"/>
+  <text x="250" y="372" font-size="16" fill="var(--dim)" text-anchor="middle">距離一致，受力均勻</text>
+
+  <rect x="520" y="90" width="380" height="300" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="1"/>
+  <text x="710" y="122" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">方形面板</text>
+  <rect x="610" y="145" width="200" height="200" fill="none" stroke="var(--warn)" stroke-width="2"/>
+  <g stroke="var(--warn)" stroke-width="2" opacity="0.75">
+    <line x1="710" y1="245" x2="810" y2="145"/>
+    <line x1="710" y1="245" x2="810" y2="345"/>
+    <line x1="710" y1="245" x2="610" y2="345"/>
+    <line x1="710" y1="245" x2="610" y2="145"/>
+    <line x1="710" y1="245" x2="710" y2="145"/>
+    <line x1="710" y1="245" x2="810" y2="245"/>
+    <line x1="710" y1="245" x2="710" y2="345"/>
+    <line x1="710" y1="245" x2="610" y2="245"/>
+  </g>
+  <circle cx="710" cy="245" r="5" fill="var(--warn)"/>
+  <text x="710" y="372" font-size="16" fill="var(--dim)" text-anchor="middle">到角比到邊遠，應力不均</text>
+
+  <text x="60" y="432" font-size="16" fill="var(--dim)">側視</text>
+  <line x1="150" y1="470" x2="350" y2="470" stroke="var(--accent)" stroke-width="3"/>
+  <text x="250" y="500" font-size="16" fill="var(--dim)" text-anchor="middle">平</text>
+  <path d="M610 450 Q710 492 810 450" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <text x="710" y="500" font-size="16" fill="var(--dim)" text-anchor="middle">四角翹起</text>
+
+  <text x="480" y="538" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">形狀決定應力，不是材料變差</text>
+</svg>

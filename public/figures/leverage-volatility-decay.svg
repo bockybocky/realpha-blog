@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條折線從同一水平起點出發，先往上再往下，第二天結束時都低於起點；兩倍槓桿那條上得高、掉得更深，終點明顯低於原始指數那條">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="60" y="56" font-size="27" fill="var(--ink)">漲五趴再跌五趴，槓桿掉得不只兩倍</text>
+
+  <line x1="160" y1="374" x2="860" y2="374" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="150" y="379" font-size="15" fill="var(--dim)" text-anchor="end">起點</text>
+
+  <polyline points="180,374 480,144 780,397" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <polyline points="180,374 480,259 780,380" fill="none" stroke="var(--accent)" stroke-width="3"/>
+
+  <circle cx="180" cy="374" r="5" fill="var(--accent)"/>
+  <circle cx="480" cy="144" r="5" fill="var(--warn)"/>
+  <circle cx="780" cy="397" r="5" fill="var(--warn)"/>
+  <circle cx="480" cy="259" r="5" fill="var(--accent)"/>
+  <circle cx="780" cy="380" r="5" fill="var(--accent)"/>
+
+  <text x="480" y="126" font-size="19" fill="var(--warn)" text-anchor="middle">兩倍槓桿</text>
+  <text x="470" y="292" font-size="19" fill="var(--accent)" text-anchor="middle">原始指數</text>
+
+  <text x="800" y="366" font-size="20" fill="var(--accent)">−0.25%</text>
+  <text x="800" y="416" font-size="20" fill="var(--warn)">−1%</text>
+
+  <text x="180" y="462" font-size="16" fill="var(--dim)" text-anchor="middle">起點</text>
+  <text x="480" y="462" font-size="16" fill="var(--dim)" text-anchor="middle">第一天 +5%</text>
+  <text x="780" y="462" font-size="16" fill="var(--dim)" text-anchor="middle">第二天 −5%</text>
+
+  <text x="480" y="508" font-size="22" fill="var(--ink)" text-anchor="middle">收的不是時間，是顛簸</text>
+</svg>

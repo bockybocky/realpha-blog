@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一份財報分岔成上下兩種讀法，兩張卡片並存，底下標示兩者同時成立">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <g font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+    <text x="48" y="64" font-size="27" font-weight="700" fill="var(--ink)">同一份財報，兩種讀法</text>
+
+    <rect x="56" y="190" width="210" height="170" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+    <rect x="84" y="220" width="154" height="8" rx="4" fill="var(--grey)" opacity="0.55"/>
+    <rect x="84" y="244" width="120" height="8" rx="4" fill="var(--grey)" opacity="0.55"/>
+    <rect x="84" y="268" width="140" height="8" rx="4" fill="var(--grey)" opacity="0.55"/>
+    <rect x="84" y="292" width="96" height="8" rx="4" fill="var(--grey)" opacity="0.55"/>
+    <text x="161" y="392" font-size="19" text-anchor="middle" fill="var(--dim)">同一份財報</text>
+
+    <path d="M266 262 C 350 262 360 170 428 170" fill="none" stroke="var(--line)" stroke-width="2"/>
+    <path d="M266 288 C 350 288 360 400 428 400" fill="none" stroke="var(--line)" stroke-width="2"/>
+
+    <rect x="430" y="104" width="474" height="132" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="1.8"/>
+    <text x="454" y="142" font-size="20" font-weight="600" fill="var(--warn)">讀成利空</text>
+    <rect x="454" y="162" width="104" height="42" rx="8" fill="var(--page)" stroke="var(--line)"/>
+    <text x="506" y="189" font-size="16" text-anchor="middle" fill="var(--dim)">產能不足</text>
+    <rect x="572" y="162" width="120" height="42" rx="8" fill="var(--page)" stroke="var(--line)"/>
+    <text x="632" y="189" font-size="16" text-anchor="middle" fill="var(--dim)">趕不上需求</text>
+    <rect x="706" y="162" width="104" height="42" rx="8" fill="var(--page)" stroke="var(--line)"/>
+    <text x="758" y="189" font-size="16" text-anchor="middle" fill="var(--dim)">缺席首代</text>
+
+    <rect x="430" y="334" width="474" height="132" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="1.8"/>
+    <text x="454" y="372" font-size="20" font-weight="600" fill="var(--accent)">讀成稀有</text>
+    <rect x="454" y="392" width="130" height="42" rx="8" fill="var(--page)" stroke="var(--line)"/>
+    <text x="519" y="419" font-size="16" text-anchor="middle" fill="var(--dim)">有合格產能</text>
+    <rect x="598" y="392" width="150" height="42" rx="8" fill="var(--page)" stroke="var(--line)"/>
+    <text x="673" y="419" font-size="16" text-anchor="middle" fill="var(--dim)">缺口兩到四成</text>
+    <rect x="762" y="392" width="118" height="42" rx="8" fill="var(--page)" stroke="var(--line)"/>
+    <text x="821" y="419" font-size="16" text-anchor="middle" fill="var(--dim)">供應鏈更緊</text>
+
+    <path d="M918 170 h16 v230 h-16" fill="none" stroke="var(--line)" stroke-width="2"/>
+    <text x="480" y="518" font-size="22" text-anchor="middle" fill="var(--ink)">兩者同時成立</text>
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="四格座標，左下與右上各有一個標示點，其餘兩格空著只有格名">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text x="60" y="64" font-size="27" fill="var(--ink)">現在該不該進場，先問兩件事</text>
+
+  <rect x="200" y="120" width="660" height="360" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <line x1="530" y1="120" x2="530" y2="480" stroke="var(--line)" stroke-width="2"/>
+  <line x1="200" y1="300" x2="860" y2="300" stroke="var(--line)" stroke-width="2"/>
+
+  <text x="365" y="182" font-size="20" fill="var(--dim)" text-anchor="middle">有生意，沒技術</text>
+  <text x="695" y="182" font-size="20" fill="var(--dim)" text-anchor="middle">可以做</text>
+  <text x="365" y="440" font-size="20" fill="var(--dim)" text-anchor="middle">研究專案</text>
+  <text x="695" y="440" font-size="20" fill="var(--dim)" text-anchor="middle">有技術，沒生意</text>
+
+  <circle cx="322" cy="366" r="9" fill="var(--warn)"/>
+  <text x="340" y="372" font-size="15" fill="var(--ink)">二〇一〇年代前期・沒做</text>
+  <circle cx="768" cy="238" r="9" fill="var(--accent)"/>
+  <text x="750" y="244" font-size="15" fill="var(--ink)" text-anchor="end">二〇一六・做</text>
+
+  <text x="530" y="516" font-size="19" fill="var(--ink)" text-anchor="middle">技術定了嗎</text>
+  <text x="212" y="504" font-size="15" fill="var(--dim)">否</text>
+  <text x="848" y="504" font-size="15" fill="var(--dim)" text-anchor="end">是</text>
+  <text x="168" y="300" font-size="19" fill="var(--ink)" text-anchor="middle" transform="rotate(-90 168 300)">商業模式定了嗎</text>
+  <text x="184" y="474" font-size="15" fill="var(--dim)" text-anchor="end">否</text>
+  <text x="184" y="136" font-size="15" fill="var(--dim)" text-anchor="end">是</text>
+
+  <text x="480" y="558" font-size="22" fill="var(--ink)" text-anchor="middle">兩個都沒定，那是研究專案不是生意。</text>
+</svg>

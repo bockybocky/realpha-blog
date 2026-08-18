@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="三條路徑匯聚成一個結論節點，價格則以虛線往反方向岔開">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <g font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+    <text x="48" y="64" font-size="27" font-weight="700" fill="var(--ink)">三條路徑，指向同一層</text>
+
+    <path d="M278 188 C 370 188 380 280 444 292" fill="none" stroke="var(--line)" stroke-width="2"/>
+    <path d="M278 308 C 360 308 380 308 442 308" fill="none" stroke="var(--line)" stroke-width="2"/>
+    <path d="M278 428 C 370 428 380 336 444 324" fill="none" stroke="var(--line)" stroke-width="2"/>
+
+    <rect x="48" y="150" width="230" height="76" rx="12" fill="var(--card)" stroke="var(--line)"/>
+    <text x="163" y="196" font-size="19" text-anchor="middle" fill="var(--dim)">美國法說逐字稿</text>
+    <rect x="48" y="270" width="230" height="76" rx="12" fill="var(--card)" stroke="var(--line)"/>
+    <text x="163" y="316" font-size="19" text-anchor="middle" fill="var(--dim)">台灣產業深訪</text>
+    <rect x="48" y="390" width="230" height="76" rx="12" fill="var(--card)" stroke="var(--line)"/>
+    <text x="163" y="436" font-size="19" text-anchor="middle" fill="var(--dim)">自家一月整理</text>
+
+    <circle cx="520" cy="308" r="78" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+    <text x="520" y="300" font-size="20" font-weight="600" text-anchor="middle" fill="var(--accent)">互聯這層</text>
+    <text x="520" y="330" font-size="20" font-weight="600" text-anchor="middle" fill="var(--accent)">最緊</text>
+
+    <path d="M578 354 L 716 424" fill="none" stroke="var(--warn)" stroke-width="2.4" stroke-dasharray="7 7"/>
+    <text x="612" y="404" font-size="16" fill="var(--warn)">反邊</text>
+
+    <rect x="720" y="376" width="192" height="96" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="1.8"/>
+    <text x="816" y="412" font-size="20" font-weight="600" text-anchor="middle" fill="var(--warn)">價格</text>
+    <text x="816" y="444" font-size="16" text-anchor="middle" fill="var(--dim)">離高點四成以上</text>
+
+    <text x="480" y="545" font-size="22" text-anchor="middle" fill="var(--ink)">總有一邊要修正</text>
+  </g>
+</svg>

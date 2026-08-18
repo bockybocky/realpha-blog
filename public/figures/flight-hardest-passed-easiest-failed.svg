@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="四根由高到低遞減的柱子代表不確定度，前三根柱頂打勾，最矮的最後一根柱頂打叉">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .lab { font-size:16px; fill:var(--ink); }
+    .sub { font-size:15px; fill:var(--dim); }
+    .cc { font-size:22px; fill:var(--accent); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="80" y="54">最不熟的過了，最熟的掉了</text>
+
+  <rect x="110" y="170" width="130" height="250" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="310" y="220" width="130" height="200" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="510" y="280" width="130" height="140" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="710" y="350" width="130" height="70" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="2.5"/>
+
+  <circle cx="175" cy="132" r="20" fill="var(--accent)"/>
+  <path d="M166 132 L172 139 L185 124" fill="none" stroke="var(--page)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="375" cy="182" r="20" fill="var(--accent)"/>
+  <path d="M366 182 L372 189 L385 174" fill="none" stroke="var(--page)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="575" cy="242" r="20" fill="var(--accent)"/>
+  <path d="M566 242 L572 249 L585 234" fill="none" stroke="var(--page)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="775" cy="312" r="20" fill="var(--warn)"/>
+  <path d="M767 304 L783 320 M783 304 L767 320" fill="none" stroke="var(--page)" stroke-width="3.5" stroke-linecap="round"/>
+
+  <line x1="90" y1="420" x2="870" y2="420" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="lab" x="175" y="450" text-anchor="middle">衛星部署</text>
+  <text class="sub" x="175" y="472" text-anchor="middle">首次</text>
+  <text class="lab" x="375" y="450" text-anchor="middle">太空重啟引擎</text>
+  <text class="sub" x="375" y="472" text-anchor="middle">首次</text>
+  <text class="lab" x="575" y="450" text-anchor="middle">飛船軟著陸</text>
+  <text class="sub" x="575" y="472" text-anchor="middle">第二次</text>
+  <text class="lab" x="775" y="450" text-anchor="middle">推進器軟著陸</text>
+  <text class="sub" x="775" y="472" text-anchor="middle">已做過多次</text>
+
+  <text class="sub" x="110" y="505">第一次做</text>
+  <text class="sub" x="850" y="505" text-anchor="end">做過很多次</text>
+  <text class="cc" x="80" y="548">不確定度往右遞減，結果卻在最右邊翻掉</text>
+</svg>

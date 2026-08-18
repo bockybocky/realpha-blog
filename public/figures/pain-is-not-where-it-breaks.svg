@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩格對照：左格所有箭頭指向腰，右格腰仍是痛點但被標記的是外開的腳掌與歪斜軸線">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--dim); font-weight:700; }
+    .ga { font-size:19px; fill:var(--accent); font-weight:700; }
+    .s { font-size:15px; fill:var(--dim); }
+    .sw { font-size:15px; fill:var(--warn); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="480" y="56" text-anchor="middle">同一個腰痛，兩種找法</text>
+
+  <rect x="60" y="90" width="380" height="376" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="520" y="90" width="380" height="376" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <text class="g" x="90" y="130">治標</text>
+  <text class="ga" x="550" y="130">治本</text>
+
+  <circle cx="250" cy="170" r="14" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="250" y1="352" x2="250" y2="188" stroke="var(--grey)" stroke-width="3"/>
+  <ellipse cx="228" cy="382" rx="13" ry="26" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <ellipse cx="272" cy="382" rx="13" ry="26" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <circle cx="250" cy="256" r="24" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="5 4"/>
+  <line x1="120" y1="216" x2="212" y2="216" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="212,210 226,216 212,222" fill="var(--dim)"/>
+  <line x1="120" y1="256" x2="212" y2="256" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="212,250 226,256 212,262" fill="var(--dim)"/>
+  <line x1="120" y1="296" x2="212" y2="296" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="212,290 226,296 212,302" fill="var(--dim)"/>
+  <text class="s" x="90" y="196">墊枕頭</text>
+  <text class="s" x="90" y="336">換椅子</text>
+  <text class="sw" x="286" y="250">下背痛</text>
+  <text class="s" x="250" y="440" text-anchor="middle">有效一下下</text>
+
+  <circle cx="710" cy="170" r="14" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M 710 352 C 698 316 726 292 710 188" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <ellipse cx="686" cy="382" rx="13" ry="26" fill="none" stroke="var(--accent)" stroke-width="3" transform="rotate(-28 686 382)"/>
+  <ellipse cx="734" cy="382" rx="13" ry="26" fill="none" stroke="var(--accent)" stroke-width="3" transform="rotate(28 734 382)"/>
+  <ellipse cx="710" cy="382" rx="70" ry="36" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 5"/>
+  <circle cx="712" cy="256" r="24" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="5 4"/>
+  <text class="sw" x="748" y="250">下背痛</text>
+  <text class="s" x="710" y="440" text-anchor="middle">腳尖外開的那幾度</text>
+
+  <text class="c" x="480" y="522" text-anchor="middle">痛的地方，不是壞掉的地方</text>
+</svg>

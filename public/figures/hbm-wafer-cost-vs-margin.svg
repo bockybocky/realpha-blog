@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊晶圓用量：一般 DRAM 一格方塊，HBM 四格方塊；右邊毛利率長條：一般 DRAM 高，HBM 明顯矮一截">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--dim); }
+    .l { font-size:16px; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="62">同一套製程，吃得多，賺得少</text>
+
+  <rect x="60" y="110" width="400" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="88" y="152">晶圓用量</text>
+
+  <text class="l" x="88" y="212">一般 DRAM</text>
+  <rect x="230" y="185" width="44" height="40" rx="6" fill="var(--grey)"/>
+
+  <text class="l" x="88" y="302">HBM</text>
+  <rect x="230" y="275" width="44" height="40" rx="6" fill="var(--accent)"/>
+  <rect x="282" y="275" width="44" height="40" rx="6" fill="var(--accent)"/>
+  <rect x="334" y="275" width="44" height="40" rx="6" fill="var(--accent)"/>
+  <rect x="386" y="275" width="44" height="40" rx="6" fill="var(--accent)"/>
+  <text class="n" x="230" y="350">三～四倍</text>
+
+  <rect x="500" y="110" width="400" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="528" y="152">毛利率</text>
+  <line x1="540" y1="400" x2="880" y2="400" stroke="var(--line)" stroke-width="2"/>
+  <rect x="580" y="210" width="90" height="190" rx="6" fill="var(--grey)"/>
+  <rect x="740" y="280" width="90" height="120" rx="6" fill="var(--warn)"/>
+  <text class="n" x="740" y="266">可能更低</text>
+  <text class="l" x="580" y="426">一般 DRAM</text>
+  <text class="l" x="740" y="426">HBM</text>
+
+  <text class="c" x="60" y="500">產能轉回去，反而好賺</text>
+</svg>

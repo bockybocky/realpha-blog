@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左欄是法說會揭露、右欄是資本支出，三條連線交叉：揭露最高的往右下掉，揭露最低的兩條往右上翻到最高。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="480" y="54" font-size="27" text-anchor="middle">揭露多的，不是投得多的</text>
+
+  <text x="300" y="130" font-size="20" text-anchor="middle">法說會揭露</text>
+  <text x="660" y="130" font-size="20" text-anchor="middle">資本支出</text>
+  <line x1="300" y1="160" x2="300" y2="480" stroke="var(--line)" stroke-width="1"/>
+  <line x1="660" y1="160" x2="660" y2="480" stroke="var(--line)" stroke-width="1"/>
+
+  <line x1="300" y1="200" x2="660" y2="415" stroke="var(--grey)" stroke-width="3"/>
+  <circle cx="300" cy="200" r="7" fill="var(--grey)"/>
+  <circle cx="660" cy="415" r="7" fill="var(--grey)"/>
+  <text x="284" y="206" font-size="19" text-anchor="end" fill="var(--dim)">群創</text>
+  <text x="676" y="421" font-size="19" text-anchor="start" fill="var(--dim)">群創</text>
+
+  <line x1="300" y1="420" x2="660" y2="190" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="300" cy="420" r="7" fill="var(--accent)"/>
+  <circle cx="660" cy="190" r="7" fill="var(--accent)"/>
+  <text x="284" y="426" font-size="19" text-anchor="end">力成</text>
+  <text x="676" y="196" font-size="19" text-anchor="start">力成</text>
+
+  <line x1="300" y1="455" x2="660" y2="250" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="300" cy="455" r="7" fill="var(--accent)"/>
+  <circle cx="660" cy="250" r="7" fill="var(--accent)"/>
+  <text x="284" y="461" font-size="19" text-anchor="end">日月光</text>
+  <text x="676" y="256" font-size="19" text-anchor="start">日月光</text>
+
+  <text x="480" y="522" font-size="22" text-anchor="middle">兩種排序，完全倒過來</text>
+</svg>

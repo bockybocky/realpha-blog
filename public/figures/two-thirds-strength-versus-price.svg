@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="同一條長條被切成兩段，兩段各自往下指向相反方向的未來報酬">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="64" font-size="27" fill="var(--ink)">同一個三分之二，兩種來源</text>
+
+  <text class="t" x="100" y="160" font-size="20" fill="var(--accent)">實力</text>
+  <text class="t" x="580" y="160" font-size="20" fill="var(--warn)">價格</text>
+
+  <rect x="100" y="180" width="470" height="90" fill="var(--accent)"/>
+  <rect x="570" y="180" width="290" height="90" fill="var(--warn)"/>
+  <text class="t" x="335" y="233" font-size="16" fill="var(--page)" text-anchor="middle">賺到的盈餘份額</text>
+  <text class="t" x="715" y="233" font-size="16" fill="var(--page)" text-anchor="middle">市場給的倍數</text>
+
+  <line x1="335" y1="300" x2="335" y2="356" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="0,0 14,0 7,12" fill="var(--accent)" transform="translate(328,356)"/>
+  <line x1="715" y1="300" x2="715" y2="356" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="0,0 14,0 7,12" fill="var(--warn)" transform="translate(708,356)"/>
+
+  <text class="t" x="335" y="400" font-size="19" fill="var(--accent)" text-anchor="middle">未來報酬 ＋</text>
+  <text class="t" x="715" y="400" font-size="19" fill="var(--warn)" text-anchor="middle">未來報酬 －</text>
+
+  <text class="t" x="60" y="470" font-size="22" fill="var(--ink)">付得越貴，同樣的實力給得越少</text>
+</svg>

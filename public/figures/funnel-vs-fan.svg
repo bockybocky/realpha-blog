@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-label="左邊漏斗把多個輸入收窄成同一方向、下面五個一樣的點；右邊扇形向外張開連到方向各異的點，其中一個是對比色">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="60" y="56" font-size="27">自己搜來的，會越搜越像</text>
+  <text x="60" y="112" font-size="19" fill="var(--dim)">你去搜尋的</text>
+  <polygon points="80,150 420,150 300,330 200,330" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="110" cy="180" r="5" fill="var(--grey)"/>
+  <circle cx="160" cy="180" r="5" fill="var(--grey)"/>
+  <circle cx="210" cy="180" r="5" fill="var(--grey)"/>
+  <circle cx="260" cy="180" r="5" fill="var(--grey)"/>
+  <circle cx="310" cy="180" r="5" fill="var(--grey)"/>
+  <circle cx="360" cy="180" r="5" fill="var(--grey)"/>
+  <circle cx="180" cy="382" r="7" fill="var(--accent)"/>
+  <circle cx="215" cy="382" r="7" fill="var(--accent)"/>
+  <circle cx="250" cy="382" r="7" fill="var(--accent)"/>
+  <circle cx="285" cy="382" r="7" fill="var(--accent)"/>
+  <circle cx="320" cy="382" r="7" fill="var(--accent)"/>
+  <text x="250" y="418" font-size="15" text-anchor="middle" fill="var(--dim)">同一個方向 ×5</text>
+  <text x="560" y="112" font-size="19" fill="var(--dim)">自己流過來的</text>
+  <line x1="748" y1="380" x2="889" y2="328" stroke="var(--line)" stroke-width="2"/>
+  <line x1="737" y1="365" x2="823" y2="243" stroke="var(--line)" stroke-width="2"/>
+  <line x1="720" y1="360" x2="720" y2="210" stroke="var(--line)" stroke-width="2"/>
+  <line x1="703" y1="365" x2="617" y2="243" stroke="var(--line)" stroke-width="2"/>
+  <line x1="692" y1="380" x2="551" y2="328" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="889" cy="328" r="6" fill="var(--grey)"/>
+  <circle cx="823" cy="243" r="6" fill="var(--grey)"/>
+  <circle cx="720" cy="210" r="6" fill="var(--grey)"/>
+  <circle cx="617" cy="243" r="6" fill="var(--warn)"/>
+  <circle cx="551" cy="328" r="6" fill="var(--grey)"/>
+  <text x="600" y="218" font-size="15" text-anchor="middle" fill="var(--warn)">你不同意的</text>
+  <circle cx="720" cy="390" r="30" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="720" y="397" font-size="16" text-anchor="middle">你</text>
+  <text x="480" y="522" font-size="22" text-anchor="middle">五個來源，可能是同一個</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="上排一條路只有一個固定關卡可以算出成本，下排同一條路有多個位置每天變動的關卡，終點的箭頭轉彎離開">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="48" y="58" font-size="27" font-weight="600" fill="var(--ink)">兩種摩擦</text>
+
+<rect x="48" y="96" width="864" height="150" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text x="76" y="134" font-size="20" font-weight="600" fill="var(--ink)">可預測的腐敗</text>
+<text x="896" y="134" font-size="19" font-weight="600" fill="var(--accent)" text-anchor="end">可定價</text>
+<line x1="92" y1="196" x2="836" y2="196" stroke="var(--grey)" stroke-width="3"/>
+<rect x="456" y="172" width="14" height="48" fill="var(--accent)"/>
+<text x="463" y="162" font-size="15" font-weight="600" fill="var(--accent)" text-anchor="middle">$2</text>
+<circle cx="852" cy="196" r="8" fill="var(--accent)"/>
+<text x="872" y="201" font-size="15" fill="var(--dim)">終點</text>
+
+<rect x="48" y="272" width="864" height="180" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text x="76" y="310" font-size="20" font-weight="600" fill="var(--ink)">不可預測的多頭政治</text>
+<text x="896" y="310" font-size="19" font-weight="600" fill="var(--warn)" text-anchor="end">無法定價</text>
+<line x1="92" y1="392" x2="812" y2="392" stroke="var(--grey)" stroke-width="3"/>
+<rect x="170" y="368" width="14" height="48" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="560" y="368" width="14" height="48" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="770" y="368" width="14" height="48" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="250" y="368" width="14" height="48" fill="var(--warn)"/>
+<rect x="458" y="368" width="14" height="48" fill="var(--warn)"/>
+<rect x="690" y="368" width="14" height="48" fill="var(--warn)"/>
+<text x="257" y="358" font-size="15" font-weight="600" fill="var(--warn)" text-anchor="middle">？</text>
+<text x="465" y="358" font-size="15" font-weight="600" fill="var(--warn)" text-anchor="middle">？</text>
+<text x="697" y="358" font-size="15" font-weight="600" fill="var(--warn)" text-anchor="middle">？</text>
+<path d="M812,392 C840,392 852,372 856,354" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="849,356 863,354 858,338" fill="var(--warn)"/>
+<text x="866" y="332" font-size="15" font-weight="600" fill="var(--warn)">離開</text>
+<text x="896" y="436" font-size="15" fill="var(--dim)" text-anchor="end">虛線＝明天的位置</text>
+
+<text x="480" y="500" font-size="22" font-weight="600" fill="var(--ink)" text-anchor="middle">能算的是成本，不能算的是風險</text>
+</svg>

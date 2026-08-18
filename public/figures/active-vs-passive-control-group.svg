@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左半邊用虛線畫出預期：主動的柱子高、被動的柱子矮；右半邊是實際結果，主動與被動兩根柱子一樣高">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="60" y="56" font-size="27" fill="var(--ink)">有了對照組，結論才被檢驗</text>
+
+  <line x1="480" y1="120" x2="480" y2="480" stroke="var(--line)" stroke-width="2"/>
+  <line x1="170" y1="440" x2="830" y2="440" stroke="var(--line)" stroke-width="2"/>
+
+  <text x="305" y="152" font-size="19" fill="var(--dim)" text-anchor="middle">如果是選股能力</text>
+  <text x="705" y="152" font-size="19" fill="var(--ink)" text-anchor="middle">實際發生的</text>
+
+  <rect x="200" y="200" width="90" height="240" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <rect x="320" y="330" width="90" height="110" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="245" y="190" font-size="16" fill="var(--grey)" text-anchor="middle">更高</text>
+  <text x="365" y="320" font-size="16" fill="var(--grey)" text-anchor="middle">較低</text>
+
+  <rect x="600" y="200" width="90" height="240" fill="var(--accent)"/>
+  <rect x="720" y="200" width="90" height="240" fill="var(--accent)"/>
+  <text x="645" y="188" font-size="19" fill="var(--accent)" text-anchor="middle">80–90%</text>
+  <text x="765" y="188" font-size="19" fill="var(--accent)" text-anchor="middle">80–90%</text>
+
+  <text x="245" y="470" font-size="16" fill="var(--dim)" text-anchor="middle">主動</text>
+  <text x="365" y="470" font-size="16" fill="var(--dim)" text-anchor="middle">被動半導體</text>
+  <text x="645" y="470" font-size="16" fill="var(--dim)" text-anchor="middle">主動</text>
+  <text x="765" y="470" font-size="16" fill="var(--dim)" text-anchor="middle">被動半導體</text>
+
+  <text x="480" y="524" font-size="22" fill="var(--ink)" text-anchor="middle">一樣高的時候，贏的是產業</text>
+</svg>

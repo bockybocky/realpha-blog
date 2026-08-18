@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="起點分出三條分支，兩條收攏到同一結論，第三條虛線岔開到相反結論，底部標示未言明的前提">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .l { font-size:16px; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <defs>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="w3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+  <text class="t" x="60" y="62">每支都是利多，通常是分支沒窮舉</text>
+
+  <rect x="60" y="260" width="180" height="70" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="150" y="303" text-anchor="middle">HBM 降規</text>
+
+  <path d="M 240 285 C 300 285 300 165 360 165" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#a3)"/>
+  <path d="M 240 295 C 300 295 300 295 360 295" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#a3)"/>
+  <path d="M 240 305 C 300 305 300 430 360 430" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#w3)"/>
+
+  <rect x="370" y="130" width="250" height="70" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <text class="l" x="495" y="172" text-anchor="middle">產能轉回一般 DRAM</text>
+
+  <rect x="370" y="260" width="250" height="70" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <text class="l" x="495" y="302" text-anchor="middle">供給不夠、顆數變多</text>
+
+  <rect x="370" y="395" width="250" height="70" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-dasharray="8 8"/>
+  <text class="l" x="495" y="437" text-anchor="middle">下一代系統縮了</text>
+
+  <path d="M 620 165 C 680 165 680 205 720 205" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#a3)"/>
+  <path d="M 620 295 C 680 295 680 245 720 245" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#a3)"/>
+  <path d="M 620 430 C 680 430 680 430 720 430" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#w3)"/>
+
+  <rect x="730" y="190" width="170" height="70" rx="12" fill="var(--card)" stroke="var(--accent)"/>
+  <text class="g" x="815" y="233" text-anchor="middle">就是缺</text>
+
+  <rect x="730" y="395" width="170" height="70" rx="12" fill="var(--card)" stroke="var(--warn)"/>
+  <text class="g" x="815" y="438" text-anchor="middle">需求變弱</text>
+
+  <line x1="60" y1="505" x2="900" y2="505" stroke="var(--line)" stroke-width="2"/>
+  <text class="n" x="60" y="535">未言明的前提：一般 DRAM 極缺、上一季的毛利率數字</text>
+  <text class="c" x="60" y="575">漏掉的那支，方向相反</text>
+</svg>

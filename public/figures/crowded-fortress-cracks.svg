@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="四邊的部位以箭頭集中流向中央一根堆最高的柱子，而那根最高的柱子中段裂開一道破口">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="ar-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="var(--dim)"/>
+    </marker>
+  </defs>
+
+  <text class="t" x="60" y="66" font-size="27" font-weight="700" fill="var(--ink)">越安全，越擁擠</text>
+
+  <line x1="80" y1="442" x2="900" y2="442" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="110" y="392" width="100" height="50" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <rect x="240" y="392" width="100" height="50" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <rect x="620" y="392" width="100" height="50" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <rect x="750" y="392" width="100" height="50" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+
+  <text class="t" x="160" y="472" font-size="16" fill="var(--dim)" text-anchor="middle">中小型股</text>
+  <text class="t" x="290" y="472" font-size="16" fill="var(--dim)" text-anchor="middle">題材股</text>
+  <text class="t" x="670" y="472" font-size="16" fill="var(--dim)" text-anchor="middle">現金</text>
+  <text class="t" x="800" y="472" font-size="16" fill="var(--dim)" text-anchor="middle">其他部位</text>
+
+  <rect x="420" y="392" width="120" height="50" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="420" y="336" width="120" height="50" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="420" y="280" width="120" height="50" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="420" y="224" width="120" height="50" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="420" y="168" width="120" height="50" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="480" y="472" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">最安全的那一檔</text>
+  <text class="t" x="480" y="146" font-size="16" fill="var(--dim)" text-anchor="middle">擁擠度</text>
+
+  <path d="M215 400 L405 366" stroke="var(--dim)" stroke-width="2.5" fill="none" marker-end="url(#ar-a)"/>
+  <path d="M345 404 L405 410" stroke="var(--dim)" stroke-width="2.5" fill="none" marker-end="url(#ar-a)"/>
+  <path d="M615 404 L555 410" stroke="var(--dim)" stroke-width="2.5" fill="none" marker-end="url(#ar-a)"/>
+  <path d="M745 400 L555 366" stroke="var(--dim)" stroke-width="2.5" fill="none" marker-end="url(#ar-a)"/>
+
+  <polyline points="396,300 430,290 465,314 500,288 535,312 566,298" fill="none" stroke="var(--warn)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <text class="t" x="584" y="306" font-size="20" font-weight="700" fill="var(--warn)">破口</text>
+
+  <text class="t" x="480" y="516" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">人都退到同一道牆後面，那道牆先破</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="風險從銀行被推向私募信貸，再落回壽險，落點比起點更低">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<defs>
+<marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+<text x="48" y="58" font-size="27" fill="var(--ink)">風險搬去了哪裡</text>
+<text x="48" y="152" font-size="15" fill="var(--dim)">虧損自己扛</text>
+<text x="48" y="472" font-size="15" fill="var(--dim)">虧損社會扛</text>
+
+<path d="M290,420 C350,400 340,204 384,188" fill="none" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#arA)"/>
+<path d="M570,188 C640,204 640,420 694,456" fill="none" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#arA)"/>
+
+<text x="350" y="300" font-size="15" fill="var(--dim)">2008 政策：移出銀行</text>
+<text x="652" y="330" font-size="15" fill="var(--dim)">近十五年：買下壽險</text>
+
+<rect x="110" y="390" width="180" height="60" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="200" y="427" font-size="19" fill="var(--ink)" text-anchor="middle">銀行體系</text>
+
+<rect x="390" y="150" width="180" height="60" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="480" y="187" font-size="19" fill="var(--ink)" text-anchor="middle">私募信貸</text>
+
+<rect x="700" y="430" width="180" height="60" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="790" y="467" font-size="19" fill="var(--ink)" text-anchor="middle">壽險公司</text>
+
+<path d="M200,450 L200,498" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+<path d="M790,490 L790,498" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+<path d="M480,210 L480,498" stroke="var(--grey)" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+
+<rect x="110" y="500" width="300" height="30" rx="6" fill="var(--card)" stroke="var(--line)"/>
+<text x="260" y="520" font-size="15" fill="var(--dim)" text-anchor="middle">FDIC：預先提存・按風險</text>
+<text x="515" y="520" font-size="15" fill="var(--grey)" text-anchor="middle">無後盾</text>
+<rect x="620" y="500" width="300" height="30" rx="6" fill="var(--card)" stroke="var(--warn)" stroke-dasharray="5 4"/>
+<text x="770" y="520" font-size="15" fill="var(--warn)" text-anchor="middle">保證基金：事後徵收・未測試</text>
+
+<text x="480" y="574" font-size="22" fill="var(--ink)" text-anchor="middle">搬出去，繞一圈，落回更弱的地方</text>
+</svg>

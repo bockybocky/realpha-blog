@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊窄高的方格堆與右邊寬扁的方格堆，格子總數相同，示意數量乘單價才是量體">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text x="60" y="58" font-size="27" font-weight="700" fill="var(--ink)">量體是兩個參數相乘</text>
+
+  <line x1="120" y1="470" x2="120" y2="130" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="120" y1="470" x2="880" y2="470" stroke="var(--grey)" stroke-width="2"/>
+  <text x="120" y="112" font-size="16" fill="var(--dim)" text-anchor="middle">單價</text>
+  <text x="880" y="500" font-size="16" fill="var(--dim)" text-anchor="end">數量</text>
+
+  <g fill="var(--card)" stroke="var(--accent)" stroke-width="2">
+    <rect x="180" y="204" width="28" height="28"/>
+    <rect x="212" y="204" width="28" height="28"/>
+    <rect x="180" y="236" width="28" height="28"/>
+    <rect x="212" y="236" width="28" height="28"/>
+    <rect x="180" y="268" width="28" height="28"/>
+    <rect x="212" y="268" width="28" height="28"/>
+    <rect x="180" y="300" width="28" height="28"/>
+    <rect x="212" y="300" width="28" height="28"/>
+    <rect x="180" y="332" width="28" height="28"/>
+    <rect x="212" y="332" width="28" height="28"/>
+    <rect x="180" y="364" width="28" height="28"/>
+    <rect x="212" y="364" width="28" height="28"/>
+    <rect x="180" y="396" width="28" height="28"/>
+    <rect x="212" y="396" width="28" height="28"/>
+    <rect x="180" y="428" width="28" height="28"/>
+    <rect x="212" y="428" width="28" height="28"/>
+  </g>
+  <text x="212" y="188" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">前段</text>
+  <text x="212" y="498" font-size="16" fill="var(--dim)" text-anchor="middle">片數少、單價高</text>
+
+  <g fill="var(--card)" stroke="var(--accent)" stroke-width="2">
+    <rect x="440" y="396" width="28" height="28"/>
+    <rect x="472" y="396" width="28" height="28"/>
+    <rect x="504" y="396" width="28" height="28"/>
+    <rect x="536" y="396" width="28" height="28"/>
+    <rect x="568" y="396" width="28" height="28"/>
+    <rect x="600" y="396" width="28" height="28"/>
+    <rect x="632" y="396" width="28" height="28"/>
+    <rect x="664" y="396" width="28" height="28"/>
+    <rect x="440" y="428" width="28" height="28"/>
+    <rect x="472" y="428" width="28" height="28"/>
+    <rect x="504" y="428" width="28" height="28"/>
+    <rect x="536" y="428" width="28" height="28"/>
+    <rect x="568" y="428" width="28" height="28"/>
+    <rect x="600" y="428" width="28" height="28"/>
+    <rect x="632" y="428" width="28" height="28"/>
+    <rect x="664" y="428" width="28" height="28"/>
+  </g>
+  <text x="566" y="380" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">後段</text>
+  <text x="566" y="498" font-size="16" fill="var(--dim)" text-anchor="middle">顆數多、單價低</text>
+
+  <text x="760" y="252" font-size="16" fill="var(--dim)">兩堆格子</text>
+  <text x="760" y="276" font-size="16" fill="var(--dim)">一樣多</text>
+
+  <text x="480" y="540" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">一個參數看不出誰大</text>
+</svg>

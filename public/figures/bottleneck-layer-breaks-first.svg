@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="供應鏈由下往上堆疊，需求翻倍往上推，中間有一層明顯比上下都窄，形成先斷掉的瓶頸">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .bd { font-size:16px; fill:var(--dim); }
+    .cc { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t ttl" x="60" y="66">需求翻倍時，最先斷的是哪一層</text>
+
+  <rect x="300" y="110" width="360" height="66" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t grp" x="700" y="152">終端系統</text>
+
+  <rect x="300" y="196" width="360" height="66" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t grp" x="700" y="238">晶片設計</text>
+
+  <rect x="404" y="282" width="152" height="66" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="4"/>
+  <text class="t grp" x="700" y="316" fill="var(--warn)">電、地、時間</text>
+  <text class="t bd" x="700" y="344" fill="var(--warn)">最窄的那層</text>
+
+  <rect x="300" y="368" width="360" height="66" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t grp" x="700" y="410">先進製程</text>
+
+  <rect x="300" y="454" width="360" height="66" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t grp" x="700" y="496">材料與設備</text>
+
+  <line x1="200" y1="540" x2="200" y2="130" stroke="var(--accent)" stroke-width="6"/>
+  <polygon points="186,130 200,96 214,130" fill="var(--accent)"/>
+  <text class="t grp" x="120" y="560" fill="var(--accent)">需求</text>
+
+  <path d="M404 282 L300 262" stroke="var(--warn)" stroke-width="3"/>
+  <path d="M556 282 L660 262" stroke="var(--warn)" stroke-width="3"/>
+  <path d="M404 348 L300 368" stroke="var(--warn)" stroke-width="3"/>
+  <path d="M556 348 L660 368" stroke="var(--warn)" stroke-width="3"/>
+</svg>
