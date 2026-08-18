@@ -41,7 +41,9 @@ function formatYmd(value: string) {
 const todayYmd = taipeiYmd(new Date());
 const nonSample = (ledgerCards as any[]).filter((c) => !c.is_sample);
 const committed = nonSample.length;
-const scoredCards = nonSample.filter((c) => c.status === 'scored');
+// 開過獎＝verdict 裡有結算日。不要比對 status === 'scored'——
+// 實際資料寫的是 hit / miss / undecidable，比對 'scored' 會恆為 0。
+const scoredCards = nonSample.filter((c) => c?.verdict?.settled_at);
 const scoredCount = scoredCards.length;
 
 // 最近一次開獎日：aging 卡中未過期最早 deadline，沒有就取整體最早
@@ -59,10 +61,11 @@ const brierVals = scoredCards
 	.filter((n) => Number.isFinite(n));
 const avgBrier = brierVals.length ? brierVals.reduce((a, b) => a + b, 0) / brierVals.length : null;
 
-// 自動升級門檻：已開獎樣本 ≥ 20 才把門面從「機制」切成「成績」
-// ponytail: 「成績」目前只露出可嚴格定義的「已開獎則數＋平均 Brier」，不捏造有爭議的「準確率 %」；
-// 未來真有 20+ 已開獎樣本、且定好各卡型 hit 語意後，再決定要不要加通過率。
-const showScore = scoredCount >= 20;
+// 已上鎖與已開獎兩個數字並排，不再二選一：
+// 原本設 20 則門檻才把門面從「機制」切成「成績」，結果是開獎數一直藏著。
+// 只露出可嚴格定義的數字（已上鎖則數、已開獎則數、平均 Brier），
+// 不捏造有爭議的「準確率 %」——那要先定好各卡型 hit 的語意。
+const showScore = scoredCount > 0;
 ---
 
 <SiteLayout title="Realpha Blog" description="Realpha、Bocky 與 AI 研究團隊的雙語技術與投資研究筆記。" locale={locale} path="/" alternatePath="/en/">
@@ -73,18 +76,15 @@ const showScore = scoredCount >= 20;
 
 			<div class="record" aria-label="驗證簿記錄板">
 				<div class="record-num">
+					<span class="eyebrow">已上鎖的判讀</span>
+					<span class="big">{committed} <small>則</small></span>
 					{showScore ? (
-						<>
-							<span class="eyebrow">公開成績</span>
-							<span class="big">{scoredCount} <small>則已開獎</small></span>
-							{avgBrier !== null && <span class="sub">平均 Brier {avgBrier.toFixed(3)}（越低越準，亂猜約 0.25）</span>}
-						</>
+						<span class="sub">
+							其中 {scoredCount} 則已開獎
+							{avgBrier !== null && <> ・平均 Brier {avgBrier.toFixed(3)}（越低越準，亂猜約 0.25）</>}
+						</span>
 					) : (
-						<>
-							<span class="eyebrow">已上鎖的判讀</span>
-							<span class="big">{committed} <small>則</small></span>
-							<span class="sub">判準已鎖死・開獎日已標</span>
-						</>
+						<span class="sub">判準已鎖死・開獎日已標</span>
 					)}
 				</div>
 				<div class="record-body">
