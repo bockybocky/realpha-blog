@@ -1,0 +1,100 @@
+---
+title: "The Wild West of Optical, Cisco's AI Audit, and Whether Compute Is Really an Asset"
+description: "Notes after listening to The Circuit EP 188: the three-step optical ladder, how mismatched terminology corrupts sizing models, and the core tension in calling compute an investable asset. Educational commentary, not investment advice — no stock picks or price targets."
+slug: "circuit-2026-08-17-ep-188-the-wild-west-of-optical-cisco-s-ai-hack-an"
+lang: "en"
+pubDate: 2026-08-18
+category: "investing"
+tags: ["optical", "AI infrastructure", "semicap", "industry analysis", "podcast notes"]
+ogImage: "/covers/circuit-2026-08-17-ep-188-the-wild-west-of-optical-cisco-s-ai-hack-an-cover.png"
+cover: "/covers/circuit-2026-08-17-ep-188-the-wild-west-of-optical-cisco-s-ai-hack-an-cover.png"
+---
+
+![A data center corridor with a long row of racks receding into the distance, bundled fiber spilling from the rack sides and glowing faintly under indicator lights, with an unfinished empty frame at the far end of the aisle](/covers/circuit-2026-08-17-ep-188-the-wild-west-of-optical-cisco-s-ai-hack-an-cover.png)
+
+> If names are not correct, language will not be in accordance with the truth of things; if language is not in accordance with the truth of things, affairs cannot be carried on to success.
+>
+> —— *The Analects of Confucius*, Book XIII "Zilu" (pre-Qin era)
+
+## What This Episode Covers
+
+The August 17, 2026 episode of The Circuit opens with two optical component makers reporting in the same week, then moves through Cisco using an AI model to run security audits for its customers, a semicap vendor sitting on the longest visibility it has ever had, and finally lands on a question nobody can answer cleanly: is compute actually an investable asset?
+
+What stuck with me most wasn't any single conclusion. It was *how* the two hosts disagreed in the optical segment — not bull versus bear, but two people who are both constructive, arguing for twenty minutes because **the same word meant different things to each of them**. One of them even calls himself the ultimate optical bear, and in this exchange he ends up being the more optimistic one.
+
+These are my notes and extensions, not a transcript summary.
+
+## Key Takeaways
+
+**1. Same AI tailwind, and gross margin still separates them.** Two optical suppliers reported in the same week. Both had solid revenue. The stock reactions diverged sharply. The difference is what they're actually selling, and that shows up honestly in the margin profile. One is squeezing everything it can out of four-inch wafers. The other, apparently feeling behind, is pushing hard into six-inch — which in theory yields far more die per wafer and therefore better margins. It isn't playing out. The reason is unglamorous: six-inch indium phosphide wafers are brand new. The ecosystem isn't mature, tools and fixtures need reworking, and there's exactly one supplier of those wafers who is also new at it. Nobody made a mistake here. The calendar just hasn't caught up.
+
+**2. Optical has three rungs, and the middle one will last longer than people think.** Today's mainstream is the pluggable module (LPO) — a large plug at the edge of the board. Next comes moving the optics onto the board (NPO, near-packaged). The holy grail is attaching fiber directly to the die (CPO, co-packaged). CPO saves picojoules per bit, and energy eventually becomes money. But one host raises the practical objection: if the savings aren't *materially* larger than the engineering effort required, NPO sticks around far longer than anyone expects. "Technically better" and "worth paying this much more for" are two different claims.
+
+**3. Serviceability may be the real ceiling on CPO inside the rack.** This is the hardest line in the episode: you cannot service that fiber. When it fails, the board and the accelerators go with it. That's not a manufacturing problem — it's an operations constraint. A rack with 500-plus accelerators carries an enormous number of optical connections, and if any meaningful fraction of them fails, "unserviceable" means "undeployable." It also explains why NPO is the more plausible in-rack candidate: it preserves the ability to replace a part.
+
+**4. Terminology confusion is inflating everyone's optical content estimates.** "Scale up" means intra-rack vertical interconnect to some people and rack-to-rack to others. The optical demand implied by those two readings differs by orders of magnitude. So you see diagrams circulating that say "look how much fiber a single rack needs" — except in-rack optical is nowhere near broad adoption. What's actually ramping is rack-to-rack, because copper cabling taps out somewhere around four meters at these speeds. Go further out to pod-to-pod at a hundred meters and the per-rack optical content drops again. The host knows he'll be tilting at this windmill for years, but his point stands: if you're going to assume optical content per rack, you have to know which layer you're connecting.
+
+**5. Cisco's move is genuinely clever: find the holes for free, charge to patch them.** They have a license from a frontier lab and let customers run largely unguarded security audits against their own enterprise IT. Predictably, vulnerabilities surface everywhere. The elegant part is that many of them sit in switches that have been end-of-life for a decade, where the vendor stopped shipping patches years ago — and those boxes just became billable again. Which prompts the better question the hosts raise: a model that summarizes your team meeting and a model that keeps your company from being held for ransom are worth wildly different amounts, yet they're probably sold under the same enterprise license today. There's a real chance frontier labs are badly under-monetizing this use case.
+
+**6. Long-term agreements are waterfalling up the supply chain.** A semicap vendor now has eight quarters of customer visibility. In past cycles, two quarters was the most anyone would give them. The mechanism cascades: end customers sign long-term agreements (sometimes with prepayments) to lock capacity; the supplier who received that commitment turns around and signs its own agreements with substrate, wafer, and foundry vendors to guarantee it can deliver. One host argues this is a structural change in customer dynamics, not lip service, and more fundamental than "the cycle is good." The other adds the necessary caveat: **none of these agreements has been tested yet.** We find out in three or four years. Cyclicality isn't over — the floor may just be higher.
+
+**7. Is compute a new asset class?** This is where the hosts diverge most from the prevailing pitch. The claim on offer is that compute joins stocks, bonds, currency, and real estate as a fifth investable category. Neither host buys it, and the reasoning is clean: land doesn't go obsolete, and you can't manufacture more of it. Compute does go obsolete, and you have to keep buying the next generation to stay competitive. One host reaches for a farming analogy, gets halfway through, and admits on air that he's completely borked it — but the intent survives: an orchardist doesn't replace part of the orchard every few years with trees that yield twice as much.
+
+## Going Deeper
+
+### "The numbers were great — why did the stock fall?"
+
+At least three companies in this episode follow that script. The semicap case is the most extreme: revenue above expectations, both current and guided quarter earnings meaningfully above, the fastest sequential revenue growth in company history — and the stock fell several percent. One host says he was pulling his hair out on the call because every question was a variant of "good quarter, but we want more." He points out that twelve months ago, a one-year long-term agreement was unheard of, and now the debate is three years versus five. The other host's reply is the whole thing in four words: it's never enough.
+
+Untangling this requires separating two things: **absolute performance** and **the expectations already embedded in the price**. The stock reacts to changes in the second. When a company beats repeatedly, the market's internal assumptions ratchet upward until "keeping up the beat" becomes the passing grade, and even excellent absolute numbers merely clear the bar.
+
+The episode offers a less-discussed wrinkle: buy-side and sell-side consensus differ, and the buy side is consistently more aggressive. A listener told one host that while the sell side sees a certain market reaching a given size by 2030, the buy side already has it there by 2028. His explanation is refreshingly honest — sell-side numbers are public, and a year later a reporter will ask "didn't you predict this?", so they skew conservative. The buy side makes no public predictions and carries no such accountability. He adds a line worth keeping: there is no published buy-side consensus anywhere. It's ten guys in a room, five guys in a bar, coming up with a number.
+
+The practical use for a reader: when good news is met with a falling stock, resist the conspiracy reflex. **Ask instead whether the print beat the number the market never wrote down.** Published sell-side consensus is simply the easiest one to find, not necessarily the one doing the pricing. You may not find the answer, but you should at least know which ruler you're measuring against.
+
+### "Everyone says it's the trend — should I get in now?"
+
+If you only read the conclusions of the optical segment, the two hosts appear to be talking past each other. That's exactly what makes it instructive: the disagreement isn't about judgment, it's that **one term carries two definitions in two different communities** — and outside sizing models are all built on that term.
+
+Here's where the chain breaks. You want to size a market, so you need a key parameter: optical modules per rack. You see a compelling diagram claiming scale-up requires enormous fiber counts, and you plug that number in. But that diagram depicts in-rack vertical interconnect, which is barely happening. What's ramping is horizontal rack-to-rack, which needs far less. **Get one parameter wrong and the precision of every subsequent step is worthless.**
+
+So "is this a trend" and "should I get in now" are separated by three independent questions, any one of which invalidates the rest:
+
+**Which rung is actually ramping?** Under one technology label there are usually several sub-scenarios at wildly different maturities. One host expects near-packaged optics in production by 2028 — and the useful part of that forecast isn't the year, it's that he had to specify which rung before the prediction meant anything.
+
+**Is the constraint demand or manufacturing?** The bear case here deserves recording: he isn't saying co-packaged optics won't show up, he's saying **it won't scale.** The manufacturing bottlenecks are too deep — dig into how hard it is to build and you can quickly estimate how many connections per year are possible, and accelerator rack volumes will outstrip that by orders of magnitude. That's a falsifiable claim, which is a hundred times more useful than "I'm bearish on the theme."
+
+**Do the savings exceed the pain of adoption?** CPO saves power, but that saving has to sit in the same spreadsheet as the engineering investment, the reliability risk, and the cost of scrapping an entire board when a fiber fails. Technical superiority never converts to adoption on its own; there's a full cost-benefit ledger in between.
+
+Worth noting: a three-hundred-page standards paper just landed, and neither of the two companies reporting that week was among its leading authors. With the standard unsettled, everyone is doing their own implementation and their own custom designs. That's what the hosts keep calling the **wild west** of connectivity. The wild west doesn't mean there's no opportunity — it means **nobody knows which path wins**, so any reasoning of the form "this approach will obviously win, therefore this company becomes enormous" is far more fragile than it sounds.
+
+### "Is this whole AI buildout a bubble?"
+
+In the back half, a chip giant and six large financial institutions are assembling a platform to provide up to $500 billion of data center financing, with the chipmaker apparently backstopping about a quarter of it. The number is large enough to make people uneasy.
+
+I like how one host breaks it down. He starts with the benign reading: this is **vendor financing**, no different from borrowing from a carmaker to buy a car, and the vendor likely has revenue share in it — an investment in a hot new category. Then he draws the line that matters: **there is a very fine line between enabling your customer to buy something and creating demand that doesn't exist.** If those deals wouldn't close without this financing, you're left with two things to believe: either capital markets don't understand the opportunity and are mispricing it, so the vendor steps in to bridge the gap until everyone catches on — or there's some genuine bubbling going on.
+
+Then comes the hard part. Near-term, the math is fine: the two leading AI-native cloud providers both reported well that week with strong stock reactions, and one said payback has compressed from about three years to two, with prior-generation systems being renewed at higher rates. **If you have compute today, you can sell it.** That isn't in dispute.
+
+What is in dispute is that they're signing debt that extends five and ten years out. Bond investors don't care about AI; they care about getting paid back, and they're taking the bet precisely because the near-term numbers look so good. As the numbers scale and per-gigawatt pricing keeps climbing, that bet gets harder to underwrite.
+
+The most portable idea sits underneath the "investable asset" argument. Claiming compute is a new asset class quietly assumes something strong: **compute must never become good enough.** Because the moment it is good enough, you finish building, let it depreciate, and stop needing next year's product — and at that instant it stops being an asset requiring continuous investment and becomes a pile of equipment with an expiration date. Inverted, the business only holds together if each generation is 20–30% better than the last, enough that TCO forces the upgrade, all the way out to 2035.
+
+That's not a bull or bear position. It's **a criterion you can track.** Every time a new generation ships, ask one question: is the improvement over the prior generation still large enough to force a replacement of hardware that hasn't finished depreciating? When the answer starts weakening for two or three consecutive generations, you'll know something changed before the market does. The host's own formulation is the most honest one in the episode — nobody knows where this is in five years, and that's the honest answer. Once you've admitted you don't know, the only thing left worth doing is identifying the signal that would tell you when it changes.
+
+## Further Reading
+
+- The Circuit, EP 188 (August 17, 2026) — the source for everything discussed here
+- Open Compute Project standards papers and summit materials, the most direct public window into where optical interconnect standards are heading
+- Quarterly earnings call transcripts and investor day decks from optical and semicap vendors — the Q&A sections in particular reveal what the market is actually anxious about far better than press releases
+- To track the long-term agreement structure, watch how memory and storage vendors shift their language around "new business models" and long-term supply arrangements
+
+## The One Thing to Take Away
+
+**Before you spend time or money on something, make sure you and the other person mean the same thing by the same word.**
+
+The most expensive lesson in this episode isn't any particular judgment call. It's that two genuinely expert people, misaligned on the definition of a single term, left the outside world's entire sizing chain off by an order of magnitude. Definitions are the foundation of all reasoning, and when the foundation is crooked, everything built on top is wasted effort — and it never feels crooked at the time, because both sides are certain they're being clear.
+
+**A practice for today:** pick something you've been discussing repeatedly with someone and can't seem to get past — a goal at work, an arrangement at home, a small recurring argument with your partner. Find the word that keeps appearing ("soon," "help out," "take care of it," "ready," "support me" all qualify). Then do two things: write down what **you** think it means, and go ask the other person what **they** think it means — asking for a version concrete enough to have a time and an action attached.
+
+Most of the time you'll discover you weren't even arguing about the same thing. And the real payoff isn't whatever gets resolved today. It's the habit it builds: **when a discussion is stuck, doubt the definitions before you doubt the positions.**
