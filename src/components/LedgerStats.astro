@@ -11,11 +11,10 @@ const counts = cards.reduce(
 );
 ---
 
-{/* 精簡誠實摘要：只留「總樣本數 + 樣本不足警語」。各狀態計數不在此重複，交給下方篩選 chip。 */}
+{/* 精簡誠實摘要：只留總樣本數。各狀態計數不在此重複，交給下方篩選 chip。 */}
 <section class="ledger-stats" aria-label="帳本樣本數摘要">
   <span class="stat-label">公開樣本</span>
   <strong class="stat-n">{counts.total}</strong>
-  {counts.total < 20 && <span class="sample-warning">樣本不足，請先別信</span>}
   {counts.sample > 0 && <span class="sample-note">{counts.sample} 張示意卡</span>}
 </section>
 
@@ -40,19 +39,12 @@ const counts = cards.reduce(
     letter-spacing: -0.02em;
   }
 
-  .sample-warning,
   .sample-note {
     align-self: center;
     border-radius: 2rem;
     padding: 0.2rem 0.7rem;
     font-size: 0.82rem;
     font-weight: 700;
-  }
-
-  .sample-warning {
-    border: 1px solid color-mix(in srgb, #d97706 45%, var(--line));
-    background: color-mix(in srgb, #f59e0b 16%, var(--paper));
-    color: color-mix(in srgb, #b45309 82%, var(--text));
   }
 
   .sample-note {
