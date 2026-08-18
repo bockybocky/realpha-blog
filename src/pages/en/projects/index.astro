@@ -1,6 +1,7 @@
 ---
 import SiteLayout from '../../../layouts/SiteLayout.astro';
 import { getProjects } from '../../../lib/content';
+import GithubProjects from '../../../components/GithubProjects.astro';
 import { formatDate } from '../../../lib/site';
 
 const locale = 'en';
@@ -22,5 +23,6 @@ const projects = await getProjects(locale);
 				</a>
 			))}
 		</div>
+		<GithubProjects locale="en" />
 	</main>
 </SiteLayout>

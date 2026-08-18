@@ -1,0 +1,60 @@
+---
+/**
+ * GitHub 公開作品清單。資料由 scripts/sync-github-projects.mjs 在 build 前抓，
+ * 只列有寫描述的 repo；抓不到就沿用上次的，抓不到又沒舊資料就整區不顯示。
+ */
+import data from '../data/github-projects.json';
+
+interface Props {
+	locale: 'zh-TW' | 'en';
+}
+
+const { locale } = Astro.props;
+const zh = locale === 'zh-TW';
+const repos = data.repos ?? [];
+const profile = 'https://github.com/bockybocky';
+---
+
+{repos.length > 0 && (
+	<section class="section" aria-labelledby="gh-title">
+		<div class="section-header">
+			<h2 id="gh-title">{zh ? 'GitHub 上的公開作品' : 'Open source on GitHub'}</h2>
+			<p class="muted">
+				{zh
+					? '寫給自己用、後來覺得別人也用得上的東西。點進去是原始碼，不是介紹頁。'
+					: 'Tools built for my own use that turned out to be useful to others. Links go to the source, not a landing page.'}
+			</p>
+		</div>
+		<div class="grid">
+			{repos.map((repo) => (
+				<a class="entry gh-entry" href={repo.url} target="_blank" rel="noopener">
+					<div class="meta">
+						{repo.language && <span>{repo.language}</span>}
+						{repo.stars > 0 && <span>★ {repo.stars}</span>}
+					</div>
+					<h3>{repo.name}</h3>
+					<p>{repo.description}</p>
+				</a>
+			))}
+		</div>
+		<p class="gh-more">
+			<a href={profile} target="_blank" rel="noopener">
+				{zh ? '其餘作品在 GitHub 上 →' : 'More on GitHub →'}
+			</a>
+		</p>
+	</section>
+)}
+
+<style>
+	.gh-entry h3 {
+		margin: 0 0 0.4rem;
+		font-size: 1.05rem;
+		font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+		word-break: break-word;
+	}
+
+	.gh-more {
+		margin: 1.2rem 0 0;
+		font-size: 0.92rem;
+	}
+</style>
