@@ -1,6 +1,6 @@
 ---
 interface Props {
-	demo: 'canvas-waves' | 'line-chart';
+	demo: 'canvas-waves' | 'line-chart' | 'price-volume' | 'leverage-decay' | 'survivorship';
 	locale: 'zh-TW' | 'en';
 }
 
@@ -40,6 +40,40 @@ svg.addEventListener('pointermove', (event) => {
   );
   tooltip.textContent = nearest.value;
 });`,
+	'price-volume': `// 營收成長 = (1 + 量成長) x (1 + 價成長) - 1
+// 已知營收成長 r 與出貨量成長 v，反解價格成長 p：
+const p = (1 + r) / (1 + v) - 1;
+
+// 兩段用同一把尺畫，才比得出誰佔多數。
+// 以「量與價之中較大的絕對值」當滿格，0% 就真的畫成 0 寬。
+const scale = Math.max(Math.abs(pv), Math.abs(pp), 1);
+barVol.style.width = \`\${(Math.abs(pv) / scale) * 50}%\`;
+barPrice.style.width = \`\${(Math.abs(pp) / scale) * 50}%\`;`,
+	'leverage-decay': `// 兩倍槓桿追蹤的是「每日報酬的兩倍」，不是「期間報酬的兩倍」。
+// 所以要逐日相乘，不能把整段報酬乘二。
+let index = 100;
+let lev = 100;
+parts.forEach((pct) => {
+  const r = pct / 100;
+  index *= 1 + r;
+  lev *= 1 + k * r;        // k = 槓桿倍數
+});
+
+// -20, 25 走三次：index 回到 100，lev 只剩 72.9。
+// 少掉的 27.1 不是手續費，是波動本身。
+const shortfall = index - lev;`,
+	'survivorship': `// 資料來自自建的 Norgate 資料庫（1990 年起）：
+// active 3,925 檔、delisted 8,562 檔，合計 12,487 檔。
+const total = D.active_count + D.delisted_count;
+const CELLS = 200;                        // 200 格，一格約 62 家
+const per = total / CELLS;
+const deadCells = Math.round(D.delisted_count / per);   // = 137 格
+
+// 前 137 格畫成「已消失」，其餘是「還活著」。
+// 打開開關時把已消失的那些淡出——那就是多數回測工具看到的世界。
+for (let i = 0; i < CELLS; i += 1) {
+  html += \`<i class="\${i < deadCells ? 'sv-dead' : 'sv-alive'}"></i>\`;
+}`,
 };
 ---
 
