@@ -250,6 +250,12 @@ const jsonLd = JSON.stringify(claimReview);
 </article>
 
 <style>
+  /* display: grid 的特異性高過瀏覽器內建的 [hidden]{display:none}，
+     篩選器設了 hidden 卡片還是會顯示——所以要明寫這條。 */
+  .ledger-card[hidden] {
+    display: none;
+  }
+
   .ledger-card {
     display: grid;
     gap: 1.15rem;

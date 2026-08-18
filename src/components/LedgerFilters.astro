@@ -36,10 +36,12 @@ const filters = [
   const ledgerFilterGroups = document.querySelectorAll('[data-ledger-filters]');
   for (const group of ledgerFilterGroups) {
     const buttons = group.querySelectorAll('[data-ledger-filter]');
-    const cards = document.querySelectorAll('[data-ledger-card]');
 
     for (const button of buttons) {
       button.addEventListener('click', () => {
+        // 卡片在這段程式的下方，載入當下還沒進 DOM——所以要在點擊時才查，
+        // 不能在外面先抓（先抓會拿到空清單，按鈕看起來就像沒反應）。
+        const cards = document.querySelectorAll('[data-ledger-card]');
         const filter = button.getAttribute('data-ledger-filter');
         for (const peer of buttons) {
           peer.setAttribute('aria-pressed', String(peer === button));
