@@ -15,7 +15,11 @@ const locale = 'zh-TW';
 const { post } = Astro.props;
 const { Content } = await render(post);
 const path = `/blog/${post.data.slug}/`;
-const alternatePath = `/en/blog/${post.data.slug}/`;
+// 只有真的存在英文版才給網址——寫死會讓語言鈕指到 404
+const enPosts = await getBlogPosts('en');
+const alternatePath = enPosts.some((p) => p.data.slug === post.data.slug)
+	? `/en/blog/${post.data.slug}/`
+	: null;
 const labLabels = {
 	hypothesis: '假設',
 	plan: '驗證計畫',

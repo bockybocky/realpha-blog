@@ -1,5 +1,6 @@
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
-import { join, relative } from 'node:path';
+import { existsSync } from 'node:fs';
+import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
@@ -134,3 +135,73 @@ if (stillMissing.length !== baseline.length) {
 	console.log(`postbuild: 引言基線棘輪 ${baseline.length} → ${stillMissing.length} 篇`);
 }
 console.log(`postbuild: 開篇引言閘通過（${zhPosts.length} 篇，基線豁免 ${stillMissing.length} 篇）`);
+
+// ---- 站內斷連結閘（2026-08-19）----
+// 病理：語言切換鈕寫死指向 /en/...，沒出英文版的文章點了就是 404；
+// 這種錯只有讀者點下去才會發現，而發現的人通常是 Charles 本人。
+// 把每個 href/src 對回 dist 裡的實體檔案，斷掉就擋建置。
+// 外部網址不查——403 與逾時多半是擋機器人，不是連結壞掉。
+const LINK_BASELINE = join(root, 'scripts', 'linkcheck_baseline.json');
+
+async function listHtml(dir, base = dir) {
+	const out = [];
+	for (const entry of await readdir(dir, { withFileTypes: true })) {
+		const full = join(dir, entry.name);
+		if (entry.isDirectory()) out.push(...(await listHtml(full, base)));
+		else if (entry.name.endsWith('.html')) out.push(relative(base, full));
+	}
+	return out;
+}
+
+function resolveInDist(url) {
+	const clean = decodeURIComponent(url.split('#')[0].split('?')[0]);
+	if (!clean.startsWith('/')) return null;          // 相對連結不查
+	const target = join(distRoot, clean.replace(/^\//, ''));
+	if (clean.endsWith('/')) return existsSync(join(target, 'index.html'));
+	return existsSync(target) || existsSync(`${target}.html`) || existsSync(join(target, 'index.html'));
+}
+
+const htmlFiles = await listHtml(distRoot);
+const brokenLinks = new Map();
+let linkCount = 0;
+for (const rel of htmlFiles) {
+	const html = await readFile(join(distRoot, rel), 'utf8');
+	for (const m of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+		const url = m[1];
+		if (/^(https?:|mailto:|data:|javascript:|#|\/\/)/.test(url)) continue;
+		linkCount += 1;
+		if (resolveInDist(url) === false) {
+			if (!brokenLinks.has(url)) brokenLinks.set(url, []);
+			brokenLinks.get(url).push(rel.split(sep).join('/'));
+		}
+	}
+}
+
+let linkBaseline;
+try {
+	linkBaseline = JSON.parse(await readFile(LINK_BASELINE, 'utf8'));
+} catch {
+	linkBaseline = [];
+}
+
+const freshBroken = [...brokenLinks.keys()].filter((u) => !linkBaseline.includes(u));
+if (freshBroken.length > 0) {
+	console.error(`
+斷連結閘：以下 ${freshBroken.length} 個站內連結指向不存在的頁面，不准發布`);
+	for (const url of freshBroken) {
+		const from = brokenLinks.get(url);
+		console.error(`   - ${url}`);
+		console.error(`       出現在：${from.slice(0, 3).join('、')}${from.length > 3 ? ` 等 ${from.length} 頁` : ''}`);
+	}
+	console.error('   常見成因：語言切換鈕指向還沒出的翻譯版、改了 slug 沒改連到它的地方。');
+	console.error('   真的要例外：把網址加進 scripts/linkcheck_baseline.json');
+	process.exit(1);
+}
+
+const stillBroken = linkBaseline.filter((u) => brokenLinks.has(u));
+if (stillBroken.length !== linkBaseline.length) {
+	await writeFile(LINK_BASELINE, `${JSON.stringify(stillBroken, null, '	')}
+`, 'utf8');
+	console.log(`postbuild: 斷連結基線棘輪 ${linkBaseline.length} → ${stillBroken.length} 個`);
+}
+console.log(`postbuild: 斷連結閘通過（${htmlFiles.length} 頁 / ${linkCount} 個站內連結，基線豁免 ${stillBroken.length} 個）`);

@@ -15,7 +15,11 @@ const locale = 'zh-TW';
 const { lab } = Astro.props;
 const { Content } = await render(lab);
 const path = `/lab/${lab.data.slug}/`;
-const alternatePath = `/en/lab/${lab.data.slug}/`;
+// 只有真的存在英文版才給網址——寫死會讓語言鈕指到 404
+const enLabs = await getLabs('en');
+const alternatePath = enLabs.some((l) => l.data.slug === lab.data.slug)
+	? `/en/lab/${lab.data.slug}/`
+	: null;
 ---
 
 <SiteLayout title={lab.data.title} description={lab.data.description} locale={locale} path={path} alternatePath={alternatePath} breadcrumbs={[{ name: 'Lab', path: '/lab/' }, { name: lab.data.title, path }]}>

@@ -20,7 +20,8 @@ interface Props {
 	description: string;
 	locale: Locale;
 	path: string;
-	alternatePath: string;
+	/** 另一語言版本的網址；沒有對應版本時傳 null——不顯示切換鈕，也不輸出 hreflang */
+	alternatePath: string | null;
 	breadcrumbs?: Breadcrumb[];
 	article?: ArticleData;
 	image?: string;
@@ -32,6 +33,7 @@ const titleText = title === site.name ? title : `${title} | ${site.name}`;
 const canonical = absoluteUrl(path);
 const zhPath = locale === 'zh-TW' ? path : alternatePath;
 const enPath = locale === 'en' ? path : alternatePath;
+const hasAlternate = Boolean(alternatePath);
 const graph = [
 	{
 		'@type': 'Organization',
@@ -94,9 +96,9 @@ const nav = [
 		<title>{titleText}</title>
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />
-		<link rel="alternate" hreflang="zh-TW" href={absoluteUrl(zhPath)} />
-		<link rel="alternate" hreflang="en" href={absoluteUrl(enPath)} />
-		<link rel="alternate" hreflang="x-default" href={absoluteUrl(zhPath)} />
+		{zhPath && <link rel="alternate" hreflang="zh-TW" href={absoluteUrl(zhPath)} />}
+		{enPath && <link rel="alternate" hreflang="en" href={absoluteUrl(enPath)} />}
+		{zhPath && <link rel="alternate" hreflang="x-default" href={absoluteUrl(zhPath)} />}
 		<link rel="alternate" type="application/rss+xml" title={`${site.name} ${meta.rssLabel}`} href={withLocale(locale, '/rss.xml')} />
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -121,7 +123,7 @@ const nav = [
 				</a>
 				<div class="nav-links">
 					{nav.map((item) => <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>)}
-					<a class="lang-switch" href={alternatePath}>{meta.switchLabel}</a>
+					{hasAlternate && <a class="lang-switch" href={alternatePath}>{meta.switchLabel}</a>}
 				</div>
 			</nav>
 		</header>
