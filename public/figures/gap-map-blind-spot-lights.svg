@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一條水平基準線與一條起伏曲線，曲線兩處掉到基準線以下的區段被標色並各亮一盞燈">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <text x="60" y="62" font-size="27" fill="var(--ink)">弱是分情境的，不是整體</text>
+
+  <path d="M265 220 L280 250 L360 300 L440 200 L425 220 Z" fill="var(--warn)" fill-opacity="0.18"/>
+  <path d="M585 220 L600 265 L680 310 L760 230 L748 220 Z" fill="var(--warn)" fill-opacity="0.18"/>
+
+  <line x1="120" y1="220" x2="880" y2="220" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 7"/>
+  <text x="120" y="204" font-size="19" fill="var(--dim)">自以為</text>
+
+  <polyline points="120,210 200,180 280,250 360,300 440,200 520,175 600,265 680,310 760,230 840,195 880,205"
+            fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="470" y="158" font-size="19" fill="var(--ink)">實際</text>
+
+  <circle cx="360" cy="352" r="8" fill="var(--warn)"/>
+  <text x="360" y="386" font-size="16" fill="var(--warn)" text-anchor="middle">減速</text>
+  <circle cx="680" cy="362" r="8" fill="var(--warn)"/>
+  <text x="680" y="396" font-size="16" fill="var(--warn)" text-anchor="middle">減速</text>
+
+  <line x1="120" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+
+  <text x="60" y="490" font-size="22" fill="var(--ink)">亮起來的地方，才是此刻該慢下來的地方</text>
+</svg>

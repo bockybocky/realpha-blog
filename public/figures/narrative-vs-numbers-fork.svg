@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一個起點分出上下兩條線，上為數字、下為敘事，中間張開一道逐漸擴大的落差" font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+
+  <text x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">敘事往下，數字往上</text>
+
+  <path d="M200,290 C400,290 540,205 700,172 L700,408 C540,375 400,290 200,290 Z"
+        fill="var(--card)"/>
+
+  <path d="M200,290 C400,290 540,205 700,172"
+        fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M200,290 C400,290 540,375 700,408"
+        fill="none" stroke="var(--warn)" stroke-width="4" stroke-linecap="round"
+        stroke-dasharray="9 8"/>
+
+  <circle cx="200" cy="290" r="7" fill="var(--ink)"/>
+  <text x="184" y="284" text-anchor="end" font-size="19" fill="var(--ink)">同一件事</text>
+  <text x="184" y="308" text-anchor="end" font-size="15" fill="var(--dim)">記憶體</text>
+
+  <line x1="510" y1="252" x2="510" y2="330" stroke="var(--grey)" stroke-width="2"/>
+  <text x="524" y="297" font-size="16" fill="var(--dim)">落差</text>
+
+  <text x="716" y="166" font-size="20" font-weight="700" fill="var(--accent)">數字</text>
+  <text x="716" y="192" font-size="15" fill="var(--dim)">報價調升 · 獲利創高</text>
+
+  <text x="716" y="402" font-size="20" font-weight="700" fill="var(--warn)">敘事</text>
+  <text x="716" y="428" font-size="15" fill="var(--dim)">漲不動了 · 要跌了</text>
+
+  <text x="480" y="482" text-anchor="middle" font-size="22" font-weight="600" fill="var(--ink)">打架時，先信數字</text>
+</svg>

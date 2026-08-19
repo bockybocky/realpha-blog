@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一條曲線左半平緩、右端陡然上翹：虧損從五成走到八成，回本所需漲幅從一倍變成四倍。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text x="480" y="56" text-anchor="middle" font-size="27" fill="var(--ink)">坑越深，爬出來越不成比例</text>
+
+  <line x1="140" y1="440" x2="140" y2="100" stroke="var(--line)" stroke-width="2"/>
+  <line x1="140" y1="440" x2="860" y2="440" stroke="var(--line)" stroke-width="2"/>
+
+  <line x1="140" y1="357.5" x2="860" y2="357.5" stroke="var(--line)" stroke-width="1"/>
+  <line x1="140" y1="275" x2="860" y2="275" stroke="var(--line)" stroke-width="1"/>
+  <line x1="140" y1="192.5" x2="860" y2="192.5" stroke="var(--line)" stroke-width="1"/>
+  <line x1="140" y1="110" x2="860" y2="110" stroke="var(--line)" stroke-width="1"/>
+
+  <text x="126" y="445" text-anchor="end" font-size="15" fill="var(--dim)">0</text>
+  <text x="126" y="362" text-anchor="end" font-size="15" fill="var(--dim)">+100%</text>
+  <text x="126" y="280" text-anchor="end" font-size="15" fill="var(--dim)">+200%</text>
+  <text x="126" y="197" text-anchor="end" font-size="15" fill="var(--dim)">+300%</text>
+  <text x="126" y="115" text-anchor="end" font-size="15" fill="var(--dim)">+400%</text>
+
+  <text x="140" y="468" text-anchor="middle" font-size="15" fill="var(--dim)">0</text>
+  <text x="310" y="468" text-anchor="middle" font-size="15" fill="var(--dim)">-20%</text>
+  <text x="480" y="468" text-anchor="middle" font-size="15" fill="var(--dim)">-40%</text>
+  <text x="650" y="468" text-anchor="middle" font-size="15" fill="var(--dim)">-60%</text>
+  <text x="820" y="468" text-anchor="middle" font-size="15" fill="var(--dim)">-80%</text>
+
+  <polyline points="140,440 225,431 310,419 395,405 480,385 565,357.5 650,316 735,248 778,192 820,110"
+            fill="none" stroke="var(--accent)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <circle cx="565" cy="357.5" r="7" fill="var(--accent)"/>
+  <text x="580" y="345" font-size="16" fill="var(--ink)">-50% → +100%</text>
+
+  <circle cx="820" cy="110" r="8" fill="var(--warn)"/>
+  <text x="806" y="98" text-anchor="end" font-size="19" fill="var(--warn)">-80% → +400%</text>
+
+  <text x="500" y="500" text-anchor="middle" font-size="16" fill="var(--dim)">橫軸：虧損幅度　　縱軸：回本所需漲幅</text>
+  <text x="480" y="534" text-anchor="middle" font-size="22" fill="var(--ink)">虧損是不對稱的</text>
+</svg>

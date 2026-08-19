@@ -84,9 +84,10 @@ def mdx_to_blocks(body):
         if not ln.strip():
             i += 1
             continue
-        # 封面圖 ![alt](/covers/x.png)
+        # 圖片 ![alt](/covers/x.png) 或內文圖 ![alt](/figures/x.svg)
         if ln.startswith('!['):
-            blocks.append(('img',))
+            m_img = re.match(r'!\[.*?\]\((.*?)\)', ln)
+            blocks.append(('img', m_img.group(1) if m_img else ''))
             i += 1
             continue
         if ln.startswith('---'):          # 分隔線：方格子不支援，丟掉
@@ -227,14 +228,79 @@ def runs_html(text):
     return ''.join(out)
 
 
+
+# ---------- 內文圖（/figures/x.svg）→ 方格子圖床 ----------
+# 為什麼要這段：build() 原本把 mdx 裡「每一個」圖片語法都畫成封面圖
+# （早期每篇只有封面一張所以看不出來）。2026-08-18 起自動管線會插內文圖，
+# 那個假設就壞了——當天那篇的 5 張內文圖全變成同一張封面圖。
+EDGE = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
+FIG_PNG_DIR = r'C:\Users\Charles\scripts\blog_auto\figures\png'
+FIG_CACHE = os.path.join(SP, 'vocus_fig_ids.json')
+
+
+def figure_png(name):
+    """圖只有 SVG，方格子上傳寫死 image/png，故先用 Edge 無介面截圖轉 PNG。冪等。"""
+    png = os.path.join(FIG_PNG_DIR, name + '.png')
+    svg = os.path.join(ROOT, 'public', 'figures', name + '.svg')
+    if os.path.isfile(png):
+        return png
+    if not os.path.isfile(svg):
+        raise FileNotFoundError('找不到內文圖 ' + svg)
+    m = re.search(r'viewBox="0 0 (\d+) (\d+)"', open(svg, encoding='utf-8').read())
+    if not m:
+        raise ValueError('SVG 讀不到 viewBox：' + svg)
+    W, H = int(m.group(1)) * 2, int(m.group(2)) * 2
+    os.makedirs(FIG_PNG_DIR, exist_ok=True)
+    tmp = os.path.join(FIG_PNG_DIR, '_conv.html')
+    with open(tmp, 'w', encoding='utf-8') as fh:
+        fh.write('<!doctype html><meta charset="utf-8">'
+                 '<style>html,body{margin:0;padding:0;background:#fff}'
+                 'img{width:%dpx;display:block}</style><img src="%s">'
+                 % (W, 'file:///' + svg.replace('\\', '/')))
+    import subprocess
+    subprocess.run([EDGE, '--headless=new', '--disable-gpu', '--hide-scrollbars',
+                    '--window-size=%d,%d' % (W, H), '--screenshot=' + png,
+                    'file:///' + tmp.replace('\\', '/')],
+                   capture_output=True, timeout=180)
+    if not os.path.isfile(png):
+        raise RuntimeError('SVG 轉 PNG 失敗：' + name)
+    pw, ph = png_size(png)
+    if (pw, ph) != (W, H):
+        os.remove(png)
+        raise RuntimeError('轉出的 PNG 尺寸 %dx%d 不符預期 %dx%d：%s' % (pw, ph, W, H, name))
+    return png
+
+
+def resolve_image(src, meta):
+    """封面圖用線上封面；內文圖上傳一次後記在 vocus_fig_ids.json 重用。
+    任何一步失敗都不中止發文，退回封面圖並大聲印警告（比整篇不發好）。"""
+    if not src or '/figures/' not in src:
+        return meta['imgUrl'], meta['w'], meta['h']
+    name = os.path.splitext(os.path.basename(src))[0]
+    cache = json.load(open(FIG_CACHE, encoding='utf-8')) if os.path.isfile(FIG_CACHE) else {}
+    if name in cache:
+        c = cache[name]
+        return c['url'], c['w'], c['h']
+    try:
+        url, w, h = upload_img(figure_png(name))
+    except Exception as e:
+        print('⚠️ 內文圖處理失敗，這張退回封面圖：%s（%s）' % (name, e))
+        return meta['imgUrl'], meta['w'], meta['h']
+    cache[name] = {'url': url, 'w': w, 'h': h}
+    with open(FIG_CACHE, 'w', encoding='utf-8') as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
+    return url, w, h
+
+
 def build(art, meta):
     lex, html, plain = [], [], []
     for b in art['blocks']:
         kind = b[0]
         if kind == 'img':
-            lex.append(image_node(meta['imgUrl'], meta['w'], meta['h']))
-            html.append(f'<figure class="image"><img src="{meta["imgUrl"]}" '
-                        f'width="{meta["w"]}" height="{meta["h"]}"></figure>')
+            url, w, h = resolve_image(b[1] if len(b) > 1 else '', meta)
+            lex.append(image_node(url, w, h))
+            html.append(f'<figure class="image"><img src="{url}" '
+                        f'width="{w}" height="{h}"></figure>')
         elif kind == 'poem_lines':
             kids = []
             for n, line in enumerate(b[1]):

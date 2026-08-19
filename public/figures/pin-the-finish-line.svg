@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩格對比：同樣的落點，終點線釘在前方就是沒中；終點線被移到落點上就變成算對。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">終點線什麼時候畫</text>
+
+  <text class="t" x="80" y="134" font-size="20" fill="var(--dim)">登錄當下釘死</text>
+  <text class="t" x="520" y="134" font-size="20" fill="var(--warn)">事後才畫</text>
+
+  <rect x="60" y="150" width="400" height="270" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="500" y="150" width="400" height="270" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <line x1="100" y1="310" x2="420" y2="310" stroke="var(--line)" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="300" cy="310" r="13" fill="var(--accent)"/>
+  <line x1="370" y1="245" x2="370" y2="370" stroke="var(--ink)" stroke-width="5"/>
+  <text class="t" x="370" y="232" font-size="16" text-anchor="middle" fill="var(--ink)">終點線</text>
+  <text class="t" x="290" y="352" font-size="16" text-anchor="middle" fill="var(--dim)">落點</text>
+  <text class="t" x="260" y="400" font-size="19" text-anchor="middle" fill="var(--dim)">沒中</text>
+
+  <line x1="540" y1="310" x2="860" y2="310" stroke="var(--line)" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="740" cy="310" r="13" fill="var(--accent)"/>
+  <line x1="810" y1="255" x2="810" y2="360" stroke="var(--grey)" stroke-width="4" stroke-dasharray="7 7"/>
+  <text class="t" x="852" y="248" font-size="15" text-anchor="middle" fill="var(--grey)">原終點線</text>
+  <line x1="740" y1="245" x2="740" y2="370" stroke="var(--warn)" stroke-width="5"/>
+  <path d="M 805 236 Q 776 210 750 236" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="750,238 744,222 760,226" fill="var(--warn)"/>
+  <text class="t" x="778" y="204" font-size="16" text-anchor="middle" fill="var(--warn)">移過來</text>
+  <text class="t" x="726" y="352" font-size="16" text-anchor="middle" fill="var(--warn)">落點＝終點線</text>
+  <text class="t" x="700" y="400" font-size="19" text-anchor="middle" fill="var(--warn)">算對</text>
+
+  <text class="t" x="480" y="490" font-size="22" text-anchor="middle" fill="var(--ink)">先釘線，才有對錯</text>
+</svg>

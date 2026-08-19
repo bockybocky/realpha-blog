@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左圖一個字一個固定點；右圖同一個字依語境分裂成兩個位置">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<defs><marker id="a8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/></marker></defs>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="58">同一個字　幾個位置</text>
+<text class="g" x="70" y="122">Word2Vec</text>
+<rect x="70" y="150" width="380" height="230" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="140" cy="200" r="6" fill="var(--grey)"/><text class="s" x="156" y="205">河流</text>
+<circle cx="380" cy="340" r="6" fill="var(--grey)"/><text class="s" x="330" y="345" text-anchor="end">金錢</text>
+<circle cx="260" cy="270" r="9" fill="var(--accent)"/><text class="b" x="276" y="276">bank</text>
+<line x1="130" y1="430" x2="240" y2="288" stroke="var(--dim)" stroke-width="2" marker-end="url(#a8)"/>
+<line x1="390" y1="430" x2="280" y2="288" stroke="var(--dim)" stroke-width="2" marker-end="url(#a8)"/>
+<text class="s" x="120" y="450">河岸的 bank</text>
+<text class="s" x="380" y="450">銀行的 bank</text>
+<text class="g" x="520" y="122">BERT</text>
+<rect x="520" y="150" width="380" height="230" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="590" cy="200" r="6" fill="var(--grey)"/><text class="s" x="606" y="205">河流</text>
+<circle cx="830" cy="340" r="6" fill="var(--grey)"/><text class="s" x="780" y="345" text-anchor="end">金錢</text>
+<circle cx="620" cy="235" r="9" fill="var(--accent)"/><text class="b" x="636" y="241">bank</text>
+<circle cx="800" cy="305" r="9" fill="var(--accent)"/><text class="b" x="790" y="311" text-anchor="end">bank</text>
+<text class="s" x="570" y="450">語境把它拉過去</text>
+<text class="c" x="60" y="510">一個字一個座標　還是一句話一個座標</text>
+</svg>

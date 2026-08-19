@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="四象限定位圖：橫軸為官方認可程度、縱軸為是否同一視窗。訂閱中轉在左上、API 金鑰在右上、官方命令列在右下，左下象限空缺。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); }
+    .ax { font-size:19px; fill:var(--dim); }
+    .s { font-size:16px; fill:var(--dim); }
+    .w { font-size:16px; fill:var(--warn); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="52">三條路，站在不同的位置</text>
+
+  <rect x="210" y="110" width="690" height="360" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <line x1="555" y1="110" x2="555" y2="470" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 7"/>
+  <line x1="210" y1="300" x2="900" y2="300" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 7"/>
+
+  <text class="ax" x="195" y="212" text-anchor="end">同一視窗</text>
+  <text class="ax" x="195" y="392" text-anchor="end">另開視窗</text>
+  <text class="ax" x="380" y="508" text-anchor="middle">灰色地帶</text>
+  <text class="ax" x="730" y="508" text-anchor="middle">官方認可</text>
+
+  <circle cx="370" cy="205" r="11" fill="var(--warn)"/>
+  <text class="g" x="370" y="180" text-anchor="middle">訂閱中轉</text>
+  <text class="w" x="370" y="244" text-anchor="middle">省錢・會斷</text>
+
+  <circle cx="740" cy="205" r="11" fill="var(--accent)"/>
+  <text class="g" x="740" y="180" text-anchor="middle">API 金鑰</text>
+  <text class="s" x="740" y="244" text-anchor="middle">按量・最穩</text>
+
+  <circle cx="740" cy="385" r="11" fill="var(--accent)"/>
+  <text class="g" x="740" y="360" text-anchor="middle">官方命令列</text>
+  <text class="s" x="740" y="424" text-anchor="middle">乾淨・換介面</text>
+
+  <circle cx="370" cy="385" r="11" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="4 4"/>
+  <text class="s" x="370" y="360" text-anchor="middle">無此選項</text>
+
+  <text class="c" x="555" y="552" text-anchor="middle">愈往右愈穩，愈往上愈順手</text>
+</svg>

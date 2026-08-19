@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="八個方格中只有兩格亮起，右側高柱與矮柱對比總參數與每次運算量">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<defs><marker id="a9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker></defs>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="58">只叫醒兩個</text>
+<text class="b" x="50" y="248">一次提問</text>
+<line x1="140" y1="270" x2="185" y2="240" stroke="var(--accent)" stroke-width="2" marker-end="url(#a9)"/>
+<rect x="200" y="150" width="120" height="90" fill="var(--accent)" fill-opacity="0.18" stroke="var(--accent)" stroke-width="2"/>
+<rect x="340" y="150" width="120" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="480" y="150" width="120" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="620" y="150" width="120" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="200" y="260" width="120" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="340" y="260" width="120" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="480" y="260" width="120" height="90" fill="var(--accent)" fill-opacity="0.18" stroke="var(--accent)" stroke-width="2"/>
+<rect x="620" y="260" width="120" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="260" y="202" text-anchor="middle">專家</text>
+<text class="b" x="400" y="202" text-anchor="middle">休息</text>
+<text class="b" x="540" y="202" text-anchor="middle">休息</text>
+<text class="b" x="680" y="202" text-anchor="middle">休息</text>
+<text class="b" x="260" y="312" text-anchor="middle">休息</text>
+<text class="b" x="400" y="312" text-anchor="middle">休息</text>
+<text class="b" x="540" y="312" text-anchor="middle">專家</text>
+<text class="b" x="680" y="312" text-anchor="middle">休息</text>
+<line x1="790" y1="350" x2="920" y2="350" stroke="var(--line)" stroke-width="2"/>
+<rect x="800" y="160" width="45" height="190" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="870" y="302" width="45" height="48" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="s" x="822" y="378" text-anchor="middle">總參數</text>
+<text class="s" x="892" y="378" text-anchor="middle">實際跑</text>
+<text class="c" x="60" y="450">參數很大　每次只用一小塊</text>
+</svg>

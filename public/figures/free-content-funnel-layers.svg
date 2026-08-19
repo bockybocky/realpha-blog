@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-label="三層漏斗由寬變窄：免費內容、留下名單、付費課程；左側人數往下遞減，右側單價往上遞增">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text x="480" y="58" text-anchor="middle" font-size="27" fill="var(--ink)">免費的那一層，是最寬的那一層</text>
+
+  <polygon points="170,140 790,140 700,232 260,232" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="480" y="196" text-anchor="middle" font-size="20" fill="var(--ink)">免費內容</text>
+
+  <polygon points="260,248 700,248 620,340 340,340" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="480" y="304" text-anchor="middle" font-size="20" fill="var(--ink)">留下名單</text>
+
+  <polygon points="340,356 620,356 552,448 408,448" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text x="480" y="412" text-anchor="middle" font-size="20" fill="var(--accent)">付費課程</text>
+
+  <text x="105" y="176" text-anchor="middle" font-size="19" fill="var(--dim)">人數</text>
+  <line x1="105" y1="198" x2="105" y2="408" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="94,405 116,405 105,430" fill="var(--grey)"/>
+
+  <text x="855" y="176" text-anchor="middle" font-size="19" fill="var(--dim)">單價</text>
+  <line x1="855" y1="430" x2="855" y2="222" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="844,225 866,225 855,200" fill="var(--grey)"/>
+
+  <text x="480" y="518" text-anchor="middle" font-size="22" fill="var(--ink)">越往下人越少，每個人越值錢</text>
+</svg>

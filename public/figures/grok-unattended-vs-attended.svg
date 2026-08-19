@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="上下兩條時間軸在同一點都發生憑證失效：上面一條在人在場時被接回、線條續行；下面一條無人值守，失效後轉為虛線直到早上，底下有一段長長的無補救窗口。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .a { font-size:16px; fill:var(--accent); }
+    .w { font-size:16px; fill:var(--warn); }
+    .tm { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="52">同一個故障，差別在有沒有人醒著</text>
+
+  <text class="g" x="190" y="196" text-anchor="end">人在場</text>
+  <line x1="210" y1="190" x2="890" y2="190" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="470" cy="190" r="9" fill="var(--warn)"/>
+  <text class="w" x="470" y="158" text-anchor="middle">憑證失效</text>
+  <text class="a" x="470" y="226" text-anchor="middle">當場重授權</text>
+  <text class="a" x="888" y="226" text-anchor="end">流程續行</text>
+
+  <text class="g" x="190" y="356" text-anchor="end">無人值守</text>
+  <line x1="210" y1="350" x2="470" y2="350" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+  <line x1="470" y1="350" x2="890" y2="350" stroke="var(--grey)" stroke-width="5" stroke-dasharray="9 11" stroke-linecap="round"/>
+  <circle cx="470" cy="350" r="9" fill="var(--warn)"/>
+  <text class="w" x="470" y="318" text-anchor="middle">憑證失效</text>
+  <text class="s" x="888" y="318" text-anchor="end">整夜空轉</text>
+  <path d="M470 380 V392 H890 V380" fill="none" stroke="var(--warn)" stroke-width="2"/>
+  <text class="w" x="680" y="418" text-anchor="middle">無補救窗口</text>
+
+  <line x1="210" y1="462" x2="890" y2="462" stroke="var(--line)" stroke-width="2"/>
+  <text class="tm" x="212" y="486">傍晚</text>
+  <text class="tm" x="470" y="486" text-anchor="middle">半夜</text>
+  <text class="tm" x="888" y="486" text-anchor="end">早上</text>
+
+  <text class="c" x="550" y="532" text-anchor="middle">故障一樣，代價不一樣</text>
+</svg>

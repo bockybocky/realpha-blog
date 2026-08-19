@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一條時間軸，安裝完成的點在中間；左邊安裝前開的視窗少一格指令、找不到指令，右邊安裝後重開的視窗多一格亮起來的指令、跑得動。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .bad { font-size:20px; font-weight:700; fill:var(--warn); }
+    .ok { font-size:20px; font-weight:700; fill:var(--accent); }
+    .end { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text class="t" x="40" y="56">為什麼裝完一定要關掉視窗、重開一個</text>
+
+  <rect x="80" y="100" width="340" height="250" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+  <rect x="540" y="100" width="340" height="250" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+
+  <text class="g" x="110" y="142">安裝前就開著的視窗</text>
+  <text class="g" x="570" y="142">安裝後重開的視窗</text>
+  <text class="s" x="110" y="176">它認得的指令</text>
+  <text class="s" x="570" y="176">它認得的指令</text>
+
+  <rect x="110" y="196" width="60" height="42" rx="6" fill="var(--grey)" opacity="0.35" stroke="var(--line)" stroke-width="1.5"/>
+  <rect x="180" y="196" width="60" height="42" rx="6" fill="var(--grey)" opacity="0.35" stroke="var(--line)" stroke-width="1.5"/>
+  <rect x="250" y="196" width="60" height="42" rx="6" fill="var(--grey)" opacity="0.35" stroke="var(--line)" stroke-width="1.5"/>
+  <rect x="320" y="196" width="60" height="42" rx="6" fill="none" stroke="var(--grey)" stroke-width="1.5" stroke-dasharray="6 5"/>
+
+  <rect x="570" y="196" width="60" height="42" rx="6" fill="var(--grey)" opacity="0.35" stroke="var(--line)" stroke-width="1.5"/>
+  <rect x="640" y="196" width="60" height="42" rx="6" fill="var(--grey)" opacity="0.35" stroke="var(--line)" stroke-width="1.5"/>
+  <rect x="710" y="196" width="60" height="42" rx="6" fill="var(--grey)" opacity="0.35" stroke="var(--line)" stroke-width="1.5"/>
+  <rect x="780" y="196" width="60" height="42" rx="6" fill="var(--accent)" stroke="var(--accent)" stroke-width="1.5"/>
+
+  <text class="bad" x="110" y="300">找不到指令</text>
+  <text class="ok" x="570" y="300">跑得動</text>
+
+  <line x1="250" y1="350" x2="250" y2="424" stroke="var(--grey)" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <line x1="710" y1="350" x2="710" y2="424" stroke="var(--grey)" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+  <line x1="80" y1="432" x2="880" y2="432" stroke="var(--line)" stroke-width="3"/>
+  <circle cx="250" cy="432" r="7" fill="var(--page)" stroke="var(--grey)" stroke-width="3"/>
+  <circle cx="710" cy="432" r="7" fill="var(--page)" stroke="var(--grey)" stroke-width="3"/>
+  <circle cx="480" cy="432" r="10" fill="var(--accent)"/>
+  <text class="s" x="480" y="470" text-anchor="middle">安裝完成</text>
+  <text class="s" x="880" y="415" text-anchor="end">時間</text>
+
+  <text class="end" x="480" y="522" text-anchor="middle">新指令，只有新視窗看得見</text>
+</svg>

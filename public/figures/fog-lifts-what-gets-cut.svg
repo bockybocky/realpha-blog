@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-label="兩根柱子對比，左柱由現金流與較高的想像力溢價疊成，右柱只剩相同高度的現金流，上段成為空虛線框">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .i { font-size:16px; fill:var(--page); font-weight:700; }
+    .e { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+
+  <text class="t" x="50" y="64">霧散之後，被抽掉的是哪一段</text>
+
+  <line x1="120" y1="470" x2="860" y2="470" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="200" y="170" width="170" height="180" fill="var(--card)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+  <text class="s" x="285" y="266" text-anchor="middle">想像力溢價</text>
+  <rect x="200" y="350" width="170" height="120" fill="var(--accent)"/>
+  <text class="i" x="285" y="416" text-anchor="middle">現金流</text>
+  <text class="g" x="285" y="508" text-anchor="middle">看不清楚時</text>
+
+  <line x1="410" y1="300" x2="542" y2="300" stroke="var(--dim)" stroke-width="2.5"/>
+  <polygon points="556,300 540,292 540,308" fill="var(--dim)"/>
+  <text class="s" x="482" y="282" text-anchor="middle">霧散</text>
+
+  <rect x="600" y="170" width="170" height="180" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="4 8"/>
+  <text class="s" x="685" y="266" text-anchor="middle" fill="var(--warn)">被抽掉</text>
+  <rect x="600" y="350" width="170" height="120" fill="var(--accent)"/>
+  <text class="i" x="685" y="416" text-anchor="middle">現金流</text>
+  <text class="g" x="685" y="508" text-anchor="middle">看得清楚後</text>
+
+  <text class="e" x="480" y="562" text-anchor="middle">抽掉的是溢價，不是現金流</text>
+</svg>

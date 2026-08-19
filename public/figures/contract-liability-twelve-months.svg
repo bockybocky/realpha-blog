@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="現金一次收進來，十二個月的格子只有前四格轉成營收，其餘八格仍掛在負債">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:600; fill:var(--ink); }
+    .d { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:600; fill:var(--ink); }
+    .big { font-size:30px; font-weight:700; fill:var(--ink); }
+    .on { font-size:16px; font-weight:600; fill:var(--page); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+
+  <text class="t" x="60" y="56">收了 $12，這個月只有 $1 是收入</text>
+
+  <rect x="60" y="110" width="150" height="90" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="big" x="135" y="165" text-anchor="middle">$12</text>
+  <text class="d" x="135" y="226" text-anchor="middle">客戶一次付清</text>
+  <path d="M 222 155 L 272 155" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M 264 148 L 274 155 L 264 162 Z" fill="var(--grey)"/>
+
+  <rect x="290" y="110" width="44" height="90" rx="6" fill="var(--accent)"/>
+  <text class="on" x="312" y="161" text-anchor="middle">$1</text>
+  <rect x="342" y="110" width="44" height="90" rx="6" fill="var(--accent)"/>
+  <text class="on" x="364" y="161" text-anchor="middle">$1</text>
+  <rect x="394" y="110" width="44" height="90" rx="6" fill="var(--accent)"/>
+  <text class="on" x="416" y="161" text-anchor="middle">$1</text>
+  <rect x="446" y="110" width="44" height="90" rx="6" fill="var(--accent)"/>
+  <text class="on" x="468" y="161" text-anchor="middle">$1</text>
+
+  <rect x="498" y="110" width="44" height="90" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="s" x="520" y="161" text-anchor="middle">$1</text>
+  <rect x="550" y="110" width="44" height="90" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="s" x="572" y="161" text-anchor="middle">$1</text>
+  <rect x="602" y="110" width="44" height="90" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="s" x="624" y="161" text-anchor="middle">$1</text>
+  <rect x="654" y="110" width="44" height="90" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="s" x="676" y="161" text-anchor="middle">$1</text>
+  <rect x="706" y="110" width="44" height="90" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="s" x="728" y="161" text-anchor="middle">$1</text>
+  <rect x="758" y="110" width="44" height="90" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="s" x="780" y="161" text-anchor="middle">$1</text>
+  <rect x="810" y="110" width="44" height="90" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="s" x="832" y="161" text-anchor="middle">$1</text>
+  <rect x="862" y="110" width="44" height="90" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="s" x="884" y="161" text-anchor="middle">$1</text>
+
+  <text class="s" x="312" y="226" text-anchor="middle">第 1 月</text>
+  <text class="s" x="884" y="226" text-anchor="middle">第 12 月</text>
+
+  <path d="M 290 254 L 490 254" stroke="var(--accent)" stroke-width="3"/>
+  <path d="M 390 254 L 390 310" stroke="var(--accent)" stroke-width="3"/>
+  <path d="M 498 254 L 906 254" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M 702 254 L 702 310" stroke="var(--grey)" stroke-width="3"/>
+
+  <rect x="290" y="310" width="200" height="92" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="g" x="390" y="348" text-anchor="middle">已交付 4 個月</text>
+  <text class="d" x="390" y="378" text-anchor="middle">損益表 · 營收 $4</text>
+
+  <rect x="498" y="310" width="408" height="92" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="702" y="348" text-anchor="middle">還欠 8 個月</text>
+  <text class="d" x="702" y="378" text-anchor="middle">資產負債表 · 合約負債 $8</text>
+
+  <text class="c" x="480" y="468" text-anchor="middle">錢一次進口袋，收入十二個月才認完</text>
+</svg>

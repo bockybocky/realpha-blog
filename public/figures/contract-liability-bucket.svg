@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左側桶子先裝滿十二格，右側月份格只填了三格，顯示合約負債先到、營收後到">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .title { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:20px; font-weight:600; fill:var(--ink); }
+    .body { font-size:16px; fill:var(--dim); }
+    .concl { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="title" x="60" y="62">客戶一次付 $12，營收一個月只認 $1</text>
+
+  <text class="grp" x="60" y="122">合約負債</text>
+  <text class="body" x="60" y="146">已收、還沒認列</text>
+  <rect x="60" y="170" width="180" height="288" rx="10"
+        fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <g fill="var(--accent)">
+    <rect x="74" y="256" width="152" height="18" rx="3"/>
+    <rect x="74" y="278" width="152" height="18" rx="3"/>
+    <rect x="74" y="300" width="152" height="18" rx="3"/>
+    <rect x="74" y="322" width="152" height="18" rx="3"/>
+    <rect x="74" y="344" width="152" height="18" rx="3"/>
+    <rect x="74" y="366" width="152" height="18" rx="3"/>
+    <rect x="74" y="388" width="152" height="18" rx="3"/>
+    <rect x="74" y="410" width="152" height="18" rx="3"/>
+    <rect x="74" y="432" width="152" height="18" rx="3"/>
+  </g>
+  <g fill="none" stroke="var(--line)" stroke-width="2">
+    <rect x="74" y="190" width="152" height="18" rx="3"/>
+    <rect x="74" y="212" width="152" height="18" rx="3"/>
+    <rect x="74" y="234" width="152" height="18" rx="3"/>
+  </g>
+  <text class="body" x="60" y="488">桶裡剩 $9</text>
+
+  <path d="M260 314 L360 314" stroke="var(--line)" stroke-width="3"/>
+  <path d="M354 306 L366 314 L354 322 Z" fill="var(--line)"/>
+  <text class="body" x="264" y="300">每月倒出 $1</text>
+
+  <text class="grp" x="400" y="122">營收</text>
+  <text class="body" x="400" y="146">逐月認列</text>
+  <g>
+    <rect x="400" y="410" width="34" height="48" rx="4" fill="var(--accent)"/>
+    <rect x="440" y="410" width="34" height="48" rx="4" fill="var(--accent)"/>
+    <rect x="480" y="410" width="34" height="48" rx="4" fill="var(--accent)"/>
+  </g>
+  <g fill="none" stroke="var(--line)" stroke-width="2">
+    <rect x="520" y="410" width="34" height="48" rx="4"/>
+    <rect x="560" y="410" width="34" height="48" rx="4"/>
+    <rect x="600" y="410" width="34" height="48" rx="4"/>
+    <rect x="640" y="410" width="34" height="48" rx="4"/>
+    <rect x="680" y="410" width="34" height="48" rx="4"/>
+    <rect x="720" y="410" width="34" height="48" rx="4"/>
+    <rect x="760" y="410" width="34" height="48" rx="4"/>
+    <rect x="800" y="410" width="34" height="48" rx="4"/>
+    <rect x="840" y="410" width="34" height="48" rx="4"/>
+  </g>
+  <text class="body" x="400" y="488">已認列 $3</text>
+  <text class="body" x="800" y="488">第 12 個月</text>
+
+  <text class="concl" x="60" y="534">桶先滿，營收後到</text>
+</svg>

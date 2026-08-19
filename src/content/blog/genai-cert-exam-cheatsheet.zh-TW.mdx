@@ -42,6 +42,8 @@ tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。
 - **GAN 生成對抗網路**：生成器 vs 判別器對抗訓練。🎯 誰提出→ Ian Goodfellow；對比擴散模型。
 - **Diffusion 擴散模型**：從隨機雜訊逐步去噪生成圖像。🎯 SD／Sora 核心，「加噪再學去噪」，別跟 GAN 混。
 - **Pre-training 預訓練**：海量無標註資料學通用知識。🎯 三階段：預訓練（通用）→ 微調（專業/行為）→ RAG（外部即時）；最耗運算＝預訓練。
+
+![三根高度懸殊的柱子由左到右快速變矮，分別是預訓練、微調、RAG，柱高代表運算量，說明三者代價差一個量級、改動的東西也不同。](/figures/pretrain-finetune-rag-cost.svg)
 - **Fine-tuning 微調**：改變模型行為或注入專業知識。🎯【最愛考分辨】改口氣/學專業領域用微調；補會變的資料用 RAG。
 - **Overfitting 過擬合**：訓練好、測試差、缺泛化。🎯 解法：Dropout、資料增強、正則化。
 - **Temperature 溫度**：控制輸出隨機性/創造性。🎯 發想調高、要精準調低；=0 每次選最高機率詞。
@@ -67,6 +69,8 @@ tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。
 - **Multi-agent 多代理**：多個角色 Agent 協作（一個寫、一個測、一個寫文件）。
 - **Jailbreak 越獄**：繞過安全過濾使模型答被禁內容。🎯「用話術突破安全限制」（如祖母漏洞）。
 - **Prompt Injection 提示注入**：把惡意指令藏進輸入劫持模型。🎯【易混】Jailbreak（破安全）vs Injection（注入惡意指令）。
+
+![一個大方框裡裝著兩個小方框，大框是提示注入，小框分別是越獄與提示洩漏，用包含關係說明越獄只是注入的一種。](/figures/prompt-injection-contains-jailbreak.svg)
 - **Self-Consistency**：多次推理取多數決，提高穩定／正確率。
 
 ## 工具與應用
@@ -76,6 +80,8 @@ tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。
 - **ControlNet**：加控制條件精確控制圖像構圖。🎯 OpenPose 控人物骨架、Canny 控邊緣。
 - **Inpainting / Outpainting**：局部重繪／向外擴圖。🎯 移除路人用 Inpainting；畫面往外延伸用 Outpainting。
 - **Upscaling 超解析度**：放大圖像同時補細節。🎯「放大並智能補細節」，老照片變高清。
+
+![三個畫布並排：第一個在內部挖出一塊虛線空缺，第二個在原畫布外圍多出虛線邊界，第三個由小畫布放大成大畫布，用邊界位置區分三種修圖。](/figures/inpaint-outpaint-upscale.svg)
 - **Style Transfer 風格遷移**：把一張圖的風格套到另一張的內容。🎯 照片變梵谷風，別跟 Inpainting/Outpainting 混。
 - **LoRA**：只訓練極少參數學特定人物/畫風。🎯 檔小、學某角色/畫風；屬 PEFT 高效微調。
 - **Voice Cloning / Voice Banking**：複製聲音／為失聲者預存嗓音。🎯 醫療上 ALS 患者術前 Voice Banking。
@@ -89,6 +95,8 @@ tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。
 
 - **MLOps / Feature Store**：集中管理 ML 特徵確保訓練/推理一致。🎯「避免訓練和上線特徵不一致」。
 - **Data Drift vs Concept Drift**【經典必考】：輸入分佈變 vs 輸入-輸出關係/定義變。🎯 新詞出現＝Data Drift；「垃圾郵件定義本身變了」＝Concept Drift。
+
+![左格的資料點整團往右移但分界線不動，右格的資料點原地不動但分界線轉了個角度，用「誰在動」區分兩種漂移。](/figures/data-drift-vs-concept-drift.svg)
 - **Data Lineage 資料血緣**：追蹤資料來源→轉換→去向。🎯 追「這數字哪來的」＋合規稽核。
 - **PII 個人可識別資訊**：姓名/身分證/地址等。🎯 處理前要去識別化或加密。
 - **Anonymization vs Pseudonymization**【必考】：匿名化不可逆 vs 假名化可逆。🎯 完全無法還原＝匿名化；還想對回本人＝假名化。
@@ -108,6 +116,8 @@ tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。
 - **Copyright / Fair Use**：用受版權作品訓練是否算合理使用。🎯 AI 訓練侵權爭議核心；也考 AI 生成內容版權歸誰。
 - **GDPR / Machine Unlearning**：被遺忘權；進權重後極難精確刪。🎯「用戶要求刪個資但已訓練進模型」的技術困境。
 - **EU AI Act**：歐盟 AI 法，依風險分四級。🎯 全球首部全面 AI 法規：不可接受/高/有限/最低。
+
+![一座四層金字塔，頂層最窄是不可接受風險、往下逐層變寬到最低風險，上窄下寬同時表示「管得越嚴」與「數量越多」。](/figures/eu-ai-act-risk-pyramid.svg)
 - **CCPA / PIPL / 台灣個資法**：加州/中國/台灣的個資法。🎯 台灣＝個資法，需當事人同意+安全措施。
 - **Opt-in / Opt-out / Consent**：管理用戶對個資使用的同意。🎯「記錄與管理用戶同意狀態」。
 - **Accountability 問責**：可追究 AI 決策的責任。🎯 六大倫理原則之一，「出事要能追責」。
@@ -127,6 +137,8 @@ tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。
 - **Temperature**（控隨機性）、**Top-P（核採樣）**（從累積機率達 P 的最小詞集採樣）；結果不同因機率採樣。
 - **幻覺（Hallucination）**：生成看似合理但不正確／虛構的資訊。
 - **GAN**（生成器 vs 判別器競爭，Goodfellow 2014）vs **擴散模型**（加噪破壞→學逆向去噪）。
+
+![左半是兩個方塊互相箭頭形成的循環，右半是四格由滿佈雜點逐漸變乾淨的方框序列，對比對抗式生成與逐步去噪。](/figures/gan-vs-diffusion.svg)
 - 必記：**垂直 AI**＝針對特定產業訓練優化。
 
 ### 1.2 生成式 AI 應用領域
@@ -146,10 +158,14 @@ tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。
 - **反向傳播**（訓練時算梯度更新權重）vs **推理 Inference**（部署後對新資料預測）。
 - **Overfitting**（訓練好、測試差，缺泛化）vs **Underfitting**（太簡單）；Bias-Variance Tradeoff（高偏差＝欠擬合、高變異＝過擬合）。
 - **Precision vs Recall** 有權衡；**F1** 是兩者**調和平均**（陷阱：不是算術平均）。
+
+![兩個相同的二乘二方格並排，左邊塗亮整條直行、右邊塗亮整條橫列，說明兩個指標分子相同但分母是不同的一整條。](/figures/precision-recall-denominator.svg)
 - 解碼策略：Greedy（易重複）、**Beam Search（width=1 等同 Greedy）**、Top-K、Temperature=0 最確定。
 - 架構：Encoder-Decoder→Seq2Seq（翻譯）；Decoder-only（GPT 續寫）；Self-Attention（句內字與字）；Cross-Attention（跨兩串）。
 - **RNN** 難平行化＋長距離遺忘；**LSTM** 門控解梯度消失；**GRU** 是 LSTM 簡化版。
 - **Word2Vec**（靜態，同字同向量）vs **BERT**（情境化，同字隨上下文變，如 bank）。
+
+![左圖同一個字只有一個固定位置的點，兩種語境都指向它；右圖同一個字分裂成兩個點，各自靠近河流與金錢，用位置表示語境。](/figures/word2vec-vs-bert-position.svg)
 - 預訓練任務：GPT＝**CLM**（因果／單向）；BERT＝**MLM**（遮罩／雙向）。
 - 必記：Ground Truth、Dropout（隨機關神經元防過擬合）、Data Augmentation（旋轉裁切加噪增資料）、Quantization（32→8/4-bit 縮體積加速）、LLM-as-a-Judge、Ablation Study（消融，移除組件看影響）。
 
@@ -164,12 +180,16 @@ tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。
 - 邊緣：Edge AI**非**「無限算力」；NPU 低功耗推理；TOPS 衡量 AI 晶片效能。
 - 必記：**MoE**（混合專家，每次只活化部分）、IP-Adapter（把圖片當 Prompt）、Delimiter（分隔符，區隔指令與資料防注入）、Pipeline（Hugging Face 封裝前處理／推理／後處理成一行 API）。
 
+![八個專家方格中只有兩格被點亮，右側一高一矮兩根柱子對比總參數與每次實際運算量。](/figures/moe-partial-activation.svg)
+
 ## 第二面向：能力強化（Prompt）
 
 ### 2.1 Prompt 優化能力
 - 好 Prompt 要含：目標／對象／語氣／字數等具體限制。
 - 推理引導：**CoT**（一步一步想）、Least-to-Most（拆子問題）、Step-Back（先抽象）、Tree of Thoughts（多路徑＋回溯）、Self-Consistency（多次取多數決）。
 - 長對話失效：**Prompt Decay**（忘最初指令）、Instruction Creep（指令越疊越亂）、**Lost in the Middle**（忽略中段）。
+
+![一條 U 形曲線，兩端高、中間塌陷，橫軸是對話從開頭到結尾的位置，縱軸是被記得的程度。](/figures/lost-in-the-middle-curve.svg)
 - 安全攻防：**Prompt Injection（廣義）⊃ Jailbreak（越獄子類）**；Prompt Leaking（騙出 System Prompt）；防禦＝Sandwich Defense、Instruction Defense。
 - 分隔符（```、###、XML）區隔指令與資料防注入；Claude 擅長 XML。
 - Temperature 高＝創意；Top-P 低＝保守確定。
@@ -244,6 +264,8 @@ tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。
 
 ### 3.4 聲音生成工具
 - **語音三分法**（愛考）：**TTS**（文字→語音）、**STT**（語音→文字）、**S2S**（語音→語音翻譯，直接轉語音）。
+
+![上方文字與語音兩個方塊之間有一對相反方向的箭頭，下方語音到語音另有一條箭頭，用箭頭方向區分三個名詞。](/figures/tts-stt-s2s-directions.svg)
 - TTS 自然度＝模擬音高／語調／重音／節奏。
 - Vocaloid 類＝把文字轉成特定音色的「歌聲」。
 - 音樂生成：節奏／和聲／配器／編曲。
@@ -324,6 +346,8 @@ tldr: "資策會生成式 AI 能力認證的『考前速查工具』完整版。
   - 聯邦學習（本地訓練只傳參數，資料不動模型動）
   - 安全多方計算 SMPC（多方不洩輸入共算）
   - 數據遮罩（替換成格式正確的假資料，測試環境用）
+
+![五條並排的橫向箭頭從自己這端指向同一個對方，箭頭上運送的東西各不相同：參數、加雜訊的統計、密文、碎片、假資料。](/figures/pets-what-leaves-your-side.svg)
 - 存取控制：RBAC（角色）／ABAC（屬性，更細）／ACL（清單）／最小權限原則。
 - **零信任架構**：「永不信任，始終驗證」。
 - 加密三態：靜態加密（at Rest）／傳輸加密（in Transit）／KMS 密鑰管理。

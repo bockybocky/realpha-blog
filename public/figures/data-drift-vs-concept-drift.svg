@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左格資料點整團移動、界線不動；右格資料點不動、界線轉向">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<defs><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker></defs>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="58">誰在動</text>
+<text class="g" x="60" y="118">Data Drift</text>
+<text class="s" x="230" y="118">資料自己搬家</text>
+<rect x="60" y="140" width="390" height="260" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<line x1="290" y1="150" x2="290" y2="390" stroke="var(--ink)" stroke-width="2"/>
+<circle cx="110" cy="220" r="6" fill="var(--grey)"/><circle cx="140" cy="270" r="6" fill="var(--grey)"/><circle cx="105" cy="310" r="6" fill="var(--grey)"/><circle cx="150" cy="200" r="6" fill="var(--grey)"/><circle cx="130" cy="340" r="6" fill="var(--grey)"/><circle cx="170" cy="290" r="6" fill="var(--grey)"/>
+<circle cx="300" cy="222" r="6" fill="var(--accent)"/><circle cx="330" cy="272" r="6" fill="var(--accent)"/><circle cx="295" cy="312" r="6" fill="var(--accent)"/><circle cx="340" cy="202" r="6" fill="var(--accent)"/><circle cx="320" cy="342" r="6" fill="var(--accent)"/><circle cx="360" cy="292" r="6" fill="var(--accent)"/>
+<line x1="195" y1="370" x2="270" y2="370" stroke="var(--accent)" stroke-width="2" marker-end="url(#a5)"/>
+<text class="s" x="110" y="176">舊</text>
+<text class="s" x="392" y="176">新</text>
+<text class="b" x="60" y="430">界線沒變　資料跑掉了</text>
+<text class="g" x="510" y="118">Concept Drift</text>
+<text class="s" x="700" y="118">規則自己改了</text>
+<rect x="510" y="140" width="390" height="260" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<line x1="700" y1="150" x2="700" y2="390" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="600" y1="150" x2="800" y2="390" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="600" cy="220" r="6" fill="var(--grey)"/><circle cx="640" cy="270" r="6" fill="var(--grey)"/><circle cx="610" cy="330" r="6" fill="var(--grey)"/><circle cx="670" cy="200" r="6" fill="var(--grey)"/><circle cx="700" cy="300" r="6" fill="var(--grey)"/><circle cx="760" cy="250" r="6" fill="var(--grey)"/><circle cx="800" cy="320" r="6" fill="var(--grey)"/><circle cx="750" cy="350" r="6" fill="var(--grey)"/>
+<text class="s" x="720" y="176">舊界線</text>
+<text class="s" x="820" y="176">新界線</text>
+<text class="b" x="510" y="430">資料沒變　界線轉了</text>
+<text class="c" x="60" y="500">分佈搬家　還是規則改寫</text>
+</svg>

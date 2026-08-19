@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" role="img" aria-label="裸空的損益線無限往右下延伸，價差選擇權的損益線兩端被平台夾住">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; }
+    .b { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="620" fill="var(--page)"/>
+  <defs>
+    <marker id="dw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+
+  <text class="t" x="480" y="52" text-anchor="middle">同一個判斷，兩種下注的形狀</text>
+
+  <rect x="60" y="86" width="840" height="450" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <line x1="100" y1="340" x2="880" y2="340" stroke="var(--grey)" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text class="b" x="92" y="334" text-anchor="end">損益 0</text>
+
+  <line x1="140" y1="110" x2="140" y2="512" stroke="var(--line)" stroke-width="2"/>
+
+  <path d="M140,120 L868,562" fill="none" stroke="var(--warn)" stroke-width="4" marker-end="url(#dw)"/>
+  <path d="M150,232 L420,232 L600,424 L870,424" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linejoin="round"/>
+
+  <text class="g" x="160" y="212" fill="var(--accent)">價差選擇權</text>
+  <text class="b" x="160" y="262">獲利封頂 ＋$2</text>
+  <text class="b" x="862" y="452" text-anchor="end">虧損封頂 －$1</text>
+
+  <text class="g" x="612" y="528" fill="var(--warn)">裸空：往下沒有底</text>
+
+  <text class="b" x="170" y="570">判斷成真</text>
+  <text class="b" x="850" y="570" text-anchor="end">判斷落空</text>
+
+  <text class="c" x="480" y="606" text-anchor="middle">先決定形狀，再決定方向</text>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一次請求分岔成兩條路：走官方 App 那條通往一塊固定的額度方塊，走第三方工具那條通往六根愈來愈高的柱子。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="mg" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 Z" fill="var(--grey)"/>
+    </marker>
+    <marker id="ma" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 Z" fill="var(--accent)"/>
+    </marker>
+    <marker id="mw" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 Z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+
+  <text class="t" x="40" y="54" font-size="27" fill="var(--ink)">同一個模型，兩道計費門</text>
+
+  <rect x="40" y="245" width="130" height="66" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t" x="105" y="284" font-size="16" fill="var(--ink)" text-anchor="middle">一次請求</text>
+
+  <path d="M176 262 C 215 262 215 180 246 180" fill="none" stroke="var(--grey)" stroke-width="2" marker-end="url(#mg)"/>
+  <path d="M176 294 C 215 294 215 390 246 390" fill="none" stroke="var(--grey)" stroke-width="2" marker-end="url(#mg)"/>
+
+  <rect x="252" y="148" width="190" height="64" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t" x="347" y="186" font-size="16" fill="var(--ink)" text-anchor="middle">官方 App／CLI</text>
+  <line x1="450" y1="180" x2="500" y2="180" stroke="var(--accent)" stroke-width="2" marker-end="url(#ma)"/>
+  <text class="t" x="562" y="174" font-size="19" fill="var(--accent)" text-anchor="middle">訂閱門</text>
+  <text class="t" x="562" y="198" font-size="15" fill="var(--dim)" text-anchor="middle">月費</text>
+  <line x1="624" y1="180" x2="660" y2="180" stroke="var(--accent)" stroke-width="2" marker-end="url(#ma)"/>
+  <rect x="666" y="155" width="234" height="50" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="783" y="186" font-size="16" fill="var(--ink)" text-anchor="middle">額度固定</text>
+
+  <rect x="252" y="352" width="190" height="76" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t" x="347" y="384" font-size="16" fill="var(--ink)" text-anchor="middle">第三方工具</text>
+  <text class="t" x="347" y="408" font-size="15" fill="var(--dim)" text-anchor="middle">自帶 API key</text>
+  <line x1="450" y1="390" x2="500" y2="390" stroke="var(--warn)" stroke-width="2" marker-end="url(#mw)"/>
+  <text class="t" x="562" y="384" font-size="19" fill="var(--warn)" text-anchor="middle">API 門</text>
+  <text class="t" x="562" y="408" font-size="15" fill="var(--dim)" text-anchor="middle">按 token</text>
+  <line x1="624" y1="390" x2="660" y2="390" stroke="var(--warn)" stroke-width="2" marker-end="url(#mw)"/>
+
+  <text class="t" x="783" y="342" font-size="15" fill="var(--dim)" text-anchor="middle">一路累加</text>
+  <line x1="660" y1="442" x2="906" y2="442" stroke="var(--line)" stroke-width="2"/>
+  <rect x="670" y="426" width="28" height="16" fill="var(--warn)"/>
+  <rect x="710" y="414" width="28" height="28" fill="var(--warn)"/>
+  <rect x="750" y="402" width="28" height="40" fill="var(--warn)"/>
+  <rect x="790" y="390" width="28" height="52" fill="var(--warn)"/>
+  <rect x="830" y="378" width="28" height="64" fill="var(--warn)"/>
+  <rect x="870" y="366" width="28" height="76" fill="var(--warn)"/>
+
+  <text class="t" x="40" y="508" font-size="22" fill="var(--ink)">綁了訂閱，不等於走訂閱那道門</text>
+</svg>

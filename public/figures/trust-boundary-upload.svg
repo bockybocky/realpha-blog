@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="上格一個小方塊送往雲端，下格一整個大資料夾框連同金鑰與客戶資料一起送往同一個雲端">
+  <defs>
+    <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">執行的那一刻，送出去的是什麼</text>
+
+  <rect x="700" y="106" width="200" height="344" rx="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="800" y="286" font-size="19" font-weight="700" fill="var(--dim)" text-anchor="middle">雲端</text>
+
+  <text class="t" x="60" y="130" font-size="19" font-weight="700" fill="var(--dim)">你以為送出去的</text>
+  <rect x="60" y="146" width="160" height="58" rx="9" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="140" y="182" font-size="16" fill="var(--ink)" text-anchor="middle">一段提問</text>
+  <line x1="232" y1="175" x2="686" y2="175" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="694,175 680,168 680,182" fill="var(--dim)"/>
+
+  <text class="t" x="60" y="266" font-size="19" font-weight="700" fill="var(--warn)">實際送出去的</text>
+  <rect x="60" y="282" width="560" height="168" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="2.5"/>
+  <text class="t" x="80" y="310" font-size="16" fill="var(--dim)">整個資料夾</text>
+  <rect x="80" y="324" width="250" height="50" rx="8" fill="var(--page)" stroke="var(--line)" stroke-width="1.5"/>
+  <text class="t" x="205" y="355" font-size="16" fill="var(--ink)" text-anchor="middle">你的提問</text>
+  <rect x="350" y="324" width="250" height="50" rx="8" fill="var(--page)" stroke="var(--line)" stroke-width="1.5"/>
+  <text class="t" x="475" y="355" font-size="16" fill="var(--ink)" text-anchor="middle">私密原始碼</text>
+  <rect x="80" y="386" width="250" height="50" rx="8" fill="var(--page)" stroke="var(--warn)" stroke-width="1.5"/>
+  <text class="t" x="205" y="417" font-size="16" fill="var(--ink)" text-anchor="middle">金鑰</text>
+  <rect x="350" y="386" width="250" height="50" rx="8" fill="var(--page)" stroke="var(--warn)" stroke-width="1.5"/>
+  <text class="t" x="475" y="417" font-size="16" fill="var(--ink)" text-anchor="middle">客戶資料</text>
+  <line x1="632" y1="366" x2="686" y2="366" stroke="var(--warn)" stroke-width="2.5"/>
+  <polygon points="694,366 680,359 680,373" fill="var(--warn)"/>
+
+  <text class="t" x="480" y="518" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">先問資料流向，再談方便</text>
+</svg>
