@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩格對比的長條圖：沒有約束時解釋的成本遠低於重算，模型走解釋；發火之後解釋的成本被推得比重算高，它才改走重算。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <defs>
+    <marker id="ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/>
+    </marker>
+  </defs>
+  <g font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+    <text x="60" y="58" font-size="27" fill="var(--ink)">同一個問題，兩條路的成本</text>
+
+    <rect x="60" y="96" width="400" height="410" rx="14" fill="var(--card)" stroke="var(--line)"/>
+    <rect x="500" y="96" width="400" height="410" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+    <text x="86" y="136" font-size="20" fill="var(--dim)">沒有約束時</text>
+    <text x="526" y="136" font-size="20" fill="var(--warn)">你發火之後</text>
+
+    <line x1="100" y1="424" x2="100" y2="182" stroke="var(--dim)" stroke-width="1.5" marker-end="url(#ar1)"/>
+    <text x="100" y="168" font-size="15" fill="var(--dim)" text-anchor="middle">成本</text>
+    <line x1="540" y1="424" x2="540" y2="182" stroke="var(--dim)" stroke-width="1.5" marker-end="url(#ar1)"/>
+    <text x="540" y="168" font-size="15" fill="var(--dim)" text-anchor="middle">成本</text>
+
+    <line x1="84" y1="432" x2="436" y2="432" stroke="var(--line)" stroke-width="2"/>
+    <line x1="524" y1="432" x2="876" y2="432" stroke="var(--line)" stroke-width="2"/>
+
+    <rect x="170" y="352" width="90" height="80" rx="4" fill="var(--accent)"/>
+    <rect x="300" y="212" width="90" height="220" rx="4" fill="var(--grey)"/>
+    <rect x="610" y="172" width="90" height="260" rx="4" fill="var(--grey)"/>
+    <rect x="740" y="212" width="90" height="220" rx="4" fill="var(--accent)"/>
+
+    <text x="215" y="458" font-size="16" fill="var(--ink)" text-anchor="middle">解釋</text>
+    <text x="345" y="458" font-size="16" fill="var(--ink)" text-anchor="middle">重算</text>
+    <text x="655" y="458" font-size="16" fill="var(--ink)" text-anchor="middle">解釋</text>
+    <text x="785" y="458" font-size="16" fill="var(--ink)" text-anchor="middle">重算</text>
+
+    <text x="215" y="486" font-size="15" fill="var(--accent)" text-anchor="middle">它走這條</text>
+    <text x="785" y="486" font-size="15" fill="var(--accent)" text-anchor="middle">它走這條</text>
+
+    <text x="60" y="540" font-size="22" fill="var(--ink)">它永遠走比較便宜的那條</text>
+  </g>
+</svg>

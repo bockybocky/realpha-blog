@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊完整母體三塊、分母十二；中間丟掉中間那一塊後存檔；右邊下游拿到只剩兩塊、分母九，中間留下一個沒有標示的虛線缺口。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <defs>
+    <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/>
+    </marker>
+  </defs>
+  <g font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+    <text x="60" y="58" font-size="27" fill="var(--ink)">被丟掉的那一類，沒有人宣告</text>
+
+    <text x="110" y="128" font-size="20" fill="var(--dim)">產生資料時</text>
+    <text x="650" y="128" font-size="20" fill="var(--dim)">下游接手時</text>
+
+    <rect x="110" y="152" width="200" height="88" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text x="134" y="204" font-size="16" fill="var(--ink)">高　5</text>
+    <rect x="110" y="252" width="200" height="60" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text x="134" y="290" font-size="16" fill="var(--ink)">中　3</text>
+    <rect x="110" y="324" width="200" height="76" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text x="134" y="370" font-size="16" fill="var(--ink)">低　4</text>
+    <text x="110" y="440" font-size="19" fill="var(--accent)">分母 12</text>
+
+    <line x1="352" y1="282" x2="608" y2="282" stroke="var(--dim)" stroke-width="2" marker-end="url(#ar2)"/>
+    <text x="480" y="258" font-size="19" fill="var(--ink)" text-anchor="middle">丟掉中間這一類</text>
+    <text x="480" y="310" font-size="15" fill="var(--dim)" text-anchor="middle">存檔的就是這個版本</text>
+
+    <rect x="650" y="152" width="200" height="88" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text x="674" y="204" font-size="16" fill="var(--ink)">高　5</text>
+    <rect x="650" y="252" width="200" height="60" rx="6" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 6"/>
+    <text x="674" y="290" font-size="15" fill="var(--warn)">缺口</text>
+    <rect x="650" y="324" width="200" height="76" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text x="674" y="370" font-size="16" fill="var(--ink)">低　4</text>
+    <text x="650" y="440" font-size="19" fill="var(--accent)">分母 9</text>
+
+    <text x="60" y="520" font-size="22" fill="var(--ink)">分母變小了，數字看起來完全正常</text>
+  </g>
+</svg>

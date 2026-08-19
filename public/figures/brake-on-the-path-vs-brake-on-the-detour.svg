@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="主幹道上有一片每次都會通過的薄閘門，旁邊一條虛線岔路通往一個大很多的檢查站，那條岔路要先想到才會進去。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="ar3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/>
+    </marker>
+    <marker id="ar3w" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+  <g font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+    <text x="60" y="58" font-size="27" fill="var(--ink)">煞車裝在兩個不同的位置</text>
+
+    <rect x="620" y="102" width="280" height="132" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text x="648" y="152" font-size="20" fill="var(--ink)">完整清單</text>
+    <text x="648" y="184" font-size="16" fill="var(--dim)">十七條</text>
+    <text x="648" y="212" font-size="15" fill="var(--warn)">想到才會進來</text>
+
+    <path d="M676 300 L676 250" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 7" fill="none" marker-end="url(#ar3w)"/>
+
+    <rect x="80" y="292" width="800" height="80" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text x="86" y="278" font-size="20" fill="var(--dim)">每一次對話</text>
+    <line x1="110" y1="332" x2="860" y2="332" stroke="var(--dim)" stroke-width="2" marker-end="url(#ar3)"/>
+
+    <rect x="424" y="278" width="16" height="108" rx="3" fill="var(--accent)"/>
+    <text x="432" y="416" font-size="20" fill="var(--ink)" text-anchor="middle">三句紀律</text>
+    <text x="432" y="444" font-size="15" fill="var(--accent)" text-anchor="middle">每次都會經過</text>
+
+    <text x="60" y="505" font-size="22" fill="var(--ink)">要先想到才踩的，不算煞車</text>
+  </g>
+</svg>
