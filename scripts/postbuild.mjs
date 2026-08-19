@@ -1,5 +1,6 @@
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -205,3 +206,44 @@ if (stillBroken.length !== linkBaseline.length) {
 	console.log(`postbuild: 斷連結基線棘輪 ${linkBaseline.length} → ${stillBroken.length} 個`);
 }
 console.log(`postbuild: 斷連結閘通過（${htmlFiles.length} 頁 / ${linkCount} 個站內連結，基線豁免 ${stillBroken.length} 個）`);
+
+// ---- 封面換圖閘（2026-08-19）----
+// 病理：Cloudflare 依網址快取。封面內容換了但檔名沒換，線上會一直吐舊圖，
+// 而本地看起來完全正常——Charles 看到的是「圖沒換呀」，我這邊每次都驗過。
+// 解法是換檔名（{slug}-cover-v2.png 這種）讓網址改變。
+// 這道閘只認一件事：同一個檔名，內容變了。
+const COVER_HASHES = join(root, 'scripts', 'cover_hashes.json');
+const coversDir = join(publicRoot, 'covers');
+
+let knownHashes;
+try {
+	knownHashes = JSON.parse(await readFile(COVER_HASHES, 'utf8'));
+} catch {
+	knownHashes = {};
+}
+
+const coverFiles = (await readdir(coversDir)).filter((f) => !f.startsWith('.'));
+const currentHashes = {};
+const silentlySwapped = [];
+for (const name of coverFiles) {
+	const buf = await readFile(join(coversDir, name));
+	const hash = createHash('md5').update(buf).digest('hex').slice(0, 16);
+	currentHashes[name] = hash;
+	if (knownHashes[name] && knownHashes[name] !== hash) silentlySwapped.push(name);
+}
+
+if (silentlySwapped.length > 0) {
+	console.error(`\n封面換圖閘：以下 ${silentlySwapped.length} 張封面換了內容卻沿用同一個檔名，不准發布`);
+	for (const name of silentlySwapped) console.error(`   - ${name}`);
+	console.error('   Cloudflare 依網址快取，檔名不變＝線上一直吐舊圖，只有你自己看到新的。');
+	console.error('   正解：新圖改名（例如 xxx-cover-v2.png），並同步改三處——');
+	console.error('   frontmatter 的 ogImage、cover，以及內文的 ![alt](...) 圖片語法。');
+	console.error('   真的要沿用檔名：刪掉 scripts/cover_hashes.json 裡那一筆再建置。');
+	process.exit(1);
+}
+
+const firstRun = Object.keys(knownHashes).length === 0;
+if (JSON.stringify(knownHashes) !== JSON.stringify(currentHashes)) {
+	await writeFile(COVER_HASHES, `${JSON.stringify(currentHashes, null, '\t')}\n`, 'utf8');
+}
+console.log(`postbuild: 封面換圖閘通過（${coverFiles.length} 張${firstRun ? '，本次建立基線' : ''}）`);
