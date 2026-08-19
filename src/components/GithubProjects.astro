@@ -4,6 +4,7 @@
  * 只列有寫描述的 repo；抓不到就沿用上次的，抓不到又沒舊資料就整區不顯示。
  */
 import data from '../data/github-projects.json';
+import zhBlurbs from '../data/github-projects-zh.json';
 
 interface Props {
 	locale: 'zh-TW' | 'en';
@@ -11,7 +12,10 @@ interface Props {
 
 const { locale } = Astro.props;
 const zh = locale === 'zh-TW';
-const repos = data.repos ?? [];
+const repos = (data.repos ?? []).map((r) => {
+	const zhInfo = (zhBlurbs as Record<string, { title: string; blurb: string }>)[r.name];
+	return { ...r, zhTitle: zhInfo?.title ?? null, zhBlurb: zhInfo?.blurb ?? null };
+});
 const profile = 'https://github.com/bockybocky';
 ---
 
@@ -32,8 +36,9 @@ const profile = 'https://github.com/bockybocky';
 						{repo.language && <span>{repo.language}</span>}
 						{repo.stars > 0 && <span>★ {repo.stars}</span>}
 					</div>
-					<h3>{repo.name}</h3>
-					<p>{repo.description}</p>
+					<h3>{zh && repo.zhTitle ? repo.zhTitle : repo.name}</h3>
+					{zh && repo.zhTitle && <p class="gh-slug">{repo.name}</p>}
+					<p>{zh && repo.zhBlurb ? repo.zhBlurb : repo.description}</p>
 				</a>
 			))}
 		</div>
@@ -47,10 +52,17 @@ const profile = 'https://github.com/bockybocky';
 
 <style>
 	.gh-entry h3 {
-		margin: 0 0 0.4rem;
-		font-size: 1.05rem;
-		font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+		margin: 0 0 0.15rem;
+		font-size: 1.08rem;
 		word-break: break-word;
+	}
+
+	/* repo 原名，放在中文名下面當小字——讀者到了 GitHub 才認得出是同一個 */
+	.gh-slug {
+		margin: 0 0 0.5rem;
+		font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+		font-size: 0.78rem;
+		color: var(--muted);
 	}
 
 	.gh-more {
