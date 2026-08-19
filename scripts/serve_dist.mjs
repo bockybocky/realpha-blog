@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createReadStream } from 'node:fs';
-import { stat } from 'node:fs/promises';
+import { appendFile, mkdir, stat } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import { extname, join, normalize, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -9,6 +9,37 @@ const HOST = '127.0.0.1';
 const PORT = 8377;
 const ROOT = resolve(fileURLToPath(new URL('../', import.meta.url)), 'dist');
 const TEXT = 'text/plain; charset=utf-8';
+
+// ---- 訪問記錄（2026-08-19）----
+// 為什麼記在自己這裡而不是掛外部分析：這台伺服器本來就在跑，
+// 而且 referer 標頭直接回答「方格子那條線帶回來幾個人」——
+// 那正是做完雙向引流之後最需要知道、目前完全看不到的東西。
+// 只記頁面請求，不記靜態資源；不設 cookie、不記完整 IP。
+const LOG_DIR = resolve(fileURLToPath(new URL('../', import.meta.url)), 'logs');
+const SKIP_LOG = /\.(css|js|mjs|png|jpe?g|svg|webp|ico|woff2?|ttf|map|txt|xml|json)$/i;
+const BOT = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|headless|curl|wget|python-requests|node-fetch/i;
+
+function logVisit(req, status) {
+	try {
+		const path = (req.url ?? '/').split('?')[0];
+		if (SKIP_LOG.test(path)) return;
+		const ua = req.headers['user-agent'] ?? '';
+		const row = {
+			t: new Date().toISOString(),
+			p: path,
+			ref: req.headers.referer ?? '',
+			bot: BOT.test(ua) ? 1 : 0,
+			ua: ua.slice(0, 120),
+			// Cloudflare 隧道帶進來的訪客國別；本機直連時沒有這個標頭
+			cc: req.headers['cf-ipcountry'] ?? '',
+			s: status,
+		};
+		const day = row.t.slice(0, 10);
+		appendFile(join(LOG_DIR, `visits-${day}.jsonl`), `${JSON.stringify(row)}\n`).catch(() => {});
+	} catch {
+		// 記錄失敗絕不影響供稿——這條線壞掉只能少一筆資料，不能讓網站掛掉
+	}
+}
 
 const types = new Map([
 	['.html', 'text/html; charset=utf-8'],
@@ -88,10 +119,12 @@ async function handle(req, res) {
 	const url = new URL(req.url ?? '/', `http://${HOST}:${PORT}`);
 	const entry = await fileEntry(url.pathname);
 	if (!entry) {
+		logVisit(req, 404);
 		await sendFallback(req, res);
 		return;
 	}
 
+	logVisit(req, 200);
 	res.writeHead(200, { 'content-type': contentType(entry.typePath) });
 	if (req.method === 'HEAD') res.end();
 	else createReadStream(entry.path).on('error', () => res.destroy()).pipe(res);
@@ -124,7 +157,11 @@ if (process.argv.includes('--check')) {
 		process.exit(1);
 	});
 
+	// 記錄目錄不存在的話，每一筆 appendFile 都會靜默失敗——開機時先建好
+	await mkdir(LOG_DIR, { recursive: true });
+
 	server.listen(PORT, HOST, () => {
 		console.log(`Serving ${ROOT} at http://${HOST}:${PORT}/`);
+		console.log(`Visit log: ${LOG_DIR}`);
 	});
 }
