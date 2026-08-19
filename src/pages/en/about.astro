@@ -4,28 +4,37 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 const locale = 'en';
 ---
 
-<SiteLayout title="About" description="Author, collaboration, and licensing notes for Realpha Blog." locale={locale} path="/en/about/" alternatePath="/about/" breadcrumbs={[{ name: 'About', path: '/en/about/' }]}>
+<SiteLayout title="About" description="Realpha is a public lab: every market call is notarised when published, with its criteria locked and a settlement date attached. When the date arrives, the data decides." locale={locale} path="/en/about/" alternatePath="/about/" breadcrumbs={[{ name: 'About', path: '/en/about/' }]}>
 	<main class="page article-shell">
 		<header class="article-header">
-			<h1 class="article-title">About Realpha Blog</h1>
-			<p class="lead">Realpha is a home for technical and investment research — verifiable, reusable notes published in the open, written to be read well by both humans and agents.</p>
+			<h1 class="article-title">Why this lab exists</h1>
+			<p class="lead">There is no shortage of opinions online. What is scarce is someone coming back afterwards to check the answer. Every call here gets a settlement date, and when it arrives the data decides. The ones that fail go to the top.</p>
 		</header>
 		<div class="prose">
-			<h2>Public Lab</h2>
-			<p>I am an individual investor with an engineering background. By day, I work on measurement and process-related work; by night, I run this public lab. I put my own investment hypotheses out in the open for validation, including the ones that fail, because what I have tested and found useless is often more valuable than what I believe works. If falsification feels more honest than confirmation to you, especially if you come from engineering or quantitative work, you are welcome to join the conversation through comments or giscus.</p>
+			<h2>The problem this is trying to fix</h2>
+			<p>Market commentary has a structural flaw: being right is remembered, being wrong is forgotten, and nobody keeps the books. The same person can look prescient year after year, because the misses are never dug up.</p>
+			<p>So the idea here is simple — lock a judgement the moment it is written, along with the date it settles and the data that decides it. When the date arrives, check the answer. The ones that hold stay; the ones that are overturned go to the very top. Not out of unusual honesty, but because <strong>without doing this I cannot tell which of my own judgements are actually worth anything</strong>.</p>
 
-			<h2>Bylined as Bocky</h2>
-			<p>Everything here is bylined <strong>Bocky</strong>, linked to the public GitHub identity at <a href="https://github.com/bockybocky" rel="me">github.com/bockybocky</a>. Code, source files, and issues all live there — read it, copy it, or open a PR.</p>
+			<h2>What is here</h2>
+			<p>Research notes are the bulk of it — usually starting from an episode or a report, then recomputing the claim against my own data to see whether it holds. The <a href="/ledger/">ledger</a> holds calls that are locked and awaiting settlement (Chinese only for now). The <a href="/en/lab/">lab</a> has small interactive tools that turn a concept into something you can put your own numbers into. <a href="/en/projects/">Projects</a> collects code written for my own use that turned out to be useful to others.</p>
+			<p>What is not here, stated plainly: <strong>no stock picks, no price targets, no individual recommendations</strong>. This is about how to judge, not what to buy.</p>
 
-			<h2>One independent researcher plus an AI research team</h2>
-			<p>Realpha is the product of human–AI collaboration, and we say so plainly. We do not pretend it is all hand-written, and we do not pretend it is all machine-generated.</p>
-			<p>The split is roughly this: <strong>direction, judgment, and the final call are made by a human</strong>; the AI research team handles source wrangling, code drafts, bilingual rewriting, testing, and first drafts. Every post is reviewed by a human before it ships — the AI does not decide, it clears the grunt work and pushes the thinking to be sharper. The English edition is an idiomatic rewrite rather than a word-for-word translation, and it is proofed by a human too.</p>
+			<h2>Who writes this</h2>
+			<p>I am Bocky, an individual investor with an engineering background. The most useful thing that training left me is not any particular technique — it is a habit: <strong>ask first what would make this wrong</strong>. A claim that cannot say how it would fail usually cannot say why it holds either.</p>
+			<p>Public identity at <a href="https://github.com/bockybocky" rel="me">github.com/bockybocky</a> — code, sources and issues are all there. Read it, copy it, open a PR.</p>
+
+			<h2>What the human does, what the AI does</h2>
+			<p>This site is human-AI collaboration. It does not pretend to be entirely handwritten, nor entirely machine-generated.</p>
+			<p>The split: <strong>direction, judgement and final calls are made by the human</strong>. The AI handles research legwork, code drafts, bilingual rewriting, tests and first drafts. Everything is reviewed by a human before it ships — the AI does not decide, it clears the grunt work and forces the thinking to get sharper. The English edition is a rewrite rather than a literal translation, also human-reviewed.</p>
+
+			<h2>Say something</h2>
+			<p>Every post takes comments. If you think a call is wrong, send a counter-example — the <a href="/propose/">challenge page</a> (Chinese only for now) takes them directly. Being overturned is a good outcome here; it is the entire point of the place.</p>
 
 			<h2>Licensing</h2>
-			<p>Article content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a>: share and adapt freely, with attribution, non-commercially, and under the same terms. Code is licensed <strong>MIT</strong> — take it and use it.</p>
+			<p>Written content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a>: share and adapt freely with attribution, non-commercially, and share alike. Code is <strong>MIT</strong> licensed — take it.</p>
 
 			<h2>Disclaimer</h2>
-			<p>All investment-related content on this site is educational and method-focused. It is <strong>not advice to buy or sell any individual security, offers no target prices, and does not analyze any current holding</strong>. Investing carries risk; make your own decisions or consult a qualified professional.</p>
+			<p>All investment-related content here is educational and methodological. <strong>It is not investment advice, contains no price targets, and does not address any current position</strong>. Investing carries risk; make your own decisions or consult a qualified professional.</p>
 		</div>
 	</main>
 </SiteLayout>
