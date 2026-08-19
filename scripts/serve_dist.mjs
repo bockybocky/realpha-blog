@@ -4,6 +4,7 @@ import { appendFile, mkdir, stat } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import { extname, join, normalize, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { collectStats, renderDash } from './dash.mjs';
 
 const HOST = '127.0.0.1';
 const PORT = 8377;
@@ -117,6 +118,20 @@ async function handle(req, res) {
 	}
 
 	const url = new URL(req.url ?? '/', `http://${HOST}:${PORT}`);
+
+	// 私人儀表板。不進 dist、不進網站地圖，外面只靠 Cloudflare Access 擋。
+	if (url.pathname === '/_dash' || url.pathname === '/_dash/') {
+		const days = Number(url.searchParams.get('days')) || 14;
+		const stats = await collectStats(LOG_DIR, Math.min(90, Math.max(1, days)));
+		res.writeHead(200, {
+			'content-type': 'text/html; charset=utf-8',
+			'cache-control': 'no-store',
+			'x-robots-tag': 'noindex, nofollow',
+		});
+		res.end(req.method === 'HEAD' ? undefined : renderDash(stats));
+		return;
+	}
+
 	const entry = await fileEntry(url.pathname);
 	if (!entry) {
 		logVisit(req, 404);
