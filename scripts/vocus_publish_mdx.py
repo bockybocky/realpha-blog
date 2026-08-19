@@ -145,7 +145,9 @@ def parse_runs(text):
     return [(seg, 1 if i % 2 else 0) for i, seg in enumerate(parts) if seg != '']
 
 
-LINK_RE = re.compile(r'\[([^\]]+)\]\((https?://[^)]+)\)')
+# 站內相對連結（/projects/、/blog/x/）也要收：方格子上沒有那些路徑，
+# 不補成完整網址就會原樣印出 [文字](/路徑) 這串純文字。
+LINK_RE = re.compile(r'\[([^\]]+)\]\((https?://[^)]+|/[^)]*)\)')
 
 
 def split_links(text):
@@ -154,7 +156,10 @@ def split_links(text):
     for m in LINK_RE.finditer(text):
         if m.start() > pos:
             out.append(('t', text[pos:m.start()], None))
-        out.append(('a', m.group(1), m.group(2)))
+        url = m.group(2)
+        if url.startswith('/'):
+            url = BLOG + url          # 相對路徑補成完整網址，方格子才連得回去
+        out.append(('a', m.group(1), url))
         pos = m.end()
     if pos < len(text):
         out.append(('t', text[pos:], None))
