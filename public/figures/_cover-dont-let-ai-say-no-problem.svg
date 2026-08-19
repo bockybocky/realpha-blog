@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img" aria-label="三個量測點取平均，其中一個被關在一個太小的框裡、值遠低於另外兩個，把平均線硬生生往下拉；旁邊一個對話框寫著沒問題">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #c4ccd8;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t    { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size: 44px; font-weight: 700; fill: var(--ink); }
+    .sub  { font-size: 22px; fill: var(--dim); }
+    .val  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+    .tag  { font-size: 19px; fill: var(--dim); }
+    .warn { font-size: 20px; font-weight: 700; fill: var(--warn); }
+    .bub  { font-size: 27px; font-weight: 700; fill: var(--page); }
+  </style>
+
+  <rect x="0" y="0" width="1024" height="576" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="72" y="92" class="h1">別讓 AI 說「沒問題」</text>
+    <text x="72" y="132" class="sub">三個量測取平均，其中一個裝不下要量的東西</text>
+
+    <!-- 兩根正常的柱 -->
+    <rect x="120" y="250" width="96" height="196" rx="4" fill="var(--accent)"/>
+    <text x="168" y="238" class="val" text-anchor="middle">41</text>
+    <text x="168" y="470" class="tag" text-anchor="middle">站一</text>
+
+    <rect x="256" y="266" width="96" height="180" rx="4" fill="var(--accent)"/>
+    <text x="304" y="254" class="val" text-anchor="middle">38</text>
+    <text x="304" y="470" class="tag" text-anchor="middle">站二</text>
+
+    <!-- 被關在太小的框裡的那一站 -->
+    <rect x="392" y="418" width="96" height="28" rx="3" fill="var(--warn)"/>
+    <rect x="386" y="404" width="108" height="48" rx="4" fill="none"
+          stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="7,5"/>
+    <text x="440" y="392" class="val" text-anchor="middle">6</text>
+    <text x="440" y="470" class="tag" text-anchor="middle">站三</text>
+    <text x="440" y="496" class="warn" text-anchor="middle">視野裝不下</text>
+
+    <!-- 平均線：被拉低 -->
+    <line x1="100" y1="330" x2="700" y2="330" stroke="var(--grey)"
+          stroke-width="2.5" stroke-dasharray="9,7"/>
+    <text x="712" y="330" class="tag">兩站的平均</text>
+
+    <line x1="100" y1="382" x2="700" y2="382" stroke="var(--warn)" stroke-width="4"/>
+    <text x="712" y="388" class="warn">三站平均</text>
+
+    <path d="M694,336 L694,372" stroke="var(--warn)" stroke-width="3"
+          marker-end="url(#a)"/>
+    <defs>
+      <marker id="a" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+        <path d="M0,0 L9,3.5 L0,7 z" fill="var(--warn)"/>
+      </marker>
+    </defs>
+
+    <!-- 對話框 -->
+    <rect x="756" y="150" width="212" height="86" rx="16" fill="var(--accent)"/>
+    <path d="M800,236 L790,268 L826,236 z" fill="var(--accent)"/>
+    <text x="862" y="202" class="bub" text-anchor="middle">沒問題</text>
+
+    <text x="756" y="452" class="tag">一整晚，</text>
+    <text x="756" y="484" class="tag">它都這樣回答。</text>
+  </g>
+</svg>

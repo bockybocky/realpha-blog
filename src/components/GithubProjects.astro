@@ -27,7 +27,7 @@ const profile = 'https://github.com/bockybocky';
 		</div>
 		<div class="grid">
 			{repos.map((repo) => (
-				<a class="entry gh-entry" href={repo.url} target="_blank" rel="noopener">
+				<a class="entry gh-entry" id={repo.name} href={repo.url} target="_blank" rel="noopener">
 					<div class="meta">
 						{repo.language && <span>{repo.language}</span>}
 						{repo.stars > 0 && <span>★ {repo.stars}</span>}
