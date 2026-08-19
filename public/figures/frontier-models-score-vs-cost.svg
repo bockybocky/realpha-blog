@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" role="img" aria-label="上排三根幾乎等高的分數長條，下排三根高度懸殊的成本長條，最右一根高出四倍">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .bdy { font-size:16px; fill:var(--dim); }
+    .num { font-size:16px; fill:var(--ink); }
+    .cnc { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="620" fill="var(--page)"/>
+<text class="ttl" x="60" y="62">分數幾乎一樣，價格不是</text>
+
+<text class="grp" x="60" y="132">智力分數</text>
+<rect x="250" y="192" width="100" height="108" fill="var(--accent)"/>
+<rect x="490" y="192" width="100" height="108" fill="var(--accent)"/>
+<rect x="730" y="190" width="100" height="110" fill="var(--accent)"/>
+<text class="num" x="300" y="176" text-anchor="middle">61</text>
+<text class="num" x="540" y="176" text-anchor="middle">61</text>
+<text class="num" x="780" y="176" text-anchor="middle">62</text>
+<line x1="60" y1="300" x2="900" y2="300" stroke="var(--line)" stroke-width="2"/>
+<text class="num" x="300" y="328" text-anchor="middle">Grok 4.6</text>
+<text class="num" x="540" y="328" text-anchor="middle">GPT-5.6 Sol</text>
+<text class="num" x="780" y="328" text-anchor="middle">Fable 5</text>
+
+<text class="grp" x="60" y="400">每項任務成本</text>
+<rect x="250" y="510" width="100" height="30" fill="var(--accent)"/>
+<rect x="490" y="498" width="100" height="42" fill="var(--accent)"/>
+<rect x="730" y="420" width="100" height="120" fill="var(--warn)"/>
+<text class="num" x="300" y="496" text-anchor="middle">1 倍</text>
+<text class="num" x="540" y="484" text-anchor="middle">1.4 倍</text>
+<text class="num" x="780" y="406" text-anchor="middle">4 倍以上</text>
+<line x1="60" y1="540" x2="900" y2="540" stroke="var(--line)" stroke-width="2"/>
+<text class="bdy" x="300" y="566" text-anchor="middle">Grok 4.6</text>
+<text class="bdy" x="540" y="566" text-anchor="middle">GPT-5.6 Sol</text>
+<text class="bdy" x="780" y="566" text-anchor="middle">Fable 5</text>
+
+<text class="cnc" x="60" y="602">弱一咪咪，便宜四倍</text>
+</svg>
