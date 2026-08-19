@@ -1,0 +1,89 @@
+---
+title: "Power Semis: The Chonks of the Chip World"
+description: "Notes from the 2026-08-18 episode of Supply Chained on wide bandgap materials and power semiconductors — why the material is hard, where the real bottleneck sits, and who actually pushed this revival. Educational only; not investment advice, no tickers, no price targets."
+slug: "supplychained-2026-08-18-power-semis-the-chonks-of-the-chip-world"
+lang: "en"
+pubDate: 2026-08-19
+category: "investing"
+tags: ["power semiconductors", "gallium nitride", "silicon carbide", "AI data centers", "supply chain bottlenecks"]
+ogImage: "/covers/supplychained-2026-08-18-power-semis-the-chonks-of-the-chip-world-cover.png"
+cover: "/covers/supplychained-2026-08-18-power-semis-the-chonks-of-the-chip-world-cover.png"
+---
+
+![A long underground power distribution corridor beneath a data center, heavy copper busbars and heat sinks in the foreground, warm light from server rows far down the hall](/covers/supplychained-2026-08-18-power-semis-the-chonks-of-the-chip-world-cover.png)
+
+> Heaven covers and earth carries; things number in the tens of thousands, and affairs follow from them, each brought to completion without omission — is this the work of human hands alone?
+> — Song Yingxing, preface to *Tiangong Kaiwu* (Ming dynasty, 1637; my own translation)
+
+## What this episode is about
+
+On 18 August 2026, the two hosts of Supply Chained spent an episode on something nobody usually talks about: power semiconductors, and the wide bandgap materials underneath them — gallium nitride and silicon carbide.
+
+The topic sits in an odd place. It isn't like leading-edge logic, where someone counts the transistors for you every generation. It isn't like high bandwidth memory, where every headline gets mapped onto a supply-demand gap. Power semis have lived in the corner for decades, woken up every so often by whatever new demand walks in: industrial motors first, then electric vehicles, and now AI data centers. The episode title calls them the chonks of the chip world, which is exactly right — they're big and thick, the opposite of what most people picture when they hear "chip."
+
+What follows is my own reading and extension after listening, not a transcript of the show.
+
+## The main points
+
+One. A power semiconductor doesn't compute anything and doesn't store anything. It's a valve. The episode lines up the categories: logic calculates, memory stores, MEMS senses, and power semis do exactly one job — bring current and voltage down to something the next stage can survive. That sounds dull, and the specification is anything but: rack-level voltage in a data center comes in high and has to be stepped down to under a volt by the time it reaches the die, and it has to be steady. The direct cause of this revival is a generation of accelerators that are extraordinarily fussy about their power.
+
+Two. The intuition for a wide bandgap is a taller dam. Silicon's bandgap is wide enough for logic, but push it toward high voltage and heavy current and it stops holding — and when it breaks down, it isn't a leak, it's the whole wall going. Gallium nitride and silicon carbide have wider gaps, which is the same as building the wall higher. One aside stuck with me: diamond is technically a semiconductor too, with a far wider gap — nobody knows whether it can ever be made at a tolerable cost.
+
+Three. A great material and a manufacturable material are two different things. Half the reason silicon won is that it's everywhere in the crust and can be pulled from a melt into large boules. Silicon carbide can't be grown that way at all. Gallium nitride goes unstable when you try to grow it in big chunks. So the substrate is its own industrial problem, not a step you solve in passing inside a process flow.
+
+Four. The episode quotes an early gallium nitride researcher calling it God's gift to man — you don't know why it works, it just keeps trucking. One host wondered whether that was sarcasm, given how miserable the material is to work with. The answer turned out to be: both are true. He really is in awe of it, and he really is in awe of how awful it is to handle. Later in the show they describe it as a talented diva of a compound — difficult, and it gets away with it because it's too useful to drop. That's the most human moment in the episode.
+
+Five. Gallium nitride versus silicon carbide is close to a religious argument in some circles, but the real difference looks more like a division of labour. Silicon carbide currently sits at the higher-voltage end, and it supports those vertical structures where source and drain go on opposite faces of the die, so current runs through something big and wide. The show also passes along a commentator's warning: plenty of people get far too hung up on the gap between the two, and it isn't as decisive as the argument implies.
+
+Six. Two things about the industry structure are worth keeping. First, the incumbents have been in this for a very long time — they aren't new arrivals riding the cycle. Japan is trying to consolidate the power businesses of several old-line firms into one national champion, and in practice the plan has drifted into an awkward arrangement of three companies rather than one. Second, on top of the technical risk sits policy and capacity risk: China has gone in hard on silicon carbide, and a Western substrate maker's earlier bankruptcy is widely read as connected to that. You can be right on the technology and still lose on the balance sheet.
+
+Seven. The most ironic stretch is about solid-state transformers. A conventional transformer is a squarish doughnut of iron with a copper coil on each side. That's it — ninth-grade science covers it, and one host says its simplicity is almost offensive. Yet lead times for large data center transformers are reportedly out around six years. So there is now an entire emerging industry trying to do, with a pile of expensive and fragile semiconductors, the thing iron and copper have done for a century. The world turned upside down at the point where spinning up a semiconductor line became faster than spinning up a non-semiconductor one.
+
+Eight. The closing question matters most: without the AI data center boom, would power semis be where they are today? The answer given is no. Electric vehicles used to be the driver, but a policy turn in the US and overbuilding in China bent that curve; AI picked up the slack, in the same way AI picked up logic after smartphone growth flattened out. The alternative offered was satellites — plausible, but nowhere near the same scale.
+
+## Going further
+
+### "I've traded this theme before and got stuck halfway up every time"
+
+The frustration with power semis comes from a mismatch between the price rhythm and the story. The story is always right — EVs need them, industry needs them, data centers need them. The prices move in waves of revival and retreat.
+
+The difference shows up when the driver changes hands, because the denominator quietly changes with it. Last cycle the denominator was how many million EVs shipped in a year. This cycle it's how many megawatts of data center capacity get added, and what the power architecture inside those racks looks like. Those two denominators have completely different sensitivities. EVs are consumer goods, driven by subsidies and rates. Data center power is capital expenditure, driven by the build plans of a handful of very large buyers — far more concentrated, and when it turns, it turns harder than consumer demand does.
+
+So next time this theme comes around, ask who is placing the orders in this particular cycle, rather than how remarkable the material is. And write down the falsifying condition — not "keep monitoring the sector," which says nothing, but something like: "if rack-level power architecture settles in a way that collapses one of the conversion stages, the ground under my reasoning is gone." A view with a condition that can kill it is a judgement. A view without one is a mood.
+
+Worth noting too: the satellite answer carries real information. When the only backup driver for a revival is an order of magnitude smaller than the current one, the fragility of the story is written right there.
+
+### "The press release says the material is amazing and the company won a big order — can I trust that?"
+
+The episode answers this, though the answer hides in the materials detail: a great material is not a manufacturable one, is not a cheap one, is not a profitable one. Every one of those links can break, and press releases only ever cover the first.
+
+Based on what the show describes, the break point is clearly at crystal growth and substrates. Silicon carbide can't be melted and pulled the way silicon is; gallium nitride destabilises at size. This isn't a "yields improve over a few more quarters" problem, it's a hard physical and process one. When an industry's bottleneck sits at the most upstream material layer, every order downstream still has to pass through that gate.
+
+Then there's the colder second layer: being right on the technology can still kill you. The substrate maker mentioned in the episode was pointed the right way and still went through bankruptcy and a return, with aggressive capacity expansion elsewhere widely blamed for part of it. That generalises to any upstream materials company — technology risk and balance sheet risk are two separate lines, and you have to read both. A firm can win the physics and lose the cash flow.
+
+In practice, split each piece of news into three boxes before reading it: is this about how good the material is, how much can actually be made, or how much gets sold at a profit? Most coverage stops at box one. Box three is what sets the long-run outcome.
+
+### "I'm not an engineer, so I have no business judging a technical story"
+
+The most reassuring thing about this episode is that it demonstrates the opposite. Nearly every load-bearing judgement in it runs on high-school physics: voltage has to come down to something the die can eat; the bandgap is a dam wall, and too low a wall breaks; a transformer is an iron core and two coils, simple enough for anyone — and the lead time is six years.
+
+That gives you a usable test. If you can't state in one plain sentence, at middle-school science level, why a technology is needed, what you're hearing is probably narrative rather than demand. Real structural demand usually has a dumb physical reason you could draw on a napkin: the electricity has to step down, the heat has to get out, the light has to survive the distance, the crystal has to grow big enough. Conversely, demand that takes five acronyms and three logical hops to explain is usually explaining something that hasn't happened yet.
+
+You don't need to out-argue the engineers on detail. You need to tell the difference between a hard physical constraint and a well-told story. The first creates bottlenecks, and bottlenecks create pricing power. The second only creates headlines.
+
+## Worth looking at
+
+- The Supply Chained episode itself, 18 August 2026, with John of Asianometry and Tim of Culpium.
+- Asianometry's video on gallium nitride, referenced repeatedly in the show, including the vertical transistor discussion it ends on.
+- Any public explainer on how a conventional transformer works — an iron core, two windings, stepping voltage up or down. One host suggests going and looking it up yourself, and I agree: it changes how you feel about what solid-state transformers are actually up against.
+- If you want to go further upstream, look for public technical material on how silicon carbide and gallium nitride are grown, focusing on why the silicon recipe doesn't transfer.
+
+## The one thing to take away
+
+One idea: where a system jams is usually not the cleverest component, it's the least interesting valve. Everyone is counting accelerators and parameters, while the thing that actually keeps the room dark might be an iron core wrapped in copper with a six-year lead time that nobody bothers to write about. Attention flows to whatever glows brightest; throughput gets throttled by whatever is quietest.
+
+This week's exercise works whether or not you invest in anything. Pick something you've been complaining about for a long time — the laundry cycle at home that's permanently backed up, the expense claim at work that always takes two weeks, the ten minutes you're always late leaving in the morning. Break it into five steps on paper. Next to each step, write one number only: how long you typically wait at that step.
+
+Then do exactly one thing: fix the step with the longest wait, and leave the other four alone.
+
+Most people can't resist optimising the step they know best and feel most in control of — which is usually already the fastest one. The real valve is almost always the middle step that nobody owns and nobody talks about. Fix it once, and you'll understand in your body why the bottleneck layer of an industry is worth spending more time on than everyone else does.
