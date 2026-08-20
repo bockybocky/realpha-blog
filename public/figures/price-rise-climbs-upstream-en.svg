@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Four supply-chain links rise like a staircase from left to right, with price-rise marks only on the right-hand two — epi wafers twice and substrates four times — and a bottom axis running from expansion in quarters to expansion in years">
+<style>
+  svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+        --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+  @media (prefers-color-scheme: dark) {
+    svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+          --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+  }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  .t { font-size:27px; fill:var(--ink); font-weight:700; }
+  .g { font-size:19px; fill:var(--ink); }
+  .b { font-size:15px; fill:var(--dim); }
+  .k { font-size:16px; fill:var(--ink); }
+  .c { font-size:22px; fill:var(--ink); }
+</style>
+<defs>
+  <marker id="f1d" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0 0 L7 3.2 L0 6.4 z" fill="var(--dim)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="t" x="60" y="62">Price rises climb the chain, link by link</text>
+<text class="b" x="60" y="104">Downstream</text>
+<text class="b" x="900" y="104" text-anchor="end">Upstream</text>
+<line x1="60" y1="120" x2="892" y2="120" stroke="var(--line)" stroke-width="2" marker-end="url(#f1d)"/>
+
+<rect x="60" y="310" width="190" height="160" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="290" y="280" width="190" height="190" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="520" y="250" width="190" height="220" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<rect x="750" y="220" width="190" height="250" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+
+<text class="g" x="155" y="348" text-anchor="middle">Modules</text>
+<text class="g" x="385" y="318" text-anchor="middle">Laser chips</text>
+<text class="g" x="615" y="288" text-anchor="middle">Epi wafers</text>
+<text class="g" x="845" y="258" text-anchor="middle">Substrates</text>
+
+<text class="b" x="155" y="406" text-anchor="middle">—</text>
+<text class="b" x="385" y="406" text-anchor="middle">—</text>
+<circle cx="604" cy="400" r="6" fill="var(--accent)"/>
+<circle cx="626" cy="400" r="6" fill="var(--accent)"/>
+<circle cx="812" cy="400" r="6" fill="var(--accent)"/>
+<circle cx="834" cy="400" r="6" fill="var(--accent)"/>
+<circle cx="856" cy="400" r="6" fill="var(--accent)"/>
+<circle cx="878" cy="400" r="6" fill="var(--accent)"/>
+<text class="k" x="615" y="440" text-anchor="middle" fill="var(--accent)">2 hikes already</text>
+<text class="k" x="845" y="440" text-anchor="middle" fill="var(--accent)">4 in a row</text>
+
+<line x1="60" y1="500" x2="900" y2="500" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="60" y="526">Expansion: quarters</text>
+<text class="b" x="900" y="526" text-anchor="end">Expansion: years</text>
+<text class="c" x="60" y="572">Further upstream, fewer makers, less fixable with money</text>
+</svg>

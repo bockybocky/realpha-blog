@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The equity curve peaks, drops almost vertically to just over a fifth, then climbs back on a very shallow slope, with the return leg bracketed below and far longer than the fall">
+<style>
+  svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+        --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+  @media (prefers-color-scheme: dark) {
+    svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+          --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+  }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  .t { font-size:27px; fill:var(--ink); font-weight:700; }
+  .g { font-size:19px; fill:var(--ink); }
+  .b { font-size:15px; fill:var(--dim); }
+  .c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="62">Down fast, back slow</text>
+<text class="b" x="100" y="110">Portfolio value (illustrative)</text>
+<line x1="100" y1="400" x2="900" y2="400" stroke="var(--line)" stroke-width="2"/>
+<path d="M100 345 C 190 322, 300 212, 380 142 L 455 385 C 570 374, 700 332, 900 252" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="380" cy="142" r="7" fill="var(--accent)"/>
+<circle cx="455" cy="385" r="7" fill="var(--warn)"/>
+<text class="g" x="380" y="124" text-anchor="middle">Peak</text>
+<text class="b" x="466" y="424" fill="var(--warn)">Just over a fifth</text>
+<text class="g" x="470" y="250" text-anchor="start" fill="var(--warn)">Fall: fast</text>
+<text class="g" x="760" y="300" fill="var(--dim)">Back: slow</text>
+<path d="M455 448 L455 458 L900 458 L900 448" fill="none" stroke="var(--warn)" stroke-width="2"/>
+<text class="b" x="678" y="482" text-anchor="middle" fill="var(--warn)">The return leg</text>
+<text class="c" x="60" y="528">Sitting through it has nothing to do with stock picking</text>
+</svg>
