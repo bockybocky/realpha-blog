@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="四節供應鏈由左到右像階梯一樣愈來愈高，漲價記號只出現在右邊兩節：磊晶片已漲兩次、基板連漲四次；底部軸線從左邊擴產以季計指向右邊擴產以年計。">
+<style>
+  svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+        --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+  @media (prefers-color-scheme: dark) {
+    svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+          --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+  }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  .t { font-size:27px; fill:var(--ink); font-weight:700; }
+  .g { font-size:19px; fill:var(--ink); }
+  .b { font-size:15px; fill:var(--dim); }
+  .k { font-size:16px; fill:var(--ink); }
+  .c { font-size:22px; fill:var(--ink); }
+</style>
+<defs>
+  <marker id="f1d" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0 0 L7 3.2 L0 6.4 z" fill="var(--dim)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="t" x="60" y="62">漲價沿著鏈條，一節一節往上游走</text>
+<text class="b" x="60" y="104">下游</text>
+<text class="b" x="900" y="104" text-anchor="end">上游</text>
+<line x1="60" y1="120" x2="892" y2="120" stroke="var(--line)" stroke-width="2" marker-end="url(#f1d)"/>
+
+<rect x="60" y="310" width="190" height="160" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="290" y="280" width="190" height="190" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="520" y="250" width="190" height="220" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<rect x="750" y="220" width="190" height="250" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+
+<text class="g" x="155" y="348" text-anchor="middle">光模組</text>
+<text class="g" x="385" y="318" text-anchor="middle">雷射晶片</text>
+<text class="g" x="615" y="288" text-anchor="middle">磊晶片</text>
+<text class="g" x="845" y="258" text-anchor="middle">基板</text>
+
+<text class="b" x="155" y="406" text-anchor="middle">—</text>
+<text class="b" x="385" y="406" text-anchor="middle">—</text>
+<circle cx="604" cy="400" r="6" fill="var(--accent)"/>
+<circle cx="626" cy="400" r="6" fill="var(--accent)"/>
+<circle cx="812" cy="400" r="6" fill="var(--accent)"/>
+<circle cx="834" cy="400" r="6" fill="var(--accent)"/>
+<circle cx="856" cy="400" r="6" fill="var(--accent)"/>
+<circle cx="878" cy="400" r="6" fill="var(--accent)"/>
+<text class="k" x="615" y="440" text-anchor="middle" fill="var(--accent)">已漲 2 次</text>
+<text class="k" x="845" y="440" text-anchor="middle" fill="var(--accent)">連漲 4 次</text>
+
+<line x1="60" y1="500" x2="900" y2="500" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="60" y="526">擴產：以季計</text>
+<text class="b" x="900" y="526" text-anchor="end">擴產：以年計</text>
+<text class="c" x="60" y="572">越上游，家數越少，越不是錢能解決的</text>
+</svg>

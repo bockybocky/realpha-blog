@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="上半部沒有刻度的區塊裡散著灰點，下半部同樣的點被虛線投影到一條有刻度的軸上，軸上一個大點代表第一個公開報價。">
+<style>
+  svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+        --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+  @media (prefers-color-scheme: dark) {
+    svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+          --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+  }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  .t { font-size:27px; fill:var(--ink); font-weight:700; }
+  .g { font-size:19px; fill:var(--ink); }
+  .b { font-size:15px; fill:var(--dim); }
+  .c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="62">第一個公開報價出現之前，它是無錨的</text>
+
+<text class="g" x="60" y="176">之前</text>
+<rect x="180" y="120" width="720" height="120" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="245" cy="200" r="7" fill="var(--grey)"/>
+<circle cx="390" cy="152" r="7" fill="var(--grey)"/>
+<circle cx="520" cy="212" r="7" fill="var(--grey)"/>
+<circle cx="648" cy="160" r="7" fill="var(--grey)"/>
+<circle cx="800" cy="196" r="7" fill="var(--grey)"/>
+<text class="b" x="180" y="266">沒有刻度</text>
+
+<text class="g" x="60" y="376">之後</text>
+<circle cx="245" cy="340" r="7" fill="var(--grey)"/>
+<circle cx="390" cy="340" r="7" fill="var(--grey)"/>
+<circle cx="648" cy="340" r="7" fill="var(--grey)"/>
+<circle cx="800" cy="340" r="7" fill="var(--grey)"/>
+<line x1="245" y1="352" x2="245" y2="412" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 5"/>
+<line x1="390" y1="352" x2="390" y2="412" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 5"/>
+<line x1="648" y1="352" x2="648" y2="412" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 5"/>
+<line x1="800" y1="352" x2="800" y2="412" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 5"/>
+<circle cx="520" cy="420" r="11" fill="var(--accent)"/>
+<text class="g" x="520" y="392" text-anchor="middle" fill="var(--accent)">第一個公開報價</text>
+<line x1="180" y1="420" x2="900" y2="420" stroke="var(--line)" stroke-width="2"/>
+<line x1="245" y1="420" x2="245" y2="432" stroke="var(--line)" stroke-width="2"/>
+<line x1="317" y1="420" x2="317" y2="428" stroke="var(--line)" stroke-width="2"/>
+<line x1="390" y1="420" x2="390" y2="432" stroke="var(--line)" stroke-width="2"/>
+<line x1="455" y1="420" x2="455" y2="428" stroke="var(--line)" stroke-width="2"/>
+<line x1="585" y1="420" x2="585" y2="428" stroke="var(--line)" stroke-width="2"/>
+<line x1="648" y1="420" x2="648" y2="432" stroke="var(--line)" stroke-width="2"/>
+<line x1="722" y1="420" x2="722" y2="428" stroke="var(--line)" stroke-width="2"/>
+<line x1="800" y1="420" x2="800" y2="432" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="180" y="458">有了刻度</text>
+<text class="c" x="60" y="516">從「值多少」變成「相對於它多少」</text>
+</svg>

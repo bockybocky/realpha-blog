@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" width="960" height="570" role="img" aria-label="三列供給里程碑的圓點都從舊位置往右移到新位置並帶箭頭，最下一列的需求圓點沒有移動也沒有箭頭。">
+<style>
+  svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+        --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+  @media (prefers-color-scheme: dark) {
+    svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+          --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+  }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  .t { font-size:27px; fill:var(--ink); font-weight:700; }
+  .g { font-size:19px; fill:var(--ink); }
+  .b { font-size:15px; fill:var(--dim); }
+  .c { font-size:22px; fill:var(--ink); }
+</style>
+<defs>
+  <marker id="f4w" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0 0 L7 3.2 L0 6.4 z" fill="var(--warn)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="570" fill="var(--page)"/>
+<text class="t" x="60" y="62">三次往後推，對面一次也沒有</text>
+<line x1="230" y1="140" x2="230" y2="450" stroke="var(--line)" stroke-width="1"/>
+<line x1="470" y1="140" x2="470" y2="450" stroke="var(--line)" stroke-width="1"/>
+<line x1="710" y1="140" x2="710" y2="450" stroke="var(--line)" stroke-width="1"/>
+
+<text class="b" x="60" y="176">玻璃基板 A</text>
+<circle cx="590" cy="170" r="7" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+<line x1="604" y1="170" x2="752" y2="170" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#f4w)"/>
+<circle cx="770" cy="170" r="7" fill="var(--warn)"/>
+
+<text class="b" x="60" y="246">玻璃基板 B</text>
+<circle cx="350" cy="240" r="7" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+<line x1="364" y1="240" x2="452" y2="240" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#f4w)"/>
+<circle cx="470" cy="240" r="7" fill="var(--warn)"/>
+
+<text class="b" x="60" y="316">被動元件擴產</text>
+<circle cx="410" cy="310" r="7" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+<line x1="424" y1="310" x2="452" y2="310" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#f4w)"/>
+<circle cx="470" cy="310" r="7" fill="var(--warn)"/>
+
+<text class="b" x="60" y="396">需求（資料中心）</text>
+<circle cx="410" cy="390" r="7" fill="var(--accent)"/>
+<text class="g" x="436" y="396" fill="var(--accent)">不動</text>
+
+<line x1="190" y1="450" x2="880" y2="450" stroke="var(--line)" stroke-width="2"/>
+<line x1="230" y1="450" x2="230" y2="460" stroke="var(--line)" stroke-width="2"/>
+<line x1="470" y1="450" x2="470" y2="460" stroke="var(--line)" stroke-width="2"/>
+<line x1="710" y1="450" x2="710" y2="460" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="230" y="482" text-anchor="middle">2026</text>
+<text class="b" x="470" y="482" text-anchor="middle">2027</text>
+<text class="b" x="710" y="482" text-anchor="middle">2028</text>
+<text class="c" x="60" y="534">延後是單向的，缺口從這裡長出來</text>
+</svg>
