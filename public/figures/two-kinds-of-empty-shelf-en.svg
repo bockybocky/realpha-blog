@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The stock falls and recovers to its old level on the left, and falls without recovering on the right.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text x="56" y="60" font-size="27" font-weight="700" fill="var(--ink)">Two kinds of empty shelf</text>
+
+  <rect x="48" y="110" width="416" height="340" rx="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="496" y="110" width="416" height="340" rx="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+
+  <text x="76" y="152" font-size="19" font-weight="700" fill="var(--accent)">The rules worked</text>
+  <text x="524" y="152" font-size="19" font-weight="700" fill="var(--warn)">The rules failed</text>
+
+  <text x="90" y="200" font-size="15" fill="var(--dim)">Fish stock</text>
+  <text x="538" y="200" font-size="15" fill="var(--dim)">Fish stock</text>
+
+  <path d="M90 412 H430" stroke="var(--line)" stroke-width="2"/>
+  <path d="M538 412 H878" stroke="var(--line)" stroke-width="2"/>
+
+  <path d="M216 214 V408" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="216" y="204" font-size="15" text-anchor="middle" fill="var(--dim)">Paused</text>
+
+  <path d="M96 250 L160 268 L216 344 L282 314 L352 268 L424 248" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="330" y="392" font-size="15" text-anchor="middle" fill="var(--dim)">Three to five years</text>
+
+  <path d="M544 250 L622 280 L706 320 L792 362 L872 400" fill="none" stroke="var(--warn)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="706" y="252" font-size="15" text-anchor="middle" fill="var(--dim)">Kept fishing</text>
+
+  <text x="480" y="512" font-size="22" font-weight="700" text-anchor="middle" fill="var(--ink)">Work out which kind of empty it is</text>
+</svg>

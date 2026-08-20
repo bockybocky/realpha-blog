@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" width="960" height="570" role="img" aria-label="Three panels in which the optical module moves from the board edge to beside the chip, shortening the electrical distance each time until it is a point.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:19px; font-weight:700; }
+    .b { font-size:15px; fill:var(--dim); }
+    .w { font-size:15px; fill:var(--warn); }
+    .c { font-size:22px; }
+</style>
+<rect x="0" y="0" width="960" height="570" fill="var(--page)"/>
+<text class="t" x="50" y="56">Three rungs: how far the electrical signal runs</text>
+<text class="b" x="50" y="84">The optical conversion moves step by step toward the chip</text>
+
+<rect x="50" y="130" width="260" height="270" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="180" y="118" text-anchor="middle">Pluggable LPO</text>
+<rect x="74" y="300" width="212" height="14" fill="var(--grey)"/>
+<rect x="90" y="250" width="64" height="50" rx="4" fill="var(--page)" stroke="var(--ink)" stroke-width="2"/>
+<text class="b" x="122" y="281" text-anchor="middle" fill="var(--ink)">Chip</text>
+<rect x="250" y="274" width="30" height="26" rx="3" fill="var(--accent)"/>
+<text class="b" x="265" y="264" text-anchor="middle">Module</text>
+<line x1="280" y1="287" x2="298" y2="287" stroke="var(--accent)" stroke-width="3"/>
+<line x1="154" y1="336" x2="250" y2="336" stroke="var(--warn)" stroke-width="4"/>
+<line x1="154" y1="330" x2="154" y2="342" stroke="var(--warn)" stroke-width="3"/>
+<line x1="250" y1="330" x2="250" y2="342" stroke="var(--warn)" stroke-width="3"/>
+<text class="w" x="202" y="358" text-anchor="middle">Electrical</text>
+<text class="b" x="180" y="388" text-anchor="middle">Plugged at board edge</text>
+
+<rect x="350" y="130" width="260" height="270" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="480" y="118" text-anchor="middle">Near-package NPO</text>
+<rect x="374" y="300" width="212" height="14" fill="var(--grey)"/>
+<rect x="390" y="250" width="64" height="50" rx="4" fill="var(--page)" stroke="var(--ink)" stroke-width="2"/>
+<text class="b" x="422" y="281" text-anchor="middle" fill="var(--ink)">Chip</text>
+<rect x="490" y="274" width="30" height="26" rx="3" fill="var(--accent)"/>
+<text class="b" x="505" y="264" text-anchor="middle">Module</text>
+<line x1="520" y1="287" x2="598" y2="287" stroke="var(--accent)" stroke-width="3"/>
+<line x1="454" y1="336" x2="490" y2="336" stroke="var(--warn)" stroke-width="4"/>
+<line x1="454" y1="330" x2="454" y2="342" stroke="var(--warn)" stroke-width="3"/>
+<line x1="490" y1="330" x2="490" y2="342" stroke="var(--warn)" stroke-width="3"/>
+<text class="w" x="472" y="358" text-anchor="middle">Electrical</text>
+<text class="b" x="480" y="388" text-anchor="middle">Moved onto the board</text>
+
+<rect x="650" y="130" width="260" height="270" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="780" y="118" text-anchor="middle">Co-packaged CPO</text>
+<rect x="674" y="300" width="212" height="14" fill="var(--grey)"/>
+<rect x="690" y="250" width="64" height="50" rx="4" fill="var(--page)" stroke="var(--ink)" stroke-width="2"/>
+<text class="b" x="722" y="281" text-anchor="middle" fill="var(--ink)">Chip</text>
+<rect x="758" y="274" width="30" height="26" rx="3" fill="var(--accent)"/>
+<text class="b" x="773" y="264" text-anchor="middle">Module</text>
+<line x1="788" y1="287" x2="898" y2="287" stroke="var(--accent)" stroke-width="3"/>
+<line x1="754" y1="336" x2="758" y2="336" stroke="var(--warn)" stroke-width="4"/>
+<line x1="754" y1="330" x2="754" y2="342" stroke="var(--warn)" stroke-width="3"/>
+<line x1="758" y1="330" x2="758" y2="342" stroke="var(--warn)" stroke-width="3"/>
+<text class="w" x="756" y="358" text-anchor="middle">Electrical</text>
+<text class="b" x="780" y="388" text-anchor="middle">Right by the chip</text>
+
+<text class="b" x="110" y="428" fill="var(--accent)">Power saved: little</text>
+<text class="b" x="830" y="428" text-anchor="end" fill="var(--accent)">a lot</text>
+<line x1="110" y1="442" x2="848" y2="442" stroke="var(--accent)" stroke-width="3"/>
+<polygon points="848,435 866,442 848,449" fill="var(--accent)"/>
+
+<text class="w" x="110" y="476">Repair: swap a part</text>
+<text class="w" x="830" y="476" text-anchor="end">scrap the block</text>
+<line x1="110" y1="490" x2="848" y2="490" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="848,483 866,490 848,497" fill="var(--warn)"/>
+
+<text class="c" x="480" y="535" text-anchor="middle">Better technically and worth paying for are two questions</text>
+</svg>

@@ -39,6 +39,8 @@ That is the first trap: **survivorship bias**. If your data only includes stocks
 
 So from the start, I moved to a full U.S. stock sample **including delisted stocks**: Russell 3000 current plus historical constituents, 11,151 names in total, from 1996 to 2026, about 31 million daily rows. The key number: in this sample, **only about one-third are still alive** (survival ratio about 32%). In other words, most "moving-average crossovers work" backtests in the wild are simply ignoring the two-thirds that disappeared.
 
+![Two bars side by side: the full-sample bar on the left has its upper two thirds marked delisted and its lower third still listed, while the right bar keeps only that lower block with the upper two thirds left as an empty dashed frame.](/figures/survivorship-two-thirds-missing-en.svg)
+
 ## Two: pin the signal down, then strip it layer by layer
 
 I fixed the signal definition and left no room for vagueness: **the first candle that is simultaneously above (or simultaneously below) both the 30-day and 300-day moving averages** counts as the trigger. Then I checked returns 10, 20, 60, and 120 trading days after the trigger, adding pressure layer by layer:
@@ -67,6 +69,8 @@ Then I did the third step: **split by price band**. The edge immediately reveale
 
 **Almost the entire edge was concentrated in stocks below $5.** Once you strip away the beta that penny stocks are already prone to violent spikes and crashes, excess return in mid- and high-priced stocks evaporates to almost zero.
 
+![Four bars where the one under five dollars stands out tall and the other three price bands sit almost on the baseline.](/figures/edge-lives-in-penny-stocks-en.svg)
+
 Then came the fourth step: **remove penny stocks and subtract trading costs (60bps)**:
 
 | Holding period | Net excess after removing penny stocks |
@@ -78,6 +82,8 @@ Then came the fourth step: **remove penny stocks and subtract trading costs (60b
 Everything turned negative. The pretty +0.69% and the t-stat of 8.2, once opened up, were "penny-stock volatility plus bid-ask-spread microstructure illusion," not an edge you can take to the market and trade.
 
 **One honest addendum**: at first, the red team was most worried that stocks might delist very soon after a signal triggers, leaving you unable to sell. I tested it. The share of stocks delisted within 10 days after the trigger was only **0.18%**. So that concern was a **false alarm**. Honest validation means saying that too, even when the suspected fatal flaw turns out not to be one.
+
+![One bar stands above the baseline and the three to its right fall further and further below it.](/figures/gross-edge-turns-negative-en.svg)
 
 ## Four: not just once. Three structurally similar studies point to the same answer
 

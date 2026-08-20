@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A thick wall at the right end of a timeline with three arrows pushing left, moving the selling point earlier and earlier until nobody enters.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="cap-f5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <text x="60" y="66" font-size="27" font-weight="600" fill="var(--ink)">The selling point keeps running forward</text>
+
+  <line x1="110" y1="340" x2="806" y2="340" stroke="var(--line)" stroke-width="3"/>
+  <rect x="824" y="176" width="12" height="228" fill="var(--warn)"/>
+  <text x="830" y="158" font-size="20" fill="var(--warn)" text-anchor="middle">Earnings</text>
+  <text x="830" y="428" font-size="15" fill="var(--dim)" text-anchor="middle">Cannot be front-run</text>
+
+  <circle cx="760" cy="340" r="7" fill="var(--accent)"/>
+  <circle cx="620" cy="340" r="7" fill="var(--accent)"/>
+  <circle cx="460" cy="340" r="7" fill="var(--accent)"/>
+  <circle cx="280" cy="340" r="7" fill="var(--accent)"/>
+  <text x="760" y="376" font-size="16" fill="var(--ink)" text-anchor="middle">Release day</text>
+  <text x="620" y="376" font-size="16" fill="var(--ink)" text-anchor="middle">Day before</text>
+  <text x="460" y="376" font-size="16" fill="var(--ink)" text-anchor="middle">Earlier</text>
+  <text x="280" y="376" font-size="16" fill="var(--ink)" text-anchor="middle">Nobody enters</text>
+
+  <line x1="752" y1="300" x2="630" y2="300" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#cap-f5)"/>
+  <line x1="612" y1="266" x2="470" y2="266" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#cap-f5)"/>
+  <line x1="452" y1="232" x2="290" y2="232" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#cap-f5)"/>
+  <text x="692" y="288" font-size="15" fill="var(--accent)" text-anchor="middle">Front-running</text>
+
+  <text x="60" y="494" font-size="22" font-weight="600" fill="var(--ink)">Short term can run forever forward, a quarter cannot</text>
+</svg>

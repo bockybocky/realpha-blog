@@ -16,6 +16,8 @@ If you have ever run more than one coding agent at a time, say a Claude Code ses
 
 It isn't dead. It isn't working either. It's stuck. And when your eyes sweep across the panes, the stuck one looks exactly like the one that's actually computing.
 
+![The top row holds two cards with identical readout fields and an equals sign between them; the bottom row holds the same two, a wavy line on the left and a perfectly flat one on the right, with a not-equals sign between.](/figures/same-readout-different-state-en.svg)
+
 herdr exists because of that scene.
 
 ## What it is
@@ -81,9 +83,13 @@ Wearing the "blocked is not working" lens, we looked back at our own machine on 
 
 Those three numbers tell one story. It was not waiting quietly; a quiet wait should sit near zero CPU. It was stuck in a redraw loop, spinning. In herdr's taxonomy: blocked, and the expensive kind. It wasn't anyone's runaway process either; just a window somebody opened and forgot. The point is that in our existing monitoring it was completely invisible. Nothing anywhere said "this thing has been open for two days and is holding 22 processes."
 
+![A very long horizontal timeline where only a short stretch at the far left is marked as having writes and nearly the whole length is blank, with two blocks below giving the child-process count and the accumulated CPU time.](/figures/fifty-one-hours-three-minutes-en.svg)
+
 Pulling the same thread, we then noticed our process-health script only scans Python processes, which leaves every other executable invisible to it, and its docstring claims broader coverage than the code delivers. Same lens, more catches.
 
 Which taught us to cut herdr's taxonomy one level finer: blocked comes in two kinds. Quiet waiting (CPU near zero) and spinning (CPU steadily nonzero). Neither is working, but only the second one burns resources while it waits, so only the second one deserves a louder alarm.
+
+![One node splits into two branches: the left bar sits almost flat against the baseline while the right bar stands clearly tall.](/figures/blocked-splits-in-two-en.svg)
 
 ## What you get out of it
 

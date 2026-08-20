@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The loss from the event jumps and stops spreading, while the consequence of the first decision after it keeps growing past it.">
+  <style>
+    svg {
+      --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#9aa5b5; --accent:#1f6feb; --warn:#d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#6b7686; --accent:#58a6ff; --warn:#d29922;
+      }
+    }
+    .t    { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size:27px; font-weight:700; fill:var(--ink); }
+    .labG { font-size:19px; font-weight:700; fill:var(--dim); }
+    .labW { font-size:19px; font-weight:700; fill:var(--warn); }
+    .sub  { font-size:15px; fill:var(--dim); }
+    .ax   { font-size:15.5px; font-weight:700; fill:var(--dim); }
+    .kick { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">Which column has the bigger consequence?</text>
+
+    <path d="M140,400 L200,268 L860,262"
+          fill="none" stroke="var(--grey)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="860" cy="262" r="8" fill="var(--grey)"/>
+    <text x="854" y="240" class="labG" text-anchor="end">Loss from the event itself</text>
+    <text x="854" y="300" class="sub" text-anchor="end">It jumps, then stops spreading</text>
+
+    <path d="M200,404 C340,392 460,344 580,286 C680,238 780,190 860,150"
+          fill="none" stroke="var(--warn)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="860" cy="150" r="8" fill="var(--warn)"/>
+    <text x="854" y="128" class="labW" text-anchor="end">The first decision you made</text>
+    <text x="854" y="180" class="sub" text-anchor="end">Still growing today</text>
+
+    <circle cx="140" cy="400" r="8" fill="var(--ink)"/>
+    <text x="140" y="378" class="sub" text-anchor="middle">It happens</text>
+
+    <line x1="120" y1="440" x2="890" y2="440" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="120" y="466" class="ax">Now</text>
+    <text x="890" y="466" class="ax" text-anchor="end">Three months on</text>
+
+    <text x="480" y="508" class="sub" text-anchor="middle">Bad news is the left column; ignoring it is the right one.</text>
+
+    <text x="480" y="548" class="kick" text-anchor="middle">Bad things end by themselves; decisions do not, they compound.</text>
+  </g>
+</svg>

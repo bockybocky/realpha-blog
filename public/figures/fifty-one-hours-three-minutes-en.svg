@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A long timeline with activity only at the far left and blank for the rest, with two figures below for child processes and CPU time.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">Open 51 hours, working 3 minutes</text>
+
+  <rect x="60" y="170" width="840" height="46" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="60" y="170" width="14" height="46" fill="var(--accent)"/>
+  <text class="t" x="480" y="200" font-size="16" fill="var(--dim)" text-anchor="middle">No writes</text>
+
+  <line x1="74" y1="216" x2="74" y2="252" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="74" y="276" font-size="15" fill="var(--accent)">Last write 3 min</text>
+  <text class="t" x="900" y="276" font-size="15" fill="var(--dim)" text-anchor="end">Two days on, still open</text>
+
+  <rect x="60" y="320" width="380" height="110" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="520" y="320" width="380" height="110" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t" x="88" y="372" font-size="27" font-weight="700" fill="var(--ink)">22</text>
+  <text class="t" x="130" y="372" font-size="19" fill="var(--dim)">child processes hanging</text>
+  <text class="t" x="88" y="408" font-size="15" fill="var(--dim)">Never closed</text>
+  <text class="t" x="548" y="372" font-size="27" font-weight="700" fill="var(--warn)">94</text>
+  <text class="t" x="590" y="372" font-size="19" fill="var(--dim)">minutes CPU</text>
+  <text class="t" x="548" y="408" font-size="15" fill="var(--dim)">burnt spinning</text>
+
+  <text class="t" x="60" y="490" font-size="22" font-weight="700" fill="var(--ink)">Open, occupying, still burning, and doing nothing</text>
+</svg>

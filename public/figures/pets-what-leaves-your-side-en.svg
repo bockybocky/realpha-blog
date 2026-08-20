@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Five arrows to the same counterparty, each carrying a different thing.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<defs><marker id="a12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker></defs>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="t" x="60" y="58">What actually leaves your side</text>
+<text class="s" x="270" y="118" text-anchor="middle">Your side</text>
+<text class="s" x="775" y="118" text-anchor="middle">Other side</text>
+<rect x="700" y="140" width="150" height="390" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="775" y="342" text-anchor="middle">Compute party</text>
+
+<text class="g" x="55" y="181">Federated learning</text>
+<rect x="225" y="153" width="90" height="44" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="270" y="182" text-anchor="middle">Data</text>
+<line x1="345" y1="175" x2="692" y2="175" stroke="var(--accent)" stroke-width="2" marker-end="url(#a12)"/>
+<rect x="470" y="163" width="60" height="24" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<text class="s" x="500" y="145" text-anchor="middle">Parameters only</text>
+
+<text class="g" x="55" y="261">Differential privacy</text>
+<rect x="225" y="233" width="90" height="44" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="270" y="262" text-anchor="middle">Data</text>
+<line x1="345" y1="255" x2="692" y2="255" stroke="var(--accent)" stroke-width="2" marker-end="url(#a12)"/>
+<rect x="470" y="243" width="60" height="24" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="482" cy="238" r="2.5" fill="var(--grey)"/><circle cx="500" cy="272" r="2.5" fill="var(--grey)"/><circle cx="521" cy="237" r="2.5" fill="var(--grey)"/>
+<text class="s" x="500" y="225" text-anchor="middle">Noisy statistics</text>
+
+<text class="g" x="55" y="341">Homomorphic</text>
+<rect x="225" y="313" width="90" height="44" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="270" y="342" text-anchor="middle">Data</text>
+<line x1="345" y1="335" x2="692" y2="335" stroke="var(--accent)" stroke-width="2" marker-end="url(#a12)"/>
+<rect x="470" y="325" width="60" height="24" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<path d="M492 325 A8 8 0 0 1 508 325" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text class="s" x="500" y="305" text-anchor="middle">Ciphertext</text>
+
+<text class="g" x="55" y="421">Secure MPC</text>
+<rect x="225" y="393" width="90" height="44" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="270" y="422" text-anchor="middle">Data</text>
+<line x1="345" y1="415" x2="692" y2="415" stroke="var(--accent)" stroke-width="2" marker-end="url(#a12)"/>
+<rect x="466" y="405" width="18" height="20" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<rect x="491" y="405" width="18" height="20" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<rect x="516" y="405" width="18" height="20" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<text class="s" x="500" y="385" text-anchor="middle">Shards</text>
+
+<text class="g" x="55" y="501">Data masking</text>
+<rect x="225" y="473" width="90" height="44" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="270" y="502" text-anchor="middle">Data</text>
+<line x1="345" y1="495" x2="692" y2="495" stroke="var(--accent)" stroke-width="2" marker-end="url(#a12)"/>
+<rect x="470" y="485" width="60" height="24" fill="var(--page)" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 4"/>
+<text class="s" x="500" y="465" text-anchor="middle">Fake data</text>
+
+<text class="c" x="60" y="570">Look at what the arrow is carrying</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Two decision chains side by side: one has a question box stuck in the middle, the other has it moved out to the business side below so the chain runs straight.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+
+  <text x="60" y="56" font-size="27" fill="var(--ink)">That question was moved to another floor</text>
+
+  <text x="60" y="106" font-size="20" fill="var(--dim)">The usual way</text>
+  <text x="500" y="106" font-size="20" fill="var(--accent)">The New York Times</text>
+
+  <rect x="60" y="120" width="400" height="350" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="500" y="120" width="400" height="350" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <rect x="100" y="160" width="320" height="56" rx="10" fill="var(--page)" stroke="var(--line)"/>
+  <text x="260" y="195" font-size="16" fill="var(--ink)" text-anchor="middle">Editor: who goes on the ground</text>
+  <line x1="260" y1="216" x2="260" y2="238" stroke="var(--grey)" stroke-width="2"/>
+  <polygon points="254,236 266,236 260,248" fill="var(--grey)"/>
+
+  <rect x="130" y="250" width="260" height="60" rx="10" fill="var(--page)" stroke="var(--warn)" stroke-width="2"/>
+  <text x="260" y="288" font-size="19" fill="var(--warn)" text-anchor="middle">Can we afford it?</text>
+  <line x1="260" y1="310" x2="260" y2="336" stroke="var(--grey)" stroke-width="2"/>
+  <polygon points="254,334 266,334 260,346" fill="var(--grey)"/>
+
+  <rect x="100" y="350" width="320" height="56" rx="10" fill="var(--page)" stroke="var(--line)"/>
+  <text x="260" y="385" font-size="16" fill="var(--ink)" text-anchor="middle">Decide, then go</text>
+
+  <rect x="540" y="160" width="320" height="56" rx="10" fill="var(--page)" stroke="var(--line)"/>
+  <text x="700" y="195" font-size="16" fill="var(--ink)" text-anchor="middle">Editor: who goes on the ground</text>
+  <line x1="700" y1="216" x2="700" y2="336" stroke="var(--accent)" stroke-width="2"/>
+  <polygon points="694,334 706,334 700,346" fill="var(--accent)"/>
+
+  <rect x="540" y="350" width="320" height="56" rx="10" fill="var(--page)" stroke="var(--line)"/>
+  <text x="700" y="385" font-size="16" fill="var(--ink)" text-anchor="middle">Decide, then go</text>
+
+  <rect x="540" y="416" width="320" height="42" rx="10" fill="var(--page)" stroke="var(--warn)" stroke-dasharray="6 5"/>
+  <text x="700" y="443" font-size="16" fill="var(--warn)" text-anchor="middle">Affordability . the business side</text>
+
+  <path d="M 394 282 C 470 300, 468 404, 534 432" fill="none" stroke="var(--dim)" stroke-width="2" stroke-dasharray="6 6"/>
+  <polygon points="524,420 540,434 522,442" fill="var(--dim)"/>
+  <text x="452" y="352" font-size="15" fill="var(--dim)" text-anchor="middle">Moved out</text>
+
+  <text x="480" y="530" font-size="22" fill="var(--ink)" text-anchor="middle">Success means that question has no seat at the editor's desk</text>
+</svg>

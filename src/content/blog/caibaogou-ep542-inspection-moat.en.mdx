@@ -32,6 +32,8 @@ The nominal topic is the inspection opportunity created by advanced packaging. W
 
 **Why "round to square" makes warpage worse.** On a round wafer, internal stress travels roughly the same distance in every direction. On a square panel, the distance from centre to a corner differs from centre to an edge, so stress is uneven and it warps more. Inspection tools flatten it with vacuum chucks to hold focus. Silicon photonics is nastier still — **light paths run along the back side, so you can't touch it** — and the flattening trick is off the table.
 
+![On the left, lines from the centre of a circle are all the same length and the cross-section is flat; on the right, lines from the centre of a square reach the corners further than the edges and the cross-section lifts at both ends, showing the shape makes internal stress uneven.](/figures/round-to-square-warpage-en.svg)
+
 **The X-ray dilemma, solved by borrowing from lung scans.** Stacked layers and metal shielding block visible light, so you need X-ray. But absorbed X-ray energy causes heating or phase change — **HBM that's been imaged can start leaking three or six months later, and the data is gone**. The path forward borrows from medicine: low-dose CT already images lungs at roughly one-seventeenth to one-twentieth of the old dose, and the semiconductor question is now the same one — what's the lowest dose that still shows what I need?
 
 **The medical project deserves its own telling.** In 2018 a professor at NTU asked whether they could analyse low-dose CT lung images. The engineers said three months. Half a year later it still didn't work — **it found lesions, but with so many false positives that a single scan came back with nine hundred red dots of which one was real**. Useless to a doctor. The team was disbanded back onto semiconductors. Six months later they tried a different representation: instead of feeding the model three hundred flat slices one at a time, **stack the slices into a 3D volume and train on that**. It worked. The product went on to be the first in Taiwan with TFDA clearance and, to date, the only one of its kind with US FDA clearance, deployed at forty to fifty hospitals.
@@ -43,6 +45,8 @@ The nominal topic is the inspection opportunity created by advanced packaging. W
 **The cold water he poured himself.** X-ray inspection needs such high resolution that its wafers-per-hour can't keep up with an inline production rate — so it is **structurally limited to sampling**. Meaning even if 3D IC volumes explode, this demand **will not scale one-for-one with chip volume**: "it does increase linearly, but not as much as total volume, because it's a sampling concept."
 
 **On the KLA line everyone quotes, he added a layer.** KLA has said back-end process control could grow as fast as front-end wafer fab equipment. He agrees it's plausible, but points out that market size is **units × price**: the front end has fewer tools at much higher prices (a high-end machine can approach NT$1bn), the back end more units at lower prices (their tools run NT$20m-plus versus NT$70–80m for front-end). The two parameters move in opposite directions, so **you can't call the winner by looking at one of them**.
+
+![Two piles of the same number of cells: the left is narrow and tall for few wafers at high price, the right is wide and flat for many units at low price, and the two areas are about equal.](/figures/volume-is-count-times-price-en.svg)
 
 ## What I took away
 
@@ -67,6 +71,8 @@ So the next time I see "integrated," "embedded," or "single-vendor," the questio
 **4. When physics caps demand growth, the theme and the P&L decouple.**
 
 X-ray is too slow for inline, so it samples, so its demand can't scale with chip volume. That's a **physical ceiling, not an execution problem**. A theme can be entirely correct — advanced packaging is booming, inspection genuinely matters more — while the revenue elasticity is far smaller than the story implies.
+
+![Two rows of cells compared: the production row doubles from ten to twenty, while the sampling row below moves only from two to three.](/figures/sampling-inspection-ceiling-en.svg)
 
 Same failure mode I ran into writing about tungsten a few days ago: **being right about the theme says nothing about the path by which it reaches a company**.
 

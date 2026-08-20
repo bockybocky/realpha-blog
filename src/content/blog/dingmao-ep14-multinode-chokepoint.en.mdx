@@ -36,6 +36,8 @@ While everyone is still asking whether AI compute is "enough," this episode move
 
 A reflex I keep practicing: **don't stare at the shiniest chip; look at which layer this generation of architecture has pushed the choke point into.** Last wave everyone raced for compute; this wave Dingmao reminds us — once compute is sliced into many nodes, the choke slides from "compute" to "how do you command many nodes as if they were one." Sun Tzu said governing many is like governing few — it is a matter of numbers and formations: leading a hundred thousand can feel as smooth as leading ten, if the organization (fen-shu) and the command signals (xing-ming) are right. Multi-node servers need exactly that layer of "numbers and formations" — management chips, interconnect, and power are what let a pile of nodes be scheduled as one machine. **Seeing where the bottleneck moves is steadier than chasing the latest compute number.**
 
+![Two panels each hold a stack of four bars for compute, management, power and interconnect. On the left only the top compute bar is highlighted; on the right the lower three are highlighted instead, with an arrow pointing right, showing the binding layer has moved within the same stack.](/figures/bottleneck-moves-a-layer-en.svg)
+
 **Second: I especially feel the "invisible management layer."**
 
 BMC, power delivery, node interconnect never make the keynote stage — they are the wire behind the curtain, the switchboard. But that is the point of Sun Tzu's line: what makes the "many" able to fight is not one fierce general; it is the invisible command that keeps everyone's motion aligned. **A link nobody talks about in ordinary times, but that becomes non-optional the moment architecture grows complex — that kind of "unsexy hard requirement" is often the steadiest rent-collecting seat.** This also connects to what I wrote in the previous Statementdog notes — the loud center is usually the most expensive; real mispricing often hides in the corner the spotlight never reaches, yet without which the whole machine stops turning. The premise is the same: the company itself must stand on orders, moat, and cash flow — you don't chase "obscure" for its own sake.
@@ -50,7 +52,11 @@ If I push the EP14 theme a few years forward, my own view is this — **the defi
 - **The management layer becomes the device's "nervous system"**: the more nodes you have, the more you need an invisible command system to schedule, monitor, and handle problems on its own. Things like management chips (BMC) move from "accessory parts" to "the central nervous system of a multi-node device."
 - **Even endpoint devices get redefined**: Agentic AI pushes compute toward cloud–edge hybrid; some compute returns to the edge and on-prem. The endpoint in your hand shifts from "purely displaying results computed in the cloud" toward "also collaborating on compute nearby" — the same force as "storage-for-compute, saving expensive compute."
 
+![On the left six separate blocks with no links between them; on the right the same six are wired together and wrapped in a dashed outline, with an arrow marked interconnect between the panels, showing that only a connected set counts as one machine.](/figures/many-machines-or-one-en.svg)
+
 One line to close my view: **the selling point of future "devices" will no longer be "a faster chip," but "a whole system that can coordinate, power itself, and self-manage."** Whoever holds the critical parts that keep that system turning — whether power, interconnect, or management — stands on the next stretch of bottleneck. When I look at the future of devices, I don't watch whose chip posts the highest benchmark; I watch **where value flows when a device stops being a single point and becomes a system.**
+
+![Four nested frames from inside out: chip, server, rack and data centre, with the inner two in grey and the outer two highlighted, and an arrow running outward to show the boundary of one machine keeps expanding.](/figures/what-counts-as-one-machine-en.svg)
 
 ## A note on my inner state this half-year
 

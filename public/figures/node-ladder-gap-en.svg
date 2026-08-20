@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Customer demand by process node: N3 and N4 are hottest and 28nm is steady, while N7 and N6 sag into a valley, too slow for leading-edge work and too expensive for mature work.">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+      --warnbg: #fdf4e7;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+        --warnbg: #2b2411;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .node  { font-size: 21px; font-weight: 700; fill: var(--ink); }
+    .nodeW { font-size: 21px; font-weight: 700; fill: var(--warn); }
+    .who   { font-size: 15px; fill: var(--dim); }
+    .ax    { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .flag  { font-size: 17px; font-weight: 700; fill: var(--warn); }
+    .kick  { font-size: 23px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">Who uses which node? There is a hole</text>
+
+    <!-- 縱軸提示 -->
+    <text x="76" y="180" class="ax" text-anchor="end">Demand</text>
+    <text x="76" y="204" class="ax" text-anchor="end">today</text>
+    <text x="76" y="228" class="ax" text-anchor="end">↑</text>
+
+    <!-- 谷底底色 -->
+    <rect x="576" y="120" width="140" height="300" rx="4" fill="var(--warnbg)"/>
+
+    <!-- 柱 -->
+    <rect x="120" y="290" width="120" height="130" rx="3" fill="var(--accent)" opacity="0.55"/>
+    <text x="180" y="272" class="node" text-anchor="middle">N2</text>
+    <text x="180" y="444" class="who" text-anchor="middle">Too new</text>
+    <text x="180" y="466" class="who" text-anchor="middle">Wait and see</text>
+
+    <rect x="285" y="180" width="120" height="240" rx="3" fill="var(--accent)"/>
+    <text x="345" y="162" class="node" text-anchor="middle">N3</text>
+    <text x="345" y="444" class="who" text-anchor="middle">Sweet spot</text>
+    <text x="345" y="466" class="who" text-anchor="middle">Biggest buyers</text>
+
+    <rect x="450" y="200" width="120" height="220" rx="3" fill="var(--accent)" opacity="0.85"/>
+    <text x="510" y="182" class="node" text-anchor="middle">N4</text>
+    <text x="510" y="444" class="who" text-anchor="middle">Older but mature</text>
+    <text x="510" y="466" class="who" text-anchor="middle">For AI chips</text>
+
+    <rect x="615" y="365" width="120" height="55" rx="3" fill="var(--warn)"/>
+    <text x="675" y="347" class="nodeW" text-anchor="middle">N7 / N6</text>
+    <text x="675" y="444" class="who" text-anchor="middle" fill="var(--warn)">Too slow for leading edge</text>
+    <text x="675" y="466" class="who" text-anchor="middle" fill="var(--warn)">Too dear for mature work</text>
+
+    <rect x="780" y="250" width="120" height="170" rx="3" fill="var(--grey)"/>
+    <text x="840" y="232" class="node" text-anchor="middle">28 nm</text>
+    <text x="840" y="444" class="who" text-anchor="middle">If you want cheap</text>
+    <text x="840" y="466" class="who" text-anchor="middle">you use this</text>
+
+    <!-- 谷底標註 -->
+    <text x="675" y="112" class="flag" text-anchor="middle">No man's land</text>
+
+    <!-- 地面與方向 -->
+    <line x1="90" y1="420" x2="920" y2="420" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="120" y="504" class="ax" text-anchor="start">&lt;- leading edge</text>
+    <text x="900" y="504" class="ax" text-anchor="end">most mature, cheapest -&gt;</text>
+
+    <text x="480" y="552" class="kick" text-anchor="middle">Not too old. Just not old or new enough.</text>
+  </g>
+</svg>

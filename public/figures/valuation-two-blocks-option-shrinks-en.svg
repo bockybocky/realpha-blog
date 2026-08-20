@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two stacked bars with cash flow the same height in both and the option section shrinking from very tall to a sliver.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <defs>
+    <marker id="cap-f3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--dim)"/>
+    </marker>
+  </defs>
+
+  <text x="60" y="66" font-size="27" font-weight="600" fill="var(--ink)">Which block fell away</text>
+
+  <line x1="200" y1="440" x2="800" y2="440" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="250" y="280" width="150" height="160" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <rect x="250" y="120" width="150" height="156" fill="var(--page)" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <text x="416" y="200" font-size="16" fill="var(--ink)">Option 5</text>
+  <text x="416" y="224" font-size="15" fill="var(--dim)">Cannot be measured</text>
+  <text x="416" y="364" font-size="16" fill="var(--ink)">Cash flow</text>
+  <text x="416" y="388" font-size="15" fill="var(--dim)">Can be measured</text>
+  <text x="325" y="478" font-size="20" fill="var(--dim)" text-anchor="middle">Before</text>
+
+  <rect x="600" y="280" width="150" height="160" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <rect x="600" y="242" width="150" height="34" fill="var(--page)" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <text x="766" y="266" font-size="16" fill="var(--ink)">Option 1</text>
+  <text x="766" y="364" font-size="16" fill="var(--ink)">Cash flow</text>
+  <text x="675" y="478" font-size="20" fill="var(--dim)" text-anchor="middle">After</text>
+
+  <path d="M424,150 C520,120 570,170 596,232" fill="none" stroke="var(--dim)" stroke-width="2" marker-end="url(#cap-f3)"/>
+  <text x="520" y="132" font-size="16" fill="var(--dim)" text-anchor="middle">Shrunk</text>
+
+  <text x="60" y="524" font-size="22" font-weight="600" fill="var(--ink)">Not cheaper, differently composed</text>
+</svg>

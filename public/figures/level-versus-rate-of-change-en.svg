@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A line rising steeply then flattening at a high level, beside four bars descending from high to zero.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="58">Prices not rising is not the same as profits falling</text>
+
+<rect x="60" y="100" width="400" height="340" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="88" y="142">Price level</text>
+<line x1="100" y1="400" x2="430" y2="400" stroke="var(--line)" stroke-width="2"/>
+<line x1="100" y1="172" x2="430" y2="172" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<polyline points="100,378 158,350 216,290 274,220 322,182 360,172 430,172" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="430" cy="172" r="6" fill="var(--accent)"/>
+<text class="b" x="424" y="156" text-anchor="end">Still high</text>
+
+<rect x="500" y="100" width="400" height="340" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="528" y="142">Rate of change</text>
+<line x1="530" y1="400" x2="870" y2="400" stroke="var(--line)" stroke-width="2"/>
+<rect x="545" y="250" width="50" height="150" rx="4" fill="var(--accent)"/>
+<rect x="625" y="295" width="50" height="105" rx="4" fill="var(--accent)"/>
+<rect x="705" y="345" width="50" height="55" rx="4" fill="var(--accent)"/>
+<rect x="785" y="394" width="50" height="6" rx="3" fill="var(--grey)"/>
+<text class="b" x="570" y="238" text-anchor="middle">+3</text>
+<text class="b" x="650" y="283" text-anchor="middle">+2</text>
+<text class="b" x="730" y="333" text-anchor="middle">+1</text>
+<text class="b" x="810" y="382" text-anchor="middle">0</text>
+<text class="b" x="810" y="428" text-anchor="middle">No longer accelerating</text>
+
+<text class="c" x="480" y="505" text-anchor="middle">The market trades the rate of change, not the level</text>
+</svg>

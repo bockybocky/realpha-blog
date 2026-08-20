@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The index falls twenty percent and rises twenty-five back to par, while a two-times product falls forty, rises fifty and ends at ninety, ten percent short over the same round trip.">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #9aa5b5;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+      --warnbg: #fdf4e7;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+        --warnbg: #2b2411;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .labA  { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .labW  { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .val   { font-size: 17px; font-weight: 700; fill: var(--ink); }
+    .chg   { font-size: 15px; fill: var(--dim); }
+    .ax    { font-size: 15.5px; fill: var(--dim); }
+    .gapl  { font-size: 17px; font-weight: 700; fill: var(--warn); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+    .sub   { font-size: 16px; fill: var(--dim); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">The market round-trips, the leveraged product does not</text>
+
+    <!-- 起點水平參考線 -->
+    <line x1="150" y1="180" x2="860" y2="180" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="6,5"/>
+    <text x="142" y="185" class="ax" text-anchor="end">Start</text>
+
+    <!-- 指數線 -->
+    <path d="M180,180 L480,300 L780,180" fill="none" stroke="var(--accent)" stroke-width="4"
+          stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="180" cy="180" r="7" fill="var(--accent)"/>
+    <circle cx="480" cy="300" r="7" fill="var(--accent)"/>
+    <circle cx="780" cy="180" r="7" fill="var(--accent)"/>
+    <text x="190" y="150" class="labA">Index</text>
+    <text x="480" y="332" class="val" text-anchor="middle" fill="var(--accent)">80</text>
+    <text x="798" y="176" class="val" fill="var(--accent)">100</text>
+    <text x="316" y="216" class="chg" text-anchor="middle">-20%</text>
+    <text x="646" y="216" class="chg" text-anchor="middle">+25%</text>
+
+    <!-- 兩倍槓桿線 -->
+    <path d="M180,180 L480,420 L780,240" fill="none" stroke="var(--warn)" stroke-width="4"
+          stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="480" cy="420" r="7" fill="var(--warn)"/>
+    <circle cx="780" cy="240" r="7" fill="var(--warn)"/>
+    <text x="190" y="212" class="labW">2x leverage</text>
+    <text x="480" y="452" class="val" text-anchor="middle" fill="var(--warn)">60</text>
+    <text x="798" y="246" class="val" fill="var(--warn)">90</text>
+    <text x="300" y="344" class="chg" text-anchor="middle">-40%</text>
+    <text x="660" y="352" class="chg" text-anchor="middle">+50%</text>
+
+    <!-- 落差 -->
+    <line x1="820" y1="180" x2="820" y2="240" stroke="var(--warn)" stroke-width="2.5"/>
+    <text x="836" y="216" class="gapl">10% short</text>
+
+    <!-- 底部 -->
+    <line x1="150" y1="486" x2="860" y2="486" stroke="var(--line)" stroke-width="1"/>
+    <text x="150" y="514" class="sub">What it charges is not a fee, it is volatility itself. The longer you hold and the choppier it is, the wider the gap.</text>
+    <text x="480" y="548" class="kick" text-anchor="middle">This is not an opinion. It is how the product is built.</text>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="After the shock one line returns to the original path while the other switches to a lower-slope path, and the gap between them widens to the right." font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="60" y="56" font-size="27" fill="var(--ink)">Not a dent, a different track</text>
+
+  <line x1="90" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <line x1="90" y1="130" x2="90" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <text x="900" y="470" font-size="15" fill="var(--dim)" text-anchor="end">Time</text>
+  <text x="90" y="118" font-size="15" fill="var(--dim)">Output</text>
+
+  <polygon points="470,293 890,175 890,285 470,367" fill="var(--accent)" opacity="0.14"/>
+
+  <path d="M110,395 L890,175" fill="none" stroke="var(--grey)" stroke-width="2.5" stroke-dasharray="7 6"/>
+  <path d="M110,395 L300,341 L365,378 L470,293 L890,175" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <path d="M110,395 L300,341 L375,385 L890,285" fill="none" stroke="var(--accent)" stroke-width="3.5"/>
+
+  <line x1="300" y1="440" x2="300" y2="322" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <text x="300" y="308" font-size="16" fill="var(--dim)" text-anchor="middle">El Nino</text>
+
+  <text x="770" y="206" font-size="16" fill="var(--dim)">Without it</text>
+  <text x="332" y="414" font-size="16" fill="var(--warn)">Assumed: it recovers</text>
+  <text x="600" y="338" font-size="16" fill="var(--accent)">Actual: a new track</text>
+  <text x="880" y="242" font-size="16" fill="var(--ink)" text-anchor="end">Cumulative gap</text>
+
+  <text x="60" y="512" font-size="22" fill="var(--ink)">The gap does not converge; it keeps growing</text>
+</svg>

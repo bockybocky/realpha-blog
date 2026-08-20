@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The readings along the path are identical before and after crossing the dashed line, and only change colour much further on.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:15px; fill:var(--dim); }
+    .w { font-size:16px; fill:var(--warn); font-weight:700; }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="56">At the moment you cross, the instruments say nothing</text>
+
+  <rect x="60" y="100" width="840" height="250" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="100" y1="240" x2="860" y2="240" stroke="var(--line)" stroke-width="3"/>
+  <text class="s" x="100" y="330">Start</text>
+  <text class="s" x="860" y="330" text-anchor="end">Deep</text>
+
+  <line x1="440" y1="130" x2="440" y2="320" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 6"/>
+  <text class="w" x="452" y="156">Horizon</text>
+
+  <circle cx="140" cy="240" r="11" fill="var(--accent)"/>
+  <circle cx="240" cy="240" r="11" fill="var(--accent)"/>
+  <circle cx="340" cy="240" r="11" fill="var(--accent)"/>
+  <circle cx="540" cy="240" r="11" fill="var(--accent)"/>
+  <circle cx="640" cy="240" r="11" fill="var(--accent)"/>
+  <circle cx="740" cy="240" r="11" fill="var(--accent)"/>
+  <circle cx="840" cy="240" r="13" fill="var(--warn)"/>
+  <text class="s" x="240" y="206" text-anchor="middle">Same reading</text>
+  <text class="s" x="640" y="206" text-anchor="middle">Same reading</text>
+  <text class="w" x="840" y="206" text-anchor="middle">Now you feel it</text>
+
+  <text class="c" x="60" y="428">By the time the alarm sounds there is nothing left to do</text>
+  <text class="c" x="60" y="464">So draw the line while nothing is wrong</text>
+</svg>

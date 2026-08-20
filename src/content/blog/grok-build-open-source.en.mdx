@@ -35,11 +35,15 @@ Most people's understanding of an AI coding agent stops at "it writes code for m
 
 Open-sourcing Grok Build hands over those answers. **You're not reading a "best practices" article — you're reading an agent that genuinely runs in production, and how it actually handles these problems.** The difference is like reading a recipe versus standing behind a master chef and watching them cook.
 
+![Two boxes of the same size: the left is filled grey with a single large question mark, standing for a closed system you cannot see inside; the right is transparent and shows three decision points, standing for what open sourcing makes visible.](/figures/blackbox-vs-open-source-en.svg)
+
 ## A backstory you shouldn't skip: the trust boundary
 
 Here's the interesting part: this open-sourcing **came right after a trust crisis**.
 
 Earlier, xAI's command-line tool had a problem — run it inside a folder, and it could upload the **entire folder** to xAI's cloud storage. For a tool that touches your private code, secrets, and customer data, that's a serious trust-boundary breach. The community erupted, and xAI open-sourced the code soon after — in a sense, a response of "you don't trust the black box, so I'll open the box."
+
+![Two rows: the top shows a small block flying along an arrow to a cloud on the right, standing for the single question you think you send; the bottom shows a much larger folder frame holding question, source code, keys and customer data, all flying to the same cloud.](/figures/trust-boundary-upload-en.svg)
 
 There's a lesson here that has nothing to do with how good the AI is, and applies to everyone: **for any tool that can access your files, find out where it sends your data first.** No amount of convenience is worth trading for a data flow you don't understand.
 

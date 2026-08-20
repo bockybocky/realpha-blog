@@ -26,6 +26,8 @@ What stayed with me wasn't any benchmark score. It was the thread running undern
 
 **One: the frontier goes from two players to three, but the real variable is price.** Grok 4.6 ties GPT-5.6 Sol on the composite intelligence index (61 to 61), with Fable 5 just ahead at 62. Engineers' hands-on impression is that Grok sits slightly below Sol and clearly below Fable. The cost picture is a different story: on cost-per-task, Fable runs at least four times Grok, while Grok costs about 70% of GPT-5.6. "Slightly weaker, four times cheaper" doesn't change a leaderboard — it changes a purchasing decision.
 
+![Two rows of bars: the intelligence scores of three models along the top are nearly equal in height, while the cost per task below differs sharply, the dearest more than four times the cheapest.](/figures/frontier-models-score-vs-cost-en.svg)
+
 **Two: the size gap makes this more interesting.** Harry's estimates: Grok 4.6 is around 1.5 trillion parameters and shares a base model with 4.5, which is why the API price is identical. GPT-5.6 Sol might be three to five trillion; Fable 5 is widely guessed at five to ten. Reaching near-parity at a third of the size is a win for efficiency, not scale. And Grok 4.7 reportedly uses a larger base model, has finished training, and ships within weeks — that's what he's actually waiting for.
 
 **Three: those 900 million unlocked SpaceX shares were a public experiment.** Before the IPO, nearly everyone called the valuation excessive; a loud minority called it a scam — insiders dressing up an AI story to dump on retail. On 6 August the first lock-up expired, releasing 900 million shares, roughly 2.5 times the existing float. The stock rose. Since these holders last had liquidity, the market cap had multiplied several times over; given the chance to realise it, most of them chose to keep holding. The people who know the company best voted with their behaviour.
@@ -38,6 +40,8 @@ What stayed with me wasn't any benchmark score. It was the thread running undern
 
 **Seven: Meta returns to open source, with a lovely technical bonus.** Zuckerberg published a long essay — written himself, he stressed — arguing AI power should be distributed rather than concentrated, then opened the weights of their strongest model and released a 30-billion-parameter model that, quantised, runs in 24GB of VRAM. The standout is the companion drafter model shipped alongside it: 1.7GB, it guesses 16 tokens ahead which the large model verifies in a single parallel pass, accepting up to the first mistake. Tokens per second roughly doubles with no quality loss. What makes it unusual is that the drafter is a diffusion model that pulls hidden representations out of the big model's middle layers — it peeks at the large model's train of thought before guessing. Harry is candid that he reads Zuckerberg as reading the wind: once Meta has a real shot at the frontier, he puts the odds at about 89% that the openness ends.
 
+![A row of sixteen cells stands for sixteen words guessed at once by the draft model; after one pass by the large model the first eleven are filled in and accepted, the twelfth is crossed out and the rest are discarded as dashed cells.](/figures/speculative-decoding-draft-model-en.svg)
+
 ## Going Further
 
 ### The news says a company is bleeding talent. Should I sell?
@@ -47,6 +51,8 @@ This is the most personal question in the episode. The first reaction to "legend
 What he actually did was spend two weeks separating "what happened" from "what it means," changing his mind once or twice along the way. That sequence is worth stealing. Personnel news is hard to read because it bundles a fact (someone left) with an inference (therefore the company is finished), and the market only trades the second one.
 
 Unbundle it, and the question isn't how brilliant the person is — it's how much they were still contributing at the margin. The same Jeff Dean leaving two years ago versus now differs by an order of magnitude, not because he got worse, but because the unsolved problems at that seat ran out. So the real question is: is this company's biggest open uncertainty about research direction, or about execution efficiency? The first needs geniuses; the second needs institutions and resources.
+
+![Two panels compared: the left is scattered with dots for unsolved problems and has a long marginal-contribution bar, while the right has only three dots and the bar has shrunk to a stub.](/figures/marginal-contribution-two-timepoints-en.svg)
 
 That gives you something testable. Find a public, dated observation point where the two competing stories predict different things. Harry set one: if the script runs the way he expects, the near term is fine; if he starts seeing long-horizon projects quietly dropped, he changes his view. The value of that sentence is that it can be proven wrong. By contrast, "talent is leaving, therefore bearish" — with no statement of what would make you admit you were wrong — isn't a judgement. It's a feeling with a justification attached.
 
@@ -84,5 +90,7 @@ One idea: how important someone or something is comes down to marginal contribut
 Jeff Dean didn't get worse. What shrank was how much more he could create from that particular seat. When the hard problems in a field have been solved, the strongest person there is doing work others could also do — their scarcity is going unused. This runs the same way at work, at home, and in your own life: how much you're needed isn't a measure of how good you are. It's a measure of how much worse things get without you.
 
 An exercise you can do today: write down the three things currently on your plate, and for each one ask — if I vanished tomorrow, how long would this stall? Anything that stalls for a day before someone picks it up is you patching a hole in a system, and it can be handed off. Anything that would stall for three months is where your actual scarcity lives — so how many of your hours does it get right now?
+
+![Three bars of different length stand for how long each of three things would stall if you vanished, the two shortest marked as easily covered and the longest marked as scarcity.](/figures/how-long-would-it-stop-en.svg)
 
 Most people find that the thing they're busiest with is precisely the thing someone else could do. That's not a diligence problem. It's an allocation problem.

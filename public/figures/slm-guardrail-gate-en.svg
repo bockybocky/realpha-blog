@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="A small-model gate stops two instructions and lets three through to the large model.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .title { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:19px; font-weight:600; fill:var(--ink); }
+    .body { font-size:16px; fill:var(--dim); }
+    .concl { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="title" x="60" y="62">A small model stands in front of the big one</text>
+
+  <text class="grp" x="60" y="130">Instructions</text>
+  <g fill="var(--grey)">
+    <circle cx="76" cy="180" r="9"/>
+    <circle cx="76" cy="225" r="9"/>
+    <circle cx="76" cy="270" r="9"/>
+    <circle cx="76" cy="315" r="9"/>
+    <circle cx="76" cy="360" r="9"/>
+  </g>
+
+  <g stroke="var(--accent)" stroke-width="3" fill="none">
+    <path d="M92 180 H420"/>
+    <path d="M92 270 H420"/>
+    <path d="M92 360 H420"/>
+    <path d="M500 180 H700"/>
+    <path d="M500 270 H700"/>
+    <path d="M500 360 H700"/>
+  </g>
+  <g stroke="var(--warn)" stroke-width="3" fill="none">
+    <path d="M92 225 H420"/>
+    <path d="M92 315 H420"/>
+  </g>
+  <g fill="var(--warn)">
+    <path d="M420 217 L436 225 L420 233 Z"/>
+    <path d="M420 307 L436 315 L420 323 Z"/>
+  </g>
+  <text class="grp" x="392" y="452" fill="var(--warn)">2 blocked</text>
+  <path d="M436 235 L436 420" stroke="var(--warn)" stroke-width="3" fill="none" stroke-dasharray="7 6"/>
+  <path d="M428 414 L436 430 L444 414 Z" fill="var(--warn)"/>
+
+  <rect x="440" y="140" width="60" height="260" rx="8"
+        fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="grp" x="404" y="126">Small model . gatekeeper</text>
+
+  <rect x="700" y="180" width="200" height="180" rx="12"
+        fill="var(--card)" stroke="var(--line)" stroke-width="3"/>
+  <text class="grp" x="740" y="270">Big model</text>
+  <text class="body" x="740" y="298">3 pass</text>
+
+  <text class="concl" x="60" y="492">The guard need not be the biggest one</text>
+</svg>

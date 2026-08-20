@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Around a line marked today, the revenue bar runs left, contract liabilities run a little to the right, and RPO runs further right.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .go { font-size:20px; font-weight:700; fill:var(--page); }
+    .d { font-size:16px; fill:var(--dim); }
+    .dl { font-size:16px; fill:var(--page); }
+    .c { font-size:22px; font-weight:600; fill:var(--ink); }
+    .ax { font-size:19px; font-weight:600; fill:var(--dim); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <text class="t" x="60" y="56">One today, three numbers seeing different distances</text>
+
+  <path d="M 420 100 L 420 448" stroke="var(--ink)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="ax" x="420" y="88" text-anchor="middle">Today</text>
+  <text class="ax" x="150" y="482" text-anchor="middle">Already happened</text>
+  <text class="ax" x="740" y="482" text-anchor="middle">Ahead</text>
+
+  <rect x="70" y="118" width="350" height="60" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="94" y="147">Revenue</text>
+  <text class="d" x="94" y="170">Income statement . rear-view</text>
+
+  <rect x="420" y="212" width="250" height="60" rx="8" fill="var(--accent)"/>
+  <text class="go" x="444" y="241">Contract liabilities</text>
+  <text class="dl" x="444" y="264">Paid . not delivered</text>
+
+  <rect x="420" y="306" width="470" height="60" rx="8" fill="var(--accent)" opacity="0.5"/>
+  <rect x="420" y="306" width="470" height="60" rx="8" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <text class="g" x="444" y="335">RPO</text>
+  <text class="d" x="444" y="358">Signed . not recognised</text>
+
+  <path d="M 70 448 L 890 448" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="c" x="480" y="516" text-anchor="middle">The further ahead it reaches, the better the visibility</text>
+</svg>

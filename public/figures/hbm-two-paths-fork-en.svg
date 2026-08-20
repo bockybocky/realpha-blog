@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="One line runs ten years below breakeven and then climbs sharply, while another branches away midway and never rejoins it.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="64" font-size="27" font-weight="700" fill="var(--ink)">Two roads, one fork</text>
+  <rect x="60" y="100" width="840" height="380" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <line x1="100" y1="310" x2="880" y2="310" stroke="var(--grey)" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text class="t" x="880" y="302" font-size="15" text-anchor="end" fill="var(--dim)">Breakeven</text>
+
+  <line x1="812" y1="130" x2="812" y2="452" stroke="var(--grey)" stroke-width="1.5" stroke-dasharray="4 6"/>
+  <text class="t" x="812" y="150" font-size="16" text-anchor="middle" fill="var(--dim)">30 Nov 2022</text>
+  <text class="t" x="812" y="172" font-size="16" text-anchor="middle" fill="var(--dim)">ChatGPT launches</text>
+
+  <polyline points="390,405 510,340 630,300 780,288" fill="none" stroke="var(--grey)" stroke-width="3" stroke-dasharray="9 7" stroke-linecap="round"/>
+  <text class="t" x="510" y="326" font-size="19" fill="var(--dim)">Samsung</text>
+  <text class="t" x="670" y="284" font-size="15" text-anchor="middle" fill="var(--dim)">The edge-compute road</text>
+
+  <polyline points="150,338 240,392 340,412 450,400 550,432 650,392 730,336 800,210" fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="t" x="156" y="358" font-size="19" fill="var(--accent)">SK hynix</text>
+
+  <circle cx="240" cy="392" r="4.5" fill="var(--accent)"/>
+  <text class="t" x="240" y="414" font-size="15" text-anchor="middle" fill="var(--dim)">First generation would not sell</text>
+  <circle cx="340" cy="412" r="4.5" fill="var(--accent)"/>
+  <text class="t" x="340" y="436" font-size="15" text-anchor="middle" fill="var(--dim)">Yields halved</text>
+  <circle cx="550" cy="432" r="4.5" fill="var(--accent)"/>
+  <text class="t" x="550" y="456" font-size="15" text-anchor="middle" fill="var(--dim)">Opened into a downturn</text>
+  <circle cx="800" cy="210" r="6" fill="var(--accent)"/>
+  <text class="t" x="800" y="192" font-size="16" text-anchor="middle" font-weight="700" fill="var(--accent)">Only one supplier of HBM3</text>
+
+  <text class="t" x="150" y="470" font-size="15" text-anchor="middle" fill="var(--dim)">2013</text>
+  <text class="t" x="550" y="470" font-size="15" text-anchor="middle" fill="var(--dim)">2018</text>
+
+  <text class="t" x="60" y="524" font-size="22" fill="var(--ink)">The cost of the fork is settled years later</text>
+</svg>

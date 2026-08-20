@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Of three branching routes, the top and bottom are crossed out and only the middle one runs through.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62">Three exits from the gap</text>
+
+  <path d="M215,265 C330,265 390,150 505,150" fill="none" stroke="var(--grey)" stroke-width="4"/>
+  <path d="M215,265 L505,265" fill="none" stroke="var(--accent)" stroke-width="6"/>
+  <path d="M215,265 C330,265 390,385 505,385" fill="none" stroke="var(--grey)" stroke-width="4"/>
+
+  <rect x="60" y="225" width="155" height="80" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="137" y="272" text-anchor="middle">Gap</text>
+
+  <rect x="530" y="115" width="290" height="70" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="552" y="146">Higher margins</text>
+  <text class="s" x="552" y="170">Above 80%, substitutes catch up</text>
+
+  <rect x="530" y="230" width="290" height="70" rx="10" fill="var(--accent)" opacity="0.14"/>
+  <rect x="530" y="230" width="290" height="70" rx="10" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <text class="g" x="552" y="262" fill="var(--accent)">Higher compute prices</text>
+  <text class="s" x="552" y="286">The rest flows to every layer below</text>
+
+  <rect x="530" y="350" width="290" height="70" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="552" y="381">More inference share</text>
+  <text class="s" x="552" y="405">Admitting you are just a cloud vendor</text>
+
+  <g stroke="var(--warn)" stroke-width="6" stroke-linecap="round">
+    <line x1="446" y1="132" x2="478" y2="168"/>
+    <line x1="478" y1="132" x2="446" y2="168"/>
+    <line x1="446" y1="367" x2="478" y2="403"/>
+    <line x1="478" y1="367" x2="446" y2="403"/>
+  </g>
+
+  <text class="c" x="60" y="482">Two are crossed out; the one left is price</text>
+</svg>

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Five same-theme funds all connect to one set of holdings, below which sit only three companies, so there are more wrappers than underlying assets.">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #9aa5b5;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .box   { font-size: 16px; font-weight: 700; fill: var(--ink); }
+    .mid   { font-size: 17px; font-weight: 700; fill: var(--page); }
+    .co    { font-size: 16px; font-weight: 700; fill: var(--page); }
+    .lb    { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">Five wrappers, three companies</text>
+
+    <text x="60" y="140" class="lb">What you see on the shelf</text>
+    <text x="60" y="164" class="lb">Five choices</text>
+
+    <!-- 五個包裝 -->
+    <g>
+      <rect x="240" y="106" width="104" height="52" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+      <text x="292" y="138" class="box" text-anchor="middle">Fund 1</text>
+      <rect x="360" y="106" width="104" height="52" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+      <text x="412" y="138" class="box" text-anchor="middle">Fund 2</text>
+      <rect x="480" y="106" width="104" height="52" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+      <text x="532" y="138" class="box" text-anchor="middle">Fund 3</text>
+      <rect x="600" y="106" width="104" height="52" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+      <text x="652" y="138" class="box" text-anchor="middle">Fund 4</text>
+      <rect x="720" y="106" width="104" height="52" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+      <text x="772" y="138" class="box" text-anchor="middle">Fund 5</text>
+    </g>
+
+    <!-- 收斂線 -->
+    <g stroke="var(--grey)" stroke-width="2" fill="none">
+      <path d="M292,158 C292,196 480,208 480,232"/>
+      <path d="M412,158 C412,196 480,208 480,232"/>
+      <path d="M532,158 C532,196 480,208 480,232"/>
+      <path d="M652,158 C652,196 480,208 480,232"/>
+      <path d="M772,158 C772,196 480,208 480,232"/>
+    </g>
+
+    <!-- 中間：同一批持股 -->
+    <rect x="300" y="232" width="360" height="52" rx="8" fill="var(--warn)"/>
+    <text x="480" y="264" class="mid" text-anchor="middle">You are buying the same holdings</text>
+
+    <!-- 分散到三家 -->
+    <g stroke="var(--grey)" stroke-width="2" fill="none">
+      <path d="M480,284 C480,318 320,326 320,352"/>
+      <path d="M480,284 L480,352"/>
+      <path d="M480,284 C480,318 640,326 640,352"/>
+    </g>
+
+    <circle cx="320" cy="392" r="40" fill="var(--accent)"/>
+    <text x="320" y="398" class="co" text-anchor="middle">Company A</text>
+    <circle cx="480" cy="392" r="40" fill="var(--accent)"/>
+    <text x="480" y="398" class="co" text-anchor="middle">Company B</text>
+    <circle cx="640" cy="392" r="40" fill="var(--accent)"/>
+    <text x="640" y="398" class="co" text-anchor="middle">Company C</text>
+
+    <text x="60" y="386" class="lb">And the market holds</text>
+    <text x="60" y="410" class="lb">only three</text>
+
+    <text x="480" y="484" class="kick" text-anchor="middle">When wrappers outnumber the underlying,</text>
+    <text x="480" y="516" class="kick" text-anchor="middle">the extra is not choice, it is the cost of deciding.</text>
+  </g>
+</svg>

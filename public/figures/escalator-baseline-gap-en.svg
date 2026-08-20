@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two bars compared: the index is taller and his correct call is shorter, with a dashed baseline highlighting the shortfall.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">Hit rate needs something to compare against</text>
+
+  <rect x="200" y="120" width="620" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <line x1="240" y1="420" x2="790" y2="420" stroke="var(--line)" stroke-width="3"/>
+
+  <rect x="300" y="180" width="120" height="240" rx="6" fill="var(--accent)"/>
+  <rect x="560" y="240" width="120" height="180" rx="6" fill="var(--grey)"/>
+
+  <line x1="300" y1="180" x2="780" y2="180" stroke="var(--dim)" stroke-width="2" stroke-dasharray="7 7"/>
+  <text class="t" x="782" y="174" font-size="15" fill="var(--dim)">Baseline</text>
+
+  <text class="t" x="360" y="166" font-size="20" text-anchor="middle" fill="var(--accent)">+20</text>
+  <text class="t" x="620" y="226" font-size="20" text-anchor="middle" fill="var(--ink)">+15</text>
+
+  <line x1="716" y1="180" x2="716" y2="240" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="716,180 710,194 722,194" fill="var(--warn)"/>
+  <polygon points="716,240 710,226 722,226" fill="var(--warn)"/>
+  <text class="t" x="732" y="216" font-size="19" fill="var(--warn)">5 short</text>
+
+  <text class="t" x="360" y="452" font-size="19" text-anchor="middle" fill="var(--dim)">Index, same period</text>
+  <text class="t" x="620" y="452" font-size="19" text-anchor="middle" fill="var(--dim)">His correct call</text>
+
+  <text class="t" x="480" y="502" font-size="22" text-anchor="middle" fill="var(--ink)">You only count as running if you beat the escalator</text>
+</svg>

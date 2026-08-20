@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Three bars where the blue lower part lengthens and the orange upper part shortens each generation, connected by arrows.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="60" y="66" font-size="27" fill="var(--ink)">How sloppiness passes down the generations</text>
+
+  <rect x="60" y="90" width="16" height="16" rx="3" fill="var(--accent)"/>
+  <text x="84" y="104" font-size="16" fill="var(--dim)">The verifiable part</text>
+  <rect x="240" y="90" width="16" height="16" rx="3" fill="var(--warn)"/>
+  <text x="264" y="104" font-size="16" fill="var(--dim)">Confidence you cannot check</text>
+
+  <path d="M 265 176 C 320 140, 360 140, 410 172" fill="none" stroke="var(--dim)" stroke-width="2"/>
+  <path d="M 410 172 L 398 160 L 414 158 Z" fill="var(--dim)"/>
+  <text x="340" y="132" font-size="16" fill="var(--dim)" text-anchor="middle">It builds the next one</text>
+
+  <path d="M 545 176 C 600 140, 640 140, 690 168" fill="none" stroke="var(--dim)" stroke-width="2"/>
+  <path d="M 690 168 L 678 156 L 694 154 Z" fill="var(--dim)"/>
+
+  <line x1="100" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="135" y="320" width="130" height="110" rx="6" fill="var(--accent)"/>
+  <rect x="135" y="230" width="130" height="88" rx="6" fill="var(--warn)"/>
+
+  <rect x="415" y="280" width="130" height="150" rx="6" fill="var(--accent)"/>
+  <rect x="415" y="223" width="130" height="55" rx="6" fill="var(--warn)"/>
+
+  <rect x="695" y="240" width="130" height="190" rx="6" fill="var(--accent)"/>
+  <rect x="695" y="213" width="130" height="25" rx="6" fill="var(--warn)"/>
+
+  <text x="200" y="462" font-size="16" fill="var(--dim)" text-anchor="middle">Gen 1</text>
+  <text x="480" y="462" font-size="16" fill="var(--dim)" text-anchor="middle">Gen 2</text>
+  <text x="760" y="462" font-size="16" fill="var(--dim)" text-anchor="middle">Gen 3</text>
+
+  <text x="60" y="512" font-size="22" fill="var(--ink)">Stronger where it shows, thinner where it does not</text>
+</svg>

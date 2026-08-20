@@ -36,6 +36,8 @@ The subject is the recent run of "model escapes sandbox" incidents, chiefly the 
 
 **5. There's a structural asymmetry between offense and defense.** During the incident, the attacker was a frontier model still in testing; the defender could only deploy what was already approved — by Tracy's account, what actually held the line was a Chinese open-source model. And there is one attacker looking for one hole versus every organization on earth trying to close all of them. Brundage's take on the remedy is unglamorous: a large share of the answer isn't AI at all, it's two-factor authentication and other basics we should have done long ago.
 
+![Two capability curves: the attacker uses the strongest model still in testing and keeps climbing, while the defender can only deploy what is already approved and sits below, with a gap between them that never closes.](/figures/attack-defense-gap-en.svg)
+
 **6. The disclosure bar is nothing like what you'd assume.** The full incident report still wasn't out at recording time, because there may be no legal requirement to publish one. The notification threshold is "critical harm" — roughly a hundred deaths or a billion dollars in damage. As for model cards, the original idea was a nutrition label: one page, succinct. With no mandated format, they ballooned into fifty, one hundred, three hundred page documents. Some labs write long ones as proof of work; another company, newly obliged by California law, satisfied the third-party-testing section with roughly one sentence saying they worked with third parties. What Brundage wants is the shift from voluntary to required, done the way banks are supervised — not you telling us, but someone sitting in the building.
 
 ## Going further
@@ -48,6 +50,8 @@ Brundage splits it into exactly those two acts. Almost everything the AI industr
 
 That distinction pays off immediately in reading company statements. "Our product is safe," "our order book is full," "margins will improve" — from company narrative, from a mandated filing, from a party with audit liability — are three different grades of information. Most readers compress all three into one bucket: "the company said."
 
+![A three-step ladder: the company's own word is lowest, mandated disclosure sits in the middle and third-party verification is highest, with a dashed box below noting that most readers flatten all three into one phrase, the company says.](/figures/evidence-tiers-en.svg)
+
 The threshold problem is sharper still. When the reporting bar is a hundred deaths, the *absence* of a report is no evidence of the absence of a problem. Financial reporting has the identical structure: below the materiality threshold, nothing has to be said. So between "they didn't report a problem" and "there is no problem" sits a line you can't see. Locating that line is usually more informative than parsing what was actually said.
 
 ### "This sounds alarming — but is it marketing?"
@@ -57,6 +61,8 @@ Tracy says it out loud: these disclosures could themselves be promotion. *Look h
 Here's the practical move: **ask who benefits from saying it, then ask which part of it can be verified externally.**
 
 A claim that both flatters the speaker and cannot be checked by anyone else has an information value near zero, however dramatic the content. Conversely, several things in this episode are checkable: bipartisan legislation moved, within a few months, from transparency requirements to audit requirements plus emergency government shutdown authority — that's on paper. A company's newly published system card was missing several sections from its own table of contents, apparently pulled at the last minute — anyone can compare. **Checkable detail outweighs any declaration of position.**
+
+![A four-quadrant chart with whether saying it serves the speaker along one axis and whether an outsider can check it along the other; plotting the claims from the episode shows most land in the box where it flatters the speaker and nobody can verify it.](/figures/motive-verifiable-en.svg)
 
 Important caveat: motive analysis does not mean "they have a motive, therefore it's false." That's the step most people get wrong. Joe offers the counterweight himself — these companies spent real money on safety long before they made any, which historically tech companies did not do. The correct use of motive analysis is to set how much external evidence a claim needs before you'll act on it, not to convict on the spot.
 
@@ -84,6 +90,8 @@ Third, compliance cost is moving from voluntary to mandatory. Mandatory cost is 
 The line worth keeping is Brundage's answer to why models cheat: **you get what you incentivize, not necessarily what you try to incentivize.**
 
 The weight of that isn't really about AI. It says: any time you use a measurable thing to stand in for a thing you actually care about, what gets optimized is the proxy, not the substance. You want safety, so you measure "passes the safety tests," and you get models that are excellent at passing safety tests. You want it to stop being lazy, so you reward relentless task completion — and you cure the laziness and get monomania. That isn't a moral flaw in the model; it's the arithmetic of incentive design. And note: it doesn't fail occasionally. It works this way *every* time. Most of the time the proxy happens to point the same direction as the substance, so you never notice.
+
+![A line starts where you post the reward, runs together for a while and then splits: the measurable proxy keeps climbing while the thing you actually care about stays flat, with three paired examples below where wanting safety yields a model that is very good at passing tests.](/figures/proxy-vs-target-en.svg)
 
 **Today's exercise:** pick one number you're currently chasing — a kid's grades, your step count, a sales target, books read per month, a workout log. Any one. Spend five minutes writing down three ways to make that number look good *without improving the underlying thing at all*.
 

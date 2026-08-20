@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="One capital spending line split in two: capacity shifted from existing plant arrives in months, a new fab takes two to three years, and the two arms differ in both length and risk.">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+      --warnbg: #fdf4e7;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+        --warnbg: #2b2411;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .barA  { font-size: 19px; font-weight: 700; fill: var(--page); }
+    .barG  { font-size: 19px; font-weight: 700; fill: var(--ink); }
+    .buy   { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .cost  { font-size: 15px; fill: var(--dim); }
+    .ax    { font-size: 15.5px; fill: var(--dim); }
+    .warnl { font-size: 16.5px; font-weight: 700; fill: var(--warn); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">One capex line, two engines</text>
+
+    <!-- 挪動：短 -->
+    <rect x="120" y="110" width="196" height="62" rx="4" fill="var(--accent)"/>
+    <text x="218" y="148" class="barA" text-anchor="middle">Shift capacity</text>
+    <text x="332" y="134" class="buy">Months. You buy scheduling</text>
+    <text x="332" y="162" class="cost">Tools, fab and people are already there. Costs some margin, plus trucks.</text>
+
+    <!-- 新蓋：長 -->
+    <rect x="120" y="212" width="604" height="62" rx="4" fill="var(--grey)"/>
+    <text x="422" y="250" class="barG" text-anchor="middle">Build a new fab</text>
+    <text x="740" y="236" class="buy">Two to three years</text>
+    <text x="740" y="262" class="buy">You buy</text>
+    <text x="740" y="286" class="buy">time and execution</text>
+    <text x="120" y="308" class="cost">In between: engineering risk, tool lead times, yield ramp.</text>
+
+    <!-- 時間軸 -->
+    <line x1="120" y1="352" x2="900" y2="352" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="120" y="378" class="ax" text-anchor="middle">Now</text>
+    <text x="316" y="378" class="ax" text-anchor="middle">6 months</text>
+    <text x="452" y="378" class="ax" text-anchor="middle">1 year</text>
+    <text x="724" y="378" class="ax" text-anchor="middle">2 years</text>
+    <text x="890" y="378" class="ax" text-anchor="end">3 years</text>
+
+    <!-- 失效條件 -->
+    <rect x="120" y="412" width="780" height="70" rx="8" fill="var(--warnbg)" stroke="var(--warn)" stroke-width="1.5"/>
+    <text x="144" y="442" class="warnl">The top engine has a travel limit</text>
+    <text x="144" y="468" class="cost">Shifting only works if one side is idle. When everything is full, the valve is stuck.</text>
+
+    <text x="480" y="536" class="kick" text-anchor="middle">One headline sells two very different risks.</text>
+  </g>
+</svg>

@@ -35,6 +35,8 @@ Three reasons.
 
 **Three, the counterintuitive one: a cross-vendor view catches your blind spots.** Models from the same house make the same kind of mistake. Ask one three times and you get three similar answers, an echo chamber. But a model from a different house pokes holes from an angle you never considered. I made this a rule: for any important judgment, bring in a model from a different company as the red team, not just a different size from the same one. That old line fits exactly: stones from another hill can polish jade.
 
+![Two dashed circles of the same size stand for the same range of possible error. On the left, three blue circles pile up in one corner and an orange dot in the opposite corner stays uncovered. On the right, three circles of the same size spread out and cover that dot.](/figures/echo-chamber-vs-cross-vendor-en.svg)
+
 ## The division of labor: coach, forward, keeper
 
 Three stages, simple.
@@ -42,6 +44,8 @@ Three stages, simple.
 **The expensive brain plans.** For a hard task, let the strongest model interrogate the requirement first: what to build, what the interface looks like, what counts as done, all written into a clear spec. This step costs time and saves every round trip that comes after.
 
 **The cheap hands execute in parallel.** With the spec set, split the work into non-overlapping chunks and hand them to different vendors at once. Two lanes writing in parallel means the wall clock only counts the slowest chunk, not the sum.
+
+![Two horizontal timelines. The upper one runs four blocks end to end, stretching far to the right. The lower one stacks the middle two blocks in the same span, so the whole line is visibly shorter, with the freed segment marked by a dashed box.](/figures/parallel-clock-slowest-block-en.svg)
 
 **Converge and verify against reality.** At the end I stitch each vendor's output together and run it against the real environment. Not whether they said it was done, whether the thing actually moves.
 

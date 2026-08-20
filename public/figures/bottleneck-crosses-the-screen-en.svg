@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="An arrow links four nodes left to right across a vertical line, with the last node in a dashed area on the far side, showing the bottleneck moving beyond what a screener can see." font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <text x="80" y="70" font-size="27" font-weight="700" fill="var(--ink)">The bottleneck moved past the screen</text>
+
+  <rect x="80" y="140" width="560" height="250" rx="10" fill="var(--card)"/>
+  <rect x="660" y="140" width="220" height="250" rx="10" fill="none" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <line x1="650" y1="140" x2="650" y2="390" stroke="var(--line)" stroke-width="2"/>
+
+  <text x="110" y="182" font-size="20" font-weight="700" fill="var(--ink)">Screenable</text>
+  <text x="110" y="208" font-size="15" fill="var(--dim)">Capacity . shipments . financial lines</text>
+  <text x="690" y="182" font-size="20" font-weight="700" fill="var(--warn)">Not screenable</text>
+  <text x="690" y="208" font-size="15" fill="var(--dim)">Execution</text>
+
+  <line x1="150" y1="290" x2="725" y2="290" stroke="var(--dim)" stroke-width="2.5"/>
+  <polygon points="745,290 723,282 723,298" fill="var(--dim)"/>
+
+  <circle cx="170" cy="290" r="9" fill="var(--accent)"/>
+  <circle cx="330" cy="290" r="9" fill="var(--accent)"/>
+  <circle cx="490" cy="290" r="9" fill="var(--accent)"/>
+  <circle cx="770" cy="290" r="11" fill="var(--warn)"/>
+
+  <text x="170" y="262" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">Chips</text>
+  <text x="330" y="262" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">Power/land</text>
+  <text x="490" y="262" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">Transformers</text>
+  <text x="770" y="262" font-size="19" font-weight="700" fill="var(--warn)" text-anchor="middle">122 days to stand up a site</text>
+
+  <text x="80" y="472" font-size="22" font-weight="700" fill="var(--ink)">This bottleneck has no column in any dataset</text>
+</svg>

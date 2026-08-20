@@ -31,11 +31,15 @@ Episode 185 of *The Circuit*: Ben Bajarin and Jay Goldberg walk through a busy w
 
 **But "the product is good" and "we will take share" are two different statements.** This is the part I most wanted to write down. The addressable market is now being quoted around $1.4 trillion, everyone forecasts growth, nobody disputes that AMD is growing — and yet the market is structurally hard to take share in, because of the incumbent's ramp, supply chain lock-in and the diversion of volume into custom silicon. The hosts put it bluntly: **all seven vendors are claiming 50% share, which is mathematically impossible.** They also question how much rigor sits behind these market-size estimates, especially when things like in-house accelerators do not fit into any share bucket at all.
 
+![Seven short bars of equal length each stand for one supplier claiming fifty percent share, and the long bar at the bottom is all seven added together, clearly overshooting the dashed line marking one hundred percent of the market.](/figures/seven-suppliers-half-share-each-en.svg)
+
 **Everyone is working with everyone, and competing with everyone.** Anthropic was the partner announced on stage. One host had built a matrix of every accelerator vendor against the seven big buyers, and the conclusion was that the data center has become a scene of universal affection — the names not yet announced are mostly the ones with their own silicon, or the ones that never issue press releases anyway. Stranger still, the vendors are filling each other's gaps: AMD partnering with Cerebras, Nvidia sourcing CPUs from Intel. Competing on one front and cooperating on another is now the norm.
 
 **The reason is that nobody sells chips anymore; they sell racks.** One host coins a phrase I liked: a *unified fabric of compute*. When one rack is a single machine, and racks must cooperate across one fabric, any hole in your portfolio has to be filled by someone else's part — because the company across the table may be vertically integrated.
 
 **Training and inference are different decisions, and this got explained cleanly.** In the training era, customers deliberately chose their hardware. In inference, what the buyer wants is the best tokens at the best margin — so the provider routes workloads to whichever silicon returns the most for that job, and the end customer never sees any of it. The implication is direct: **inference is a heterogeneous world, and if your total cost of ownership and your tokens-per-watt are good enough, someone will deploy you.**
+
+![Two panels: in training the customer connects straight to one chosen piece of hardware; in inference the user sits behind an invisible dashed wall and the provider routes the work to three different kinds of hardware.](/figures/training-picks-inference-routes-en.svg)
 
 **Rack-scale is still very early.** The hosts stress that full-rack integration is barely beginning to proliferate; the first generation has only just been stood up. And the hard part turned out not to be design but manufacturing, assembly and installation — these things are large enough to need a crane to fit the back door. AMD bought ZT Systems precisely for this, but the honest assessment is that some of it can only be learned by doing, and both leaders are still learning. Anyone further back is a long way from this line.
 
@@ -45,7 +49,11 @@ Episode 185 of *The Circuit*: Ben Bajarin and Jay Goldberg walk through a busy w
 
 **The double-wide rack is not about compute density.** This part was a genuine surprise. One host went in assuming the extra width was a sacrifice in compute per square foot, and was told that customers do not see floor space as the problem — concrete is cheap. The real complaint was serviceability: a wider rack lets a technician get their arms and shoulders in. The second benefit is shorter cable runs, which cuts latency. And he only realised afterwards that a competing rack needs two more cabinets standing beside it to run at all, so the total width may not favour the thin design anyway. **"Concrete is cheaper than silicon" is worth keeping on its own.**
 
+![On the left one narrow rack plus two side cabinets with long cables running between them; on the right a single double-wide rack with short cables inside it; two rulers underneath show the total width is about the same.](/figures/wide-rack-buys-serviceability-en.svg)
+
 **Then comes the number that stops both of them.** Looking out a couple of years, when a single rack draws on the order of a megawatt, a gigawatt-scale data center will contain about a thousand racks. The image offered is a preposterously large building with a few lonely clusters glowing in the middle. One host mentions driving past a 100-megawatt site under construction on his weekly run to the warehouse store, and being unable to picture the gigawatt version.
+
+![A vast building outline filling the frame with only a small cluster of lit rack blocks and a human figure for scale at the centre, and wide empty space all around marked empty.](/figures/one-gigawatt-thousand-racks-en.svg)
 
 **Intel's quarter: no flaw to find, and the stock went down anyway.** Revenue beat by a billion dollars, EPS came in near double expectations, guidance was similarly strong, gross margin returned to the 40s for the first time in three years, and operating margin was the best in years. The leading node has customers, and the following node was confirmed for real — which usually means it has customers too. The stock was up almost 15% after hours and traded down the next day.
 
@@ -90,6 +98,8 @@ Two examples sit in this one episode: a near-flawless quarter that popped after 
 **5. Capex leads revenue by eighteen months to three years — a rare falsifiable variable.**
 
 Most industry narratives cannot be disproved. This one can. Orders, capex guidance, tool lead times, fab floor space: all observable, all recordable, all checkable after the fact, with a defined lag.
+
+![Two curves over time: capital spending turns up first, revenue turns up much later and more steeply, and a double-headed arrow marks the gap of eighteen months to three years.](/figures/capex-leads-revenue-by-years-en.svg)
 
 So this kind of judgment deserves to be written as a prediction plus a timestamp plus a checkpoint: I expect this line to show up in the numbers around then; come back and mark it. **A prediction you never wrote down will always be remembered as roughly what you thought all along.** Worth noting too, the hosts model the honest version of this — saying openly that forecasts are educated guesses, and that they cannot see where the cycle turns. **Marking the boundary of what you don't know is more worth copying than the conclusion itself.**
 

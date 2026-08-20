@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The target price is a multiple times an earnings estimate, and in bad news both move down together, shrinking the resulting rectangle.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .bd { font-size:16px; fill:var(--dim); }
+    .cc { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t ttl" x="60" y="66">A target price is two estimates multiplied</text>
+
+  <line x1="130" y1="120" x2="130" y2="440" stroke="var(--line)" stroke-width="3"/>
+  <line x1="130" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-width="3"/>
+  <text class="t bd" x="60" y="116">Multiple</text>
+  <text class="t bd" x="820" y="472">Earnings estimate</text>
+
+  <rect x="130" y="160" width="400" height="280" fill="var(--grey)" opacity="0.28"/>
+  <text class="t grp" x="300" y="300" fill="var(--dim)">Before</text>
+
+  <rect x="130" y="280" width="250" height="160" fill="var(--accent)" opacity="0.35"/>
+  <text class="t grp" x="180" y="380" fill="var(--accent)">Left</text>
+
+  <line x1="105" y1="160" x2="105" y2="262" stroke="var(--warn)" stroke-width="4"/>
+  <polygon points="93,262 105,292 117,262" fill="var(--warn)"/>
+  <text class="t bd" x="60" y="330" fill="var(--warn)">Compressed</text>
+
+  <line x1="530" y1="466" x2="398" y2="466" stroke="var(--warn)" stroke-width="4"/>
+  <polygon points="398,454 368,466 398,478" fill="var(--warn)"/>
+  <text class="t bd" x="440" y="502" fill="var(--warn)">Cut</text>
+
+  <text class="t bd" x="620" y="200">In bad news</text>
+  <text class="t bd" x="620" y="232">both move the same way</text>
+  <text class="t bd" x="620" y="264">not independently</text>
+
+  <text class="t cc" x="60" y="540">Be conservative on one side and the margin is thinner than it feels</text>
+</svg>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Two chip generations side by side: the bottom layers with transistors and the finest wires differ a lot, while the dozen-odd upper metal layers are nearly identical, so the tools can be shared.">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+      --okbg:   #eef2f9;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+        --okbg:   #12233d;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .cap   { font-size: 20px; font-weight: 700; fill: var(--ink); }
+    .same  { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .diff  { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .sub   { font-size: 15.5px; fill: var(--dim); }
+    .kick  { font-size: 23px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">A chip is stacked. The top layers match.</text>
+
+    <!-- 相同區底色 -->
+    <rect x="196" y="96" width="424" height="252" rx="6" fill="var(--okbg)"/>
+
+    <!-- 左堆：舊世代 -->
+    <text x="290" y="82" class="cap" text-anchor="middle">Older gen (N7/N6)</text>
+    <rect x="230" y="108" width="120" height="228" rx="3" fill="var(--grey)"/>
+    <rect x="230" y="348" width="120" height="72" rx="3" fill="var(--warn)"/>
+
+    <!-- 右堆：新世代 -->
+    <text x="526" y="82" class="cap" text-anchor="middle">Newer gen (N3/N5)</text>
+    <rect x="466" y="108" width="120" height="228" rx="3" fill="var(--grey)"/>
+    <rect x="466" y="348" width="120" height="72" rx="3" fill="var(--accent)"/>
+
+    <!-- 分層線：上層各 12 格 -->
+    <g stroke="var(--page)" stroke-width="2.5">
+      <line x1="230" y1="127" x2="350" y2="127"/><line x1="466" y1="127" x2="586" y2="127"/>
+      <line x1="230" y1="146" x2="350" y2="146"/><line x1="466" y1="146" x2="586" y2="146"/>
+      <line x1="230" y1="165" x2="350" y2="165"/><line x1="466" y1="165" x2="586" y2="165"/>
+      <line x1="230" y1="184" x2="350" y2="184"/><line x1="466" y1="184" x2="586" y2="184"/>
+      <line x1="230" y1="203" x2="350" y2="203"/><line x1="466" y1="203" x2="586" y2="203"/>
+      <line x1="230" y1="222" x2="350" y2="222"/><line x1="466" y1="222" x2="586" y2="222"/>
+      <line x1="230" y1="241" x2="350" y2="241"/><line x1="466" y1="241" x2="586" y2="241"/>
+      <line x1="230" y1="260" x2="350" y2="260"/><line x1="466" y1="260" x2="586" y2="260"/>
+      <line x1="230" y1="279" x2="350" y2="279"/><line x1="466" y1="279" x2="586" y2="279"/>
+      <line x1="230" y1="298" x2="350" y2="298"/><line x1="466" y1="298" x2="586" y2="298"/>
+      <line x1="230" y1="317" x2="350" y2="317"/><line x1="466" y1="317" x2="586" y2="317"/>
+      <!-- 底層 3 格 -->
+      <line x1="230" y1="372" x2="350" y2="372"/><line x1="466" y1="372" x2="586" y2="372"/>
+      <line x1="230" y1="396" x2="350" y2="396"/><line x1="466" y1="396" x2="586" y2="396"/>
+    </g>
+
+    <!-- 右側說明 -->
+    <text x="648" y="150" class="same">These top layers</text>
+    <text x="648" y="178" class="same">are nearly identical</text>
+    <text x="648" y="212" class="sub">Metal wires that carry</text>
+    <text x="648" y="234" class="sub">power and signal across</text>
+    <text x="648" y="256" class="sub">the chip, wider higher up.</text>
+    <text x="648" y="292" class="sub">Old tools can make them,</text>
+    <text x="648" y="314" class="sub">so both gens share them.</text>
+
+    <text x="648" y="376" class="diff">These bottom layers</text>
+    <text x="648" y="404" class="diff">differ a lot</text>
+    <text x="648" y="436" class="sub">Transistors, finest wires.</text>
+
+    <!-- 地面 -->
+    <line x1="196" y1="420" x2="620" y2="420" stroke="var(--ink)" stroke-width="1.5"/>
+
+    <text x="408" y="500" class="kick" text-anchor="middle">Over 90% tool overlap.</text>
+    <text x="480" y="546" class="kick" text-anchor="middle">So several generations are one pool.</text>
+  </g>
+</svg>

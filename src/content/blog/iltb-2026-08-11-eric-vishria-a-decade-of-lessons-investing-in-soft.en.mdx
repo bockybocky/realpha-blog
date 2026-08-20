@@ -36,6 +36,8 @@ Everyone from the hyperscalers to the neoclouds to the specialist inference prov
 
 He points at the contradiction only visible if you know the economics: these companies rent the cloud providers' machines, pay their margin, run on top of them — and still make money. Same model, same silicon; no resale operation produces that spread. Which leaves one explanation: running these models well is genuinely hard, and it is a very specific expertise.
 
+![A block on the left for the same open-weight models and accelerators splits into two bars of very different length: the upper short one marked one times and the lower one five times as long, showing the same input producing a fivefold gap.](/figures/same-hardware-five-times-faster-en.svg)
+
 His historical comparison: storage and compute services launched in 2006, and the following year's shareholder letter spent real space explaining why they mattered. Put thirty of the smartest investors of that era in a room and ask whether this would be a durable, high-margin, non-commodity business — his guess is you'd have gone zero for thirty.
 
 ### 2. The market is too big for one winner — but "it all works" is not "everyone works"
@@ -46,11 +48,15 @@ Twelve years later, Snowflake out-Amazoned Amazon on Amazon; Confluent, Elastic,
 
 The conclusion is one sentence: the market was so large that no single vendor could consume it. Then he immediately applies the brake — this is not an argument for spray and pray. There was plenty of roadkill, and picking the relative winner still matters. He sharpens this later: when he says every layer works, he means something closer to the opposite of optimism, because it implies most companies in each layer will not work, which makes real differentiation more important than before, not less.
 
+![Five rows from top to bottom stand for cloud, compute, inference, chips and applications; each row holds nine dots, of which only one is a large solid winner and the other eight are small grey dots that fell away.](/figures/every-layer-wins-few-companies-en.svg)
+
 ### 3. The hardest moat in databases dissolved because three things went away at once
 
 Databases were a wonderful business for decades for a simple reason: app developers wrote against a specific interface, data accumulated, and migration was the single project nobody wanted to undertake. Stickiness that high supports excellent margins.
 
 Three things changed simultaneously. First, the thing writing against the database interface is now a model, not a person. Second, database interfaces are extremely well specified — and well-specified translation is exactly what models are best at. Third, agents don't get tired of monotonous specification work. Stack those, and the thing you would never do in software becomes a matter of pointing some money at it.
+
+![Two panels compared: on the left a tall grey wall blocks the way between the old and new database, on the right only a stub of that wall remains and the arrow passes straight through, with the deciding factor below shifting from stickiness to iteration speed.](/figures/migration-wall-collapses-en.svg)
 
 His point isn't that databases stop mattering. It's that the criteria changed: experimentation is cheap, so far more applications get started, so what matters now is scaling from literally zero usage all the way through, spinning up and tearing down repeatedly, iteration speed, and ultimately cost as the arbiter. That's a completely different test from "I specced this for a use case, procured a license, and ran it on that hardware."
 
@@ -74,6 +80,8 @@ This explains an industry-wide pattern: excellent leaders from four or five year
 
 The phrase worth stealing from this episode: model capability has a jagged edge, not the smooth human arc our intuitions are built on. One spike far exceeds expectations, the valley right next to it doesn't, and new capabilities emerge roughly every four weeks. What an application company actually does is understand the shape of that edge, find which spike maps to which customer problem, and fill in the gaps.
 
+![A smooth grey rising curve for human ability beside a violently jagged blue line for model ability, with one of its peaks marked as a spike and one of its troughs as a valley.](/figures/jagged-capability-frontier-en.svg)
+
 Bret Taylor's framing is sandcastles: we used to build castles — brick by brick, foundations meant to last a hundred years — and now we build sandcastles that get washed away. The artisan mindset doesn't survive. Cursor went from IDE to tab autocomplete to agentic work, obsoleting its own six-month-old work over and over.
 
 From this he derives a counterintuitive conclusion. Traditional product management says the PM should understand technology but not specify implementation — their job is to understand the customer and translate the problem to engineers. He says that is now a horrible way to work. You have to hold the nuances of model capability and the customer problem at once, and bridge them yourself. Which leaves three roles that actually matter: people who understand customer problems, people who have taste, and people who are curious about the jagged edge — and whether the business card says engineer, PM or designer is irrelevant. Patrick names the irony: the returns to being technical are rising, precisely as models are supposed to be erasing technical edge.
@@ -91,6 +99,8 @@ His specific number: China is bringing on roughly ten times as much energy next 
 The most methodologically useful passage is his treatment of Geoffrey Hinton's 2016 claim that we should stop training radiologists.
 
 He states the fair version first: Hinton is orders of magnitude smarter than he is, and the reasoning behind the claim was entirely correct — these images should be readable by a model better than by a human, and studies have since shown that in specific areas. What failed wasn't the reasoning. It was the two layers underneath it.
+
+![A banner at the top marks the reasoning as correct; a long bar in the middle stands for a day's workload of which only a small stretch at the far left is filled as the narrow task it can do; below, an arrow from model reading toward replacing the doctor is stopped by an upright wall marked reimbursement and liability.](/figures/hinton-two-missing-layers-en.svg)
 
 The first is data coverage. What actually got built targets narrow slices like chest CTs, while a working radiologist reads X-rays, CTs and MRIs across the whole body every day. Climbing steeply on one narrow item is marginally helpful when it's one of twenty or forty things read that day. The second is real-world stickiness: the entire reimbursement system is oriented around a physician issuing a readout, and behind that sit liability, the consequences of a miss, and malpractice exposure. Add a reverse effect on top — imaging gets cheaper, so more of it gets ordered, and in the near term you need more radiologists, not fewer.
 

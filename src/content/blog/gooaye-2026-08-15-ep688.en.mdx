@@ -25,6 +25,8 @@ The host spends the first half on his own lower back pain. It sounds like a heal
 
 He had tried every symptomatic fix: a pillow under the legs, an absurdly expensive office chair, every gadget that promises to save your spine. All of them worked. All of them worked briefly. What finally started to help was something he found through functional training — the problem wasn't in his back at all. It was uneven loading between his two legs, and the few degrees his toes splayed outward when he walked. He corrected his gait; his back improved.
 
+![Two body diagrams. On the left the feet point forward and the body axis is straight, with three arrows all pointing at a warning ring on the lower back. On the right the feet turn out and the axis tilts; the warning ring is still on the back, but what is circled is the feet.](/figures/pain-is-not-where-it-breaks-en.svg)
+
 One line is worth writing down: every posture that feels comfortable to me is a posture that's hurting me. But he immediately adds the more important turn — it isn't that the body likes bad posture. It's that you've used the wrong posture so long that only the wrong one registers as comfortable. Which is exactly why correcting anyone is so hard.
 
 The second half turns to markets: the lock-up expiries at SpaceX and Cerebras, and an 800V DC power architecture white paper circulating furiously among investors. The listener Q&A then runs from "how do you know the bad news is actually over" all the way to parenting anxiety — and the host himself ties them into one question.
@@ -38,6 +40,8 @@ Two, more liquidity is a good thing. This is counterintuitive. When only a few h
 Three, Cerebras is interesting because of how inference is being split. Break inference into a long-context processing stage and a token-by-token generation stage: the first is a throughput problem, the second a memory-bandwidth and latency problem. Their collaboration with AMD hands the front half to one architecture and uses very large silicon with SRAM to attack the low-latency back half. Push that logic to its extreme and you get model logic burned directly into chips — high-frequency trading shops already do this, where a few milliseconds is worth a fortune.
 
 Four, 800V isn't a story — it's physics forcing the issue. As per-rack power moves from a hundred-odd kilowatts toward three hundred and five hundred, the wall a 54V architecture hits isn't conversion efficiency. It's the physical size of low-voltage, high-current delivery: busbar cross-sections, cable weight and bend radius, connector size and insertion force — all eating the space that was supposed to go to compute and cooling. For the same power, 54V means roughly six thousand amps; 800V means around four hundred. Raising the voltage is how you reduce the number of things you have to change.
+
+![Two conductor cross-sections compared by area: the left circle nearly fills its dashed frame while the right one is a small dot, both carrying the same power.](/figures/voltage-shrinks-the-copper-en.svg)
 
 Five, read a white paper by first cutting it along the time axis. Which parts generate revenue within a year or two, and which are theoretically excellent but belong to 2030 and beyond. The host splits it into three phases: near term, the mainstream architecture still relies on the existing power shelf approach, so the beneficiaries are power supplies, capacitors, connectors and busbars; mid term brings centralized power, where silicon carbide and especially gallium nitride start to tighten — some companies have publicly admitted the shortage exceeded their own expectations; only later come full DC power blocks, storage and systems integration. And there's a constraint people forget: the data center is already built, the electrical gear is already installed. You work with what's there, you don't demolish and start over. Commerce always returns to price — an inelegant solution that requires an extra conversion step will still win if it's cheap and reliable.
 
@@ -54,6 +58,8 @@ This is where most people get stuck. You can see nine or ten more tranches comin
 The error is treating "the event" and "the pricing" as the same thing. Markets don't react when an event occurs, they react when it becomes predictable. An unlock schedule is public, so the real selling lands before the date — nobody who wants out waits for the day everyone else can leave. By the time the bell rings, the sellers have sold, and what's left are the people waiting to buy.
 
 The layer underneath is the useful part: why does the first tranche hit harder than the rest? Because the first one resolves more than supply — it resolves uncertainty. Before it, nobody knows whether unlock day will crash the stock or how far. After it, that question has an answer, and every later tranche is downgraded from unknown risk to a known calendar item. Markets price known events far more efficiently than they price unknown risk.
+
+![A share price curve with three dashed unlock dates: every dip lands to the left of a dashed line, and the first is the deepest while the next two get shallower.](/figures/selloff-lands-before-the-unlock-en.svg)
 
 So next time you see unrealized bad news and a stock that moves anyway, ask three things: is the schedule public? If so, the selling should already be visible earlier on the chart — can I find it? And if I can't, does that mean the market never cared in the first place?
 
@@ -78,6 +84,8 @@ A listener asked how you confirm the bad news is truly over. The answer is the m
 That isn't fatalism. He offers something operable: event, plus price action, plus sample size. The event is the necessary condition, the strength of the move is the confirmation, and sample size is the only way to judge how rare that move actually is. A rebound that shows up every couple of months can't mark a bottom. One that shows up once every year or two, at record magnitude, implies large-scale capital returning and institutional participation — that kind of low is hard to break, and if it does break, the information content of that failure is itself valuable.
 
 Put differently: the question isn't "is this the bottom." It's "how infrequently has this signal appeared historically." The second question is quantifiable and can be checked against the record. The first isn't.
+
+![A price line carries a row of small rebounds of similar height held under a horizontal dashed line, while the last rebound pushes far above that line.](/figures/how-rare-is-this-rebound-en.svg)
 
 The second layer is capital management. The episode gives an honest picture: during the 2025 tariff episode, he went for a health check with a friend who, while being sedated, told the doctor he was about to go buy the dip — except the host himself had already run out of cash to deploy. You assume 20% off is the bottom; it goes to 40%, then 50%; and once your ammunition is gone you're left waiting on the mountain or swapping out at a loss. So scale in, and treat "I ran out before it bottomed" as the base case rather than an accident.
 

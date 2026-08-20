@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A descending staircase of four bars from several hundred volts at the rack feed to under one volt at the die, each step marked by a power semiconductor.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .title { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); }
+    .body { font-size:16px; fill:var(--dim); }
+    .concl { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t title" x="60" y="70">Power enters the hall and passes four valves</text>
+
+  <line x1="60" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="110" y="150" width="150" height="290" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="320" y="255" width="150" height="185" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="530" y="335" width="150" height="105" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="740" y="404" width="150" height="36" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+
+  <polyline points="110,150 260,150 320,255 470,255 530,335 680,335 740,404 890,404"
+            fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="290" cy="202" r="10" fill="var(--accent)"/>
+  <circle cx="500" cy="295" r="10" fill="var(--accent)"/>
+  <circle cx="710" cy="370" r="10" fill="var(--accent)"/>
+
+  <text class="t grp" x="185" y="134" text-anchor="middle">Hundreds of volts</text>
+  <text class="t grp" x="395" y="239" text-anchor="middle">Tens of volts</text>
+  <text class="t grp" x="605" y="319" text-anchor="middle">Around ten volts</text>
+  <text class="t grp" x="815" y="388" text-anchor="middle">Under one volt</text>
+
+  <text class="t body" x="185" y="470" text-anchor="middle">Rack feed</text>
+  <text class="t body" x="395" y="470" text-anchor="middle">Rack busbar</text>
+  <text class="t body" x="605" y="470" text-anchor="middle">Board</text>
+  <text class="t body" x="815" y="470" text-anchor="middle">Die</text>
+
+  <text class="t concl" x="60" y="522">Every step down needs a power semiconductor</text>
+</svg>

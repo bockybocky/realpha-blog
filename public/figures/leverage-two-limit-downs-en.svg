@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two equal bars of own capital: unleveraged loses only a sliver at the top, five times leverage loses all of it." font-family='"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif'>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text x="480" y="58" text-anchor="middle" font-size="27" font-weight="600" fill="var(--ink)">After two limit-down days, what is left</text>
+  <text x="480" y="92" text-anchor="middle" font-size="16" fill="var(--dim)">Illustration: own capital $1, each limit down -10%</text>
+
+  <rect x="70" y="125" width="380" height="340" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="510" y="125" width="380" height="340" rx="12" fill="var(--card)" stroke="var(--line)"/>
+
+  <text x="260" y="172" text-anchor="middle" font-size="20" font-weight="600" fill="var(--ink)">No leverage</text>
+  <text x="260" y="198" text-anchor="middle" font-size="16" fill="var(--dim)">Position $1</text>
+  <text x="700" y="172" text-anchor="middle" font-size="20" font-weight="600" fill="var(--ink)">5x leverage</text>
+  <text x="700" y="198" text-anchor="middle" font-size="16" fill="var(--dim)">Position $5</text>
+
+  <rect x="216" y="265" width="88" height="160" fill="var(--accent)"/>
+  <rect x="216" y="225" width="88" height="40" fill="var(--warn)"/>
+  <rect x="216" y="225" width="88" height="200" fill="none" stroke="var(--line)"/>
+  <text x="206" y="252" text-anchor="end" font-size="15" fill="var(--dim)">Eaten</text>
+  <text x="260" y="452" text-anchor="middle" font-size="16" fill="var(--ink)">$0.8 left</text>
+
+  <rect x="656" y="225" width="88" height="200" fill="var(--warn)"/>
+  <rect x="656" y="225" width="88" height="200" fill="none" stroke="var(--line)"/>
+  <text x="646" y="332" text-anchor="end" font-size="15" fill="var(--dim)">All gone</text>
+  <text x="700" y="452" text-anchor="middle" font-size="16" font-weight="600" fill="var(--ink)">$0 left</text>
+
+  <text x="480" y="508" text-anchor="middle" font-size="22" fill="var(--ink)">Leverage magnifies the speed to zero, not the return</text>
+</svg>

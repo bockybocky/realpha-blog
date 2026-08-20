@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="The country-level line rises above while the individual's global ranking falls below.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+
+  <text x="480" y="56" text-anchor="middle" font-size="27" font-weight="700" fill="var(--ink)">The country is rising, the person is sliding</text>
+
+  <text x="140" y="112" font-size="19" font-weight="700" fill="var(--dim)">Country level: GDP and national weight</text>
+  <polyline points="200,178 760,132" fill="none" stroke="var(--grey)" stroke-width="6" stroke-linecap="round"/>
+  <polygon points="776,128 758,122 762,142" fill="var(--grey)"/>
+  <text x="200" y="205" font-size="15" fill="var(--dim)">What the news discusses</text>
+
+  <line x1="90" y1="232" x2="870" y2="232" stroke="var(--line)" stroke-width="2" stroke-dasharray="8 8"/>
+
+  <text x="140" y="272" font-size="19" font-weight="700" fill="var(--ink)">Person level: where an Italian at the bottom sits globally</text>
+
+  <line x1="260" y1="300" x2="260" y2="500" stroke="var(--line)" stroke-width="2"/>
+  <text x="243" y="306" text-anchor="end" font-size="15" fill="var(--dim)">100</text>
+  <text x="243" y="505" text-anchor="end" font-size="15" fill="var(--dim)">40</text>
+  <text x="205" y="410" text-anchor="middle" font-size="15" fill="var(--dim)" transform="rotate(-90 205 410)">Global percentile</text>
+
+  <line x1="260" y1="400" x2="800" y2="400" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 6"/>
+  <line x1="260" y1="450" x2="800" y2="450" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 6"/>
+
+  <line x1="400" y1="400" x2="726" y2="450" stroke="var(--warn)" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="744,453 722,441 720,461" fill="var(--warn)"/>
+
+  <circle cx="400" cy="400" r="9" fill="var(--accent)"/>
+  <circle cx="740" cy="450" r="9" fill="var(--warn)"/>
+
+  <text x="400" y="378" text-anchor="middle" font-size="16" font-weight="700" fill="var(--accent)">70th</text>
+  <text x="740" y="428" text-anchor="middle" font-size="16" font-weight="700" fill="var(--warn)">55th</text>
+  <text x="400" y="528" text-anchor="middle" font-size="16" fill="var(--dim)">Thirty years ago</text>
+  <text x="740" y="528" text-anchor="middle" font-size="16" fill="var(--dim)">Now</text>
+
+  <text x="480" y="562" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)">His country barely slipped; he fell fifteen percentiles</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A small weed being watered on the left and a tall flower cut off mid-stem on the right, with a large difference in height.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .title { font-size:27px; fill:var(--ink); font-weight:700; }
+    .group { font-size:20px; fill:var(--ink); font-weight:700; }
+    .body  { font-size:16px; fill:var(--dim); }
+    .act   { font-size:19px; fill:var(--accent); font-weight:700; }
+    .cut   { font-size:19px; fill:var(--warn); font-weight:700; }
+    .concl { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text class="title" x="80" y="52">The two moves that mean-reversion instinct makes</text>
+
+  <rect x="80" y="86" width="360" height="394" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="520" y="86" width="360" height="394" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="group" x="260" y="128" text-anchor="middle">Weed</text>
+  <text class="group" x="700" y="128" text-anchor="middle">Flower</text>
+
+  <line x1="120" y1="430" x2="400" y2="430" stroke="var(--line)" stroke-width="3"/>
+  <line x1="560" y1="430" x2="840" y2="430" stroke="var(--line)" stroke-width="3"/>
+
+  <line x1="260" y1="430" x2="260" y2="368" stroke="var(--ink)" stroke-width="4"/>
+  <ellipse cx="245" cy="398" rx="14" ry="7" fill="var(--grey)"/>
+  <ellipse cx="275" cy="384" rx="14" ry="7" fill="var(--grey)"/>
+  <line x1="260" y1="190" x2="260" y2="330" stroke="var(--accent)" stroke-width="4" marker-end="url(#ar)"/>
+  <text class="act" x="286" y="262">Watered</text>
+  <text class="body" x="260" y="462" text-anchor="middle">Down 40%</text>
+
+  <line x1="700" y1="430" x2="700" y2="208" stroke="var(--ink)" stroke-width="4"/>
+  <ellipse cx="685" cy="372" rx="16" ry="8" fill="var(--grey)"/>
+  <ellipse cx="716" cy="336" rx="16" ry="8" fill="var(--grey)"/>
+  <ellipse cx="686" cy="298" rx="16" ry="8" fill="var(--grey)"/>
+  <circle cx="700" cy="188" r="24" fill="var(--accent)"/>
+  <line x1="626" y1="256" x2="774" y2="256" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+  <circle cx="618" cy="249" r="7" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <circle cx="618" cy="264" r="7" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <text class="cut" x="786" y="262">Cut</text>
+  <text class="body" x="700" y="462" text-anchor="middle">Up 3x</text>
+
+  <text class="concl" x="480" y="528" text-anchor="middle">Watering the weeds, cutting the flowers</text>
+</svg>

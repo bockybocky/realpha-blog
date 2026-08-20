@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="On the distribution curve, today sits at the far left near the floor, and almost all the room to move is on the right.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; }
+    .b { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <defs>
+    <marker id="rw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+
+  <text class="t" x="480" y="52" text-anchor="middle">The historical distribution of spreads: where we stand</text>
+
+  <rect x="60" y="86" width="840" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <path d="M120,404 C 268,402 372,180 520,172 C 664,164 748,368 880,402 L880,404 Z" fill="var(--grey)" opacity="0.35"/>
+  <path d="M120,404 C 268,402 372,180 520,172 C 664,164 748,368 880,402" fill="none" stroke="var(--grey)" stroke-width="3"/>
+
+  <line x1="110" y1="404" x2="890" y2="404" stroke="var(--line)" stroke-width="2"/>
+
+  <line x1="176" y1="404" x2="176" y2="216" stroke="var(--accent)" stroke-width="4"/>
+  <circle cx="176" cy="404" r="9" fill="var(--accent)"/>
+  <text class="g" x="196" y="212" fill="var(--accent)">Now</text>
+  <text class="b" x="196" y="238">About the 1st percentile</text>
+
+  <line x1="200" y1="446" x2="864" y2="446" stroke="var(--warn)" stroke-width="4" marker-end="url(#rw)"/>
+  <text class="g" x="532" y="478" text-anchor="middle" fill="var(--warn)">Room to widen</text>
+
+  <text class="b" x="120" y="432">Tightest</text>
+  <text class="b" x="880" y="432" text-anchor="end">Widest</text>
+
+  <text class="c" x="480" y="528" text-anchor="middle">The side nobody wants is the cheapest</text>
+</svg>

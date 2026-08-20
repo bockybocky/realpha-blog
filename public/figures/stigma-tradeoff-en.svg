@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two crossing lines: as borrowing from the central bank becomes more embarrassing, the news signal strengthens while system resilience falls.">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+      --warnbg: #fdf4e7;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+        --warnbg: #2b2411;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .labW  { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .labA  { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .ax    { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .end   { font-size: 15px; fill: var(--dim); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">When the signal gets stronger, the system is getting brittle</text>
+
+    <!-- 危險區底色 -->
+    <rect x="620" y="96" width="240" height="284" rx="4" fill="var(--warnbg)"/>
+
+    <!-- 訊號強度：上升 -->
+    <path d="M140,346 C300,326 420,286 520,246 C640,200 760,168 856,152"
+          fill="none" stroke="var(--warn)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="856" cy="152" r="7" fill="var(--warn)"/>
+    <text x="850" y="126" class="labW" text-anchor="end">Signal strength of that news</text>
+
+    <!-- 體系韌性：下降 -->
+    <path d="M140,152 C300,168 420,204 520,246 C640,292 760,330 856,346"
+          fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="856" cy="346" r="7" fill="var(--accent)"/>
+    <text x="850" y="378" class="labA" text-anchor="end">Resilience of the system</text>
+
+    <!-- 交叉點 -->
+    <circle cx="520" cy="246" r="6" fill="var(--ink)"/>
+
+    <!-- 橫軸 -->
+    <line x1="140" y1="410" x2="880" y2="410" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="140" y="436" class="ax" text-anchor="start">Borrowing from the central bank is ordinary</text>
+    <text x="880" y="436" class="ax" text-anchor="end">Borrowing is embarrassing, so</text>
+
+    <text x="140" y="464" class="end">Everyone moves early,</text>
+    <text x="140" y="486" class="end">and the news carries little information.</text>
+    <text x="880" y="464" class="end" text-anchor="end">only the desperate go,</text>
+    <text x="880" y="486" class="end" text-anchor="end">and by then it is usually too late.</text>
+
+    <text x="480" y="524" class="kick" text-anchor="middle">Heavier stigma, stronger signal, and that means a more brittle system.</text>
+  </g>
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Three comparisons where the GPU count stays at eight while the matching CPU count rises from one to four to eight.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+    .gp { fill:var(--card); stroke:var(--line); stroke-width:2; }
+    .cp { fill:var(--accent); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+
+  <text class="t" x="60" y="60">GPUs did not grow; CPUs need to grow eightfold</text>
+
+  <text class="s" x="180" y="108" text-anchor="middle">Before</text>
+  <text class="s" x="480" y="108" text-anchor="middle">Now</text>
+  <text class="s" x="780" y="108" text-anchor="middle">Some say</text>
+  <text class="g" x="180" y="140" text-anchor="middle">1 : 8</text>
+  <text class="g" x="480" y="140" text-anchor="middle">1 : 4</text>
+  <text class="g" x="780" y="140" text-anchor="middle">1 : 1</text>
+
+  <text class="s" x="97" y="176">GPU</text>
+  <text class="s" x="397" y="176">GPU</text>
+  <text class="s" x="697" y="176">GPU</text>
+
+  <g class="gp">
+    <rect x="97" y="188" width="34" height="34"/><rect x="141" y="188" width="34" height="34"/>
+    <rect x="185" y="188" width="34" height="34"/><rect x="229" y="188" width="34" height="34"/>
+    <rect x="97" y="232" width="34" height="34"/><rect x="141" y="232" width="34" height="34"/>
+    <rect x="185" y="232" width="34" height="34"/><rect x="229" y="232" width="34" height="34"/>
+
+    <rect x="397" y="188" width="34" height="34"/><rect x="441" y="188" width="34" height="34"/>
+    <rect x="485" y="188" width="34" height="34"/><rect x="529" y="188" width="34" height="34"/>
+    <rect x="397" y="232" width="34" height="34"/><rect x="441" y="232" width="34" height="34"/>
+    <rect x="485" y="232" width="34" height="34"/><rect x="529" y="232" width="34" height="34"/>
+
+    <rect x="697" y="188" width="34" height="34"/><rect x="741" y="188" width="34" height="34"/>
+    <rect x="785" y="188" width="34" height="34"/><rect x="829" y="188" width="34" height="34"/>
+    <rect x="697" y="232" width="34" height="34"/><rect x="741" y="232" width="34" height="34"/>
+    <rect x="785" y="232" width="34" height="34"/><rect x="829" y="232" width="34" height="34"/>
+  </g>
+
+  <text class="s" x="97" y="312">CPU</text>
+  <text class="s" x="397" y="312">CPU</text>
+  <text class="s" x="697" y="312">CPU</text>
+
+  <g class="cp">
+    <rect x="97" y="324" width="34" height="34"/>
+
+    <rect x="397" y="324" width="34" height="34"/><rect x="441" y="324" width="34" height="34"/>
+    <rect x="485" y="324" width="34" height="34"/><rect x="529" y="324" width="34" height="34"/>
+
+    <rect x="697" y="324" width="34" height="34"/><rect x="741" y="324" width="34" height="34"/>
+    <rect x="785" y="324" width="34" height="34"/><rect x="829" y="324" width="34" height="34"/>
+    <rect x="697" y="368" width="34" height="34"/><rect x="741" y="368" width="34" height="34"/>
+    <rect x="785" y="368" width="34" height="34"/><rect x="829" y="368" width="34" height="34"/>
+  </g>
+
+  <text class="c" x="480" y="472" text-anchor="middle">One notch up in ratio doubles the volume</text>
+</svg>

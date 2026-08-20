@@ -48,10 +48,14 @@ Picture a customer the size of Apple, whose iPhone volumes are large enough that
 **5. N7 is now stuck in no man's land, which is a worse problem than being old.**
 The host walks the current state of the ladder, and it's worth copying down. N2 is too new and immature for most customers, and slightly odd besides since it uses the new gate-all-around transistor — but those customers are coming. N3 is the sweet spot between newness and performance, what the biggest customers are on right now (he notes Nvidia's latest Vera Rubin platform runs on N3). N4 is older but well-established and still very leading edge; plenty of high-performance compute customers will use it, including AI accelerator startups. And N7/N6? Almost ten years old, far from the leading edge — yet expensive and complex for trailing-edge customers, who would rather have something cheaper and more mature like 28nm with its planar transistors. **It isn't too old. It's neither old enough nor new enough.**
 
+![Customer demand across five process generations: N3 and N4 are highest and 28nm holds steady, while N7 and N6 sag into a visible valley because they are too slow for leading-edge customers and too expensive for mature ones.](/figures/node-ladder-gap-en.svg)
+
 **6. The real solution is hiding in the physical structure of the chip: tool overlap.**
 Chips are built up in layers. At the bottom are transistors; above them the copper or aluminium interconnects — the fine metal wires that carry power and data across the chip, laid down in the back end of the line. The finest wires sit at the lowest metal layers, M1 and M2 (in N5, M1 might be 28 to 30nm centre-to-centre). Higher layers get wider, until at the top you might have interconnects 1.5 or even 3 micrometres across. **The crucial part: this structure is shared by every node.** So N16, N10, N7, N6, N5, N4 and N3 differ sharply at the critical transistor layers — but much of everything above them, say layers four through fifteen, may be similar or identical. This is also why fabs still use a great deal of older DUV equipment: it's for those upper layers.
 
 TSMC has been exploiting this overlap to avoid strandings for at least a decade, and has said so publicly. In 2015 then co-CEO Mark Liu told an analyst call that their 20nm and 16nm nodes had 95% tool overlap — meaning a customer wanting to move up could be served by converting existing 20nm capacity rather than building anything new. In 2018 co-CEO C.C. Wei cited 90% overlap across N10, N7 and N7+. CFO Laura Ho added that N7 to N5 would again exceed 90%. **Put together, those remarks say one thing: TSMC manages several nodes as a single large pool of capacity.**
+
+![The layer stacks of two chip generations side by side: the dozen-odd upper metal layers are nearly identical on both sides and drawn in the same colour, and only the transistors and the finest wires at the bottom differ.](/figures/layer-overlap-en.svg)
 
 **7. And then there are the trucks.**
 In 2024 TSMC explained it was converting N5 capacity to N3, taking a gross margin hit to do so. On the Q1 2024 call someone asked whether N7 capacity could be converted to N3 the same way. Wei said that would be far harder — N5 and N3 have more overlap, and crucially **both live inside the same fab**, Tainan's Fab 18, with a massive wafer bridge connecting the phases, which makes conversion that much easier. N7 is in Taichung, roughly 100 miles away as the crow flies.
@@ -59,6 +63,8 @@ In 2024 TSMC explained it was converting N5 capacity to N3, taking a gross margi
 By early 2025 the tune had changed: they had figured out a way to use N7 capacity to support N5. How? The Tainan fabs produce the critical layers of an N3 or N5 wafer and nothing more. Then those **unfinished wafers** go into a truck, drive 100 miles up to Taichung, and an under-utilized N7/N6 fab finishes the rest. Which leaves the Tainan fab spending all of its time and capacity on critical work.
 
 And the trucks are just trucks. The host says this is one of his favourite things about TSMC: after wafers come out of the front-end fabs they need to reach advanced packaging in Miaoli or Chiayi — so a bunch of FOUPs go into a semi-customized truck and it drives a few dozen miles. When he first heard this he found it immensely amusing that ordinary-looking trucks are puttering along Taiwan's highways with likely tens of millions of dollars of chip inventory inside. He can't help asking: what if one of them crashes? Will Nvidia miss earnings because of it?
+
+![The Tainan fab lays down only the most critical layers, then unfinished wafers ride an ordinary truck a hundred miles to Taichung, where an older, underused fab completes the dozen layers that remain.](/figures/wafer-truck-relay-en.svg)
 
 ## Going further
 
@@ -73,6 +79,8 @@ The episode offers a concrete way to split it. The same capex line is really two
 **The part reallocated on existing foundations** is capacity on a timescale of months, because the tools are already there, the building is already there, the people are already there. The price of moving it is a bite out of gross margin, and some output riding in a truck. What you're buying there is scheduling ability.
 
 So the next time you see a giant capex headline, add one question: **does this company have a path to more output that doesn't require a new building?** If yes, its near-term and mid-term engines are two different machines. If no, you're simply waiting on something two or three years away. The risk profiles are entirely different, and one press release usually sells them as the same thing.
+
+![One capital spending line split into a short arm and a long arm: shifting existing capacity arrives in months, building a new fab takes two to three years, with a note below that shifting only works while one side sits idle.](/figures/capex-two-engines-en.svg)
 
 Note the **failure condition** on that test, too: high tool overlap does not mean capacity can be moved whenever you like. Wei said N7-to-N3 conversion was hard in 2024 and only found a way in 2025 — and what changed in between wasn't the overlap (that's physics; it didn't move). What changed was working out how to cut the process in two, how to move half-finished wafers, and how quality control bridges the seam. **Overlap is a necessary condition, not a sufficient one.** It's also why "no other company can do this, and it can only be done in Taiwan" isn't patriotic sentiment — a 100-mile drive, a dense cluster of fabs, and a common operating system across them are geography and accumulation, not something capex buys.
 
@@ -118,6 +126,8 @@ An honest caveat: not every N7 can be saved, and the reason it can be saved here
 **The idea: whether something is obsolete depends on the intersection of its capability list with the next generation's needs — not on its label.**
 
 N7's label is "a nearly ten-year-old process." Its capability list contains "lay down those dozen-odd upper metal layers," and that is something the most advanced N3 needs completely. TSMC neither upgraded it nor retired it — it re-matched the capability list to new demand, and sent trucks to bridge the gap. A label is one sentence; a capability list is a table. When we judge people, tools, or ourselves, we almost always use the sentence.
+
+![A small box on the left holds the label, a larger box in the middle holds a six-item capability list, and the right side holds what the next generation needs; only two items connect across.](/figures/label-vs-skills-en.svg)
 
 **The exercise you can do today: write your own capability list, then deliberately match it against someone else's needs.**
 

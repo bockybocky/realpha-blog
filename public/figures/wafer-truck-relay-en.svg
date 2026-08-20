@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="The Tainan fab does only the most critical layers, unfinished wafers travel a hundred miles by ordinary truck to Taichung, and an underused older fab finishes the remaining dozen layers.">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .fabA  { font-size: 21px; font-weight: 700; fill: var(--accent); }
+    .fabW  { font-size: 21px; font-weight: 700; fill: var(--warn); }
+    .job   { font-size: 16px; fill: var(--ink); }
+    .sub   { font-size: 15px; fill: var(--dim); }
+    .dist  { font-size: 18px; font-weight: 700; fill: var(--dim); }
+    .cargo { font-size: 15.5px; font-weight: 700; fill: var(--dim); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">The key handoff is an ordinary truck</text>
+
+    <!-- 左廠 -->
+    <rect x="70" y="120" width="250" height="150" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <rect x="70" y="120" width="250" height="6" rx="3" fill="var(--accent)"/>
+    <text x="195" y="160" class="fabA" text-anchor="middle">Tainan N3/N5</text>
+    <text x="195" y="196" class="job" text-anchor="middle">Only the critical layers</text>
+    <text x="195" y="226" class="sub" text-anchor="middle">Stops there, so capacity</text>
+    <text x="195" y="248" class="sub" text-anchor="middle">goes where it counts.</text>
+
+    <!-- 右廠 -->
+    <rect x="640" y="120" width="250" height="150" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+    <rect x="640" y="120" width="250" height="6" rx="3" fill="var(--warn)"/>
+    <text x="765" y="160" class="fabW" text-anchor="middle">Taichung N7/N6</text>
+    <text x="765" y="196" class="job" text-anchor="middle">Finishes the layers left</text>
+    <text x="765" y="226" class="sub" text-anchor="middle">Was underused; the idle</text>
+    <text x="765" y="248" class="sub" text-anchor="middle">capacity now gets filled.</text>
+
+    <!-- 路 -->
+    <line x1="330" y1="230" x2="628" y2="230" stroke="var(--line)" stroke-width="10" stroke-linecap="round"/>
+    <path d="M600,230 L628,230" stroke="var(--dim)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M616,220 L630,230 L616,240" fill="none" stroke="var(--dim)" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 卡車 -->
+    <rect x="404" y="176" width="96" height="42" rx="4" fill="var(--grey)"/>
+    <rect x="500" y="190" width="38" height="28" rx="4" fill="var(--dim)"/>
+    <circle cx="428" cy="224" r="9" fill="var(--ink)"/>
+    <circle cx="480" cy="224" r="9" fill="var(--ink)"/>
+    <circle cx="524" cy="224" r="9" fill="var(--ink)"/>
+    <text x="452" y="166" class="cargo" text-anchor="middle">Unfinished wafers</text>
+
+    <text x="470" y="268" class="dist" text-anchor="middle">100 miles</text>
+
+    <!-- 底部說明 -->
+    <line x1="70" y1="326" x2="890" y2="326" stroke="var(--line)" stroke-width="1"/>
+    <text x="480" y="364" class="sub" text-anchor="middle">Why can they move? The top dozen layers are nearly the same, and old tools can make them.</text>
+    <text x="480" y="396" class="sub" text-anchor="middle">Why is it worth moving? A new fab takes two years; demand is here now.</text>
+
+    <text x="480" y="464" class="kick" text-anchor="middle">Tens of millions of dollars in a very ordinary truck.</text>
+  </g>
+</svg>

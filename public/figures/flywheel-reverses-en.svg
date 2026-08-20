@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 610" width="960" height="610" role="img" aria-label="When money flows in, the heaviest weights are tallest; when it flows out, those same bars collapse the most.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:15px; fill:var(--dim); }
+    .k { font-size:20px; font-weight:700; }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="610" fill="var(--page)"/>
+  <defs>
+    <marker id="au" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="var(--accent)"/>
+    </marker>
+    <marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+
+  <text class="t" x="480" y="52" text-anchor="middle">One pipeline, two directions</text>
+
+  <rect x="40" y="90" width="420" height="445" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="500" y="90" width="420" height="445" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <text class="g" x="250" y="132" text-anchor="middle">The past twenty years</text>
+  <text class="g" x="710" y="132" text-anchor="middle">What he thinks comes next</text>
+
+  <rect x="104" y="180" width="44" height="140" rx="4" fill="var(--accent)"/>
+  <rect x="166" y="204" width="44" height="116" rx="4" fill="var(--accent)"/>
+  <rect x="228" y="232" width="44" height="88" rx="4" fill="var(--grey)"/>
+  <rect x="290" y="268" width="44" height="52" rx="4" fill="var(--grey)"/>
+  <rect x="352" y="284" width="44" height="36" rx="4" fill="var(--grey)"/>
+
+  <rect x="564" y="180" width="44" height="140" rx="4" fill="none" stroke="var(--grey)" stroke-dasharray="4 4"/>
+  <rect x="626" y="204" width="44" height="116" rx="4" fill="none" stroke="var(--grey)" stroke-dasharray="4 4"/>
+  <rect x="688" y="232" width="44" height="88" rx="4" fill="none" stroke="var(--grey)" stroke-dasharray="4 4"/>
+  <rect x="750" y="268" width="44" height="52" rx="4" fill="none" stroke="var(--grey)" stroke-dasharray="4 4"/>
+  <rect x="812" y="284" width="44" height="36" rx="4" fill="none" stroke="var(--grey)" stroke-dasharray="4 4"/>
+
+  <rect x="564" y="236" width="44" height="84" rx="4" fill="var(--warn)"/>
+  <rect x="626" y="248" width="44" height="72" rx="4" fill="var(--warn)"/>
+  <rect x="688" y="262" width="44" height="58" rx="4" fill="var(--grey)"/>
+  <rect x="750" y="274" width="44" height="46" rx="4" fill="var(--grey)"/>
+  <rect x="812" y="286" width="44" height="34" rx="4" fill="var(--grey)"/>
+
+  <line x1="80" y1="320" x2="420" y2="320" stroke="var(--line)" stroke-width="2"/>
+  <line x1="540" y1="320" x2="880" y2="320" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="b" x="250" y="350" text-anchor="middle">The heaviest weights</text>
+  <text class="b" x="710" y="350" text-anchor="middle">The heaviest weights</text>
+
+  <line x1="250" y1="460" x2="250" y2="380" stroke="var(--accent)" stroke-width="7" marker-end="url(#au)"/>
+  <line x1="710" y1="380" x2="710" y2="460" stroke="var(--warn)" stroke-width="7" marker-end="url(#aw)"/>
+
+  <text class="b" x="250" y="490" text-anchor="middle">High-paid jobs . payroll deductions</text>
+  <text class="b" x="710" y="490" text-anchor="middle">Jobs gone . forced redemptions</text>
+
+  <text class="k" x="250" y="518" text-anchor="middle" fill="var(--accent)">Net inflow</text>
+  <text class="k" x="710" y="518" text-anchor="middle" fill="var(--warn)">Net outflow</text>
+
+  <text class="c" x="480" y="578" text-anchor="middle">The most inflated deflate hardest</text>
+</svg>

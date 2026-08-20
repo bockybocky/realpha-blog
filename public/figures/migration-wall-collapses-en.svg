@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A tall wall blocks migration on the left; the wall is low and the arrow passes through on the right, with the deciding factor changing from stickiness to iteration speed.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { fill:var(--ink); font-size:27px; font-weight:700; }
+    .g { fill:var(--dim); font-size:19px; }
+    .l { fill:var(--ink); font-size:19px; }
+    .n { fill:var(--ink); font-size:20px; font-weight:700; }
+    .c { fill:var(--ink); font-size:22px; font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="64">That wall called migration</text>
+
+  <rect x="60" y="110" width="400" height="300" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="84" y="150">Before . people migrate</text>
+  <rect x="90" y="290" width="100" height="70" rx="8" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text class="l" x="140" y="332" text-anchor="middle">Old DB</text>
+  <rect x="330" y="290" width="100" height="70" rx="8" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text class="l" x="380" y="332" text-anchor="middle">New DB</text>
+  <rect x="232" y="190" width="48" height="170" fill="var(--grey)"/>
+  <text class="n" x="256" y="176" text-anchor="middle">High</text>
+  <path d="M196 325 L226 325" stroke="var(--grey)" stroke-width="4"/>
+
+  <rect x="500" y="110" width="400" height="300" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="524" y="150">Now . models migrate</text>
+  <rect x="530" y="290" width="100" height="70" rx="8" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text class="l" x="580" y="332" text-anchor="middle">Old DB</text>
+  <rect x="770" y="290" width="100" height="70" rx="8" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text class="l" x="820" y="332" text-anchor="middle">New DB</text>
+  <rect x="672" y="320" width="48" height="40" fill="var(--grey)"/>
+  <text class="n" x="696" y="306" text-anchor="middle">Low</text>
+  <path d="M636 262 L756 262" stroke="var(--accent)" stroke-width="4"/>
+  <path d="M756 252 L776 262 L756 272 Z" fill="var(--accent)"/>
+
+  <text class="g" x="60" y="456">What decides it</text>
+  <text class="n" x="260" y="456" text-anchor="middle">Stickiness</text>
+  <text class="n" x="700" y="456" text-anchor="middle">Iteration speed</text>
+
+  <text class="c" x="60" y="516">Lower wall, different yardstick</text>
+</svg>

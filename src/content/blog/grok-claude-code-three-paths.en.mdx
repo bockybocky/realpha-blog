@@ -45,6 +45,8 @@ Want stable, simple, and no 3 a.m. "authorization expired" notification — take
 
 None of the three is absolutely "the strongest." There's only "fits the task at hand or not."
 
+![A four-quadrant map: left to right runs from grey area to officially sanctioned, top to bottom from same window to a separate window. Subscription relay sits upper left, API key upper right, the official command-line tool lower right, and the lower left quadrant is empty.](/figures/grok-three-paths-positioning-en.svg)
+
 ## 4. The Real Takeaway: Not the Tool, but Task Allocation
 
 Writing this far, the biggest gain isn't "I finally found the method" — it's rethinking one thing clearly: how to allocate tasks.
@@ -52,6 +54,8 @@ Writing this far, the biggest gain isn't "I finally found the method" — it's r
 One sentence covers it: **unattended automation rides the stable billing path (the API key); human-in-the-loop interaction rides the cheap subscription path.**
 
 Why? Because the subscription path has three layers of fragility. First, the credential expires, and not necessarily when you expect. Second, it usually needs a background process or intermediary to keep it alive — things that can themselves crash, get killed by the system, or fail to auto-start after a reboot. Third, the grey-list can be tightened at any time; a relay that works today may be blocked tomorrow. Making that the foundation for automation that runs unattended at night is building the whole pipeline on sand that collapses on its own. When you're present, an authorization prompt is something you handle on the spot; when you're asleep, a failure is just a failure, with no window to fix it.
+
+![Two timelines one above the other, both hitting a credential expiry at the same moment. On the top one a person is present and the line carries on afterwards; on the bottom one nobody is watching, so the line goes dashed all the way to morning, with a long unrecoverable window marked below.](/figures/grok-unattended-vs-attended-en.svg)
 
 Tools aren't for showing off. Connecting three models at once, riding a subscription, switching within one window — all cool, but cool isn't reliable. What's actually useful is letting each tool do what it's good at and can control the risk of: the stable path for automation, the cheap path for human-in-the-loop. Allocate it clearly, and you sleep at night.
 

@@ -56,6 +56,8 @@ Each term has a "🎯 how it's used / how it's tested." Items marked [must-know 
 - **Chain-of-Thought**: have the model produce intermediate reasoning steps. 🎯 add "think step by step" for math/logic.
 - **MoE (Mixture of Experts)**: many experts, only some activated each time. 🎯 "huge params but controllable inference cost" (Grok-1, Mixtral, GPT-4).
 
+![Three bars dropping sharply in height from left to right for pre-training, fine-tuning and RAG, where height stands for compute, showing they differ by an order of magnitude and change different things.](/figures/pretrain-finetune-rag-cost-en.svg)
+
 ## Prompt & agent
 
 - **System vs User Prompt**: System sets the long-term role/rules; User is the immediate instruction. 🎯 Persona/rules → System; everyday questions → User.
@@ -68,6 +70,8 @@ Each term has a "🎯 how it's used / how it's tested." Items marked [must-know 
 - **Jailbreak**: bypass safety filters to produce banned content. 🎯 "breaking safety limits with wordplay" (grandma exploit).
 - **Prompt Injection**: hide malicious instructions in the input to hijack the model. 🎯 [easily-confused] Jailbreak (break safety) vs Injection (inject malicious instructions).
 - **Self-Consistency**: run inference several times, take the majority vote.
+
+![A large box holds two smaller ones: the outer box is prompt injection and the inner two are jailbreaking and prompt leaking, showing by containment that jailbreaking is one kind of injection.](/figures/prompt-injection-contains-jailbreak-en.svg)
 
 ## Tools & applications
 
@@ -84,6 +88,8 @@ Each term has a "🎯 how it's used / how it's tested." Items marked [must-know 
 - **AutoML**: auto-selects models and tunes hyperparameters. 🎯 "lets non-experts build models."
 - **Deepfake**: synthesized/face-swapped/voice-cloned fakery. 🎯 ethics must-know: positive (de-aging), negative (fraud); needs detection + transparency labeling.
 - **The three chatbot elements**: NLU (understanding), Dialog management, NLG (generation). 🎯 distinguish Intent / Entity / context tracking.
+
+![Three canvases side by side: the first has a dashed hole cut inside it, the second gains a dashed border outside the original edge, and the third grows from a small canvas to a large one, so the moving boundary tells the three edits apart.](/figures/inpaint-outpaint-upscale-en.svg)
 
 ## Data governance & MLOps
 
@@ -102,6 +108,8 @@ Each term has a "🎯 how it's used / how it's tested." Items marked [must-know 
 - **Model Inversion Attack**: reconstruct sensitive training data from outputs. 🎯 privacy threat, e.g. reconstruct faces from a face-recognition model.
 - **Zero Trust**: never trust, always verify. 🎯 verify every access regardless of source.
 
+![On the left the data points shift right as a group while the boundary stays put; on the right the points stay put while the boundary rotates, so the two drifts are told apart by what moves.](/figures/data-drift-vs-concept-drift-en.svg)
+
 ## Ethics & law
 
 - **LAWS (Lethal Autonomous Weapons Systems)**: weapons that autonomously select and attack targets. 🎯 the classic military-AI controversy: international bans, humanitarian law, "humans must retain control."
@@ -114,6 +122,8 @@ Each term has a "🎯 how it's used / how it's tested." Items marked [must-know 
 - **Transparency**: operation and decision logic are open and understandable. 🎯 contrast Accountability (answerability) vs Transparency (openness).
 - **Digital Divide**: those lacking network/devices/literacy benefit less from AI. 🎯 extends to "digital colonialism," "cultural homogenization."
 - **MHC (Meaningful Human Control)**: humans retain understanding/judgment/intervention. 🎯 stronger than Human-in-the-loop — humans must truly understand and be able to change it.
+
+![A four-tier pyramid: the narrowest top tier is unacceptable risk and each tier below is wider down to minimal risk, so narrow-at-the-top means stricter and wide-at-the-bottom means more numerous.](/figures/eu-ai-act-risk-pyramid-en.svg)
 
 ---
 
@@ -128,6 +138,8 @@ Each term has a "🎯 how it's used / how it's tested." Items marked [must-know 
 - **Hallucination**: plausible-looking but incorrect/fabricated output.
 - **GAN** (generator vs discriminator, Goodfellow 2014) vs **diffusion models** (add noise to destroy → learn to reverse and denoise).
 - Term to know: **vertical AI** = trained and optimized for a specific industry.
+
+![The left half is two blocks pointing arrows at each other in a loop; the right half is four frames going from full of noise to clean, contrasting adversarial generation with step-by-step denoising.](/figures/gan-vs-diffusion-en.svg)
 
 ### 1.2 Application domains
 - Whole-chapter theme: from "automation" to **"augmentation and collaboration"** — boosting professionals, not wholesale replacement.
@@ -153,6 +165,10 @@ Each term has a "🎯 how it's used / how it's tested." Items marked [must-know 
 - Pretraining tasks: GPT = **CLM** (causal/unidirectional); BERT = **MLM** (masked/bidirectional).
 - Terms: Ground Truth, Dropout (randomly disable neurons to fight overfitting), Data Augmentation (rotate/crop/add noise), Quantization (32→8/4-bit, smaller and faster), LLM-as-a-Judge, Ablation Study (remove a component to see its effect).
 
+![On the left the same word has one fixed point that both senses point to; on the right the same word splits into two points, one near river and one near money, so position carries the context.](/figures/word2vec-vs-bert-position-en.svg)
+
+![Two identical two-by-two grids side by side: the left highlights a whole column and the right a whole row, showing the two metrics share a numerator but divide by different totals.](/figures/precision-recall-denominator-en.svg)
+
 ### 1.4 Technical principles
 - **SD ecosystem**: Automatic1111 (most complete WebUI), ComfyUI (node-based), Fooocus (minimal, high quality), Civitai (model/LoRA community).
 - Parameters: **CFG Scale** (how closely the image follows the prompt), Sampler (detail/convergence), **Checkpoint** (full model, sets style), **LoRA** (small file, learns a specific character/style).
@@ -163,6 +179,8 @@ Each term has a "🎯 how it's used / how it's tested." Items marked [must-know 
 - Inference optimization: TensorRT (NVIDIA acceleration), ONNX (cross-framework format), QAT (quantize during training) vs PTQ (quantize after training).
 - Edge: Edge AI is **not** "unlimited compute"; NPU for low-power inference; TOPS measures AI chip performance.
 - Terms: **MoE** (Mixture of Experts, only part activated each time), IP-Adapter (use an image as a prompt), Delimiter (separates instructions from data, blocks injection), Pipeline (Hugging Face wraps pre/inference/post into a one-line API).
+
+![Of eight expert cells only two light up, and two bars on the right, one tall and one short, compare total parameters with the compute actually used per query.](/figures/moe-partial-activation-en.svg)
 
 ## Area 2 — Prompting
 
@@ -177,6 +195,8 @@ Each term has a "🎯 how it's used / how it's tested." Items marked [must-know 
 - Image parameters: --stylize (artistic), --chaos (variety), :: (weighting), Seed (lock composition), Negative Prompt (exclude elements).
 - Bias: English prompts tend to be higher quality; without a specified culture, output skews Western (Wedding defaults to a white dress).
 - Terms: Meta-Prompting (ask AI to write your prompt), Grandma Exploit, Flipped Interaction (the model asks you questions instead).
+
+![A U-shaped curve, high at both ends and sagging in the middle, with position in the conversation along the horizontal axis and how well it is remembered up the vertical.](/figures/lost-in-the-middle-curve-en.svg)
 
 ### 2.2 Data governance
 - **Data Drift** (input distribution changes) vs **Concept Drift** (input-output relationship changes) [classic mix-up].
@@ -254,6 +274,8 @@ Each term has a "🎯 how it's used / how it's tested." Items marked [must-know 
 - Two-way emotion: voice emotion recognition vs emotion expression generation — don't mix.
 - Foley Sound / 3D spatial audio.
 
+![Between the text block and the speech block at the top run a pair of opposite arrows, and below them another arrow runs from speech to speech, so the direction of the arrow tells the three terms apart.](/figures/tts-stt-s2s-directions-en.svg)
+
 ### 3.5 Video generation
 - Covers the full pre- to post-production pipeline.
 - **Text-to-Video vs Image-to-Video** (the latter needs one still image + an action prompt).
@@ -330,6 +352,8 @@ Each term has a "🎯 how it's used / how it's tested." Items marked [must-know 
 - Threats: Data Poisoning, Model Inversion Attack (reconstruct training data such as faces), Adversarial Robustness (resisting adversarial samples, a defensive goal).
 - AI security applications: SIEM (unified monitoring), IDS (intrusion detection), SOC (security operations center).
 - Isolation: **TEE (Trusted Execution Environment, hardware isolation)**, Secure Data Enclaves; MFA, separation of duties.
+
+![Five parallel arrows run from your side to the same counterparty, each carrying something different: parameters, noisy statistics, ciphertext, shards, and fake data.](/figures/pets-what-leaves-your-side-en.svg)
 
 ---
 

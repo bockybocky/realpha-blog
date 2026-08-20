@@ -41,15 +41,21 @@ On share, Jay is blunt that arguing about it right now isn't very useful: the wh
 
 This is the most vivid stretch of the episode. Ben has been going to this memory conference on and off for fifteen years. The venue is the Santa Clara Convention Center — not large, not new — and he had never once failed to get into the free lot beside it. This year he drove in on day one and there was not a single space. He assumed it was his bad luck, until every industry friend he ran into said the same sentence: I have never not been able to park here. People parked at Levi's Stadium. People parked across the street. Inside, the Samsung, SK Hynix, Micron and Marvell booths were all big and all mobbed, and the floor was too small for the traffic. He thinks the show has to move. **Crowd density isn't a line in a financial statement, but it is another reading of the same thing.**
 
+![Two rows of parking spaces compared: past years show scattered empty bays, this year every bay is taken, and arrows on the right point to two alternative lots off site.](/figures/parking-lot-full-2026-en.svg)
+
 **4. CXL: a standard that got hyped, got forgotten, and then happened to become useful.**
 
 Some background: CXL is a protocol for letting different chips talk to one another — think of it, roughly, as USB at the chip level. It was heavily hyped in 2021 and 2022, when the imagined use case was complicated systems-on-chip. Then AI arrived, everyone cared only about memory bandwidth, and CXL got shelved. Jay remembers a piece written around 2023 arguing that CXL wasn't dead, but that nobody would care about it until it became useful for AI.
 
 The turn is that memory has become expensive and scarce enough to be the bottleneck itself, so people will now do almost anything to route around the memory tax. Ben thinks two other things pushed the ecosystem over the line. One is the rack-scale era: once the deployment unit is a whole rack rather than a server, you have real optionality in how you mix and match inside it, and CXL is what gives you that flexibility. The other is inference — an inference cluster serving thousands or hundreds of thousands of concurrent users and agents is enormously memory-hungry. This year the entire chain showed up, from controllers to optical transceivers to switches; it's the first time he has seen the surrounding parts all present at once. Jay's reaction is the fun one: **he loves this dynamic, where an old topic gets hyped well past reason, then forgotten, and only then turns out to be genuinely useful.**
 
+![A hype line spikes high, falls to a trough, then climbs again from that trough, with the earlier stretch in grey and the latest one in colour.](/figures/cxl-hype-forgotten-useful-en.svg)
+
 **5. The most valuable stretch: only CXL lets you reclaim old memory.**
 
 Ben says his own scepticism going in was simple — this all sounds great, but where is the memory coming from? It doesn't grow on trees. You can't announce a server stuffed with memory and then have no memory to stuff it with. The answer he brought back, and the spine of his whole set of notes, is this: **of the available approaches, only CXL supports memory reuse.** Every other path requires you to go buy brand new DDR5. CXL lets you take the DDR4 out of the general-purpose servers you're retiring and put it to work in your CXL racks.
+
+![A straight path along the top is blocked by a wall, while a lower path runs through retirement, removal and requalification to reach the rack, with a return arc looping back to the start.](/figures/buy-new-vs-reuse-loop-en.svg)
 
 The reason that isn't hand-waving is that hyperscalers already have the muscle for it: they run internal component reclamation and re-qualification programmes, and have done this for years with old GPUs and old networking gear — not necessarily back into tier-one systems, but genuinely back into service. Jay's reaction is the image it puts in his head: data centers up on cinder blocks while somebody strips the parts. Ben concedes some memory is soldered down and unrecoverable, but a good chunk isn't.
 
@@ -59,11 +65,15 @@ There's an elegant loop on top of it. Because the memory can be reused, hypersca
 
 Worth noting: Ben draws the boundary of his own argument. **The reuse dividend belongs to the three hyperscalers actually sitting on mountains of old memory, plus Oracle to some degree.** Nobody else gets it. His counterargument is that those three or four are large enough to pull the whole ecosystem along — but that premise is the reader's to keep in view.
 
+![A row of bars where the leftmost three stand far above the rest, the fourth is moderate and all the others sit near the floor, showing how unevenly old memory stock is held.](/figures/reuse-benefit-by-inventory-en.svg)
+
 **6. Memory pricing: the margin-maxing days are over, and the sellers may have chosen that.**
 
 Ben uses a coinage of his own: margin maxing. His read after talking to the memory companies is that the phase is over, and for good reasons — customers want predictable pricing, so contracts now carry price floors and ceilings, and the sellers aren't trying to make their customers' lives miserable.
 
 The more informative part is how he reads long-term agreements. These have been signed before, and the standing objection is that customers can cancel at will, so an LTA doesn't prove much. What the vendors offered him wasn't "these ones won't be cancelled" but two different variables: **how many customers are signing, and at what price and margin profile.** Historically an LTA meant one or two enormous customers trading volume for a very low price. Now many customers are signing, at prices and margins far above prior cycles, with four-to-five-year terms as the average. Ben's inference: supply chain professionals who expected this to ease in a couple of years would be out of a job for signing that.
+
+![Two columns compare the same three things: customer blocks go from two to eight, the price bar goes from low to high, and the term bar goes from short to long.](/figures/long-contract-then-now-en.svg)
 
 Jay adds a data point from the same week: SanDisk's numbers were monstrous, gross margin held steady in the low eighties rather than climbing, and the stock barely moved. He offers two readings of that margin — one is disappointment, why isn't it ninety given the demand; the more reasoned one is that this is discipline, even mercy. Taking price to its theoretical maximum would create lasting ill will, and **it would accelerate every workaround people are already exploring to escape the memory tax.**
 
@@ -98,6 +108,8 @@ Jay's reframing is the methodological piece I most want to keep. The original de
 Recast as "how long can this pricing and margin hold," the character changes: **you can list observable variables — number of LTAs, average term, contract price structure, the margin trend — set a date, and come back to mark your own homework.** That is a judgement worth writing into a record.
 
 One more thing worth stealing: Jay's honesty. He says plainly that he isn't a memory analyst, that the people who really understand this are a small group with deep relationships across Korea, Japan, Taiwan and Idaho, and so he won't offer a conclusion — only the boundaries of the argument, cycle at one end and structure at the other. **Marking the edge of what you don't know is worth more than the conclusion itself.** There's also a practical portfolio note buried here: a variable you can't judge — and openly admit you can't judge — shouldn't quietly be the shared assumption underneath several of your positions. Memory pricing is playing exactly that role right now, feeding into memory makers, server builders, cloud cost structures, and every "I have a business because memory is expensive" workaround at once. **When several of your ideas turn out to rest on the same unresolved premise, those aren't several opportunities. That's one bet placed repeatedly.**
+
+![Four ideas side by side each send a line down and converge into a single node at the bottom, forming a fan that closes.](/figures/shared-premise-one-bet-en.svg)
 
 ## Further reading
 

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Two identical readouts joined by an equals sign on top, and a wavy line beside a flat line joined by a not-equals sign below.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">Same on the outside, different inside</text>
+
+  <text class="t" x="60" y="108" font-size="19" fill="var(--dim)">What you can see</text>
+  <rect x="60" y="126" width="380" height="170" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="520" y="126" width="380" height="170" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t" x="480" y="224" font-size="34" fill="var(--dim)" text-anchor="middle">=</text>
+  <text class="t" x="88" y="166" font-size="20" font-weight="700" fill="var(--ink)">Pane A</text>
+  <text class="t" x="548" y="166" font-size="20" font-weight="700" fill="var(--ink)">Pane B</text>
+  <text class="t" x="88" y="204" font-size="16" fill="var(--dim)">Process alive</text>
+  <text class="t" x="88" y="236" font-size="16" fill="var(--dim)">Open 25 min</text>
+  <text class="t" x="88" y="268" font-size="16" fill="var(--dim)">Screen has text</text>
+  <text class="t" x="548" y="204" font-size="16" fill="var(--dim)">Process alive</text>
+  <text class="t" x="548" y="236" font-size="16" fill="var(--dim)">Open 25 min</text>
+  <text class="t" x="548" y="268" font-size="16" fill="var(--dim)">Screen has text</text>
+
+  <text class="t" x="60" y="352" font-size="19" fill="var(--dim)">What is really happening</text>
+  <rect x="60" y="370" width="380" height="140" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="520" y="370" width="380" height="140" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t" x="480" y="452" font-size="34" fill="var(--warn)" text-anchor="middle">=/=</text>
+  <text class="t" x="88" y="406" font-size="20" font-weight="700" fill="var(--accent)">Computing</text>
+  <text class="t" x="548" y="406" font-size="20" font-weight="700" fill="var(--warn)">Waiting</text>
+  <polyline points="88,478 128,440 168,462 208,426 248,458 288,432 328,470 410,438" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="548" y1="456" x2="880" y2="456" stroke="var(--warn)" stroke-width="3"/>
+  <text class="t" x="548" y="490" font-size="15" fill="var(--dim)">For you to press y</text>
+
+  <text class="t" x="60" y="566" font-size="22" font-weight="700" fill="var(--ink)">Read only the top row and you can never tell the bottom apart</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two timelines both hitting credential expiry: the attended one is reconnected and continues, the unattended one goes dashed until morning with a long unrecoverable window.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .a { font-size:16px; fill:var(--accent); }
+    .w { font-size:16px; fill:var(--warn); }
+    .tm { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="52">Same failure; the difference is whether anyone is awake</text>
+
+  <text class="g" x="190" y="196" text-anchor="end">Attended</text>
+  <line x1="210" y1="190" x2="890" y2="190" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="470" cy="190" r="9" fill="var(--warn)"/>
+  <text class="w" x="470" y="158" text-anchor="middle">Credential expires</text>
+  <text class="a" x="470" y="226" text-anchor="middle">Reauthorised on the spot</text>
+  <text class="a" x="888" y="226" text-anchor="end">Work continues</text>
+
+  <text class="g" x="190" y="356" text-anchor="end">Unattended</text>
+  <line x1="210" y1="350" x2="470" y2="350" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+  <line x1="470" y1="350" x2="890" y2="350" stroke="var(--grey)" stroke-width="5" stroke-dasharray="9 11" stroke-linecap="round"/>
+  <circle cx="470" cy="350" r="9" fill="var(--warn)"/>
+  <text class="w" x="470" y="318" text-anchor="middle">Credential expires</text>
+  <text class="s" x="888" y="318" text-anchor="end">Idle all night</text>
+  <path d="M470 380 V392 H890 V380" fill="none" stroke="var(--warn)" stroke-width="2"/>
+  <text class="w" x="680" y="418" text-anchor="middle">No way to recover</text>
+
+  <line x1="210" y1="462" x2="890" y2="462" stroke="var(--line)" stroke-width="2"/>
+  <text class="tm" x="212" y="486">Evening</text>
+  <text class="tm" x="470" y="486" text-anchor="middle">Midnight</text>
+  <text class="tm" x="888" y="486" text-anchor="end">Morning</text>
+
+  <text class="c" x="550" y="532" text-anchor="middle">Same fault, very different cost</text>
+</svg>

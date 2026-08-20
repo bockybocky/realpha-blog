@@ -34,7 +34,11 @@ There is also a line very much in his register: if you have a mouth on you, like
 
 **1. Third place holds. "A tenth of the cost" does not.** On the composite intelligence index he likes, it scores 57, behind GPT 5.6 at 59 and Fable 5 at 60, but ahead of Opus 4.8 and GPT 5.5; his own hands-on impression and the wave of public testing land in the same place, which is why he treats third as consensus. What has been mistold is the other half: its price per token is roughly half of GPT 5.6's, but it spends about twice as many tokens finishing the same job. **Multiply those and the cost per task comes out flat.** Hence a conclusion with no mercy in it: for the same money, why would you take the one that is slower and less smart.
 
+![Two rectangles of equal area side by side, the left wide and short and the right narrow and tall, with width standing for unit price and height for usage: different shapes, the same area.](/figures/unit-price-times-usage-equals-cost-en.svg)
+
 **2. "Slow" has a very specific shape here; this is not a vibe.** He gave both sides the same game-building task. The comparison finished in sixteen minutes. This one ran for an hour and twenty and still had not finished, incinerating his entire five-hour credit allowance along the way — he cheerfully admits that running six agents in parallel was his own doing. The interesting part is *where* the time went: forty minutes spent confirming whether its own understanding of the game's rules was correct, when the version it had written down before going to check was already essentially right. It went off reading patch notes from years ago. The comparison spent three minutes on the same step. **It isn't computing slowly; it's taking long detours** — and those two cost very different things.
+
+![Two time bars of very different length: the short one has almost no dark segment, while the long one has half of it taken up by a dark verification segment.](/figures/slow-is-detour-not-compute-en.svg)
 
 **3. Telling models apart now requires an absurdly large project.** A web-based macOS simulation built with it went around the internet, and the host passed it on himself: every app opens, the music player actually plays music, you can genuinely download a chess game from the store and play it, the fake contacts reply to your messages and even like them, and **when you press the number keys on a call, each digit emits its own correct tone.** He walks through how fast the bar has moved: two years ago everyone compared snake games, last year it was which model's bouncing-ball physics looked better, and now none of that separates anything — his own favourite game test was declared saturated an episode ago.
 
@@ -44,7 +48,11 @@ There is also a line very much in his register: if you have a mouth on you, like
 
 **6. His explanation of the memory-saving technique uses a very clean example.** Suppose the first sentence is "Argentina reaches the final, opponent to be determined," and the second is "Argentina in the final, facing Spain." The traditional approach computes and stores every word of both, treating all of them alike. The new one maintains a single fixed-size note: the first half of the second sentence carries information the note already has, so barely anything changes; only "facing Spain" requires the pen. **Repeat the same sentence a hundred times and the memory footprint doesn't grow, while the information that matters is all still there.** In practice you don't do this in every layer — compression always loses something, so it gets mixed with the full version.
 
+![Five bars on the left grow taller one after another, while five bars on the right are all the same height, both on the same baseline.](/figures/growing-cache-vs-fixed-note-en.svg)
+
 **7. Two invisible things sit behind the public ranking.** The first is a compute ceiling: running this well officially wants at least 64 tightly interconnected GPUs, and China cannot buy the full-rack high-speed-interconnect machines; the best chip available there links only eight at a time, with slower networking between groups. From this the host suspects the smuggling volume is substantial — stating plainly that he has no evidence — while also noting they are optimising their low-level code for domestic chips. The second is release cadence: Chinese labs ship soon after training, American labs sit on models — one existed in January and shipped in June or July — so "only one or two months behind" is comparing launch dates. **His estimate of the substantive gap is around six months: shorter than the eight-plus of before, but not as close as people think.** He also flags a thread just beginning to show: an early version of the model helped write the low-level optimisations now used to run the final version. AI has started accelerating the development of AI.
+
+![Two timelines: on the upper one a long stretch is held back after training finishes before release, while on the lower one release follows training immediately, with one long and one short arrow beneath.](/figures/release-date-hides-the-real-gap-en.svg)
 
 ## Going further
 
@@ -73,6 +81,8 @@ So the timeline of the entire chain hangs on "how long the experimental phase la
 Cutting memory use by seventy-five percent is real, so people jumped straight to what that does to memory demand. The host answers from the demand side: ask any white-collar worker you know — in marketing, in finance, in analysis — what fraction of their work is now handed entirely to AI. He guarantees you won't find anyone above fifty percent. That number is going to seventy or eighty, and that is before counting robotics at all. His phrase is that we are still absurdly early.
 
 Put the two sides together and the test is clear: **whether efficiency gains absorb demand growth depends on whether the efficiency is one-off or ongoing, and whether the demand is linear or compounding.** Seventy-five percent is a step — once taken, the next version has to invent its own. Penetration moving from fifty percent to eighty is ongoing.
+
+![A line running up to the right is pulled down one step by a single vertical drop partway along and then keeps climbing as before.](/figures/one-step-down-versus-a-long-slope-en.svg)
 
 But this needs an honest label: neither side has a directly checkable number, so it is a judgement rather than a conclusion. It can still be verified — just not by looking at next week's quote. It gets verified year by year, against deployment volumes and penetration rates.
 

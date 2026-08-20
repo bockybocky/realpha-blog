@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="On the left an average line through three points lands in empty space; on the right one of the same three points is circled as the answer.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="66" font-size="27" fill="var(--ink)">The answer is not in the middle, it is one of them</text>
+
+  <rect x="60" y="110" width="400" height="320" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="500" y="110" width="400" height="320" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t" x="80" y="148" font-size="20" fill="var(--dim)">Model</text>
+  <text class="t" x="520" y="148" font-size="20" fill="var(--accent)">Analyst</text>
+
+  <circle cx="140" cy="210" r="10" fill="var(--grey)"/>
+  <circle cx="260" cy="330" r="10" fill="var(--grey)"/>
+  <circle cx="380" cy="270" r="10" fill="var(--grey)"/>
+  <line x1="110" y1="270" x2="410" y2="270" stroke="var(--dim)" stroke-width="2" stroke-dasharray="7 5"/>
+  <circle cx="260" cy="270" r="8" fill="var(--dim)"/>
+  <text class="t" x="260" y="392" font-size="19" fill="var(--dim)" text-anchor="middle">Take the average</text>
+
+  <circle cx="580" cy="210" r="10" fill="var(--grey)"/>
+  <circle cx="700" cy="330" r="10" fill="var(--grey)"/>
+  <circle cx="820" cy="270" r="10" fill="var(--accent)"/>
+  <circle cx="820" cy="270" r="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t" x="820" y="222" font-size="16" fill="var(--accent)" text-anchor="middle">This one is more credible here</text>
+  <text class="t" x="700" y="392" font-size="19" fill="var(--accent)" text-anchor="middle">Pick one</text>
+
+  <text class="t" x="60" y="490" font-size="22" fill="var(--ink)">Three different positions deserve three different discounts</text>
+</svg>

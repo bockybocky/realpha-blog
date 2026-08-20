@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" role="img" aria-label="A brain block above two production lines, with a spec arrow going down and an output arrow coming back up through a review block, forming a loop." font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="620" fill="var(--page)"/>
+<defs>
+  <marker id="arwA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+  </marker>
+</defs>
+
+<text x="60" y="54" font-size="27" fill="var(--ink)">Judgment concentrated above, typing spread below</text>
+
+<text x="60" y="182" font-size="20" fill="var(--ink)">Judgment</text>
+<text x="60" y="208" font-size="15" fill="var(--dim)">Errors compound</text>
+<text x="60" y="478" font-size="20" fill="var(--ink)">Execution</text>
+<text x="60" y="504" font-size="15" fill="var(--dim)">Errors get caught</text>
+
+<rect x="330" y="120" width="300" height="110" rx="14" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="480" y="163" font-size="20" fill="var(--accent)" text-anchor="middle">The brain</text>
+<text x="480" y="196" font-size="16" fill="var(--dim)" text-anchor="middle">Break down . spec . review</text>
+
+<rect x="270" y="440" width="190" height="90" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="365" y="478" font-size="20" fill="var(--ink)" text-anchor="middle">Line A</text>
+<text x="365" y="508" font-size="15" fill="var(--dim)" text-anchor="middle">Typing</text>
+
+<rect x="500" y="440" width="190" height="90" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="595" y="478" font-size="20" fill="var(--ink)" text-anchor="middle">Line B</text>
+<text x="595" y="508" font-size="15" fill="var(--dim)" text-anchor="middle">Typing</text>
+
+<path d="M330,175 H150 V485 H256" fill="none" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#arwA)"/>
+<text x="166" y="350" font-size="16" fill="var(--dim)">Spec</text>
+
+<path d="M704,485 H810 V366" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<path d="M810,304 V175 H638" fill="none" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#arwA)"/>
+<text x="794" y="440" font-size="16" fill="var(--dim)" text-anchor="end">Output</text>
+
+<rect x="748" y="304" width="124" height="60" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="810" y="341" font-size="19" fill="var(--ink)" text-anchor="middle">Review</text>
+
+<text x="480" y="556" font-size="15" fill="var(--dim)" text-anchor="middle">The two lines come from different model families</text>
+<text x="480" y="598" font-size="22" fill="var(--ink)" text-anchor="middle">One spec, two outputs, one inspector</text>
+</svg>

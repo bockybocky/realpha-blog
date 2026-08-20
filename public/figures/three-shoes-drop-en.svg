@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A downward timeline: Vienna breaks, four quiet months convince everyone it was an isolated case, then New York fails and Egypt and Turkey default.">
+  <style>
+    svg {
+      --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#9aa5b5; --accent:#1f6feb; --warn:#d97706; --warnbg:#fdf4e7;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#6b7686; --accent:#58a6ff; --warn:#d29922; --warnbg:#2b2411;
+      }
+    }
+    .t    { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size:27px; font-weight:700; fill:var(--ink); }
+    .ev   { font-size:17px; font-weight:700; fill:var(--ink); }
+    .sub  { font-size:15px; fill:var(--dim); }
+    .calm { font-size:18px; font-weight:700; fill:var(--warn); }
+    .ax   { font-size:15.5px; fill:var(--dim); }
+    .kick { font-size:21px; font-weight:700; fill:var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">The crash arrived in three parts, with a false alarm in between</text>
+
+    <rect x="290" y="86" width="200" height="290" fill="var(--warnbg)"/>
+
+    <path d="M110,140 L270,236 L480,248 L640,344 L870,406"
+          fill="none" stroke="var(--accent)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+
+    <circle cx="270" cy="236" r="9" fill="var(--warn)"/>
+    <circle cx="640" cy="344" r="9" fill="var(--warn)"/>
+    <circle cx="870" cy="406" r="9" fill="var(--warn)"/>
+
+    <text x="180" y="128" class="ev">May</text>
+    <text x="180" y="152" class="ev">Vienna</text>
+    <text x="180" y="180" class="sub">Halved in a day</text>
+
+    <text x="390" y="196" class="calm" text-anchor="middle">Four months</text>
+    <text x="390" y="222" class="calm" text-anchor="middle">Nothing happened</text>
+    <text x="390" y="300" class="sub" text-anchor="middle">So the consensus turned:</text>
+    <text x="390" y="324" class="sub" text-anchor="middle">an isolated case,</text>
+    <text x="390" y="348" class="sub" text-anchor="middle">Vienna was just too dear.</text>
+
+    <text x="560" y="392" class="ev">New York</text>
+    <text x="560" y="416" class="sub">The best-connected banker could not raise money</text>
+    <text x="560" y="440" class="sub">A third stopped paying by year end</text>
+
+    <text x="880" y="380" class="ev" text-anchor="end">Egypt, Turkey</text>
+
+    <line x1="90" y1="470" x2="900" y2="470" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="90" y="494" class="ax">Time</text>
+
+    <text x="480" y="530" class="kick" text-anchor="middle">Contagion travels through balance sheets, not through mood.</text>
+    <text x="480" y="556" class="sub" text-anchor="middle">The line existed on day one; it just took months to walk, and the market read not yet as never.</text>
+  </g>
+</svg>

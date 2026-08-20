@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Water flows from the financial-assets pool to the real-economy pool; the left level falls, the right rises, and the total does not change.">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .pool  { font-size: 20px; font-weight: 700; fill: var(--ink); }
+    .lvl   { font-size: 16px; font-weight: 700; fill: var(--accent); }
+    .item  { font-size: 15px; fill: var(--dim); }
+    .wrong { font-size: 16.5px; fill: var(--dim); }
+    .right { font-size: 16.5px; font-weight: 700; fill: var(--ink); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">The money did not vanish; it just moved</text>
+
+    <!-- 左池：金融資產（退水） -->
+    <text x="240" y="96" class="pool" text-anchor="middle">Financial assets</text>
+    <rect x="120" y="256" width="240" height="124" fill="var(--accent)" opacity="0.35"/>
+    <path d="M120,112 L120,380 L360,380 L360,112" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
+    <line x1="120" y1="256" x2="360" y2="256" stroke="var(--accent)" stroke-width="3"/>
+    <text x="240" y="240" class="lvl" text-anchor="middle">Level falling</text>
+
+    <!-- 右池：實體經濟（漲水） -->
+    <text x="720" y="96" class="pool" text-anchor="middle">Real economy</text>
+    <rect x="600" y="168" width="240" height="212" fill="var(--accent)" opacity="0.9"/>
+    <path d="M600,112 L600,380 L840,380 L840,112" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
+    <line x1="600" y1="168" x2="840" y2="168" stroke="var(--accent)" stroke-width="3"/>
+    <text x="720" y="152" class="lvl" text-anchor="middle">Level rising</text>
+    <text x="720" y="212" class="item" text-anchor="middle" fill="var(--page)">Materials, plants, restocking</text>
+    <text x="720" y="240" class="item" text-anchor="middle" fill="var(--page)">Higher wages</text>
+
+    <!-- 連通管 -->
+    <rect x="360" y="300" width="240" height="46" fill="var(--accent)" opacity="0.9"/>
+    <line x1="360" y1="300" x2="600" y2="300" stroke="var(--ink)" stroke-width="2.5"/>
+    <line x1="360" y1="346" x2="600" y2="346" stroke="var(--ink)" stroke-width="2.5"/>
+    <path d="M540,310 L568,323 L540,336" fill="none" stroke="var(--page)" stroke-width="4"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="470" y="286" class="item" text-anchor="middle">The same money</text>
+
+    <!-- 因果對照 -->
+    <line x1="80" y1="428" x2="880" y2="428" stroke="var(--line)" stroke-width="1"/>
+    <text x="120" y="462" class="wrong">Most assume the central bank is tightening, so watch policy</text>
+    <text x="120" y="494" class="right">In fact the real economy is pulling money away, so watch activity data</text>
+
+    <text x="480" y="540" class="kick" text-anchor="middle">Different causation, completely different homework.</text>
+  </g>
+</svg>

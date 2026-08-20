@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Two points crowded at the left of a spread scale a short distance apart yet marked as a doubling, with the genuinely dangerous range far to the right.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="66" font-size="27" fill="var(--ink)">The multiple looks big; the position is still far left</text>
+
+  <rect x="600" y="250" width="300" height="120" fill="var(--card)" stroke="var(--warn)" stroke-dasharray="8 6"/>
+  <text class="t" x="750" y="316" font-size="20" fill="var(--warn)" text-anchor="middle">The genuinely expensive range</text>
+
+  <line x1="80" y1="370" x2="900" y2="370" stroke="var(--line)" stroke-width="3"/>
+  <text class="t" x="80" y="404" font-size="16" fill="var(--dim)">Low</text>
+  <text class="t" x="900" y="404" font-size="16" fill="var(--dim)" text-anchor="end">High</text>
+
+  <circle cx="140" cy="370" r="9" fill="var(--grey)"/>
+  <circle cx="215" cy="370" r="9" fill="var(--accent)"/>
+  <text class="t" x="140" y="410" font-size="16" fill="var(--dim)" text-anchor="middle">Mid 30s</text>
+  <text class="t" x="215" y="410" font-size="16" fill="var(--ink)" text-anchor="middle">Mid 60s</text>
+
+  <path d="M140 350 Q 178 300 215 350" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t" x="178" y="288" font-size="20" fill="var(--accent)" text-anchor="middle">Doubled</text>
+
+  <line x1="230" y1="250" x2="590" y2="250" stroke="var(--grey)" stroke-width="1" stroke-dasharray="5 5"/>
+  <text class="t" x="410" y="238" font-size="16" fill="var(--grey)" text-anchor="middle">Still far off</text>
+
+  <text class="t" x="60" y="470" font-size="22" fill="var(--ink)">Read the absolute level first, then the change</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The same hardware and models split into two bars of very different length, one times and five times.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { fill:var(--ink); font-size:27px; font-weight:700; }
+    .g { fill:var(--dim); font-size:19px; }
+    .n { fill:var(--ink); font-size:20px; font-weight:700; }
+    .c { fill:var(--ink); font-size:22px; font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="64">Same hardware, same model</text>
+
+  <rect x="60" y="150" width="200" height="180" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="160" y="228" text-anchor="middle">Open-weight models</text>
+  <text class="g" x="160" y="264" text-anchor="middle">Same accelerators</text>
+
+  <path d="M260 240 C300 240 300 202 330 202" fill="none" stroke="var(--grey)" stroke-width="2"/>
+  <path d="M260 240 C300 240 300 352 330 352" fill="none" stroke="var(--grey)" stroke-width="2"/>
+
+  <text class="g" x="340" y="172">Cloud vendors</text>
+  <rect x="340" y="185" width="100" height="34" rx="6" fill="var(--grey)"/>
+  <text class="n" x="456" y="211">1x</text>
+
+  <text class="g" x="340" y="322">Inference specialists</text>
+  <rect x="340" y="335" width="500" height="34" rx="6" fill="var(--accent)"/>
+  <text class="n" x="856" y="361">5x</text>
+
+  <text class="g" x="340" y="412">Measured speed on the same machines</text>
+  <text class="c" x="60" y="472">The gap is craft, not resources</text>
+</svg>

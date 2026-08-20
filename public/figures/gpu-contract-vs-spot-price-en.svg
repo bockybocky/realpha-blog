@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="A low contract-price bar and a high spot-price bar, with a dashed line from the low bar to a box marking accounts that understate the value.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+
+  <text x="60" y="56" font-size="27" fill="var(--ink)">The same GPUs, already repriced</text>
+  <text x="60" y="88" font-size="16" fill="var(--dim)">Per GPU per hour</text>
+
+  <line x1="180" y1="420" x2="900" y2="420" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="240" y="260" width="120" height="160" rx="4" fill="var(--grey)"/>
+  <text x="300" y="242" font-size="22" fill="var(--ink)" text-anchor="middle">$2.5</text>
+  <text x="300" y="452" font-size="16" fill="var(--dim)" text-anchor="middle">7 months ago . contract</text>
+
+  <rect x="460" y="164" width="120" height="256" rx="4" fill="var(--accent)"/>
+  <text x="520" y="146" font-size="22" fill="var(--ink)" text-anchor="middle">$4</text>
+  <text x="520" y="452" font-size="16" fill="var(--dim)" text-anchor="middle">Now . spot</text>
+
+  <path d="M366 244 Q 420 186 452 178" fill="none" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="446,170 460,176 448,186" fill="var(--dim)"/>
+  <text x="404" y="152" font-size="16" fill="var(--dim)" text-anchor="middle">Up 60%</text>
+
+  <path d="M300 300 H660" fill="none" stroke="var(--dim)" stroke-width="2" stroke-dasharray="6 6"/>
+  <polygon points="660,294 674,300 660,306" fill="var(--dim)"/>
+
+  <rect x="680" y="230" width="220" height="180" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text x="706" y="284" font-size="19" fill="var(--ink)">Installed capacity</text>
+  <text x="706" y="324" font-size="19" fill="var(--ink)">Still billed at the old rate</text>
+  <text x="706" y="364" font-size="19" fill="var(--warn)">Accounts understate it</text>
+
+  <text x="60" y="494" font-size="22" fill="var(--ink)">The spread has not reached the statements yet</text>
+</svg>

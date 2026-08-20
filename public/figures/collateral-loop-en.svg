@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Four steps form a self-reinforcing loop from asset prices to collateral values to more borrowing and back into the market, with the central bank giving only the first push.">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #9aa5b5;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .node  { font-size: 17px; font-weight: 700; fill: var(--ink); }
+    .ctr   { font-size: 26px; font-weight: 700; fill: var(--accent); }
+    .ctrs  { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .push  { font-size: 15.5px; font-weight: 700; fill: var(--dim); }
+    .rev   { font-size: 16.5px; font-weight: 700; fill: var(--warn); }
+    .kick  { font-size: 21px; font-weight: 700; fill: var(--ink); }
+  </style>
+  <defs>
+    <marker id="ar1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="var(--accent)"/>
+    </marker>
+    <marker id="ar2" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L9,3.5 L0,7 Z" fill="var(--dim)"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">After one push, the loop turns by itself</text>
+
+    <!-- 迴圈箭頭 -->
+    <g fill="none" stroke="var(--accent)" stroke-width="3.5">
+      <path d="M586,140 A180,180 0 0,1 672,232" marker-end="url(#ar1)"/>
+      <path d="M672,320 A180,180 0 0,1 586,412" marker-end="url(#ar1)"/>
+      <path d="M374,412 A180,180 0 0,1 288,320" marker-end="url(#ar1)"/>
+      <path d="M288,232 A180,180 0 0,1 374,140" marker-end="url(#ar1)"/>
+    </g>
+
+    <!-- 四個節點 -->
+    <rect x="368" y="98" width="224" height="56" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <text x="480" y="132" class="node" text-anchor="middle">Asset prices rise</text>
+
+    <rect x="596" y="248" width="224" height="56" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <text x="708" y="282" class="node" text-anchor="middle">Collateral rises</text>
+
+    <rect x="368" y="398" width="224" height="56" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <text x="480" y="432" class="node" text-anchor="middle">The same people borrow more</text>
+
+    <rect x="140" y="248" width="224" height="56" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <text x="252" y="282" class="node" text-anchor="middle">Money back in</text>
+
+    <!-- 中央 -->
+    <text x="480" y="268" class="ctr" text-anchor="middle">Self-reinforcing</text>
+    <text x="480" y="296" class="ctrs" text-anchor="middle">About 80% of lending is collateral-based</text>
+
+    <!-- 央行初始一推 -->
+    <path d="M64,180 L154,232" fill="none" stroke="var(--dim)" stroke-width="2.5"
+          stroke-dasharray="7,5" marker-end="url(#ar2)"/>
+    <text x="60" y="160" class="push">The central bank's first push</text>
+    <text x="60" y="182" class="push">(only that one)</text>
+
+    <!-- 反向 -->
+    <text x="900" y="368" class="rev" text-anchor="end">It works in reverse too</text>
+    <text x="900" y="392" class="rev" text-anchor="end">and that is a crash</text>
+
+    <text x="480" y="524" class="kick" text-anchor="middle">Once started, the loop is beyond the central bank.</text>
+    <text x="480" y="558" class="kick" text-anchor="middle">Every bubble, looked back on, has a liquidity expansion at its root.</text>
+  </g>
+</svg>

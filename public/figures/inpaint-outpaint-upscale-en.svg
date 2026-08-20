@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Three canvases: one filled inward, one extended outward, one enlarged as a whole.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<defs><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker></defs>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="58">Where does the boundary move</text>
+<rect x="90" y="140" width="200" height="170" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="150" y="190" width="80" height="70" fill="var(--page)" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 5"/>
+<text class="s" x="190" y="232" text-anchor="middle">Filled back in</text>
+<rect x="410" y="165" width="140" height="120" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="360" y="130" width="240" height="190" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 5"/>
+<text class="s" x="480" y="231" text-anchor="middle">Original canvas</text>
+<rect x="660" y="195" width="70" height="60" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="770" y="150" width="140" height="120" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="800" cy="180" r="2" fill="var(--grey)"/><circle cx="830" cy="180" r="2" fill="var(--grey)"/><circle cx="860" cy="180" r="2" fill="var(--grey)"/><circle cx="890" cy="180" r="2" fill="var(--grey)"/>
+<circle cx="800" cy="210" r="2" fill="var(--grey)"/><circle cx="830" cy="210" r="2" fill="var(--grey)"/><circle cx="860" cy="210" r="2" fill="var(--grey)"/><circle cx="890" cy="210" r="2" fill="var(--grey)"/>
+<circle cx="800" cy="240" r="2" fill="var(--grey)"/><circle cx="830" cy="240" r="2" fill="var(--grey)"/><circle cx="860" cy="240" r="2" fill="var(--grey)"/><circle cx="890" cy="240" r="2" fill="var(--grey)"/>
+<line x1="738" y1="225" x2="762" y2="212" stroke="var(--accent)" stroke-width="2" marker-end="url(#a4)"/>
+<text class="g" x="190" y="360" text-anchor="middle">Inpainting</text>
+<text class="g" x="480" y="360" text-anchor="middle">Outpainting</text>
+<text class="g" x="785" y="360" text-anchor="middle">Upscaling</text>
+<text class="b" x="190" y="390" text-anchor="middle">Inward</text>
+<text class="b" x="480" y="390" text-anchor="middle">Outward</text>
+<text class="b" x="785" y="390" text-anchor="middle">Whole thing bigger</text>
+<text class="c" x="60" y="465">Watch which way the boundary moves</text>
+</svg>

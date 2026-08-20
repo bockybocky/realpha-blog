@@ -37,6 +37,8 @@ A small aside from the opening, which I enjoyed: the hosts spent a while puzzlin
 
 The episode mentions someone comparing this open-weight model against a top-tier flagship on the same task. The result: unit price is roughly a third, but because its raw capability isn't at flagship level, it takes detours on mid-sized tasks — first attempt fails, tries again — so total tokens burned come out around double. On top of that, Chinese models have historically been slower at generating tokens, so wall-clock time stretches too. Multiply all three and the total is still cheaper.
 
+![Bar chart with the flagship model's total cost set at one: the open model's unit price drops to about a third, but it burns roughly twice the tokens for the same task, so the total comes back up to about two thirds, still under the flagship line. An upward arrow on the right marks the extra time.](/figures/cost-three-multipliers-en.svg)
+
 The point isn't "it's cheaper." The point is that **those three numbers define what it's for**. Interactive chat is out, because people won't wait. But anything that runs in the background and doesn't need an immediate reply — nightly report compilation, scheduled jobs, repetitive agent-style work — doesn't care whether it finishes in ten seconds or half an hour. That's its home turf. This is also why several US companies already list Chinese models among their defaults: not because they think they're better, but because they've worked out which jobs don't need to be paid at flagship rates.
 
 **2. Be precise about which block the 75% applies to.**
@@ -44,6 +46,8 @@ The point isn't "it's cheaper." The point is that **those three numbers define w
 The 75% reduction is in key-value cache, not total memory. The mechanism is called Kimi Delta Attention — one host joked the name sounds cool because it has a Delta in it, and it turns out the Delta genuinely means the mathematical difference: rather than storing the full state repeatedly, it stores the change and reconstructs from it. It's mixed with conventional full attention layers at a three-to-one ratio, which is exactly where the 75% figure comes from. The arithmetic is that straightforward.
 
 But inference itself also consumes memory, and that's a separate pool from the cache. As noted above, this model burns roughly double the tokens to complete an equivalent task — and that doubled inference pass consumes memory all the same. So "it saves cache, therefore we need less memory" mistakes a saving in one block for a saving overall. The episode mentions people genuinely assuming they could run it on a consumer graphics card; the host's response was blunt — maybe it stumbles along at zero context. The official recommendation is sixty-four accelerator cards.
+
+![Two stacked bars before and after: the cache layer shrinks to a quarter, but the inference layer doubles, so the total height barely changes.](/figures/cache-saving-not-total-memory-en.svg)
 
 There's one more point that's easy to skip past but carries real information: this model was trained using an open low-precision format rather than a specific vendor's proprietary one. That means anyone fine-tuning it or building a next generation on top of it isn't necessarily locked to one silicon vendor. That's **optionality**, not performance — invisible in the short term, structurally relevant to bargaining power over time.
 
@@ -64,6 +68,8 @@ There's also a clear observation about the Chinese approach: constrained on proc
 This is the most technically dense and most worth remembering part of the episode. Since the cache is what eats memory, people started offloading it downward: tier one is high-bandwidth memory, tier two is low-power memory on the board, tier three is local or remote conventional memory, and below that, solid-state storage. The principle is one sentence — **the less frequently you need it, the further away it goes**.
 
 Chinese vendors are especially fond of this "storage in place of compute" framing, for a very practical reason: their high-bandwidth memory supply is still catching up, so they have to find substitutes lower down the stack. But the same direction is being pursued in the US with a different motive. High-bandwidth memory and conventional DRAM compete for the same process capacity; flash sits on a separate line. Using more of the latter routes around the most congested path.
+
+![Four blocks along an axis running left to right, each larger and further apart than the last, showing that less frequently used data sits further away in a cheaper, larger tier.](/figures/memory-tiering-distance-en.svg)
 
 One nicely human moment here: the episode mentions a Japanese reporter catching a memory maker's president and asking what he'd just discussed with a chip company's chief executive, and whether memory came up. The president laughed. Asked about the offloading roadmap specifically, he laughed harder and said he couldn't comment. The comment section's conclusion: progress is clearly going fine.
 
@@ -95,6 +101,8 @@ This episode is effectively a field report on where the bottleneck currently sit
 
 What's worth noticing is that **each relief doesn't eliminate the bottleneck, it pushes it one station down the line.** Decoupling training from a proprietary numeric format moves bargaining power from silicon toward the format. Offloading cache to flash moves pressure off the most congested process node onto a different one. Scaling superpods up costs you switching and topology difficulty. Trace the chain and you can broadly reason out where the next tight spot lands.
 
+![A pipe running left to right with four pinch points: the left one has opened up and each one to the right is tighter, with the rightmost narrowest of all.](/figures/bottleneck-moves-downstream-en.svg)
+
 This also yields a failure condition worth writing down: **if a layer's substitution path genuinely works, that layer's pricing power gets diluted.** That statement is testable — not by feel, but by watching actual adoption of the substitute: is it still spec sheets and keynote slides, or is it deployed at scale? The episode is honest about this, describing these approaches as "in progress, but genuine large-scale deployment probably needs more observation." That honesty is worth more than the conclusion, because it separates "has happened" from "is being discussed."
 
 ### 3. Leading indicators, lagging indicators, and adjusting only one side of the ratio
@@ -106,6 +114,8 @@ The host's response is the key move: **free cash flow is a lagging indicator.** 
 The credit market segment is the most methodologically useful part of the episode. They note that since June, spreads on these large cloud companies' bonds have been widening. Wider spreads mean higher borrowing cost, and borrowing cost is a component of the discount rate — a bigger denominator should, in theory, push valuations down. The lesson from 2008 is that credit default swaps were bought up first while equities caught on later; bond markets have a different participant mix and different information sources, so they tend to react earlier. Beyond the information advantage there's a more mechanical reason: when bonds fall hard, allocation-driven capital has to sell equities to rebalance. That selling pressure has nothing to do with fundamentals, but it's real.
 
 Let me close this section on a discipline point: **the numerator and the denominator move at the same time, and adjusting only one guarantees you'll arrive at the answer you wanted.** This episode handed us signals on both sides. Numerator: token volume up 37%, backlog still growing, assembly margins revised up. Denominator: spreads widening, cash flow turning negative. Someone watching only the numerator concludes it's early. Someone watching only the denominator concludes it's over. The honest approach is to adjust both and accept that the conclusion might be "I don't know."
+
+![A fraction line with three growth signals pushing the numerator up from above and two cost-of-capital signals widening the denominator from below, with a question mark on the right.](/figures/numerator-denominator-both-move-en.svg)
 
 As for when the game finally slows, the standard the episode offers is refreshingly plain: when usage growth stops covering spending growth — when the volume-times-price arithmetic stops working — it slows down on its own. The virtue of that formulation is that **it can be tracked continuously** rather than requiring a date to bet on. Rather than flipping your view every quarter on a single new number, fix "usage growth versus spending growth" as a standing comparison and check your answer against it over time.
 

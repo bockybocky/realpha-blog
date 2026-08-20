@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="A large box containing two smaller boxes: prompt injection on the outside, jailbreaking and prompt leaking inside.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker></defs>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="58">Which one contains which</text>
+<rect x="140" y="130" width="700" height="250" rx="16" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="170" y="166">Injection</text>
+<text class="s" x="300" y="166">Hidden input</text>
+<rect x="180" y="200" width="290" height="140" rx="12" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="325" y="262" text-anchor="middle">Jailbreak</text>
+<text class="s" x="325" y="292" text-anchor="middle">Get past the safety rules</text>
+<rect x="510" y="200" width="290" height="140" rx="12" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="655" y="262" text-anchor="middle">Prompt leak</text>
+<text class="s" x="655" y="292" text-anchor="middle">Trick out the system prompt</text>
+<text class="b" x="60" y="425">User input</text>
+<line x1="180" y1="418" x2="180" y2="390" stroke="var(--accent)" stroke-width="2" marker-end="url(#a3)"/>
+<text class="c" x="60" y="480">Jailbreaking is a kind of injection, not a parallel thing</text>
+</svg>

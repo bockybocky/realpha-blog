@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="An equity curve touching the minus fifteen percent threshold, after which the swings shrink and turn grey, dividing the chart into attack and defence zones." font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text x="60" y="58" font-size="27" fill="var(--ink)" font-weight="700">After the line, the tools change, not the view</text>
+
+  <rect x="60" y="100" width="460" height="340" rx="10" fill="var(--card)"/>
+  <rect x="520" y="100" width="380" height="340" rx="10" fill="var(--card)"/>
+  <line x1="520" y1="100" x2="520" y2="440" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <line x1="80" y1="172" x2="900" y2="172" stroke="var(--line)" stroke-width="2"/>
+  <text x="80" y="163" font-size="15" fill="var(--dim)">Peak</text>
+
+  <line x1="80" y1="300" x2="900" y2="300" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="80" y="322" font-size="16" fill="var(--warn)" font-weight="700">-15%</text>
+
+  <polyline points="90,224 170,182 250,204 330,174 410,244 480,276 520,300"
+            fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linejoin="round"/>
+  <polyline points="520,300 570,316 620,302 670,320 720,306 780,322 840,308 900,318"
+            fill="none" stroke="var(--grey)" stroke-width="3.5" stroke-linejoin="round"/>
+  <circle cx="520" cy="300" r="7" fill="var(--warn)"/>
+
+  <text x="90" y="136" font-size="20" fill="var(--ink)" font-weight="700">Attack</text>
+  <text x="90" y="160" font-size="15" fill="var(--dim)">Single stocks . high beta</text>
+  <text x="548" y="136" font-size="20" fill="var(--ink)" font-weight="700">Defence</text>
+  <text x="548" y="160" font-size="15" fill="var(--dim)">Index futures . broad ETF</text>
+  <text x="548" y="400" font-size="15" fill="var(--dim)">Volatility down, capital kept</text>
+
+  <text x="60" y="500" font-size="22" fill="var(--ink)" font-weight="700">Write the rule while calm; in a panic just follow it</text>
+  <text x="60" y="530" font-size="15" fill="var(--dim)">Equity curve is illustrative</text>
+</svg>

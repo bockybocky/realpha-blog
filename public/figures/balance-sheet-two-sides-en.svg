@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Two balance sheets side by side: the Swiss asset column is dominated by foreign-currency investments while the Fed's liability column is swollen by reserves, with the highlights on opposite sides.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+
+  <text class="t" x="480" y="52" text-anchor="middle" font-size="27" font-weight="700" fill="var(--ink)">Same symptom, opposite side of the sheet</text>
+
+  <rect x="50" y="120" width="380" height="380" rx="10" fill="var(--card)"/>
+  <rect x="530" y="120" width="380" height="380" rx="10" fill="var(--card)"/>
+
+  <text class="t" x="240" y="100" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink)">Swiss National Bank</text>
+  <text class="t" x="720" y="100" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink)">Federal Reserve</text>
+
+  <line x1="480" y1="120" x2="480" y2="500" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <rect x="110" y="170" width="120" height="44" fill="var(--grey)"/>
+  <rect x="110" y="214" width="120" height="246" fill="var(--accent)"/>
+  <rect x="270" y="170" width="120" height="290" fill="var(--grey)"/>
+  <text class="t" x="170" y="332" text-anchor="middle" font-size="16" font-weight="700" fill="var(--page)">FX investments</text>
+  <text class="t" x="170" y="356" text-anchor="middle" font-size="16" font-weight="700" fill="var(--page)">85%</text>
+
+  <rect x="590" y="170" width="120" height="290" fill="var(--grey)"/>
+  <rect x="750" y="170" width="120" height="120" fill="var(--grey)"/>
+  <rect x="750" y="290" width="120" height="170" fill="var(--accent)"/>
+  <text class="t" x="810" y="382" text-anchor="middle" font-size="16" font-weight="700" fill="var(--page)">Reserves</text>
+
+  <line x1="90" y1="460" x2="410" y2="460" stroke="var(--line)" stroke-width="2"/>
+  <line x1="570" y1="460" x2="890" y2="460" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="t" x="170" y="483" text-anchor="middle" font-size="16" fill="var(--dim)">Assets</text>
+  <text class="t" x="330" y="483" text-anchor="middle" font-size="16" fill="var(--dim)">Liabilities</text>
+  <text class="t" x="650" y="483" text-anchor="middle" font-size="16" fill="var(--dim)">Assets</text>
+  <text class="t" x="810" y="483" text-anchor="middle" font-size="16" fill="var(--dim)">Liabilities</text>
+
+  <text class="t" x="170" y="528" text-anchor="middle" font-size="19" font-weight="700" fill="var(--accent)">An asset-side disease</text>
+  <text class="t" x="810" y="528" text-anchor="middle" font-size="19" font-weight="700" fill="var(--accent)">A liability-side one</text>
+
+  <text class="t" x="480" y="574" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)">Both stuck, different medicine</text>
+</svg>

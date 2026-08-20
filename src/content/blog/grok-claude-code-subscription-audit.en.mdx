@@ -32,6 +32,8 @@ The catch: **most third-party tools — agent CLIs, IDE extensions — reach the
 
 An everyday analogy: you buy an all-you-can-train monthly gym membership, but you keep going to the pay-per-session personal-training studio next door. Both let you work out; the bills are nothing alike.
 
+![One request splits into two paths: the upper goes through the official app to the subscription gate and ends at a fixed-width quota block, while the lower goes through a third-party tool to the API gate and ends at six bars rising one after another as usage adds up.](/figures/subscription-gate-vs-api-gate-en.svg)
+
 ## 2. What I Wanted, and Why It Was Hard
 
 I use Claude Code (a very good terminal AI coding tool) day to day. Grok 4.5 had just launched, pitched as "near-top-tier coding at a lower price," and I wanted to try wiring it in.
@@ -81,6 +83,8 @@ Only after the audit passed did I move: **compile it from source myself** (rever
 Then I hit a wall — a beautiful one:
 
 **The final OAuth login can only be done by a real person, at that machine, in a browser.** The reason is concrete: the OAuth callback is hard-wired to "localhost," so if you log in from another device, the authorization code can't get back to that machine; and trying to drive it with an automated browser runs straight into the vendor's anti-bot protection.
+
+![The official authorisation page sends the code in three directions: only the local callback target on the computer at lower left gets through, while the paths to another device and to an automated browser are both crossed out.](/figures/oauth-callback-lands-only-here-en.svg)
 
 There's a larger lesson here: **a lot of things get stuck not because you aren't clever enough, but because they were designed to require a human present.** Recognizing that line — and honestly saying "this step is yours to do" — beats bolting together something that looks automated but is actually fragile.
 

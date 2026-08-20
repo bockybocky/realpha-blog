@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="A four-quadrant chart of self-interest against outside verifiability, with most claims landing in the lower-left box.">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --accent: #1f6feb;
+      --accbg:  #eef2f9;
+      --warn:   #d97706;
+      --warnbg: #fdf4e7;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --accent: #58a6ff;
+        --accbg:  #12233d;
+        --warn:   #d29922;
+        --warnbg: #2b2411;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .axis  { font-size: 17px; font-weight: 700; fill: var(--dim); }
+    .qh    { font-size: 18px; font-weight: 700; }
+    .pt    { font-size: 15px; fill: var(--ink); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+    .note  { font-size: 16px; fill: var(--dim); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">How much of this should I believe?</text>
+
+    <!-- 四格底 -->
+    <rect x="230" y="92" width="250" height="184" rx="4" fill="var(--card)"/>
+    <rect x="480" y="92" width="250" height="184" rx="4" fill="var(--accbg)"/>
+    <rect x="230" y="276" width="250" height="184" rx="4" fill="var(--warnbg)"/>
+    <rect x="480" y="276" width="250" height="184" rx="4" fill="var(--card)"/>
+
+    <!-- 象限判定 -->
+    <text x="248" y="118" class="qh" fill="var(--dim)">Check, then believe</text>
+    <text x="712" y="118" class="qh" fill="var(--accent)" text-anchor="end">Most credible</text>
+    <text x="248" y="452" class="qh" fill="var(--warn)">Near zero value</text>
+    <text x="712" y="452" class="qh" fill="var(--dim)" text-anchor="end">Doubt it, but do not dismiss it</text>
+
+    <!-- 十字軸 -->
+    <line x1="230" y1="276" x2="730" y2="276" stroke="var(--ink)" stroke-width="1.8"/>
+    <line x1="480" y1="92"  x2="480" y2="460" stroke="var(--ink)" stroke-width="1.8"/>
+
+    <!-- 軸端標籤 -->
+    <text x="480" y="80"  class="axis" text-anchor="middle">Outsiders can check</text>
+    <text x="480" y="486" class="axis" text-anchor="middle">Nobody can verify</text>
+    <text x="222" y="282" class="axis" text-anchor="end">Saying it</text>
+    <text x="222" y="304" class="axis" text-anchor="end">serves them</text>
+    <text x="738" y="282" class="axis" text-anchor="start">Saying it does not</text>
+    <text x="738" y="304" class="axis" text-anchor="start">help them</text>
+
+    <!-- 左上：有動機但查得到 -->
+    <circle cx="288" cy="158" r="7" fill="var(--dim)"/>
+    <text x="302" y="163" class="pt">Which words in the bill changed</text>
+    <circle cx="288" cy="196" r="7" fill="var(--dim)"/>
+    <text x="302" y="201" class="pt">Sections removed</text>
+    <circle cx="288" cy="234" r="7" fill="var(--dim)"/>
+    <text x="302" y="239" class="pt">Disclosing an incident as publicity?</text>
+
+    <!-- 右上：最可信 -->
+    <circle cx="512" cy="158" r="7" fill="var(--accent)"/>
+    <text x="526" y="163" class="pt">Spending on safety before making money</text>
+    <circle cx="512" cy="204" r="7" fill="var(--accent)"/>
+    <text x="526" y="209" class="pt">Numbers that make them look bad</text>
+
+    <!-- 左下：價值近零 -->
+    <circle cx="288" cy="320" r="7" fill="var(--warn)"/>
+    <text x="302" y="325" class="pt">We take safety seriously</text>
+    <circle cx="288" cy="358" r="7" fill="var(--warn)"/>
+    <text x="302" y="363" class="pt">We work with third parties</text>
+    <circle cx="288" cy="396" r="7" fill="var(--warn)"/>
+    <text x="302" y="401" class="pt">So powerful it can jailbreak</text>
+
+    <!-- 右下 -->
+    <circle cx="512" cy="330" r="7" fill="var(--dim)"/>
+    <text x="526" y="335" class="pt">Internal worries not made public</text>
+
+    <!-- 底部 -->
+    <text x="480" y="530" class="kick" text-anchor="middle">Ask who has a motive, then which part outsiders can check.</text>
+    <text x="480" y="562" class="note" text-anchor="middle">A motive does not make it false. It sets how much outside evidence you need, not the verdict.</text>
+  </g>
+</svg>

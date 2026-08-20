@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two stacks compared: the previous generation was stuck at the top compute layer, while this one is stuck lower down at management, power and interconnect.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--dim); }
+    .b { font-size:16px; font-weight:700; fill:var(--ink); }
+    .d { font-size:16px; fill:var(--grey); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="52">The choke point moved a layer</text>
+  <rect x="60" y="76" width="14" height="14" fill="var(--accent)"/>
+  <text class="s" x="82" y="89">= the layer that binds now</text>
+
+  <rect x="70" y="120" width="340" height="360" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="240" y="162" text-anchor="middle">Single-box era</text>
+  <rect x="100" y="190" width="280" height="52" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="100" y="190" width="6" height="52" fill="var(--accent)"/>
+  <text class="b" x="126" y="223">Compute</text>
+  <rect x="100" y="258" width="280" height="52" rx="8" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text class="d" x="126" y="291">Management</text>
+  <rect x="100" y="326" width="280" height="52" rx="8" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text class="d" x="126" y="359">Power</text>
+  <rect x="100" y="394" width="280" height="52" rx="8" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text class="d" x="126" y="427">Interconnect</text>
+
+  <text class="s" x="480" y="282" text-anchor="middle">Going multi-node</text>
+  <line x1="425" y1="300" x2="520" y2="300" stroke="var(--dim)" stroke-width="3"/>
+  <polygon points="520,292 538,300 520,308" fill="var(--dim)"/>
+
+  <rect x="550" y="120" width="340" height="360" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="720" y="162" text-anchor="middle">Multi-node era</text>
+  <rect x="580" y="190" width="280" height="52" rx="8" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text class="d" x="606" y="223">Compute</text>
+  <rect x="580" y="258" width="280" height="52" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="580" y="258" width="6" height="52" fill="var(--accent)"/>
+  <text class="b" x="606" y="291">Management</text>
+  <rect x="580" y="326" width="280" height="52" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="580" y="326" width="6" height="52" fill="var(--accent)"/>
+  <text class="b" x="606" y="359">Power</text>
+  <rect x="580" y="394" width="280" height="52" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="580" y="394" width="6" height="52" fill="var(--accent)"/>
+  <text class="b" x="606" y="427">Interconnect</text>
+
+  <text class="c" x="480" y="524" text-anchor="middle">Same stack, different binding layer</text>
+</svg>

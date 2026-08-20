@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 550" width="960" height="550" role="img" aria-label="An arrow passes through a holed wall, another is stopped by an intact wall, and a third runs unblocked along a path with no wall.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .sub { font-size:15px; fill:var(--dim); }
+    .cc { font-size:22px; fill:var(--accent); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="550" fill="var(--page)"/>
+  <text class="t" x="80" y="54">The same guardrail only stopped the defender</text>
+
+  <text class="g" x="80" y="122">Attack side . removed for testing</text>
+  <circle cx="120" cy="210" r="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <line x1="145" y1="210" x2="405" y2="210" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="405,202 425,210 405,218" fill="var(--accent)"/>
+  <line x1="300" y1="140" x2="300" y2="185" stroke="var(--grey)" stroke-width="8" stroke-linecap="round"/>
+  <line x1="300" y1="235" x2="300" y2="300" stroke="var(--grey)" stroke-width="8" stroke-linecap="round"/>
+  <text class="sub" x="300" y="330" text-anchor="middle">Hole</text>
+  <text class="sub" x="425" y="245" text-anchor="end">Passes</text>
+
+  <text class="g" x="500" y="122">Defence side . left in place</text>
+  <circle cx="540" cy="210" r="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <line x1="565" y1="210" x2="678" y2="210" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="720" y1="140" x2="720" y2="300" stroke="var(--warn)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M683 198 L703 218 M703 198 L683 218" stroke="var(--warn)" stroke-width="4" stroke-linecap="round"/>
+  <text class="sub" x="720" y="330" text-anchor="middle">Intact</text>
+  <text class="sub" x="660" y="245" text-anchor="end">Refused</text>
+
+  <line x1="80" y1="368" x2="880" y2="368" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <text class="g" x="80" y="412">Open model . self-hosted</text>
+  <circle cx="120" cy="462" r="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <line x1="145" y1="462" x2="835" y2="462" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="835,454 855,462 835,470" fill="var(--accent)"/>
+  <text class="sub" x="855" y="440" text-anchor="end">Reconstructed the path</text>
+
+  <text class="cc" x="80" y="524">What finally helped was the one with no wall</text>
+</svg>

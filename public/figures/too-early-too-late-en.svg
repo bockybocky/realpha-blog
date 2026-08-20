@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="On a line that rises then collapses, selling too early gives up a bounded stretch while selling too late loses far more, exactly when cash is most needed.">
+  <style>
+    svg {
+      --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; --warnbg:#fdf4e7;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; --warnbg:#2b2411;
+      }
+    }
+    .t    { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size:27px; font-weight:700; fill:var(--ink); }
+    .lab  { font-size:18px; font-weight:700; fill:var(--ink); }
+    .cost { font-size:16px; font-weight:700; }
+    .sub  { font-size:15px; fill:var(--dim); }
+    .kick { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">Selling early and selling late are differently shaped mistakes</text>
+
+    <rect x="380" y="140" width="12" height="82" fill="var(--accent)" opacity="0.35"/>
+    <rect x="788" y="140" width="12" height="250" fill="var(--warn)" opacity="0.4"/>
+
+    <path d="M120,392 C240,340 360,244 520,146 C640,200 720,300 860,418"
+          fill="none" stroke="var(--grey)" stroke-width="4" stroke-linecap="round"/>
+
+    <line x1="120" y1="146" x2="860" y2="146" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="6,5"/>
+
+    <circle cx="386" cy="222" r="9" fill="var(--accent)"/>
+    <text x="386" y="196" class="lab" text-anchor="middle">Sold too early</text>
+    <text x="298" y="262" class="cost" fill="var(--accent)">The gain given up</text>
+    <text x="298" y="286" class="sub">Bounded, and you survive it</text>
+
+    <circle cx="794" cy="390" r="9" fill="var(--warn)"/>
+    <text x="800" y="426" class="lab" text-anchor="middle">Sold too late</text>
+    <text x="700" y="286" class="cost" fill="var(--warn)">The part you lose</text>
+    <text x="640" y="312" class="sub">Forced out at the worst price,</text>
+    <text x="640" y="336" class="sub">which is usually also</text>
+    <text x="640" y="360" class="sub">when you most need the cash</text>
+
+    <line x1="100" y1="462" x2="880" y2="462" stroke="var(--line)" stroke-width="1"/>
+    <text x="480" y="496" class="sub" text-anchor="middle">Asked the secret of his success, Morgan said: I sold too early.</text>
+
+    <text x="480" y="542" class="kick" text-anchor="middle">Two mistakes that should not be avoided by the same standard.</text>
+  </g>
+</svg>

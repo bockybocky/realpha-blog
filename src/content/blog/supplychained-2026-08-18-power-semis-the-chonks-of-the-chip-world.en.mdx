@@ -27,6 +27,8 @@ What follows is my own reading and extension after listening, not a transcript o
 
 One. A power semiconductor doesn't compute anything and doesn't store anything. It's a valve. The episode lines up the categories: logic calculates, memory stores, MEMS senses, and power semis do exactly one job — bring current and voltage down to something the next stage can survive. That sounds dull, and the specification is anything but: rack-level voltage in a data center comes in high and has to be stepped down to under a volt by the time it reaches the die, and it has to be steady. The direct cause of this revival is a generation of accelerators that are extraordinarily fussy about their power.
 
+![Four bars descending in height form a staircase from several hundred volts at the rack feed down to under one volt at the die, with a marker on each drop standing for one power semiconductor.](/figures/power-semis-voltage-staircase-en.svg)
+
 Two. The intuition for a wide bandgap is a taller dam. Silicon's bandgap is wide enough for logic, but push it toward high voltage and heavy current and it stops holding — and when it breaks down, it isn't a leak, it's the whole wall going. Gallium nitride and silicon carbide have wider gaps, which is the same as building the wall higher. One aside stuck with me: diamond is technically a semiconductor too, with a far wider gap — nobody knows whether it can ever be made at a tolerable cost.
 
 Three. A great material and a manufacturable material are two different things. Half the reason silicon won is that it's everywhere in the crust and can be pulled from a melt into large boules. Silicon carbide can't be grown that way at all. Gallium nitride goes unstable when you try to grow it in big chunks. So the substrate is its own industrial problem, not a step you solve in passing inside a process flow.
@@ -49,6 +51,8 @@ The frustration with power semis comes from a mismatch between the price rhythm 
 
 The difference shows up when the driver changes hands, because the denominator quietly changes with it. Last cycle the denominator was how many million EVs shipped in a year. This cycle it's how many megawatts of data center capacity get added, and what the power architecture inside those racks looks like. Those two denominators have completely different sensitivities. EVs are consumer goods, driven by subsidies and rates. Data center power is capital expenditure, driven by the build plans of a handful of very large buyers — far more concentrated, and when it turns, it turns harder than consumer demand does.
 
+![Two panels compared: on the left a dense field of small dots for scattered electric-vehicle buyers, and on the right only three large blocks for a handful of hyperscale data centre customers.](/figures/power-semis-denominator-handover-en.svg)
+
 So next time this theme comes around, ask who is placing the orders in this particular cycle, rather than how remarkable the material is. And write down the falsifying condition — not "keep monitoring the sector," which says nothing, but something like: "if rack-level power architecture settles in a way that collapses one of the conversion stages, the ground under my reasoning is gone." A view with a condition that can kill it is a judgement. A view without one is a mood.
 
 Worth noting too: the satellite answer carries real information. When the only backup driver for a revival is an order of magnitude smaller than the current one, the fragility of the story is written right there.
@@ -56,6 +60,8 @@ Worth noting too: the satellite answer carries real information. When the only b
 ### "The press release says the material is amazing and the company won a big order — can I trust that?"
 
 The episode answers this, though the answer hides in the materials detail: a great material is not a manufacturable one, is not a cheap one, is not a profitable one. Every one of those links can break, and press releases only ever cover the first.
+
+![Four bars narrowing from top to bottom read good material, manufacturable, cheap to make and profitable, with a not-equals sign between each pair and the top bar marked as where the news stops.](/figures/power-semis-four-broken-equals-en.svg)
 
 Based on what the show describes, the break point is clearly at crystal growth and substrates. Silicon carbide can't be melted and pulled the way silicon is; gallium nitride destabilises at size. This isn't a "yields improve over a few more quarters" problem, it's a hard physical and process one. When an industry's bottleneck sits at the most upstream material layer, every order downstream still has to pass through that gate.
 

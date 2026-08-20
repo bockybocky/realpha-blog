@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Two arcs run out and back between the circles, and the right-hand circle also carries a loop back to itself." font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <defs>
+    <marker id="ar2" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <text x="480" y="52" text-anchor="middle" font-size="27" font-weight="700" fill="var(--ink)">Three directions, three names</text>
+
+  <circle cx="300" cy="300" r="90" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="300" y="309" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink)">Text</text>
+
+  <circle cx="660" cy="300" r="90" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="660" y="309" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink)">Speech</text>
+
+  <path d="M 360 233 Q 480 150 600 233" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#ar2)"/>
+  <text x="480" y="152" text-anchor="middle" font-size="20" font-weight="700" fill="var(--accent)">TTS</text>
+  <text x="480" y="176" text-anchor="middle" font-size="16" fill="var(--dim)">Text to speech</text>
+
+  <path d="M 600 367 Q 480 450 360 367" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#ar2)"/>
+  <text x="480" y="440" text-anchor="middle" font-size="20" font-weight="700" fill="var(--accent)">STT</text>
+  <text x="480" y="464" text-anchor="middle" font-size="16" fill="var(--dim)">Speech to text</text>
+
+  <path d="M 740 252 C 852 214, 852 386, 740 348" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#ar2)"/>
+  <text x="872" y="292" text-anchor="middle" font-size="20" font-weight="700" fill="var(--accent)">S2S</text>
+  <text x="872" y="316" text-anchor="middle" font-size="16" fill="var(--dim)">Speech to speech</text>
+</svg>

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" width="960" height="650" role="img" aria-label="Two bars of equal height for the same forty percent growth: one sold two more crates, the other sold none more and only raised the price.">
+  <style>
+    svg {
+      --page: #ffffff;
+      --line: #dde3ee;
+      --ink: #1a212b;
+      --dim: #57616f;
+      --grey: #b9c2d0;
+      --accent: #1f6feb;
+      --warn: #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page: #0d1117;
+        --line: #272e39;
+        --ink: #e6edf3;
+        --dim: #8b949e;
+        --grey: #4a5464;
+        --accent: #58a6ff;
+        --warn: #d29922;
+      }
+    }
+    .t    { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .cap  { font-size: 19px; font-weight: 700; fill: var(--dim); }
+    .capA { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .capW { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .big  { font-size: 34px; font-weight: 700; fill: var(--ink); }
+    .unit { font-size: 17px; fill: var(--dim); }
+    .hint { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .pct  { font-size: 16px; font-weight: 700; }
+    .kick { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="650" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">The same forty percent revenue growth</text>
+
+    <!-- 等高虛線 -->
+    <line x1="392" y1="218" x2="830" y2="218" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="6,5"/>
+    <text x="380" y="213" class="hint" text-anchor="end">Same revenue</text>
+
+    <!-- 去年 -->
+    <text x="190" y="270" class="cap" text-anchor="middle">Last year</text>
+    <rect x="142" y="290" width="96" height="180" rx="3" fill="var(--grey)"/>
+    <line x1="142" y1="326" x2="238" y2="326" stroke="var(--page)" stroke-width="3"/>
+    <line x1="142" y1="362" x2="238" y2="362" stroke="var(--page)" stroke-width="3"/>
+    <line x1="142" y1="398" x2="238" y2="398" stroke="var(--page)" stroke-width="3"/>
+    <line x1="142" y1="434" x2="238" y2="434" stroke="var(--page)" stroke-width="3"/>
+
+    <!-- 今年 · 量 -->
+    <text x="480" y="198" class="capA" text-anchor="middle">More volume</text>
+    <rect x="432" y="218" width="96" height="252" rx="3" fill="var(--accent)"/>
+    <line x1="432" y1="254" x2="528" y2="254" stroke="var(--page)" stroke-width="3"/>
+    <line x1="432" y1="290" x2="528" y2="290" stroke="var(--page)" stroke-width="3"/>
+    <line x1="432" y1="326" x2="528" y2="326" stroke="var(--page)" stroke-width="3"/>
+    <line x1="432" y1="362" x2="528" y2="362" stroke="var(--page)" stroke-width="3"/>
+    <line x1="432" y1="398" x2="528" y2="398" stroke="var(--page)" stroke-width="3"/>
+    <line x1="432" y1="434" x2="528" y2="434" stroke="var(--page)" stroke-width="3"/>
+
+    <!-- 今年 · 價 -->
+    <text x="770" y="198" class="capW" text-anchor="middle">Just dearer</text>
+    <rect x="722" y="218" width="96" height="252" rx="3" fill="var(--warn)"/>
+    <line x1="722" y1="268" x2="818" y2="268" stroke="var(--page)" stroke-width="3"/>
+    <line x1="722" y1="319" x2="818" y2="319" stroke="var(--page)" stroke-width="3"/>
+    <line x1="722" y1="369" x2="818" y2="369" stroke="var(--page)" stroke-width="3"/>
+    <line x1="722" y1="420" x2="818" y2="420" stroke="var(--page)" stroke-width="3"/>
+
+    <!-- 地面 -->
+    <line x1="80" y1="470" x2="880" y2="470" stroke="var(--ink)" stroke-width="1.5"/>
+
+    <!-- 數字 -->
+    <text x="190" y="514" class="big" text-anchor="middle">$10</text>
+    <text x="480" y="514" class="big" text-anchor="middle">$14</text>
+    <text x="770" y="514" class="big" text-anchor="middle">$14</text>
+
+    <rect x="434" y="528" width="92" height="26" rx="13" fill="var(--accent)"/>
+    <text x="480" y="546" class="pct" fill="var(--page)" text-anchor="middle">+40%</text>
+    <rect x="724" y="528" width="92" height="26" rx="13" fill="var(--warn)"/>
+    <text x="770" y="546" class="pct" fill="var(--page)" text-anchor="middle">+40%</text>
+
+    <text x="190" y="586" class="unit" text-anchor="middle">5 crates at $2</text>
+    <text x="480" y="586" class="unit" text-anchor="middle">7 crates at $2</text>
+    <text x="770" y="586" class="unit" text-anchor="middle">5 crates at $2.8</text>
+
+    <text x="480" y="630" class="kick" text-anchor="middle">The same +40%: one really sold more, the other is inflation in a new coat.</text>
+  </g>
+</svg>

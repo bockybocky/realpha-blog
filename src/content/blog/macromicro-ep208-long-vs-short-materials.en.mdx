@@ -37,6 +37,8 @@ The part worth writing down isn't the market recap. It's the framework the resea
 - **The profit pool across the AI stack is being redistributed.** The show's frame has five layers: energy, chips, models, infrastructure, applications. Chinese open-source models compress pricing power and the valuation premium at the model layer, but the profit released by cheaper inference flows to applications (more tokens affordable) and to infrastructure (the model is free, the thing running it is not). One layer losing often means another gaining.
 - **Sovereign AI has become a budget line.** The show notes that in June the US Commerce Department briefly halted the export of one frontier model, which pushed several governments to think harder about what happens if a single country can switch off a capability their defence, healthcare, and financial systems depend on. The buyers are clear (anywhere sensitive data can't leave), and so is the spending: models, compute, and compliant operations.
 
+![Three blocks rising in height from left to right: the first two sit left of a dashed line as cyclical swings and the tallest third sits right of it as a trend change, showing both the order to check them in and the difference in severity.](/figures/long-vs-short-materials-risk-order-en.svg)
+
 ## Extensions
 
 **One: long versus short lead items is the most useful tool this episode hands out.**
@@ -51,11 +53,15 @@ Inventory rising two quarters running is good news during active restocking and 
 
 In practice that argues against reacting to any single indicator turning. Inventory, gross margin, capex all have at least two readings, and what decides the reading is the variable sitting next to them. So the thing worth building isn't a list of indicators. It's a table of pairs.
 
+![Two inventory bars rising quarter by quarter on the left branch into two arrows on the right, the upper leading to deliberate restocking and the lower to passive restocking, with the deciding condition written on each arrow.](/figures/inventory-needs-a-paired-variable-en.svg)
+
 **Three: whether cheaper models help or hurt hardware depends on whether the models get bigger or smaller.**
 
 This is the sharpest reasoning in the episode. The implicit logic behind the panic in early 2025 was: models get cheaper, so less compute is needed. But this round of cheapness came from architectural efficiency, and the model itself got larger. Weights of about 1.4TB won't fit in one box, so it goes to a rack, and splitting the model across chips consumes interconnect on top of that.
 
 So the test isn't price. It's **whether the weights fit on a single node**. What I like about that test is that it's checkable: parameter counts and weight sizes are published, so you don't have to judge whose narrative sounds better. Next time someone argues that a cheap model threatens hardware demand, asking that one question will filter out a good half of the noise.
+
+![Two panels of bars: on the left the weights bar is shorter than the single-machine bar and marked fits; on the right the weights bar clearly exceeds the single machine and is marked does not fit, with a taller rack bar beside it marked fits.](/figures/cheap-model-bigger-weights-en.svg)
 
 ## One honest boundary
 

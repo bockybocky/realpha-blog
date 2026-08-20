@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A smooth rising grey line beside a sharply jagged blue one, with a spike and a valley marked.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { fill:var(--ink); font-size:27px; font-weight:700; }
+    .g { fill:var(--dim); font-size:19px; }
+    .k { fill:var(--ink); font-size:19px; font-weight:700; }
+    .w { fill:var(--warn); font-size:19px; font-weight:700; }
+    .c { fill:var(--ink); font-size:22px; font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="64">The model's frontier is jagged</text>
+
+  <text class="g" x="60" y="126">Ability</text>
+  <path d="M80 138 L80 410" stroke="var(--line)" stroke-width="2"/>
+  <path d="M80 410 L880 410" stroke="var(--line)" stroke-width="2"/>
+
+  <path d="M90 336 C300 320 520 286 850 236" fill="none" stroke="var(--grey)" stroke-width="4"/>
+  <polyline points="90,330 150,180 210,350 270,152 330,300 390,362 450,142 510,320 570,376 630,172 690,300 750,134 810,340 850,262" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linejoin="round"/>
+
+  <circle cx="450" cy="142" r="9" fill="var(--accent)"/>
+  <text class="k" x="450" y="124" text-anchor="middle">Spike</text>
+  <circle cx="570" cy="376" r="9" fill="var(--warn)"/>
+  <text class="w" x="570" y="400" text-anchor="middle">Valley</text>
+
+  <path d="M80 452 L120 452" stroke="var(--grey)" stroke-width="4"/>
+  <text class="g" x="132" y="459">Human</text>
+  <path d="M200 452 L240 452" stroke="var(--accent)" stroke-width="4"/>
+  <text class="g" x="252" y="459">Model</text>
+  <text class="g" x="880" y="459" text-anchor="end">Various tasks</text>
+
+  <text class="c" x="60" y="512">You plug into the spikes and fill in the valleys</text>
+</svg>

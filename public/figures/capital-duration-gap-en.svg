@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="A short upper bar for how long the money can stay and a long lower bar for how long the thing takes, with a gap between them.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text x="60" y="58" font-size="27" fill="var(--ink)">Measure the money first, then the company</text>
+
+  <text x="180" y="196" font-size="19" fill="var(--dim)" text-anchor="end">Money duration</text>
+  <rect x="200" y="164" width="150" height="54" rx="8" fill="var(--accent)"/>
+
+  <text x="180" y="326" font-size="19" fill="var(--ink)" text-anchor="end">How long this takes</text>
+  <rect x="200" y="294" width="600" height="54" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="200" y="294" width="150" height="54" rx="8" fill="var(--accent)"/>
+  <rect x="356" y="294" width="438" height="54" rx="8" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 7"/>
+  <text x="575" y="328" font-size="19" fill="var(--warn)" text-anchor="middle">Nine years with nobody alongside</text>
+
+  <line x1="350" y1="150" x2="350" y2="380" stroke="var(--warn)" stroke-width="2" stroke-dasharray="5 6"/>
+  <text x="350" y="404" font-size="16" fill="var(--dim)" text-anchor="middle">3 years</text>
+  <text x="800" y="404" font-size="16" fill="var(--dim)" text-anchor="middle">12 years</text>
+
+  <text x="480" y="470" font-size="22" fill="var(--ink)" text-anchor="middle">Duration disguises itself as judgment</text>
+</svg>

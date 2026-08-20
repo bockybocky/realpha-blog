@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Three bars: a long position, a tiny price fall and a forced sale as long as the position, showing a small move forcing out a large sale.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .title { font-size:27px; fill:var(--ink); font-weight:700; }
+    .group { font-size:19px; fill:var(--dim); }
+    .body { font-size:16px; fill:var(--ink); }
+    .bodydim { font-size:16px; fill:var(--dim); }
+    .concl { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <text class="t title" x="60" y="62">Ten times levered: the fall is 0.5, the sale is 10</text>
+
+  <text class="t group" x="180" y="158" text-anchor="end">Position</text>
+  <rect x="200" y="130" width="65" height="44" fill="var(--accent)"/>
+  <rect x="265" y="130" width="585" height="44" fill="var(--grey)"/>
+  <text class="t body" x="232" y="115" text-anchor="middle">Own 1</text>
+  <text class="t body" x="557" y="159" text-anchor="middle" fill="var(--page)">Borrowed 9</text>
+
+  <text class="t group" x="180" y="278" text-anchor="end">Fall</text>
+  <rect x="200" y="250" width="33" height="44" fill="var(--warn)"/>
+  <text class="t body" x="253" y="279">Price -5%, half the equity gone</text>
+
+  <text class="t group" x="180" y="398" text-anchor="end">Sold</text>
+  <rect x="200" y="370" width="650" height="44" fill="var(--warn)" fill-opacity="0.35" stroke="var(--warn)" stroke-width="2"/>
+  <text class="t body" x="525" y="399" text-anchor="middle">Forced sale of 10</text>
+
+  <line x1="200" y1="440" x2="850" y2="440" stroke="var(--line)" stroke-width="1"/>
+  <text class="t bodydim" x="200" y="466">Margin call</text>
+  <text class="t bodydim" x="850" y="466" text-anchor="end">Liquidity stampede</text>
+
+  <text class="t concl" x="60" y="512">The selling comes from margin calls, not fundamentals</text>
+</svg>

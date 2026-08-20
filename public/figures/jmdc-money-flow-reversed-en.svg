@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="In the top row the data and money arrows point opposite ways; in the bottom row both point right.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="ag" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="var(--grey)"/>
+    </marker>
+    <marker id="aa" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <text x="60" y="58" font-size="27" fill="var(--ink)">Which way does the money flow</text>
+
+  <text x="60" y="132" font-size="19" fill="var(--dim)">The usual way</text>
+  <rect x="180" y="150" width="200" height="86" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="280" y="200" font-size="19" fill="var(--dim)" text-anchor="middle">Data holder</text>
+  <rect x="600" y="150" width="200" height="86" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="700" y="200" font-size="19" fill="var(--dim)" text-anchor="middle">Data company</text>
+  <line x1="396" y1="176" x2="584" y2="176" stroke="var(--grey)" stroke-width="3" marker-end="url(#ag)"/>
+  <text x="490" y="166" font-size="15" fill="var(--dim)" text-anchor="middle">Data</text>
+  <line x1="584" y1="216" x2="396" y2="216" stroke="var(--grey)" stroke-width="3" marker-end="url(#ag)"/>
+  <text x="490" y="240" font-size="15" fill="var(--dim)" text-anchor="middle">Money</text>
+
+  <text x="60" y="332" font-size="19" fill="var(--ink)">JMDC</text>
+  <rect x="180" y="350" width="200" height="86" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="280" y="400" font-size="19" fill="var(--ink)" text-anchor="middle">Insurance societies</text>
+  <rect x="600" y="350" width="200" height="86" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="700" y="400" font-size="19" fill="var(--ink)" text-anchor="middle">JMDC</text>
+  <line x1="396" y1="376" x2="584" y2="376" stroke="var(--accent)" stroke-width="3" marker-end="url(#aa)"/>
+  <text x="490" y="366" font-size="15" fill="var(--dim)" text-anchor="middle">Data</text>
+  <line x1="396" y1="416" x2="584" y2="416" stroke="var(--accent)" stroke-width="3" marker-end="url(#aa)"/>
+  <text x="490" y="440" font-size="15" fill="var(--dim)" text-anchor="middle">Money</text>
+
+  <text x="480" y="500" font-size="22" fill="var(--ink)" text-anchor="middle">The supplier is also the customer</text>
+</svg>

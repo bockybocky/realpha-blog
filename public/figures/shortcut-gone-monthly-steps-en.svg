@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Forward guidance reaches the conclusion in one step on top, while the lower row climbs four monthly steps to the same conclusion.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .n { font-size:16px; fill:var(--ink); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="58">After the shortcut disappears</text>
+
+  <text class="g" x="56" y="184">Before</text>
+  <rect x="130" y="146" width="190" height="62" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text class="n" x="225" y="184" text-anchor="middle">Forward guidance</text>
+  <line x1="330" y1="177" x2="392" y2="177" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="404,177 388,169 388,185" fill="var(--accent)"/>
+  <rect x="412" y="146" width="150" height="62" rx="10" fill="var(--card)" stroke="var(--accent)"/>
+  <text class="n" x="487" y="184" text-anchor="middle">Conclusion</text>
+
+  <line x1="60" y1="248" x2="900" y2="248" stroke="var(--line)" stroke-width="1"/>
+
+  <text class="g" x="56" y="404">After</text>
+  <polyline points="130,438 230,438 230,398 330,398 330,358 430,358 430,318 530,318"
+            fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <text class="b" x="180" y="426" text-anchor="middle">Mo</text>
+  <text class="b" x="280" y="386" text-anchor="middle">Mo</text>
+  <text class="b" x="380" y="346" text-anchor="middle">Mo</text>
+  <text class="b" x="480" y="306" text-anchor="middle">Mo</text>
+
+  <line x1="530" y1="318" x2="552" y2="318" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="564,318 548,310 548,326" fill="var(--accent)"/>
+  <rect x="572" y="288" width="150" height="62" rx="10" fill="var(--card)" stroke="var(--accent)"/>
+  <text class="n" x="647" y="326" text-anchor="middle">Conclusion</text>
+
+  <text class="b" x="130" y="472">Each step = monthly rate hitting 0.2%</text>
+
+  <text class="c" x="480" y="516" text-anchor="middle">From one guess to a monthly tally</text>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="On the left most stocks rise together near the index line; on the right a few very high names carry the index while the rest sit below zero.">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #9aa5b5;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #6b7686;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .cap   { font-size: 20px; font-weight: 700; fill: var(--ink); }
+    .idx   { font-size: 15.5px; font-weight: 700; fill: var(--accent); }
+    .zero  { font-size: 15px; fill: var(--dim); }
+    .desc  { font-size: 15.5px; fill: var(--dim); }
+    .kick  { font-size: 21px; font-weight: 700; fill: var(--ink); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">The index rose either way, and they look nothing alike</text>
+
+    <!-- ===== 左：雨露均霑 ===== -->
+    <text x="255" y="90" class="cap" text-anchor="middle">Most stocks rise together</text>
+
+    <line x1="100" y1="340" x2="410" y2="340" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="92" y="345" class="zero" text-anchor="end">0</text>
+    <line x1="100" y1="250" x2="410" y2="250" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="7,5"/>
+    <text x="106" y="240" class="idx">Index return</text>
+
+    <g fill="var(--grey)">
+      <circle cx="122" cy="228" r="6"/><circle cx="140" cy="272" r="6"/><circle cx="158" cy="206" r="6"/>
+      <circle cx="176" cy="290" r="6"/><circle cx="194" cy="244" r="6"/><circle cx="212" cy="214" r="6"/>
+      <circle cx="230" cy="298" r="6"/><circle cx="248" cy="236" r="6"/><circle cx="266" cy="264" r="6"/>
+      <circle cx="284" cy="198" r="6"/><circle cx="302" cy="282" r="6"/><circle cx="320" cy="222" r="6"/>
+      <circle cx="338" cy="256" r="6"/><circle cx="356" cy="310" r="6"/><circle cx="374" cy="240" r="6"/>
+      <circle cx="392" cy="276" r="6"/><circle cx="131" cy="318" r="6"/><circle cx="257" cy="326" r="6"/>
+      <circle cx="347" cy="352" r="6"/><circle cx="203" cy="358" r="6"/>
+    </g>
+    <text x="255" y="410" class="desc" text-anchor="middle">Pick almost anything</text>
+    <text x="255" y="434" class="desc" text-anchor="middle">and you keep up</text>
+
+    <!-- ===== 右：少數幾檔扛 ===== -->
+    <text x="705" y="90" class="cap" text-anchor="middle">A few names carry it</text>
+
+    <line x1="550" y1="340" x2="860" y2="340" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="542" y="345" class="zero" text-anchor="end">0</text>
+    <line x1="550" y1="250" x2="860" y2="250" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="7,5"/>
+    <text x="556" y="240" class="idx">Index return, just as high</text>
+
+    <g fill="var(--warn)">
+      <circle cx="600" cy="122" r="7"/><circle cx="702" cy="106" r="7"/><circle cx="800" cy="134" r="7"/>
+    </g>
+    <g fill="var(--grey)">
+      <circle cx="572" cy="352" r="6"/><circle cx="590" cy="368" r="6"/><circle cx="608" cy="344" r="6"/>
+      <circle cx="626" cy="376" r="6"/><circle cx="644" cy="330" r="6"/><circle cx="662" cy="360" r="6"/>
+      <circle cx="680" cy="382" r="6"/><circle cx="698" cy="338" r="6"/><circle cx="716" cy="366" r="6"/>
+      <circle cx="734" cy="348" r="6"/><circle cx="752" cy="386" r="6"/><circle cx="770" cy="332" r="6"/>
+      <circle cx="788" cy="370" r="6"/><circle cx="806" cy="354" r="6"/><circle cx="824" cy="378" r="6"/>
+      <circle cx="842" cy="342" r="6"/><circle cx="614" cy="396" r="6"/>
+    </g>
+    <text x="705" y="430" class="desc" text-anchor="middle">Lagging the index is structural here,</text>
+    <text x="705" y="454" class="desc" text-anchor="middle">not a question of skill</text>
+
+    <text x="480" y="512" class="kick" text-anchor="middle">An index is a weighted average, not your experience.</text>
+    <text x="480" y="544" class="kick" text-anchor="middle">When the two diverge badly, check breadth before you blame yourself.</text>
+  </g>
+</svg>

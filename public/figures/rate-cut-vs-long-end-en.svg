@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two lines cross into an X: the policy rate falls from a high level while the thirty-year yield rises from a low one.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="60" y="56" font-size="27" fill="var(--ink)">The Fed went down, the long end went up</text>
+
+  <rect x="60" y="90" width="840" height="400" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="120" y1="460" x2="880" y2="460" stroke="var(--line)" stroke-width="2"/>
+  <text x="130" y="484" font-size="15" fill="var(--dim)">Sep 2024</text>
+  <text x="870" y="484" font-size="15" fill="var(--dim)" text-anchor="end">Jul 2026</text>
+
+  <polyline points="150,185 400,260 620,340 790,405" fill="none" stroke="var(--grey)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline points="150,329 400,300 620,240 790,155" fill="none" stroke="var(--warn)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="150" cy="185" r="7" fill="var(--grey)"/>
+  <circle cx="790" cy="405" r="7" fill="var(--grey)"/>
+  <circle cx="150" cy="329" r="7" fill="var(--warn)"/>
+  <circle cx="790" cy="155" r="7" fill="var(--warn)"/>
+
+  <text x="168" y="172" font-size="16" fill="var(--dim)">Policy rate</text>
+  <text x="168" y="356" font-size="16" fill="var(--dim)">30-year 4.02%</text>
+  <text x="805" y="150" font-size="19" fill="var(--warn)">5.20%</text>
+  <text x="805" y="172" font-size="15" fill="var(--dim)">+118bp</text>
+  <text x="805" y="400" font-size="19" fill="var(--dim)">-150bp</text>
+
+  <text x="480" y="527" font-size="22" fill="var(--ink)" text-anchor="middle">The short end is the Fed's; the long end is the market's</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A falling line reaches a point and splits into two paths leading to two cards, one cause and one response each.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .title { font-size:27px; fill:var(--ink); font-weight:700; }
+    .group { font-size:20px; fill:var(--ink); font-weight:700; }
+    .body { font-size:16px; fill:var(--dim); }
+    .tag { font-size:16px; fill:var(--ink); }
+    .concl { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <text class="t title" x="60" y="62">One decline, two paths</text>
+
+  <polyline points="110,120 190,132 260,118 340,150 410,142 480,196"
+            fill="none" stroke="var(--grey)" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="480" cy="196" r="9" fill="var(--ink)"/>
+  <text class="t tag" x="500" y="190">Down 5%</text>
+
+  <path d="M480 205 C 480 250, 260 250, 260 322" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M480 205 C 480 250, 700 250, 700 322" fill="none" stroke="var(--accent)" stroke-width="3"/>
+
+  <rect x="90" y="330" width="340" height="130" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t group" x="120" y="374">Fundamentals worse</text>
+  <text class="t body" x="120" y="408">The company got worse</text>
+  <text class="t tag" x="120" y="440">Revisit the thesis</text>
+
+  <rect x="530" y="330" width="340" height="130" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t group" x="560" y="374">Deleveraging</text>
+  <text class="t body" x="560" y="408">Someone is being liquidated</text>
+  <text class="t tag" x="560" y="440">Check your position size</text>
+
+  <text class="t concl" x="60" y="512">Ask who is selling before deciding what to do</text>
+</svg>

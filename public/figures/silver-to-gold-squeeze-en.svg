@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Safe-haven demand once split between gold and silver; with silver abandoned it all crowds into gold, and the safe asset is instantly scarce.">
+  <style>
+    svg {
+      --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#6b7686; --accent:#58a6ff; --warn:#d29922;
+      }
+    }
+    .t    { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size:27px; font-weight:700; fill:var(--ink); }
+    .cap  { font-size:19px; font-weight:700; fill:var(--dim); }
+    .box  { font-size:18px; font-weight:700; fill:var(--page); }
+    .sub  { font-size:15px; fill:var(--dim); }
+    .warnl{ font-size:17px; font-weight:700; fill:var(--warn); }
+    .kick { font-size:21px; font-weight:700; fill:var(--ink); }
+  </style>
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L9,3.5 L0,7 Z" fill="var(--dim)"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">Safe-haven demand had two exits, then one</text>
+
+    <text x="240" y="90" class="cap" text-anchor="middle">Before the crisis</text>
+    <text x="720" y="90" class="cap" text-anchor="middle">After Germany sold all its silver</text>
+
+    <g stroke="var(--dim)" stroke-width="2.5" marker-end="url(#a)">
+      <line x1="80" y1="150" x2="140" y2="188"/>
+      <line x1="80" y1="200" x2="140" y2="200"/>
+      <line x1="80" y1="250" x2="140" y2="212"/>
+      <line x1="80" y1="300" x2="140" y2="318"/>
+      <line x1="80" y1="350" x2="140" y2="330"/>
+      <line x1="80" y1="400" x2="140" y2="342"/>
+    </g>
+
+    <rect x="150" y="160" width="180" height="80" rx="6" fill="var(--warn)"/>
+    <text x="240" y="208" class="box" text-anchor="middle">Gold</text>
+    <rect x="150" y="290" width="180" height="80" rx="6" fill="var(--grey)"/>
+    <text x="240" y="338" class="box" text-anchor="middle">Silver</text>
+    <text x="240" y="404" class="sub" text-anchor="middle">A third of the world ran on silver</text>
+
+    <g stroke="var(--dim)" stroke-width="2.5" marker-end="url(#a)">
+      <line x1="530" y1="140" x2="612" y2="186"/>
+      <line x1="530" y1="180" x2="612" y2="194"/>
+      <line x1="530" y1="220" x2="612" y2="202"/>
+      <line x1="530" y1="260" x2="612" y2="210"/>
+      <line x1="530" y1="300" x2="612" y2="218"/>
+      <line x1="530" y1="340" x2="612" y2="226"/>
+    </g>
+
+    <rect x="620" y="160" width="180" height="80" rx="6" fill="var(--warn)"/>
+    <text x="710" y="208" class="box" text-anchor="middle">Gold</text>
+    <text x="826" y="196" class="warnl">Instantly</text>
+    <text x="826" y="220" class="warnl">scarce</text>
+
+    <rect x="620" y="290" width="180" height="80" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text x="710" y="338" class="box" fill="var(--dim)" text-anchor="middle">Silver</text>
+    <g stroke="var(--warn)" stroke-width="5" stroke-linecap="round">
+      <line x1="646" y1="304" x2="774" y2="356"/>
+      <line x1="774" y1="304" x2="646" y2="356"/>
+    </g>
+    <text x="710" y="404" class="sub" text-anchor="middle">One country after another abandoned it</text>
+
+    <line x1="80" y1="444" x2="880" y2="444" stroke="var(--line)" stroke-width="1"/>
+    <text x="480" y="478" class="sub" text-anchor="middle">Credit contracted sharply, wholesale prices fell thirty percent by year end, and twenty years of deflation followed</text>
+
+    <text x="480" y="530" class="kick" text-anchor="middle">The crash did not make it a depression,</text>
+    <text x="480" y="562" class="kick" text-anchor="middle">the monetary decision after it did.</text>
+  </g>
+</svg>

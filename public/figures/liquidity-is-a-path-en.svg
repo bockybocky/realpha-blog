@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Plenty of assets with a broken route to cash above, and fewer assets with an open route below; liquidity depends on the route, not the holdings.">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .nameW { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .nameA { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .lb    { font-size: 15.5px; fill: var(--dim); }
+    .goal  { font-size: 17px; font-weight: 700; }
+    .road  { font-size: 15.5px; font-weight: 700; }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+    .sub   { font-size: 16px; fill: var(--dim); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">However many assets, a blocked route reaches no cash</text>
+
+    <!-- ===== 上排：資產多，路斷 ===== -->
+    <text x="70" y="102" class="nameW">Many assets, but never walked that route</text>
+    <g fill="var(--grey)">
+      <rect x="70" y="118" width="44" height="30" rx="3"/>
+      <rect x="120" y="118" width="44" height="30" rx="3"/>
+      <rect x="170" y="118" width="44" height="30" rx="3"/>
+      <rect x="70" y="154" width="44" height="30" rx="3"/>
+      <rect x="120" y="154" width="44" height="30" rx="3"/>
+      <rect x="170" y="154" width="44" height="30" rx="3"/>
+      <rect x="70" y="190" width="44" height="30" rx="3"/>
+      <rect x="120" y="190" width="44" height="30" rx="3"/>
+      <rect x="170" y="190" width="44" height="30" rx="3"/>
+    </g>
+    <text x="142" y="242" class="lb" text-anchor="middle">Quality assets</text>
+
+    <!-- 斷掉的路 -->
+    <line x1="250" y1="170" x2="470" y2="170" stroke="var(--line)" stroke-width="8" stroke-linecap="round"/>
+    <line x1="490" y1="170" x2="700" y2="170" stroke="var(--line)" stroke-width="8" stroke-linecap="round" stroke-dasharray="10,10"/>
+    <g stroke="var(--warn)" stroke-width="5" stroke-linecap="round">
+      <line x1="466" y1="150" x2="502" y2="190"/>
+      <line x1="502" y1="150" x2="466" y2="190"/>
+    </g>
+    <text x="484" y="222" class="road" fill="var(--warn)" text-anchor="middle">Route never used</text>
+
+    <rect x="716" y="140" width="176" height="60" rx="8" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6,5"/>
+    <text x="804" y="176" class="goal" fill="var(--grey)" text-anchor="middle">No cash</text>
+
+    <line x1="60" y1="270" x2="900" y2="270" stroke="var(--line)" stroke-width="1"/>
+
+    <!-- ===== 下排：資產少，路通 ===== -->
+    <text x="70" y="312" class="nameA">Fewer assets, but the route was walked</text>
+    <g fill="var(--grey)">
+      <rect x="70" y="328" width="44" height="30" rx="3"/>
+      <rect x="120" y="328" width="44" height="30" rx="3"/>
+      <rect x="70" y="364" width="44" height="30" rx="3"/>
+      <rect x="120" y="364" width="44" height="30" rx="3"/>
+    </g>
+    <text x="120" y="416" class="lb" text-anchor="middle">Collateral</text>
+
+    <!-- 通的路 -->
+    <line x1="250" y1="358" x2="690" y2="358" stroke="var(--accent)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M676,344 L700,358 L676,372" fill="none" stroke="var(--accent)" stroke-width="6"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="470" y="336" class="road" fill="var(--accent)" text-anchor="middle">A route already run once</text>
+    <text x="470" y="392" class="lb" text-anchor="middle">Borrow at the window, sell collateral slowly, repay</text>
+
+    <rect x="716" y="328" width="176" height="60" rx="8" fill="var(--accent)"/>
+    <text x="804" y="364" class="goal" fill="var(--page)" text-anchor="middle">Cash arrives</text>
+
+    <text x="480" y="486" class="kick" text-anchor="middle">Liquidity is not how much you hold,</text>
+    <text x="480" y="518" class="kick" text-anchor="middle">it is how many routes you have already walked.</text>
+    <text x="480" y="548" class="sub" text-anchor="middle">A route you have never actually run is only a route you think you have.</text>
+  </g>
+</svg>

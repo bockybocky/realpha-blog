@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="One timeline holds a long stretch between training and release, the other releases immediately, with a long and a short arrow below." font-family='"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif'>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text x="60" y="66" font-size="27" fill="var(--ink)">Compare release dates and you see only the shortest stretch</text>
+
+<line x1="200" y1="220" x2="880" y2="220" stroke="var(--line)" stroke-width="2"/>
+<text x="180" y="226" font-size="20" fill="var(--dim)" text-anchor="end">One side</text>
+<rect x="220" y="206" width="330" height="28" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="385" y="226" font-size="16" fill="var(--dim)" text-anchor="middle">Held back</text>
+<circle cx="220" cy="220" r="8" fill="var(--dim)"/>
+<text x="220" y="182" font-size="16" fill="var(--dim)" text-anchor="middle">Training done</text>
+<circle cx="550" cy="220" r="8" fill="var(--accent)"/>
+<text x="550" y="182" font-size="16" fill="var(--accent)" text-anchor="middle">Released</text>
+
+<line x1="200" y1="340" x2="880" y2="340" stroke="var(--line)" stroke-width="2"/>
+<text x="180" y="346" font-size="20" fill="var(--dim)" text-anchor="end">The other</text>
+<rect x="520" y="326" width="60" height="28" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="520" cy="340" r="8" fill="var(--dim)"/>
+<text x="500" y="382" font-size="16" fill="var(--dim)" text-anchor="middle">Training done</text>
+<circle cx="580" cy="340" r="8" fill="var(--accent)"/>
+<text x="612" y="382" font-size="16" fill="var(--accent)">Released</text>
+
+<line x1="220" y1="446" x2="520" y2="446" stroke="var(--dim)" stroke-width="1.5"/>
+<polygon points="220,446 232,441 232,451" fill="var(--dim)"/>
+<polygon points="520,446 508,441 508,451" fill="var(--dim)"/>
+<text x="370" y="430" font-size="20" fill="var(--ink)" text-anchor="middle">The real gap</text>
+
+<line x1="550" y1="496" x2="580" y2="496" stroke="var(--accent)" stroke-width="1.5"/>
+<polygon points="550,496 560,491 560,501" fill="var(--accent)"/>
+<polygon points="580,496 570,491 570,501" fill="var(--accent)"/>
+<text x="600" y="502" font-size="20" fill="var(--accent)">The apparent gap</text>
+
+<text x="480" y="556" font-size="22" fill="var(--ink)" text-anchor="middle">The stretch you can see is not the real one</text>
+</svg>

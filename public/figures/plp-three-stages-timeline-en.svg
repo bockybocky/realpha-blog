@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Three bars at different distances from revenue under one label: low and mid end spans the whole timeline, while high end and glass appear only at the right-hand end.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">One name, three distances</text>
+
+<line x1="300" y1="120" x2="300" y2="400" stroke="var(--line)" stroke-width="2"/>
+<line x1="493" y1="120" x2="493" y2="400" stroke="var(--line)" stroke-width="2"/>
+<line x1="687" y1="120" x2="687" y2="400" stroke="var(--line)" stroke-width="2"/>
+<line x1="880" y1="120" x2="880" y2="400" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+
+<rect x="300" y="150" width="580" height="44" fill="var(--accent)"/>
+<text x="270" y="180" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="end">Low and mid</text>
+<text x="898" y="180" font-size="16" fill="var(--dim)">Paid</text>
+
+<rect x="687" y="232" width="193" height="44" fill="var(--card)" stroke="var(--grey)" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="270" y="262" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="end">High end</text>
+<text x="898" y="262" font-size="16" fill="var(--dim)">Pilot</text>
+
+<rect x="780" y="314" width="100" height="44" fill="var(--card)" stroke="var(--grey)" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="270" y="344" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="end">Glass carrier</text>
+<text x="898" y="344" font-size="16" fill="var(--dim)">Route</text>
+
+<line x1="300" y1="400" x2="920" y2="400" stroke="var(--line)" stroke-width="3"/>
+<text x="300" y="430" font-size="16" fill="var(--dim)" text-anchor="middle">Today</text>
+<text x="493" y="430" font-size="16" fill="var(--dim)" text-anchor="middle">2027</text>
+<text x="687" y="430" font-size="16" fill="var(--dim)" text-anchor="middle">2028</text>
+<text x="880" y="430" font-size="16" font-weight="700" fill="var(--warn)" text-anchor="middle">2029</text>
+
+<text x="60" y="490" font-size="22" font-weight="700" fill="var(--ink)">That empty stretch on the left is what you are buying</text>
+</svg>

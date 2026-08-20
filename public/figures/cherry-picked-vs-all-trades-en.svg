@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Three winning bars totalling plus ten on the left, and on the right ten mixed trades over the same period totalling minus one after costs.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:15px; fill:var(--dim); }
+    .v { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+    .sumA { font-size:20px; fill:var(--accent); font-weight:700; }
+    .sumW { font-size:20px; fill:var(--warn); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+
+  <text class="t" x="60" y="62">Same trades, two ways to count</text>
+
+  <rect x="60" y="100" width="380" height="400" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="500" y="100" width="400" height="400" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="g" x="88" y="140">Sales material</text>
+  <text class="s" x="88" y="166">Only three picked out</text>
+  <text class="g" x="528" y="140">A checkable record</text>
+  <text class="s" x="528" y="166">Every trade in the period</text>
+
+  <line x1="80" y1="380" x2="420" y2="380" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="520" y1="380" x2="880" y2="380" stroke="var(--grey)" stroke-width="2"/>
+
+  <rect x="140" y="280" width="50" height="100" fill="var(--accent)"/>
+  <rect x="225" y="320" width="50" height="60" fill="var(--accent)"/>
+  <rect x="310" y="340" width="50" height="40" fill="var(--accent)"/>
+  <text class="v" x="165" y="270" text-anchor="middle">+5</text>
+  <text class="v" x="250" y="310" text-anchor="middle">+3</text>
+  <text class="v" x="335" y="330" text-anchor="middle">+2</text>
+  <text class="sumA" x="88" y="446">Total +10</text>
+
+  <rect x="530" y="280" width="22" height="100" fill="var(--accent)"/>
+  <rect x="560" y="320" width="22" height="60" fill="var(--accent)"/>
+  <rect x="590" y="340" width="22" height="40" fill="var(--accent)"/>
+  <rect x="620" y="380" width="22" height="80" fill="var(--warn)"/>
+  <rect x="650" y="360" width="22" height="20" fill="var(--accent)"/>
+  <rect x="680" y="380" width="22" height="60" fill="var(--warn)"/>
+  <rect x="710" y="340" width="22" height="40" fill="var(--accent)"/>
+  <rect x="740" y="380" width="22" height="40" fill="var(--warn)"/>
+  <rect x="770" y="360" width="22" height="20" fill="var(--accent)"/>
+  <rect x="800" y="380" width="22" height="80" fill="var(--warn)"/>
+  <rect x="836" y="380" width="22" height="40" fill="var(--grey)"/>
+  <text class="s" x="847" y="438" text-anchor="middle">Costs</text>
+  <text class="sumW" x="528" y="490">Total -1</text>
+
+  <text class="c" x="60" y="548">Showing only the wins is sales material</text>
+</svg>

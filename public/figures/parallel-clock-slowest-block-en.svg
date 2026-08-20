@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The upper row of four blocks runs end to end to the right; the lower row stacks the middle two and finishes earlier, leaving a dashed box of saved time.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--page); font-weight:700; }
+    .d { font-size:16px; fill:var(--dim); }
+    .w { font-size:16px; fill:var(--warn); font-weight:700; }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="54">Same work, two schedules</text>
+
+  <text class="g" x="140" y="152" text-anchor="end">Serial</text>
+  <rect x="160" y="120" width="100" height="46" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <text class="d" x="210" y="149" text-anchor="middle">Plan</text>
+  <rect x="260" y="120" width="220" height="46" rx="6" fill="var(--accent)" fill-opacity="0.9"/>
+  <text class="b" x="370" y="149" text-anchor="middle">Backend</text>
+  <rect x="480" y="120" width="180" height="46" rx="6" fill="var(--accent)" fill-opacity="0.9"/>
+  <text class="b" x="570" y="149" text-anchor="middle">Frontend</text>
+  <rect x="660" y="120" width="100" height="46" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <text class="d" x="710" y="149" text-anchor="middle">Review</text>
+
+  <text class="g" x="140" y="294" text-anchor="end">Parallel</text>
+  <rect x="160" y="264" width="100" height="46" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <text class="d" x="210" y="293" text-anchor="middle">Plan</text>
+  <rect x="260" y="240" width="220" height="44" rx="6" fill="var(--accent)" fill-opacity="0.9"/>
+  <text class="b" x="370" y="268" text-anchor="middle">Backend</text>
+  <rect x="260" y="290" width="180" height="44" rx="6" fill="var(--accent)" fill-opacity="0.9"/>
+  <text class="b" x="350" y="318" text-anchor="middle">Frontend</text>
+  <rect x="480" y="264" width="100" height="46" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <text class="d" x="530" y="293" text-anchor="middle">Review</text>
+
+  <rect x="580" y="228" width="180" height="118" rx="8" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 6"/>
+  <text class="w" x="670" y="372" text-anchor="middle">Saved</text>
+
+  <line x1="160" y1="410" x2="800" y2="410" stroke="var(--grey)" stroke-width="2"/>
+  <path d="M800 402 L816 410 L800 418 Z" fill="var(--grey)"/>
+  <text class="d" x="824" y="416">Time</text>
+
+  <text class="c" x="60" y="486">The clock counts the slowest block</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A four-tier pyramid, narrow and strict at the top, wide and light at the bottom.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<defs><marker id="a6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/></marker></defs>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="58">Four risk tiers</text>
+<polygon points="420,120 540,120 615,200 345,200" fill="var(--warn)" fill-opacity="0.18" stroke="var(--warn)" stroke-width="2"/>
+<polygon points="345,200 615,200 690,280 270,280" fill="var(--accent)" fill-opacity="0.16" stroke="var(--accent)" stroke-width="2"/>
+<polygon points="270,280 690,280 765,360 195,360" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<polygon points="195,360 765,360 840,440 120,440" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="480" y="172" text-anchor="middle">Unacceptable . banned</text>
+<text class="g" x="480" y="252" text-anchor="middle">High . strict duties</text>
+<text class="g" x="480" y="332" text-anchor="middle">Limited . transparency</text>
+<text class="g" x="480" y="412" text-anchor="middle">Minimal . barely governed</text>
+<line x1="90" y1="430" x2="90" y2="140" stroke="var(--dim)" stroke-width="2" marker-end="url(#a6)"/>
+<text class="s" x="70" y="290" text-anchor="middle" transform="rotate(-90 70 290)">Stricter</text>
+<line x1="880" y1="150" x2="880" y2="430" stroke="var(--dim)" stroke-width="2" marker-end="url(#a6)"/>
+<text class="s" x="906" y="290" text-anchor="middle" transform="rotate(-90 906 290)">More of them</text>
+<text class="c" x="60" y="500">Stricter at the top, more numerous at the bottom</text>
+</svg>

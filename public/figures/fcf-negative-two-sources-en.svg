@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Two sets of bars: falling operating cash flow drives free cash flow negative on the left, and rising capex does it on the right.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--dim); }
+    .b { font-size:15px; fill:var(--dim); }
+    .n { font-size:16px; font-weight:700; fill:var(--ink); }
+    .v { font-size:20px; font-weight:700; fill:var(--ink); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text class="t" x="60" y="58">Free cash flow turns negative for two different reasons</text>
+
+  <rect x="60" y="92" width="390" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="510" y="92" width="390" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <text class="g" x="84" y="130">Operations fell</text>
+  <text class="g" x="534" y="130">Capex rose</text>
+
+  <rect x="110" y="266" width="66" height="100" fill="var(--accent)"/>
+  <rect x="110" y="166" width="66" height="100" fill="none" stroke="var(--grey)" stroke-dasharray="5 5"/>
+  <line x1="143" y1="182" x2="143" y2="250" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="143,262 136,246 150,246" fill="var(--warn)"/>
+  <text class="n" x="143" y="252" text-anchor="middle" fill="var(--warn)"> </text>
+  <text class="n" x="143" y="288" text-anchor="middle" fill="var(--page)">4</text>
+
+  <rect x="212" y="241" width="66" height="125" fill="var(--grey)"/>
+  <text class="n" x="245" y="266" text-anchor="middle" fill="var(--page)">4</text>
+
+  <rect x="314" y="366" width="66" height="25" fill="var(--warn)"/>
+  <text class="n" x="347" y="412" text-anchor="middle" fill="var(--warn)">5</text>
+
+  <rect x="560" y="166" width="66" height="200" fill="var(--accent)"/>
+  <text class="n" x="593" y="192" text-anchor="middle" fill="var(--page)">-1</text>
+
+  <rect x="662" y="126" width="66" height="240" fill="var(--grey)"/>
+  <line x1="695" y1="180" x2="695" y2="112" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="695,102 688,118 702,118" fill="var(--warn)"/>
+  <text class="n" x="695" y="152" text-anchor="middle" fill="var(--page)">10</text>
+
+  <rect x="764" y="366" width="66" height="50" fill="var(--warn)"/>
+  <text class="n" x="797" y="436" text-anchor="middle" fill="var(--warn)">12</text>
+
+  <line x1="90" y1="366" x2="420" y2="366" stroke="var(--line)" stroke-width="2"/>
+  <line x1="540" y1="366" x2="870" y2="366" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="b" x="143" y="440">-2</text>
+  <text class="b" x="245" y="440">Operations</text>
+  <text class="b" x="347" y="440">Capex</text>
+  <text class="b" x="593" y="440">Free cash flow</text>
+  <text class="b" x="695" y="440">Operations</text>
+  <text class="b" x="797" y="460">Capex</text>
+
+  <text class="v" x="255" y="500" text-anchor="middle">Free cash flow</text>
+  <text class="v" x="705" y="500" text-anchor="middle">Watch: demand</text>
+
+  <text class="c" x="480" y="556" text-anchor="middle">Watch: funding terms</text>
+</svg>

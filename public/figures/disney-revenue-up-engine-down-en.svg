@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="From 1972 to 1984 consolidated revenue kept rising while the animation core kept shrinking, the two lines crossing like scissors">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t{font-size:27px;fill:var(--ink);font-weight:700}
+    .g{font-size:19px;fill:var(--dim)}
+    .n{font-size:16px;fill:var(--ink)}
+    .c{font-size:22px;fill:var(--ink);font-weight:700}
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="50">Totals up, engine shrinking</text>
+  <rect x="60" y="88" width="840" height="392" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="190" y1="445" x2="790" y2="445" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="190" y="470" text-anchor="middle">1972</text>
+  <text class="g" x="790" y="470" text-anchor="middle">1984</text>
+
+  <path d="M190,398 C 380,382 560,300 790,175" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <circle cx="190" cy="398" r="6" fill="var(--accent)"/>
+  <circle cx="790" cy="175" r="6" fill="var(--accent)"/>
+  <text class="n" x="198" y="424">Revenue $100M</text>
+  <text class="n" x="782" y="158" text-anchor="end">$1.4B</text>
+
+  <path d="M190,180 C 400,196 570,320 790,390" fill="none" stroke="var(--warn)" stroke-width="4"/>
+  <circle cx="190" cy="180" r="6" fill="var(--warn)"/>
+  <circle cx="790" cy="390" r="6" fill="var(--warn)"/>
+  <text class="n" x="198" y="162">Animation core: 500</text>
+  <text class="n" x="782" y="416" text-anchor="end">125</text>
+
+  <text class="c" x="60" y="522">Growing totals do not mean the engine still turns</text>
+</svg>

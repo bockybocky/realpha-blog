@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Chip prices after launch: falling steadily for twenty years, and rising for today's AI chips.">
+  <style>
+    svg {
+      --page: #ffffff;
+      --line: #dde3ee;
+      --ink: #1a212b;
+      --dim: #57616f;
+      --grey: #9aa5b5;
+      --warn: #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page: #0d1117;
+        --line: #272e39;
+        --ink: #e6edf3;
+        --dim: #8b949e;
+        --grey: #6b7686;
+        --warn: #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .labW  { font-size: 20px; font-weight: 700; fill: var(--warn); }
+    .labG  { font-size: 20px; font-weight: 700; fill: var(--dim); }
+    .ax    { font-size: 16px; fill: var(--dim); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+    .quote { font-size: 16px; fill: var(--dim); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">After a chip launches, which way does its price go?</text>
+
+    <!-- 上市價參考線 -->
+    <line x1="120" y1="241" x2="880" y2="241" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="5,5"/>
+    <text x="112" y="247" class="ax" text-anchor="end">Launch price</text>
+
+    <!-- 上揚線標籤 -->
+    <text x="500" y="110" class="labW" text-anchor="middle">Today's AI chips: they appreciate after launch</text>
+
+    <!-- 上揚曲線 -->
+    <path d="M120,241 C200,215 250,203 305,196 C380,184 440,160 490,147 C550,137 630,130 675,128 C740,125 810,122 860,120"
+          fill="none" stroke="var(--warn)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="860" cy="120" r="7" fill="var(--warn)"/>
+
+    <!-- 下滑曲線 -->
+    <path d="M120,241 C200,262 250,278 305,286 C380,298 440,328 490,347 C560,370 620,382 675,392 C740,403 810,422 860,430"
+          fill="none" stroke="var(--grey)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="860" cy="430" r="7" fill="var(--grey)"/>
+
+    <!-- 分岔起點 -->
+    <circle cx="120" cy="241" r="5.5" fill="var(--ink)"/>
+
+    <!-- 下滑線標籤 -->
+    <text x="415" y="398" class="labG" text-anchor="middle">The past twenty years: cheaper within six months</text>
+
+    <!-- X 軸 -->
+    <line x1="120" y1="440" x2="880" y2="440" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="120" y="466" class="ax" text-anchor="middle">Launch</text>
+    <text x="305" y="466" class="ax" text-anchor="middle">6 months</text>
+    <text x="490" y="466" class="ax" text-anchor="middle">1 year</text>
+    <text x="860" y="466" class="ax" text-anchor="middle">2 years</text>
+
+    <!-- takeaway -->
+    <text x="480" y="518" class="kick" text-anchor="middle">Moore's law flipped over, but this is a brief anomaly, not a new normal.</text>
+    <text x="480" y="552" class="quote" text-anchor="middle">Host Tim Culpan: if someone launched a fund betting the same GPU keeps rising every quarter, I would short you.</text>
+  </g>
+</svg>

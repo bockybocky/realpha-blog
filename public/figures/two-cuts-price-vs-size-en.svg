@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Left: a block cut by a horizontal line with the lower part greyed, cutting at a price. Right: a large frame holding one narrow column, cutting at size.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+
+  <text x="480" y="56" text-anchor="middle" font-size="27" fill="var(--ink)">One position, two ways to cut it</text>
+
+  <line x1="480" y1="100" x2="480" y2="452" stroke="var(--line)" stroke-width="1"/>
+
+  <text x="320" y="120" text-anchor="middle" font-size="20" fill="var(--accent)">Price stop</text>
+  <rect x="250" y="150" width="140" height="230" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="250" y="196" width="140" height="184" fill="var(--grey)" opacity="0.4"/>
+  <rect x="250" y="150" width="140" height="46" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="228" y1="196" x2="412" y2="196" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+  <text x="240" y="156" text-anchor="end" font-size="15" fill="var(--dim)">$10</text>
+  <text x="240" y="201" text-anchor="end" font-size="15" fill="var(--warn)">$8</text>
+  <text x="320" y="414" text-anchor="middle" font-size="16" fill="var(--ink)">Cut across: the price</text>
+  <text x="320" y="440" text-anchor="middle" font-size="15" fill="var(--dim)">Break $8 and you leave</text>
+
+  <text x="700" y="120" text-anchor="middle" font-size="20" fill="var(--accent)">Position cap</text>
+  <rect x="570" y="150" width="260" height="230" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="590" y="150" width="52" height="230" fill="var(--accent)" opacity="0.85"/>
+  <text x="616" y="140" text-anchor="middle" font-size="15" fill="var(--accent)">$20</text>
+  <text x="736" y="272" text-anchor="middle" font-size="15" fill="var(--dim)">Total assets $100</text>
+  <text x="700" y="414" text-anchor="middle" font-size="16" fill="var(--ink)">Cut down: the size</text>
+  <text x="700" y="440" text-anchor="middle" font-size="15" fill="var(--dim)">Zero costs you only $20</text>
+
+  <text x="480" y="492" text-anchor="middle" font-size="22" fill="var(--ink)">One governs price, one governs size</text>
+</svg>
