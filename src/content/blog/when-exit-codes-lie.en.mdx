@@ -1,0 +1,119 @@
+---
+title: "When Exit Codes Start Lying: An Alarm That Rang for Seven Days and Nobody Understood It"
+description: "Silent failure in automated systems: a tool that answered correctly then reported failure, and an alarm that fired daily under the wrong name. The full reasoning trail from one debugging session, plus three checks you can run on your own system today."
+slug: "when-exit-codes-lie"
+lang: "en"
+pubDate: 2026-08-21
+category: "systems"
+tags: ["automation", "debugging", "reliability"]
+---
+
+> *Sharp enough to see the tip of an autumn hair,*<br/>
+> *yet blind to a cartload of firewood.*
+> —— Mencius, *King Hui of Liang I* (c. 300 BCE); translation mine
+
+I asked an AI command-line tool to reply with a single word. It replied PONG. Correct.
+
+Then it told me it had failed.
+
+## Three signals, three ways of lying
+
+I was chasing something small that day: why jobs handed to grok were so slow. I wrote a little timing script, ran the same prompt seven times, and recorded two moments — when the answer appeared, and when the process ended.
+
+All seven answers were correct. The gap between those two moments looked like this:
+
+| Run | Answer appeared | Process ended |
+|---|---|---|
+| 1 | 131s | 10-minute cap, I killed it |
+| 2 | 102s | 10-minute cap, I killed it |
+| 3 | 549s | 10-minute cap, I killed it |
+
+The answer was written to output within a minute and a half to two minutes. Then the process just sat there until I killed it.
+
+Two of the seven did exit on their own. One reported success. The other reported failure — and that failure's answer was identical to the other six. The correct PONG.
+
+So all three signals I normally use to decide whether work is done turned out to be unusable. A live process doesn't mean work is ongoing. A dead process doesn't mean work is finished. A failure code doesn't mean the answer is wrong.
+
+## The real culprit was a disciplined habit
+
+Digging further turned up something uglier.
+
+Another script of mine explicitly pins which model to use. That's my own rule — scheduled jobs must pin the model version, so that when a vendor quietly swaps models underneath you, it shows.
+
+I removed that flag once as a test. Answer in 140 seconds. Put it back: 300 seconds, zero output.
+
+Try a different model name? Same freeze. What about its own default model — the one it picks when you write nothing at all?
+
+Also frozen.
+
+Same model. Leave it unstated and it runs. Say it out loud and it dies. And the error output was empty: no warning, no complaint about the argument, not a single character. It simply stopped at "received your prompt" and never moved again.
+
+The sharpest part of this: I added that flag out of discipline. People who skipped it were fine. Everyone who followed the rule was dead.
+
+## Seven days unnoticed, because the alarm used the wrong name
+
+I pulled up 43 days of that script's daily reports.
+
+Empty runs started August 14th. One good day in the middle. Then five consecutive days, August 17th through the 21st, every cell blank.
+
+Did the alarm fire? It did. Every single day for seven days.
+
+The problem was what it said. That line read "model drift detected." Meaning: the AI's answers have changed, go check whether your conclusions still hold.
+
+The actual situation was "not one character came back, the tool is broken."
+
+The first sends you to review judgment. The second sends you to fix a pipeline. Two entirely different jobs, sharing one word. So nobody reading that line each day would think to check whether the connection was even alive.
+
+The alarm rang, but nobody could understand what it was saying. The difference between that and silence is smaller than you'd think.
+
+## The ugliest part: my own script was lying too
+
+Late in the fixing, I dispatched a task and glanced at the result:
+
+```
+✅ Done in 902s, output 162 bytes
+```
+
+Checkmark. Done. Output present. Looks fine.
+
+That task had failed completely. The 162 bytes read: "I'll first look for a channel that actually works, then try only that one."
+
+An opening line. It said that, froze for seven minutes, hit the timeout, and got killed.
+
+The acceptance logic I wrote myself was "any output above the threshold counts as success," and the threshold was one byte. So a single opening sentence was enough to mark a total failure as complete.
+
+The evidence was even on screen. Those empty parentheses after "Done in 902s" were supposed to hold the completion reason, which only gets filled on a clean finish. On a timeout kill, it's blank.
+
+The evidence was right there. But nobody watches an empty pair of parentheses.
+
+## How do you know your automation is still alive
+
+By now you might be thinking: that's a bug in their tool, not my problem.
+
+The bug isn't the point. The shape is.
+
+Pinning a version, waiting for a process to exit, reading a return code. Each is good practice on its own. Textbook advice. They were also the entry points for this failure.
+
+And they share one property: when they fail, they don't make noise.
+
+Systems don't just break. They break while looking exactly like they're working. You watch a green light every day, and the light really is on. It just stopped measuring anything you care about a long time ago.
+
+So the question isn't "do I have an alarm." It's "could this alarm never fire at all."
+
+## Three things you can check today
+
+First, find every alarm that has fired five days running. An alarm that goes off daily is not an alarm. It is either broken, or your eyes have already learned to skip it. Both cases need handling.
+
+Second, look through your report generators for places that turn "couldn't read it" into zero. That pattern of falling back to a default when something is missing is exactly how "nothing came back" gets read as "the value is zero." It's the same disease that let "model drift" hide "tool not responding."
+
+Third, deliberately make one of your tools time out and watch whether it reports success. This takes five minutes and the result is usually embarrassing. That's how I found out my own script was lying.
+
+## One thing to take away
+
+A signal can only serve as evidence if it is capable of saying no.
+
+A check that always returns green carries the same information as no check at all. The only difference is that the first one makes you feel safe.
+
+An exercise for today: pick one check you depend on — a health check, a monthly reconciliation, a weekly report, anything — and ask yourself what would have to happen for it to go red. If you can't come up with an answer, or you can but it has never actually happened, go make it happen.
+
+Break it. See whether it complains. If it stays quiet, you've just found something that has been lying to you the whole time.
