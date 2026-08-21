@@ -24,11 +24,12 @@ CATEGORY = {'_id': '5a978e00fd897800016874cc', 'title': '投資理財', 'score':
 BLOG = 'https://blog.getrealpha.com'
 
 # 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
-NON_INVESTMENT = {'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
+NON_INVESTMENT = {'local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
                   'dont-let-ai-say-no-problem'}
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
+    'local-ai-hardware-worth-it': ['本地AI', '硬體', 'NPU', '決策思考', 'AI工具'],
     'gooaye-ep683-cannot-see-the-mountain': ['股癌', '槓桿', '風險管理', '回測'],
     'gooaye-ep684-liquidity-carries-and-capsizes': ['股癌', '流動性', '風險管理'],
     'macromicro-ep209-the-half-eaten-peach': ['財經M平方', '資本支出', '自由現金流', '聯準會'],
@@ -43,6 +44,7 @@ TAGS = {
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
 COVERS = {
+    'local-ai-hardware-worth-it': 'local-ai-hardware-worth-it.png',
     'gooaye-ep683-cannot-see-the-mountain': 'gooaye-ep683-cover.png',
     'gooaye-ep684-liquidity-carries-and-capsizes': 'gooaye-ep684-cover.png',
     'herdr-agent-automation-vocus': 'herdr-agent-automation.png',

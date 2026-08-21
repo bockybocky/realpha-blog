@@ -1,6 +1,6 @@
 ---
-title: "Three People Measured the Same Machine and Got Three Answers"
-description: "Three hardware reviews in one week reached contradictory conclusions. A look at what each reviewer was actually measuring, and a payback calculation showing why 'which spec' is the wrong question. A thinking exercise about tools, not buying advice."
+title: "Is Qwen3.8 27B on Your Own Machine Right for You?"
+description: "Notes after watching three hardware reviews from two YouTubers. A payback calculation, the three real costs of running a large model at home, and how to tell whether this is for you. A thinking exercise about tools, not buying advice."
 slug: "local-ai-hardware-worth-it"
 lang: "en"
 pubDate: 2026-08-21
@@ -16,79 +16,95 @@ ogImage: "/covers/local-ai-hardware-worth-it.png"
 > *the mole drinking at the river takes no more than a bellyful.*
 > —— Zhuangzi, "Free and Easy Wandering" (c. 300 BCE); translation mine
 
-Three videos went up this week answering the same question: if you want to run AI at home, what hardware should you buy.
+This week I watched three hardware reviews from two YouTubers, all circling the same question: is it worth moving a large model onto your own machine.
 
-The three answers contradict each other.
+I didn't come away with an answer. I came away with a better question. These are the notes.
 
-## Three answers
+## The tempting part first
 
-On August 21, the channel 小天fotos reviewed a mini PC called the Beelink SEi13 AI. His verdict was yes, worth it. Not because it's fast — because the accelerator card inside draws barely a dozen watts, so you can leave it running all day and forget about it.
+On August 21, 掄錘者 tested Qwen3.8 27B running locally. He put it plainly: "Right now Qwen 27B is the gold standard."
 
-The same day, 掄錘者 published a hands-on test of Qwen3.8 27B running locally. His verdict: buy two 7900 XTX graphics cards, one for text and one for video.
+The stronger claim came next. Even the compressed version, he says, "is at the same level as DeepSeek V4 Pro."
 
-And on August 20, one day earlier, that same reviewer had said: "Generally I don't recommend buying those little mini PCs."
+And the compression barely seems to matter to how it feels. He tried Q4, Q5 and FP8, with context windows at 256K and 128K, and concluded: "Personally they all felt like enough."
 
-The little mini PC is exactly what the first reviewer recommended.
+If that holds, it's genuinely appealing. A model close to a paid cloud service, running on your machine, no connection needed, no price rises, nothing leaving the house.
 
-## They aren't arguing. They're measuring different things.
+His recommendation: two 7900 XTX graphics cards, one for text and one for video.
 
-My first instinct was to work out who was wrong. Neither of them was. Both sets of numbers hold up, and they aren't measuring the same property.
+## Then I did the arithmetic
 
-The first reviewer measured whether you can leave it on. He kept coming back to the same figures: a dozen-odd watts, 40 degrees, a fan you can't hear. His strongest example was speech recognition — an hour of audio transcribed in two and a half minutes.
+Two numbers in his video are unremarkable on their own and interesting side by side.
 
-The second measured how fast it computes. He put the mini PC's compute at roughly the level of a 4060, with far less memory bandwidth, and described running dense models on it as "very slow, very painful."
+First: before the recent price rise, cloud AI cost him one to two yuan a day. Now the same light workload runs five to six. One day he configured a script once and it cost him eight.
 
-Same box. One passes, one fails. The first question was "can this idle cheaply for months?" The second was "how long do I wait after I press go?"
+Second: those two cards run somewhere north of ten thousand yuan.
 
-That isn't a hardware question. It's a question about what you want it to do.
-
-## An arithmetic problem
-
-Two numbers sit next to each other in the second reviewer's video and they're more interesting together than apart.
-
-Before the recent price rise, he says, cloud AI cost him one to two yuan a day. Now the same light workload runs five to six. One day he configured a script once and it cost him eight.
-
-Then he recommends two graphics cards. The figure quoted is somewhere north of ten thousand yuan.
-
-At six yuan a day, that's about a hundred and eighty a month. Paying for two cards out of that saving takes over five years.
+At six yuan a day, that's about a hundred and eighty a month. Paying off two cards out of that saving takes over five years.
 
 We all know what a five-year-old graphics card looks like.
 
-So what he's actually buying isn't performance and it isn't savings. He says as much himself: the price rise came without warning, and the cloud service went down for nearly an hour. He's buying insurance against somebody else's outage.
+So what he's buying isn't performance and it isn't savings. He says as much himself: the price rise came without warning, and the cloud service went down for nearly an hour. He's buying insurance against somebody else's outage.
 
 Insurance was never supposed to pay for itself. It's priced on how much the bad day costs you.
+
+## The third cost, the one people miss
+
+Past money and electricity there's a third bill, and his dual-card video names it best: "The moment you try to make them cooperate, you're in for endless fiddling."
+
+His measured result for two cards working together was around one plus one equals one point seven.
+
+That missing zero point three is your weekend.
+
+The same video has a few things worth knowing before you order anything. External GPU docks don't add up: a Thunderbolt 5 enclosure costs more than an entire second-hand server box, and the new card ends up competing with your existing machine for memory. On an older platform (PCIe 3.0), don't attempt to make two cards compute together, the efficiency isn't there.
+
+## The other reviewer looked at this from somewhere else
+
+On the same day, 小天fotos reviewed a mini PC called the Beelink SEi13 AI and concluded it was worth buying.
+
+At first glance that contradicts the other channel, which had said "generally I don't recommend buying those little mini PCs" — and a little mini PC is exactly what was being recommended.
+
+They're answering different questions, and that was the most useful thing I took from the three videos.
+
+The first reviewer measured whether you can leave it on. He kept coming back to the same figures: a dozen-odd watts, 40 degrees, a fan you can't hear. His strongest example was speech recognition, an hour of audio transcribed in two and a half minutes.
+
+The second measured how fast it computes. He put the mini PC's compute at roughly the level of a 4060, with far less memory bandwidth, and called running dense models on it "very slow, very painful."
+
+Same box. One passes, one fails. The first question was "can this idle cheaply for months?" The second was "how long do I wait after I press go?"
 
 ## I tried this myself once
 
 Earlier this month I ran a local speech recognition model on my own machine, to see whether I could stop depending on a cloud service.
 
-No dedicated graphics card — just the processor grinding through it. A ten-and-a-half minute recording took eighteen and a half minutes. Longer than the recording.
+No dedicated graphics card, just the processor grinding through it. A ten-and-a-half minute recording took eighteen and a half minutes. Longer than the recording.
 
 It also mangled the technical vocabulary badly: GGUF came out as GDUF, HuggingFace as HackingFast. The same audio sent to a cloud service came back faster and with the terms intact.
 
 The conclusion was short: at my current volume, buying hardware means buying something I won't use.
 
-That sentence has an edge to it worth noticing. It doesn't say local AI is useless. It says I transcribe a few recordings a month, and that volume can't justify a dedicated machine. The second reviewer's premise is daily heavy use. The first reviewer's premise is a box quietly collecting data around the clock. Change the premise and the answer changes with it.
+That sentence has an edge worth noticing. It doesn't say local AI is useless. It says I transcribe a few recordings a month, and that volume can't justify a dedicated machine. One reviewer's premise is daily heavy use. The other's is a box quietly collecting data around the clock. Change the premise and the answer changes with it.
 
-## So what should you ask instead
+## So, is it for you
 
-All three videos work hard at answering "which configuration." None of them answers "do I need one."
-
-That's not a failing on their part. By the time you click on a hardware review, you've usually already decided to buy.
+All three videos work hard at answering "which configuration." That isn't a flaw on their part. By the time you click on a hardware review, you've usually already decided to buy.
 
 But if you're still on the fence, "which configuration" is a decoy. It leads you into a maze of specifications, how many gigabytes and how many lanes and one card or two, and every one of those questions has a clean answer, and not one of them tells you whether to buy.
 
-What actually decides it are three boring things: how many hours a day you'd really use it, what an outage genuinely costs you, and how much of your life you're willing to spend fiddling.
+What actually decides it are three boring things.
 
-The third is the one people underestimate. On dual graphics cards, the second reviewer said something I thought was the most honest line in the video: "The moment you try to make them cooperate, you're in for endless fiddling." His measured result for two cards working together was around one plus one equals one point seven.
+One: how many hours a day you would really use it. Not how much you might use it once you own it, how much you used it last month.
 
-That missing zero point three is your weekend.
+Two: what an outage actually costs you. If the answer is "I wait an hour and then carry on," your insurance premium is too high.
+
+Three: how much time you can spend fiddling. This is not a thing that ends when the box is assembled.
+
+If all three answers are a clear "a lot," this path is worth walking and the configuration advice above is a good starting point. If any one of them isn't, stay on the cloud service and keep the money for the next generation of cards.
 
 ## One thing to take away
 
 Specifications will answer the question you asked. They won't tell you whether it was the right question.
 
-An exercise: think of the thing you've been meaning to buy — it doesn't have to be a computer, a course or a gym membership counts. Before comparing any specs, write down two numbers. How much money or time you spent on this activity last month, and what you actually lost on a day you didn't have the thing.
+An exercise: think of the thing you've been meaning to buy, it doesn't have to be a computer, a course or a gym membership counts. Before comparing any specs, write down two numbers. How much money or time you spent on this activity last month, and what you actually lost on a day you didn't have the thing.
 
 If you can't write the second number, what you're buying isn't a tool. It's reassurance.
 
