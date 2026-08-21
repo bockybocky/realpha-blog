@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" role="img" aria-label="四象限圖：橫軸是需不需要一直開著，縱軸是按下去要不要很快。小天推薦的省電小主機落在左上，掄錘者推薦的獨立顯示卡落在右下，兩人各自回答不同象限的問題；而左下角「偶爾用、不趕時間」這一格最多人在，卻沒有評測在談，答案是繼續用雲端。">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t    { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .cap  { font-size: 19px; font-weight: 700; fill: var(--dim); }
+    .capA { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .capW { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .body { font-size: 17px; fill: var(--dim); }
+    .ax   { font-size: 17px; font-weight: 700; fill: var(--dim); }
+    .axs  { font-size: 15px; fill: var(--dim); }
+    .who  { font-size: 15px; font-weight: 700; fill: var(--page); }
+  </style>
+
+  <rect x="0" y="0" width="960" height="620" fill="var(--page)"/>
+
+  <text class="t h1" x="40" y="48">同一台機器，兩個人量的是不同的東西</text>
+
+  <!-- 四象限底 -->
+  <rect x="150" y="90" width="340" height="210" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="490" y="90" width="340" height="210" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="150" y="300" width="340" height="210" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="490" y="300" width="340" height="210" fill="var(--card)" stroke="var(--line)"/>
+
+  <!-- 中軸線 -->
+  <line x1="490" y1="90" x2="490" y2="510" stroke="var(--line)" stroke-width="2"/>
+  <line x1="150" y1="300" x2="830" y2="300" stroke="var(--line)" stroke-width="2"/>
+
+  <!-- 左上：省電小主機 -->
+  <circle cx="290" cy="150" r="30" fill="var(--accent)"/>
+  <text class="t who" x="290" y="156" text-anchor="middle">小天</text>
+  <text class="t capA" x="180" y="215">省電小主機</text>
+  <text class="t body" x="180" y="243">十幾瓦</text>
+  <text class="t body" x="180" y="267">整天掛著</text>
+
+  <!-- 右上：兩者都要 -->
+  <text class="t cap" x="520" y="215">兩者都要</text>
+  <text class="t body" x="520" y="243">得組獨立主機</text>
+  <text class="t body" x="520" y="267">最貴的一格</text>
+
+  <!-- 左下：多數人在這 -->
+  <text class="t cap" x="180" y="355">偶爾用，也不趕</text>
+  <text class="t body" x="180" y="383">最多人在這一格</text>
+  <text class="t body" x="180" y="407">沒有評測在談</text>
+  <text class="t capW" x="180" y="443">答案：繼續用雲端</text>
+
+  <!-- 右下：獨立顯示卡 -->
+  <circle cx="700" cy="440" r="30" fill="var(--accent)"/>
+  <text class="t who" x="700" y="446" text-anchor="middle">掄錘</text>
+  <text class="t capA" x="520" y="355">獨立顯示卡</text>
+  <text class="t body" x="520" y="383">算得快</text>
+  <text class="t body" x="520" y="407">吃電、要折騰</text>
+
+  <!-- 軸標 -->
+  <text class="t ax" x="150" y="545" text-anchor="start">按下去不用快</text>
+  <text class="t ax" x="830" y="545" text-anchor="end">按下去要很快</text>
+  <text class="t axs" x="490" y="545" text-anchor="middle">← 你按下去，願意等多久 →</text>
+
+  <text class="t ax" x="132" y="120" text-anchor="end">要一直</text>
+  <text class="t ax" x="132" y="142" text-anchor="end">開著</text>
+  <text class="t ax" x="132" y="470" text-anchor="end">用完</text>
+  <text class="t ax" x="132" y="492" text-anchor="end">就關</text>
+
+  <text class="t body" x="40" y="592">兩位評測者的數字都是對的，因為他們站在對角線的兩端。</text>
+</svg>

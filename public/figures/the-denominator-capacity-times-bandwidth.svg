@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="兩組新技術分別指向式子的容量與頻寬兩項，第三條虛線從底下繞過式子沒有碰到它" font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <defs>
+    <marker id="ar3" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="var(--accent)"/>
+    </marker>
+    <marker id="ar4" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+
+  <text x="480" y="54" text-anchor="middle" font-size="27" fill="var(--ink)">新名詞很多，式子只有一個</text>
+
+  <rect x="130" y="106" width="250" height="72" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text x="255" y="140" text-anchor="middle" font-size="19" fill="var(--ink)">HBF　XBM</text>
+  <text x="255" y="166" text-anchor="middle" font-size="15" fill="var(--dim)">往容量使力</text>
+
+  <rect x="580" y="106" width="250" height="72" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text x="705" y="140" text-anchor="middle" font-size="19" fill="var(--ink)">PCIe　CXL</text>
+  <text x="705" y="166" text-anchor="middle" font-size="15" fill="var(--dim)">往頻寬使力</text>
+
+  <line x1="255" y1="178" x2="368" y2="250" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#ar3)"/>
+  <line x1="705" y1="178" x2="600" y2="250" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#ar3)"/>
+
+  <rect x="280" y="258" width="400" height="112" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="480" y="322" text-anchor="middle" font-size="34" fill="var(--ink)">容量 × 頻寬</text>
+  <text x="480" y="352" text-anchor="middle" font-size="15" fill="var(--dim)">目前的天花板</text>
+
+  <path d="M170 300 C 210 500, 750 500, 800 300" fill="none" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#ar4)"/>
+  <text x="480" y="452" text-anchor="middle" font-size="19" fill="var(--warn)">繞過去</text>
+  <text x="480" y="478" text-anchor="middle" font-size="15" fill="var(--dim)">KV 快取卸載 · SRAM 路線</text>
+
+  <text x="480" y="538" text-anchor="middle" font-size="22" fill="var(--ink)">先問它動的是哪一項</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條起點與終點高度相同的線：一條橫跨整張圖緩緩上升，另一條在右側幾乎垂直拉起，對比同樣幅度不同速度">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">同樣的 70 個基點，五個月走完還是兩週走完</text>
+  <rect x="60" y="100" width="840" height="320" rx="14" fill="var(--card)"/>
+  <line x1="130" y1="172" x2="880" y2="172" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="130" y1="392" x2="880" y2="392" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="76" y="166" font-size="15" fill="var(--dim)">4.7%</text>
+  <text x="76" y="386" font-size="15" fill="var(--dim)">4.0%</text>
+  <polyline points="170,384 240,362 300,368 360,332 420,314 480,282 540,242 590,202 622,174"
+            fill="none" stroke="var(--accent)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline points="726,386 742,344 756,272 770,212 782,174"
+            fill="none" stroke="var(--warn)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="622" cy="174" r="8" fill="var(--accent)"/>
+  <circle cx="782" cy="174" r="8" fill="var(--warn)"/>
+  <text x="300" y="300" font-size="20" font-weight="700" fill="var(--accent)">五個月</text>
+  <text x="700" y="264" font-size="20" font-weight="700" fill="var(--warn)" text-anchor="end">兩週</text>
+  <text x="396" y="446" font-size="19" fill="var(--dim)" text-anchor="middle">被吸收</text>
+  <text x="782" y="446" font-size="19" fill="var(--dim)" text-anchor="middle">變成事件</text>
+  <text x="480" y="504" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">市場承受得住方向，承受不住同步</text>
+</svg>

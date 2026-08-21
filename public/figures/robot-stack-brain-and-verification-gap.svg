@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="四層堆疊，下兩層實線代表已具備，上兩層虛線空框代表缺口" font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <defs>
+    <marker id="ar5" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="var(--grey)"/>
+    </marker>
+  </defs>
+
+  <text x="480" y="54" text-anchor="middle" font-size="27" fill="var(--ink)">缺的不是硬體，是上面那兩層</text>
+
+  <line x1="150" y1="470" x2="150" y2="120" stroke="var(--grey)" stroke-width="2" marker-end="url(#ar5)"/>
+  <text x="132" y="300" text-anchor="middle" font-size="16" fill="var(--dim)" transform="rotate(-90 132 300)">越上面越難</text>
+
+  <rect x="240" y="120" width="480" height="70" rx="10" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="480" y="163" text-anchor="middle" font-size="19" fill="var(--warn)">驗證層 · 誰驗模擬對不對</text>
+  <text x="760" y="163" font-size="16" fill="var(--warn)">幾乎空白</text>
+
+  <rect x="240" y="216" width="480" height="70" rx="10" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="480" y="259" text-anchor="middle" font-size="19" fill="var(--warn)">大腦 · 場景與泛化</text>
+  <text x="760" y="259" font-size="16" fill="var(--warn)">還缺</text>
+
+  <rect x="240" y="312" width="480" height="70" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="480" y="355" text-anchor="middle" font-size="19" fill="var(--ink)">小腦 · 平衡控制</text>
+  <text x="760" y="355" font-size="16" fill="var(--accent)">已經有了</text>
+
+  <rect x="240" y="408" width="480" height="70" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="480" y="451" text-anchor="middle" font-size="19" fill="var(--ink)">硬體 · 馬達 減速機構 控制器</text>
+  <text x="760" y="451" font-size="16" fill="var(--accent)">已經有了</text>
+
+  <text x="480" y="538" text-anchor="middle" font-size="22" fill="var(--ink)">會走會跳，還不知道要拿去幹嘛</text>
+</svg>

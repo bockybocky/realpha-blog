@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左右對比：傳統 DRAM 是一整塊，XBM 拆成上下兩塊再用一條接合面黏起來" font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <text x="480" y="54" text-anchor="middle" font-size="27" fill="var(--ink)">一起做，改成分開做再黏起來</text>
+
+  <rect x="60" y="96" width="380" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="520" y="96" width="380" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <text x="250" y="134" text-anchor="middle" font-size="20" fill="var(--dim)">傳統 DRAM</text>
+  <text x="710" y="134" text-anchor="middle" font-size="20" fill="var(--accent)">XBM</text>
+
+  <rect x="110" y="176" width="280" height="180" rx="10" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+  <text x="250" y="248" text-anchor="middle" font-size="16" fill="var(--ink)">記憶單元</text>
+  <text x="250" y="280" text-anchor="middle" font-size="16" fill="var(--ink)">控制邏輯</text>
+  <text x="250" y="322" text-anchor="middle" font-size="15" fill="var(--dim)">同一片 · 同一製程</text>
+  <text x="250" y="392" text-anchor="middle" font-size="15" fill="var(--dim)">互相遷就</text>
+
+  <rect x="570" y="164" width="280" height="30" rx="5" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="570" y="200" width="280" height="30" rx="5" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="570" y="236" width="280" height="30" rx="5" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="710" y="222" text-anchor="middle" font-size="16" fill="var(--ink)">記憶單元陣列</text>
+
+  <line x1="570" y1="292" x2="850" y2="292" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+  <text x="710" y="284" text-anchor="middle" font-size="15" fill="var(--warn)">混合鍵合 · UCIe</text>
+
+  <rect x="570" y="312" width="280" height="60" rx="5" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+  <text x="710" y="349" text-anchor="middle" font-size="16" fill="var(--ink)">控制邏輯 · 另一種製程</text>
+  <text x="710" y="400" text-anchor="middle" font-size="15" fill="var(--dim)">各做各的最佳解</text>
+
+  <text x="480" y="480" text-anchor="middle" font-size="22" fill="var(--ink)">概念很順，難的是中間那條線</text>
+  <text x="480" y="510" text-anchor="middle" font-size="15" fill="var(--warn)">良率還沒有人做得漂亮</text>
+</svg>

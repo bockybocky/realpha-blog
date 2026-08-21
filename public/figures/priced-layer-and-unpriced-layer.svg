@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一個方塊被一條價格線切成上下兩層，上層薄而實線代表已被定價，下層厚而虛線代表不在模型裡">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:20px; font-weight:700; fill:var(--ink); }
+.b { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="480" y="60" text-anchor="middle">一則 AI 敘事，其實疊了兩層</text>
+
+<rect x="230" y="110" width="500" height="110" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="262" y="158">會不會被取代</text>
+<text class="b" x="262" y="192">算力、時程、省下的人力</text>
+<text class="b" x="698" y="158" text-anchor="end" fill="var(--grey)">算得出來</text>
+
+<line x1="190" y1="248" x2="770" y2="248" stroke="var(--accent)" stroke-width="4"/>
+<text class="b" x="770" y="238" text-anchor="end" fill="var(--accent)">價格線</text>
+
+<rect x="230" y="278" width="500" height="180" rx="10" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="9 7"/>
+<text class="g" x="262" y="330">為什麼還要親自做</text>
+<text class="b" x="262" y="364">意義感、關係、過程</text>
+<text class="b" x="262" y="398">沒有一家券商建得出模型</text>
+<text class="b" x="698" y="330" text-anchor="end">算不出來</text>
+
+<text class="c" x="480" y="510" text-anchor="middle">線上面的早在價格裡，線下面的還沒有座標</text>
+</svg>

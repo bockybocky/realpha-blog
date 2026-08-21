@@ -1,0 +1,95 @@
+---
+title: "Three People Measured the Same Machine and Got Three Answers"
+description: "Three hardware reviews in one week reached contradictory conclusions. A look at what each reviewer was actually measuring, and a payback calculation showing why 'which spec' is the wrong question. A thinking exercise about tools, not buying advice."
+slug: "local-ai-hardware-worth-it"
+lang: "en"
+pubDate: 2026-08-21
+category: "tech"
+tags: ["hardware", "decision-making", "local-ai"]
+cover: "/covers/local-ai-hardware-worth-it.png"
+ogImage: "/covers/local-ai-hardware-worth-it.png"
+---
+
+![A small brown wren resting on a single slender branch as dusk light pours through an immense ancient forest](/covers/local-ai-hardware-worth-it.png)
+
+> *The wren nesting in the deep forest needs no more than a single branch;*
+> *the mole drinking at the river takes no more than a bellyful.*
+> —— Zhuangzi, "Free and Easy Wandering" (c. 300 BCE); translation mine
+
+Three videos went up this week answering the same question: if you want to run AI at home, what hardware should you buy.
+
+The three answers contradict each other.
+
+## Three answers
+
+On August 21, the channel 小天fotos reviewed a mini PC called the Beelink SEi13 AI. His verdict was yes, worth it. Not because it's fast — because the accelerator card inside draws barely a dozen watts, so you can leave it running all day and forget about it.
+
+The same day, 掄錘者 published a hands-on test of Qwen3.8 27B running locally. His verdict: buy two 7900 XTX graphics cards, one for text and one for video.
+
+And on August 20, one day earlier, that same reviewer had said: "Generally I don't recommend buying those little mini PCs."
+
+The little mini PC is exactly what the first reviewer recommended.
+
+## They aren't arguing. They're measuring different things.
+
+My first instinct was to work out who was wrong. Neither of them was. Both sets of numbers hold up, and they aren't measuring the same property.
+
+The first reviewer measured whether you can leave it on. He kept coming back to the same figures: a dozen-odd watts, 40 degrees, a fan you can't hear. His strongest example was speech recognition — an hour of audio transcribed in two and a half minutes.
+
+The second measured how fast it computes. He put the mini PC's compute at roughly the level of a 4060, with far less memory bandwidth, and described running dense models on it as "very slow, very painful."
+
+Same box. One passes, one fails. The first question was "can this idle cheaply for months?" The second was "how long do I wait after I press go?"
+
+That isn't a hardware question. It's a question about what you want it to do.
+
+## An arithmetic problem
+
+Two numbers sit next to each other in the second reviewer's video and they're more interesting together than apart.
+
+Before the recent price rise, he says, cloud AI cost him one to two yuan a day. Now the same light workload runs five to six. One day he configured a script once and it cost him eight.
+
+Then he recommends two graphics cards. The figure quoted is somewhere north of ten thousand yuan.
+
+At six yuan a day, that's about a hundred and eighty a month. Paying for two cards out of that saving takes over five years.
+
+We all know what a five-year-old graphics card looks like.
+
+So what he's actually buying isn't performance and it isn't savings. He says as much himself: the price rise came without warning, and the cloud service went down for nearly an hour. He's buying insurance against somebody else's outage.
+
+Insurance was never supposed to pay for itself. It's priced on how much the bad day costs you.
+
+## I tried this myself once
+
+Earlier this month I ran a local speech recognition model on my own machine, to see whether I could stop depending on a cloud service.
+
+No dedicated graphics card — just the processor grinding through it. A ten-and-a-half minute recording took eighteen and a half minutes. Longer than the recording.
+
+It also mangled the technical vocabulary badly: GGUF came out as GDUF, HuggingFace as HackingFast. The same audio sent to a cloud service came back faster and with the terms intact.
+
+The conclusion was short: at my current volume, buying hardware means buying something I won't use.
+
+That sentence has an edge to it worth noticing. It doesn't say local AI is useless. It says I transcribe a few recordings a month, and that volume can't justify a dedicated machine. The second reviewer's premise is daily heavy use. The first reviewer's premise is a box quietly collecting data around the clock. Change the premise and the answer changes with it.
+
+## So what should you ask instead
+
+All three videos work hard at answering "which configuration." None of them answers "do I need one."
+
+That's not a failing on their part. By the time you click on a hardware review, you've usually already decided to buy.
+
+But if you're still on the fence, "which configuration" is a decoy. It leads you into a maze of specifications, how many gigabytes and how many lanes and one card or two, and every one of those questions has a clean answer, and not one of them tells you whether to buy.
+
+What actually decides it are three boring things: how many hours a day you'd really use it, what an outage genuinely costs you, and how much of your life you're willing to spend fiddling.
+
+The third is the one people underestimate. On dual graphics cards, the second reviewer said something I thought was the most honest line in the video: "The moment you try to make them cooperate, you're in for endless fiddling." His measured result for two cards working together was around one plus one equals one point seven.
+
+That missing zero point three is your weekend.
+
+## One thing to take away
+
+Specifications will answer the question you asked. They won't tell you whether it was the right question.
+
+An exercise: think of the thing you've been meaning to buy — it doesn't have to be a computer, a course or a gym membership counts. Before comparing any specs, write down two numbers. How much money or time you spent on this activity last month, and what you actually lost on a day you didn't have the thing.
+
+If you can't write the second number, what you're buying isn't a tool. It's reassurance.
+
+Reassurance is a legitimate purchase. But once you know that's what's in the box, the price gets a lot easier to read.

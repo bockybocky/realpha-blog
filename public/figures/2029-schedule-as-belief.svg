@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="時間軸上三個產品節點排到 2029 與更晚，下方的循環帶延伸出畫面右端" font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <defs>
+    <marker id="ar1" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <text x="480" y="54" text-anchor="middle" font-size="27" fill="var(--ink)">排程本身就是一份公開的判斷</text>
+
+  <line x1="90" y1="270" x2="880" y2="270" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="90" y1="262" x2="90" y2="278" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="242" y1="262" x2="242" y2="278" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="394" y1="262" x2="394" y2="278" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="546" y1="262" x2="546" y2="278" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="698" y1="262" x2="698" y2="278" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="850" y1="262" x2="850" y2="278" stroke="var(--grey)" stroke-width="2"/>
+
+  <text x="90" y="302" text-anchor="middle" font-size="15" fill="var(--dim)">2026</text>
+  <text x="242" y="302" text-anchor="middle" font-size="15" fill="var(--dim)">2027</text>
+  <text x="394" y="302" text-anchor="middle" font-size="15" fill="var(--dim)">2028</text>
+  <text x="546" y="302" text-anchor="middle" font-size="15" fill="var(--dim)">2029</text>
+  <text x="698" y="302" text-anchor="middle" font-size="15" fill="var(--dim)">2030</text>
+  <text x="850" y="302" text-anchor="middle" font-size="15" fill="var(--dim)">2031</text>
+
+  <line x1="242" y1="270" x2="242" y2="200" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="242" cy="270" r="6" fill="var(--accent)"/>
+  <rect x="162" y="164" width="160" height="38" rx="8" fill="var(--card)" stroke="var(--line)"/>
+  <text x="242" y="189" text-anchor="middle" font-size="16" fill="var(--ink)">ZAM 樣品</text>
+
+  <line x1="546" y1="270" x2="546" y2="160" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="546" cy="270" r="6" fill="var(--accent)"/>
+  <rect x="466" y="124" width="160" height="38" rx="8" fill="var(--card)" stroke="var(--accent)"/>
+  <text x="546" y="149" text-anchor="middle" font-size="16" fill="var(--accent)">ZAM 商用</text>
+
+  <line x1="736" y1="270" x2="736" y2="200" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 5"/>
+  <circle cx="736" cy="270" r="6" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="656" y="164" width="160" height="38" rx="8" fill="var(--card)" stroke="var(--line)" stroke-dasharray="6 5"/>
+  <text x="736" y="189" text-anchor="middle" font-size="16" fill="var(--dim)">XBM 更晚</text>
+
+  <rect x="90" y="352" width="810" height="34" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="110" y1="369" x2="930" y2="369" stroke="var(--accent)" stroke-width="6" marker-end="url(#ar1)" opacity="0.75"/>
+  <text x="200" y="418" font-size="16" fill="var(--dim)">記憶體循環</text>
+  <text x="640" y="418" font-size="16" fill="var(--accent)">Intel 押它那時還沒結束</text>
+
+  <text x="480" y="478" text-anchor="middle" font-size="22" fill="var(--ink)">時間表不只是進度，是信念</text>
+</svg>

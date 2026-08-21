@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左右兩格對比：左格一條直線從球直達洞口，右格同樣的起點與洞口之間是一條刻意折了三段的路徑">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:20px; font-weight:700; fill:var(--ink); }
+.b { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="480" y="64" text-anchor="middle">同樣一顆球，同樣一個洞</text>
+
+<rect x="60" y="110" width="390" height="310" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="88" y="162" fill="var(--dim)">沒有規則</text>
+<circle cx="110" cy="293" r="9" fill="var(--grey)"/>
+<line x1="126" y1="293" x2="360" y2="297" stroke="var(--grey)" stroke-width="4"/>
+<polygon points="360,289 378,297 360,305" fill="var(--grey)"/>
+<ellipse cx="404" cy="300" rx="26" ry="10" fill="none" stroke="var(--grey)" stroke-width="3"/>
+<text class="b" x="88" y="395">一步到位</text>
+
+<rect x="510" y="110" width="390" height="310" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="538" y="162">加上規則</text>
+<circle cx="560" cy="293" r="9" fill="var(--accent)"/>
+<polyline points="560,293 640,205 720,340 800,252 828,288" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="818,278 838,296 812,300" fill="var(--accent)"/>
+<circle cx="640" cy="205" r="6" fill="var(--accent)"/>
+<circle cx="720" cy="340" r="6" fill="var(--accent)"/>
+<circle cx="800" cy="252" r="6" fill="var(--accent)"/>
+<text class="b" x="640" y="188" text-anchor="middle">一桿</text>
+<text class="b" x="720" y="368" text-anchor="middle">二桿</text>
+<text class="b" x="800" y="236" text-anchor="middle">三桿</text>
+<ellipse cx="852" cy="300" rx="26" ry="10" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text class="b" x="538" y="395">刻意繞遠</text>
+
+<text class="c" x="480" y="500" text-anchor="middle">目標與難度，都是自己加上去的</text>
+</svg>
