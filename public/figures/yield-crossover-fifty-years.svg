@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩條殖利率線在左側交叉後長期不再相交，中間以箭頭標示五十年，直到最右端才重新交會">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text x="50" y="58" font-size="27" font-weight="700" fill="var(--ink)">交叉之後，它就沒回來了</text>
+
+  <path d="M120 225 L200 265 L250 300 L340 330 L450 352 L600 362 L720 350 L820 330 L880 318" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M120 345 L200 318 L250 300 L360 255 L470 228 L580 240 L690 252 L790 290 L858 326 L880 336" fill="none" stroke="var(--grey)" stroke-width="5" stroke-linejoin="round"/>
+
+  <text x="128" y="205" font-size="19" font-weight="600" fill="var(--accent)">股息殖利率</text>
+  <text x="128" y="382" font-size="19" font-weight="600" fill="var(--dim)">公債殖利率</text>
+
+  <circle cx="250" cy="300" r="8" fill="var(--warn)"/>
+  <circle cx="858" cy="326" r="7" fill="var(--dim)"/>
+  <text x="268" y="192" font-size="16" font-weight="600" fill="var(--warn)">鐵律級賣出訊號</text>
+
+  <line x1="250" y1="308" x2="250" y2="424" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 5"/>
+  <line x1="858" y1="334" x2="858" y2="424" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 5"/>
+  <line x1="250" y1="430" x2="858" y2="430" stroke="var(--dim)" stroke-width="2"/>
+  <text x="554" y="416" font-size="20" font-weight="700" text-anchor="middle" fill="var(--ink)">五十年</text>
+  <text x="250" y="456" font-size="16" text-anchor="middle" fill="var(--dim)">1958 交叉</text>
+  <text x="858" y="456" font-size="16" text-anchor="middle" fill="var(--dim)">2008 回頭</text>
+
+  <text x="480" y="518" font-size="22" font-weight="600" text-anchor="middle" fill="var(--ink)">錶壞了，人還在照它對時</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條等長橫條的對比：上條完整代表盈餘、倍數低；下條大半被灰色資本支出吃掉、只剩一小段自由現金流，分母變短使倍數變高">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+
+  <text x="50" y="58" font-size="27" font-weight="700" fill="var(--ink)">同一批公司，換一個分母</text>
+
+  <text x="50" y="150" font-size="20" font-weight="600" fill="var(--ink)">分母：盈餘</text>
+  <rect x="50" y="170" width="640" height="56" rx="6" fill="var(--accent)"/>
+  <text x="710" y="196" font-size="16" fill="var(--dim)">前瞻本益比</text>
+  <text x="710" y="222" font-size="22" font-weight="700" fill="var(--ink)">23 倍 → 壓縮中</text>
+
+  <text x="50" y="300" font-size="20" font-weight="600" fill="var(--ink)">分母：自由現金流</text>
+  <rect x="50" y="320" width="640" height="56" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="50" y="320" width="440" height="56" rx="6" fill="var(--grey)"/>
+  <rect x="490" y="320" width="200" height="56" fill="var(--accent)"/>
+  <text x="710" y="346" font-size="16" fill="var(--dim)">股價／自由現金流</text>
+  <text x="710" y="372" font-size="22" font-weight="700" fill="var(--ink)">約 30 倍</text>
+
+  <line x1="50" y1="396" x2="490" y2="396" stroke="var(--line)" stroke-width="2"/>
+  <line x1="50" y1="390" x2="50" y2="402" stroke="var(--line)" stroke-width="2"/>
+  <line x1="490" y1="390" x2="490" y2="402" stroke="var(--line)" stroke-width="2"/>
+  <text x="270" y="422" font-size="16" text-anchor="middle" fill="var(--dim)">資本支出吃掉的部分</text>
+
+  <text x="480" y="490" font-size="22" font-weight="600" text-anchor="middle" fill="var(--ink)">分子沒變，難題換了分母</text>
+</svg>

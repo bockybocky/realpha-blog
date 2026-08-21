@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="決策好壞與結果好壞交叉出的四格，左上「好決定、壞結果」那格被特別標示">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="72" font-size="27" font-weight="700" fill="var(--ink)">兩把尺</text>
+
+  <text class="t" x="130" y="180" font-size="19" font-weight="700" fill="var(--dim)">決策</text>
+  <text class="t" x="196" y="235" font-size="16" fill="var(--dim)" text-anchor="end">好</text>
+  <text class="t" x="196" y="385" font-size="16" fill="var(--dim)" text-anchor="end">壞</text>
+  <text class="t" x="360" y="510" font-size="16" fill="var(--dim)" text-anchor="middle">壞</text>
+  <text class="t" x="660" y="510" font-size="16" fill="var(--dim)" text-anchor="middle">好</text>
+  <text class="t" x="510" y="542" font-size="19" font-weight="700" fill="var(--dim)" text-anchor="middle">結果</text>
+
+  <rect x="210" y="160" width="300" height="150" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t" x="360" y="228" font-size="22" font-weight="700" fill="var(--accent)" text-anchor="middle">沒成</text>
+  <text class="t" x="360" y="262" font-size="15" fill="var(--dim)" text-anchor="middle">好決定，壞運氣</text>
+
+  <rect x="510" y="160" width="300" height="150" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="660" y="245" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">應得</text>
+
+  <rect x="210" y="310" width="300" height="150" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="360" y="395" font-size="22" font-weight="700" fill="var(--dim)" text-anchor="middle">活該</text>
+
+  <rect x="510" y="310" width="300" height="150" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="660" y="395" font-size="22" font-weight="700" fill="var(--dim)" text-anchor="middle">走運</text>
+
+  <text class="t" x="60" y="110" font-size="16" fill="var(--dim)">只用結果評分，左上那格會被丟掉</text>
+</svg>
