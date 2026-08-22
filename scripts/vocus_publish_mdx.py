@@ -17,7 +17,10 @@ import json, math, os, re, struct, sys, uuid, datetime
 import urllib.request, urllib.error
 
 ROOT = r'C:\Users\Charles\projects\realpha-blog'
-SP = os.environ.get('VOCUS_SP') or r'D:\Temp\claude\C--Users-Charles\894714d7-16ee-4082-b052-9c3f7e90d047\scratchpad'
+# 2026-08-22 點狀修（合議庭裁決 S2）：預設改指 blog_auto（ids SoT，與每晚排程同源、figures 工具同目錄）。
+# 代價：舊預設不設 env 會 401 硬撞牆＝意外保險絲；改後零設定就能對正式帳號開真草稿。
+#    保險絲換成 SKILL.md 第 0 步「線上實搜這篇發過沒有」（DEC-0523），不是消失。
+SP = os.environ.get('VOCUS_SP') or r'C:\Users\Charles\scripts\blog_auto'
 TOK = open(os.path.join(SP, 'vocus_token.txt'), encoding='utf-8').read().strip()
 IDS_PATH = os.path.join(SP, 'vocus_ids.json')
 CATEGORY = {'_id': '5a978e00fd897800016874cc', 'title': '投資理財', 'score': 0}
