@@ -38,7 +38,7 @@ Production serving on this machine is `node scripts/serve_dist.mjs`, bound only 
 
 Update flow: edit content -> `npm run build` -> the service reads the refreshed `dist/` files directly, no restart needed.
 
-Comments use GitHub Discussions through giscus. The repo/category IDs are wired in `src/components/Giscus.astro`; Charles still needs to install the giscus GitHub App once at <https://github.com/apps/giscus>. Until then, the embedded comments area may show a giscus load/install error.
+Comments use GitHub Discussions through giscus. The repo/category IDs are wired in `src/components/Giscus.astro`; The giscus GitHub App is installed (verified 2026-08-23: pages load `giscus.app/client.js`; no discussions yet because no one has commented). Only if the comments area shows an install error does it need reinstalling.
 
 ## New Post Flow
 
