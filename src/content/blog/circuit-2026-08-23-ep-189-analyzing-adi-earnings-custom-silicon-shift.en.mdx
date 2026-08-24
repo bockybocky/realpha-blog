@@ -1,0 +1,111 @@
+---
+title: "The Circuit EP 189: Analog's AI Moment, and the Day Chip Companies Started Borrowing"
+description: "Personal notes after listening to The Circuit (Aug 23, 2026). From ADI's earnings and analog content per gigawatt, to why SAM beats TAM, to the misread Marvell–Google deal, to chip companies competing with their balance sheets. Educational reading notes focused on how to interpret, not on stock conclusions. Not investment advice."
+slug: "circuit-2026-08-23-ep-189-analyzing-adi-earnings-custom-silicon-shift"
+lang: "en"
+pubDate: 2026-08-24
+category: "investing"
+tags: ["semiconductors", "analog", "data center", "custom silicon", "balance sheet"]
+ogImage: "/covers/circuit-2026-08-23-ep-189-analyzing-adi-earnings-custom-silicon-shift-cover.png"
+cover: "/covers/circuit-2026-08-23-ep-189-analyzing-adi-earnings-custom-silicon-shift-cover.png"
+---
+
+![A data center aisle receding into the dark; in the foreground a gloved pair of hands holds a fingernail-sized power module, warm light falling only on that small part while rows of racks dissolve into cool blue depth](/covers/circuit-2026-08-23-ep-189-analyzing-adi-earnings-custom-silicon-shift-cover.png)
+
+> While it has not yet rained, strip the bark from the mulberry roots, and bind fast the window and the door.
+>
+> — *Book of Songs*, "Bin Feng: The Owl" (pre-Qin China; translated by the author)
+
+A bird strips mulberry root and binds the doorframe before the storm arrives. This episode of The Circuit (August 23, 2026) is about both halves of that image: some people are binding the door while the sky is still clear, and some have borrowed the rope — which means the date it must be returned is already on somebody else's calendar.
+
+## What this episode covers
+
+Hosts Ben Bajarin and Jay Goldberg covered four things that look scattered but sit on one line.
+
+First, Analog Devices' earnings. ADI is described as the most conservative management team in the space; while everyone else has been talking AI for two years, ADI stayed quiet. This quarter it finally laid out its data center opportunity — and did it more concretely than anyone else has.
+
+Second, a misread headline. Moderna's melanoma vaccine got written up as "AI cured cancer," while the company's own release deliberately avoided the term.
+
+Third, Marvell deepening its relationship with Google, which the market instantly read as Broadcom bleeding share. Both hosts think that read is wrong.
+
+Fourth, and heaviest: Broadcom is reported to be raising roughly $60 billion for data center work — through a special purpose vehicle. An industry that has taken pride in carrying no debt for fifty years is turning its balance sheet into a weapon.
+
+## The main points
+
+**1. ADI finally spoke — and only about the part it can actually sell into.** It gave a number few others have: roughly $1 to $1.5 billion of analog content per gigawatt of data center. Against Nvidia's figure of about $100 billion to build a gigawatt, analog is one to two percent — a rounding error for Nvidia, but very meaningful for companies the size of ADI and TI. Data center is now about 10% of ADI's revenue, doubled in the quarter, and the company expects it to double this year and double again next year.
+
+**2. It talked SAM, not TAM — and that choice is itself the signal.** TAM is how big the market is; SAM is the slice you can actually sell into. Jay liked this specifically: ADI is perfectly capable of throwing out a scary big number, and chose not to. More interesting still, management said a deep analysis over recent months revealed their SAM was double what they had assumed — the company had been underestimating itself. A separate acquisition, Empower, pushes them down to package-level sub-volt conversion.
+
+**3. The 74% gross margin isn't magic, it's channel structure.** ADI and TI run higher margins than analog broadly because they sell direct; much of the rest of analog sells through distribution, where you compete far more heavily on price. So the question "if peers run lower margins, do they have more room to cut price?" is really a question about two different businesses. The hosts also flagged something else: when long-standing companies join the AI story, the questions on the call are often people applying an old framework to a very new market. There's a layer of disconnect between what's asked and what's answered.
+
+**4. Nobody has built an 800-volt data center yet, and revenue is already doubling.** Every 800 VDC project today is prototyping; the real buildout doesn't arrive until 2028. What's happening now is design decisions. Yet the data center revenue at ADI and TI is doubling already. That's why Jay worries about linearity: growth may decelerate next year before reaccelerating in 2028. The revenue curve and the technology curve aren't in sync, and there may be a gap between them.
+
+**5. Engineering creativity is producing unpredictable winners.** Ben says he goes to every conference and sticks his head into compute racks to photograph microcontrollers, power management ICs, analog sensors and capacitors — just to see how many there are now. From Lattice, Infineon and others he keeps hearing the same thing: customers solving hairy problems in racks, power and liquid cooling invent uses the vendor never designed for, and the vendor finds out afterwards. His concrete example: when someone detaches a rack, circuits have to be managed and shut off properly — and out of that grew a whole new application path around serviceability and safety.
+
+**6. On the Moderna story, the company itself wouldn't use the word "AI."** The melanoma vaccine genuinely involves personalization — each patient gets a slightly different combination, which takes real compute. But read the release and the word they deliberately use is "bioinformatics," an older term. Jay added a case from Shanghai this year: Insilico, five or six years old, fine-tuned models on every scrap of data they could get and applied them across the drug pipeline, producing thirty programs in development — impressive, but even they aren't using AI to invent drugs. They're using it to speed up an existing process. His aside: every semiconductor investor he follows became a biopharma expert overnight. "Wait a minute, didn't you just write about GPUs?"
+
+**7. The balance sheet is the new axis of competition.** Broadcom is reported to be raising about $60 billion via an SPV; Nvidia set up its own at $500 billion last week. Jay puts it on an evolutionary line: Nvidia first pushed competition from chips to rack-scale systems, forcing AMD to buy ZT Systems to keep up. Now Nvidia has pushed it again — we'll help fund the data center — and rivals must follow. Google's arrangement with Marvell includes warrants tied to revenue; AMD did something similar with OpenAI months ago. Jay's sharpest line: they wouldn't have to raise $500 billion if the technical lead were that big.
+
+## Going deeper
+
+### "The numbers look great — so why does the earnings call leave me more confused?"
+
+This is a real situation for a lot of people. Revenue doubling, 74% gross margin, confident management — and yet by the end of Q&A you're not clearer, you're muddier, because the analysts seem to be asking beside the point and you can't tell whether the answers matter.
+
+The episode offers a good explanation: **when an old company switches tracks into a new market, the people asking questions are often still on the old framework.** Asking "what should analog margins be" of a company that just started selling high-spec data center parts is a question from the wrong decade. The confusion you feel isn't a competence gap on your side. It's two coordinate systems in one room.
+
+So how do you tell whether a company has genuinely switched tracks or just stapled "AI" onto the old business? The episode demonstrates a test with a very low bar that you can use today: **look at whether they report TAM or SAM.**
+
+A company quoting TAM is telling you how big the world is, and that statement carries almost no accountability — "capex will be $10 trillion" sounds great and has nothing to do with what you'll sell. A company quoting SAM is telling you which slice it can sell into, and that gets checked by next quarter's revenue. ADI chose the latter, and then told you how it computed it ($1–1.5 billion per gigawatt), so you can multiply by whatever buildout pace you personally believe and reach your own estimate instead of accepting theirs. That's what a good disclosure does: it hands the verifiable pieces to you.
+
+State the failure condition too. SAM is self-defined, and a company can define it generously — in this very episode, ADI's SAM doubled after a re-examination. So the real test isn't "did they say SAM," it's **did they give you both the numerator and the denominator**. Unit content, definition, which piece the acquisition adds — with those you can recompute. With only a headline figure, SAM is no better than TAM.
+
+### "Will this growth line break in the middle?"
+
+If you hold anything connected to data center buildout, one passage is worth writing down: not a single 800-volt data center exists yet, everything is prototyping, real construction starts in 2028. And yet these companies' data center revenue **is doubling this year.**
+
+Put those two sentences side by side and an unasked question falls out: who is buying the revenue that's doubling right now?
+
+The answer: the design-decision phase — samples, prototypes, small volumes of high-spec parts, plus the piece that was already growing under existing architectures. It's real demand, but it is not the same money as the 2028 production ramp. Which makes Jay's worry reasonable: there may be a stretch where the prototype wave is digested and the volume wave hasn't started, growth decelerates, and reacceleration waits for 2028.
+
+That gives a decomposition anyone can use: **split a growth line into two segments and ask what each one eats.** If both segments eat the same thing, it's probably continuous. If the first eats design-in and the second eats volume shipments, there's room for a gap — and the market usually won't flag that gap in advance. It flags it with a re-rating, in the quarter the growth rate falls.
+
+One distinction matters: **a gap is not a broken thesis.** A broken thesis means the 2028 buildout doesn't happen. A gap means it happens and you have to wait. The first calls for a rewrite; the second only requires knowing in advance whether you'll lose patience during the wait. The episode doesn't tell you which one you'll get — the hosts' own words were that keeping track of all this is going to be a job. Honestly, that's the valuable part: someone who admits they don't know whether the curve is smooth is more credible than someone who promises it is.
+
+### "A company is borrowing to expand — should I be pleased or scared?"
+
+This is the part I most wanted to write down.
+
+Semiconductors have a fifty-year piece of common sense: chip companies don't carry debt. Jay explains why, and the reason is the same one that governs your own life — **debt forces you onto a schedule.** You must repay on time, but chips are cyclical and technology generations come and go. Divert cash from R&D to service debt today, and you may miss the next product cycle tomorrow, which puts you somewhere very hard to climb out of. This isn't the vague "debt is risky." It's specific: borrowing hands the question of *when you must succeed* to somebody else.
+
+So when Broadcom and Nvidia start deploying balance sheets at scale, there are two opposite readings, and the episode gives both.
+
+One: demand is that strong. Customer roadmaps and capacity needs are visible enough that the supply chain has to lock commitments layer by layer down the chain, and that takes enormous capital. Ben's framing is that you wouldn't do this without fair visibility and confidence from customers.
+
+Two: competition is that tight. Jay's line — if the technical lead were that big, you wouldn't need the $500 billion. Buying the customer's optionality with capital is, underneath, a discount. It just doesn't look like a discount. It looks like an investment.
+
+The episode doesn't pick a side, but it does hand you a concrete thing to watch: **all of these are structured as SPVs rather than put on the balance sheet.** An SPV pulls in private equity or other funding institutions, and those parties expect to be paid — so this route is *more* expensive. If it's more expensive and they use it anyway, the reason is usually one thing: it doesn't show up in the financial statements. Jay's words: the real obligations are buried deep beneath these things, and we probably won't see them until it's too late.
+
+Translated for the non-specialist: **when something is deliberately moved off the statement you can see, the question isn't "how big is it" but "why was it moved."** That question is far more useful, because you can't look up the size, but you can reason about the motive.
+
+The funniest and most informative detail in the episode: Jay says he's started getting calls from fixed income investors and bond journalists. "I've never talked to these people in my life." You used to be able to cover tech for a whole career without paying attention to the balance sheet; now, in his words, he's joined the fixed income clubhouse. Sometimes a structural change in an industry shows up first not in the financials, but in who starts calling you.
+
+## Worth following up
+
+- The Circuit (hosted by Ben Bajarin and Jay Goldberg), EP 189, August 23, 2026 — the source for everything above
+- ADI's quarterly call and investor Q&A (the per-gigawatt analog content, the SAM framing and the margin discussion all come from there)
+- Moderna and Merck's official releases on the melanoma vaccine — the episode specifically suggests reading the primary text and noting which word the company chose
+- Bloomberg's reporting on Broadcom's special purpose vehicle (flagged in the episode as reporting, not company confirmation)
+- Hot Chips — one host will be attending next week; an annual fixture worth tracking if you care about compute architecture detail
+
+## The one thing to take with you
+
+**Borrowed resources decide your calendar for you.**
+
+That's the thread underneath everything in this episode. The semiconductor industry avoided debt for fifty years not out of conservatism but out of clarity: the pace of chips is set by technology generations, the pace of repayment is set by contracts, and when the two fall out of step, technology is always what gives — because the lender sends an invoice and the next product generation does not.
+
+This has nothing to do with your positions and everything to do with your life. A mortgage, a car loan, the condition you accepted to get an opportunity, the promise you signed to get a resource — every time you use something borrowed to go faster, you also hand over part of the decision about when you must succeed. The acceleration is real. So is what you gave up.
+
+**A practice you can do today**: take a sheet of paper and write down three things in the next twelve months that must be finished or paid *by a specific date, no matter what happens.* Beside each one write a single line — **who set that date.** You, or someone else who set it in exchange for a resource you wanted (money, an opportunity, another person's commitment)?
+
+Circle the ones you didn't set. Those are your real risk exposure — not because they're dangerous, but because in those boxes, "let's wait and see" is no longer one of your options.
