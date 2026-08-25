@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="580" viewBox="0 0 960 580" role="img" aria-label="四象限圖上三個點由左下往右上排列，右上角那格被標亮">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink) }
+    .grp { font-size:20px; font-weight:600; fill:var(--accent) }
+    .ax { font-size:16px; fill:var(--dim) }
+    .pt { font-size:16px; fill:var(--ink) }
+    .cnc { font-size:22px; font-weight:600; fill:var(--accent) }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="ttl" x="60" y="64">會不會成交，看的是買方那一格</text>
+
+  <rect x="515" y="140" width="315" height="145" fill="var(--accent)" fill-opacity="0.10"/>
+  <rect x="200" y="140" width="630" height="290" fill="none" stroke="var(--line)" stroke-width="2"/>
+  <line x1="515" y1="140" x2="515" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <line x1="200" y1="285" x2="830" y2="285" stroke="var(--line)" stroke-width="2"/>
+
+  <circle cx="280" cy="395" r="9" fill="var(--grey)"/>
+  <text class="pt" x="298" y="401">智慧電網 2010s</text>
+  <circle cx="400" cy="340" r="9" fill="var(--grey)"/>
+  <text class="pt" x="418" y="346">火車 2007–12</text>
+  <circle cx="720" cy="205" r="12" fill="var(--accent)"/>
+  <text class="grp" x="700" y="180" text-anchor="middle">資料中心 2026</text>
+
+  <text class="ax" x="515" y="470" text-anchor="middle">舊方案還撐得住　→　撐不住了</text>
+  <text class="ax" x="170" y="285" text-anchor="middle" transform="rotate(-90 170 285)">買方分散受管制　→　集中能自訂標準</text>
+
+  <text class="cnc" x="480" y="530" text-anchor="middle">同一顆橘子，換一格水土就結不同的果</text>
+</svg>

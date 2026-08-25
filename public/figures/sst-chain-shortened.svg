@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-label="上排六格的長鏈與下排三格的短鏈對比，被省掉的四格畫成空虛線框">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink) }
+    .grp { font-size:20px; font-weight:600; fill:var(--dim) }
+    .box { font-size:15px; fill:var(--ink) }
+    .sml { font-size:15px; fill:var(--warn) }
+    .cnc { font-size:22px; font-weight:600; fill:var(--accent) }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="ttl" x="60" y="64">從電網到機櫃，中間少了四站</text>
+
+  <path d="M276,168 L276,152 L638,152 L638,168" fill="none" stroke="var(--warn)" stroke-width="2.5"/>
+  <text class="sml" x="457" y="138" text-anchor="middle">被省掉的四站</text>
+
+  <text class="grp" x="50" y="212">之前</text>
+  <rect x="150" y="180" width="110" height="64" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="box" x="205" y="217" text-anchor="middle">中壓電網</text>
+  <polygon points="264,206 274,212 264,218" fill="var(--grey)"/>
+  <rect x="276" y="180" width="110" height="64" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text class="box" x="331" y="217" text-anchor="middle">傳統變壓器</text>
+  <polygon points="390,206 400,212 390,218" fill="var(--grey)"/>
+  <rect x="402" y="180" width="110" height="64" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text class="box" x="457" y="217" text-anchor="middle">整流器</text>
+  <polygon points="516,206 526,212 516,218" fill="var(--grey)"/>
+  <rect x="528" y="180" width="110" height="64" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text class="box" x="583" y="217" text-anchor="middle">不斷電系統</text>
+  <polygon points="642,206 652,212 642,218" fill="var(--grey)"/>
+  <rect x="654" y="180" width="110" height="64" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="box" x="709" y="217" text-anchor="middle">低壓直流</text>
+  <polygon points="768,206 778,212 768,218" fill="var(--grey)"/>
+  <rect x="780" y="180" width="110" height="64" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="box" x="835" y="217" text-anchor="middle">機櫃</text>
+
+  <text class="grp" x="50" y="372">之後</text>
+  <rect x="150" y="340" width="110" height="64" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="box" x="205" y="377" text-anchor="middle">中壓電網</text>
+  <polygon points="264,366 274,372 264,378" fill="var(--grey)"/>
+  <rect x="276" y="340" width="110" height="64" rx="8" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <text class="box" x="331" y="377" text-anchor="middle" fill="var(--accent)">固態變壓器</text>
+  <polygon points="390,366 400,372 390,378" fill="var(--grey)"/>
+  <rect x="402" y="340" width="110" height="64" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="box" x="457" y="377" text-anchor="middle">機櫃</text>
+  <rect x="528" y="340" width="110" height="64" rx="8" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 7"/>
+  <rect x="654" y="340" width="110" height="64" rx="8" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 7"/>
+  <rect x="780" y="340" width="110" height="64" rx="8" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 7"/>
+
+  <text class="cnc" x="480" y="492" text-anchor="middle">少掉的不是一顆零件，是一整段</text>
+</svg>
