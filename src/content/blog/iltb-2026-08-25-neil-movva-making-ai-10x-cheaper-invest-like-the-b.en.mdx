@@ -1,0 +1,96 @@
+---
+title: "What Happens When Intelligence Gets Ten Times Cheaper — Notes on Neil Movva"
+description: "Notes after listening to Invest Like the Best EP.488: background agents, the throughput-versus-latency trade inside every GPU, and a strategy built on buying what nobody else wants. Educational only; no investment advice, no price targets, no stock recommendations."
+slug: "iltb-2026-08-25-neil-movva-making-ai-10x-cheaper-invest-like-the-b"
+lang: "en"
+pubDate: 2026-08-25
+category: "investing"
+tags: ["AI inference", "compute supply chain", "background agents", "bottlenecks", "investment thinking"]
+ogImage: "/covers/iltb-2026-08-25-neil-movva-making-ai-10x-cheaper-invest-like-the-b-cover.png"
+cover: "/covers/iltb-2026-08-25-neil-movva-making-ai-10x-cheaper-invest-like-the-b-cover.png"
+---
+
+![An open plain at dawn, rows of refrigerator-sized server cabinets running along field paths toward the horizon, wind turbines and solar panels between them, low morning light on the nearest cabinets fading into mist](/covers/iltb-2026-08-25-neil-movva-making-ai-10x-cheaper-invest-like-the-b-cover.png)
+
+> "The sage governs the empire so that grain is as abundant as water and fire. When grain is as abundant as water and fire, how could the people be anything but good?"
+>
+> —— Mencius, *Jin Xin I* (Warring States period; translated by the author)
+
+Mencius is making a plain point: when food becomes as cheap as water and fire, behaviour changes. Not because anyone suddenly became virtuous, but because the instinct to ration disappears.
+
+On the 25 August 2026 episode of *Invest Like the Best*, Patrick O'Shaughnessy interviews Neil Movva, founder of Sail Research. The whole conversation answers one question: if a token gets cheap enough that you stop rationing it, what does the world look like?
+
+## What This Episode Is About
+
+Neil calls his company a token factory. He is not building the fastest inference. He is building the cheapest — and not ten percent cheaper, ten times cheaper.
+
+His starting point is a shift in how AI gets used: from "you type, it answers" to "it runs in the background for hours while you sleep." When nobody is waiting, speed stops being valuable and cost becomes the only thing that matters. Software, silicon, and power — the entire company is rebuilt around that single bet.
+
+The best part of the conversation is how far down it goes. Matrix multiplies, two different ways to build memory, how big a rack physically is, what happens when the wind stops blowing. This is not an episode about the AI vision. It is an episode about a supply chain.
+
+## The Main Points
+
+**1. He is betting that waiting disappears.** Neil is blunt about it: when you are waiting on it, you absolutely deserve the fastest possible answer — his trick is that he doesn't want you waiting at all. The best latency is no latency. You wake up and the work is already done; you never even asked. He adds a sharper observation: when you sit in the loop prompting and waiting, *you* are the bottleneck. You don't manage a colleague every five minutes — you hand over a task and check in maybe once a week. He thinks human-agent collaboration ends up on human timescales. He guesses background and real-time end this year roughly fifty-fifty, heading to ninety-ten.
+
+**2. There is an unbreakable trade inside every GPU.** He explains it with buses and cars. A private car takes the direct route; a bus stops constantly and waits for people to get on and off, but it carries many. For throughput, you batch many users' requests together and everyone gets carried along the slow route. For low latency, you shard one large matrix multiply across eight chips — eight times the hardware for four to five times the speed, sublinear scaling, with communication overhead eating the difference. His choice is to build the best possible bus.
+
+**3. "There are no bad chips, only bad pricing."** This is the core sentence of his whole strategy. He refuses to bid against the frontier labs for the best silicon — that auction is unwinnable. Instead he scavenges the supply nobody else finds legible: architectures others won't program for, power others won't touch. The hardest version of this is uptime. A data centre with 95% uptime is fatal, unsellable, zero buyers — "I'm that first buyer." His customers run agents for hours; a ten-minute hiccup is invisible. At the right price he'd even consider 80%, which would let him use wind and solar that nobody else can use, because those outages are *predictable* — he models the weather and moves the workload. He describes building a steel factory, but through mini mills rather than one monolithic plant.
+
+**4. The free data subsidy is over.** The internet, he says, was a one-time subsidy on data: roughly thirty trillion tokens of high-quality text, three hundred trillion if you're generous, and the models have already read it many times over. The counterintuitive part comes next — even random user feedback is now worthless, because the median model is already smarter than a random person giving it a thumbs-up. You want expert preference. So the next phase of data isn't collected, it's generated by models running inside verifiable task environments. As for the unverifiable half — that, he says, is the entire category of human taste, and he explicitly leaves it alone. Quality of writing, beauty of art: those stay with people.
+
+**5. The real waste isn't compute, it's memory and orchestration.** He thinks compute is used fairly judiciously already — modern sparse models activate maybe one percent of their experts. The waste sits elsewhere. First, the KV cache (the memory holding conversation context) is barely compressed; he estimates current storage is off by an order of magnitude or two. Second, GPUs sit idle in private pools all over the world. "It pains me physically" to see that silicon and power sitting unused. Everyone jokes about one company's cluster utilisation, he notes; the rest of the world is far worse.
+
+**6. A genuinely contrarian call.** Compare like for like — performance per watt on a bfloat16 multiply — from Hopper to Blackwell to Rubin, and it hasn't improved that much. Look at TSMC 5nm versus 4 versus 3 versus 2, and performance per watt doesn't move dramatically either. His conclusion: the geopolitical panic is overdone. Supply would take a real shock, but the best Western process, Intel's, is at worst maybe two times worse per watt. That is not the cliff the chip-war discourse describes.
+
+**7. Will the three-to-six-month premium hold?** He thinks the frontier labs pay an immense price to stay three to six months ahead, and that it probably still makes sense. But he offers a sharp observation: enterprises don't move at three-to-six-month speed. Many are still two or three generations back. And distillation is already happening passively — what fraction of repos created on GitHub in the last year were written by an AI coding tool? If users own their outputs and choose to publish them, capability diffusion cannot be stopped. The only question is how fast.
+
+## Going Further
+
+### "The news is all about shortages and price hikes. Should I chase it?"
+
+This is the question that grinds people down in every industrial cycle, and Neil's supply-chain teardown gives you an order of operations.
+
+He tells would-be chip founders to first articulate the three to five bottlenecks: TSMC wafer capacity, HBM capacity, advanced packaging, and — fourth — power. The value of that list to an investor is not the names. It's the reminder that **bottlenecks move**. Today it's packaging, tomorrow memory, next year a substation you weren't watching. His own bet is memory, for an unromantic reason: "the boys in Boise don't love huge CapEx for cyclicals — they've been burned many times." Capacity expansion isn't a technical problem. It's a scar.
+
+More important is the criterion he never states outright: **tight supply is not the same as pricing power**. In a shortage everyone ships flat out, but only the layer that can actually raise prices, sign long contracts, and show expanding margins is the real bottleneck. When you read a shortage headline, ask one more question: is this company raising prices, or just working overtime?
+
+Neil's own role is worth sitting with, too. What he does is essentially **bottleneck arbitrage**. When the market decides a class of chip is inferior, he's delighted — "that's music to my ears." Which means the same industry headline is an opposite signal depending on where you stand: bad news if you're bidding, good news if you're scavenging. Before reacting to a story, work out which side you're on.
+
+### "Semis are a fifth of the index. Is this 2000 again?"
+
+Patrick asks it honestly: this share was historically two or three percent, now it's twenty, and anyone who studies market history knows how those curves tend to end.
+
+Neil's answer is the most quotable argument in the episode. He says he isn't a student of history so much as a member of it — born in 1997, his mother worked at Intel through the dot-com run-up, and he remembers when Cisco was the most valuable company in the world. The difference, he argues, is that networking investment back then was **speculative**: capacity built for demand that never arrived. Token consumption is **immediate**. Nobody hoards tokens; you buy them and use them. He even separates today from two years ago: the 2023–24 crunch was training-driven, and training is inherently speculative spend. Today, every company is doing the opposite — capping how much their engineers can spend.
+
+The argument is strong, but the useful thing is turning it into a ruler you can hold yourself: **to tell speculation from consumption, ask whether the thing gets consumed on arrival or stockpiled against a future that hasn't shown up**. That ruler works on far more than semiconductors.
+
+And be honest about its failure conditions — which is the right reflex after any persuasive argument. If inference spend starts being carried by financing, subsidised below cost to win share, or paid for by buyers who themselves depend on outside capital, then "immediate consumption" quietly turns back into a speculative build-out. The criterion still holds; you just have to go back periodically and check its premises.
+
+### "If the specs are worse, is it game over?"
+
+The lesson here that travels furthest outside investing is the one about 95% uptime.
+
+The same specification is a fatal defect to one group and an optimal purchase to one man. The difference isn't the spec. It's **who wrote the acceptance criteria**. Neil can buy the data centre nobody else will touch only because he first rebuilt his own workload to tolerate interruption — a control plane robust enough to move a job elsewhere when a node dies. He isn't being brave. He turned himself into the kind of buyer for whom that flaw isn't one.
+
+That structure shows up everywhere in investment judgement. A product ranked third on mainstream benchmarks may still have a market; the question is whether some set of customers happens not to grade on that axis. The reverse holds too: a company far ahead on one metric loses that lead the moment the metric shifts from requirement to nice-to-have — exactly as Neil describes for low latency, which he simply doesn't need.
+
+His view on Nvidia is the clean demonstration. He is bullish short-term and says you should never bet against them, while calmly noting that their strongest technology — the high-speed interconnect between chips — solves latency, and he doesn't need latency. That isn't bearishness. It's a reminder that **an advantage exists relative to a use case**. Change the use case and the ranking has to be redrawn.
+
+## Worth Exploring
+
+- The episode itself: *Invest Like the Best*, EP.488, Neil Movva, 25 August 2026
+- For the throughput-versus-latency trade, any operating systems or computer architecture textbook's chapter on batching — the same trade governs databases, networks, and factory scheduling
+- For the "one-time data subsidy" claim, the public scaling-laws literature on how data, compute, and parameters relate
+- For bottlenecks moving, the history of steel's shift from integrated mills to mini mills — Neil's own analogy, and worth reading on its own
+
+## The One Thing to Take Away
+
+**Ten times cheaper isn't a discount. It's a different product category.**
+
+That is Neil's best line, and it has nothing to do with AI. When something gets ten times cheaper, you don't simply buy more of it — you start doing things you would never have considered. He is specific about the mechanism: you have to be willing to spend tokens with no promise of return. That is the unlock. Because when every use has to justify itself first, you only apply the thing to purposes whose value is already proven — and everything genuinely new lives in the region where the value is not yet proven.
+
+Expensive doesn't just make you use less. Expensive makes you **use it only for known purposes**, which is why you never discover the new ones.
+
+**Something to do today**: pick one thing in your life that you save for important occasions — the good dinnerware, the tea you keep for guests, the shoes you won't wear, or the phone call you only make when something big has happened to that person. Use it today on a completely unimportant occasion. The good plates for a Tuesday night meal alone. Or make the call and say, "Nothing's wrong, I was just thinking about you."
+
+Afterwards, write down what you noticed. Most likely you'll find that a large share of the thing's value was always hiding in the days you'd decided weren't worth spending it on.
