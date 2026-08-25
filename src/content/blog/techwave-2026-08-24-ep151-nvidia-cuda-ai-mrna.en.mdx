@@ -1,0 +1,91 @@
+---
+title: "Moats Evaporate. The People Who Dig Them Don't — Notes on TechWave EP151, After CUDA"
+description: "Personal reflections on TechWave EP151: why CUDA's porting-cost moat is loosening, what Jensen Huang is really trying to solve by turning AI factories into an asset class, and what the Moderna mRNA headline actually means. Educational notes only — no stock recommendations or price targets."
+slug: "techwave-2026-08-24-ep151-nvidia-cuda-ai-mrna"
+lang: "en"
+pubDate: 2026-08-25
+category: "investing"
+tags: ["NVIDIA", "CUDA", "AI infrastructure", "mRNA", "moats"]
+ogImage: "/covers/techwave-2026-08-24-ep151-nvidia-cuda-ai-mrna-cover.png"
+cover: "/covers/techwave-2026-08-24-ep151-nvidia-cuda-ai-mrna-cover.png"
+---
+
+![A long corridor inside an AI data center under construction, old racks and scaffolding being dismantled in the foreground, new racks being installed in the light far ahead, an engineer standing mid-corridor with their back to us](/covers/techwave-2026-08-24-ep151-nvidia-cuda-ai-mrna-cover.png)
+
+> The superior person is active all day, and at night remains alert as if in danger. No blame.
+>
+> —— *I Ching*, Qian hexagram, third line (pre-Qin era; translation mine)
+
+## What this episode is about
+
+In the August 24, 2026 episode of the Mandarin tech podcast TechWave (EP151), host Harry spends most of the hour on a story he thinks was badly underrated: Jensen Huang's plan to turn NVIDIA's AI factories into an investable asset class. But he doesn't start there. He first makes a sharper claim — that the CUDA moat everyone has been citing for three years is being eroded, and that most people haven't noticed.
+
+The second half jumps to an entirely different field: Moderna announcing that an AI-designed, personalized mRNA cancer therapy hit its endpoint in a Phase III trial. His reaction is not excitement. It's a correction — he pulls the popular reading back a notch before letting it stand.
+
+The two stories look unrelated. Underneath they're the same question: **when something that used to be hard stops being hard, what happens to whatever was living off its difficulty?**
+
+## Key points
+
+**1. He narrows the definition of the moat before attacking it.** He's explicit that he isn't talking about the whole developer ecosystem — only one thing: code portability and porting cost. Moving a model that runs on NVIDIA to another accelerator raises two questions, will it run at all, and then the much harder one, will it run fast and efficiently. That migration pain *is* the moat, by his definition.
+
+**2. What's dismantling it isn't a competitor. It's coding agents.** His reasoning is worth keeping: agents aren't especially good at *hard* problems, they're good at *verifiable* ones. Writing kernels is arguably the most difficult category of software engineering for a human. But an agent doesn't care how hard the algorithm is — it cares whether there's a clean verification target and whether it can close the loop by itself. "Does this model run on this chip, and how many tokens per second?" happens to be one of the cleanest verification signals in the world. Given that signal, an agent can iterate unattended, turning compute directly into performance.
+
+**3. The strongest evidence is one weekend.** He cites Anthropic co-founder Tom Brown, speaking at an AMD event: they expected porting their most advanced model onto AMD racks to be a major engineering campaign and had braced for a long fight. Instead they handed the task to Claude on a Friday afternoon. By Monday morning, performance had climbed by some large multiple. What used to take a team now takes one prompt and a weekend.
+
+**4. Eroded is not dead — and he says outright he's bullish.** He notes that on performance per watt, Blackwell is still hard for anyone to match. His claim is narrow: porting cost genuinely fell. He adds a vivid piece of corroboration — don't take his word for it, look at what kernel engineers are saying publicly. **They are the ones announcing that their own jobs are about to be automated.**
+
+**5. The new walls are elsewhere, and there are several.** On the technical side: extreme co-design. GPUs, interconnect, memory, rack design, power delivery, liquid cooling, storage, all the way up to the inference software — the entire factory optimized as one object. That's a level a single chip can't compete at. The capital side is the more interesting one. For two years NVIDIA has been using its own balance sheet to manufacture purchasing power for customers who couldn't otherwise buy. But that path has a ceiling: **its cash is finite, demand isn't.**
+
+**6. Hence the Hilton analogy.** The endgame, he argues, is for AI factories to become like commercial real estate. Hilton operates hotels; it typically doesn't own the buildings. Insurers, banks, private equity and REITs do. That separation makes the operator asset-light and unshackles expansion from its own balance sheet. Transplant the logic: a compute-rental company wouldn't have to finance every data center it builds — outside capital owns the factory, the operator just leases and runs it. The binding constraint on the whole industry is financing, and this move is designed to bring new money in. He also names the two hard conditions for becoming an asset class: **residual value and easy resale.** GPUs are general-purpose, so whatever model architectures do next they'll likely still compute something; and the secondhand market is the deepest. Right now only NVIDIA clears both bars. He cites Huang's own example: the A100 is six years old and its rental price is still holding up.
+
+**7. He's equally clear about the other edge.** This is an accelerant — it speeds up the good future and it speeds up the bubble. If AI really did overbuild, the damage today would land mainly on hyperscalers and neoclouds: painful, but localized. Once pension funds, insurers and sovereign wealth are wired in through standardized products, the same failure becomes systemic. He puts the odds of a bubble low, and — importantly — gives a falsifier: **unless the large-model paradigm is overturned**, say a one-billion-parameter on-device model that beats the best frontier model. He notes plenty of academics argued for that in 2023, and fewer do now.
+
+**8. On Moderna, his first move is to cool it down.** The mechanism isn't exotic: after tumor removal, prevent recurrence. From the hundreds of mutations in a cancer cell, pick roughly 34, encode them as mRNA, deliver it so the immune system learns to recognize and clear residual cancer cells. The hard part is *which ones* — a combinatorial problem no human can do by hand. That selection step is where AI sits. But he points out this program started in 2015, and the models involved are likely older, more traditional statistical or deep-learning approaches — **not necessarily today's frontier generative AI.** Phase II showed roughly a 49% reduction in recurrence and death risk; Phase III is reported as hitting its endpoint but detailed data isn't out, and the tested population was primarily melanoma.
+
+**9. The line I'd keep from the whole hour.** The bottleneck for AI in medicine, he says, is not intelligence and not token cost — **it's experiment time.** Even if a model found a cure this afternoon, humans would still need years of clinical follow-up to establish safety and efficacy. Reality's friction doesn't dissolve because the model got smarter.
+
+## Going further
+
+### 1. "The company I hold has a deep moat" — do you know when it stops being deep?
+
+Most people own something they describe that way. Ask one follow-up — **what would have to happen for you to admit the moat is gone?** — and most can't answer. If you can't answer, that sentence isn't a judgment, it's a comfort object. It can never be wrong, because there's no way for it to be wrong.
+
+What makes Harry's segment useful is exactly the step most people skip: he shrinks the definition down to one checkable sentence. Not "the CUDA ecosystem is strong," which is true under every possible future, but "how expensive is it to move code from vendor A to vendor B." Once a claim has a narrow shape, it acquires failure conditions. Once it has failure conditions, you can see it loosening early.
+
+Second layer: **the signal usually doesn't appear in the financials.** By the time falling porting costs show up in market share or margins, several quarters have passed. It appears first among the people who do the work — kernel engineers saying publicly that their jobs are on the clock. You don't need to understand what they write. You only need to notice that this group has started talking this way. The first crack in a moat is usually heard by the people standing inside it.
+
+Third layer: don't overcorrect. His own conclusion is the demonstration — porting costs fell, performance per watt still favors one side, other walls remain, he's still bullish. **"That wall got shorter" and "that company is finished" are separated by several inferential steps, and if any one of them breaks, the conclusion doesn't hold.** One advantage failing is only fatal when it was the only advantage. So the real second question is: how many other walls are there, and what's the failure condition of each?
+
+### 2. "The news says AI cures cancer and the stock doubled in a day" — how do I read that?
+
+The instinct is "did I miss it?" This episode offers a better tool: **split the story into three independent layers — is it technically possible, when does it commercialize, and which layer is the actual bottleneck.** They move independently. One can break wide open while the other two sit still.
+
+Run the episode through it. Technical layer: Phase III hit its endpoint. Real progress; this layer moved. Time layer: a decade from 2015 to now, detailed data still pending, other cancer types still in testing. Bottleneck layer: he names it — experiment time. And experiment time has a peculiar property. **It doesn't consume compute.** Multiply your compute by ten and the follow-up years don't shrink by a day.
+
+Which yields a counterintuitive inference the episode genuinely supports: **in fields where the bottleneck doesn't eat compute, "AI got better" buys far less acceleration than people assume.** Conversely, the fastest progress clusters wherever the bottleneck happens to be exchangeable for compute — like that weekend in the first half, where the verification signal was clean and no iteration had to wait on the physical world. Having both stories in one episode is the perfect control group.
+
+So next time a headline claims AI conquered something, don't ask whether to chase it. Ask: **is this bottleneck the kind compute can buy, or the kind it can't?** The first moves faster than you'd guess. The second, much slower. That single question requires no domain expertise and filters most of the noise.
+
+### 3. "Everyone says there's no bubble — should I believe them?"
+
+The valuable part isn't his conclusion, it's the shape of it. He says the odds are low, then doesn't stop — he supplies **a falsifier concrete enough for you to monitor yourself**: unless the large-model paradigm is overturned by a small on-device model beating frontier systems. And he adds which way that condition has been trending: more people believed it in 2023, fewer now.
+
+That's the complete form of a judgment: a claim, a specific event that would kill it, and the current direction of that event. Without the last two pieces, "I don't think it's a bubble" carries exactly as much information as "I think it is" — **neither can be shown wrong, so neither is worth anything.**
+
+One more layer. This move lowers near-term risk and raises long-tail risk at the same time. Unlocking financing means more data centers get built and the supply gap closes — good. But when everyone's money, including the slice inside your pension, is wired to the same asset through standardized products, what was a few companies' problem becomes everyone's. **Risk didn't vanish; it changed shape, from "a few people lose a lot" to "everyone loses a little."** Diversification substitutes one distribution for another. This is the old portfolio problem: what matters isn't how many things you hold, it's whether those things fall together on the worst day. When an asset successfully becomes something everyone owns, it graduates from being someone else's risk into being yours — and you generally don't get a notification.
+
+## Sources worth your time
+
+- TechWave EP151 (August 24, 2026), hosted by Harry. This piece is a listener's reflection, not a transcript; for the full context, listen to the original.
+- To understand why CUDA was hard to dislodge, start with libraries like cuBLAS and cuDNN, which existed years before the generative AI boom. Moats are built out of time, and that's clearest on a timeline.
+- To understand the weight of the phrase "asset class," the best primer isn't an AI industry report — it's commercial real estate. What does it take for strangers to hold something at scale (valuation standards, a resale market, a residual-value track record)? That answer has been evolving for decades.
+
+## The one thing to take away
+
+**A moat is a consumable, not a state.** What this episode actually proves valuable isn't CUDA, or AI factories, or capital structure. It's the habit of sitting down at the moment of your most convincing win and asking how much longer the wall holds. Harry puts it bluntly: NVIDIA's strongest moat may simply be Jensen Huang's own paranoia. Walls get ground down by time. The person who digs them doesn't.
+
+Here's today's exercise, and it has nothing to do with stocks. **Write down the one core advantage you currently live on — one sentence. Underneath it write a second: "When ______ happens, this advantage stops being worth anything." Then a third: "Where would that first become visible?"**
+
+It might be a job skill, your irreplaceable position on a team, an understanding between you and one specific person, or the location of the shop your family runs. Three sentences, ten minutes.
+
+The first sentence isn't the point — everyone can write that one. The point is whether you can fill in the second. **If you can't, you don't actually know what you live on. You only know that dinner has shown up so far.** And the third sentence is your early-warning sentry. If your answer is "I'll find out when the income stops," that's too late. If your answer is "the people closest to the front line in my field will start saying it first" — good. You've just turned your own failure condition into something you can watch.
