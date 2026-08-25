@@ -1,0 +1,101 @@
+---
+title: "Fifty-Eight Years of Almost: When a Technology Finally Finds Its Buyer"
+description: "Notes from an Asianometry episode on the solid state transformer's fifty-eight years of near-misses, and what it teaches about the gap between technically possible and commercially viable. Educational only — not investment advice, no tickers, no price targets."
+slug: "asianometry-2026-08-24-has-the-solid-state-transformer-s-time-finally-com"
+lang: "en"
+pubDate: 2026-08-25
+category: "investing"
+tags: ["solid state transformer", "data centers", "power electronics", "silicon carbide", "commercialization"]
+ogImage: "/covers/asianometry-2026-08-24-has-the-solid-state-transformer-s-time-finally-com-cover.png"
+cover: "/covers/asianometry-2026-08-24-has-the-solid-state-transformer-s-time-finally-com-cover.png"
+---
+
+![A night-time substation corridor, an old steel-grey transformer sunk in shadow in the foreground, the walkway running deep toward a brightly lit row of racks](/covers/asianometry-2026-08-24-has-the-solid-state-transformer-s-time-finally-com-cover.png)
+
+> When the tangerine tree grows south of the Huai it bears tangerines; north of the Huai, it bears bitter thorn-fruit. The leaves look alike, but the fruit tastes nothing alike. Why? The soil and water differ.
+>
+> —— *Yanzi Chunqiu*, Inner Chapters, Miscellany II (Warring States period; translation mine)
+
+## What the Episode Is About
+
+In his 24 August 2026 episode, Asianometry tells a story that starts in 1968 and runs to the present day: the solid state transformer.
+
+He opens by mocking his own title — when someone leads a video with a question, the answer is usually no. The question here is whether the solid state transformer's time has finally come.
+
+What's interesting is that by the end he revises the answer to "maybe, this time, a little." Not because of a technical breakthrough. Because **the buyers changed**.
+
+A small detail worth keeping: the whole episode started because he saw a model of a solid state transformer sitting in Delta Electronics' showroom and went home to look it up.
+
+## The Key Points
+
+**1. The incumbent is unreasonably good.** A modern transformer runs on the same physics Faraday demonstrated over a century ago: two copper coils around a shared iron core. It is 98–99% efficient, structurally simple, lasts forty or fifty years, and is everywhere — the grey cylinder on the utility pole, the painted box on the street corner, the little lump inside your phone charger. Asianometry calls it "the anonymous lunch pail worker of the grid." Displacing something like that isn't about how good you are. It's about how hard your opponent is to fault.
+
+**2. The core trick is trading frequency for volume.** Transformer size scales inversely with frequency, and the grid runs at 50 or 60 Hz — so transformers must be physically large. In 1968 a GE research engineer named William McMurray patented a design that used power semiconductors to "chop up" the incoming current and raise its frequency to thousands or tens of thousands of hertz. At that frequency a much smaller transformer can do the stepping, and a second set of semiconductors converts back down for actual use. Footprint drops 70–80%, and because electronics sit in the path, the device can actively clean up the waveform. A conventional transformer is passive — voltage dips and spikes simply pass through it.
+
+**3. Even the name is a misunderstanding.** The US Navy studied something adjacent in the 1970s, and a 1980 paper coined the term "solid state transformer," which stuck. By today's standards what the Navy explored wasn't one: it had no high-frequency transformer inside, and therefore none of the galvanic isolation a real transformer provides for free. That paper predicted practical devices maybe ten to fifteen years out. That was miss number one.
+
+**4. The train era failed with every box ticked.** In 2007 ABB demonstrated the PETT, a solid state traction transformer; by 2012 it hit 95–96% efficiency at half the size of a conventional traction transformer — genuinely valuable for a component that must fit under the carriage floor and is among the heaviest things on the train. More than twenty prototype systems were built, involving Alstom, Siemens and Bombardier. None reached commercial deployment. The reasons were mundane: too complex, unproven over time, and over 50% more expensive. **Twenty prototypes and three industry giants could not outweigh one line about cost.**
+
+**5. The smart grid era failed by telling too large a story.** Wide bandgap semiconductors like silicon carbide matured around 2010, and distributed renewables were creating real power-quality headaches. NC State's FREEDM center proposed the "Energy Internet," in which the solid state transformer is not merely a step-up/step-down device but the router of the energy network. The concept was elegant enough to land "smart transformer" on MIT's 2011 breakthrough technologies list, and one 2012 forecast had the market growing 82% a year to $5 billion by 2020. What actually happened: Varentec took money from Bill Gates and Khosla Ventures and pivoted, Amantys never got there, and GridCo burned $54 million and closed in 2018.
+
+**6. The most valuable line in the episode comes from someone who lived it.** Haroon Inam, Varentec's VP of Engineering and Operations at the time, later recalled on the SemiAnalysis podcast that it took two years and millions of dollars to realise that building an AC-to-AC solid state transformer "was probably one of the dumbest things we could have done… You're taking a hunk of iron and a hunk of copper that's going to last 40, 50 years — why the hell would anybody in their right mind try to replace that with a bunch of electronics that are going to be more delicate?" Varentec's former CEO Deepak Divan went into academia and co-authored a 2022 paper concluding that neither solid state nor hybrid transformers are economically viable without a 60% cut in capital cost.
+
+**7. What's different this time is a physical dead end on the demand side.** A modern AI rack can draw a megawatt. Power equals voltage times current, and more current means thicker copper — at 1 MW under the existing 54-volt rack architecture you may need up to 200 kilograms of copper busbars. That is expensive, heavy, and occupies floor space that generates no revenue. So the architecture is being redesigned around 800 volts DC. That change gives the "energy router" concept a real slot: take medium-voltage grid power, deliver 800 VDC to the rack, and delete a whole layer of rectifiers and uninterruptible power supplies. Nvidia has it on the architecture roadmap, and a new cohort has appeared — DG Matrix, Heron Power, Singapore's Amperesand, and Delta Electronics, which in February 2026 discussed installing a solid state transformer at a data centre campus in mainland China operated by Meituan.
+
+## Going Further
+
+### "I've heard this story for fifteen years — why hasn't it paid?"
+
+The solid state transformer is a good teacher precisely because it spent fifty-eight years measuring, in years, the wall between *technically possible* and *commercially viable*.
+
+The train era is the one to stare at. ABB did not fail technically. Half the size, 96% efficient, three major manufacturers building prototypes — put those numbers in any deck and heads nod. It failed somewhere that never makes it into a deck: **the incumbent was too good, and the buyer had no reason he could not refuse.**
+
+So the three questions worth asking are not about how strong the technology is:
+
+**Who is the buyer?** For the train era it was rail operators, whose purchasing logic is "what happens if this breaks," not "how much does this save." For the grid era it was utilities — and as the episode puts it bluntly, few utilities wanted to buy an energy-router-type device. When the buyer is conservative, fragmented, individually specified and under no shared deadline, nothing moves regardless of merit.
+
+**How good is the incumbent?** This is the question people skip. New technology usually gets compared against an ideal, rarely against the ugly old thing that runs for forty years. That's the force in Inam's "hunk of iron and a hunk of copper": the incumbent isn't merely adequate, it's good enough that change becomes pure downside risk.
+
+**What's the price gap, and who eats it?** Over 50% killed the trains. Roughly five times, plus a paper saying costs must fall 60%, killed the grid. That number is checkable and trackable, and it predicts outcomes better than any technical spec.
+
+### "But it's on a major vendor's roadmap now — surely that means something?"
+
+The episode hands you a clean counterexample: twenty-plus PETT prototypes, Alstom, Siemens and Bombardier all involved, zero commercial deployment.
+
+**Prototypes, demos and roadmaps are not orders.** They prove someone was willing to pay to find out whether the thing is worth doing. They do not prove the answer came back yes.
+
+So what does count? The episode names it: a forcing function — a pain the buyer must solve and the old approach cannot. Those 200 kilograms of copper are that kind of pain. It isn't "could be better," it's physically out of road. Only when something moves from optimisation to dead end does purchasing logic flip from "why would we change" to "is there any other way."
+
+There's a structural condition that's easy to miss too. Asianometry points out that this round's builders and key suppliers are a **small, centralised circle** — able to set standards, even to build for themselves, with no decades of legacy baggage. That is a completely different soil from the fragmented, regulated utility world where replacing equipment means explaining yourself to a regulator. Same tree, different fruit, and the tree usually isn't the deciding variable.
+
+And the honest half has to be taken as well. The episode says outright that today's advantages come **largely from simulations** — there is no real operating data yet from 800 VDC AI data centres running solid state transformers, and the approach still has to beat hybrid transformers built around conventional iron. Until those two things are marked against reality, every conclusion is a hypothesis.
+
+### "So what do I actually do?"
+
+More useful than chasing anything is writing yourself a **falsifiable checklist**: what would have to happen for you to believe this time is real, and what would have to happen for you to call it miss number four.
+
+The observation points this episode honestly supports are roughly: whether real operating data appears (not just simulation), whether hybrid transformers win instead, where silicon carbide pricing and yields go, and whether the cost gap actually converges toward that 60% figure.
+
+The value of the list isn't that it makes money. It's that six months from now, when a piece of good news crosses your screen, you'll know which row you're supposed to check it against. Without the list every headline is emotion. With it, headlines become information.
+
+## Worth Reading
+
+- Asianometry, "Has the Solid State Transformer's Time Finally Come?", 24 August 2026
+- SemiAnalysis Weekly podcast interview with Haroon Inam (co-founder of DG Matrix, formerly Varentec)
+- Nvidia's published technical material on the 800 VDC rack architecture
+- FREEDM center at NC State University on the "Energy Internet"
+- Deepak Divan et al., 2022, on the economics of solid state and hybrid transformers
+
+## The One Thing to Take Away
+
+**A new thing cannot beat an old thing at the old thing's job. It can only win at something the old thing cannot do — and that someone urgently needs right now.**
+
+Smaller, lighter, able to clean up a waveform: all of that has been true of the solid state transformer for fifty-eight years, and none of it was enough. Not until "the copper is too heavy and there's nowhere to put it" became a physical dead end did anyone actually need it.
+
+Today's exercise has nothing to do with markets.
+
+Pick something you've complained about for a long time and still haven't replaced — a workflow, a tool you use daily, a way you handle someone, a habit. Draw two columns on paper. In the left, write what's wrong with it; you'll fill that in thirty seconds. In the right, write **what it does for you that the replacement you have in mind cannot do**. That column will be hard, and the difficulty is the answer: the reason you've complained for years without changing is that you never sat down and wrote the right-hand column.
+
+Then ask one question: can the new option do something outside that column that I urgently need right now?
+
+If you can't answer, it isn't time. If you can, that thing is your 200 kilograms of copper.
