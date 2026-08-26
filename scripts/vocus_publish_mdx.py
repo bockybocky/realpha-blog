@@ -296,6 +296,18 @@ def resolve_image(src, meta):
         url, w, h = upload_img(figure_png(name))
     except Exception as e:
         print('⚠️ 內文圖處理失敗，這張退回封面圖：%s（%s）' % (name, e))
+        # 案底（2026-08-26 Charles 拍板）：頂替是合理設計，但發生時必須留紀錄。
+        # 病理實證：Dylan Patel 篇第 3 張圖被封面頂替，零紀錄，靠 Charles 肉眼發現。
+        # 案底寫入失敗也不准影響發文（fail-open，同 lane_ledger_hook 原則）。
+        try:
+            with open(os.path.join(SP, 'vocus_fig_fallback.jsonl'), 'a',
+                      encoding='utf-8') as fh:
+                fh.write(json.dumps({
+                    'date': datetime.datetime.now().strftime('%Y-%m-%d %H:%M'),
+                    'figure': name, 'articleId': meta.get('articleId', '?'),
+                    'error': str(e)[:200]}, ensure_ascii=False) + '\n')
+        except OSError:
+            pass
         return meta['imgUrl'], meta['w'], meta['h']
     cache[name] = {'url': url, 'w': w, 'h': h}
     with open(FIG_CACHE, 'w', encoding='utf-8') as f:
@@ -452,6 +464,22 @@ def cmd_push(slugs, publish):
         print(f"[{slug}] readback: status={a.get('status')} 塊數={len(art['blocks'])} "
               f"字數={a.get('wordsCount')} inv={a.get('isInvestment')} "
               f"thumb={'OK' if 'static/og_img' not in str(a.get('thumbnailUrl')) else '預設圖!'}")
+
+        # 對圖（2026-08-26 加）：mdx 引用的每張內文圖，讀回的本體裡必須出現
+        # 它在快取裡的圖床網址。頂替發生時這裡會當場點名，不再靠肉眼。
+        fig_names = sorted(set(re.findall(r'/figures/([\w-]+)\.\w+',
+                                          json.dumps(art['blocks']))))
+        if fig_names:
+            fcache = (json.load(open(FIG_CACHE, encoding='utf-8'))
+                      if os.path.isfile(FIG_CACHE) else {})
+            body_str = str(a.get('content', ''))
+            bad = [n for n in fig_names
+                   if fcache.get(n, {}).get('url', '\x00') not in body_str]
+            if bad:
+                print(f'[{slug}] ❌ 對圖：{len(fig_names)} 張內文圖有 {len(bad)} 張'
+                      f'沒對上（被頂替或沒上傳）：{", ".join(bad)}')
+            else:
+                print(f'[{slug}] 對圖：{len(fig_names)} 張內文圖全數對上 ✅')
 
         if publish:
             st, body = api('PATCH', f'/api/articles/{aid}/status/2', {'status': 2, 'showCatalog': True})
