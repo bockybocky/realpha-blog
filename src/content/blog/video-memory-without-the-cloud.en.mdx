@@ -43,7 +43,7 @@ So what I built that night wasn't a replacement. It was the table's missing four
 
 ![Two pipelines compared: the original sends vectors to a cloud; the local build keeps server, model and database on your own machine](/figures/local-vs-cloud-pipeline-en.svg)
 
-*Same extension, two roads. The only difference is whose machine the right-hand boxes live on.*
+Same extension, two roads. The only difference is whose machine the right-hand boxes live on.
 
 The server itself is not complicated. A video segment arrives — pull one representative frame, embed it. A subtitle arrives — embed the text. Everything lands in an embedded local vector database; a query gets embedded the same way and finds its nearest neighbors. The embedding model is Google's open-weight SigLIP 2 — it handles multilingual queries, and on a plain laptop with no discrete GPU it takes 0.06 s per text and 0.3 s per image (measured 2026-08-28). Comfortably faster than the ten-second capture rhythm.
 

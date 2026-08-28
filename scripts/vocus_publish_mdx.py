@@ -28,7 +28,7 @@ BLOG = 'https://blog.getrealpha.com'
 
 # 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
 NON_INVESTMENT = {'local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
-                  'dont-let-ai-say-no-problem'}
+                  'dont-let-ai-say-no-problem', 'video-memory-without-the-cloud'}
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
@@ -43,6 +43,7 @@ TAGS = {
     'central-bank-two-traps': ['央行', '總體經濟', '穩定幣', '通膨'],
     'hardware-is-hard': ['硬體', '供應鏈', '新創', '護城河'],
     'supply-chained-midyear-2026': ['AI', '半導體', '供應鏈', '通膨', '美股'],
+    'video-memory-without-the-cloud': ['AI工具', '開源', '本地AI', '向量搜尋', '資料隱私'],
 }
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
@@ -54,6 +55,7 @@ COVERS = {
     # 2026-08-18：前後編兩篇共用同一張封面（後編的專屬封面當初沒產生成功，
     # mdx 指向的檔案是 404，已一併改指這張）
     'invsunday-2026-08-02-rehacq-interfm': 'invsunday-rehacq-takahashi-media-cover.png',
+    'video-memory-without-the-cloud': 'video-memory-without-the-cloud.png',
 }
 
 
