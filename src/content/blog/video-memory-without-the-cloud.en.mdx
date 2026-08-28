@@ -9,7 +9,6 @@ tags: ["local-first", "vector-search", "open-source", "AI tools"]
 tldr: "Someone built a browser extension that turns videos you watch into searchable vector memory — but the index lives on a Chinese cloud. Reading the source, I found the local-mode client already written, waiting for a server that didn't exist. So I wrote one and open-sourced it."
 ogImage: "/covers/video-memory-without-the-cloud.png"
 cover: "/covers/video-memory-without-the-cloud.png"
-draft: true
 ---
 
 ![Van Gogh-style oil painting: a figure at a glowing screen in a night study, walls swirling with star trails and film strips](/covers/video-memory-without-the-cloud.png)
@@ -30,7 +29,7 @@ I watched it and had one thought: I want this.
 
 Before installing, I did what I always do and read through the architecture. One thing stopped me: in the current release, the vectors go to Alibaba Cloud's object storage.
 
-To be fair, the design isn't wrong. The author did the math — indexing his ~5 hours of video costs a few cents per month. Practically free. But *which videos you watched, down to the second* is a profile of you. I could live with cheap. I couldn't live with it leaving the house.
+To be fair, the design isn't wrong. The author did the math — indexing his ~5 hours of video costs a few cents per month. Practically free. But *which videos you watched, down to the second* is a profile of you. And I'll say it plainly: I don't trust Chinese cloud services with that kind of data. That's my personal trust judgment — yours may differ. Which is exactly the problem with there being only one road.
 
 Normally that leaves two options: wait for the official local version (he says it's coming), or walk away. I took a third: open the source and see what's actually missing.
 
@@ -73,7 +72,13 @@ It wasn't a straight line. Three pitfalls worth writing down:
 
 With those three fixed, the pipeline ran end to end: store the subtitle "testing the graphics card's thermals and benchmark scores," query with entirely different wording — "GPU temperature and performance test" — and the right segment ranks first.
 
-The whole thing is open source at [bockybocky/indexed-local-server](https://github.com/bockybocky/indexed-local-server) (MIT): one Python file, no web framework, nothing leaves your disk.
+The whole thing is open source at [bockybocky/indexed-local-server](https://github.com/bockybocky/indexed-local-server) (MIT): one Python file, no web framework. You're welcome to try it —
+
+1. Build and load the Chrome extension per the [upstream project's](https://github.com/xiaotianfotos/indexed) instructions
+2. Clone my repo, `pip install -r requirements.txt`, run `python server.py` (first run downloads a ~1.5 GB model)
+3. In the extension settings, pick local mode, point it at `http://127.0.0.1:8321`, open a YouTube video and hit record
+
+From then on, your video memory lives only on your own disk. If you get stuck installing, or just want to talk it over, open an issue — I'd genuinely like to hear how it goes.
 
 ## Where "This Kind of Thing Needs the Cloud" Came From
 

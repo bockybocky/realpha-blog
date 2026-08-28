@@ -9,7 +9,6 @@ tags: ["本地優先", "向量搜尋", "開源", "AI工具"]
 tldr: "有人做了「邊看影片邊建向量記憶」的瀏覽器插件，但索引要存中國的雲。我讀了它的原始碼，發現本地模式的客戶端早就寫好、只缺一台伺服器——所以我寫了一台，開源了。"
 ogImage: "/covers/video-memory-without-the-cloud.png"
 cover: "/covers/video-memory-without-the-cloud.png"
-draft: true
 ---
 
 ![梵谷風格的油畫：深夜書房裡一個人面對發光的螢幕，牆上掛滿旋轉的星軌與底片](/covers/video-memory-without-the-cloud.png)
@@ -30,7 +29,7 @@ draft: true
 
 裝之前我照習慣把它的架構看了一遍，卡在一個地方：這一版的向量要存到阿里雲的物件儲存服務。
 
-先說清楚，這個設計本身沒有錯——作者算過帳，他近五小時影片的索引每月存儲費只要幾分錢人民幣，便宜到近乎免費。但「你看過哪些影片、看到第幾秒」這件事，本身就是一種對你的側寫。我可以接受它便宜，沒辦法接受它離家。
+先說清楚，這個設計本身沒有錯——作者算過帳，他近五小時影片的索引每月存儲費只要幾分錢人民幣，便宜到近乎免費。但「你看過哪些影片、看到第幾秒」這件事，本身就是一種對你的側寫。而我直說：我不信任中國的雲端服務，這種資料我不會放上去。這是我個人的信任判斷，你可以有不同的答案——但正因為答案因人而異，「只有這一條路」就成了問題。
 
 一般到這裡有兩條路：等作者出本地版（他說在做了），或者放棄。我選了第三條：把原始碼打開看看，到底缺什麼。
 
@@ -73,7 +72,13 @@ draft: true
 
 修完這三個，端到端跑通：存入「顯示卡的散熱表現和跑分成績」這段字幕，用完全不同的措辭「GPU 溫度與效能測試」去查，它把正確的片段排在第一。
 
-整個專案已經開源在 [bockybocky/indexed-local-server](https://github.com/bockybocky/indexed-local-server)（MIT 授權）：一個 Python 檔、零網頁框架依賴，裝好插件、跑起伺服器，你的影片記憶從此只住在你的硬碟裡。
+整個專案我開源在 [bockybocky/indexed-local-server](https://github.com/bockybocky/indexed-local-server)（MIT 授權）：一個 Python 檔、零網頁框架依賴。歡迎拿去試——
+
+1. 照[上游插件](https://github.com/xiaotianfotos/indexed)的說明把 Chrome 插件建起來、載入
+2. `git clone` 我的 repo，`pip install -r requirements.txt`，跑 `python server.py`（首跑會下載約 1.5 GB 的模型）
+3. 插件設定選「本地模式」、地址填 `http://127.0.0.1:8321`，開一支 YouTube 影片按下錄製
+
+從此你的影片記憶只住在你的硬碟裡。裝的時候卡住、或有想法想聊，都歡迎開 issue 給我。
 
 ## 「這種功能就是要雲端」是哪來的
 
