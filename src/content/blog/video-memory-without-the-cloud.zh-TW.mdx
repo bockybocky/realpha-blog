@@ -1,0 +1,92 @@
+---
+title: "看過的影片找不回來？我把「影片記憶」整套搬回自己電腦"
+description: "從一支開源插件出發，把「看影片自動變成可搜尋的向量記憶」的整條鏈路——採集、嵌入、儲存、查詢——全部搬回本地的過程紀錄。一個晚上、三個坑、零雲端服務。"
+slug: "video-memory-without-the-cloud"
+lang: "zh-TW"
+pubDate: 2026-08-29
+category: "tech"
+tags: ["本地優先", "向量搜尋", "開源", "AI工具"]
+tldr: "有人做了「邊看影片邊建向量記憶」的瀏覽器插件，但索引要存中國的雲。我讀了它的原始碼，發現本地模式的客戶端早就寫好、只缺一台伺服器——所以我寫了一台，開源了。"
+ogImage: "/covers/video-memory-without-the-cloud.png"
+cover: "/covers/video-memory-without-the-cloud.png"
+draft: true
+---
+
+![梵谷風格的油畫：深夜書房裡一個人面對發光的螢幕，牆上掛滿旋轉的星軌與底片](/covers/video-memory-without-the-cloud.png)
+
+> *眾裡尋他千百度，驀然回首，那人卻在燈火闌珊處。*
+>
+> —— 辛棄疾《青玉案・元夕》（南宋）
+
+## 那個畫面明明看過
+
+你一定有過這種時刻：三週前看過一支教學影片，裡面某一分鐘的畫面正好是你現在需要的——某個設定介面、某張架構圖、某段示範。你記得畫面長什麼樣，卻想不起是哪支影片的第幾分鐘。搜尋救不了你，因為搜尋只認得標題和字幕，不認得你腦中那個畫面。於是你在進度條上來回拖，拖到心態全崩。
+
+上週我看到 YouTube 頻道「小天fotos」發了一支影片，他把這個問題解掉了：一個瀏覽器插件（開源專案叫 [Indexed](https://github.com/xiaotianfotos/indexed)），你看影片時它在背景把畫面和字幕每十秒切一段、各轉成一個數學座標——術語叫向量——存進索引。之後你用大白話問、用一句畫面描述問、甚至丟一張截圖問，它把候選片段連時間碼一起鋪出來，點下去直接跳到那支影片的那一秒。
+
+看完我只有一個念頭：我要這個。
+
+## 卡住我的那一步
+
+裝之前我照習慣把它的架構看了一遍，卡在一個地方：這一版的向量要存到阿里雲的物件儲存服務。
+
+先說清楚，這個設計本身沒有錯——作者算過帳，他近五小時影片的索引每月存儲費只要幾分錢人民幣，便宜到近乎免費。但「你看過哪些影片、看到第幾秒」這件事，本身就是一種對你的側寫。我可以接受它便宜，沒辦法接受它離家。
+
+一般到這裡有兩條路：等作者出本地版（他說在做了），或者放棄。我選了第三條：把原始碼打開看看，到底缺什麼。
+
+## 缺的只是一小塊
+
+這是整件事最有意思的轉折。讀完插件的原始碼我發現：本地模式的客戶端早就寫好了。插件裡有一個完整的分支，只要你在設定裡填一個本機網址，它就會把所有東西——影片片段、字幕、搜尋請求——送到那個網址，用的是八個很乾淨的 HTTP 介面。
+
+它在等的，只是一台還沒被寫出來的伺服器。
+
+所以那個晚上我做的事，嚴格說不是「造一個替代品」，是「把桌子的第四隻腳裝上」：
+
+<figure>
+  <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="上下兩條鏈路對比：原版經過雲端，本地版全部留在自己電腦裡">
+    <defs><marker id="vm1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#888888"/></marker></defs>
+    <text x="20" y="30" font-family="sans-serif" font-size="15" font-weight="600" fill="#333333">原版（雲端直連）</text>
+    <rect x="20" y="45" width="150" height="46" fill="#ffffff" stroke="#999999" stroke-width="1.5" rx="8"/><text x="95" y="73" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">瀏覽器插件</text>
+    <rect x="230" y="45" width="150" height="46" fill="#ffffff" stroke="#999999" stroke-width="1.5" rx="8"/><text x="305" y="73" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">嵌入模型</text>
+    <rect x="440" y="45" width="230" height="46" fill="#fdecea" stroke="#c0392b" stroke-width="1.5" rx="8"/><text x="555" y="66" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">雲端向量儲存</text><text x="555" y="84" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">（看片紀錄離家）</text>
+    <path d="M170,68 L228,68" stroke="#888888" stroke-width="2" fill="none" marker-end="url(#vm1)"/><path d="M380,68 L438,68" stroke="#888888" stroke-width="2" fill="none" marker-end="url(#vm1)"/>
+    <text x="20" y="170" font-family="sans-serif" font-size="15" font-weight="600" fill="#333333">本地版（這次補上的那塊）</text>
+    <rect x="20" y="185" width="150" height="46" fill="#ffffff" stroke="#999999" stroke-width="1.5" rx="8"/><text x="95" y="213" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">同一個插件</text>
+    <rect x="230" y="185" width="180" height="46" fill="#eaf7ee" stroke="#27804a" stroke-width="1.5" rx="8"/><text x="320" y="206" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">自寫的本地伺服器</text><text x="320" y="224" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">（原本缺的第四隻腳）</text>
+    <rect x="470" y="185" width="200" height="46" fill="#eaf7ee" stroke="#27804a" stroke-width="1.5" rx="8"/><text x="570" y="206" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">本地模型＋本地資料庫</text><text x="570" y="224" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">（資料不出門）</text>
+    <path d="M170,208 L228,208" stroke="#888888" stroke-width="2" fill="none" marker-end="url(#vm1)"/><path d="M410,208 L468,208" stroke="#888888" stroke-width="2" fill="none" marker-end="url(#vm1)"/>
+  </svg>
+  <figcaption>同一個插件，兩條路。差別只在右邊那兩格在誰的電腦裡。</figcaption>
+</figure>
+
+伺服器本身不複雜：收到影片片段就抽一張代表畫面轉成向量，收到字幕就把文字轉成向量，全部存進一個嵌入式的本地向量資料庫；查詢時把你的問題轉成向量、找最近的鄰居。嵌入模型用 Google 開源的 SigLIP 2——支援中文查詢，而且在一台沒有獨立顯卡的普通筆電上，一段文字只要 0.06 秒、一張圖 0.3 秒（2026-08-28 實測），跟上「每十秒一片」的節奏綽綽有餘。
+
+## 三個坑，一個晚上
+
+過程不是一路順的，三個坑值得記：
+
+第一個坑，選好的模型裝不上。 原本屬意另一家的開源模型，結果它的自訂程式碼跟新版工具鏈不相容——它引用的內部函式在新版裡被移除了。換成 SigLIP 2 反而更好：工具鏈原生支援，不用執行任何第三方動態程式碼，對一個要開源給別人裝的專案，這是安全性的升級不是妥協。
+
+第二個坑，換模型後資料庫報天書。 測試時用的小模型輸出 64 維向量，正式模型輸出 768 維，兩者寫進同一個資料庫就炸出一串沒人看得懂的底層錯誤。修法不是把錯誤吞掉，是在啟動時就檢查維度、用人話報錯：「既有索引是 64 維，目前模型輸出 768 維，換了模型就要換資料目錄。」錯誤訊息是給三個月後的自己和陌生使用者看的。
+
+第三個坑，我自己的測試污染了正式資料。 上一個坑的 64 維資料，正是我煙霧測試時留下的。測試資料和正式資料共用同一個目錄，是我自己埋的雷。教訓很老派但每次都有效：測試要有自己的沙盒。
+
+修完這三個，端到端跑通：存入「顯示卡的散熱表現和跑分成績」這段字幕，用完全不同的措辭「GPU 溫度與效能測試」去查，它把正確的片段排在第一。
+
+整個專案已經開源在 [bockybocky/indexed-local-server](https://github.com/bockybocky/indexed-local-server)（MIT 授權）：一個 Python 檔、零網頁框架依賴，裝好插件、跑起伺服器，你的影片記憶從此只住在你的硬碟裡。
+
+## 「這種功能就是要雲端」是哪來的
+
+最後聊一個比程式碼更有意思的問題。我們有一個很深的預設：這種「AI 幫你記住一切」的功能，理所當然要連雲端、要訂閱、要把資料交出去。
+
+這個信念有它的出身。過去十幾年它是對的：模型是封閉的、只在大公司的機房裡跑得動，你想要智慧功能，就得把資料送過去換。整個訂閱制軟體的時代都建立在這個交換上。
+
+但支撐它的兩個前提，這兩年都鬆動了。開源權重的模型多到挑不完，而普通筆電的處理器已經跑得動其中夠好的那些。當「智慧」可以在你自己的機器上發生，「資料換功能」就從必然變成了選項——你還是可以選雲端，但那應該是你權衡後的選擇，不是唯一的路。
+
+這次的專案就是一個小小的實證：同樣的功能，資料不出門的版本，一個晚上就補得出來。缺的從來不是技術，是有沒有人去看一眼「到底缺哪一塊」。
+
+## 帶得走的一件事
+
+想要一個工具卻卡在它的某個設計時，先去讀它的原始碼——你缺的可能不是整個替代品，而是一小塊別人早就留好接口的零件。
+
+今天就能做的練習：挑一個你正在用、但有一點不滿的服務（不限軟體——訂閱、App、甚至一個生活流程都行），把你的不滿寫成一句話，然後問：「這個不滿對應到整個系統的哪一塊？那一塊能不能單獨換掉？」多數時候你會發現，讓你想整個放棄的，其實只是一個可以拆下來的零件。

@@ -1,0 +1,92 @@
+---
+title: "Your Video Memory Shouldn't Live on Someone Else's Cloud"
+description: "Field notes from moving an entire 'watch a video, get a searchable multimodal memory' pipeline onto my own machine — capture, embedding, storage, search. One evening, three pitfalls, zero cloud services."
+slug: "video-memory-without-the-cloud"
+lang: "en"
+pubDate: 2026-08-29
+category: "tech"
+tags: ["local-first", "vector-search", "open-source", "AI tools"]
+tldr: "Someone built a browser extension that turns videos you watch into searchable vector memory — but the index lives on a Chinese cloud. Reading the source, I found the local-mode client already written, waiting for a server that didn't exist. So I wrote one and open-sourced it."
+ogImage: "/covers/video-memory-without-the-cloud.png"
+cover: "/covers/video-memory-without-the-cloud.png"
+draft: true
+---
+
+![Van Gogh-style oil painting: a figure at a glowing screen in a night study, walls swirling with star trails and film strips](/covers/video-memory-without-the-cloud.png)
+
+> *A hundred times I searched the crowd for her — then turned, and there she stood, where lantern light was dim.*
+>
+> —— Xin Qiji, "The Green Jade Table" (Southern Song dynasty; translation mine)
+
+## You've Seen That Frame Before
+
+You know the moment. Three weeks ago you watched a tutorial, and somewhere in it was exactly the thing you need right now — a settings panel, an architecture diagram, a thirty-second demo. You remember what the frame *looked like*. You cannot remember which video, or which minute. Search won't save you: search engines read titles and transcripts, not the picture in your head. So you scrub the progress bar back and forth until your patience runs out.
+
+Last week the YouTube channel "小天fotos" (xiaotianfotos) published a video where he simply solved this. His open-source browser extension, [Indexed](https://github.com/xiaotianfotos/indexed), works while you watch: every ten seconds it slices the segment, embeds the frames and the subtitles into vectors, and files them into an index. Later you ask in plain language, describe a scene, or even paste a screenshot — and it lays out candidate segments with timestamps. One click jumps you to that exact second.
+
+I watched it and had one thought: I want this.
+
+## The Step I Couldn't Take
+
+Before installing, I did what I always do and read through the architecture. One thing stopped me: in the current release, the vectors go to Alibaba Cloud's object storage.
+
+To be fair, the design isn't wrong. The author did the math — indexing his ~5 hours of video costs a few cents per month. Practically free. But *which videos you watched, down to the second* is a profile of you. I could live with cheap. I couldn't live with it leaving the house.
+
+Normally that leaves two options: wait for the official local version (he says it's coming), or walk away. I took a third: open the source and see what's actually missing.
+
+## Only One Piece Was Missing
+
+Here is the best plot twist of the whole evening: **the local-mode client was already written.** Inside the extension sits a complete branch — point it at a local URL in the settings, and it will send everything there: video segments, subtitles, search queries, through eight clean HTTP endpoints.
+
+It was waiting for a server that nobody had shipped yet.
+
+So what I built that night wasn't a replacement. It was the table's missing fourth leg:
+
+<figure>
+  <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two pipelines compared: the original routes through a cloud, the local build keeps everything on your machine">
+    <defs><marker id="em1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#888888"/></marker></defs>
+    <text x="20" y="30" font-family="sans-serif" font-size="15" font-weight="600" fill="#333333">Original (cloud-direct)</text>
+    <rect x="20" y="45" width="150" height="46" fill="#ffffff" stroke="#999999" stroke-width="1.5" rx="8"/><text x="95" y="73" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">Browser extension</text>
+    <rect x="230" y="45" width="150" height="46" fill="#ffffff" stroke="#999999" stroke-width="1.5" rx="8"/><text x="305" y="73" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">Embedding model</text>
+    <rect x="440" y="45" width="230" height="46" fill="#fdecea" stroke="#c0392b" stroke-width="1.5" rx="8"/><text x="555" y="66" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">Cloud vector storage</text><text x="555" y="84" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">(your history leaves home)</text>
+    <path d="M170,68 L228,68" stroke="#888888" stroke-width="2" fill="none" marker-end="url(#em1)"/><path d="M380,68 L438,68" stroke="#888888" stroke-width="2" fill="none" marker-end="url(#em1)"/>
+    <text x="20" y="170" font-family="sans-serif" font-size="15" font-weight="600" fill="#333333">Local build (the missing piece)</text>
+    <rect x="20" y="185" width="150" height="46" fill="#ffffff" stroke="#999999" stroke-width="1.5" rx="8"/><text x="95" y="213" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">Same extension</text>
+    <rect x="230" y="185" width="180" height="46" fill="#eaf7ee" stroke="#27804a" stroke-width="1.5" rx="8"/><text x="320" y="206" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">A hand-written server</text><text x="320" y="224" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">(the fourth leg)</text>
+    <rect x="470" y="185" width="200" height="46" fill="#eaf7ee" stroke="#27804a" stroke-width="1.5" rx="8"/><text x="570" y="206" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">Local model + local DB</text><text x="570" y="224" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">(nothing leaves)</text>
+    <path d="M170,208 L228,208" stroke="#888888" stroke-width="2" fill="none" marker-end="url(#em1)"/><path d="M410,208 L468,208" stroke="#888888" stroke-width="2" fill="none" marker-end="url(#em1)"/>
+  </svg>
+  <figcaption>Same extension, two roads. The only difference is whose machine the right-hand boxes live on.</figcaption>
+</figure>
+
+The server itself is not complicated. A video segment arrives — pull one representative frame, embed it. A subtitle arrives — embed the text. Everything lands in an embedded local vector database; a query gets embedded the same way and finds its nearest neighbors. The embedding model is Google's open-weight SigLIP 2 — it handles multilingual queries, and on a plain laptop with no discrete GPU it takes 0.06 s per text and 0.3 s per image (measured 2026-08-28). Comfortably faster than the ten-second capture rhythm.
+
+## Three Pitfalls, One Evening
+
+It wasn't a straight line. Three pitfalls worth writing down:
+
+**Pitfall one: the model I wanted wouldn't install.** My first choice shipped custom modeling code that broke against the current toolchain — an internal function it imported had been removed upstream. Switching to SigLIP 2 turned out to be an upgrade, not a compromise: it's natively supported, which means no third-party dynamic code executes at all. For something strangers will install, that's a security property.
+
+**Pitfall two: the database spoke in tongues after a model swap.** My test stub emitted 64-dimensional vectors; the real model emits 768. Mixing them in one database produced a cryptic low-level Arrow error. The fix wasn't to swallow the error — it was to check dimensions at startup and fail in plain language: *"Existing index is 64-d, current model outputs 768-d; a new model needs a new data directory."* Error messages are written for the stranger, and for yourself three months from now.
+
+**Pitfall three: my own tests polluted the real data.** That 64-d data from pitfall two? My smoke test left it there, because test data and real data shared a directory. A mine I had buried for myself. The lesson is ancient and always true: tests get their own sandbox.
+
+With those three fixed, the pipeline ran end to end: store the subtitle "testing the graphics card's thermals and benchmark scores," query with entirely different wording — "GPU temperature and performance test" — and the right segment ranks first.
+
+The whole thing is open source at [bockybocky/indexed-local-server](https://github.com/bockybocky/indexed-local-server) (MIT): one Python file, no web framework, nothing leaves your disk.
+
+## Where "This Kind of Thing Needs the Cloud" Came From
+
+One question outlasts the code. We carry a deep default: features like "AI remembers everything for you" obviously require a cloud, a subscription, and handing your data over.
+
+That belief has a birthplace, and for over a decade it was *correct*. Models were closed and only ran in corporate data centers; if you wanted intelligence, you traded data for it. The entire subscription-software era was built on that trade.
+
+Both premises have loosened. Open-weight models are now abundant, and an ordinary laptop CPU runs the good-enough ones. Once intelligence can happen on your own machine, "data for features" stops being a law of nature and becomes one option among several. You can still choose the cloud — but it should be a choice you weighed, not the only road.
+
+This little project is one data point: the same feature, in a version where nothing leaves home, took one evening to complete. What was missing was never the technology. It was someone bothering to check which piece was actually missing.
+
+## One Thing to Take With You
+
+**When you want a tool but one design decision blocks you, read its source first — you may not need a replacement, just one small part someone already left a socket for.**
+
+An exercise you can run today, and not only on software: pick a service you use but slightly resent — an app, a subscription, even a routine. Write the resentment down as one sentence. Then ask: *which single component of the system does this map to, and can that component be swapped out alone?* Most of the time, the thing making you want to quit entirely turns out to be one removable part.
