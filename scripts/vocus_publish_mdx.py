@@ -28,7 +28,8 @@ BLOG = 'https://blog.getrealpha.com'
 
 # 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
 NON_INVESTMENT = {'local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
-                  'dont-let-ai-say-no-problem', 'video-memory-without-the-cloud'}
+                  'dont-let-ai-say-no-problem', 'video-memory-without-the-cloud',
+                  'aice-ai-engineering-cert-prep', 'aice-must-know-concepts'}
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
@@ -44,6 +45,8 @@ TAGS = {
     'hardware-is-hard': ['硬體', '供應鏈', '新創', '護城河'],
     'supply-chained-midyear-2026': ['AI', '半導體', '供應鏈', '通膨', '美股'],
     'video-memory-without-the-cloud': ['AI工具', '開源', '本地AI', '向量搜尋', '資料隱私'],
+    'aice-ai-engineering-cert-prep': ['AI證照', '資策會', 'AICE', '學習方法', '考試準備'],
+    'aice-must-know-concepts': ['AI證照', 'AICE', '機器學習', 'AI入門', '學習筆記'],
 }
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
@@ -56,6 +59,8 @@ COVERS = {
     # mdx 指向的檔案是 404，已一併改指這張）
     'invsunday-2026-08-02-rehacq-interfm': 'invsunday-rehacq-takahashi-media-cover.png',
     'video-memory-without-the-cloud': 'video-memory-without-the-cloud.png',
+    'aice-ai-engineering-cert-prep': 'aice-ai-engineering-cert-prep.png',
+    'aice-must-know-concepts': 'aice-must-know-concepts.png',
 }
 
 
