@@ -1,0 +1,67 @@
+---
+title: "Passing Taiwan's AICE AI Engineering Literacy Exam in One Week"
+description: "An educational write-up: what the AICE exam covers, the concepts people mix up, how we prepared, and the trade-offs that got us past the line."
+slug: "aice-ai-engineering-cert-prep"
+lang: "en"
+pubDate: "2026-08-30"
+category: "tech"
+tags: ["education", "certification", "ai"]
+tldr: "AICE is a 50-question multiple-choice exam with a 70% pass bar. What got us through was not reading more. It was testing first, fixing a broken measuring stick, and deliberately giving up on the lowest-yield topics."
+ogImage: "/covers/aice-ai-engineering-cert-prep.png"
+cover: "/covers/aice-ai-engineering-cert-prep.png"
+draft: false
+---
+
+![Cubist oil painting cover](/covers/aice-ai-engineering-cert-prep.png)
+
+> *Learn widely, question closely, think carefully,*<br/>
+> *distinguish clearly, practice earnestly.*<br/>
+> —— Book of Rites, "Doctrine of the Mean" (classical Chinese; translation mine)
+
+Last Saturday I sat the AI Engineering Literacy Certification (AICE) run by Taiwan's Institute for Information Industry, and passed on the spot. The whole sprint took about a week. Here is what the exam looks like, where people trip, how we prepared, and which trade-offs actually mattered. If this certificate is on your list, I hope this saves you a few detours.
+
+## What kind of exam this is
+
+The format: computer-based, 50 multiple-choice questions in 60 minutes, pass at 70 out of 100. That works out to 35 correct answers. Four areas: AI ethics, Python, AI theory (statistics, big data, machine learning, deep learning), and AI applications. Registration costs NT$1,300 and you sit it at a test center, not through online proctoring.
+
+No coding, no hands-on tasks. It tests breadth of concepts. The official practice set has twenty-five topics and over 1,200 questions, and that pool became the backbone of our whole preparation.
+
+## Where people get things mixed up
+
+After finishing every practice question and going back over the mistakes, the errors clustered in four places.
+
+Direction errors on metrics. AUC: bigger is better, and 0.5 means random guessing. RMSE: smaller is better. Directions are easier to memorize backwards than definitions, so check them once, deliberately, before exam day. The accuracy trap also shows up again and again: when fraud is 1% of your data, predicting "not fraud" for everything scores 99% accuracy and catches nothing, which is why imbalanced data calls for F1 or AUC instead.
+
+Twins that look alike. Overfitting means the model memorized the training data and falls apart on new questions. Data leakage means training used information that would never exist at prediction time. Both produce great training scores and ugly real-world results, but the causes differ and so do the cures. Same with clustering versus classification: k-means sorts data into piles without any answer key, which makes it a different world from learning with labels.
+
+Role questions about tools. The big-data topics mostly ask one thing: what does this tool do in the ecosystem? DataNodes store the actual data in HDFS. Reduce aggregates values by key. A Kafka producer sends messages. An RDD is immutable. Lots of names, but each question is really asking which floor of the building the tool lives on.
+
+Python trivia. Mutable versus immutable types, container method quirks, comprehension edge cases. These questions are scattered and fiddly, and they connect to the strategy section below.
+
+## How we prepared
+
+Four steps.
+
+Test first, read second. Instead of finishing the notes and then quizzing, we started with a diagnostic and let the wrong answers name the weak spots. Ours turned out to be machine learning concepts, so that is where the hours went. Reading this way means every page you study is repairing a known hole rather than re-covering ground you already own.
+
+Turn weak topics into your own notes. For the topics with the most errors, we wrote plain-language study notes with diagrams. Explaining something in your own words sticks far better than rereading someone else's textbook. AI helped organize the material; the judgment about what was weak and how deep to go stayed ours. We cleaned up the best parts into a companion piece, [our AICE must-know concept notes](/en/blog/aice-must-know-concepts/), which you are welcome to use directly.
+
+Do corrections properly. A correction is not glancing at the right answer. We pasted back the full question with every option and wrote out why each wrong option was wrong and what it was testing. Distractors are often the correct answer to some other question, so one honest correction reviews two or three concepts at once.
+
+Fix your measuring stick. This was the strangest lesson of the week. Partway through practice we noticed the correct answers in the question set followed a pattern, and answering on autopilot produced inflated scores. We shuffled the options on every question and retested. The scores got honest immediately, and the very next batch exposed errors the pattern had been hiding. If your mock results look too good to be true, suspect the ruler before you congratulate yourself.
+
+## What actually got us past the line
+
+Looking back, passing came from three trade-offs, not from studying more than everyone else.
+
+First, remember it is a pass-fail exam. A 70% bar means you are allowed to abandon the lowest-yield topics. We dropped Python trivia entirely: the questions are scattered, the scope is wide, and ten hours of grinding might buy two or three extra points. The same ten hours spent on machine learning concepts returned several times that. Strategic surrender is not laziness. It is putting limited hours where the odds are best.
+
+Second, do not trust the feeling of "I got it." Answering correctly right after studying proves very little; that is the fluency illusion. The fix is spaced recall: wait a day or two, close the notes, change the context, and test yourself again. Two clean passes in a row is the real bar for "memorized."
+
+Third, stand on what you already know. If you hold other AI-related certificates, much of AICE overlaps: evaluation metrics, neural networks, ethics principles. What you need is a wake-up call, not a re-education. Building a new exam on top of old knowledge shortens the runway more than any study hack.
+
+## One thing to take with you
+
+To find out whether you know something, test first and let the errors write your syllabus. But before you believe any test score, make sure the measuring stick itself is honest.
+
+A practice you can run today: pick a subject you are learning, find ten questions, and do them before reading anything. The ones you miss are your curriculum for the week.

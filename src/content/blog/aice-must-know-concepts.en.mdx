@@ -1,0 +1,78 @@
+---
+title: "AICE Must-Know Concepts: The Whole Foundation on One Page"
+description: "An educational cheat sheet for Taiwan's AICE exam: evaluation metrics, machine learning, the big-data ecosystem, neural networks, generative AI, and AI ethics, each with a memory hook."
+slug: "aice-must-know-concepts"
+lang: "en"
+pubDate: "2026-08-30"
+category: "tech"
+tags: ["education", "certification", "ai"]
+tldr: "The most-tested AICE concepts compressed onto one page, one memory hook per idea. Built for a final pre-exam sweep."
+ogImage: "/covers/aice-must-know-concepts.png"
+cover: "/covers/aice-must-know-concepts.png"
+draft: false
+---
+
+![Expressionist oil painting cover](/covers/aice-must-know-concepts.png)
+
+> *Play a thousand tunes, and you begin to hear music;*<br/>
+> *examine a thousand swords, and you begin to know steel.*<br/>
+> —— Liu Xie, The Literary Mind and the Carving of Dragons (5th century; translation mine)
+
+These are the study notes we built while preparing for Taiwan's AICE certification. After passing, shelving them felt like a waste, so here they are. The full story of how we prepared, including the strategy and the trade-offs, lives in the companion piece: [passing AICE in one week](/en/blog/aice-ai-engineering-cert-prep/). This page does one job: compress the most-tested ideas into a single sweep, one memory hook each. It doubles as a quick AI literacy refresher even if you never sit the exam.
+
+## Evaluation metrics: direction first, definition second
+
+Direction mistakes are the cheapest points lost. AUC: bigger is better, 1.0 is perfect, 0.5 is coin-flipping, below 0.5 is worse than guessing. Error metrics like RMSE and MAE run the other way: smaller wins.
+
+The accuracy trap is a guaranteed appearance. With fraud at 1% of the data, predicting "normal" for everything scores 99% accuracy and catches zero fraud, so imbalanced data calls for F1 or AUC. Precision versus recall comes down to which mistake costs more: when missing a case is expensive (disease screening, fraud), favor recall; when false alarms are expensive (real mail in the spam folder), favor precision. F1 is the harmonic mean of the two.
+
+The confusion matrix has four cells: true positive, true negative, false positive (a false alarm, called a Type 1 error), false negative (a miss, Type 2). Exams love the formal names, so meet them before test day.
+
+## Machine learning: three ways to learn, two diseases
+
+The boundary between the three learning styles is whether an answer key exists. Supervised learning has labels (classification, regression). Unsupervised has none (clustering, dimensionality reduction, anomaly detection). Reinforcement learning runs on reward and punishment. Clustering versus classification is a regular: k-means sorts data into piles without knowing what any pile means, which is nothing like learning from labeled examples.
+
+Keep the two diseases apart. Overfitting: high training score, low test score, the model memorized instead of learning; the medicine is regularization, early stopping, fewer features, more data. Data leakage: training used information unavailable at prediction time, like predicting an order outcome using whether the customer eventually returned the item; the medicine is drawing the timeline and cutting everything from the future.
+
+For imbalanced data: oversampling duplicates the minority class, undersampling drops the majority, and SMOTE synthesizes new minority samples. The word "synthetic" points straight at SMOTE.
+
+## The big-data ecosystem: ask one question per tool
+
+This section has the most vocabulary and the simplest questions. Each tool gets one line:
+
+- HDFS: distributed storage; the NameNode keeps the directory, DataNodes hold the actual data
+- MapReduce: Map splits the work, Reduce aggregates values by key
+- Spark: fast because it computes in memory; RDDs are immutable; Spark SQL handles structured data
+- Kafka: message streaming; producers send, consumers receive
+- Flume: log collection
+- Hive: SQL over big data
+- Databases split into two families: SQL with fixed schemas and transactions; NoSQL with four types, key-value, document (MongoDB), column-family, graph. "Relational" is not one of the four
+- ETL: extract, transform, load, the standard three steps of moving data
+
+## Neural networks: a division of labor and one famous illness
+
+Assign by data type: CNNs handle images (convolutions catch local features), RNNs handle sequences (speech, text, time series). The RNN's famous illness is the vanishing gradient: in long sequences, early information never reaches the end. The cures are LSTM, which uses gates to hold long-term memory, and its lighter cousin GRU.
+
+Deep learning is simply a network with many layers. Activation functions exist to introduce non-linearity; without them, a hundred layers collapse into one linear model.
+
+## Generative AI: each knob controls one thing
+
+A large language model predicts the next token. Three knobs, three jobs: temperature controls randomness (lower for consistency, higher for creativity), max_tokens caps length and says nothing about quality (a classic trap), and prompt engineering is about how you ask.
+
+One more pair worth keeping: discriminative models learn the boundary between classes, generative models learn what the data looks like and can produce new samples.
+
+## AI ethics: watch the subject of the sentence
+
+Three sources of bias, kept separate: data bias (unrepresentative training data), algorithmic bias (the model amplifies differences), measurement bias (the collection method itself is skewed). Questions give a scenario and ask which one it is.
+
+For responsibility questions, find the subject: whoever deploys, answers. When transparency, explainability, and accountability appear as options, go back to the scenario and ask which principle demands what, from whom. For personal data, the big three: collect minimally, de-identify, and use only for the stated purpose.
+
+## Python: the bare minimum, three lines
+
+If time is short, keep three facts: lists are mutable, tuples and strings are not; default arguments are evaluated once at definition, which makes mutable defaults a trap-question king; shallow copy duplicates the shell, deep copy duplicates the contents too. For why we deliberately gave up on the rest of the Python trivia, see [the companion piece](/en/blog/aice-ai-engineering-cert-prep/).
+
+## One thing to take with you
+
+The value of concept notes is not in collecting them but in retrieval: the hook after each idea is the actual product. AUC gets a direction, tools get a floor, errors get a price tag.
+
+A practice you can run today: pick ten terms from whatever you are learning and force yourself to write a hook of ten words or fewer for each. The ones you cannot hook are the ones you never really understood.
