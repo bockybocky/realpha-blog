@@ -3,6 +3,7 @@ import Giscus from '../../components/Giscus.astro';
 import ReadMoreGate from '../../components/ReadMoreGate.astro';
 import VocusLink from '../../components/VocusLink.astro';
 import vocusLinks from '../../data/vocus-links.json';
+import vocusStatus from '../../data/vocus-fulltext-status.json';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import { getBlogPosts } from '../../lib/content';
 import { formatDate } from '../../lib/site';
@@ -30,10 +31,14 @@ const labLabels = {
 };
 const hasPreregistration = post.data.category === 'lab' && (post.data.hypothesis || post.data.plan || post.data.preregistered_at || post.data.result);
 // 2026-08-31：中文版只放上半部，全文導到方格子（英文版不套用——方格子無英文版）。
-// 沒有方格子對應的文章（多為 lab 展示頁）articleUrl 為 null，元件會原樣給全文。
+// 收合的前提是那句「全文在方格子」為真，所以要兩個條件同時成立：
+//   1. 有對應的方格子文章編號
+//   2. check-vocus-fulltext.mjs 驗過它還在、且字數不少於本地原文（狀態 ok）
+// 任一不成立就給全文——寧可少導一次流量，不可叫讀者去看不存在的全文。
 const SALON_URL = 'https://vocus.cc/salon/6a1e9e1a9da94e81ec5c81e6';
 const gateArticleId = (vocusLinks as Record<string, string>)[post.data.slug];
-const gateArticleUrl = gateArticleId ? `https://vocus.cc/article/${gateArticleId}` : null;
+const fullTextOk = (vocusStatus as Record<string, string>)[post.data.slug] === 'ok';
+const gateArticleUrl = gateArticleId && fullTextOk ? `https://vocus.cc/article/${gateArticleId}` : null;
 ---
 
 <SiteLayout
