@@ -1,0 +1,131 @@
+---
+// 中文文章的「讀到一半」閘：只顯示前段，其餘收起來並導到方格子讀全文。
+//
+// 2026-08-31 Charles 指定：部落格中文版只放上半部，全文在方格子，
+// 順便講清楚訂閱沙龍會收到新文章通知。英文版不套用——方格子沒有英文版，
+// 截了讀者無處可去（英文文章頁是另一支模板，本元件不會被載入）。
+//
+// 設計取捨（寫下來，免得日後有人以為是漏做）：
+// 　1. 用 CSS 收合而非伺服器端裁切 → 全文仍在 HTML 裡，搜尋引擎抓得到，
+// 　　 靠搜尋進來的新讀者不會因此消失。代價是懂看原始碼的人繞得過去。
+// 　　 若哪天要改成真的看不到，得在 render 階段切內容，那會同時損失 SEO。
+// 　2. 沒有方格子對應的文章一律給全文（articleUrl 為空就整個不套用），
+// 　　 免得把讀者導向不存在的頁面。
+interface Props {
+	articleUrl: string | null;
+	salonUrl: string;
+}
+
+const { articleUrl, salonUrl } = Astro.props;
+const gated = Boolean(articleUrl);
+---
+
+{gated ? (
+	<div class="gate">
+		<div class="gate-body">
+			<slot />
+		</div>
+		<div class="gate-cta">
+			<p class="gate-title">後半篇在方格子</p>
+			<p class="gate-lead">
+				這篇的完整內容放在方格子，點過去就能接著讀完，不用付費。
+				訂閱沙龍也是免費的，之後有新文章會直接通知你。
+			</p>
+			<p class="gate-links">
+				<a class="gate-primary" href={articleUrl} target="_blank" rel="noopener">
+					到方格子讀完這篇
+				</a>
+				<a class="gate-secondary" href={salonUrl} target="_blank" rel="noopener">
+					免費訂閱，新文章通知我
+				</a>
+			</p>
+		</div>
+	</div>
+) : (
+	<slot />
+)}
+
+<style>
+	.gate {
+		position: relative;
+	}
+
+	/* 收合高度：留得夠讀者判斷這篇值不值得讀完，又不至於讀完就不用過去了。
+	   用 max-height 而非裁字數，因為 mdx 渲染後是元件不是字串。
+	   ⚠️ 2026-08-31 實際看畫面才發現 42rem 太兇：封面圖就吃掉大半，
+	   讀者只看到引言就被切斷，無從判斷值不值得點過去 → 放寬到 90rem，
+	   約可讀完開頭幾段正文。改這個數字前請先看渲染畫面，不要憑感覺調。 */
+	.gate-body {
+		max-height: 90rem;
+		overflow: hidden;
+		position: relative;
+	}
+
+	/* 底部漸層：讓斷點看起來是刻意的收合，不是內容掉了 */
+	.gate-body::after {
+		content: '';
+		position: absolute;
+		inset-inline: 0;
+		bottom: 0;
+		height: 12rem;
+		background: linear-gradient(to bottom, transparent, var(--bg, #fff) 92%);
+		pointer-events: none;
+	}
+
+	.gate-cta {
+		margin-top: 1.25rem;
+		padding: 1.5rem 1.5rem 1.75rem;
+		border: 1px solid var(--line, #ddd6c9);
+		border-radius: 12px;
+		background: var(--panel, #f7f5f0);
+	}
+
+	.gate-title {
+		margin: 0 0 0.5rem;
+		font-size: 1.05rem;
+		font-weight: 700;
+	}
+
+	.gate-lead {
+		margin: 0 0 1rem;
+		line-height: 1.75;
+		color: var(--sub, #5f5a52);
+	}
+
+	.gate-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin: 0;
+	}
+
+	.gate-primary,
+	.gate-secondary {
+		display: inline-block;
+		padding: 0.6rem 1.1rem;
+		border-radius: 8px;
+		text-decoration: none;
+		font-size: 0.95rem;
+	}
+
+	.gate-primary {
+		background: var(--accent, #8a5a2b);
+		color: #fff;
+	}
+
+	.gate-secondary {
+		border: 1px solid var(--accent, #8a5a2b);
+		color: var(--accent, #8a5a2b);
+	}
+
+	@media print {
+		/* 列印時不收合，自己存檔要看得到全文 */
+		.gate-body {
+			max-height: none;
+		}
+		.gate-body::after,
+		.gate-cta {
+			display: none;
+		}
+	}
+</style>
