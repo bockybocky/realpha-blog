@@ -1,0 +1,125 @@
+---
+title: "Renting a GPU for NT$3.4 a Run: RunPod Cloud GPUs vs. Buying Your Own Hardware, After Actually Trying It"
+description: "Yesterday I ran speech recognition on a RunPod cloud GPU for the first time: one test video, four attempts, 567 GPU-seconds, a bill of about NT$3.4. This piece lays the two paths—rent and buy—side by side: when renting wins, when buying wins, and what else RunPod is good for. The tool is Fred's srt-skill; he is also the one who did the code testing for this article."
+slug: "runpod-vs-local-gpu-2026-09"
+lang: "en"
+pubDate: 2026-09-01
+category: "tech"
+tags: ["RunPod", "cloud GPU", "local AI", "speech recognition", "Whisper", "Qwen3.8 27B", "Gemma 4", "decision-making"]
+ogImage: "/covers/runpod-vs-local-gpu-2026-09-cover.png"
+cover: "/covers/runpod-vs-local-gpu-2026-09-cover.png"
+tldr: "Renting a GPU is billed by the second; subtitles for one video cost NT$3.4. The price of one graphics card buys more than four thousand rental hours; at two hours a day it takes over five years to break even. So the dividing line isn't performance, it's how many hours a month you actually run, and how much it hurts on the day the connection drops. RunPod is best for one-off, bursty, run-and-leave jobs; people who run every day can think about buying."
+---
+
+![Cubist oil painting: a small desk at night with a modest computer and a warm lamp on the left; through a large window on the right, a distant server hall glowing cold blue, racks receding into the dark; a single thin cable runs from the desk out the window toward the racks](/covers/runpod-vs-local-gpu-2026-09-cover.png)
+
+> *Standing by the river envying the fish is no match for going home to weave a net.*<br/>
+> —— Huainanzi, "Shuolin" (Western Han, c. 139 BC; translation mine)
+
+## What this is about
+
+I've had a small nagging problem: turning videos into subtitles and talks into articles needs a graphics card, and this machine doesn't have a real one. Last month I forced it through the CPU once: a ten-and-a-half-minute recording took eighteen and a half minutes, and it misheard a pile of technical terms. My conclusion then was to use cloud services first and keep the card money in my pocket.
+
+Yesterday (2026-08-31) I got the other path working: not buying a card, but renting one by the second. The platform is RunPod; the tool is srt-skill, written by my friend Fred. I want to share how I see "rent versus buy" after actually running it, and what else RunPod can do beyond subtitles.
+
+The short version: this is not a fight over performance. It's a fight over usage.
+
+## Yesterday's numbers first
+
+One test video, four attempts (the first three were me stepping on rakes—more below), and the fourth produced 38 subtitle lines. The four runs together used 567 seconds of GPU time; the bill was about NT$3.4 (RunPod dashboard, 2026-08-31). The account had US$15 loaded, which at this rate is a few hundred videos.
+
+Fred's estimate in the tool's documentation is roughly US$0.05–0.15 for a fifty-minute video. My number lines up with his.
+
+![A long horizontal bar for the price of one graphics card, next to a sliver barely visible for yesterday's NT$3.4; the sliver is labeled "one run" and the long bar "about 4,100 runs"](/figures/one-card-vs-one-run-en.svg)
+
+## Rent and buy: the shape of each path
+
+Here are both sides on one table (prices from RunPod's official pricing page, checked 2026-09-01; the card price uses the "two cards for ten-thousand-plus yuan" figure from Lunchuizhe's video, about US$1,400):
+
+| | Rent (RunPod) | Buy (one local card) |
+|---|---|---|
+| Up front | Load a few dollars and start | Ten-thousand-plus yuan, paid once |
+| Billing | By the second; kill the pod and it stops | Electricity, depreciation, desk space |
+| One hour of a 4090 | US$0.34 (Community Cloud) to US$0.74 (Secure Cloud) | Depreciation spread per hour—depends on how many hours you run |
+| Waiting | One to three minutes to boot; occasionally a pod won't connect and you swap | Always on |
+| The day it breaks | If the platform is down, you stop | Your own machine, network or not |
+| The most expensive machines | H100s and B200s are rentable too | Can't afford them, wouldn't use them |
+
+At the 4090 Community Cloud rate, ten-thousand-plus yuan buys roughly 4,100 hours. At two hours a day, breaking even takes more than five years; at eight hours a day, a year and a half. We all know what a five-year-old graphics card looks like.
+
+![Two lines left to right: a thick horizontal line for the fixed cost of buying a card, and a diagonal from zero for accumulated rental fees; they cross at about 4,000 hours—renting wins to the left, buying to the right](/figures/rent-vs-buy-crossover-en.svg)
+
+So the question was never "which is cheaper." It's "which side of the crossover are you on." I convert a handful of videos a month, far from the crossover; renting is the obvious answer. Someone like Lunchuizhe, running ten-plus hours a day and generating images and video, is on the other side.
+
+When I wrote about local hardware last month, I described buying a card as insurance: it covers "the day everyone else raises prices or goes down, I can still work." That still holds, with one addition: insurance is worth what your need for it is. Someone who hits an outage less than once a year is paying five years of premiums for it.
+
+## What RunPod can be used for
+
+I only used its simplest form this time: start a machine, run a script, kill the machine. It actually comes in several shapes, suited to different jobs:
+
+One: one-off batch work. Subtitles like mine, or turning a few hundred podcast episodes into transcripts, or upscaling a batch of old photos. Boot, run, kill, pay for those few minutes. This is the use I have no doubts about: [Pods pricing](https://www.runpod.io/pricing).
+
+Two: trying a card you can't afford. Want to know what a model feels like on an H100? Rent one for two or three dollars an hour—more real than watching a review.
+
+Three: fine-tuning. Training jobs run for hours to days and then end, exactly the shape of "rent." RunPod containers can carry your own environment; download the weights when done.
+
+Four: serverless endpoints. If you have a service that gets hit only occasionally (the backend of a small tool, say), you can deploy the model as a pay-per-call endpoint that costs nothing when idle. I haven't run this one, only read the docs: [Serverless overview](https://docs.runpod.io/serverless/overview).
+
+Five: image and video generation. Lunchuizhe says online APIs for this "can't be covered with any amount of money"—that's about the per-image API prices of the various generation services. Renting a card and running an open model is a different matter: billed by the second, pay for what you run. I haven't tried it yet; noting it here.
+
+Tooling and tutorials are on the official docs site: [docs.runpod.io](https://docs.runpod.io).
+
+![A two-by-two grid: the horizontal axis runs from "run occasionally" to "run every day," the vertical from "finishes when done" to "must stay on"; the top-left cell is dark and labeled "rent," the bottom-right "buy," the other two are pale middle ground](/figures/rent-or-buy-quadrant-en.svg)
+
+## Common local models: which to rent for, which to buy for
+
+Here are the models I've touched lately, or that keep appearing in Lunchuizhe's videos, measured with the same ruler: does the job finish, or does it need to stay on?
+
+| Model | What it does | How I'd run it |
+|---|---|---|
+| Whisper large-v3 | Multilingual speech recognition | Rent. Subtitles are batch work, minutes per video—exactly this use |
+| Breeze (MediaTek's Chinese ASR) | Chinese speech recognition, good on Taiwanese accents | Rent. It's the only model srt-skill's cloud path currently supports |
+| VibeVoice | Auxiliary recognition for English terms and homophones | Local only for now; the cloud path skips this step |
+| Qwen3.8 27B | General LLM, the strongest local dense model (Lunchuizhe's verdict) | Buy a card if it's your agent's brain every day; rent an hour to try it |
+| Gemma 4 26B | General LLM, one Ollama command to pull | Same; srt-skill's offline correction mode uses it |
+| DeepSeek V4 Flash | Online model, cheap and versatile | Neither rent nor buy—use the API. Lunchuizhe's first pick |
+| Image and video generators (LTX, MiniMax H3 and the like) | Images and video | Rent a 48 GB card for batch jobs; buy if you generate daily |
+
+One rule: only things that stay on and get used every day are worth buying; jobs that end, rent. The model's name doesn't matter. The usage does.
+
+## Three rakes I stepped on
+
+I'm writing these down because RunPod's official docs mention none of them; installing by the book doesn't mean it runs.
+
+First, the error message names the wrong culprit. The script told me "SSH public key is invalid," with the correct file path attached. The key was fine. The real cause was that my machine didn't have the small tool `jq` installed; the validation step returns non-zero as soon as it runs, so every key gets judged invalid. Lesson: when an error names something, verify that thing independently first, then look at what the code producing the message depends on.
+
+Second, the direct network port fails to appear about half the time. That's not a fault; it's normal on RunPod's Community Cloud. Fred's script waits 180 seconds and swaps to another machine, up to three tries. Two of my first three rounds were spent waiting on this.
+
+Third, always confirm the machine is dead when you're done. If it isn't, it's still billing. After each round I went back to the RunPod site and checked that the Pods page was empty; all four times it was. This habit matters more than any money-saving trick.
+
+One more, Windows-only: Git Bash silently rewrites paths like `/root/...` into Windows paths, which breaks the commands sent over SSH. The fix is to exclude just that one prefix; turning path conversion off entirely breaks the local ffmpeg's file lookup. Fred has folded this into the tool's documentation.
+
+## Contributor to this piece: Fred
+
+This article exists because Fred did the code testing. His [srt-skill](https://github.com/fredchu/srt-skill) turns "video or audio → corrected Taiwanese Traditional Chinese subtitles" into a single command; speech recognition can run on local Apple Silicon or, as I did, on RunPod. Every pitfall I hit on Windows was first worked through on his side, then written back into the docs. The sibling tool [speech-to-prose](https://github.com/fredchu/speech-to-prose) takes the same pipeline and produces a written-up article instead of subtitles, with timestamps and an ebook.
+
+His GitHub is here: [github.com/fredchu](https://github.com/fredchu). If you're also doing audio-to-text, start with his work rather than from scratch.
+
+One honest note: cloud and local runs don't produce identical subtitles. Fred measured it—the text differs by about two percent, and nobody knows which side is more correct. The difference is stable, not noise. Know that before you use the cloud path.
+
+## References
+
+- RunPod pricing: [runpod.io/pricing](https://www.runpod.io/pricing) (prices in this piece checked 2026-09-01; Community and Secure Cloud listed separately)
+- RunPod docs: [docs.runpod.io](https://docs.runpod.io)
+- Fred's tools: [srt-skill](https://github.com/fredchu/srt-skill), [speech-to-prose](https://github.com/fredchu/speech-to-prose); the cloud setup guide is `docs/CLOUD-ASR-SETUP.md` in srt-skill
+- My earlier piece on local hardware: "Is a Local Qwen3.8 27B Right for You?" (2026-08-21); this one is its "rent" half
+- Yesterday's numbers: RunPod dashboard, 2026-08-31; the CPU comparison: my own record from 2026-08-09
+- The opening line is from the Huainanzi; it came to mind when I saw the bill—this time I didn't have to weave a net, someone by the river rents them
+
+## One thing to take with you
+
+The line I kept after seeing the bill: renting versus buying isn't about picking the cheaper one, it's about which side of the crossover you're on. I only let go of the idea of buying a card after working out "more than five years to break even."
+
+If you're on the fence too, here's a small thing I did that you might try: dig up the number of times last month you genuinely needed a GPU—not wanted to, actually did—and write that number on a piece of paper, with roughly how many hours each time next to it. Multiply the two; that's your monthly usage. Once it's written, you're done.
+
+If you want one more step, multiply those hours by US$0.34 and look at it next to the price of a card.

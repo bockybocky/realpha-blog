@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="A long bar for the price of one graphics card next to a barely visible sliver for yesterday's NT$3.4 run; the bar equals about 4,100 slivers">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Inter","Segoe UI",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .cap   { font-size: 19px; font-weight: 700; fill: var(--dim); }
+    .capA  { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .big   { font-size: 34px; font-weight: 700; fill: var(--ink); }
+    .unit  { font-size: 17px; fill: var(--dim); }
+    .onfill{ font-size: 17px; font-weight: 700; fill: var(--page); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="420" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">One card equals how many cloud subtitle runs</text>
+
+    <!-- 一次：極短 -->
+    <text x="60" y="140" class="capA" text-anchor="start">Yesterday's run</text>
+    <rect x="240" y="118" width="3" height="32" fill="var(--accent)"/>
+    <text x="256" y="141" class="unit" text-anchor="start">NT$3.4 (567 GPU-seconds)</text>
+
+    <!-- 一張卡：長 -->
+    <text x="60" y="230" class="cap" text-anchor="start">One graphics card</text>
+    <rect x="240" y="208" width="640" height="32" rx="3" fill="var(--grey)"/>
+    <text x="560" y="230" class="onfill" text-anchor="middle">about US$1,400</text>
+
+    <text x="240" y="290" class="big" text-anchor="start">≈ 4,100 runs</text>
+    <text x="240" y="318" class="unit" text-anchor="start">At the 4090 Community rate of US$0.34/hr that is also about 4,100 hours</text>
+
+    <text x="480" y="385" class="kick" text-anchor="middle">At two hours a day, break-even takes over five years</text>
+  </g>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩條線：一條水平粗線代表買卡一次付清的固定成本，一條從零出發的斜線代表租用累積費用；兩線在約四千小時處交叉，左邊租划算、右邊買划算">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .capA  { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .capW  { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .hint  { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .ax    { font-size: 16px; fill: var(--dim); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">租和買的交叉點</text>
+
+    <!-- 左右兩區淡底 -->
+    <rect x="170" y="100" width="380" height="340" fill="var(--card)"/>
+    <text x="360" y="130" class="hint" text-anchor="middle">交叉點左邊：租划算</text>
+    <text x="715" y="420" class="hint" text-anchor="middle">右邊：買划算</text>
+
+    <!-- 軸 -->
+    <line x1="170" y1="440" x2="880" y2="440" stroke="var(--ink)" stroke-width="1.5"/>
+    <line x1="170" y1="440" x2="170" y2="100" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="880" y="470" class="ax" text-anchor="end">累積使用小時 →</text>
+    <text x="170" y="470" class="ax" text-anchor="middle">0</text>
+    <text x="550" y="470" class="ax" text-anchor="middle">約 4,000 小時</text>
+    <text x="156" y="112" class="ax" text-anchor="end">花掉的錢</text>
+
+    <!-- 買：水平粗線 -->
+    <line x1="170" y1="240" x2="880" y2="240" stroke="var(--warn)" stroke-width="5" stroke-linecap="round"/>
+    <text x="880" y="226" class="capW" text-anchor="end">買一張卡：一次付清約 1,400 美元</text>
+
+    <!-- 租：斜線 -->
+    <line x1="170" y1="440" x2="880" y2="66" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+    <text x="700" y="120" class="capA" text-anchor="start">租：每小時 0.34 美元累積</text>
+
+    <!-- 交叉點 -->
+    <circle cx="550" cy="240" r="9" fill="var(--ink)"/>
+    <line x1="550" y1="240" x2="550" y2="440" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="6 5"/>
+
+    <text x="480" y="525" class="kick" text-anchor="middle">問題不是哪個便宜，是你在交叉點的哪一邊</text>
+  </g>
+</svg>

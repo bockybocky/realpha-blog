@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="A two-by-two grid: horizontal axis from run occasionally to run every day, vertical from finishes when done to must stay on; top-left dark cell is Rent, bottom-right is Buy, the other two are pale middle ground">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Inter","Segoe UI",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .big   { font-size: 34px; font-weight: 700; }
+    .cap   { font-size: 19px; font-weight: 700; fill: var(--dim); }
+    .ax    { font-size: 16px; fill: var(--dim); }
+    .unit  { font-size: 17px; fill: var(--dim); }
+    .onfill{ font-size: 17px; font-weight: 700; fill: var(--page); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">Two questions decide rent or buy</text>
+
+    <!-- 四格 -->
+    <rect x="200" y="90" width="280" height="190" fill="var(--accent)"/>
+    <rect x="480" y="90" width="280" height="190" fill="var(--card)" stroke="var(--line)"/>
+    <rect x="200" y="280" width="280" height="190" fill="var(--card)" stroke="var(--line)"/>
+    <rect x="480" y="280" width="280" height="190" fill="var(--warn)"/>
+
+    <text x="340" y="180" class="big" fill="var(--page)" text-anchor="middle">Rent</text>
+    <text x="340" y="208" class="onfill" text-anchor="middle">subtitles, fine-tuning,</text>
+    <text x="340" y="230" class="onfill" text-anchor="middle">trying a card</text>
+    <text x="620" y="172" class="cap" text-anchor="middle">Rent first,</text>
+    <text x="620" y="198" class="cap" text-anchor="middle">buy once the volume is there</text>
+    <text x="340" y="375" class="cap" text-anchor="middle">Serverless endpoint</text>
+    <text x="340" y="402" class="unit" text-anchor="middle">costs nothing when idle</text>
+    <text x="620" y="375" class="big" fill="var(--page)" text-anchor="middle">Buy</text>
+    <text x="620" y="403" class="onfill" text-anchor="middle">daily agent brain,</text>
+    <text x="620" y="425" class="onfill" text-anchor="middle">daily video output</text>
+
+    <!-- 軸標 -->
+    <text x="340" y="500" class="ax" text-anchor="middle">Run occasionally</text>
+    <text x="620" y="500" class="ax" text-anchor="middle">Run every day</text>
+    <text x="186" y="190" class="ax" text-anchor="end">Finishes when done</text>
+    <text x="186" y="380" class="ax" text-anchor="end">Must stay on</text>
+
+    <text x="480" y="560" class="kick" text-anchor="middle">The model's name doesn't matter; the usage does</text>
+  </g>
+</svg>
