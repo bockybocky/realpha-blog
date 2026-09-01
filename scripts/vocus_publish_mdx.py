@@ -128,6 +128,25 @@ def mdx_to_blocks(body):
             blocks.append(('h3', ln.lstrip('#').strip()))
             i += 1
             continue
+        # 表格：方格子不支援，原樣送出會變成一排「| | 租 | 買 |」（2026-09-01 Charles：「這一段是表格嗎？我都看不懂」）
+        # → 每一列轉成一句「第一欄：欄名＝值；欄名＝值」，當清單送。分隔列（|---|）丟掉。
+        if ln.startswith('|'):
+            rows = []
+            while i < len(lines) and lines[i].strip().startswith('|'):
+                cells = [c.strip() for c in lines[i].strip().strip('|').split('|')]
+                if not all(re.fullmatch(r':?-{2,}:?', c or '--') for c in cells):
+                    rows.append(cells)
+                i += 1
+            if rows:
+                header, body_rows = rows[0], rows[1:]
+                items = []
+                for r in body_rows:
+                    r = r + [''] * (len(header) - len(r))
+                    lead = r[0]
+                    rest = [f'{h}＝{v}' if h else v for h, v in zip(header[1:], r[1:]) if v]
+                    items.append((f'{lead}：' if lead else '') + '；'.join(rest))
+                blocks.append(('ul', items))
+            continue
         if ln.startswith('- '):
             items = []
             while i < len(lines) and lines[i].startswith('- '):

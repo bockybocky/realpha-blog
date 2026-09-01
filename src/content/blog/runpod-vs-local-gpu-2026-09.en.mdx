@@ -36,14 +36,15 @@ Fred's estimate in the tool's documentation is roughly US$0.05–0.15 for a fift
 
 Here are both sides on one table (prices from RunPod's official pricing page, checked 2026-09-01; the card is estimated at about US$1,400 for a 4090-class card):
 
-| | Rent (RunPod) | Buy (one local card) |
-|---|---|---|
-| Up front | Load a few dollars and start | Ten-thousand-plus yuan, paid once |
-| Billing | By the second; kill the pod and it stops | Electricity, depreciation, desk space |
-| One hour of a 4090 | US$0.34 (Community Cloud) to US$0.74 (Secure Cloud) | Depreciation spread per hour—depends on how many hours you run |
-| Waiting | One to three minutes to boot; occasionally a pod won't connect and you swap | Always on |
-| The day it breaks | If the platform is down, you stop | Your own machine, network or not |
-| The most expensive machines | H100s and B200s are rentable too | Can't afford them, wouldn't use them |
+Up front: renting starts with a few dollars loaded; buying is ten-thousand-plus yuan, paid once.
+
+Billing: renting is by the second, and killing the pod stops the meter; buying doesn't pay anyone, but it costs electricity, depreciation, and the space on your desk. For a 4090, an hour rents for US$0.34 (Community Cloud) to US$0.74 (Secure Cloud); the per-hour depreciation of a card you own depends entirely on how many hours you run it.
+
+Waiting: a rented pod takes one to three minutes to boot, and occasionally won't connect and has to be swapped; your own card is always on.
+
+The day it breaks: if the platform goes down, renters stop; your own machine doesn't care about the network.
+
+And the most interesting difference: renting, you can get an H100 or a B200 you could never afford; buying, you can't afford them, and wouldn't use them.
 
 At the 4090 Community Cloud rate, ten-thousand-plus yuan buys roughly 4,100 hours. At two hours a day, breaking even takes more than five years; at eight hours a day, a year and a half. We all know what a five-year-old graphics card looks like.
 
@@ -75,15 +76,19 @@ Tooling and tutorials are on the official docs site: [docs.runpod.io](https://do
 
 Here are the models I've touched lately, measured with the same ruler: does the job finish, or does it need to stay on?
 
-| Model | What it does | How I'd run it |
-|---|---|---|
-| Whisper large-v3 | Multilingual speech recognition | Rent. Recognition is batch work, minutes per recording—exactly this use |
-| Breeze (MediaTek's Chinese ASR) | Chinese speech recognition, good on Taiwanese accents | Rent. It's the only model srt-skill's cloud path currently supports |
-| VibeVoice | Auxiliary recognition for English terms and homophones | Local only for now; the cloud path skips this step |
-| Qwen3.8 27B | General LLM, the local dense model I'd reach for; long tasks stay on track | Buy a card if it's your agent's brain every day; rent an hour to try it |
-| Gemma 4 26B | General LLM, one Ollama command to pull | Same; srt-skill's offline correction mode uses it |
-| DeepSeek V4 Flash | Online model, cheap and versatile | Neither rent nor buy—use the API |
-| Image and video generators (LTX, MiniMax H3 and the like) | Images and video | Rent a 48 GB card for batch jobs; buy if you generate daily |
+Whisper large-v3, multilingual speech recognition: rent. Recognition is batch work, minutes per recording—exactly this use.
+
+Breeze, MediaTek's Chinese speech recognition, good on Taiwanese accents: rent. It's the only model srt-skill's cloud path currently supports.
+
+VibeVoice, auxiliary recognition for English terms and homophones: local only for now; the cloud path skips this step.
+
+Qwen3.8 27B, a general LLM and the local dense model I'd reach for, one that keeps long tasks on track: buy a card if it's your agent's brain every day; rent an hour to try it otherwise.
+
+Gemma 4 26B, a general LLM that Ollama pulls in one command: same as above; srt-skill's offline correction mode uses it.
+
+DeepSeek V4 Flash, an online model, cheap and versatile: neither rent nor buy—use the API.
+
+Image and video generators like LTX and MiniMax H3: rent a 48 GB card for batch jobs; buy if you generate daily.
 
 One rule: only things that stay on and get used every day are worth buying; jobs that end, rent. The model's name doesn't matter. The usage does.
 
