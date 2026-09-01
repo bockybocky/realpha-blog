@@ -1,0 +1,73 @@
+---
+title: "A Numerator Without a Denominator: Terence Tao Says AI Solves Problems Like a Tipsy Genius, and We May Be Optimizing the Wrong Thing"
+description: "In an interview clip, Terence Tao lays out where AI in mathematics actually stands: four years from middle-school problems to cracking a few that humans were stuck on, but the success rate, the money burned, and how many problems were scanned before one fell are all a black box. His image is a well-read, slightly drunk person throwing out ideas nonstop; point it at a thousand problems and it solves fifty—not necessarily the fifty you wanted. I checked my own factor-validation ledger and found the same mistake: nobody had been recording the denominator."
+slug: "tao-2026-08-31-ai-math-drunk-genius"
+lang: "en"
+pubDate: 2026-09-01
+category: "tech"
+tags: ["Terence Tao", "AI mathematics", "scientific method", "verification", "decision-making"]
+ogImage: "/covers/tao-2026-08-31-ai-math-drunk-genius-cover.png"
+cover: "/covers/tao-2026-08-31-ai-math-drunk-genius-cover.png"
+tldr: "AI's progress in mathematics is real, but what gets published is the numerator: which problem was solved. The denominator—how many were tried, at what cost—is rarely given. A success rate without a denominator can't support a decision. This isn't an AI-only disease; I only started recording how many factors I had tried last week. Read as an early-warning report, he is right; read as 'so AI math can be ignored,' that is a misreading."
+---
+
+![Post-Impressionist oil painting: an observatory floor at night seen from above, hundreds of small candle flames scattered across dark stone, only a few dozen burning bright at random spots, a lone figure crouching with a lantern to inspect one, a great unfinished brass orrery looming behind, swirling energetic brushwork](/covers/tao-2026-08-31-ai-math-drunk-genius-cover.png)
+
+> *Truth emerges more readily from error than from confusion.*<br/>
+> —— Francis Bacon, *Novum Organum* (1620)
+
+## What this clip is about
+
+This is a clip from the YouTube channel AI 101 (posted 2026-08-31, 7 minutes 50 seconds), cut from Terence Tao's long interview on the Dwarkesh Podcast in March 2026, with Chinese subtitles added. On this subject he is the most qualified voice and the least prone to hype: a Fields Medalist who has spent the past three years using these tools at the front line.
+
+He is not talking about whether AI will replace mathematicians. He is talking about something smaller and harder: which numbers are missing from the progress we can see, and why that means we can't draw conclusions yet.
+
+## The main points
+
+The progress is real, and it climbed one rung at a time. Four years ago, middle-school problems; then high school, then olympiad, then graduate qualifying exams; then small, genuinely open problems nobody had seriously worked on, the kind Erdős left behind. Recently, it seems, AI has once or twice cracked problems people had tried hard on and failed—humanity collectively went the wrong way, and an AI with different biases pieced together a clever solution that moved neighboring problems too. He calls this exciting.
+
+But the next part is the point. Most of these results come from private companies that do not disclose the resources used: was that computer worth a hundred thousand dollars or a million? Nobody knows. Nor does anyone know the success rate: was the problem they solved the only one they studied, or did they study ten, or a hundred, before one fell? His words: the results are impressive, but we don't have enough data to judge whether this will become routine.
+
+The way it solves problems is strange, the opposite of what we usually call intelligence. His image: a person who knows a lot, is a bit drunk, and keeps throwing out ideas. Most are dumb, but with enough guidance you can extract something useful. Its strength is breadth. Point it at a thousand problems of varying difficulty; some are too hard, but some yield to existing methods, or to a key idea buried in an obscure 1970 paper nobody read. Human experts lack the patience and the time to try every technique against every problem. AI guesses semi-randomly, combines, fails, and occasionally finds the route everyone missed.
+
+So its current shape is this: point it at a thousand problems and it might solve five percent. That is still fifty problems, and by sheer count it already exceeds human mathematicians in some respects. But the fifty it solves are not necessarily the fifty you most wanted solved. They may be fifty random ones.
+
+The lesson of Copernicus. When the heliocentric model was first proposed, it fit the data worse than Ptolemy's geocentric one; only after Kepler replaced circles with ellipses did it become more accurate. That is what science is like: you don't get immediate feedback on whether you're right. If Copernicus and Kepler had had AI, the AI that produced the correct heliocentric model might have been discarded because its early predictions lost to the geocentric one.
+
+Every step gets faster; the whole doesn't necessarily. He grants that AI speeds up individual steps—experiments run faster, code gets written faster, papers get written faster. But accelerating every component doesn't necessarily accelerate science. The risk is optimizing the wrong thing: dazzling successes everywhere in theory, and in practice science not advancing faster than before. His example is programming: many senior engineers report five, ten, a hundred times the output with these tools, while feeling they are losing the ability to write code by hand, and sometimes can no longer review what the agents produce.
+
+The training chain breaks. This is the part that worries him most. A graduate student's first project is designed to give them recognition, training, and experience, and AI can now reproduce many of those papers. Replace graduate students with AI and you get graduate-level papers but no next generation. Conversely, if humans stop digesting AI's output and building a new knowledge base for the next generation of people and machines, the scientific community may stall.
+
+## Where this leads
+
+You've probably seen the headline: some model solved a long-open problem. Two reactions follow—"it's over for humans," or "it's PR." This clip offers a third reading, and one you can check by hand.
+
+Start with the denominator. "Solved one problem" is a numerator; "how many were tried" is the denominator. Without it there is no success rate, only a story. I'm not watching this from the sidelines. For the past several months I've been validating stock-selection factors with a strict statistical procedure—five gates per factor—and only on 2026-08-31 did I create a ledger of how many factors I had tried in total. Before that, my validation summary listed ten factors, three passing, the rest killed or shelved (as of 2026-08-31). Three out of ten sounds honest, but those ten are only the ones that made it onto the table; the ones tried and dropped during exploration were never recorded—and they are the real denominator. What I was doing is no different in kind from those companies: publish the numerator, keep the denominator in memory.
+
+The denominator isn't never given—just rarely, and the cases where it is are worth a close look. This interview was recorded in March; by late August things had moved. In July a PhD student at Columbia published his whole process: using GPT-5.6 Sol with Codex, he solved six open Erdős problems in five days, having attempted roughly thirteen in total, a success rate around forty-six percent; individual problems ran six to thirty-two hours, on externally sponsored compute (his thread on X, 2026-07-22). It is one of the few cases I've seen where the denominator was written down, and precisely because of that forty-six percent, the announcement is data rather than story. His other admission echoes Tao's image: the first secret was problem selection—he picked problems mathematicians were already discussing and avoided anything welded to a major conjecture. Point the direction first, then let the tipsy genius run.
+
+Problem selection has already become a production line. A paper posted on 2026-08-31 reverses the pipeline: instead of picking a conjecture and attacking it, start from a research direction, scan the literature for open problems, attempt them at scale, and filter so that experts see only the most promising. The numbers from its combinatorics pilot: 51,110 papers narrowed to 4,717 apparently open, attemptable conjectures; 1,050 claimed new resolutions; 598 passing automated judging; 77 recommended for expert review; fifteen manually checked, all correct, one of which had already been solved elsewhere (paper abstract, 2026-08-31). Every layer of this line has a denominator—exactly what you can't hear in the interview. Note that last item, too: even a machine scanning fifty thousand papers missed one prior solution.
+
+The literature really does get missed, and not only by machines. In October 2025 a thousand-dollar Erdős prize problem was solved by two mathematicians who then discovered it had been solved thirty years before it was posed. Not trusting the result, they used GPT-5 to write the proof in a formal verification language, and it worked—though the humans had to put in serious effort giving feedback along the way (Sébastien Bubeck on X, 2025-10-22, with the paper). That joins two of Tao's points: the "1970 paper nobody read" really exists, and the formal-verification road is passable, just still labor-intensive.
+
+Then the Copernicus passage, which I think is the easiest to skip and the most valuable line in the clip. It is about fields with long verification cycles, where early right-or-wrong signals lie. Investors know this too well: a correct idea can underperform a wrong one for two years. I paid for that lesson only last month: an evaluation bench scored six out of six perfect, I wrote it into my own working rules as evidence, and only two weeks later realized that all-perfect means the questions were too easy, not that the two sides were equal. A ruler that never fails measures nothing (my own note, 2026-08-20). Where feedback arrives fast and looks good is exactly where to be suspicious.
+
+Finally, the training chain. He worries that replacing graduate students with AI leaves no next generation; I shrink that to one person: if you outsource judgment wholesale, your own judgment atrophies, and judgment is the one thing you can neither verify nor outsource. My own rule is to hand over the "moving things around" and keep the "deciding." Not because AI judges badly, but because the only acceptance test for a judgment is another judgment—hand it over and no one is left to check the answer.
+
+One counterargument holds up and should be written down. If AI's strange proofs can be caught by formal tools and translated into something humans can read, the knowledge base can connect and the training chain need not break. That layer, for now, rests on a handful of top people doing it by hand; it isn't mass-produced. So his warning stands today and needs rereading next year.
+
+## References
+
+- Original clip: AI 101, "陶哲軒：AI 解題像個微醺的天才，而科學界可能在優化錯的東西" (posted 2026-08-31, 7:50); cut from the Dwarkesh Podcast's Terence Tao episode (2026-03-20), whose chapter list already includes "Selection bias in reported AI discoveries" and "AI makes papers richer and broader, but not deeper"
+- Six Erdős problems, thirteen attempted, about forty-six percent: Shouqiao Wang's thread on X, 2026-07-22, with problem numbers and a GitHub repository
+- The 51,110-to-77 funnel: "The Problem Is the Problem: Towards Scalable Mathematical Discovery" (arXiv 2608.16977, 2026-08-31)
+- The prize problem solved thirty years before it was posed: Sébastien Bubeck on X, 2025-10-22; the paper is Alexeev and Mixon, "Forbidden Sidon subsets of perfect difference sets"
+- "Ten factors, three passing": my own factor-validation summary as of 2026-08-31; the attempts ledger was created the same day, and earlier exploration has no record
+- The six-out-of-six episode: an evaluation record from 2026-08-02 and my own review written 2026-08-20
+- The opening line is Aphorism XX of Book I of Bacon's *Novum Organum*, a note I thought of while listening, not part of the clip
+
+## One thing to take with you
+
+When you see "AI solved problem X," ask one question: how many did it try? If there's no answer, the headline is a numerator, not a success rate.
+
+An exercise for today: dig out the most recent result you used to make a decision—an investment, a project, an exam—and write down its denominator: how many attempts in total, how many discarded and left uncounted. If you can't, start a ledger now, one line per attempt. Only once the denominator is on record does your success rate become real.

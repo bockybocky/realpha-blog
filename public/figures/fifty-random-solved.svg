@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一千個小點排成一面，其中五十個亮起來，散得毫無規律；右下角一小塊虛線框標著最想解的，框裡只有兩個亮點">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .cap   { font-size: 19px; font-weight: 700; fill: var(--dim); }
+    .capA  { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .capW  { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+  <defs>
+    <pattern id="dots" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="8" r="3" fill="var(--grey)"/>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">指一千題，解掉五十題——但是哪五十題？</text>
+
+    <!-- 一千個灰點：40 × 25 -->
+    <rect x="160" y="80" width="640" height="400" fill="url(#dots)"/>
+
+    <!-- 五十個亮點，位置刻意散亂 -->
+    <g fill="var(--accent)">
+      <circle cx="184" cy="104" r="5"/><circle cx="264" cy="168" r="5"/><circle cx="344" cy="120" r="5"/><circle cx="424" cy="248" r="5"/><circle cx="504" cy="104" r="5"/>
+      <circle cx="584" cy="200" r="5"/><circle cx="664" cy="136" r="5"/><circle cx="744" cy="264" r="5"/><circle cx="200" cy="296" r="5"/><circle cx="296" cy="376" r="5"/>
+      <circle cx="376" cy="328" r="5"/><circle cx="456" cy="424" r="5"/><circle cx="536" cy="312" r="5"/><circle cx="616" cy="392" r="5"/><circle cx="696" cy="456" r="5"/>
+      <circle cx="232" cy="216" r="5"/><circle cx="312" cy="88" r="5"/><circle cx="392" cy="184" r="5"/><circle cx="472" cy="152" r="5"/><circle cx="552" cy="456" r="5"/>
+      <circle cx="632" cy="296" r="5"/><circle cx="712" cy="104" r="5"/><circle cx="776" cy="376" r="5"/><circle cx="168" cy="408" r="5"/><circle cx="248" cy="472" r="5"/>
+      <circle cx="328" cy="248" r="5"/><circle cx="408" cy="440" r="5"/><circle cx="488" cy="360" r="5"/><circle cx="568" cy="136" r="5"/><circle cx="648" cy="232" r="5"/>
+      <circle cx="728" cy="184" r="5"/><circle cx="216" cy="136" r="5"/><circle cx="360" cy="440" r="5"/><circle cx="440" cy="88" r="5"/><circle cx="520" cy="248" r="5"/>
+      <circle cx="600" cy="344" r="5"/><circle cx="680" cy="88" r="5"/><circle cx="760" cy="440" r="5"/><circle cx="184" cy="344" r="5"/><circle cx="280" cy="296" r="5"/>
+      <circle cx="424" cy="344" r="5"/><circle cx="504" cy="200" r="5"/><circle cx="584" cy="104" r="5"/><circle cx="664" cy="424" r="5"/><circle cx="744" cy="152" r="5"/>
+      <circle cx="248" cy="88" r="5"/><circle cx="392" cy="392" r="5"/><circle cx="472" cy="296" r="5"/><circle cx="712" cy="328" r="5"/><circle cx="776" cy="328" r="5"/>
+    </g>
+
+    <!-- 最想解的：右下角小框，裡面只有兩個亮點 -->
+    <rect x="160" y="384" width="112" height="96" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="10 7"/>
+    <text x="160" y="510" class="capW" text-anchor="start">最想解的那一小塊：只中兩題</text>
+
+    <text x="800" y="510" class="capA" text-anchor="end">● 解掉的 50 題</text>
+    <text x="480" y="545" class="kick" text-anchor="middle">解得多不等於解到你要的——先想清楚指哪一千題</text>
+  </g>
+</svg>
