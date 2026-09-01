@@ -34,7 +34,7 @@ Fred's estimate in the tool's documentation is roughly US$0.05–0.15 for a fift
 
 ## Rent and buy: the shape of each path
 
-Here are both sides on one table (prices from RunPod's official pricing page, checked 2026-09-01; the card price uses the "two cards for ten-thousand-plus yuan" figure from Lunchuizhe's video, about US$1,400):
+Here are both sides on one table (prices from RunPod's official pricing page, checked 2026-09-01; the card is estimated at about US$1,400 for a 4090-class card):
 
 | | Rent (RunPod) | Buy (one local card) |
 |---|---|---|
@@ -49,7 +49,7 @@ At the 4090 Community Cloud rate, ten-thousand-plus yuan buys roughly 4,100 hour
 
 ![Two lines left to right: a thick horizontal line for the fixed cost of buying a card, and a diagonal from zero for accumulated rental fees; they cross at about 4,000 hours—renting wins to the left, buying to the right](/figures/rent-vs-buy-crossover-en.svg)
 
-So the question was never "which is cheaper." It's "which side of the crossover are you on." I run this a handful of times a month, far from the crossover; renting is the obvious answer. Someone like Lunchuizhe, running ten-plus hours a day and generating images and video, is on the other side.
+So the question was never "which is cheaper." It's "which side of the crossover are you on." I run this a handful of times a month, far from the crossover; renting is the obvious answer. Someone running ten-plus hours a day and generating images and video is on the other side.
 
 When I wrote about local hardware last month, I described buying a card as insurance: it covers "the day everyone else raises prices or goes down, I can still work." That still holds, with one addition: insurance is worth what your need for it is. Someone who hits an outage less than once a year is paying five years of premiums for it.
 
@@ -65,7 +65,7 @@ Three: fine-tuning. Training jobs run for hours to days and then end, exactly th
 
 Four: serverless endpoints. If you have a service that gets hit only occasionally (the backend of a small tool, say), you can deploy the model as a pay-per-call endpoint that costs nothing when idle. I haven't run this one, only read the docs: [Serverless overview](https://docs.runpod.io/serverless/overview).
 
-Five: image and video generation. Lunchuizhe says online APIs for this "can't be covered with any amount of money"—that's about the per-image API prices of the various generation services. Renting a card and running an open model is a different matter: billed by the second, pay for what you run. I haven't tried it yet; noting it here.
+Five: image and video generation. The generation services' APIs bill per image and per second of output, and at volume the bill runs away fast. Renting a card and running an open model is a different matter: billed by the second, pay for what you run. I haven't tried it yet; noting it here.
 
 Tooling and tutorials are on the official docs site: [docs.runpod.io](https://docs.runpod.io).
 
@@ -73,16 +73,16 @@ Tooling and tutorials are on the official docs site: [docs.runpod.io](https://do
 
 ## Common local models: which to rent for, which to buy for
 
-Here are the models I've touched lately, or that keep appearing in Lunchuizhe's videos, measured with the same ruler: does the job finish, or does it need to stay on?
+Here are the models I've touched lately, measured with the same ruler: does the job finish, or does it need to stay on?
 
 | Model | What it does | How I'd run it |
 |---|---|---|
 | Whisper large-v3 | Multilingual speech recognition | Rent. Recognition is batch work, minutes per recording—exactly this use |
 | Breeze (MediaTek's Chinese ASR) | Chinese speech recognition, good on Taiwanese accents | Rent. It's the only model srt-skill's cloud path currently supports |
 | VibeVoice | Auxiliary recognition for English terms and homophones | Local only for now; the cloud path skips this step |
-| Qwen3.8 27B | General LLM, the strongest local dense model (Lunchuizhe's verdict) | Buy a card if it's your agent's brain every day; rent an hour to try it |
+| Qwen3.8 27B | General LLM, the local dense model I'd reach for; long tasks stay on track | Buy a card if it's your agent's brain every day; rent an hour to try it |
 | Gemma 4 26B | General LLM, one Ollama command to pull | Same; srt-skill's offline correction mode uses it |
-| DeepSeek V4 Flash | Online model, cheap and versatile | Neither rent nor buy—use the API. Lunchuizhe's first pick |
+| DeepSeek V4 Flash | Online model, cheap and versatile | Neither rent nor buy—use the API |
 | Image and video generators (LTX, MiniMax H3 and the like) | Images and video | Rent a 48 GB card for batch jobs; buy if you generate daily |
 
 One rule: only things that stay on and get used every day are worth buying; jobs that end, rent. The model's name doesn't matter. The usage does.
