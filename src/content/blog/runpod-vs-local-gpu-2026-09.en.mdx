@@ -32,7 +32,7 @@ One small batch job, four attempts (the first three were me stepping on rakes—
 
 ## Rent and buy: the shape of each path
 
-Here are both sides on one table (prices from RunPod's official pricing page, checked 2026-09-01; the card is estimated at about US$1,400 for a 4090-class card):
+Here are both sides laid out (prices from RunPod's official pricing page, checked 2026-09-01; the card is estimated at about US$1,400 for a 4090-class card):
 
 Up front: renting starts with a few dollars loaded; buying is ten-thousand-plus yuan, paid once.
 
@@ -98,7 +98,7 @@ Second, the direct network port fails to appear about half the time. That's not 
 
 Third, always confirm the machine is dead when you're done. If it isn't, it's still billing. After each round I went back to the RunPod site and checked that the Pods page was empty; all four times it was. This habit matters more than any money-saving trick.
 
-One more, Windows-only: Git Bash silently rewrites paths like `/root/...` into Windows paths, which breaks the commands sent over SSH. The fix is to exclude just that one prefix; turning path conversion off entirely breaks the local ffmpeg's file lookup. Fred has folded this into the tool's documentation.
+One more, Windows-only: Git Bash silently rewrites paths like `/root/...` into Windows paths, which breaks the commands sent over SSH. The fix is to exclude just that one prefix; turning path conversion off entirely breaks file lookup for other local tools. Fred has folded this into the tool's documentation.
 
 ## Contributor to this piece: Fred
 
