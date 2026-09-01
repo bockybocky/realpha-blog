@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-label="一根長長的橫條代表付費的一週額度，幾乎全是空的，只有最左端一小截塗滿，標著百分之一">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .cap   { font-size: 19px; font-weight: 700; fill: var(--dim); }
+    .capA  { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .big   { font-size: 34px; font-weight: 700; fill: var(--ink); }
+    .ax    { font-size: 16px; fill: var(--dim); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="400" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">付了錢的一週額度，用掉多少</text>
+
+    <!-- 整條額度：空的 -->
+    <rect x="80" y="150" width="800" height="70" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text x="480" y="194" class="cap" text-anchor="middle">沒動過</text>
+
+    <!-- 用掉的一小截 -->
+    <rect x="80" y="150" width="8" height="70" rx="2" fill="var(--accent)"/>
+    <line x1="84" y1="150" x2="84" y2="110" stroke="var(--accent)" stroke-width="1.5"/>
+    <text x="84" y="100" class="capA" text-anchor="start">用掉 1%</text>
+
+    <text x="80" y="250" class="ax" text-anchor="start">0</text>
+    <text x="880" y="250" class="ax" text-anchor="end">一週上限</text>
+
+    <text x="480" y="340" class="kick" text-anchor="middle">瓶頸不在模型的腦袋，在有沒有把工作派出去</text>
+  </g>
+</svg>

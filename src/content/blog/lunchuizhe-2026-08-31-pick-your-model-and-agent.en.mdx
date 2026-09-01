@@ -1,0 +1,70 @@
+---
+title: "The Cheap One Is Enough, the Expensive One Sits Idle: How Lunchuizhe Picks Models and Agents"
+description: "In eighteen minutes, the YouTuber Lunchuizhe lines up every model and agent he has tested over the past few months: locally, only Qwen3.8 27B; online, DeepSeek V4 Flash first; Hermes as the daily assistant, Codex for code; Gemini and Grok, avoid. His ranking method matters more than his ranking: ask how much you use per month and how many steps a task runs before you decide whom to pay. I checked his conclusions against a month of my own measurements—two agree, one flips."
+slug: "lunchuizhe-2026-08-31-pick-your-model-and-agent"
+lang: "en"
+pubDate: 2026-09-01
+category: "tech"
+tags: ["Lunchuizhe", "AI tools", "agents", "local AI", "decision-making"]
+ogImage: "/covers/lunchuizhe-2026-08-31-pick-your-model-and-agent-cover.png"
+cover: "/covers/lunchuizhe-2026-08-31-pick-your-model-and-agent-cover.png"
+tldr: "Picking a model is not picking the strongest one. It is picking the one that is good enough and fast: on short tasks all three vendors get it right, so pay the cheapest; on long tasks errors compound step by step, and only then is a dense, expensive model worth it. He sorts usage into three tiers to decide whether to buy a GPU. My own numbers add one line: what really goes unused is not the model's brain but the quota you paid for and never dispatched."
+---
+
+![Impressionist oil painting of a toolmaker's stall at dawn: hammers and chisels of different weights laid side by side on a worn wooden table, a hand reaching for the one that fits, morning light raking in from the left in loose, vibrating brushstrokes](/covers/lunchuizhe-2026-08-31-pick-your-model-and-agent-cover.png)
+
+> *There are gaps between the joints, and the edge of the blade has no thickness;*<br/>
+> *what has no thickness enters where there is a gap, and there is more than enough room for the blade to roam.*<br/>
+> —— Zhuangzi, "The Secret of Caring for Life" (Warring States period, c. 4th century BC; translation mine)
+
+## What this episode is about
+
+Lunchuizhe (the YouTube channel 抡锤者) admits this episode (posted 2026-08-31, 18 minutes 33 seconds) is a filler: he had to take his kid to school that morning and had no time for a new benchmark, so he summed up everything he has tested over the past few months—models, agents, hardware. I find these episodes the most useful kind, because the judgments scattered across a dozen videos get lined up in one queue.
+
+His sorting rule is simple. First ask how much you use per month. Then ask how many steps your task runs. Answer those two, and whom to pay and whether to buy a GPU falls out on its own.
+
+## The main points
+
+Locally there is only one answer. Qwen3.8 27B is the best local model right now, "no argument." Google's Gemma line and Meta's models have all tried to challenge it and "lost by more than a little." When someone asks why he doesn't pick the larger Qwen 35B-A3B, his answer is the most valuable part of the episode: the 35B is a mixture-of-experts model that wakes only 3 billion parameters per inference step, while the 27B is dense—all 27 billion parameters show up for work. For a small script or a seven-step reasoning chain you see no difference. But hook it to an agent for a development task that runs one or two hundred steps, and the small error in each step accumulates until, ten rounds in, it "falls apart." The dense model finishes the same job; the mixture-of-experts model does not.
+
+Usage decides whether you buy a GPU. He puts himself in the light-to-moderate tier: some coding, maintaining forum scripts, roughly three hundred yuan a month on DeepSeek V4 Flash, maybe five hundred if you count occasional local use (his estimate, 2026-08-31 video). His dividing line: if you are a professional engineer, or you process a lot of documents every day, the cheapest online plan starts at a thousand yuan a month, tens of thousands a year, and that money buys a 48 GB card that handles ninety-five percent of your work locally. If you generate images or video, don't even do the math—online API costs for that run several orders of magnitude above coding, "no amount of money covers it," and a 32 GB card pays for itself in half a year.
+
+But outside three cases—privacy, censorship resistance, and heavy daily consumption—he recommends the online API every time. The reason is not capability but experience: a cluster runs around the clock, almost never drops, and you don't have to live with the noise of a blower-style card.
+
+Online, his first pick is DeepSeek V4 Flash: cheapest, most versatile, enough for ninety-nine percent of most people's work and ninety-five percent of an engineer's. Xiaomi MiMo, Zhipu GLM 5.3 Flash, Tencent Hunyuan, MiniMax, and Qwen each have their strengths; he is not impressed by Hunyuan 4. If you really need a foreign model, he recommends OpenAI's twenty-dollar plan because the quota is generous: web chat doesn't count against it, and the Codex quota resets on both a five-hour and a seven-day cycle, so small tasks never exhaust it. He finds GPT-5.6 Luna "rather dumb" for long coding runs, but plenty good for search, translation, and daily conversation, and it produces a usable cover image in one to three tries.
+
+Two vendors to avoid. He used Gemini's twenty-dollar plan as his main model for a long stretch; "starting two months ago it got very, very dumb," worse than the previous generation, and its image edge is gone. The one useful feature, analyzing YouTube videos, works without a subscription. Grok he has never subscribed to; the quota that comes with his X membership he has "basically never used." His verdict: unless you need politically sensitive content that GPT and Gemini refuse, "Musk's AI is dead."
+
+Agents come in two uses. For a daily assistant, Hermes: the most stable, the most traffic, able to code but less efficiently than a dedicated coding agent. For coding, Codex: the easiest install, works well with DeepSeek V4 Flash or a local Qwen 27B, but it is a command-line tool rather than a resident service, has no cross-session memory, and doesn't suit a twenty-four-hour personal assistant. OpenCode is also excellent; the interface is just ugly. The one he is most excited about is DSH—the title says DSH, he calls it DeepSeek Hermes—which in under twenty days has matched Hermes and OpenCode in GitHub stars, has code quality he calls "a regular army," and a plugin system where even the main loop can be swapped out. It is still a release candidate with bugs, and he suggests waiting for the stable release before making it your main tool.
+
+One aside on an earlier prediction: OpenClaw once had the most stars, the agent behind the "everyone raising lobsters" craze. He said back then that the framework was badly written and would be replaced, and got laughed at. Now he considers it replaced by Hermes.
+
+## Where this leads
+
+You may be like me: subscribed to more than one vendor, and every time the bills arrive you wonder which one you actually use. He gave a sorting method; I ran my own past month through it.
+
+Start with what agrees. Gemini getting worse—I dropped it from my list for implementation-type tasks in mid-August 2026, for the same reason: not reliable enough. That is not two people's illusion; it is the same time window measured from two sides.
+
+Now what disagrees. He says Grok is dead. On 2026-08-24 I ran a same-question comparison: a Python script that runs, throws no errors, and gives the wrong answer, handed to three vendors to find the defects. Grok 4.6 found two real defects, the most, and quantified the error along the way; the other two found one each. The price was speed: 495 seconds, eight times slower than the fastest. So my version is that Grok is not dead, it is slow, and in many settings slow amounts to dead. That conclusion rests on one experiment, and I won't claim more than that.
+
+Then his most important logic, checked against my numbers. He says short tasks show no difference and long tasks accumulate error. The same day I ran a mechanical task first: three statistics on a two-hundred-row table, answers computed in advance. All three vendors got it right, in eighteen seconds, twenty-two to twenty-five seconds, and forty-eight seconds respectively (measured 2026-08-24). When the answers are identical, the only differences left are speed and price, so you pay the cheapest. That matches his "why use a big model for a short task" exactly.
+
+And one thing he didn't say that I think matters more than which vendor: of the quota you paid for, how much did you use? In mid-August I checked my own weekly Codex quota: one percent used. He says OpenAI's quota "can't be used up on small tasks"; my number is more extreme—not unused up, but barely touched. The reason isn't the model. I hadn't dispatched the work.
+
+That flipped how I think about "which one to subscribe to." Lunchuizhe frames the question as how much money buys a good-enough brain, and at his usage that is the right frame. But if you are like me, with most of the quota untouched, the bottleneck isn't the brain at all. It is dispatch: whether you have broken the work into a shape that can be thrown over the wall. If you can't, the strongest model sits idle too.
+
+Finally, his core dividing line, dense versus mixture-of-experts. I have no local card to test that directly, but I have a side witness. In early August I compared two models from the same vendor on three kinds of mechanical work: quality tied three to three, price differed by twenty-two times (measured 2026-08-02; all six cases scored full marks, so it only proves a tie at or below that difficulty). I then made the cheap one the default and escalate to the expensive one only when the cheap one gets it wrong. That is the other side of his "the 35B mixture-of-experts is fine for short tasks": where errors haven't had time to accumulate, the expensive one buys no accuracy.
+
+## References
+
+- Original video: Lunchuizhe, "AI 大模型/Agent入门推荐，Qwen3.8 27B/DeepSeek V4 Flash/国产替代模型/GPT，Hermes/Codex/DSH/OpenCode体验对比！" (posted 2026-08-31, 18:33; title reproduced as published, in simplified Chinese)
+- My earlier notes on his hardware videos: "Is a Local Qwen3.8 27B Right for You?" (2026-08-21); this episode reads as the model-and-software companion to that one
+- The seconds and defect counts in this piece: my own same-question comparison on 2026-08-24, one run per vendor—side evidence, not a verdict
+- The one-percent quota figure: as queried on 2026-08-14; it has moved since
+- The opening lines are from Zhuangzi's story of Cook Ding, a note I thought of while listening, not part of the episode
+
+## One thing to take with you
+
+Before choosing a tool, ask how many steps the task runs. For something that resolves in one step, all three vendors get it right, so pay the cheapest. For something that runs a hundred steps, errors accumulate, and only then is the expensive one worth it.
+
+An exercise for today: open the vendors you pay for and look at how much of this month's quota you have used. If, like me, it is under ten percent, don't rush to switch vendors. Find one job you repeat every week that could be handed over whole, and hand it over once. Only after the quota starts moving will you know which vendor is worth the money.

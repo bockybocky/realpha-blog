@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="三根橫條長短懸殊代表耗時，最長的四百九十五秒、最短五十九秒；每根右端掛著找到的真缺陷數，最慢那根找到兩個，另外兩根各一個">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .cap   { font-size: 19px; font-weight: 700; fill: var(--dim); }
+    .capA  { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .big   { font-size: 34px; font-weight: 700; fill: var(--ink); }
+    .unit  { font-size: 17px; fill: var(--dim); }
+    .ax    { font-size: 16px; fill: var(--dim); }
+    .pct   { font-size: 16px; font-weight: 700; }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">同一支有錯的程式，三家各找一次</text>
+    <text x="480" y="76" class="ax" text-anchor="middle">橫條長度＝耗時　右端圓點＝找到的真缺陷數</text>
+
+    <!-- 列 1：最慢、找到兩個 -->
+    <text x="60" y="152" class="capA" text-anchor="start">最慢那家</text>
+    <rect x="200" y="128" width="560" height="40" rx="4" fill="var(--accent)"/>
+    <text x="212" y="156" class="pct" fill="var(--page)">495 秒</text>
+    <circle cx="790" cy="148" r="14" fill="var(--accent)"/>
+    <circle cx="826" cy="148" r="14" fill="var(--accent)"/>
+    <text x="858" y="154" class="cap" text-anchor="start">2 個</text>
+
+    <!-- 列 2 -->
+    <text x="60" y="242" class="cap" text-anchor="start">第二家</text>
+    <rect x="200" y="218" width="376" height="40" rx="4" fill="var(--grey)"/>
+    <text x="212" y="246" class="pct" fill="var(--page)">332 秒</text>
+    <circle cx="606" cy="238" r="14" fill="var(--grey)"/>
+    <text x="638" y="244" class="cap" text-anchor="start">1 個</text>
+
+    <!-- 列 3：最快 -->
+    <text x="60" y="332" class="cap" text-anchor="start">最快那家</text>
+    <rect x="200" y="308" width="67" height="40" rx="4" fill="var(--grey)"/>
+    <text x="212" y="336" class="pct" fill="var(--page)">59 秒</text>
+    <circle cx="297" cy="328" r="14" fill="var(--grey)"/>
+    <text x="329" y="334" class="cap" text-anchor="start">1 個</text>
+
+    <!-- 尺規 -->
+    <line x1="200" y1="380" x2="760" y2="380" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="200" y="404" class="ax" text-anchor="start">0</text>
+    <text x="760" y="404" class="ax" text-anchor="end">約 8 分鐘</text>
+
+    <text x="480" y="480" class="kick" text-anchor="middle">慢八倍，但多找到一個——慢不等於死，只是很多場景等不起</text>
+  </g>
+</svg>

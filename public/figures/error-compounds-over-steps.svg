@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩條曲線從同一點出發，橫軸是任務步數；短任務時兩條幾乎重疊，過了幾十步後混合專家模型那條急轉直下，與稠密模型拉開愈來愈寬的缺口">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .capA  { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .capW  { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .hint  { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .ax    { font-size: 16px; fill: var(--dim); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">短任務看不出差別，長任務誤差會累積</text>
+
+    <!-- 短任務區：淡底 -->
+    <rect x="170" y="100" width="210" height="340" fill="var(--card)"/>
+    <text x="275" y="424" class="hint" text-anchor="middle">短任務：幾乎重疊</text>
+
+    <!-- 座標軸 -->
+    <line x1="170" y1="440" x2="880" y2="440" stroke="var(--ink)" stroke-width="1.5"/>
+    <line x1="170" y1="440" x2="170" y2="100" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="880" y="470" class="ax" text-anchor="end">任務步數 →</text>
+    <text x="170" y="470" class="ax" text-anchor="middle">1 步</text>
+    <text x="380" y="470" class="ax" text-anchor="middle">10 步</text>
+    <text x="640" y="470" class="ax" text-anchor="middle">100 步</text>
+    <text x="156" y="112" class="ax" text-anchor="end">還在正軌上</text>
+    <text x="156" y="444" class="ax" text-anchor="end">偏掉了</text>
+
+    <!-- 稠密模型：緩緩下滑 -->
+    <path d="M170,120 C360,124 540,140 880,190" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+    <text x="880" y="178" class="capA" text-anchor="end">稠密 27B</text>
+
+    <!-- 混合專家：幾十步後急轉直下 -->
+    <path d="M170,124 C330,130 400,170 470,260 C540,350 660,420 880,432" fill="none" stroke="var(--warn)" stroke-width="5" stroke-linecap="round"/>
+    <text x="880" y="402" class="capW" text-anchor="end">混合專家 35B（每步只喚醒 3B）</text>
+
+    <!-- 缺口 -->
+    <line x1="640" y1="158" x2="640" y2="410" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <text x="654" y="290" class="hint" text-anchor="start">缺口愈拉愈開</text>
+
+    <text x="480" y="525" class="kick" text-anchor="middle">一步能答完的事，便宜的就夠；要跑一百步，才值得付貴的</text>
+  </g>
+</svg>

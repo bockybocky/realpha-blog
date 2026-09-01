@@ -28,6 +28,7 @@ BLOG = 'https://blog.getrealpha.com'
 
 # 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
 NON_INVESTMENT = {'local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
+                  'lunchuizhe-2026-08-31-pick-your-model-and-agent',
                   'dont-let-ai-say-no-problem', 'video-memory-without-the-cloud',
                   'aice-ai-engineering-cert-prep', 'aice-must-know-concepts'}
 
@@ -40,6 +41,7 @@ TAGS = {
     'serenity-x-reading-method': ['光通訊', '研究方法', '美股', '投資心得'],
     'herdr-agent-automation-vocus': ['AI', '終端機', '自動化', '工程方法', 'coding agent'],
     'lunchuizhe-2026-08-11-ai-content-factory': ['AI', '創作者經濟', 'YouTube', 'AI內容', '自媒體'],
+    'lunchuizhe-2026-08-31-pick-your-model-and-agent': ['AI工具', 'AI agent', '本地AI', 'DeepSeek', '決策思考'],
     'sk-hynix-hbm-moat': ['半導體', '記憶體', 'HBM', '護城河', '美股'],
     'central-bank-two-traps': ['央行', '總體經濟', '穩定幣', '通膨'],
     'hardware-is-hard': ['硬體', '供應鏈', '新創', '護城河'],
