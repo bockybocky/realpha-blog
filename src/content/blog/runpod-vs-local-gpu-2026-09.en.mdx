@@ -1,14 +1,14 @@
 ---
 title: "Renting a GPU for NT$24 an Hour: RunPod Cloud GPUs vs. Buying Your Own Hardware, After Actually Trying It"
-description: "Yesterday I ran speech recognition on a RunPod cloud GPU for the first time: a 4090 at about NT$24 an hour billed by the second; one test audio file, four attempts, 567 GPU-seconds, a bill of about NT$3.4. This piece lays the two paths—rent and buy—side by side: when renting wins, when buying wins, and what else RunPod is good for. The tool is Fred's srt-skill; he is also the one who did the code testing for this article."
+description: "Yesterday I rented a cloud GPU on RunPod for the first time to run a small batch job: a 4090 at about NT$24 an hour billed by the second; four attempts, 567 GPU-seconds, a bill of about NT$3.4. This piece lays the two paths—rent and buy—side by side: when renting wins, when buying wins, and which common local-development uses—document vector indexing, batch screenshot reading, a local model as an agent's brain, fine-tuning, image and video generation—belong on which side. Fred did the code testing."
 slug: "runpod-vs-local-gpu-2026-09"
 lang: "en"
 pubDate: 2026-09-01
 category: "tech"
-tags: ["RunPod", "cloud GPU", "local AI", "speech recognition", "Whisper", "Qwen3.8 27B", "Gemma 4", "decision-making"]
+tags: ["RunPod", "cloud GPU", "local AI", "vector search", "Ollama", "Qwen3.8 27B", "Gemma 4", "ComfyUI", "decision-making"]
 ogImage: "/covers/runpod-vs-local-gpu-2026-09-cover.png"
 cover: "/covers/runpod-vs-local-gpu-2026-09-cover.png"
-tldr: "Renting a GPU is billed by the second, about NT$24 an hour; one audio transcription run cost NT$3.4. The price of one graphics card buys more than four thousand rental hours; at two hours a day it takes over five years to break even. So the dividing line isn't performance, it's how many hours a month you actually run, and how much it hurts on the day the connection drops. RunPod is best for one-off, bursty, run-and-leave jobs; people who run every day can think about buying."
+tldr: "Renting a GPU is billed by the second, about NT$24 an hour; one small batch job cost NT$3.4. The price of one graphics card buys more than four thousand rental hours; at two hours a day it takes over five years to break even. So the dividing line isn't performance, it's how many hours a month you actually run, and how much it hurts on the day the connection drops. RunPod is best for one-off, bursty, run-and-leave jobs; people who run every day can think about buying."
 ---
 
 ![Cubist oil painting: a small desk at night with a modest computer and a warm lamp on the left; through a large window on the right, a distant server hall glowing cold blue, racks receding into the dark; a single thin cable runs from the desk out the window toward the racks](/covers/runpod-vs-local-gpu-2026-09-cover.png)
@@ -18,17 +18,15 @@ tldr: "Renting a GPU is billed by the second, about NT$24 an hour; one audio tra
 
 ## What this is about
 
-I've had a small nagging problem: speech recognition needs a graphics card, and this machine doesn't have a real one. Last month I forced it through the CPU once: a ten-and-a-half-minute recording took eighteen and a half minutes, and it misheard a pile of technical terms. My conclusion then was to use cloud services first and keep the card money in my pocket.
+I've had a small nagging problem: many of the fun things you can build locally need a real graphics card, and this machine doesn't have one. Last month I forced a batch job through the CPU once; it ran slower than real time. My conclusion then was to use cloud services first and keep the card money in my pocket.
 
-Yesterday (2026-08-31) I got the other path working: not buying a card, but renting one by the second. The platform is RunPod; the tool is srt-skill, written by my friend Fred. I want to share how I see "rent versus buy" after actually running it, and what else RunPod can do beyond speech recognition.
+Yesterday (2026-08-31) I got the other path working: not buying a card, but renting one by the second. The platform is RunPod; my friend Fred got the rental workflow running. I want to share how I see "rent versus buy" after actually doing it, and which of the common local-development uses belong on which side.
 
 The short version: this is not a fight over performance. It's a fight over usage.
 
 ## Yesterday's numbers first
 
-One test audio file, four attempts (the first three were me stepping on rakes—more below), and the fourth cleanly recognized 38 segments of text. The four runs together used 567 seconds of GPU time; the bill was about NT$3.4 (RunPod dashboard, 2026-08-31). Per hour, a 4090 on Secure Cloud is US$0.74, about NT$24; Community Cloud is cheaper at US$0.34, about NT$11. The account had US$15 loaded, which at this rate is a few hundred runs.
-
-Fred's estimate in the tool's documentation is roughly US$0.05–0.15 for a fifty-minute recording. My number lines up with his.
+One small batch job, four attempts (the first three were me stepping on rakes—more below), and the fourth ran clean. The four runs together used 567 seconds of GPU time; the bill was about NT$3.4 (RunPod dashboard, 2026-08-31). Per hour, a 4090 on Secure Cloud is US$0.74, about NT$24; Community Cloud is cheaper at US$0.34, about NT$11. The account had US$15 loaded, which at this rate is a few hundred runs.
 
 ![A long horizontal bar for the price of one graphics card, next to a sliver barely visible for yesterday's NT$3.4; the sliver is labeled "one run" and the long bar "about 4,100 runs"](/figures/one-card-vs-one-run-en.svg)
 
@@ -58,7 +56,7 @@ When I wrote about local hardware last month, I described buying a card as insur
 
 I only used its simplest form this time: start a machine, run a script, kill the machine. It actually comes in several shapes, suited to different jobs:
 
-One: one-off batch work. Speech recognition like mine, upscaling a batch of old photos, or running the same processing over a whole batch of documents. Boot, run, kill, pay for those few minutes. This is the use I have no doubts about: [Pods pricing](https://www.runpod.io/pricing).
+One: one-off batch work. Running the same processing over a whole batch of documents, upscaling a batch of old photos, or reading a few thousand screenshots in one go. Boot, run, kill, pay for those few minutes. This is the use I have no doubts about: [Pods pricing](https://www.runpod.io/pricing).
 
 Two: trying a card you can't afford. Want to know what a model feels like on an H100? Rent one for two or three dollars an hour—more real than watching a review.
 
@@ -72,23 +70,21 @@ Tooling and tutorials are on the official docs site: [docs.runpod.io](https://do
 
 ![A two-by-two grid: the horizontal axis runs from "run occasionally" to "run every day," the vertical from "finishes when done" to "must stay on"; the top-left cell is dark and labeled "rent," the bottom-right "buy," the other two are pale middle ground](/figures/rent-or-buy-quadrant-en.svg)
 
-## Common local models: which to rent for, which to buy for
+## Common local uses: which to rent for, which to buy for
 
-Here are the models I've touched lately, measured with the same ruler: does the job finish, or does it need to stay on?
+Here are the things I've been doing myself lately, measured with the same ruler: does the job finish, or does it need to stay on?
 
-Whisper large-v3, multilingual speech recognition: rent. Recognition is batch work, minutes per recording—exactly this use.
+Vector-indexing your own documents. Turn your notes, reports, and articles into vectors so one sentence finds the relevant passages later. I do this every day; today I recomputed 1,600-odd chunks on the CPU and it took half an hour. On a rented card it's minutes, then kill the pod. This is the textbook "rent" shape: recompute occasionally, done when done. The usual models—EmbeddingGemma, BGE and the like—are small.
 
-Breeze, MediaTek's Chinese speech recognition, good on Taiwanese accents: rent. It's the only model srt-skill's cloud path currently supports.
+Batch reading of screenshots and images. A few thousand phone screenshots, images from chat logs, to be read in one pass and have their numbers and text pulled out. Done in batches, rent; if hundreds arrive every day and need handling as they come, that's "stay on," so decide by volume. Image-to-image search models like SigLIP and CLIP run fine locally.
 
-VibeVoice, auxiliary recognition for English terms and homophones: local only for now; the cloud path skips this step.
+A local model as your agent's brain. General models like Qwen3.8 27B and Gemma 4 26B are one Ollama command away. If it runs long tasks for you every day—coding, sorting, organizing—that's the "stay on" shape, buy a card; if you just want to feel it out, rent an hour.
 
-Qwen3.8 27B, a general LLM and the local dense model I'd reach for, one that keeps long tasks on track: buy a card if it's your agent's brain every day; rent an hour to try it otherwise.
+Fine-tuning a small model of your own. Training runs for hours to days and then ends—exactly the "rent" shape. RunPod containers can carry your own environment; download the weights when done.
 
-Gemma 4 26B, a general LLM that Ollama pulls in one command: same as above; srt-skill's offline correction mode uses it.
+Image and video generation. ComfyUI with Stable Diffusion, Flux, LTX, MiniMax H3 and the like: rent a 48 GB card for batch output; buy if you generate every day.
 
-DeepSeek V4 Flash, an online model, cheap and versatile: neither rent nor buy—use the API.
-
-Image and video generators like LTX and MiniMax H3: rent a 48 GB card for batch jobs; buy if you generate daily.
+Online models aren't on this list. Something like DeepSeek V4 Flash, cheap and versatile, is neither rented nor bought—use the API.
 
 One rule: only things that stay on and get used every day are worth buying; jobs that end, rent. The model's name doesn't matter. The usage does.
 
@@ -106,19 +102,17 @@ One more, Windows-only: Git Bash silently rewrites paths like `/root/...` into W
 
 ## Contributor to this piece: Fred
 
-This article exists because Fred did the code testing. His [srt-skill](https://github.com/fredchu/srt-skill) turns "audio → corrected Taiwanese Traditional Chinese text" into a single command; speech recognition can run on local Apple Silicon or, as I did, on RunPod. Every pitfall I hit on Windows was first worked through on his side, then written back into the docs. The sibling tool [speech-to-prose](https://github.com/fredchu/speech-to-prose) is another output format of the same pipeline, with timestamps and an ebook.
+This article exists because Fred did the code testing. Booting the machine, connecting, sending the job up, killing the pod automatically when done, swapping to another machine when one won't connect—he wrote that whole RunPod rental workflow as a script and got it running on his side first; every pitfall I hit on Windows went back into his docs. His GitHub is here: [github.com/fredchu](https://github.com/fredchu). If you want to wire RunPod into your own workflow, start with his work rather than from scratch.
 
-His GitHub is here: [github.com/fredchu](https://github.com/fredchu). If you're also doing speech-to-text, start with his work rather than from scratch.
-
-One honest note: cloud and local runs don't produce identical text. Fred measured it—the text differs by about two percent, and nobody knows which side is more correct. The difference is stable, not noise. Know that before you use the cloud path.
+One honest note: the same job doesn't produce identical results in the cloud and locally. Fred measured it—about two percent apart, and nobody knows which side is more correct. The difference is stable, not noise. Know that before you use the cloud path.
 
 ## References
 
 - RunPod pricing: [runpod.io/pricing](https://www.runpod.io/pricing) (prices in this piece checked 2026-09-01; Community and Secure Cloud listed separately)
 - RunPod docs: [docs.runpod.io](https://docs.runpod.io)
-- Fred's tools: [srt-skill](https://github.com/fredchu/srt-skill), [speech-to-prose](https://github.com/fredchu/speech-to-prose); the cloud setup guide is `docs/CLOUD-ASR-SETUP.md` in srt-skill
+- Fred's GitHub: [github.com/fredchu](https://github.com/fredchu)
 - My earlier piece on local hardware: "Is a Local Qwen3.8 27B Right for You?" (2026-08-21); this one is its "rent" half
-- Yesterday's numbers: RunPod dashboard, 2026-08-31; the CPU comparison: my own record from 2026-08-09
+- Yesterday's numbers: RunPod dashboard, 2026-08-31; the CPU comparisons: my own records from 2026-08-09 and 2026-09-01
 - The opening line is from the Huainanzi; it came to mind when I saw the bill—this time I didn't have to weave a net, someone by the river rents them
 
 ## One thing to take with you
