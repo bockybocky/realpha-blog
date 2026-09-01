@@ -1,6 +1,6 @@
 ---
-title: "Renting a GPU for NT$3.4 a Run: RunPod Cloud GPUs vs. Buying Your Own Hardware, After Actually Trying It"
-description: "Yesterday I ran speech recognition on a RunPod cloud GPU for the first time: one test video, four attempts, 567 GPU-seconds, a bill of about NT$3.4. This piece lays the two paths—rent and buy—side by side: when renting wins, when buying wins, and what else RunPod is good for. The tool is Fred's srt-skill; he is also the one who did the code testing for this article."
+title: "Renting a GPU for NT$24 an Hour: RunPod Cloud GPUs vs. Buying Your Own Hardware, After Actually Trying It"
+description: "Yesterday I ran speech recognition on a RunPod cloud GPU for the first time: a 4090 at about NT$24 an hour billed by the second; one test audio file, four attempts, 567 GPU-seconds, a bill of about NT$3.4. This piece lays the two paths—rent and buy—side by side: when renting wins, when buying wins, and what else RunPod is good for. The tool is Fred's srt-skill; he is also the one who did the code testing for this article."
 slug: "runpod-vs-local-gpu-2026-09"
 lang: "en"
 pubDate: 2026-09-01
@@ -8,7 +8,7 @@ category: "tech"
 tags: ["RunPod", "cloud GPU", "local AI", "speech recognition", "Whisper", "Qwen3.8 27B", "Gemma 4", "decision-making"]
 ogImage: "/covers/runpod-vs-local-gpu-2026-09-cover.png"
 cover: "/covers/runpod-vs-local-gpu-2026-09-cover.png"
-tldr: "Renting a GPU is billed by the second; subtitles for one video cost NT$3.4. The price of one graphics card buys more than four thousand rental hours; at two hours a day it takes over five years to break even. So the dividing line isn't performance, it's how many hours a month you actually run, and how much it hurts on the day the connection drops. RunPod is best for one-off, bursty, run-and-leave jobs; people who run every day can think about buying."
+tldr: "Renting a GPU is billed by the second, about NT$24 an hour; one audio transcription run cost NT$3.4. The price of one graphics card buys more than four thousand rental hours; at two hours a day it takes over five years to break even. So the dividing line isn't performance, it's how many hours a month you actually run, and how much it hurts on the day the connection drops. RunPod is best for one-off, bursty, run-and-leave jobs; people who run every day can think about buying."
 ---
 
 ![Cubist oil painting: a small desk at night with a modest computer and a warm lamp on the left; through a large window on the right, a distant server hall glowing cold blue, racks receding into the dark; a single thin cable runs from the desk out the window toward the racks](/covers/runpod-vs-local-gpu-2026-09-cover.png)
@@ -18,17 +18,17 @@ tldr: "Renting a GPU is billed by the second; subtitles for one video cost NT$3.
 
 ## What this is about
 
-I've had a small nagging problem: turning videos into subtitles and talks into articles needs a graphics card, and this machine doesn't have a real one. Last month I forced it through the CPU once: a ten-and-a-half-minute recording took eighteen and a half minutes, and it misheard a pile of technical terms. My conclusion then was to use cloud services first and keep the card money in my pocket.
+I've had a small nagging problem: speech recognition needs a graphics card, and this machine doesn't have a real one. Last month I forced it through the CPU once: a ten-and-a-half-minute recording took eighteen and a half minutes, and it misheard a pile of technical terms. My conclusion then was to use cloud services first and keep the card money in my pocket.
 
-Yesterday (2026-08-31) I got the other path working: not buying a card, but renting one by the second. The platform is RunPod; the tool is srt-skill, written by my friend Fred. I want to share how I see "rent versus buy" after actually running it, and what else RunPod can do beyond subtitles.
+Yesterday (2026-08-31) I got the other path working: not buying a card, but renting one by the second. The platform is RunPod; the tool is srt-skill, written by my friend Fred. I want to share how I see "rent versus buy" after actually running it, and what else RunPod can do beyond speech recognition.
 
 The short version: this is not a fight over performance. It's a fight over usage.
 
 ## Yesterday's numbers first
 
-One test video, four attempts (the first three were me stepping on rakes—more below), and the fourth produced 38 subtitle lines. The four runs together used 567 seconds of GPU time; the bill was about NT$3.4 (RunPod dashboard, 2026-08-31). The account had US$15 loaded, which at this rate is a few hundred videos.
+One test audio file, four attempts (the first three were me stepping on rakes—more below), and the fourth cleanly recognized 38 segments of text. The four runs together used 567 seconds of GPU time; the bill was about NT$3.4 (RunPod dashboard, 2026-08-31). Per hour, a 4090 on Secure Cloud is US$0.74, about NT$24; Community Cloud is cheaper at US$0.34, about NT$11. The account had US$15 loaded, which at this rate is a few hundred runs.
 
-Fred's estimate in the tool's documentation is roughly US$0.05–0.15 for a fifty-minute video. My number lines up with his.
+Fred's estimate in the tool's documentation is roughly US$0.05–0.15 for a fifty-minute recording. My number lines up with his.
 
 ![A long horizontal bar for the price of one graphics card, next to a sliver barely visible for yesterday's NT$3.4; the sliver is labeled "one run" and the long bar "about 4,100 runs"](/figures/one-card-vs-one-run-en.svg)
 
@@ -49,7 +49,7 @@ At the 4090 Community Cloud rate, ten-thousand-plus yuan buys roughly 4,100 hour
 
 ![Two lines left to right: a thick horizontal line for the fixed cost of buying a card, and a diagonal from zero for accumulated rental fees; they cross at about 4,000 hours—renting wins to the left, buying to the right](/figures/rent-vs-buy-crossover-en.svg)
 
-So the question was never "which is cheaper." It's "which side of the crossover are you on." I convert a handful of videos a month, far from the crossover; renting is the obvious answer. Someone like Lunchuizhe, running ten-plus hours a day and generating images and video, is on the other side.
+So the question was never "which is cheaper." It's "which side of the crossover are you on." I run this a handful of times a month, far from the crossover; renting is the obvious answer. Someone like Lunchuizhe, running ten-plus hours a day and generating images and video, is on the other side.
 
 When I wrote about local hardware last month, I described buying a card as insurance: it covers "the day everyone else raises prices or goes down, I can still work." That still holds, with one addition: insurance is worth what your need for it is. Someone who hits an outage less than once a year is paying five years of premiums for it.
 
@@ -57,7 +57,7 @@ When I wrote about local hardware last month, I described buying a card as insur
 
 I only used its simplest form this time: start a machine, run a script, kill the machine. It actually comes in several shapes, suited to different jobs:
 
-One: one-off batch work. Subtitles like mine, or turning a few hundred podcast episodes into transcripts, or upscaling a batch of old photos. Boot, run, kill, pay for those few minutes. This is the use I have no doubts about: [Pods pricing](https://www.runpod.io/pricing).
+One: one-off batch work. Speech recognition like mine, upscaling a batch of old photos, or running the same processing over a whole batch of documents. Boot, run, kill, pay for those few minutes. This is the use I have no doubts about: [Pods pricing](https://www.runpod.io/pricing).
 
 Two: trying a card you can't afford. Want to know what a model feels like on an H100? Rent one for two or three dollars an hour—more real than watching a review.
 
@@ -77,7 +77,7 @@ Here are the models I've touched lately, or that keep appearing in Lunchuizhe's 
 
 | Model | What it does | How I'd run it |
 |---|---|---|
-| Whisper large-v3 | Multilingual speech recognition | Rent. Subtitles are batch work, minutes per video—exactly this use |
+| Whisper large-v3 | Multilingual speech recognition | Rent. Recognition is batch work, minutes per recording—exactly this use |
 | Breeze (MediaTek's Chinese ASR) | Chinese speech recognition, good on Taiwanese accents | Rent. It's the only model srt-skill's cloud path currently supports |
 | VibeVoice | Auxiliary recognition for English terms and homophones | Local only for now; the cloud path skips this step |
 | Qwen3.8 27B | General LLM, the strongest local dense model (Lunchuizhe's verdict) | Buy a card if it's your agent's brain every day; rent an hour to try it |
@@ -101,11 +101,11 @@ One more, Windows-only: Git Bash silently rewrites paths like `/root/...` into W
 
 ## Contributor to this piece: Fred
 
-This article exists because Fred did the code testing. His [srt-skill](https://github.com/fredchu/srt-skill) turns "video or audio → corrected Taiwanese Traditional Chinese subtitles" into a single command; speech recognition can run on local Apple Silicon or, as I did, on RunPod. Every pitfall I hit on Windows was first worked through on his side, then written back into the docs. The sibling tool [speech-to-prose](https://github.com/fredchu/speech-to-prose) takes the same pipeline and produces a written-up article instead of subtitles, with timestamps and an ebook.
+This article exists because Fred did the code testing. His [srt-skill](https://github.com/fredchu/srt-skill) turns "audio → corrected Taiwanese Traditional Chinese text" into a single command; speech recognition can run on local Apple Silicon or, as I did, on RunPod. Every pitfall I hit on Windows was first worked through on his side, then written back into the docs. The sibling tool [speech-to-prose](https://github.com/fredchu/speech-to-prose) is another output format of the same pipeline, with timestamps and an ebook.
 
-His GitHub is here: [github.com/fredchu](https://github.com/fredchu). If you're also doing audio-to-text, start with his work rather than from scratch.
+His GitHub is here: [github.com/fredchu](https://github.com/fredchu). If you're also doing speech-to-text, start with his work rather than from scratch.
 
-One honest note: cloud and local runs don't produce identical subtitles. Fred measured it—the text differs by about two percent, and nobody knows which side is more correct. The difference is stable, not noise. Know that before you use the cloud path.
+One honest note: cloud and local runs don't produce identical text. Fred measured it—the text differs by about two percent, and nobody knows which side is more correct. The difference is stable, not noise. Know that before you use the cloud path.
 
 ## References
 
