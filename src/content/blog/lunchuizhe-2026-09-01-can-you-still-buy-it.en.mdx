@@ -1,0 +1,73 @@
+---
+title: "Whether It's Worth It Is One Question. Whether You Can Get One Is Another."
+description: "A Chinese YouTuber who runs six machines at home reacts to the news that OpenAI bought tens of thousands of Macs to teach AI how to use a mouse. His conclusion: hardware won't get cheaper for two or three years. I checked it against Apple's own earnings call and our memory-supply research. The supply side holds up; the phrase 'this time is different' has a track record in memory. Educational notes and extensions."
+slug: "lunchuizhe-2026-09-01-can-you-still-buy-it"
+lang: "en"
+pubDate: 2026-09-03
+category: "investing"
+tags: ["Lunchuizhe", "memory", "Apple", "AI infrastructure", "supply chain", "education"]
+ogImage: "/covers/lunchuizhe-2026-09-01-can-you-still-buy-it-cover.png"
+cover: "/covers/lunchuizhe-2026-09-01-can-you-still-buy-it-cover.png"
+tldr: "OpenAI isn't buying Macs for compute. It's buying them so its agents can learn the software humans actually use. From that one news item the host argues shortages are here for years, so stop waiting for a discount. Apple's July call and memory contract prices back the supply story. But every memory shortage has been called structural, so I turned his forecast into something you can check yourself."
+
+---
+
+![Surrealist oil painting cover: an empty Apple store with a single small desktop left on the shelf, its shadow stretching into a full row of server racks that runs out the door into the clouds; the sky is daytime, the floor is night](/covers/lunchuizhe-2026-09-01-can-you-still-buy-it-cover.png)
+
+> *In a drought, stock up on boats. In a flood, stock up on carts. That is the nature of things.*<br/>
+> —— Sima Qian, *Records of the Grand Historian*, "Biographies of the Money-Makers" (Western Han, quoting Ji Ran; translation mine)
+
+## What the episode is about
+
+Lunchuizhe (a Chinese-language YouTube channel; the name means "the hammer-swinger") posted this one on 2026-09-01. It runs 13 minutes 39 seconds and is a follow-up to his previous video, where he ranked the small desktop boxes from Apple, AMD and Nvidia for running AI at home and concluded Apple gave you the least for your money. This time he overturns his own verdict. Value for money, he says, may stop mattering soon, because the question is turning into whether you can get one at all.
+
+The trigger was a news story. On August 31, The Information reported that OpenAI had bought tens of thousands of Mac minis and Mac Studios over the past few months and was pressing Apple to ship faster. The whole episode is him working through one puzzle: why would a company that builds models want that many desktop computers?
+
+## The main points
+
+The answer isn't compute. It's the mouse. He argues OpenAI is using the machines to train AI to operate graphical software: how a human clicks through a spreadsheet, how a human drags things around in a drawing program. Today's AI agents mostly live in the command line. You hand one a task and it ends up driving your system through scripts. He doesn't dispute that the command line is the most efficient endpoint; he even calls the graphical interface a stopgap that only exists to make computers usable for people. But the stopgap will last a long time, and a whole ecosystem depends on it: industrial CAD, 3D modelling, video editing, colour grading. His own example: his videos are essentially slide decks, and an AI cutting them by script gets him about eighty percent of the way. The remaining twenty is what decides whether the video is any good, and only direct control of the editing software gets you there. He calls this a transitional need, but a real one, and not a small market.
+
+Why Apple, then, and not cheap second-hand PCs? Cost structure, he says. In the United States, labour, power and floor space are all expensive. Whatever you save buying old machines gets eaten by maintenance, so a large company buys the newest and fastest and racks them by the thousand. And Apple's operating system sits on both sides at once: Unix underneath, with a full command line, and on top the most complete catalogue of professional software anywhere, because the big vendors know Mac users pay.
+
+Then his forecast. Phones, small desktops, graphics cards, memory, solid-state drives: he doesn't expect any of them to get cheaper for two to three years, provided the AI bubble doesn't burst. He's specific about the bubble, too. The industry as a whole isn't one; the high-valuation American names are. If it pops, he thinks it happens before the end of next year, it will hurt the hardware market, but it won't remove the foundation. Compute stays scarce for several years either way.
+
+The most entertaining part is his own inventory. An M1 Mac mini with 16 GB he bought years ago and never replaced, now running two agents. An M4 Mac mini with 24 GB that does his editing, coding and website work. An old X99 server with a 48 GB modified 4090 in it. Two laptops, each with an external graphics card bolted on. Six machines, all on at the same time, most of them never switched off, with agents doing work while he sleeps. He isn't showing off. He's showing you where his forecast comes from: he is the demand.
+
+## Where I took it
+
+After the episode you probably have two questions. Should I buy now? And is the shortage he describes real, or is he scaring people? I can't answer the first for you. The second can be checked.
+
+Start with supply. On Apple's earnings call on July 30, Tim Cook called memory pricing "a 100-year flood," said he'd seen nothing like it in more than forty years, that the June price increases on Macs and iPads were reluctant, and that Apple was "seeing some very significant constraints currently, with limited flexibility in the supply chain," with a quarter coming where Apple would be "scrambling on the supply side." That quarter is this one. He said all of that a month before the OpenAI story broke. So the shortage Lunchuizhe describes was acknowledged by Apple itself a month earlier, and OpenAI's orders landed on top of a supply chain that was already tight.
+
+Now the numbers we worked out ourselves. When I mapped the device-side memory supply chain at the end of July, a few figures stood out: the contract price of a 12 GB low-power memory part rose 89% quarter on quarter in Q2 2026, from 77 to 146 dollars; lead times for advanced memory stretched to 40–58 weeks; and the three memory makers had moved roughly seventy percent of their advanced capacity to high-bandwidth memory for data centres. Micron's own investor material is blunter still: one unit of high-bandwidth memory consumes about the wafer area of three units of ordinary memory, and its new fab won't produce before mid-2027 (figures as of 2026-07-28; sources at the end). Put those three together and you have the skeleton of his line about shortages taking years to ease. The capacity was moved. Moving it back takes a year and a half. And every wafer moved to the data centre yields a third as much.
+
+Up to here, I agree with him on the direction of supply. The next part is where a red team sent my own report back in early August, and I think it's the more useful part for you.
+
+## "This time is different" has been said in memory before
+
+You might ask: if the numbers check out, why doubt? Because memory is the most cyclical corner of semiconductors. Every shortage gets called structural, and every one has reverted once new capacity arrived. My report ended with a note against myself: I may be sitting at the top of a cycle, reading a cyclical price spike as a structural bottleneck. The red team went further. This isn't a narrow chokepoint anyone can collect rent on forever, they wrote; it's a temporary seller's market created by three firms reallocating capacity by margin at the top of the cycle.
+
+So his forecast carries a premise he never states: that the three makers keep their capacity pointed at the data centre. That premise probably holds until 2027, because the new fabs aren't built. After 2027 it needs re-examining. He says two to three years. I'd say "until the new capacity arrives," and I'd write down the date.
+
+One more thing deserves its own paragraph. This episode is really arguing against a belief: that if you wait, electronics get cheaper. That belief didn't come from nowhere. In 1965 Gordon Moore wrote down his law, and for the next fifty years the same money bought twice the compute every year or two. My generation grew up inside that experience, and waiting was always right. It was right then because the main actor on the supply side was process technology, and process technology only moves one way. This round the main actor has changed. It isn't process. It's allocation. Three firms decide who gets the wafers, and Moore's law has nothing to say about that. For the first time, whether waiting pays depends on someone else's purchase order, not on a technology curve.
+
+## What it means if you invest
+
+If you hold memory stocks or Apple, the episode doesn't give you a buy or sell signal. It gives you a way to tell two readings apart. The same news item can be read as a demand story (AI companies want even desktop computers, so hardware demand is unbounded) or as an allocation story (demand was already there; what changed is who gets served first). Lunchuizhe's reasoning is the second kind, and I think it stands up better, because the first requires proving demand is unbounded while the second only requires proving capacity is bounded, and bounded capacity comes with hard numbers you can look up: lead times, wafer ratios.
+
+The allocation reading has one advantage: it comes with an expiry date. The day new capacity arrives, the allocation power loosens. You don't have to guess when a bubble pops. You only have to remember Micron's fab schedule and come back that month to see whether contract prices have turned.
+
+## Sources worth checking
+
+- The episode: Lunchuizhe, "Apple Mac mini / Studio too expensive? OpenAI is hoarding like mad, hardware shortages will get worse; if you need it, don't wait, stock up on compute" (my translation of the title; posted 2026-09-01, 13:39)
+- The original report on OpenAI's Mac purchases: The Information, 2026-08-31; TechRepublic's same-day summary adds that Anthropic rents Mac mini capacity through Amazon Web Services rather than buying
+- Apple fiscal Q3 2026 earnings call (2026-07-30): Cook's "100-year flood," the June price increases, "very significant constraints," and September-quarter revenue growth guidance of 9–10%; reported by Fortune and CNBC that day
+- Memory contract prices and lead times: my device-side memory supply-chain report of 2026-07-28, drawing on TrendForce and Micron investor documents; red-team verdict dated 2026-08-03
+- Micron's roughly 3:1 wafer ratio between high-bandwidth and ordinary memory, and new fab output no earlier than mid-2027: Micron investor presentations
+- My previous post on his model and agent picks: "Cheap Is Enough, Expensive Goes Unused" (2026-09-01)
+
+## One thing to take with you
+
+What stayed with me from this episode isn't "buy now." It's this: whether waiting makes something cheaper depends, this time, on purchase orders rather than technology curves. That one sentence is why I pulled "it'll come down eventually" out of my head and looked at it again.
+
+Here's a small thing I tried, if you want to try it too. The next time you tell yourself "I'll wait a bit," write down today's price of that thing and the price the first time you looked at it, on the same piece of paper. Two numbers, nothing else. A phone, a graphics card, a house, whatever it is. Come back to the paper a week later. The direction of those two numbers is more honest than anyone's forecast, his included, mine included.

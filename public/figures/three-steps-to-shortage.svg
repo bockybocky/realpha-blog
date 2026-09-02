@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="一條往上的階梯，三階分別標著六月蘋果漲價、七月法說會警告吃緊、八月 OpenAI 掃貨，最上方懸空一格是問號">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t    { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .mon  { font-size: 18px; font-weight: 700; fill: var(--accent); }
+    .lab  { font-size: 19px; font-weight: 700; fill: var(--ink); }
+    .sub  { font-size: 15px; fill: var(--dim); }
+    .q    { font-size: 44px; font-weight: 700; fill: var(--warn); }
+  </style>
+  <rect x="0" y="0" width="960" height="420" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">短缺不是一天出現的，是一階一階疊上去的</text>
+
+    <!-- 階梯 -->
+    <rect x="80"  y="300" width="220" height="80" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <rect x="300" y="220" width="220" height="160" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <rect x="520" y="140" width="220" height="240" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <!-- 懸空一格 -->
+    <rect x="740" y="60" width="160" height="80" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 6"/>
+    <text x="820" y="116" class="q" text-anchor="middle">？</text>
+
+    <!-- 第一階 -->
+    <text x="190" y="328" class="mon" text-anchor="middle">六月</text>
+    <text x="190" y="355" class="lab" text-anchor="middle">蘋果調漲 Mac、iPad</text>
+    <text x="190" y="375" class="sub" text-anchor="middle">理由：記憶體成本</text>
+
+    <!-- 第二階 -->
+    <text x="410" y="248" class="mon" text-anchor="middle">七月</text>
+    <text x="410" y="275" class="lab" text-anchor="middle">法說會：供應鏈吃緊</text>
+    <text x="410" y="295" class="sub" text-anchor="middle">「百年一遇的洪水」</text>
+
+    <!-- 第三階 -->
+    <text x="630" y="168" class="mon" text-anchor="middle">八月</text>
+    <text x="630" y="195" class="lab" text-anchor="middle">OpenAI 買幾萬台 Mac</text>
+    <text x="630" y="215" class="sub" text-anchor="middle">加在已經吃緊的鏈上</text>
+
+    <!-- 底線 -->
+    <line x1="60" y1="380" x2="920" y2="380" stroke="var(--grey)" stroke-width="2"/>
+    <text x="820" y="170" class="sub" text-anchor="middle">下一階是誰的訂單</text>
+  </g>
+</svg>

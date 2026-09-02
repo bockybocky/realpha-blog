@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="左邊一條平滑往下的價格曲線代表五十年的技術進步，右邊同一條線被一張採購單往上拉起">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t    { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .ax   { font-size: 16px; fill: var(--dim); }
+    .lab  { font-size: 19px; font-weight: 700; fill: var(--ink); }
+    .labA { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .labW { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .tag  { font-size: 17px; font-weight: 700; fill: var(--page); }
+  </style>
+  <rect x="0" y="0" width="960" height="420" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">等一等會不會更便宜，這一輪看的是誰</text>
+
+    <!-- 座標 -->
+    <line x1="90" y1="360" x2="900" y2="360" stroke="var(--grey)" stroke-width="2"/>
+    <line x1="90" y1="90"  x2="90"  y2="360" stroke="var(--grey)" stroke-width="2"/>
+    <text x="900" y="385" class="ax" text-anchor="end">時間</text>
+    <text x="96" y="84" class="ax">同樣算力的價格</text>
+
+    <!-- 五十年下滑曲線 -->
+    <path d="M 100 120 C 260 150, 420 250, 620 300" fill="none" stroke="var(--accent)" stroke-width="4"/>
+    <text x="330" y="190" class="labA">技術曲線：五十年一路往下</text>
+    <text x="330" y="214" class="ax">供給端的主角是製程，方向只有一個</text>
+
+    <!-- 分岔點 -->
+    <circle cx="620" cy="300" r="7" fill="var(--warn)"/>
+
+    <!-- 原本會繼續往下的虛線 -->
+    <path d="M 620 300 C 700 318, 800 330, 880 338" fill="none" stroke="var(--grey)" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="760" y="372" class="ax" text-anchor="middle">大家以為會走的路</text>
+
+    <!-- 被拉起的實線 -->
+    <path d="M 620 300 C 690 290, 760 220, 840 150" fill="none" stroke="var(--warn)" stroke-width="4"/>
+
+    <!-- 採購單 -->
+    <rect x="800" y="98" width="112" height="46" rx="6" fill="var(--warn)"/>
+    <text x="856" y="128" class="tag" text-anchor="middle">採購單</text>
+    <text x="600" y="322" class="labW" text-anchor="end">這一輪的主角是分配</text>
+    <text x="600" y="346" class="ax" text-anchor="end">晶圓分給誰，跟製程無關</text>
+  </g>
+</svg>
