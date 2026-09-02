@@ -42,6 +42,7 @@ TAGS = {
     'herdr-agent-automation-vocus': ['AI', '終端機', '自動化', '工程方法', 'coding agent'],
     'lunchuizhe-2026-08-11-ai-content-factory': ['AI', '創作者經濟', 'YouTube', 'AI內容', '自媒體'],
     'lunchuizhe-2026-08-31-pick-your-model-and-agent': ['AI工具', 'AI agent', '本地AI', 'DeepSeek', '決策思考'],
+    'lunchuizhe-2026-09-01-can-you-still-buy-it': ['記憶體', '蘋果', 'AI基礎建設', '供應鏈', '美股'],
     'tao-2026-08-31-ai-math-drunk-genius': ['陶哲軒', 'AI', '數學', '科學方法', '決策思考'],
     'tao-2026-09-02-coin-game-human-ai-division': ['陶哲軒', 'AI', '人機協作', '數學', 'AI工具'],
     'kelly-tsai-graph-engineering-2026-09': ['AI agent', 'Graph Engineering', '多Agent', 'AI工具', 'LangGraph'],
