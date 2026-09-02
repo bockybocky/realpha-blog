@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-label="三個工具各站一格：Codex 站開發格、Hermes 站運維格、DeepSeek Harness 站觀察格，每格標明贏在哪輸在哪">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="400" fill="var(--page)"/>
+  <text class="t" x="480" y="40" text-anchor="middle" font-size="24" fill="var(--ink)">沒有排名，只有座位</text>
+
+  <rect x="55"  y="70" width="270" height="270" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <rect x="345" y="70" width="270" height="270" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <rect x="635" y="70" width="270" height="270" rx="10" fill="var(--card)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <g class="t" text-anchor="middle">
+    <text x="190" y="108" font-size="19" fill="var(--accent)">開發格</text>
+    <text x="190" y="145" font-size="22" fill="var(--ink)">Codex</text>
+    <text x="190" y="180" font-size="15" fill="var(--dim)">＋雲端 DeepSeek V4 Flash</text>
+    <text x="190" y="218" font-size="15" fill="var(--ink)">贏：六步長線任務自己跑完</text>
+    <text x="190" y="244" font-size="15" fill="var(--ink)">一次修五六個 bug、拖圖排查</text>
+    <text x="190" y="282" font-size="15" fill="var(--warn)">輸：配本地模型會改過頭</text>
+
+    <text x="480" y="108" font-size="19" fill="var(--accent)">值班格</text>
+    <text x="480" y="145" font-size="22" fill="var(--ink)">Hermes</text>
+    <text x="480" y="180" font-size="15" fill="var(--dim)">＋雲端 DeepSeek V4 Flash</text>
+    <text x="480" y="218" font-size="15" fill="var(--ink)">贏：連跑三週到一個月不出錯</text>
+    <text x="480" y="244" font-size="15" fill="var(--ink)">擋攻擊、備份、打標籤全包</text>
+    <text x="480" y="282" font-size="15" fill="var(--warn)">輸：不是拿來衝開發的</text>
+
+    <text x="770" y="108" font-size="19" fill="var(--dim)">觀察格</text>
+    <text x="770" y="145" font-size="22" fill="var(--ink)">DeepSeek Harness</text>
+    <text x="770" y="180" font-size="15" fill="var(--dim)">開源、生態衝最快</text>
+    <text x="770" y="218" font-size="15" fill="var(--ink)">贏：三家裡代碼寫得最漂亮</text>
+    <text x="770" y="244" font-size="15" fill="var(--warn)">輸：長線任務翻車</text>
+    <text x="770" y="270" font-size="15" fill="var(--warn)">有工具自己不知道怎麼用</text>
+    <text x="770" y="306" font-size="14" fill="var(--dim)">還不是成品，有精力再玩</text>
+  </g>
+
+  <text class="t" x="480" y="376" text-anchor="middle" font-size="17" fill="var(--dim)">問「誰最好用」之前，先問這一格要的是聰明還是穩</text>
+</svg>

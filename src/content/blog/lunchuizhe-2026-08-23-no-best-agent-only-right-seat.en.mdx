@@ -1,0 +1,53 @@
+---
+title: "Codex vs DeepSeek Harness vs Hermes: The Real-World Answer Is There's No Best Agent, Only the Right Seat"
+description: "A hands-on video throws three AI agent tools at real work: building a forum theme, fixing bugs, daily ops and fending off an attack. Codex develops best, Hermes runs a month without breaking, and DeepSeek Harness — the prettiest codebase — is the one that crashes. Pairing a local Qwen3.8 27B for grunt work with cloud DeepSeek V4 Flash for finishing cost about 30 RMB for a full day; all-premium would run 100+. Two months of the difference buys a 4090."
+slug: "lunchuizhe-2026-08-23-no-best-agent-only-right-seat"
+lang: "en"
+pubDate: 2026-09-02
+category: "tech"
+tags: ["AI agents", "Codex", "DeepSeek", "Hermes", "Qwen", "local AI", "AI workflow"]
+ogImage: "/covers/lunchuizhe-2026-08-23-no-best-agent-only-right-seat-cover.png"
+cover: "/covers/lunchuizhe-2026-08-23-no-best-agent-only-right-seat-cover.png"
+tldr: "Three agent tools, three seats: Codex is the most mature product — with cloud DeepSeek V4 Flash it's the development pick; Hermes, built on Python, is the steadiest — three weeks to a month without an error, ideal for daily ops; DeepSeek Harness has the prettiest code but isn't a finished product — long tasks crash. The money trick isn't picking a tool, it's seating: let a free local model eat the token-heavy grunt work and bring the cloud model in to finish — 30 RMB a day versus 100+, and two months of the gap buys a 4090."
+---
+
+![Romanticist oil painting cover: a lamplit workshop under storm clouds, three blacksmiths each tending a forge — one blazing, one steady, one still smoking — with light breaking through the clouds in the distance](/covers/lunchuizhe-2026-08-23-no-best-agent-only-right-seat-cover.png)
+
+> *A foot may fall short; an inch may excel.*<br/>
+> — Qu Yuan, "Bu Ju" (Warring States period)
+
+## What this is about
+
+"Which agent is best?" may be the most-asked question right now. A late-August hands-on video answers it without benchmarks — by throwing three tools into the real work of running a forum: building a theme, fixing bugs, daily maintenance, fending off an attack. The answer isn't a name; it's a seating chart. Which connects straight to yesterday's piece: to manage a crew of agents, draw the org chart first.
+
+## Three tools, three temperaments
+
+Codex: official, a year-plus old, closed source, the most mature product. In the test it built a forum theme end to end — planned six steps itself, done in twenty-odd minutes; it handles five or six bugs dumped at once, and you can drag screenshots straight in. Its flaw: paired with a local model it over-edits — asked to remove rounded corners, it also flattened the user avatars nobody asked about.
+
+Hermes: Python-based, the least flashy and the steadiest. Left alone without manual updates, it runs three weeks to a month without an error. When the forum came under attack, the host never touched the keyboard — Hermes blocked the attack, restored data, and quietly finished the tagging job every moderator had been avoiding.
+
+DeepSeek Harness: open source, fastest-growing ecosystem (a hundred thousand stars in short order), and the prettiest codebase of the three. It also crashed in the field: one bug it simply couldn't fix, until the host pushed the code to GitHub and let Codex clean up. The diagnosis is telling — some of its built-in tools it doesn't know how to call; it can process images, yet insists on being given an image URL.
+
+![Three tools, one seat each: Codex in the development seat, Hermes in the ops seat, DeepSeek Harness in the watch seat, each labeled with where it wins and loses](/figures/lz-three-agents-seats-en.svg)
+
+The host's verdict, plainly: recommend Codex today, use Hermes for daily scripts and maintenance, and DeepSeek Harness — grand prospects, not yet a finished product — is for spare time.
+
+## The real savings aren't in the tool, they're in the seating
+
+The most stealable move in the video is the cost structure. The token-heavy grunt work — reading code, long development runs — goes to a local Qwen3.8 27B (driven by one AMD 7900 XT, 128K context), free beyond electricity; only what the local model can't handle goes to cloud DeepSeek V4 Flash to finish. A full day of moderate development plus ops: about 30 RMB. The same load on premium V4 Pro: 100+ a day. His own math: two months of that gap buys a 4090.
+
+He's honest about the price: the local model is slow (ten minutes on Flash versus half an hour locally) and a notch less sharp (the over-editing incident was the local model's). So this isn't "local is cheap, use local for everything" — it's cheap first, expensive to finish. The same arithmetic as my RunPod piece, except he's turned the answer into a daily routine.
+
+![Cost comparison: top bar mostly free local segment with a small cloud tail, 30 RMB a day; bottom bar all premium cloud, 100+ a day; two months of the gap labeled as one graphics card](/figures/lz-cost-split-en.svg)
+
+One more detail I keep thinking about: the prettiest codebase of the three was the only one that crashed in real work. Elegant architecture and getting things done are different things — judge a tool by whether it finishes the job, not by how it reads. Same as reading company financials: the prettiest slide deck isn't necessarily the profitable company.
+
+## One thing to take with you
+
+The day I watched this I re-seated my own tool list: next to each AI tool I wrote down one of two words — "develop" or "on duty." Development needs smart, because I'll see its mistakes; duty needs steady, because when it fails I won't be there. One of my tools was listed in both columns — that's the hazard. You could spend five minutes today doing the same: one tool, one seat; the one that fits neither, don't rush to use.
+
+## Sources
+
+- Lunchuizhe, "Codex, DeepSeek Harness, or Hermes — which agent is best? Qwen3.8 27B / DeepSeek V4 Flash in real development," uploaded 2026-08-23: [youtu.be/NsTn8-Pewtc](https://youtu.be/NsTn8-Pewtc)
+- Yesterday's piece: [What Is Graph Engineering? Two Diagrams for a Team of Agents](/en/blog/kelly-tsai-graph-engineering-2026-09/)
+- Earlier: [Local LLMs: Buy the Card or Rent It? RunPod at NT$24 an Hour](/en/blog/runpod-vs-local-gpu-2026-09/)

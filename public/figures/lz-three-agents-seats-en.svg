@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-label="Three tools, one seat each: Codex in development, Hermes in ops, DeepSeek Harness on watch, each labeled with wins and losses">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="400" fill="var(--page)"/>
+  <text class="t" x="480" y="40" text-anchor="middle" font-size="24" fill="var(--ink)">No ranking — only seats</text>
+
+  <rect x="55"  y="70" width="270" height="270" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <rect x="345" y="70" width="270" height="270" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <rect x="635" y="70" width="270" height="270" rx="10" fill="var(--card)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <g class="t" text-anchor="middle">
+    <text x="190" y="108" font-size="19" fill="var(--accent)">Development seat</text>
+    <text x="190" y="145" font-size="22" fill="var(--ink)">Codex</text>
+    <text x="190" y="180" font-size="15" fill="var(--dim)">+ cloud DeepSeek V4 Flash</text>
+    <text x="190" y="218" font-size="15" fill="var(--ink)">Wins: ran a 6-step task end to end</text>
+    <text x="190" y="244" font-size="15" fill="var(--ink)">5-6 bugs at once, drag-in screenshots</text>
+    <text x="190" y="282" font-size="15" fill="var(--warn)">Loses: over-edits with local models</text>
+
+    <text x="480" y="108" font-size="19" fill="var(--accent)">Duty seat</text>
+    <text x="480" y="145" font-size="22" fill="var(--ink)">Hermes</text>
+    <text x="480" y="180" font-size="15" fill="var(--dim)">+ cloud DeepSeek V4 Flash</text>
+    <text x="480" y="218" font-size="15" fill="var(--ink)">Wins: 3 weeks to a month, no errors</text>
+    <text x="480" y="244" font-size="15" fill="var(--ink)">attacks, backups, tagging — all covered</text>
+    <text x="480" y="282" font-size="15" fill="var(--warn)">Loses: not built for development</text>
+
+    <text x="770" y="108" font-size="19" fill="var(--dim)">Watch seat</text>
+    <text x="770" y="145" font-size="22" fill="var(--ink)">DeepSeek Harness</text>
+    <text x="770" y="180" font-size="15" fill="var(--dim)">open source, fastest ecosystem</text>
+    <text x="770" y="218" font-size="15" fill="var(--ink)">Wins: prettiest codebase of the three</text>
+    <text x="770" y="244" font-size="15" fill="var(--warn)">Loses: crashes on long tasks</text>
+    <text x="770" y="270" font-size="15" fill="var(--warn)">doesn't know its own tools</text>
+    <text x="770" y="306" font-size="14" fill="var(--dim)">not a finished product — spare time only</text>
+  </g>
+
+  <text class="t" x="480" y="376" text-anchor="middle" font-size="17" fill="var(--dim)">Before asking which is best, ask if this seat needs smart or steady</text>
+</svg>

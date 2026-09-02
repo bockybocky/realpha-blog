@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960" height="360" role="img" aria-label="Cost comparison: top bar mostly free local with a small cloud tail, 30 RMB a day; bottom bar all premium cloud, 100+ a day; two months of the gap is roughly one 4090">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="360" fill="var(--page)"/>
+  <text class="t" x="480" y="40" text-anchor="middle" font-size="24" fill="var(--ink)">The same day's work, two seatings</text>
+
+  <text class="t" x="80" y="106" font-size="17" fill="var(--ink)">Cheap first, expensive to finish</text>
+  <rect x="80"  y="120" width="520" height="46" rx="8" fill="var(--accent)" fill-opacity="0.18" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="600" y="120" width="130" height="46" rx="8" fill="var(--warn)" fill-opacity="0.25" stroke="var(--warn)" stroke-width="2"/>
+  <text class="t" x="340" y="149" text-anchor="middle" font-size="15" fill="var(--ink)">Local Qwen3.8 27B eats grunt work (code reading, long runs) = free beyond power</text>
+  <text class="t" x="665" y="149" text-anchor="middle" font-size="14" fill="var(--ink)">Cloud Flash finishes</text>
+  <text class="t" x="790" y="149" font-size="18" fill="var(--accent)">~30 RMB/day</text>
+
+  <text class="t" x="80" y="226" font-size="17" fill="var(--ink)">Everything on the premium cloud model</text>
+  <rect x="80" y="240" width="650" height="46" rx="8" fill="var(--warn)" fill-opacity="0.25" stroke="var(--warn)" stroke-width="2"/>
+  <text class="t" x="405" y="269" text-anchor="middle" font-size="15" fill="var(--ink)">DeepSeek V4 Pro start to finish</text>
+  <text class="t" x="790" y="269" font-size="18" fill="var(--warn)">100+ RMB/day</text>
+
+  <text class="t" x="480" y="336" text-anchor="middle" font-size="17" fill="var(--dim)">The gap is ~70 RMB a day; two months of it is roughly one 4090 (the host's own math)</text>
+</svg>
