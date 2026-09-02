@@ -350,7 +350,8 @@ def settle_machine(
 def write_human_reminder(card: dict[str, Any], inbox: Path, today: date) -> bool:
     inbox.mkdir(parents=True, exist_ok=True)
     card_id = str(card.get("card_id"))
-    reminder_path = inbox / f"ledger_{card_id}_{card.get('deadline')}.md"
+    # 2026-09-03：加日期前綴讓每日摘要（只列 YYYY-MM-DD-*.md）看得到；未裁決的卡每天再提醒一次
+    reminder_path = inbox / f"{today.isoformat()}-ledger_{card_id}_{card.get('deadline')}.md"
     if reminder_path.exists():
         return False
 
