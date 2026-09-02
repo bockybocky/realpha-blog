@@ -1,6 +1,6 @@
 ---
 title: "Terence Tao's Coin Game: AI Did Four Things, Humans Did Four Things — I Checked My Own Division of Labor Against His"
-description: "Terence Tao walks through a real case of humans and AI solving a math problem together: Gemini filled a missing proof step, AlphaEvolve computed up to 16 piles, Aristotle translated proofs into Lean for machine checking — while posing the problem, making the conjecture, understanding the proof, and noticing two problems were the same all came from humans. Four tasks for AI, four for humans. The dividing line matches the rule I use to delegate work to AI: only hand over what a machine can verify."
+description: "Terence Tao walks through a real case of humans and AI solving a math problem together: Gemini filled a missing proof step, AlphaEvolve computed up to 16 piles, Aristotle translated proofs into Lean for machine checking — while posing the problem, making the conjecture, understanding the proof, and noticing two problems were the same all came from humans. The dividing line matches the rule I use to delegate work to AI: only hand over what a machine can verify."
 slug: "tao-2026-09-02-coin-game-human-ai-division"
 lang: "en"
 pubDate: 2026-09-02
@@ -8,7 +8,7 @@ category: "tech"
 tags: ["Terence Tao", "AI math", "human-AI collaboration", "division of labor", "Lean", "AlphaEvolve", "decision making"]
 ogImage: "/covers/tao-2026-09-02-coin-game-human-ai-division-cover.png"
 cover: "/covers/tao-2026-09-02-coin-game-human-ai-division-cover.png"
-tldr: "Tao's team tracks 1,000-odd Erdős problems and closed out a coin-game problem through human-AI teamwork. AI's four tasks: search literature, fill proof steps, compute numerical tables, translate proofs into Lean. Humans' four tasks: pose the problem, make the conjecture, understand the proof, notice two problems were the same. The pattern: every AI task has a machine-checkable answer; none of the human tasks do. That's exactly the rule I use when deciding what to delegate to AI."
+tldr: "Tao's team tracks 1,000-odd Erdős problems and closed out a coin-game problem through human-AI teamwork. AI's four tasks: search literature, fill proof steps, compute tables, translate into Lean. Humans' four: pose the problem, make the conjecture, understand the proof, notice two problems were the same. One dividing line: can a machine verify the result?"
 ---
 
 ![Neoclassical oil painting cover: a long wooden table with a row of coin stacks of uneven heights, a scholar leaning over to study them, an oil lamp lighting a few stacks, a framed diagram of grids and squares on the wall](/covers/tao-2026-09-02-coin-game-human-ai-division-cover.png)
@@ -18,53 +18,47 @@ tldr: "Tao's team tracks 1,000-odd Erdős problems and closed out a coin-game pr
 
 ## What this is about
 
-Last week I wrote about Terence Tao calling AI mathematicians "slightly drunk geniuses" whose scores come with numerators but no denominators. This week the same series (AI 101 channel, uploaded 2026-08-26, about 14 minutes) dropped another episode. No metaphors this time — he lays out one real case, a coin game, and names exactly which steps humans did and which steps AI did.
-
-I copied down his division of labor and checked it against the rules I use every day for delegating work to AI. To my surprise, the two lists are almost the same list.
+Last week I wrote about Terence Tao calling AI mathematicians "slightly drunk geniuses" whose scores come with numerators but no denominators. This week the same series (AI 101 channel, uploaded 2026-08-26, about 14 minutes) dropped another episode. No metaphors this time — one real case, a coin game, with every step named: which ones humans did, which ones AI did.
 
 ## The coin game
 
-The rules are simple. Alice splits a big pile of coins into n stacks, heights up to her. Bob takes away some stacks — but the stacks he picks must run strictly upward or strictly downward in height, never zigzag. Bob picks the combination that gets him the most; Alice arranges heights to lose the least. The question: what entry fee should Alice charge Bob to make it fair?
+Alice splits a big pile of coins into n stacks, heights up to her. Bob takes away some stacks — but the ones he picks must run strictly upward or strictly downward in height, never zigzag. Bob picks the combination that gets him the most; Alice arranges heights to lose the least. The question: what entry fee should Alice charge Bob to make it fair?
 
-Someone on a forum ran linear programming on small cases and made a lovely conjecture: when the number of stacks is a perfect square k², Bob can take 1/k of the total. With 16 stacks, he walks off with a quarter. The conjecture sat unproven for two months.
+Someone on a forum ran the small cases and made a lovely conjecture: when the number of stacks is a perfect square k², Bob can take 1/k of the total. With 16 stacks, a quarter. The conjecture sat unproven for two months.
 
 ![Eight coin stacks of uneven heights; four highlighted stacks of heights 4, 8, 10, 13 rise monotonically, connected by a dashed line — Bob may only take stacks that run one way](/figures/tao-coin-game-rule-en.svg)
 
-That's the shape of the rule: Bob's constraint is monotone selection; Alice's job is to arrange heights so even the best monotone pick stays small.
-
 ## Then, who did which step
 
-Here's how it broke open. Someone fed the conjecture to an automated prover called Aristotle — and it worked, producing a proof and translating it into Lean (a language that lets a machine check a proof line by line). Its trick was converting the coin problem into a "packing small squares into a big square" problem. The video notes this move appeared in an obscure 1959 paper, and the coin problem itself had already been solved by other means in 2016 — few remembered. Much of AI's creativity is spreading the library's unborrowed books back out on the table in front of you.
+Someone fed the conjecture to an automated prover called Aristotle — and it worked, producing a proof and translating it into Lean, a language that lets a machine check a proof line by line. Its trick: convert the coin problem into packing small squares into a big square. The video notes the move comes from an obscure 1959 paper, and the problem itself had been solved by other means in 2016 — few remembered.
 
-When the number of stacks grew and linear programming blew up, Tao switched to AlphaEvolve, computed up to 16 piles, stared at the resulting patterns, and made a conjecture of his own. His collaborator Boris simplified it, and another co-author, Lawrence Wu, recognized that the simplified function was identical to one from a different Erdős "square packing" problem solved just two years earlier. The pieces snapped together and the problem was done.
+When the stacks grew too many to compute, Tao switched to AlphaEvolve, ran it up to 16 piles, stared at the patterns, and made a conjecture of his own. Boris simplified it; Lawrence Wu recognized the simplified function as identical to one from a "square packing" problem solved two years earlier. The pieces snapped together.
 
-At the end, Tao compresses the whole episode into two lists. AI did four things: searched literature, filled missing proof steps, computed numerical tables, translated proofs into Lean. Humans did four things: posed the problem, made the conjecture, understood the proof, noticed two problems were the same one. His words: AI by themselves are already great, but there's far more potential in human-AI collaboration.
+Tao compresses the episode into two lists. AI did four things: searched literature, filled proof steps, computed tables, translated into Lean. Humans did four things: posed the problem, made the conjecture, understood the proof, noticed two problems were the same one. His words: AI by themselves are already great, but there's far more potential in human-AI collaboration.
 
-And about denominators — last week I complained AI math results ship without them. This episode actually provides some: of the 1,000-odd Erdős problems tracked, 699 remain unsolved and about 480 are solved, a large share of those being answers AI dug out of old literature that had been solved decades ago and forgotten; Aristotle's automated proving succeeds only about 1–2% of the time. Progress reports with denominators read a lot more honestly.
+And the denominators I complained about last week — this episode provides some: of the 1,000-odd Erdős problems tracked, 699 remain unsolved and about 480 are solved, a large share dug out of old literature where they'd been solved decades ago and forgotten; Aristotle's automated proving succeeds only about 1–2% of the time.
 
-## What the two lists share — it took me an evening to see it
+## The line between the two lists
 
-Line up AI's four tasks. Literature search: what it finds can be checked against the source. Proof steps: Lean verifies line by line. Numerical tables: recompute and compare. Lean translation: if it's wrong, it doesn't compile. All four share one trait — verification can be handed to a machine, so if the AI writes garbage it gets caught on the spot.
-
-The human four are the opposite. Whether a problem is good, whether a conjecture is beautiful, whether you truly understood a proof, whether two problems are one — no machine can grade any of it. The output of these tasks is judgment itself, and only another judgment can review it.
+AI's four tasks share one trait: verification can be handed to a machine. Literature checks against the source, Lean verifies line by line, tables can be recomputed, a bad translation won't compile — garbage gets caught on the spot. The human four are the opposite: whether a problem is good, a conjecture beautiful, a proof truly understood, two problems one — the output is judgment itself, and no machine can grade it.
 
 ![A dashed line splits eight tasks into two columns: left — search literature, fill proof steps, compute tables, translate to Lean, given to AI; right — pose problems, make conjectures, understand proofs, notice two problems are the same, kept by humans](/figures/tao-machine-verifiable-split-en.svg)
 
-The rule I use for delegating to AI is nearly word-for-word the same. Fetching data, converting files, batch rewrites — I hand those over without worry, because acceptance can be scripted: is the file there, do the numbers match, does the format validate. But whether to buy a stock, whether to change a methodology, whether an article's conclusion holds — work whose output is the conclusion itself I never outsource to AI, because nothing can check it for me, and if it's wrong I won't even notice.
+That's the same line I use when delegating to AI. Fetching data, converting files, batch rewrites — handed over without worry, because a script can check the result. Whether to buy a stock, whether an article's conclusion holds — work whose output is the conclusion itself I don't outsource, because nothing can check it for me. Mathematicians have Lean as referee, so they can let AI charge ahead and flail; those of us making investment judgments don't, so we keep AI outside the judgment room. The difference isn't how smart the AI is — it's whether your field has a referee a machine can be.
 
-One more detail keeps growing on me. Aristotle didn't crack the coin game head-on — it pulled a forgotten 1959 paper off the shelf and found that the old solution happened to fit the new problem. That's the reversed order of work: not holding a problem and hunting for a solution, but holding a solution and hunting for its problem. I have a drawer of such old solutions myself — the technical indicators I've collected over the years. I used to ask, "can this indicator pick winning stocks for me?", and the answer kept disappointing. Now I've flipped the question: the stocks are already chosen by other means, and I walk around holding the indicators, looking for the problems they actually fit — timing an entry, trimming a drawdown. The indicators didn't change. What changed is that I'm finally finding them the right problem.
+## Holding a solution, hunting for its problem
+
+One more detail keeps growing on me. Aristotle's move ran in the reversed order: not holding a problem and hunting for a solution, but holding an old 1959 solution and finding the new problem it fits. I have a drawer of such old solutions myself — the technical indicators I've collected over the years. I used to ask, "can this indicator pick winning stocks?", and the answer kept disappointing. Now the stocks are chosen by other means, and I walk around holding the indicators, looking for the problems they actually fit — timing entries, trimming drawdowns. The indicators didn't change; they finally met the right problem.
 
 ![Two panels: on the left the arrow runs from problem to solution, the usual order; on the right it is reversed — from a solution in hand (an old paper, my indicators) to the problem it truly fits](/figures/tao-solution-seeks-problem-en.svg)
 
-In Tao's team, Lean is the machine referee. With it, a six-page AI proof stuffed with rubbish is harmless — translate it to Lean, and what fails gets tossed. That's what I envied most watching this: mathematicians have Lean; those of us making investment judgments don't. So with the same AI, they can let it charge ahead and flail, while we have to keep it outside the judgment room. The difference isn't how smart the AI is. It's whether your field has a referee a machine can be.
-
 ## One thing to take with you
 
-The evening I finished the video I did one small thing, and you could try it today: write on a sticky note the last three tasks you were about to hand to AI, and ask of each — when this is done, is there a machine or script that can tell me right from wrong? If yes, delegate freely. If no, the output of that task is your judgment; let AI be a staff officer, but keep the last move for yourself. One of my three failed the question, and I changed it on the spot from "ask AI to write the conclusion" to "ask AI to lay out the materials."
+The evening I finished the video I did one small thing, and you could try it today: write on a sticky note the last three tasks you were about to hand to AI, and ask of each — when this is done, can a machine or script tell me right from wrong? If yes, delegate freely. If no, the output is your judgment; let AI be a staff officer. One of my three failed the question, and I changed it on the spot from "ask AI to write the conclusion" to "ask AI to lay out the materials."
 
 ## Sources
 
 - AI 101 channel, "Terence Tao demonstrates how AI solves math: a coin game, and which steps humans and AI each took," uploaded 2026-08-26: [youtu.be/llGxnS34pz8](https://youtu.be/llGxnS34pz8)
 - Last week's piece: [Numerators Without Denominators: Tao's Slightly Drunk Genius](/en/blog/tao-2026-08-31-ai-math-drunk-genius/)
 
-The counts (699 unsolved, ~480 solved), the success rate (~1–2%), and the years (1959, 2016) are relayed from the video (as of 2026-08-26); I have not independently verified the original papers.
+Counts, success rates, and years are relayed from the video (as of 2026-08-26); I have not independently verified the original papers.
