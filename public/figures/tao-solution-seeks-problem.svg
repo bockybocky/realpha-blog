@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" width="960" height="430" role="img" aria-label="左右兩格對照：左格箭頭從問題指向解法，是平常的順序；右格箭頭反過來，從手上既有的解法指向它真正合用的問題，例子是 1959 年的舊論文對上硬幣遊戲、技術指標對上進場時機">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--warn)"/>
+    </marker>
+    <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--grey)"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="430" fill="var(--page)"/>
+  <text class="t" x="480" y="42" text-anchor="middle" font-size="24" fill="var(--ink)">同一根箭頭，兩個方向</text>
+
+  <line x1="480" y1="66" x2="480" y2="390" stroke="var(--ink)" stroke-width="2" stroke-dasharray="8 7" opacity="0.4"/>
+
+  <!-- Left: normal order -->
+  <text class="t" x="245" y="92" text-anchor="middle" font-size="20" fill="var(--dim)">平常的順序：拿著問題找解法</text>
+  <rect x="70"  y="120" width="140" height="64" rx="10" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <text class="t" x="140" y="158" text-anchor="middle" font-size="21" fill="var(--ink)">問題</text>
+  <rect x="280" y="120" width="140" height="64" rx="10" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <text class="t" x="350" y="158" text-anchor="middle" font-size="21" fill="var(--ink)">解法</text>
+  <line x1="214" y1="152" x2="272" y2="152" stroke="var(--grey)" stroke-width="3" marker-end="url(#ah2)"/>
+  <text class="t" x="245" y="230" text-anchor="middle" font-size="17" fill="var(--dim)">解不開，就一直卡在原地</text>
+  <text class="t" x="245" y="258" text-anchor="middle" font-size="17" fill="var(--dim)">硬幣遊戲的猜想，掛了兩個月</text>
+
+  <!-- Right: reversed order -->
+  <text class="t" x="715" y="92" text-anchor="middle" font-size="20" fill="var(--warn)">反過來：拿著解法找問題</text>
+  <rect x="540" y="120" width="150" height="64" rx="10" fill="var(--warn)" fill-opacity="0.12" stroke="var(--warn)" stroke-width="2"/>
+  <text class="t" x="615" y="147" text-anchor="middle" font-size="19" fill="var(--ink)">手上的解法</text>
+  <text class="t" x="615" y="171" text-anchor="middle" font-size="15" fill="var(--dim)">舊論文．指標</text>
+  <rect x="760" y="120" width="150" height="64" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="835" y="147" text-anchor="middle" font-size="19" fill="var(--ink)">合用的問題</text>
+  <text class="t" x="835" y="171" text-anchor="middle" font-size="15" fill="var(--dim)">它真正的用武之地</text>
+  <line x1="694" y1="152" x2="752" y2="152" stroke="var(--warn)" stroke-width="3" marker-end="url(#ah)"/>
+
+  <g class="t" font-size="17">
+    <text x="715" y="230" text-anchor="middle" fill="var(--ink)">1959 年的論文 → 套上硬幣遊戲，解開</text>
+    <text x="715" y="258" text-anchor="middle" fill="var(--ink)">我的指標 → 不再問能不能選股</text>
+    <text x="715" y="286" text-anchor="middle" fill="var(--ink)">改去挑進場時機、少吃回撤</text>
+  </g>
+
+  <text class="t" x="480" y="360" text-anchor="middle" font-size="19" fill="var(--warn)">解法沒變，變的是幫它找到對的問題</text>
+  <text class="t" x="480" y="400" text-anchor="middle" font-size="16" fill="var(--dim)">左邊卡住的題，常常是被右邊某個抽屜裡的舊東西解開的</text>
+</svg>
