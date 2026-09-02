@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-label="Eight coin stacks of uneven heights; four highlighted stacks rise 4, 8, 10, 13, showing Bob may only take monotone selections">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="400" fill="var(--page)"/>
+  <text class="t" x="480" y="44" text-anchor="middle" font-size="24" fill="var(--ink)">Alice lays out 8 stacks; Bob may only pick stacks that keep rising</text>
+
+  <!-- baseline -->
+  <line x1="70" y1="320" x2="890" y2="320" stroke="var(--line)" stroke-width="2"/>
+
+  <!-- piles: heights 4,8,2,10,5,13,3,7 ; unit 16px -->
+  <g stroke-width="2">
+    <rect x="90"  y="256" width="60" height="64"  fill="var(--accent)" fill-opacity="0.25" stroke="var(--accent)"/>
+    <rect x="190" y="192" width="60" height="128" fill="var(--accent)" fill-opacity="0.25" stroke="var(--accent)"/>
+    <rect x="290" y="288" width="60" height="32"  fill="var(--card)" stroke="var(--grey)"/>
+    <rect x="390" y="160" width="60" height="160" fill="var(--accent)" fill-opacity="0.25" stroke="var(--accent)"/>
+    <rect x="490" y="240" width="60" height="80"  fill="var(--card)" stroke="var(--grey)"/>
+    <rect x="590" y="112" width="60" height="208" fill="var(--accent)" fill-opacity="0.25" stroke="var(--accent)"/>
+    <rect x="690" y="272" width="60" height="48"  fill="var(--card)" stroke="var(--grey)"/>
+    <rect x="790" y="208" width="60" height="112" fill="var(--card)" stroke="var(--grey)"/>
+  </g>
+
+  <!-- height labels -->
+  <g class="t" font-size="20" text-anchor="middle" fill="var(--dim)">
+    <text x="120" y="350">4</text>
+    <text x="220" y="350">8</text>
+    <text x="320" y="350">2</text>
+    <text x="420" y="350">10</text>
+    <text x="520" y="350">5</text>
+    <text x="620" y="350">13</text>
+    <text x="720" y="350">3</text>
+    <text x="820" y="350">7</text>
+  </g>
+
+  <!-- rising line over picked piles -->
+  <polyline points="120,246 220,182 420,150 620,102" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+
+  <text class="t" x="480" y="386" text-anchor="middle" font-size="19" fill="var(--accent)">Highlighted 4, 8, 10, 13 rise monotonically — Bob can take them all; adding any grey stack breaks the run</text>
+</svg>

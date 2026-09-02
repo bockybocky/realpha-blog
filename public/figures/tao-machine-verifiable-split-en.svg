@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-label="A dashed line splits eight tasks: four on the left go to AI because a machine can verify them; four on the right stay with humans because the output is judgment itself">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="440" fill="var(--page)"/>
+  <text class="t" x="480" y="42" text-anchor="middle" font-size="24" fill="var(--ink)">One criterion splits both lists: can a machine verify this task?</text>
+
+  <line x1="480" y1="70" x2="480" y2="400" stroke="var(--ink)" stroke-width="2" stroke-dasharray="8 7" opacity="0.5"/>
+
+  <text class="t" x="255" y="92" text-anchor="middle" font-size="21" fill="var(--accent)">Machine can verify → give to AI</text>
+  <text class="t" x="705" y="92" text-anchor="middle" font-size="21" fill="var(--ink)">Machine cannot → keep for humans</text>
+
+  <rect x="60"  y="110" width="390" height="280" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="510" y="110" width="390" height="280" rx="10" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+
+  <g class="t" font-size="20" fill="var(--ink)">
+    <text x="90" y="158">Search literature</text>
+    <text x="90" y="222">Fill proof steps</text>
+    <text x="90" y="286">Compute tables</text>
+    <text x="90" y="350">Translate to Lean</text>
+  </g>
+  <g class="t" font-size="16" fill="var(--dim)">
+    <text x="90" y="182">checkable against the source</text>
+    <text x="90" y="246">Lean verifies line by line</text>
+    <text x="90" y="310">recompute and compare</text>
+    <text x="90" y="374">fails to compile if wrong</text>
+  </g>
+
+  <g class="t" font-size="20" fill="var(--ink)">
+    <text x="540" y="158">Pose the problem</text>
+    <text x="540" y="222">Make the conjecture</text>
+    <text x="540" y="286">Understand the proof</text>
+    <text x="540" y="350">Notice two problems are one</text>
+  </g>
+  <g class="t" font-size="16" fill="var(--dim)">
+    <text x="540" y="182">no grading script for good problems</text>
+    <text x="540" y="246">only experts sense beauty</text>
+    <text x="540" y="310">“understood” cannot be machine-checked</text>
+    <text x="540" y="374">needs another problem in a human head</text>
+  </g>
+
+  <text class="t" x="480" y="424" text-anchor="middle" font-size="18" fill="var(--warn)">AI tasks have a machine referee; human tasks output judgment itself</text>
+</svg>

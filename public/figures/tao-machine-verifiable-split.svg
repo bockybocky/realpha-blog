@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-label="一條虛線把八件事切成兩欄：左欄四件交給 AI，因為機器驗得了；右欄四件留給人，因為產出本身就是判斷">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="440" fill="var(--page)"/>
+  <text class="t" x="480" y="42" text-anchor="middle" font-size="24" fill="var(--ink)">同一條判準切開兩張清單：這件事的驗收，機器做得了嗎？</text>
+
+  <line x1="480" y1="70" x2="480" y2="400" stroke="var(--ink)" stroke-width="2" stroke-dasharray="8 7" opacity="0.5"/>
+
+  <text class="t" x="255" y="92" text-anchor="middle" font-size="21" fill="var(--accent)">機器驗得了 → 交給 AI</text>
+  <text class="t" x="705" y="92" text-anchor="middle" font-size="21" fill="var(--ink)">機器驗不了 → 留給人</text>
+
+  <rect x="60"  y="110" width="390" height="280" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="510" y="110" width="390" height="280" rx="10" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+
+  <g class="t" font-size="20" fill="var(--ink)">
+    <text x="90" y="158">搜文獻</text>
+    <text x="90" y="222">補證明步驟</text>
+    <text x="90" y="286">算數值表格</text>
+    <text x="90" y="350">翻譯成 Lean</text>
+  </g>
+  <g class="t" font-size="16" fill="var(--dim)">
+    <text x="90" y="182">查得到原文，真假立判</text>
+    <text x="90" y="246">Lean 逐行驗，錯了過不去</text>
+    <text x="90" y="310">重算一次就能對帳</text>
+    <text x="90" y="374">編譯不過就是翻錯</text>
+  </g>
+
+  <g class="t" font-size="20" fill="var(--ink)">
+    <text x="540" y="158">出題</text>
+    <text x="540" y="222">下猜想</text>
+    <text x="540" y="286">看懂證明</text>
+    <text x="540" y="350">認出兩題是同一題</text>
+  </g>
+  <g class="t" font-size="16" fill="var(--dim)">
+    <text x="540" y="182">好題目沒有評分程式</text>
+    <text x="540" y="246">漂不漂亮只有行家知道</text>
+    <text x="540" y="310">「懂了」無法被機器檢查</text>
+    <text x="540" y="374">靠的是人腦裡存過的另一題</text>
+  </g>
+
+  <text class="t" x="480" y="424" text-anchor="middle" font-size="18" fill="var(--warn)">AI 的四件事都有機器當裁判；人的四件事，產出本身就是判斷</text>
+</svg>
