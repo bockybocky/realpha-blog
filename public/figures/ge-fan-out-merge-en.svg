@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="960" height="380" role="img" aria-label="Smallest workgraph: a dispatcher fans out into three parallel bars, each reading one project's release notes, converging into a merger; the longest bar decides when the merge starts">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <defs>
+    <marker id="gah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--grey)"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="380" fill="var(--page)"/>
+  <text class="t" x="480" y="40" text-anchor="middle" font-size="24" fill="var(--ink)">The smallest complete workgraph: fan out, then converge</text>
+
+  <rect x="70" y="160" width="120" height="56" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="130" y="194" text-anchor="middle" font-size="18" fill="var(--ink)">Dispatch</text>
+
+  <!-- three parallel bars of different lengths -->
+  <g>
+    <rect x="300" y="88"  width="300" height="44" rx="8" fill="var(--card)" stroke="var(--grey)" stroke-width="1.5"/>
+    <rect x="300" y="166" width="330" height="44" rx="8" fill="var(--card)" stroke="var(--grey)" stroke-width="1.5"/>
+    <rect x="300" y="244" width="470" height="44" rx="8" fill="var(--warn)" fill-opacity="0.12" stroke="var(--warn)" stroke-width="2"/>
+  </g>
+  <g class="t" font-size="16" fill="var(--ink)">
+    <text x="316" y="115">Read Godot release notes (~20s)</text>
+    <text x="316" y="193">Read OBS release notes (~20s)</text>
+    <text x="316" y="271">Read Home Assistant notes (longest — everyone waits)</text>
+  </g>
+
+  <g stroke="var(--grey)" stroke-width="2" fill="none">
+    <line x1="190" y1="172" x2="292" y2="110" marker-end="url(#gah)"/>
+    <line x1="190" y1="188" x2="292" y2="188" marker-end="url(#gah)"/>
+    <line x1="190" y1="204" x2="292" y2="266" marker-end="url(#gah)"/>
+    <line x1="600" y1="110" x2="792" y2="172" marker-end="url(#gah)"/>
+    <line x1="630" y1="188" x2="792" y2="188" marker-end="url(#gah)"/>
+    <line x1="770" y1="266" x2="792" y2="204" marker-end="url(#gah)"/>
+  </g>
+
+  <rect x="800" y="160" width="120" height="56" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="860" y="194" text-anchor="middle" font-size="18" fill="var(--ink)">Merge</text>
+
+  <text class="t" x="480" y="345" text-anchor="middle" font-size="17" fill="var(--dim)">The three bars run independently; only the merger waits for all three — the slowest decides its start</text>
+</svg>

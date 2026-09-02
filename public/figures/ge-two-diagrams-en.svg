@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" width="960" height="430" role="img" aria-label="Side by side: a framed org chart, stable, changes every few months; a workgraph sketch that fans out and converges, thrown away after use">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="430" fill="var(--page)"/>
+  <text class="t" x="480" y="40" text-anchor="middle" font-size="24" fill="var(--ink)">Maintain two diagrams of opposite character</text>
+
+  <!-- Left: org chart, framed -->
+  <text class="t" x="245" y="82" text-anchor="middle" font-size="20" fill="var(--accent)">Org chart: who permanently owns what</text>
+  <rect x="75" y="100" width="340" height="240" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <g stroke="var(--grey)" stroke-width="1.5" fill="var(--page)">
+    <rect x="200" y="122" width="90" height="36" rx="6"/>
+    <rect x="105" y="196" width="86" height="36" rx="6"/>
+    <rect x="202" y="196" width="86" height="36" rx="6"/>
+    <rect x="299" y="196" width="86" height="36" rx="6"/>
+  </g>
+  <g stroke="var(--grey)" stroke-width="1.5">
+    <line x1="245" y1="158" x2="148" y2="196"/>
+    <line x1="245" y1="158" x2="245" y2="196"/>
+    <line x1="245" y1="158" x2="342" y2="196"/>
+  </g>
+  <g class="t" font-size="15" text-anchor="middle" fill="var(--ink)">
+    <text x="245" y="145">Lead</text>
+    <text x="148" y="219">Research</text>
+    <text x="245" y="219">Fetching</text>
+    <text x="342" y="219">Coding</text>
+  </g>
+  <g class="t" font-size="16" text-anchor="middle" fill="var(--dim)">
+    <text x="245" y="278">what each agent owns, where memory lives</text>
+    <text x="245" y="306">stable — changes every few months</text>
+  </g>
+
+  <!-- Right: workgraph, sketch -->
+  <text class="t" x="715" y="82" text-anchor="middle" font-size="20" fill="var(--warn)">Workgraph: how this task splits</text>
+  <rect x="545" y="100" width="340" height="240" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="2" stroke-dasharray="9 6"/>
+  <g stroke="var(--grey)" stroke-width="1.5" fill="var(--page)">
+    <circle cx="605" cy="220" r="20"/>
+    <circle cx="715" cy="150" r="20"/>
+    <circle cx="715" cy="220" r="20"/>
+    <circle cx="715" cy="290" r="20"/>
+    <circle cx="825" cy="220" r="20"/>
+  </g>
+  <g stroke="var(--warn)" stroke-width="2">
+    <line x1="622" y1="209" x2="697" y2="158"/>
+    <line x1="625" y1="220" x2="695" y2="220"/>
+    <line x1="622" y1="231" x2="697" y2="282"/>
+    <line x1="733" y1="158" x2="808" y2="209"/>
+    <line x1="735" y1="220" x2="805" y2="220"/>
+    <line x1="733" y1="282" x2="808" y2="231"/>
+  </g>
+  <g class="t" font-size="14" text-anchor="middle" fill="var(--ink)">
+    <text x="605" y="225">Split</text>
+    <text x="715" y="155">A</text>
+    <text x="715" y="225">B</text>
+    <text x="715" y="295">C</text>
+    <text x="825" y="225">Merge</text>
+  </g>
+  <g class="t" font-size="16" text-anchor="middle" fill="var(--dim)">
+    <text x="715" y="330">order, parallelism, merge point</text>
+  </g>
+  <text class="t" x="715" y="365" text-anchor="middle" font-size="16" fill="var(--warn)">disposable — redrawn per project</text>
+
+  <text class="t" x="480" y="408" text-anchor="middle" font-size="17" fill="var(--dim)">Left answers who we have; right answers how today's job splits</text>
+</svg>

@@ -1,0 +1,63 @@
+---
+title: "What Is Graph Engineering? Managing a Team of AI Agents Takes Two Diagrams — One Stays for Months, One Is Thrown Away After Use"
+description: "Graph Engineering blew up on X in July: one tweet, a Google PM's definition ninety minutes later, a 48-hour flood of posts. Kelly Tsai's video sorts it out — loops let an agent's behavior be written down, graphs let an agent organization be written down. In practice it's two diagrams: a stable org chart plus a disposable work plan. I checked it against how I run my own crew of AIs; even the way the division of labor grew is the same."
+slug: "kelly-tsai-graph-engineering-2026-09"
+lang: "en"
+pubDate: 2026-09-02
+category: "tech"
+tags: ["Graph Engineering", "AI agents", "multi-agent", "LangGraph", "context engineering", "AI workflow"]
+ogImage: "/covers/kelly-tsai-graph-engineering-2026-09-cover.png"
+cover: "/covers/kelly-tsai-graph-engineering-2026-09-cover.png"
+tldr: "Graph Engineering = treating the organization of your agents as a thing to be designed. In practice it's two diagrams: an org chart (who permanently owns what; changes every few months) and a workgraph (how this one task splits; thrown away after use). The name is new; directed graphs and state machines are decades old. The real signal behind the buzz: people now have enough agents that they must be managed as an organization. And a folk test for any new buzzword: if nobody changes a line of code because of it within three weeks, it's just a label."
+---
+
+![Rococo oil painting cover: an ornate writing desk with two sheets — one diagram in a gilded frame on the wall, another sketch of branching and merging lines crumpled then flattened on the desk, a candlestick, elegant carrier pigeons waiting on the desk edge](/covers/kelly-tsai-graph-engineering-2026-09-cover.png)
+
+> *For one person's needs, the work of a hundred craftsmen must stand ready.*<br/>
+> — Mencius, "Teng Wen Gong I" (Warring States period)
+
+## What this is about
+
+In July a new term surfaced in AI circles: Graph Engineering. Kelly Tsai's mid-August video (about 14 minutes) traces where it came from and what it actually means. I checked it against my daily routine of running a crew of AIs — even the way the division of labor emerged matches. This piece summarizes the video, plus my own comparison.
+
+## How a term catches fire in 48 hours
+
+On July 18, developer Peter Steinberger posted on X: "Are we still talking loops or did we shift to graphs yet?" Ninety minutes later a senior AI product manager at Google replied with the defining line: loops let an agent's behavior be written down, graphs let an agent organization be written down. Within 48 hours the posts poured in; some declared "Loop Engineering is dead."
+
+Two days later LangChain co-founder Harrison Chase chimed in: he still didn't know what Graph Engineering was, but wasn't this just LangGraph? — the thing he'd been building for three years, 38,000+ GitHub stars. The author of the state-machine library XState was blunter: defining states and transitions as a directed graph is decades-old computer science.
+
+So the name is new, the machinery is old. The video's read, which I like: the term catching fire is itself a signal — people now have enough agents that they must be managed as an organization. Nobody needed this word last year, because last year everyone had exactly one agent.
+
+## Two diagrams: one on the wall, one in the bin
+
+The video says Graph Engineering in practice means maintaining two diagrams of opposite character:
+
+The org chart (Graph) is like a company org chart: which agents you have, what each one owns, where its memory lives. It's stable — it might change every few months — and answers "who do we have, who runs what."
+
+The workgraph is this project's work plan: how the task splits into nodes, who goes first, what can run in parallel, where results merge. It's disposable — next project, new sheet — and answers "how do we split today's job."
+
+![Side by side: left, a framed org chart labeled stable, changes every few months; right, a workgraph sketch of fanning and merging lines, labeled thrown away after use](/figures/ge-two-diagrams-en.svg)
+
+The video's demo is the smallest complete workgraph shape: one dispatcher node fans out to three subagents that each read the release notes of an open-source project (Godot, OBS, Home Assistant), and one merger node waits for all three before combining them into a comparison table. Fan out, then converge.
+
+![Smallest workgraph: a dispatcher fans out into three parallel bars, each reading one project's release notes, converging into a merger; the longest bar decides when the merge starts](/figures/ge-fan-out-merge-en.svg)
+
+One more headline trap: Loop Engineering is not dead. These terms stack outward — innermost, Context Engineering governs "what the model sees this time"; then the harness governs "what tools and guardrails surround the agent"; then the loop governs "how a single agent completes one round"; outermost, the graph governs "how multiple agents are wired together." Five nodes on the diagram means five loops running, none of them gone.
+
+## My own comparison
+
+This is how I already work — I just never called it Engineering. I keep one rarely-touched org chart: which AI permanently handles research, which fetches data, which writes code, which only gives second opinions, each with its rules in one document, revised every few months. Then for each task I draw a disposable workgraph: write the brief, split it across two or three lanes running in parallel, agree where each drops its output, and I review and merge at the end. Exactly the two diagrams.
+
+What hit harder was the video's account of how divisions of labor grow: at first one agent does everything, then because every change makes it drop something else, you carve out an agent that owns that piece. Mine grew exactly that way — by trial and error, never designed. The video names this as the common trap, and the fix is cheap: spend a few minutes writing the division down before you start.
+
+The folk test deserves its own line: when a new term catches fire, don't rush to the essays — go check the issues and PRs of the main frameworks. If nobody has changed a line of code because of the term within three weeks, it's just a label; knowing what it refers to is enough. Better than any keep-up anxiety: let behavior be the evidence, not volume.
+
+## One thing to take with you
+
+The day I finished the video I did one small thing you could try: take a sheet of paper and write down what each AI tool in your life is responsible for — even if you use just one, write what it owns and what you keep. I got stuck twice, and the stuck spots were exactly where my errors usually happen: two tools doing the same job, and when it fails nobody knows whose failure it is. If you can write it out, you have your org chart; the cell you can't fill is where the next error lives.
+
+## Sources
+
+- Kelly Tsai, "What is the viral Graph Engineering? Understanding multi-agent collaboration with graphs," uploaded 2026-08-17: [youtu.be/g0SEtgHw6tc](https://youtu.be/g0SEtgHw6tc)
+
+Tweet dates, quoted definitions, and star counts are relayed from the video (as of 2026-08-17); the video is speech-transcribed, and I corrected individual proper nouns against public sources (LangGraph, XState).
