@@ -155,9 +155,27 @@
     },
     "committed_at": "",
     "deadline": "2026-08-26",
-    "status": "aging",
-    "verdict": "",
-    "replay_ready_at": "",
+    "status": "miss",
+    "verdict": {
+      "settled_at": "2026-09-03",
+      "judge_mode": "human",
+      "outcome": "miss",
+      "summary": "人工判定：說錯。期交所公布 202608W4 最終結算價 45,850，高於區間上限 45,750（差 100 點）。落在我們事前給兩成五機率的「高於區間」桶。",
+      "evidence": {
+        "settlement_price": 45850.0,
+        "range": [
+          45000,
+          45750
+        ],
+        "sources": [
+          "臺灣期貨交易所每日結算價公告（FinMind TaiwanOptionFinalSettlementPrice 鏡像，date=2026-08-26, option_id=TXO, contract_month=202608W4）",
+          "D:/ai-memory/research/ayan_taiex/synthesis/CALIBRATION.md 2026-08-26 開獎列（txo_final_settlement.csv 實際 45,850.00）"
+        ],
+        "invalidation_triggered": false,
+        "judged_by": "Charles（Iris 代登）"
+      }
+    },
+    "replay_ready_at": "2026-12-02",
     "author_class": "internal",
     "is_sample": false,
     "plain": {
