@@ -145,7 +145,22 @@ def fill_post(post, body, paywall_k, upload_image=None):
             m_img = re.match(r'!\[(.*?)\]\((.*?)\)', ln)
             src = m_img.group(2) if m_img else ln
             if not first_img_done:
-                first_img_done = True          # 第一張＝封面，另由 cover_image 設定
+                first_img_done = True
+                # 第一張＝封面。cover_image 只出現在列表與信件標頭，文章頁本文不會顯示；
+                # 而兩張概念圖都在付費牆下，免費讀者整頁一張圖都看不到（2026-09-03 Charles：「裡面沒有圖」）
+                # → 封面也插進本文最上方，免費讀者至少看得到它。
+                if upload_image is not None:
+                    alt = m_img.group(1) if m_img else ''
+                    url = upload_image(src)
+                    if url:
+                        # 套件的 captioned_image 是把圖塞進「前一個節點」的 content；本文開頭沒有前一個節點，
+                        # 直接放一個獨立的 captionedImage 區塊（Substack 編輯器自己的節點型別）
+                        post.draft_body.setdefault('content', []).append({'type': 'captionedImage', 'content': [{
+                            'type': 'image2',
+                            'attrs': {'src': url, 'fullscreen': False, 'imageSize': 'normal',
+                                      'height': 819, 'width': 1456, 'resizeWidth': 728,
+                                      'bytes': None, 'alt': alt or None, 'title': None, 'type': None,
+                                      'href': None, 'belowTheFold': False, 'internalRedirect': None}}]})
             elif upload_image is None:
                 print('⚠️ 跳過內文圖（未提供上傳函式）：' + src)
             else:
