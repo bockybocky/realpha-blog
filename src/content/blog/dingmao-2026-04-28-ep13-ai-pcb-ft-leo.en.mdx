@@ -1,0 +1,73 @@
+---
+title: "Notes on Anchor Industry Podcast EP13: AI Boards Keep Upgrading — So Where Does the PCB Chain Actually Jam?"
+description: "Reflections after listening to Anchor Industry Notes EP13: board layer counts, glass fabric, copper foil and drill bits, and why 'tight supply' and 'pricing power' are two different things. Educational only, not investment advice, no buy or sell opinions on any stock."
+slug: "dingmao-2026-04-28-ep13-ai-pcb-ft-leo"
+lang: "en"
+pubDate: 2026-09-03
+category: investing
+tags: ["PCB", "AI server", "supply chain", "industry notes", "podcast notes"]
+ogImage: "/covers/dingmao-2026-04-28-ep13-ai-pcb-ft-leo-cover.png"
+cover: "/covers/dingmao-2026-04-28-ep13-ai-pcb-ft-leo-cover.png"
+---
+
+![A circuit-board drilling floor late at night, a long row of machines receding down the hall, the nearest one lit by its work lamp while the far end fades into darkness](/covers/dingmao-2026-04-28-ep13-ai-pcb-ft-leo-cover.png)
+
+> The white makes it hard, the yellow makes it tough. Mix white and yellow and you get a blade both hard and tough — a fine sword.
+>
+> — *Lüshi Chunqiu*, "On Categories" (Warring States period; my own translation)
+
+The sword appraiser in that passage is talking about tin and copper. What follows in the original is a sceptic pointing out that the mix might just as easily end up neither hard nor tough. Two thousand years later we are arguing about the same thing: to make a board that transmits faster, loses less signal and survives forty-odd layers pressed together, you swap in one material after another — and every swap costs something different.
+
+## What the episode is about
+
+I listened to the 28 April 2026 episode of *Anchor Industry Notes*, where the host and their analyst Leo work through the current round of AI server motherboard upgrades: why boards keep getting thicker and denser, and where that upgrade jams as it propagates upstream.
+
+Honestly, I expected a "AI is booming, board makers are printing money" episode. It turned out to be the opposite. The whole thing is about shortages — and each shortage has a different cause.
+
+## The main points
+
+**1. The shortage is a whole row, not a single point.** The chain as they describe it: board makers can't fully supply what the cloud service providers want; material makers can't fully supply the copper clad laminate (CCL) the board makers want; and upstream glass fabric can't fully supply the CCL makers. Three layers tight at once, with oil-driven swings in chemical prices layered on top.
+
+**2. The spec jump is a jump, not a tweak.** Consumer boards used to get by on around ten layers, automotive slightly more. Current AI server boards run 22 to 26 layers, and the next wave pushes toward 26 to 44, with CCL upgraded to the M8 grade and HDI blended with high layer count. Both the layer count and the price per sheet of laminate go up, so the value content of a single board is in a different league.
+
+**3. The capex numbers are startling.** A mainland board maker went from roughly RMB 3 billion of capex last year to close to RMB 20 billion this year. On the Taiwan side, Zhen Ding is around NT$80 billion this year, Dynamic Electronics about NT$18.4 billion, Gold Circuit about NT$17.1 billion. Money at that scale mostly goes into buildings and key equipment.
+
+**4. The hard part isn't the layers, it's the thickness.** Once boards get thick, warpage, drilling and lamination all become new problems, on top of blind-via hybrid designs. And the constraint isn't only in the process. These boards need more drill bits and higher-grade ones, drill bit makers aren't expanding as fast as board makers, and lead times for lamination and drilling equipment have stretched out. Yields climb slowly — which means orders spill over to second-tier plants that couldn't win this work before.
+
+**5. The tightest square in the glass fabric grid isn't the one everyone talks about.** The episode splits glass fabric into Low Dk, Low Dk II, Low CTE (the material commonly called T-Glass) and quartz fabric. Their read: Low Dk and Low Dk II stay tight through 2026 and 2027 but stop short of real scarcity. The genuinely severe gap is Low CTE for substrates — the ABF substrates carrying AI chips keep adding layers and area, and are moving toward multi-core-layer and embedded designs, which pushes up consumption of both Low CTE fabric and ultra-thin copper foil. Nittobo has said it will triple Low CTE capacity; the episode's view is that even then it may not be enough. Downstream, the workaround is to downgrade lower-end products to E-Glass while qualifying second sources in Taiwan and China.
+
+**6. Quartz fabric has been discussed for a year and still can't scale.** Two very concrete reasons: it's hard to machine — drilling is where it gives trouble — and it's expensive. Only a handful of products look likely to adopt it near-term. What I found telling is that despite thin supply, a number of CCL makers are already stockpiling it as a strategic material. Buying what you can't yet use is itself a signal.
+
+**7. Copper foil moves first because it's the cheaper upgrade.** The upgrade here is about surface roughness. Leo mentioned seeing low-roughness foil at a trade show — "genuinely shiny, like looking in a mirror." Next-generation AI servers will use at least HVLP4 grade. The point he makes is a cost one: upgrading glass fabric is far more expensive than upgrading copper foil, so foil is the option that balances cost against electrical performance. Mitsui Kinzoku, a century-old company that started in mining and refining, leads; Furukawa, Fukuda and Taiwan's Co-Tech are competing for orders. Their conclusion is that foil stays tight but doesn't go short — the leader is investing in capacity and its yields haven't dropped noticeably through the upgrade — so copper foil isn't the main bottleneck ahead.
+
+## Going a little further
+
+### "The news said it's sold out, so why hasn't it moved?"
+
+Probably the most common trap, and one I've walked into myself. This episode hands you a clean control group: copper foil and Low CTE glass fabric are *both* tight, and yet the judgement on each is completely different. Foil is tight but the leader can expand and yields hold, so no real scarcity. Low CTE has its leader tripling capacity and possibly still falling short, leaving customers to downgrade.
+
+What separates them is whether the gap has an exit. A gap that money and time can fill gets filled. A gap that can't is where pricing power comes from. The habit I've settled into: when I see "supply is tight," I ask three things — who can expand, how long does expansion take, and does the customer have a substitute? Answer those and you usually know whether you're looking at news or at structure.
+
+### "Record capex — good news or bad?"
+
+That string of numbers, jumping five- and six-fold, reads as good news at first glance. Someone is willing to spend, so the demand must be real. But capacity has a lag: today's spending is tomorrow's supply. The same figure means opposite things depending on which point of the timeline you're standing on.
+
+The more useful reading I took from this episode is: *look at which layer is expanding*. Board makers expand fast, equipment and drill bit makers can't keep up, so all that money does is push the bottleneck one step upstream. When layers of a chain expand at different speeds, the slowest one sets the pace — and decides how long it takes for that capex to become actual output.
+
+### "There are so many spec upgrades in the news — which ones actually happen?"
+
+The contrast between quartz fabric and copper foil stayed with me. Both are upgrade paths. One has been discussed for a year and is still in small trial volumes; the other is already standard for the next generation. The difference isn't which technology is more impressive. It's how hard it is to work with and how much it costs. Quartz is stuck on machining difficulty and price; foil is the opposite, so the industry naturally walks the foil path first.
+
+That gives me an order of questions. When a new material or spec is supposedly coming, don't start with how advanced it is. Start with: does it blow up the cost structure, can yields hold, will the customer swallow the price gap? Technically feasible and commercially happening are often years apart — and markets tend to price all of those years in at once.
+
+## Worth a look
+
+- *Anchor Industry Notes*, the 28 April 2026 episode with analyst Leo on PCB and upstream materials, about 21 minutes, on the usual podcast platforms
+- Investor decks and annual capex disclosures from the board and material makers — the expansion figures here are all in public filings, and checking them yourself beats memorising a conclusion
+- Public statements from upstream suppliers like Nittobo and Mitsui Kinzoku, which are the first-hand material for judging whether announced expansions actually arrive
+
+## The one thing to take away
+
+The pace of a chain is set by its slowest segment, and that segment usually isn't the most expensive, most famous or most talked-about one. In this episode the priciest material is quartz fabric and the most-discussed is copper foil, but what's actually jamming things is a glass fabric called Low CTE and a batch of drill bits with long lead times.
+
+Here's something I've tried that you're welcome to borrow. Pick one thing in your life that feels stuck — it doesn't have to be an investment. The application form you still haven't sent in. The home repair that's been dragging for six months. The project at work that has had five meetings and no progress. Take a sheet of paper and write down every stage it has to pass through, and next to each one write how long that stage actually takes. You'll find nearly all the total time sits in one or two of them. Then, this week, do something about only those one or two, and leave the rest alone.
