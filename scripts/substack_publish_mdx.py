@@ -130,6 +130,17 @@ def append_quote(post, lines, poem):
     post.draft_body.setdefault('content', []).append(node_blockquote(paras))
 
 
+
+def add_image_block(post, url, alt=''):
+    """獨立的圖片區塊（Substack 編輯器的 captionedImage 節點），公開頁才會畫出來。"""
+    post.draft_body.setdefault('content', []).append({'type': 'captionedImage', 'content': [{
+        'type': 'image2',
+        'attrs': {'src': url, 'fullscreen': False, 'imageSize': 'normal',
+                  'height': 819, 'width': 1456, 'resizeWidth': 728,
+                  'bytes': None, 'alt': alt or None, 'title': None, 'type': None,
+                  'href': None, 'belowTheFold': False, 'internalRedirect': None}}]})
+
+
 def fill_post(post, body, paywall_k, upload_image=None):
     """把 mdx 正文填進 Post。回傳實際插入的 paywall H2 序號（沒插則 None）。"""
     lines, i = body.split('\n'), 0
@@ -155,12 +166,7 @@ def fill_post(post, body, paywall_k, upload_image=None):
                     if url:
                         # 套件的 captioned_image 是把圖塞進「前一個節點」的 content；本文開頭沒有前一個節點，
                         # 直接放一個獨立的 captionedImage 區塊（Substack 編輯器自己的節點型別）
-                        post.draft_body.setdefault('content', []).append({'type': 'captionedImage', 'content': [{
-                            'type': 'image2',
-                            'attrs': {'src': url, 'fullscreen': False, 'imageSize': 'normal',
-                                      'height': 819, 'width': 1456, 'resizeWidth': 728,
-                                      'bytes': None, 'alt': alt or None, 'title': None, 'type': None,
-                                      'href': None, 'belowTheFold': False, 'internalRedirect': None}}]})
+                        add_image_block(post, url, alt)
             elif upload_image is None:
                 print('⚠️ 跳過內文圖（未提供上傳函式）：' + src)
             else:
@@ -168,7 +174,10 @@ def fill_post(post, body, paywall_k, upload_image=None):
                 alt = m_img.group(1) if m_img else ''
                 url = upload_image(src)
                 if url:
-                    post.captioned_image(src=url, alt=alt or None)
+                    # 2026-09-03 實測：套件的 captioned_image 會把 image2 塞進「前一個段落」裡，
+                    # 編輯器看得到、公開頁卻不畫（文章頁只剩空白）。正確結構＝獨立的 captionedImage 區塊，
+                    # 跟封面同一種寫法。
+                    add_image_block(post, url, alt)
                 else:
                     print('⚠️ 內文圖上傳失敗，略過：' + src)
             i += 1
