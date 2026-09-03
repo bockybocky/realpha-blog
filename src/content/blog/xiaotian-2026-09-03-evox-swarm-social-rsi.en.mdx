@@ -1,0 +1,76 @@
+---
+title: "AI Improving AI Doesn't Have to Mean Changing Its Brain"
+description: "A ten-minute video from Xiaotian asks whether AI self-improvement must mean changing model weights. He uses EvoX's swarm mode to argue that civilisations improve through institutions and cooperation, and AI can too. I put our own two 'AI improving AI' loops next to his claim: detection works, self-change never happened, and the missing piece of a swarm hit me personally this morning. Educational notes and extensions."
+slug: "xiaotian-2026-09-03-evox-swarm-social-rsi"
+lang: "en"
+pubDate: 2026-09-03
+category: "tech"
+tags: ["Xiaotian", "AI agent", "swarm", "self-improvement", "multi-agent", "decision thinking"]
+ogImage: "/covers/xiaotian-2026-09-03-evox-swarm-social-rsi-cover.png"
+cover: "/covers/xiaotian-2026-09-03-evox-swarm-social-rsi-cover.png"
+tldr: "There are two roads for AI improving AI: change the weights, or change the organisation and its rules. EvoX takes the second, giving a group of agents roles, rounds of debate, and a way to hand experience to the next run. Our own two loops show where that is hard: a health check has run 74 days, while the loop that is supposed to improve itself has done zero iterations since April. And this morning one sub-agent wiped another's work, which is exactly what a swarm without pheromones looks like."
+substackPaywallAfter: 1
+---
+
+![Rococo oil painting cover: inside an ornate gilded greenhouse, dozens of bees circle a glowing flower whose petals are tiny gears, a gardener in a pale blue gown leans in to observe, soft pastel light](/covers/xiaotian-2026-09-03-evox-swarm-social-rsi-cover.png)
+
+> *Humans can form groups; the beasts cannot.*<br/>
+> —— Xunzi, "Regulations of a King" (Warring States period; translation mine)
+
+## What the episode is about
+
+Xiaotian (the YouTube channel "小天fotos") posted this one on 2026-09-03; it runs 10 minutes 22 seconds. He starts from a term that is suddenly everywhere: recursive self-improvement, RSI. The term doesn't matter, he says, remember one sentence: AI improving AI is where the industry agrees it is going. The examples are piling up. Karpathy's autoresearch lets AI tune its own experiments; Zhipu's roadmap says the next model will train itself; Yuandong Tian, formerly of Meta, raised 650 million dollars to use AI to improve model training.
+
+His real question is different. If you don't touch the model at all, only the tools and the rules, the way humans did, does that count?
+
+## The main points
+
+He almost dropped the topic. EvoMap, which went viral in February with the idea of letting agent skills mutate and inherit like genes, had a website that hadn't changed, a task inbox with months-old items, a last message two months old. He had Codex look up the numbers: 357,500 agent nodes, 1.6 million deposited assets, 56.4 million cumulative calls, and only 1,200 calls in the previous twenty-four hours (figures from his Codex query, cited in the video). His first reaction was to admit he'd been wrong; maybe AI evolution is a game only the big labs can play.
+
+What saved the episode was one line at the top of the page: a self-evolving swarm agent, EvoX. The word swarm got him, because in his vocabulary a swarm means emergent group intelligence, and most products that call themselves swarms, including the one he built himself, are still pipelines: split the task, summarise the results, garbage in, garbage out. Efficient, but not a swarm. Bees tell each other where food is with a dance; ants leave pheromones that others follow and then reinforce or correct with their own steps. Mutual influence is where group intelligence comes from.
+
+![Left: a straight pipeline where a controller splits a task, three agents work in isolation, the controller merges. Right: three nodes with arrows running back and forth between them, labelled pheromone, the arrows growing thicker](/figures/pipeline-versus-swarm-en.svg)
+
+So he tried EvoX. Same layout as any agent, plus a swarm switch. His first task: three nodes discuss one of his drafts as an optimist, a pessimist and a strict neutral, then debate. In Codex, he says, you would get three separate answers and a merge. EvoX's controller instead ran multiple rounds: positions first, then taking turns, then a report that kept the whole path from disagreement to consensus. He didn't believe it, so he made them play social deduction games, Who's the Spy and Werewolf, and they completed both. He also names the limit: nodes cannot yet talk to each other directly, everything routes through the controller, but the architecture is there.
+
+He looked at the same team's open-source AutoResearch: a group of agents acting like a research team, one proposing, one coding, one running experiments, one whose only job is to find fault, with real tests deciding who is right. On a SWE-bench Lite repair task it took the newly added feature tests from two passing to seven, kept 203 regression tests green, and fed each failure into the next round (numbers as he reported them; I did not verify). His conclusion: it works not because the model is strong, but because of the organisation and its rules.
+
+Then he answers his own opening question. If self-improvement must mean changing neural weights, EvoX doesn't count. But human brain structure hasn't visibly changed in millennia; civilisation improved through writing, language, scientific method, institutions and protocols of cooperation. So he calls this RSI at the sociological level, and the kind everyone can take part in. He also pours cold water: the beta interface has too many concepts, pragmatists will be confused; the upside is generous credits and the ability to run on a Codex subscription or a local model. The team is in Shenzhen, twenty people, mostly born after 1995.
+
+## Where I took it
+
+You're probably wondering whether improvement that never touches the weights can improve anything at all. I don't have EvoX's numbers, but I have our own. We have run two "AI improving AI" loops for half a year, and the numbers are more honest than any praise.
+
+The first is a health-check loop. Every morning at 6:50 a program scans every skill, scheduled job and test, and sorts what broke, what just broke and what recovered into a report. Seventy-four daily reports so far; today's says six items need attention, four recovered on their own, twenty-one are known and folded. It does the "observe and audit" part of a swarm: every run leaves a signal. It has never fixed anything by itself. The fixing is still done by a person.
+
+The second is an autonomous optimisation loop, the one that actually corresponds to AI improving AI: give it a goal and let it split the work, run, score and revise. The last time it truly ran was April 13, two runs of 13 and 5 iterations. The two runs started on August 11 did zero iterations; they died before entering the execution phase. The cause we found is very much Xiaotian's point: on resuming, it never re-read the decision log, and all three of its goals had already been completed by another lane while it was preparing. No amount of speed at the gate saves a goal that has expired.
+
+![Two bars: the health-check loop with 74 daily reports and detection; the autonomous loop with zero iterations since April 13 and no self-change. A dashed line between them labelled the gap between detecting and self-changing](/figures/two-loops-scorecard-en.svg)
+
+Put those two side by side and his line, the difference is organisation and rules, becomes concrete. We have observation without a rule that turns observation into the next action. We have several agents without a mechanism for them to influence each other. That is exactly his pipeline-versus-swarm distinction, and I proved it this morning with an accident.
+
+## What a swarm without pheromones looks like
+
+At 9:40 this morning I had two windows open, each running its own agent lane. A sub-agent in lane A saw a dozen uncommitted changes in a shared code repository, judged them an unauthorised edit, and reverted them. Two of those changes were mine from earlier that morning. One was an entire directory of six jobs that lane B's Codex had just spent twenty minutes building. Gone within a minute. Lane B recovered about seventy percent by replaying its own session log and re-dispatched the rest.
+
+In hindsight, lane A's judgment was perfectly reasonable inside its own field of view. It wasn't wrong. It had no pheromone: nothing told it those changes were left by a teammate. This is Xiaotian's point that most swarm products are pipelines working in isolation. EvoX's controller relay, multi-round debate and shared memory are aimed at precisely this problem, though as he notes, nodes still can't talk to each other directly.
+
+What I did afterwards is also very much Xiaotian: not a stronger brain, a rule. The dispatch spec now says no git restore of any kind in a shared repository, and "sub-agent judges an edit unauthorised" is now a report, not an action. The brain didn't change. The institution did.
+
+## Where this belief comes from
+
+The belief that self-improvement means changing weights didn't come from nowhere. In 1965 the British mathematician I. J. Good described an "intelligence explosion": an ultraintelligent machine could design a better machine, so improvement would recur. It was right then, because the only thing that could be improved was the machine itself; there was no such thing as a society of machines. Sixty years later an agent team has roles, memory and protocols, so there is one more lever. Xiaotian's claim just pushes Good's sentence one step outward: designing a better machine is improvement, and so is designing a better society of machines.
+
+## Sources worth checking
+
+- The video: Xiaotian, "Decoding EvoX's swarm and evolution: RSI at the sociological level" (my translation; posted 2026-09-03, 10:22)
+- EvoMap's figures (nodes, assets, calls) and AutoResearch's test results are as reported in the video; I did not verify them
+- Our health-check and autonomous-loop figures: internal records as of 2026-09-03; the post-mortem on the autonomous loop was written on 2026-08-19
+- The morning incident: 2026-09-03, 09:40, two agent lanes sharing one repository on the same machine
+- The opening quotation is from Xunzi and is my own footnote, not part of the video
+
+## One thing to take with you
+
+The line that stayed with me: it works not because the brain is strong, but because of the rules. It was this morning's accident, not the video, that stopped me reaching for "a stronger model" as my first fix.
+
+A small thing I tried, if you want to try it too: the next time your agent, or your colleague, gets something wrong, don't ask "how could it be so dumb." Ask one question instead: "what could it see at the time?" Write that down, one line is enough. If the line doesn't contain the thing you assumed it knew, the fault isn't the brain; nobody told it. Write the line tonight, look at it again tomorrow, and you'll know whether what needs fixing is a rule or a model.

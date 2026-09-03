@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-label="兩條橫條：健檢迴圈 74 份日報、有偵測；自主優化迴圈自四月十三日起 0 次迭代、無自改。中間一道虛線標著偵測到自改之間的距離">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t    { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .lab  { font-size: 19px; font-weight: 700; fill: var(--ink); }
+    .sub  { font-size: 16px; fill: var(--dim); }
+    .big  { font-size: 30px; font-weight: 700; fill: var(--page); }
+    .bigW { font-size: 30px; font-weight: 700; fill: var(--warn); }
+    .tag  { font-size: 16px; font-weight: 700; fill: var(--warn); }
+  </style>
+  <rect x="0" y="0" width="960" height="400" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">我們自家兩條「AI 改 AI」迴圈，截至 2026-09-03</text>
+
+    <!-- 第一條：健檢 -->
+    <text x="80" y="110" class="lab">健檢迴圈（每天 06:50）</text>
+    <rect x="80" y="122" width="800" height="52" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <rect x="80" y="122" width="800" height="52" fill="var(--accent)"/>
+    <text x="480" y="158" class="big" text-anchor="middle">74 份日報，每天都有偵測</text>
+    <text x="80" y="200" class="sub">今天：6 件要處理、4 件自己復原、21 件已知折疊。修的人還是人。</text>
+
+    <!-- 第二條：自主優化 -->
+    <text x="80" y="256" class="lab">自主優化迴圈（真正的 AI 改 AI）</text>
+    <rect x="80" y="268" width="800" height="52" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <rect x="80" y="268" width="24" height="52" fill="var(--warn)"/>
+    <text x="500" y="304" class="bigW" text-anchor="middle">4 月 13 日後 0 次迭代</text>
+    <text x="80" y="346" class="sub">四月兩次各跑 13 輪與 5 輪；八月兩次死在進入執行之前，死因＝目標已被別條線做完。</text>
+
+    <!-- 距離標記 -->
+    <line x1="920" y1="148" x2="920" y2="294" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+    <text x="912" y="226" class="tag" text-anchor="end">偵測 → 自改</text>
+    <text x="912" y="246" class="tag" text-anchor="end">中間缺的是規則</text>
+  </g>
+</svg>

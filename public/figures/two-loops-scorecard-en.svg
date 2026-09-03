@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-label="Two bars: the health-check loop with 74 daily reports and detection; the autonomous loop with zero iterations since April 13 and no self-change; a dashed line marks the gap between detecting and self-changing">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t    { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .lab  { font-size: 19px; font-weight: 700; fill: var(--ink); }
+    .sub  { font-size: 16px; fill: var(--dim); }
+    .big  { font-size: 30px; font-weight: 700; fill: var(--page); }
+    .bigW { font-size: 30px; font-weight: 700; fill: var(--warn); }
+    .tag  { font-size: 16px; font-weight: 700; fill: var(--warn); }
+  </style>
+  <rect x="0" y="0" width="960" height="400" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">Our two "AI improving AI" loops, as of 2026-09-03</text>
+
+    <!-- 第一條：健檢 -->
+    <text x="80" y="110" class="lab">Health-check loop (daily 06:50)</text>
+    <rect x="80" y="122" width="800" height="52" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <rect x="80" y="122" width="800" height="52" fill="var(--accent)"/>
+    <text x="480" y="158" class="big" text-anchor="middle">74 daily reports, detection every day</text>
+    <text x="80" y="200" class="sub">Today: 6 to handle, 4 recovered on their own, 21 known and folded. A human still does the fixing.</text>
+
+    <!-- 第二條：自主優化 -->
+    <text x="80" y="256" class="lab">Autonomous optimisation loop (the real AI-improves-AI)</text>
+    <rect x="80" y="268" width="800" height="52" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <rect x="80" y="268" width="24" height="52" fill="var(--warn)"/>
+    <text x="500" y="304" class="bigW" text-anchor="middle">0 iterations since April 13</text>
+    <text x="80" y="346" class="sub">April: two runs, 13 and 5 iterations. August: two runs died before execution; the goals had been done by another lane.</text>
+
+    <!-- 距離標記 -->
+    <line x1="920" y1="148" x2="920" y2="294" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+    <text x="912" y="226" class="tag" text-anchor="end">detect → self-change</text>
+    <text x="912" y="246" class="tag" text-anchor="end">what is missing is a rule</text>
+  </g>
+</svg>
