@@ -404,7 +404,9 @@ def build_post(api, slug):
     k, src = find_paywall_k(slug, body)
     if k is None:
         print('⚠️ 找不到「延伸想法」／Where I took it，不插付費牆')
-    post = Post(title, subtitle, api.get_user_id(), audience='everyone')
+    # 2026-09-03 實測：Substack 規定「有付費牆的文 audience 必須是 only_paid」（設 everyone 發布時回 400）；
+    # only_paid＋牆＝牆上免費預覽、牆下付費，正是乙案要的；沒牆的文才用 everyone。
+    post = Post(title, subtitle, api.get_user_id(), audience='only_paid' if k is not None else 'everyone')
     inserted = fill_post(post, body, k, upload_image=make_uploader(api))
     if fm.get('category') == 'investing':
         post.paragraph([{'content': DISCLAIMER, 'marks': [{'type': 'em'}]}])
