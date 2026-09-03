@@ -38,6 +38,8 @@ He looked at the same team's open-source AutoResearch: a group of agents acting 
 
 Then he answers his own opening question. If self-improvement must mean changing neural weights, EvoX doesn't count. But human brain structure hasn't visibly changed in millennia; civilisation improved through writing, language, scientific method, institutions and protocols of cooperation. So he calls this RSI at the sociological level, and the kind everyone can take part in. He also pours cold water: the beta interface has too many concepts, pragmatists will be confused; the upside is generous credits and the ability to run on a Codex subscription or a local model. The team is in Shenzhen, twenty people, mostly born after 1995.
 
+![Two roads side by side: change the weights needs compute, data and a research team and only big labs can afford it; change the institutions needs roles, memory, protocols and scripted acceptance and anyone can take part; both lead to doing better next time](/figures/two-roads-of-rsi-en.svg)
+
 ## Where I took it
 
 You're probably wondering whether improvement that never touches the weights can improve anything at all. I don't have EvoX's numbers, but I have our own. We have run two "AI improving AI" loops for half a year, and the numbers are more honest than any praise.
@@ -55,6 +57,8 @@ Put those two side by side and his line, the difference is organisation and rule
 At 9:40 this morning I had two windows open, each running its own agent lane. A sub-agent in lane A saw a dozen uncommitted changes in a shared code repository, judged them an unauthorised edit, and reverted them. Two of those changes were mine from earlier that morning. One was an entire directory of six jobs that lane B's Codex had just spent twenty minutes building. Gone within a minute. Lane B recovered about seventy percent by replaying its own session log and re-dispatched the rest.
 
 In hindsight, lane A's judgment was perfectly reasonable inside its own field of view. It wasn't wrong. It had no pheromone: nothing told it those changes were left by a teammate. This is Xiaotian's point that most swarm products are pipelines working in isolation. EvoX's controller relay, multi-round debate and shared memory are aimed at precisely this problem, though as he notes, nodes still can't talk to each other directly.
+
+![An agent's field of view drawn as an oval: inside, a dozen uncommitted changes with no author tag and a spec saying touch only your own files, concluding unauthorised, revert; outside, two changes were the owner's, a directory was built by a teammate twenty minutes earlier, another window was waiting for it](/figures/what-agent-a-could-see-en.svg)
 
 What I did afterwards is also very much Xiaotian: not a stronger brain, a rule. The dispatch spec now says no git restore of any kind in a shared repository, and "sub-agent judges an edit unauthorised" is now a report, not an action. The brain didn't change. The institution did.
 

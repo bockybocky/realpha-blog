@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="Two roads side by side: on the left, change the weights, needing compute, data and a research team, affordable only to big labs; on the right, change the institutions, needing roles, memory, protocols and scripted acceptance, open to everyone; both lead to the same end: do better next time">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t    { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .head { font-size: 21px; font-weight: 700; fill: var(--ink); }
+    .headA{ font-size: 21px; font-weight: 700; fill: var(--accent); }
+    .row  { font-size: 17px; fill: var(--ink); }
+    .dim  { font-size: 16px; fill: var(--dim); }
+    .tag  { font-size: 16px; font-weight: 700; fill: var(--page); }
+    .end  { font-size: 19px; font-weight: 700; fill: var(--ink); }
+  </style>
+  <defs>
+    <marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--grey)"/></marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="420" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">Two roads for AI improving AI: same destination, different ticket</text>
+
+    <!-- 左：改權重 -->
+    <rect x="70" y="80" width="380" height="240" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text x="260" y="114" class="head" text-anchor="middle">Change the weights (the brain)</text>
+    <text x="95" y="156" class="row">Who: Karpathy, Zhipu, Yuandong Tian</text>
+    <text x="95" y="188" class="row">What: the model itself, how it trains</text>
+    <text x="95" y="220" class="row">Needs: compute, data, a research team</text>
+    <rect x="95" y="250" width="200" height="34" rx="6" fill="var(--grey)"/>
+    <text x="195" y="273" class="tag" text-anchor="middle">Only big labs can afford it</text>
+
+    <!-- 右：改制度 -->
+    <rect x="510" y="80" width="380" height="240" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+    <text x="700" y="114" class="headA" text-anchor="middle">Change the institutions (rules)</text>
+    <text x="535" y="156" class="row">Who: EvoX, AutoResearch, you and me</text>
+    <text x="535" y="188" class="row">What: roles, memory, protocols, acceptance</text>
+    <text x="535" y="220" class="row">Needs: clear rules, acceptance as a script</text>
+    <rect x="535" y="250" width="200" height="34" rx="6" fill="var(--accent)"/>
+    <text x="635" y="273" class="tag" text-anchor="middle">Anyone can take part</text>
+
+    <!-- 匯流到終點 -->
+    <line x1="260" y1="322" x2="440" y2="372" stroke="var(--grey)" stroke-width="2" marker-end="url(#ar2)"/>
+    <line x1="700" y1="322" x2="520" y2="372" stroke="var(--grey)" stroke-width="2" marker-end="url(#ar2)"/>
+    <rect x="380" y="368" width="200" height="38" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text x="480" y="393" class="end" text-anchor="middle">Do better next time</text>
+  </g>
+</svg>

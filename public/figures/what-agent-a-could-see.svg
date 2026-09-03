@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="一個代理的視野畫成一個圓框：框內看得到「十幾個未提交改動」「沒有作者標記」，框外看不到「兩支是主人早上改的」「六個工作是同伴二十分鐘前建的」；框內的結論寫著「越權，還原」">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t    { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .head { font-size: 20px; font-weight: 700; fill: var(--accent); }
+    .headW{ font-size: 20px; font-weight: 700; fill: var(--warn); }
+    .row  { font-size: 17px; fill: var(--ink); }
+    .out  { font-size: 17px; fill: var(--dim); }
+    .tag  { font-size: 18px; font-weight: 700; fill: var(--page); }
+    .sub  { font-size: 16px; fill: var(--dim); }
+  </style>
+  <rect x="0" y="0" width="960" height="420" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">09:40 那個代理當時看得到什麼</text>
+
+    <!-- 視野框 -->
+    <ellipse cx="330" cy="225" rx="250" ry="140" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+    <text x="330" y="118" class="head" text-anchor="middle">它的視野裡</text>
+    <text x="130" y="170" class="row">・共用倉庫有十幾個未提交的改動</text>
+    <text x="130" y="202" class="row">・改動上沒有任何作者標記</text>
+    <text x="130" y="234" class="row">・派工規格寫：只准改自己的檔</text>
+    <rect x="200" y="272" width="260" height="38" rx="8" fill="var(--warn)"/>
+    <text x="330" y="298" class="tag" text-anchor="middle">結論：越權改檔，還原</text>
+    <text x="330" y="340" class="sub" text-anchor="middle">在這個框裡，這個結論完全合理</text>
+
+    <!-- 視野外 -->
+    <text x="620" y="118" class="headW">它的視野外</text>
+    <text x="620" y="170" class="out">・兩支改動是主人早上剛改的</text>
+    <text x="620" y="202" class="out">・一整個目錄是同伴二十分鐘前建的</text>
+    <text x="620" y="234" class="out">・另一個視窗正在等那個目錄</text>
+    <line x1="600" y1="255" x2="900" y2="255" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+    <text x="620" y="290" class="sub">錯的不是腦子，是沒有任何訊號</text>
+    <text x="620" y="314" class="sub">把框外的三件事送進框內。</text>
+    <text x="620" y="360" class="sub">修法＝加一條規則，不是換一顆腦子</text>
+  </g>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="An agent's field of view drawn as an oval: inside it sees a dozen uncommitted changes with no author tag and a spec saying only touch your own files; outside it cannot see that two changes were the owner's and a directory was built by a teammate twenty minutes earlier; the conclusion inside reads unauthorised, revert">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t    { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .head { font-size: 20px; font-weight: 700; fill: var(--accent); }
+    .headW{ font-size: 20px; font-weight: 700; fill: var(--warn); }
+    .row  { font-size: 17px; fill: var(--ink); }
+    .out  { font-size: 17px; fill: var(--dim); }
+    .tag  { font-size: 18px; font-weight: 700; fill: var(--page); }
+    .sub  { font-size: 16px; fill: var(--dim); }
+  </style>
+  <rect x="0" y="0" width="960" height="420" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="44" class="h1" text-anchor="middle">What the 09:40 agent could see at the time</text>
+
+    <!-- 視野框 -->
+    <ellipse cx="330" cy="225" rx="250" ry="140" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+    <text x="330" y="118" class="head" text-anchor="middle">Inside its view</text>
+    <text x="130" y="170" class="row">- a dozen uncommitted changes in the shared repo</text>
+    <text x="130" y="202" class="row">- no author tag on any of them</text>
+    <text x="130" y="234" class="row">- the spec says: touch only your own files</text>
+    <rect x="160" y="272" width="340" height="38" rx="8" fill="var(--warn)"/>
+    <text x="330" y="298" class="tag" text-anchor="middle">Conclusion: unauthorised, revert</text>
+    <text x="330" y="340" class="sub" text-anchor="middle">Inside this frame the conclusion is sound</text>
+
+    <!-- 視野外 -->
+    <text x="620" y="118" class="headW">Outside its view</text>
+    <text x="620" y="170" class="out">- two were the owner's own edits</text>
+    <text x="620" y="202" class="out">- a directory a teammate built 20 min ago</text>
+    <text x="620" y="234" class="out">- another window was waiting on it</text>
+    <line x1="600" y1="255" x2="900" y2="255" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+    <text x="620" y="290" class="sub">Not a brain failure: no signal carried</text>
+    <text x="620" y="314" class="sub">the three outside facts into the frame.</text>
+    <text x="620" y="360" class="sub">Fix = add a rule, not swap the brain</text>
+  </g>
+</svg>
