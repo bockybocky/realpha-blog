@@ -10,6 +10,7 @@ ogImage: "/covers/lunchuizhe-2026-09-01-can-you-still-buy-it-cover.png"
 cover: "/covers/lunchuizhe-2026-09-01-can-you-still-buy-it-cover.png"
 tldr: "OpenAI isn't buying Macs for compute. It's buying them so its agents can learn the software humans actually use. From that one news item the host argues shortages are here for years, so stop waiting for a discount. Apple's July call and memory contract prices back the supply story. But every memory shortage has been called structural, so I turned his forecast into something you can check yourself."
 
+substackPaywallAfter: 1
 ---
 
 ![Surrealist oil painting cover: an empty Apple store with a single small desktop left on the shelf, its shadow stretching into a full row of server racks that runs out the door into the clouds; the sky is daytime, the floor is night](/covers/lunchuizhe-2026-09-01-can-you-still-buy-it-cover.png)
@@ -23,9 +24,13 @@ Lunchuizhe (a Chinese-language YouTube channel; the name means "the hammer-swing
 
 The trigger was a news story. On August 31, The Information reported that OpenAI had bought tens of thousands of Mac minis and Mac Studios over the past few months and was pressing Apple to ship faster. The whole episode is him working through one puzzle: why would a company that builds models want that many desktop computers?
 
+![A staircase going up, one step per month: June Apple price hike, July earnings call warns of tight supply, August OpenAI buys Macs; a dashed empty step at the top holds a question mark](/figures/three-steps-to-shortage-en.svg)
+
 ## The main points
 
 The answer isn't compute. It's the mouse. He argues OpenAI is using the machines to train AI to operate graphical software: how a human clicks through a spreadsheet, how a human drags things around in a drawing program. Today's AI agents mostly live in the command line. You hand one a task and it ends up driving your system through scripts. He doesn't dispute that the command line is the most efficient endpoint; he even calls the graphical interface a stopgap that only exists to make computers usable for people. But the stopgap will last a long time, and a whole ecosystem depends on it: industrial CAD, 3D modelling, video editing, colour grading. His own example: his videos are essentially slide decks, and an AI cutting them by script gets him about eighty percent of the way. The remaining twenty is what decides whether the video is any good, and only direct control of the editing software gets you there. He calls this a transitional need, but a real one, and not a small market.
+
+![Two bars: a script-driven agent fills 80 percent of a video edit; the remaining 20 percent, the part that decides quality, is only reachable by driving the editor directly](/figures/eighty-twenty-editing-en.svg)
 
 Why Apple, then, and not cheap second-hand PCs? Cost structure, he says. In the United States, labour, power and floor space are all expensive. Whatever you save buying old machines gets eaten by maintenance, so a large company buys the newest and fastest and racks them by the thousand. And Apple's operating system sits on both sides at once: Unix underneath, with a full command line, and on top the most complete catalogue of professional software anywhere, because the big vendors know Mac users pay.
 
@@ -39,7 +44,6 @@ After the episode you probably have two questions. Should I buy now? And is the 
 
 Start with supply. On Apple's earnings call on July 30, Tim Cook called memory pricing "a 100-year flood," said he'd seen nothing like it in more than forty years, that the June price increases on Macs and iPads were reluctant, and that Apple was "seeing some very significant constraints currently, with limited flexibility in the supply chain," with a quarter coming where Apple would be "scrambling on the supply side." That quarter is this one. He said all of that a month before the OpenAI story broke. So the shortage Lunchuizhe describes was acknowledged by Apple itself a month earlier, and OpenAI's orders landed on top of a supply chain that was already tight.
 
-![A staircase going up, one step per month: June Apple price hike, July earnings call warns of tight supply, August OpenAI buys Macs; a dashed empty step at the top holds a question mark](/figures/three-steps-to-shortage-en.svg)
 
 Now the numbers we worked out ourselves. When I mapped the device-side memory supply chain at the end of July, a few figures stood out: the contract price of a 12 GB low-power memory part rose 89% quarter on quarter in Q2 2026, from 77 to 146 dollars; lead times for advanced memory stretched to 40–58 weeks; and the three memory makers had moved roughly seventy percent of their advanced capacity to high-bandwidth memory for data centres. Micron's own investor material is blunter still: one unit of high-bandwidth memory consumes about the wafer area of three units of ordinary memory, and its new fab won't produce before mid-2027 (figures as of 2026-07-28; sources at the end). Put those three together and you have the skeleton of his line about shortages taking years to ease. The capacity was moved. Moving it back takes a year and a half. And every wafer moved to the data centre yields a third as much.
 
@@ -58,6 +62,8 @@ One more thing deserves its own paragraph. This episode is really arguing agains
 ## What it means if you invest
 
 If you hold memory stocks or Apple, the episode doesn't give you a buy or sell signal. It gives you a way to tell two readings apart. The same news item can be read as a demand story (AI companies want even desktop computers, so hardware demand is unbounded) or as an allocation story (demand was already there; what changed is who gets served first). Lunchuizhe's reasoning is the second kind, and I think it stands up better, because the first requires proving demand is unbounded while the second only requires proving capacity is bounded, and bounded capacity comes with hard numbers you can look up: lead times, wafer ratios.
+
+![Two columns comparing readings of the same news: the demand reading needs unbounded demand and has no expiry date; the allocation reading needs bounded capacity, has hard numbers, and expires when new fabs arrive](/figures/two-readings-expiry-en.svg)
 
 The allocation reading has one advantage: it comes with an expiry date. The day new capacity arrives, the allocation power loosens. You don't have to guess when a bubble pops. You only have to remember Micron's fab schedule and come back that month to see whether contract prices have turned.
 

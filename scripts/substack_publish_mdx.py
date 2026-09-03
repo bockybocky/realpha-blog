@@ -245,6 +245,18 @@ def load_article(slug):
     return fm, body, fm.get('title', ''), subtitle
 
 
+
+def paywall_k_for(fm, slug, body):
+    """牆的位置（0-based H2 序號，牆插在該 H2 前）。
+    優先序：frontmatter `substackPaywallAfter: N`（第 N 節之後免費結束；2026-09-03 Charles「只免費公開第一節」→ 1）
+    → 濃縮稿的 paywall_after_insight → 依 zh「延伸想法」對應序號（乙案舊預設）。"""
+    for key in ('substackPaywallAfter', 'paywall_after_insight'):
+        v = str(fm.get(key, '')).strip()
+        if v.isdigit():
+            return int(v), key
+    return find_paywall_k(slug, body)
+
+
 def find_cover(slug):
     covers = os.path.join(ROOT, 'public', 'covers')
     names = [slug + '-cover.png', slug + '.png']
@@ -424,11 +436,7 @@ def build_post(api, slug):
     if clipped != (subtitle or '').strip():
         print('⚠️ 副標超過 %d 字，已截斷（原文 %d）' % (SUBTITLE_MAX, len(subtitle.strip())))
     subtitle = clipped
-    if fm.get('_digest') and str(fm.get('paywall_after_insight', '')).strip().isdigit():
-        # 濃縮稿：牆插在第 N 節之後＝第 N+1 個 H2 前（0-based 序號＝N）
-        k, src = int(fm['paywall_after_insight']), 'digest'
-    else:
-        k, src = find_paywall_k(slug, body)
+    k, src = paywall_k_for(fm, slug, body)
     if k is None:
         print('⚠️ 找不到「延伸想法」／Where I took it，不插付費牆')
     # 2026-09-03 實測：Substack 規定「有付費牆的文 audience 必須是 only_paid」（設 everyone 發布時回 400）；
@@ -506,10 +514,7 @@ def cmd_publish(api, slugs):
             rc = 1
             continue
         fm_p, body, _, _ = load_article(slug)
-        if fm_p.get('_digest') and str(fm_p.get('paywall_after_insight', '')).strip().isdigit():
-            k = int(fm_p['paywall_after_insight'])
-        else:
-            k, _ = find_paywall_k(slug, body)
+        k, _ = paywall_k_for(fm_p, slug, body)
         readback = api_try(api.get_draft, draft_id)
         info = inspect_draft(readback)
         if k is not None and info['paywall'] != k:
