@@ -28,7 +28,7 @@ BLOG = 'https://blog.getrealpha.com'
 
 # 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
 NON_INVESTMENT = {'local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
-                  'lunchuizhe-2026-08-31-pick-your-model-and-agent', 'tao-2026-08-31-ai-math-drunk-genius', 'runpod-vs-local-gpu-2026-09', 'tao-2026-09-02-coin-game-human-ai-division', 'kelly-tsai-graph-engineering-2026-09', 'lunchuizhe-2026-08-23-no-best-agent-only-right-seat', 'my-creative-path-2026-09', 'fear-of-blowing-up-2026-09',
+                  'lunchuizhe-2026-08-31-pick-your-model-and-agent', 'tao-2026-08-31-ai-math-drunk-genius', 'runpod-vs-local-gpu-2026-09', 'tao-2026-09-02-coin-game-human-ai-division', 'kelly-tsai-graph-engineering-2026-09', 'lunchuizhe-2026-08-23-no-best-agent-only-right-seat', 'my-creative-path-2026-09', 'fear-of-blowing-up-2026-09', 'xiaotian-2026-09-03-evox-swarm-social-rsi',
                   'dont-let-ai-say-no-problem', 'video-memory-without-the-cloud',
                   'aice-ai-engineering-cert-prep', 'aice-must-know-concepts'}
 
@@ -43,6 +43,7 @@ TAGS = {
     'lunchuizhe-2026-08-11-ai-content-factory': ['AI', '創作者經濟', 'YouTube', 'AI內容', '自媒體'],
     'lunchuizhe-2026-08-31-pick-your-model-and-agent': ['AI工具', 'AI agent', '本地AI', 'DeepSeek', '決策思考'],
     'lunchuizhe-2026-09-01-can-you-still-buy-it': ['記憶體', '蘋果', 'AI基礎建設', '供應鏈', '美股'],
+    'xiaotian-2026-09-03-evox-swarm-social-rsi': ['AI agent', '蜂群', '多Agent', 'AI工具', '自我改進'],
     'tao-2026-08-31-ai-math-drunk-genius': ['陶哲軒', 'AI', '數學', '科學方法', '決策思考'],
     'tao-2026-09-02-coin-game-human-ai-division': ['陶哲軒', 'AI', '人機協作', '數學', 'AI工具'],
     'kelly-tsai-graph-engineering-2026-09': ['AI agent', 'Graph Engineering', '多Agent', 'AI工具', 'LangGraph'],
@@ -58,6 +59,12 @@ TAGS = {
     'aice-ai-engineering-cert-prep': ['AI證照', '資策會', 'AICE', '學習方法', '考試準備'],
     'aice-must-know-concepts': ['AI證照', 'AICE', '機器學習', 'AI入門', '學習筆記'],
 }
+
+SUGGESTED_TAGS_PATH = os.path.join(SP, 'vocus_tags_suggested.json')
+try:
+    SUGGESTED_TAGS = json.load(open(SUGGESTED_TAGS_PATH, encoding='utf-8'))
+except (OSError, ValueError):
+    SUGGESTED_TAGS = {}
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
 COVERS = {
@@ -176,7 +183,7 @@ def load_article(slug):
     if len(abstract) > 150:
         abstract = abstract[:147].rstrip('，。、') + '…'
     return {'title': fm['title'], 'abstract': abstract,
-            'tags': TAGS.get(slug, ['投資', '心得']),
+            'tags': TAGS.get(slug, SUGGESTED_TAGS.get(slug, ['投資', '心得'])),
             'blocks': mdx_to_blocks(body)}
 
 
