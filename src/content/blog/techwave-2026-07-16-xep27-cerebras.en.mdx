@@ -1,0 +1,84 @@
+---
+title: "What Is Speed Actually Worth? — Notes on a Tech Wave Episode About Cerebras"
+description: "Starting from one podcast episode's business-side analysis: does the ultra-fast inference market exist, how should we read customer concentration, and why supply-chain numbers are usually a lagging indicator. Educational only, not investment advice; no stock recommendations or price targets."
+slug: "techwave-2026-07-16-xep27-cerebras"
+lang: "en"
+pubDate: 2026-09-03
+category: "investing"
+tags: ["Cerebras", "AI inference", "sovereign AI", "reading the market", "Tech Wave"]
+ogImage: "/covers/techwave-2026-07-16-xep27-cerebras-cover.png"
+cover: "/covers/techwave-2026-07-16-xep27-cerebras-cover.png"
+---
+
+![A very long data center corridor, cold blue racks receding into depth, a single patch of warm light at the far end](/covers/techwave-2026-07-16-xep27-cerebras-cover.png)
+
+> Speed is the essence of war. To strike an enemy a thousand li away burdened with heavy baggage is to arrive too slowly to seize the advantage — and by then he will have heard of you, and prepared.
+> —— Chen Shou, *Records of the Three Kingdoms*, "Biography of Guo Jia" (Western Jin, c. 3rd century; my own translation)
+
+People usually quote this as "fast is good." What Guo Jia actually meant is in the second half: if you want speed, you have to drop the baggage. Speed has never been free — it's always bought with something else. That's the line that came to mind after listening to the July 16, 2026 episode of Tech Wave on the business side of Cerebras.
+
+## What the episode is about
+
+The host, Harry, says the earlier episode covered why Cerebras builds a wafer-scale chip from first principles. This one fills in the other half: what business the company is actually in, and whether it has a future.
+
+He splits it into three questions. Does this market really exist, how big is it, how fast is it growing? Within it, how much can Cerebras take? And if the demand shows up, can they actually build the things? He also says upfront not to expect a pile of precise numbers — the market is so new that for the closest competing approach you can't find a single published benchmark anywhere online. Rather than invent figures nobody can check, he'd rather reason from the technology and from what he's seen markets do.
+
+There's a very human aside in the middle. He has a habit of buying a tiny position in a company *before* researching it, because once you own a piece you're not a bystander and you read more carefully. This time he placed the order while playing League of Legends and fat-fingered ten times the intended share count. Small position or not, he says, a 50% drawdown would hurt now — so he researched this one unusually hard.
+
+## The main points
+
+**The current business is thin.** Before the end of 2025, essentially all revenue came from one customer: Abu Dhabi's sovereign AI ecosystem. (Sovereign AI meaning a country building its own compute capacity to depend less on outsiders.) By Silicon Valley standards that is not a flattering customer list.
+
+**The turn is the OpenAI deal.** A commitment to buy 750MW of inference compute, deployed in stages from 2026 to 2028, plus an option to buy another 1.25GW before the end of 2030. The experimental phase is already live: GPT-5.3 Codex Spark, deployed in March, hit roughly 1,000 tokens per second; the later GPT-5.6 Soul runs around 750.
+
+**The shape of the deal matters more than the size.** OpenAI is buying compute, not machines — it isn't taking hardware home to run itself; it wants Cerebras to stand the capacity up and then sell access. That effectively forces Cerebras to grow a cloud-service business as a side effect. And OpenAI lent them money, because the buildings, cooling and power are heavy capex. A customer willing to lend you money is not the same species as a customer who merely places an order.
+
+**The Amazon deal is currently all shape and no size.** Announced publicly in March, with not a word about dollars or scale. Technically it's disaggregated inference: Trainium handles prefill, chewing through context to compute the KV cache; Cerebras handles decode, emitting tokens one at a time. The division of labour is spelled out; the commercial scale isn't. Investors being unsure whether it turns into anything is a fair reaction.
+
+**Supply-chain numbers are a lagging indicator, not a verdict.** Harry says every time he covers Cerebras, people tell him to stop looking at technology and go look at how many wafers TSMC is booking — barely any, so the story's over. His rebuttal holds up: the market has to value the thing first, demand has to appear first, only then does the company expand capacity, and only then does the supply chain show it. Using the last link in the chain to judge the first link runs the timeline backwards.
+
+**Paying a premium for speed is already proven — just on someone else's hardware.** Over the past year both OpenAI and Anthropic shipped a "fast mode": the identical model, the identical intelligence, roughly six times the price for two to two and a half times the speed. Harry points out those ratios obviously aren't Cerebras — it's batch-size tuning that sacrifices GPU utilization to buy you priority. So it doesn't prove demand for Cerebras specifically. But it proves, very firmly, that people will pay wildly disproportionate money for speed, and that supply hasn't caught up with that demand.
+
+## Going further
+
+### "Someone told me to ignore the tech and look at the orders" — who do I listen to?
+
+This is the part I related to most, because this argument happens constantly: one side tells a story about technology, the other slaps down a hard-looking number and says numbers don't lie.
+
+The way I've learned to sort it out is to ask one question: **is this number describing a cause, or recording a result?** Wafer bookings record the outcome of decisions already made. That makes them extremely reliable — reliably about the past. Using them to answer "will demand exist" is using yesterday's shipping manifest to forecast tomorrow's orders.
+
+That doesn't make the technology story the better one, though. Its weakness is that it almost always works — you can construct a plausible "why this architecture wins" for any architecture. So I add a step: **make each side write down the condition that would make them admit they were wrong.** The bull should be able to say "if there's still no second Silicon Valley customer by date X, I was wrong." The bear should be able to say "if supply-chain volume rises for several consecutive quarters, I was wrong." Whichever side can't write that sentence isn't holding a judgment. It's holding a position.
+
+### "Two customers" — is that a risk?
+
+Yes, genuinely, and there's no point softening it. But stopping the sentence there throws away half the information.
+
+Customer concentration comes in two very different flavours. One is "the product isn't selling, so we're clinging to the few buyers we have." The other is "the product just exists, and the pickiest people came to try it first." On the income statement those look identical: revenue concentrated in a handful of names.
+
+Listening to this episode, I came away with three things that help tell them apart. Who arrived first — a random buyer, or the most demanding operator in the field? What shape did they buy in — hardware they take away and run, or a service that requires you to keep supplying them? And did they pay some extra price for it, like lending you the money to build. That third one is interesting because it's nearly impossible to fake: a lender has tied their own P&L to yours.
+
+None of that removes the risk, it only lowers the uncertainty. Concentration is concentration; if that one customer changes their mind the story snaps. My own approach isn't to argue myself out of the risk — it's to let position size be the honest answer to it. Uncertain things get the size uncertain things deserve.
+
+### "Buy a little first so you'll actually do the work" — right, and also dangerous
+
+Harry buys a tiny position before researching, because owning a piece stops you being a bystander. My first reaction was: yes, that's uncomfortably true. Attention really does slacken on things we haven't bet on, and that's not a willpower problem, it's human.
+
+But when I've tried it, there's a side effect: once you own it, your research stops being neutral. You start noticing the supporting evidence, and bad news arrives pre-softened — *it's probably not that bad*. There's a detail in this episode that shows the failure mode: because of the fat-finger, a 50% drawdown would now hurt. And a position that can hurt you is hard to keep out of your judgment.
+
+Where I've landed is: buy, but keep it too small to persuade me. Small enough that selling the whole thing tomorrow would feel like nothing. It buys attention, not conviction. I'm not sure that's the best answer, but it does mean my hand doesn't shake when I write down "I might be wrong about this."
+
+## Worth a look
+
+- The Tech Wave podcast episode from July 16, 2026 (XEP27), on the business case for Cerebras; the technical half is in the earlier EP146.
+- To see why speed is a product dimension of its own in inference, read the fast-mode pricing pages of the major APIs — that's the market's answer, written in actual money.
+- Sovereign AI is worth its own look; it involves national decisions about compute independence, not just commercial demand.
+
+## One thing to take away
+
+**A number being hard doesn't mean it's answering your question.**
+
+What makes the "forget the tech, look at TSMC's orders" argument useful isn't who turns out to be right. It's that it exposed something: we tend to treat a number as an answer simply because it's precise, checkable and hard to dispute — without ever asking which question it answers. Shipment volume tells you exactly what already happened. It just can't tell you what will.
+
+Here's something I've tried, if you want it. This week, pick one number you recently used to persuade someone — or yourself. It doesn't have to be about investing: "tens of thousands of people took this course," "he's been late three times now," "this restaurant is rated 4.8." Next to it, write two lines. First line: what already-happened thing does this number precisely record? Second line: what was I actually trying to use it to answer?
+
+Then read the two lines together. If the first is past tense and the second is future tense, the gap between them is the most fragile part of your judgment.
