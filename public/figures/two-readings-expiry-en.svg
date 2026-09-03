@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-label="Two columns comparing readings of the same news: the demand reading needs unbounded demand and has no expiry date; the allocation reading needs bounded capacity, has hard numbers, and expires when new fabs arrive">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t    { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .head { font-size: 21px; font-weight: 700; fill: var(--ink); }
+    .headA{ font-size: 21px; font-weight: 700; fill: var(--accent); }
+    .row  { font-size: 17px; fill: var(--ink); }
+    .dim  { font-size: 16px; fill: var(--dim); }
+    .tag  { font-size: 16px; font-weight: 700; fill: var(--page); }
+  </style>
+  <rect x="0" y="0" width="960" height="440" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">Same news, two readings. Only one comes with an expiry date.</text>
+
+    <!-- 左欄：需求讀法 -->
+    <rect x="70" y="80" width="390" height="300" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text x="265" y="116" class="head" text-anchor="middle">Demand reading</text>
+    <text x="265" y="142" class="dim" text-anchor="middle">"AI wants everything: demand is unbounded"</text>
+    <text x="95" y="190" class="row">Must prove: demand has no ceiling</text>
+    <text x="95" y="222" class="row">Evidence: headlines, mood</text>
+    <text x="95" y="254" class="row">When it ends: nobody knows</text>
+    <rect x="95" y="300" width="200" height="34" rx="6" fill="var(--grey)"/>
+    <text x="195" y="323" class="tag" text-anchor="middle">No expiry date</text>
+
+    <!-- 右欄：分配讀法 -->
+    <rect x="500" y="80" width="390" height="300" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+    <text x="695" y="116" class="headA" text-anchor="middle">Allocation reading</text>
+    <text x="695" y="142" class="dim" text-anchor="middle">"Demand was there; the queue changed"</text>
+    <text x="525" y="190" class="row">Must prove: capacity is bounded</text>
+    <text x="525" y="222" class="row">Evidence: lead times, wafer ratio 3:1</text>
+    <text x="525" y="254" class="row">When it ends: when new fabs run</text>
+    <rect x="525" y="300" width="260" height="34" rx="6" fill="var(--accent)"/>
+    <text x="655" y="323" class="tag" text-anchor="middle">Expires: Micron fab, mid-2027</text>
+
+    <text x="480" y="415" class="dim" text-anchor="middle">Pick the reading you can check, then mark the date it stops being true.</text>
+  </g>
+</svg>
