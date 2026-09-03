@@ -23,13 +23,14 @@ Xiaotian (the YouTube channel "小天fotos") posted this one on 2026-09-03; it r
 
 His real question is different. If you don't touch the model at all, only the tools and the rules, the way humans did, does that count?
 
+![Left: a straight pipeline where a controller splits a task, three agents work in isolation, the controller merges. Right: three nodes with arrows running back and forth between them, labelled pheromone, the arrows growing thicker](/figures/pipeline-versus-swarm-en.svg)
+
 ## The main points
 
 He almost dropped the topic. EvoMap, which went viral in February with the idea of letting agent skills mutate and inherit like genes, had a website that hadn't changed, a task inbox with months-old items, a last message two months old. He had Codex look up the numbers: 357,500 agent nodes, 1.6 million deposited assets, 56.4 million cumulative calls, and only 1,200 calls in the previous twenty-four hours (figures from his Codex query, cited in the video). His first reaction was to admit he'd been wrong; maybe AI evolution is a game only the big labs can play.
 
 What saved the episode was one line at the top of the page: a self-evolving swarm agent, EvoX. The word swarm got him, because in his vocabulary a swarm means emergent group intelligence, and most products that call themselves swarms, including the one he built himself, are still pipelines: split the task, summarise the results, garbage in, garbage out. Efficient, but not a swarm. Bees tell each other where food is with a dance; ants leave pheromones that others follow and then reinforce or correct with their own steps. Mutual influence is where group intelligence comes from.
 
-![Left: a straight pipeline where a controller splits a task, three agents work in isolation, the controller merges. Right: three nodes with arrows running back and forth between them, labelled pheromone, the arrows growing thicker](/figures/pipeline-versus-swarm-en.svg)
 
 So he tried EvoX. Same layout as any agent, plus a swarm switch. His first task: three nodes discuss one of his drafts as an optimist, a pessimist and a strict neutral, then debate. In Codex, he says, you would get three separate answers and a merge. EvoX's controller instead ran multiple rounds: positions first, then taking turns, then a report that kept the whole path from disagreement to consensus. He didn't believe it, so he made them play social deduction games, Who's the Spy and Werewolf, and they completed both. He also names the limit: nodes cannot yet talk to each other directly, everything routes through the controller, but the architecture is there.
 
