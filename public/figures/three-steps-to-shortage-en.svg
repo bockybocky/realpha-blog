@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="A rising staircase with three steps labelled June Apple price hike, July earnings call warns of tight supply, August OpenAI buys Macs, and an empty top step marked with a question mark">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t    { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1   { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .mon  { font-size: 18px; font-weight: 700; fill: var(--accent); }
+    .lab  { font-size: 19px; font-weight: 700; fill: var(--ink); }
+    .sub  { font-size: 15px; fill: var(--dim); }
+    .q    { font-size: 44px; font-weight: 700; fill: var(--warn); }
+  </style>
+  <rect x="0" y="0" width="960" height="420" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">A shortage is not one event. It is stacked one step at a time.</text>
+
+    <!-- 階梯 -->
+    <rect x="80"  y="300" width="220" height="80" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <rect x="300" y="220" width="220" height="160" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <rect x="520" y="140" width="220" height="240" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <!-- 懸空一格 -->
+    <rect x="740" y="60" width="160" height="80" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 6"/>
+    <text x="820" y="116" class="q" text-anchor="middle">?</text>
+
+    <!-- 第一階 -->
+    <text x="190" y="328" class="mon" text-anchor="middle">June</text>
+    <text x="190" y="355" class="lab" text-anchor="middle">Apple raises Mac, iPad prices</text>
+    <text x="190" y="375" class="sub" text-anchor="middle">Reason: memory costs</text>
+
+    <!-- 第二階 -->
+    <text x="410" y="248" class="mon" text-anchor="middle">July</text>
+    <text x="410" y="275" class="lab" text-anchor="middle">Earnings call: supply is tight</text>
+    <text x="410" y="295" class="sub" text-anchor="middle">"A 100-year flood"</text>
+
+    <!-- 第三階 -->
+    <text x="630" y="168" class="mon" text-anchor="middle">August</text>
+    <text x="630" y="195" class="lab" text-anchor="middle">OpenAI buys tens of thousands of Macs</text>
+    <text x="630" y="215" class="sub" text-anchor="middle">On top of an already tight chain</text>
+
+    <!-- 底線 -->
+    <line x1="60" y1="380" x2="920" y2="380" stroke="var(--grey)" stroke-width="2"/>
+    <text x="820" y="170" class="sub" text-anchor="middle">Whose order is the next step</text>
+  </g>
+</svg>
