@@ -1,0 +1,68 @@
+---
+title: "After the Helicopter Drops You on the Summit: Terence Tao on AI, and the Same Lesson We Learned from 202 Indicators"
+description: "Terence Tao says formal verification can make AI completely honest. Last week we tested that claim with 202 trading-indicator candidates: a star that scored 97.7 in round one died at 59 in round two. AI output alone is not trustworthy; AI plus a gate it cannot talk its way past is."
+slug: "tao-helicopter-honest-ai"
+lang: "en"
+pubDate: 2026-09-03
+category: "investing"
+tags: ["ai", "verification", "research-process"]
+cover: "/covers/tao-helicopter-honest-ai-cover.png"
+ogImage: "/covers/tao-helicopter-honest-ai-cover.png"
+---
+
+![A helicopter parked on a mountain summit while the climber crouches at the cliff edge with his back to it, an unfolded hand-drawn map in his hands, gazing at a footworn trail winding through the valley below](/covers/tao-helicopter-honest-ai-cover.png)
+
+> *A journey of a thousand li begins where you stand; to climb high, start from the low ground.*
+> — Book of Rites, Doctrine of the Mean
+
+One minute before walking on stage, Terence Tao's laptop was still open. The moderator leaned over: are you doing math? Yes, he said — my AI agent just handed me a nineteen-page proof of Sendov's conjecture. Then he closed the laptop and walked out.
+
+This was Stanford, August 2026, a fireside chat at the Asian American Scholar Forum, moderated by the number theorist Ken Ono. Three years ago Tao predicted that by 2026 AI could be a co-author on mathematics papers. Ono asked whether the prediction held up. Tao's answer: "I should have specified the month." In January the claim was still debatable. By August the debate was over.
+
+## The Helicopter and the Hiker
+
+The conversation returned to a metaphor of his. Math problems are like distant landmarks; a mathematician's daily work is the hike toward them. AI is a helicopter that sets you down on the summit.
+
+Two kinds of people sit in that audience. One kind says: isn't that wonderful? The other kind — traditional mathematicians who believe in the beauty and dignity of the craft — feels uneasy.
+
+Tao gave both the same answer: the summit was never the point. Mathematics is the surveying of a land whose geography nobody knows — building paths, drawing maps, sharing progress. That is the work; the summit is a milestone. What AI reveals is that this map holds shortcuts humans never noticed, which makes AI look superhuman. The more accurate word, he suggested, is orthogonal: a way of exploring perpendicular to ours, not an enlarged copy of us.
+
+## Keeping AI Honest
+
+The line I found most valuable came during the education segment. AI error rates have fallen, he said, but they are not zero, so there is a ceiling on how far you can trust it — yet couple AI with formal verification and it becomes "completely honest, and actually useful."
+
+Formal verification is mathematics' own invention: write the proof in a computer language and the machine checks every line, flagging each mistake in red. Tao described it as an extremely fussy teacher looking over your shoulder — and the dopamine when your proof finally compiles is not a figure of speech.
+
+Last week we tested that sentence with real money on the line.
+
+## Two Hundred and Two Candidates, Two Survivors
+
+Our research desk pulled 202 "proven effective" trading-indicator candidates from indicator communities. AI did the hauling and the arithmetic, but every candidate faced two mechanical gates: first an exam on old data from 1994 to 2018, then — for those that passed — a second exam on data from 2019 onward that it had never seen, and the second exam may be taken exactly once (internal validation records, 2026-09-01 to 09-03).
+
+One anchored-average candidate scored 97.7 in round one. Dazzling. Round two fired: 59. Dead. Without the second gate, that impostor would be hanging on our production system today.
+
+The final ledger for all 202: 105 tested and killed, 80 frozen for missing data, 2 alive and integrated.
+
+That is what "keeping AI honest" looks like in investment research. AI output alone is not trustworthy; AI output plus a gate it cannot talk its way past is. What Tao says about mathematics and what we see in the backtest room are the same fact.
+
+## Tokens and Training
+
+Another exchange worth pinning to the wall. A student asked: the world has shifted — is a math PhD still worth it?
+
+Tao's answer had two layers. The first cuts: AI can already generate something that looks like a PhD thesis, hard to distinguish from what a student spends four years writing. The second is the point: the thesis was never the purpose. The thesis is a token; the training is the substance — the ability to absorb difficult material, to synthesize, to ask questions. The outcomes no token can represent are what the degree actually produces.
+
+Investment research has an identical version. A polished, chart-filled analysis report can now be generated by anyone in ten minutes. In an age of counterfeit tokens, readers who cannot tell real from fake turn to the one thing left — the track record of judgment. What you said before the fact, whether the thresholds were locked before the trigger was pulled, whether the corpses were kept when you were wrong. We log all 105 killed candidates one by one not out of masochism, but because of the problem Tao named on stage: AI companies do not publish negative results, so nobody can state where AI's ability ends. Negative results are half of science, and half of trust.
+
+## Where This Conviction Came From
+
+"Machine gates beat human eyes" is not a belief we were born with. It came from a pile of corpses that aced round one and died in round two: besides this week's 97.7 candidate, an earlier regime indicator passed round one across four separate time windows, then failed round two in all of them with its sign flipped (internal records, 2026-09-02). Eyes fall for beautiful backtests. Gates do not.
+
+## Where Even the Helicopter Has No Route
+
+At the end, a tenth-grader asked whether the Collatz conjecture will ever be solved. Tao said: I see no path right now — no existing technique touches it, AI included.
+
+That was the last thing the conversation left me with. AI's map has shortcuts, and it also has places where even AI has no route. Knowing where the helicopter flies, where you must hike, and where not even hiking will take you — telling those three terrains apart may be the most valuable new literacy of this era. In mathematics, and in investing.
+
+---
+
+*Source: Terence Tao × Ken Ono, 2026 Frontier & Pioneer Symposium (Asian American Scholar Forum, 2026-08-20, [YouTube](https://youtu.be/TtOMM8HrT64)). Quotes are paraphrased; validation figures are from Realpha internal research records.*
