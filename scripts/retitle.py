@@ -35,6 +35,42 @@ TOKEN_TOOL = Path.home() / "scripts" / "vocus_token_from_profile.py"
 TITLE_LINE = re.compile(r'^title:\s*".*"\s*$', re.MULTILINE)
 
 
+OG_TITLE = re.compile(r'property="og:title"\s+content="([^"]*)"')
+
+
+def verify_public_page(url: str, expect: str, label: str) -> str:
+    """從讀者實際看到的頁面驗，不是只看後台 API。
+
+    2026-09-04 教訓：改完標題我用後台 GET 讀回就宣布成功，Charles 截圖給我看
+    App 上還是舊的。那次是快取（繞過快取重抓就對了），但**同樣的驗證方式在真的
+    失敗時一樣抓不到**。承「HTTP 200 不是內容正確」與驗收三態制。
+
+    回傳 ok／stale／fail 三態——快取未更新不是失敗，但也不能算通過。
+    """
+
+    import time
+
+    separator = "&" if "?" in url else "?"
+    request = urllib.request.Request(
+        f"{url}{separator}_={int(time.time())}",
+        headers={"User-Agent": "Mozilla/5.0", "Cache-Control": "no-cache", "Pragma": "no-cache"})
+    try:
+        with urllib.request.urlopen(request, timeout=40) as response:
+            html = response.read().decode("utf-8", errors="replace")
+    except Exception as exc:  # noqa: BLE001
+        print(f"  {label} 公開頁讀不到（{type(exc).__name__}）→ 無法判定")
+        return "fail"
+
+    match = OG_TITLE.search(html)
+    shown = match.group(1) if match else "(找不到 og:title)"
+    if expect in shown:
+        print(f"  {label} 公開頁：✅ 已是新標題")
+        return "ok"
+    print(f"  {label} 公開頁：⚠️ 還是舊的 →「{shown[:60]}」")
+    print(f"    後台已改成功時這多半是頁面快取，過一陣子會更新；App 可下拉重新整理。")
+    return "stale"
+
+
 def read_title(path: Path) -> str | None:
     for line in path.read_text(encoding="utf-8").splitlines():
         if line.startswith("title:"):
@@ -211,6 +247,12 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 1
         print("已推送")
 
+    stale: list[str] = []
+    if not args.skip_push:
+        result = verify_public_page(f"https://blog.getrealpha.com/blog/{args.slug}", args.zh, "部落格")
+        if result == "stale":
+            stale.append("部落格")
+
     if not args.skip_vocus and VOCUS_LINKS.exists():
         links = json.loads(VOCUS_LINKS.read_text(encoding="utf-8"))
         article_id = links.get(args.slug)
@@ -221,7 +263,14 @@ def main(argv: Sequence[str] | None = None) -> int:
             if not vocus_retitle(article_id, args.zh, args.apply):
                 print("RETITLE status=FAIL reason=方格子同步失敗（本機與部落格已改）")
                 return 1
+            result = verify_public_page(f"https://vocus.cc/article/{article_id}", args.zh, "方格子")
+            if result == "stale":
+                stale.append("方格子")
 
+    if stale:
+        print(f"RETITLE status=OK_PENDING_CACHE slug={args.slug} 快取未更新={'、'.join(stale)}")
+        print("  後台都已改成功；上面那幾個平台的公開頁還在吃快取，過一陣子會自己更新。")
+        return 0
     print(f"RETITLE status=OK slug={args.slug}")
     return 0
 
@@ -238,9 +287,13 @@ def selftest() -> int:
         set_title(path, "新標題", apply=True)
         assert read_title(path) == "新標題"
         assert "內文" in path.read_text(encoding="utf-8"), "只該動 title 行"
+    # 公開頁三態要驗得出來：抓不到頁面＝fail，不是靜默通過
+    assert OG_TITLE.search('<meta property="og:title" content="新標題｜站名">').group(1) == "新標題｜站名"
+    assert OG_TITLE.search('<meta name="description" content="x">') is None
+    assert verify_public_page("https://invalid.invalid/nope", "x", "測試") == "fail"
     assert TITLE_LINE.search('title: "有：冒號的標題"')
     assert not TITLE_LINE.search('description: "這不是標題"')
-    print("SELFTEST retitle PASS read=1 dry_run_no_write=1 apply=1 body_intact=1 regex=2cases")
+    print("SELFTEST retitle PASS read=1 dry_run_no_write=1 apply=1 body_intact=1 regex=2cases og_title=2cases public_fail=1")
     return 0
 
 
