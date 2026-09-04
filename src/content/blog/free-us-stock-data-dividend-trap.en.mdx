@@ -1,0 +1,142 @@
+---
+title: "A Free US Stock Dataset, and the Gap That Costs You 20% of Your Returns"
+description: "Testing a free, openly available US market dataset: it keeps delisted companies and adjusts for splits, but not for dividends. The full path from finding the gap to fixing it, plus a check you can run on any free dataset. Educational and methodological."
+slug: "free-us-stock-data-dividend-trap"
+lang: "en"
+pubDate: 2026-09-04
+category: "systems"
+tags: ["data", "backtest", "education", "methodology"]
+tldr: "The expensive part of free data is not the data. It is not knowing which piece is missing."
+ogImage: "/covers/free-us-stock-data-dividend-trap.png"
+cover: "/covers/free-us-stock-data-dividend-trap.png"
+---
+
+![A free US stock dataset, and the gap that costs you 20% of your returns](/covers/free-us-stock-data-dividend-trap.png)
+
+> *Nothing is clearer than what has been tested; no argument is settled without evidence.*<br/>
+> —— Wang Chong, *Lunheng* (Eastern Han, c. 1st century; translation mine)
+
+A paid US market dataset I rely on expires at the end of October.
+
+After that the data stays, it just stops updating. At that point you have two options: renew, or go look for another road. I picked the second one, because renewing is a decision you have to make again every year, while finding a replacement only has to work once.
+
+What I found along the way turned out to be more interesting than the replacement itself.
+
+## First, what is actually in it
+
+The candidate is a public dataset hosted on Hugging Face. Download the whole thing, no account, no rate limit, refreshed daily.
+
+Querying it directly (as-of 2026-09-04), the price file looks like this:
+
+- 36.5 million daily rows
+- 12,227 tickers
+- November 1994 through 2 September 2026
+
+The same collection also carries 238,000 earnings call transcripts, financial statements, company news, an SEC filing index, revenue breakdowns, and dividend and split records.
+
+The numbers look good. But "the numbers look good" and "this data is usable" are two different statements.
+
+## Test one: are the dead companies still there
+
+The trap that catches most people running performance backtests is survivorship bias.
+
+The idea is simple. If your dataset only carries companies that are still trading today, then everything that went bankrupt, got delisted, or was acquired is missing from your sample. Whatever you compute from the survivors will look great, because the losers were quietly removed first.
+
+What makes this dangerous is that nothing errors out. Your code runs fine, your chart looks clean, and your conclusion is wrong.
+
+So the first thing I did was pull 12 tickers that stopped trading years ago and look them up. All 12 were there, with history preserved through their final day. AMED stops on 15 August 2025. MDRX stops on 20 February 2026. They were acquired or delisted, and the data stayed.
+
+That one passed.
+
+## Test two: are splits adjusted
+
+The second trap is stock splits.
+
+A company does a four-for-one split, one share becomes four, and the price drops from four hundred to one hundred overnight. If the data does not handle this, your program sees a 75% single-day drop and reports a crash.
+
+The check is direct: pick two large companies that have split, and look up the closing price the day before.
+
+Apple split four-for-one on 31 August 2020. If the file holds raw prices, the day before should read around $499. If adjusted, around $124. It reads 124.81.
+
+Nvidia split ten-for-one on 10 June 2024. Raw would be about $1,208; adjusted about $121. It reads 120.89.
+
+Both line up. That one passed too.
+
+## The test that did not pass
+
+I nearly called it done there.
+
+What saved me was one extra step: comparing day by day against the paid dataset, and deliberately comparing twice. The paid file carries two close columns, one adjusted for dividends and one not. Comparing against both tells you which kind the free file is.
+
+The first run sampled 60 random tickers over three years. The median difference against both columns was 0.000%. Looks perfect.
+
+Except that result proved nothing. Over those three years most of those tickers paid no dividends, so the two columns were identical anyway. My test had no power to tell them apart.
+
+So I swapped the sample: ten high-dividend names, ten years.
+
+Now they separate. Median difference against the split-only column: 0.000%. Against the dividend-adjusted column: 21.695%.
+
+The answer is clear. This free dataset adjusts for splits and not for dividends.
+
+Compute long-run returns straight from it and you will understate them. Worse, you understate unevenly: high-dividend names suffer most. Over ten years MO is off by 47%, VZ by 37%, T by 33%. Compare two strategies where one tilts toward dividend payers, and that strategy loses by construction.
+
+## The fix is cleaner than expected
+
+The good news is this is recoverable, and it is arithmetic rather than estimation.
+
+The same collection carries dividend records, 300,000 of them. The logic runs like this: on the ex-dividend date the price drops by roughly the dividend amount. Turn "dividend divided by the prior close" into a discount ratio, then walk backwards from today multiplying every future discount ratio together. That product is the factor for that day.
+
+This is the standard industry method, the same formula the paid file uses. Which means I can check whether I got it right.
+
+Ten high-dividend names, compared again after adjustment:
+
+| Ticker | Before | After |
+|---|---|---|
+| MO | 47.2% | 0.000% |
+| VZ | 37.2% | 0.066% |
+| T | 33.1% | 1.719% |
+| PFE | 30.3% | 0.000% |
+| IBM | 21.2% | 0.077% |
+| XOM | 19.2% | 0.000% |
+
+Median difference falls from 21.695% to 0.004%. Nine of ten land under 1%, and five match the paid data exactly, day for day.
+
+The one still off by 1.7% is T, because it spun Warner Bros. Discovery off to shareholders in 2022, and the two sources handle share-based spinoffs differently. A single case, not a verdict on the method.
+
+## Where free data actually costs you
+
+I want to step away from the data for a moment.
+
+The usual worry about free tools is that quality will be worse. In this case it was not. Coverage, history length, retention of delisted names — all of it matched the paid source.
+
+The real difference is not quality. It is that **you do not know which piece is missing**.
+
+Paid data ships with documentation, and that documentation tells you what a column means, how it was computed, and when it does not apply. Free data usually ships as a file. The file does not lie to you, but it also will not volunteer that dividends are absent.
+
+So the gap hurts you in the quietest way available: your code runs, your numbers look clean, your conclusion is off by 20%, and nothing turns red.
+
+This generalizes well beyond market data. The free indicator you use, the quote feed you scraped, the spreadsheet a friend forwarded — most of them are not deceiving you. They just never told you what they assume.
+
+## So what do you do
+
+I turned this into three questions I now ask of any new dataset.
+
+First, **are the losers still in there?** Does this data keep the failed cases? If it only keeps survivors, every average you compute from it runs high. This is not a markets-only problem: fitness program results, startup success rates, the track record of any investing personality — same question.
+
+Second, **does it agree with something I already know?** Find one example where you already know the answer and look it up. Apple the day before its split, the index close on some date last year, anything. If it disagrees, stop before you build on it.
+
+Third, and this is the one I nearly missed: **can my test tell the difference?**
+
+That first 0.000% looked like a clean pass. It was actually a test with no discriminating power. The tickers I sampled paid no dividends, so dividend treatment could not possibly show up. A ruler that never fails measures nothing.
+
+The third question is the hardest, because it asks you to doubt not the data but your own way of checking.
+
+## One Thing to Take Away
+
+When a check comes back clean, ask one more question: if something were actually wrong, would this check have caught it?
+
+If the answer is no, that clean result is not good news. It is no news.
+
+A practice for today. Think of something you recently confirmed was fine — a normal health screening, a project that seems on schedule, a kid who says school is going well. Pick one, then ask: how exactly did I confirm that? If the thing were going badly, would my method have shown me?
+
+Most of the time the answer is yes. But there will be one or two where you notice you only ever asked a question that was always going to come back clean.
