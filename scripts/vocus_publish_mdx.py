@@ -34,6 +34,7 @@ NON_INVESTMENT = {'local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
+    'free-us-stock-data-dividend-trap': ['美股', '資料庫', '回測', '生存者偏差', '投資工具'],
     'local-ai-hardware-worth-it': ['本地AI', '硬體', 'NPU', '決策思考', 'AI工具'],
     'gooaye-ep683-cannot-see-the-mountain': ['股癌', '槓桿', '風險管理', '回測'],
     'gooaye-ep684-liquidity-carries-and-capsizes': ['股癌', '流動性', '風險管理'],
@@ -78,6 +79,7 @@ COVERS = {
     'video-memory-without-the-cloud': 'video-memory-without-the-cloud.png',
     'aice-ai-engineering-cert-prep': 'aice-ai-engineering-cert-prep.png',
     'aice-must-know-concepts': 'aice-must-know-concepts.png',
+    'free-us-stock-data-dividend-trap': 'free-us-stock-data-dividend-trap.png',
 }
 
 

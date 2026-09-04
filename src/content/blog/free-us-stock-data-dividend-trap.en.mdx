@@ -1,26 +1,30 @@
 ---
-title: "A Free US Market Dataset Worth Telling People About"
-description: "An introduction to a free, openly available US market dataset: daily prices, earnings call transcripts, financial statements, company news, and delisted companies kept in full. Includes how to start using it and one assumption to know about. Educational and methodological."
+title: "I Bought an Expensive US Market Dataset This Year, Then Found This Public One"
+description: "An introduction to a public US market dataset: daily prices, earnings call transcripts, financial statements, company news, and delisted companies kept in full. Notes from a paying subscriber, with how to start and one assumption to know about. Educational and methodological."
 slug: "free-us-stock-data-dividend-trap"
 lang: "en"
 pubDate: 2026-09-04
 category: "systems"
 tags: ["data", "backtest", "education", "methodology"]
-tldr: "Free, updated daily, and it keeps the delisted companies. Just know what it assumes before you use it."
+tldr: "Publicly available, updated daily, and it keeps the delisted companies. Just know what it assumes before you use it."
 ogImage: "/covers/free-us-stock-data-dividend-trap.png"
 cover: "/covers/free-us-stock-data-dividend-trap.png"
 ---
 
-![A free US market dataset worth telling people about](/covers/free-us-stock-data-dividend-trap.png)
+![I bought an expensive US market dataset this year, then found this public one](/covers/free-us-stock-data-dividend-trap.png)
 
 > *Nothing is clearer than what has been tested; no argument is settled without evidence.*<br/>
 > —— Wang Chong, *Lunheng* (Eastern Han, c. 1st century; translation mine)
 
 If you want to do your own US market research, the first wall you hit is usually data.
 
-Free sources tend to give you a few recent years, only companies still trading, or a rate limit that stops you after a few dozen queries. Paid sources run several hundred dollars a year, which is a lot for someone who just wants to try something.
+Public sources tend to give you a few recent years, only companies still trading, or a rate limit that stops you after a few dozen queries. Anything complete starts at several hundred dollars a year.
 
-Last week I found a public dataset that, after checking it, seemed worth passing along.
+I paid that this year. I bought Norgate at $40 a month, close to five hundred dollars a year. It is a well-regarded US market history database, and I felt good about the money: clean data, delisted names included, maintained by people who care. That is what research needs.
+
+Last week, while looking for something else, I came across a public dataset. I opened it and stopped.
+
+Much of what it holds overlaps with what I paid for.
 
 ## What is in it
 
@@ -34,7 +38,7 @@ Here is what I found when I queried it (as-of 2026-09-04):
 - Earnings call transcripts: 238,638 calls, 6,511 tickers, 2005 to today
 - Financial statements, full-text company news, an SEC filing index, revenue breakdowns, dividend and split records
 
-For something free, that scale is uncommon.
+The set I pay for covers 12,259 tickers. This one covers 12,227. I read those two numbers twice.
 
 ## Two things that surprised me
 
@@ -56,7 +60,7 @@ The split part it gets right. A company does a four-for-one split, one share bec
 
 Dividends are not handled. That means computing long-run returns straight from it will understate them, and dividend payers understate most. It is recoverable, but you have to know it is there first.
 
-I would not call this a flaw. It is an assumption. Paid data ships with documentation telling you how each column was computed; free data usually ships as a file. The file will not lie to you, but it will not volunteer what it left out either.
+I would not call this a flaw. It is an assumption. Paid data ships with documentation telling you how each column was computed; public data usually ships as a file. The file will not lie to you, but it will not volunteer what it left out either.
 
 ## How to start
 
