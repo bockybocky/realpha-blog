@@ -1,0 +1,87 @@
+---
+title: "Ten Dollars for One Request: The Day GPT6 Drained Lunchuizhe's Balance, I Went Back and Checked My Own Bill"
+description: "Lunchuizhe put GPT6 Astra to the test: three chat questions cost a dollar, then one small Codex task turned a seven-dollar balance negative. His verdict was that the model isn't expensive, we're just poor. I pulled a full day of my own AI usage and found the bill tracks how much the model reads, not how much it answers. Educational notes and extension, not a buying recommendation."
+slug: "lunchuizhe-2026-09-05-ten-dollars-one-request"
+lang: "en"
+pubDate: 2026-09-06
+category: "tech"
+tags: ["Lunchuizhe", "AI tooling", "token", "subscription", "local models", "education"]
+ogImage: "/covers/lunchuizhe-2026-09-05-ten-dollars-one-request-cover.png"
+cover: "/covers/lunchuizhe-2026-09-05-ten-dollars-one-request-cover.png"
+tldr: "Lunchuizhe ran the most expensive model on the smallest task and one request cost ten dollars. I checked my own numbers: over two thousand requests in a day, each one re-reading about 450,000 tokens on average to write fewer than 800. The money goes to reading, not answering. So the question isn't whether you can afford a top model. It's whether you're letting it read things it doesn't need."
+---
+
+![Renaissance-style oil painting cover: a scribe in coarse robes sits in a dim study, a single gold coin melting in the candle flame on his desk; his quill has written only one line, yet the whole wall of books behind him is lit as if every volume were being read at once](/covers/lunchuizhe-2026-09-05-ten-dollars-one-request-cover.png)
+
+> *Every bowl of rice, remember how hard it was to come by; every thread of silk, remember the labour it took.*<br/>
+> —— Zhu Bolu, *Family Maxims* (late Ming to early Qing; translation mine)
+
+## What this episode is about
+
+Lunchuizhe (the YouTube channel 抡锤者) posted this one on 2026-09-05, twelve minutes and forty-three seconds, and it's a test his viewers pushed him into. GPT6 Astra had just launched with benchmark claims of beating Claude's top model, and the comments kept asking him to try it. He normally stays away from OpenAI and Anthropic models for a plain reason: he tops up ten dollars at a time, and the moment a model at that tier gets wired into an agent tool, the money is gone.
+
+He tested it anyway. And the money was gone.
+
+## The gist
+
+He started in the web chat with three small jobs: build a page explaining the eight trigrams of Chinese tradition, draw a vector diagram of how a Turing machine works, then draw one of Schrödinger's cat. The three cost 0.28, 0.27 and 0.27 dollars, about a dollar in total. He scored them 95, 90 and 80, roughly what his cheap everyday models produce. No clear lead.
+
+Then he plugged the model into Codex to change one tiny thing in his own app: cap the length of quoted text in replies, tidy the formatting, and park the cursor under the last line. His estimate for his usual model was one to two minutes and well under twenty Chinese cents. What came back from Codex was an error: insufficient balance, payment required. He had seven dollars in the account. One request later it read minus 2.5. The usage log showed that single request at just over nine dollars, plus the dollar from the chat, ten dollars for the day.
+
+He set that against his heaviest day ever: building an AI video editor and a forum app at the same time, running a cheap model flat out from morning to night, 40 yuan. Now one sentence cost 60. He also talked subscriptions. He pays for ChatGPT Plus, mostly for making channel thumbnails; a simple integration task he tried there ran four minutes and five seconds and ate 6% of a five-hour window. He'd subscribed to Grok's thirty-dollar plan before. The quota looked generous and drained fast once he did real work.
+
+His conclusion has two layers. The first is self-mockery: the model isn't expensive, we're poor. The second is for his audience: nine out of ten of them can't afford this, so make the cheap cloud models and the local ones work. He runs an open-source model on his own machine and develops on the DeepSeek family, a bit over a thousand yuan in his heaviest month, five hundred in a normal one.
+
+He closes by saying he'll top up another fifteen dollars anyway, because the same platform hosts many Chinese models that stay free for long stretches and that's worth farming. The only place he ever loses on that platform is the few times a top-tier model eats his balance.
+
+## Where I took it
+
+If you watched this, you're probably left with one question: what did that request do to cost nine dollars? He doesn't know either. All he says on camera is that it "just understood the thing, hadn't even started." That line is the answer, and I checked it against my own bill.
+
+I use Claude's agent tooling most days for code and data work. It logs how much each request reads and writes. Here is one full day, 2026-09-04, from the tool's own usage log:
+
+- Requests: 2,325
+- Model output: about 1.78 million tokens, under 800 per request on average
+- Context the model read in: about 1.05 billion tokens, roughly 450,000 per request
+
+So every time I typed one line, the model first re-read about 450,000 tokens of material, then wrote me 800. The ratio of reading to writing is close to six hundred to one. What are those 450,000 tokens? My project files, earlier turns of the conversation, the tool output it had already read. I never asked it to read all that. The moment you attach it to a tool, the whole workspace becomes context.
+
+Lunchuizhe's nine-dollar request is the same thing at a smaller scale. He pointed the model at the app he's building. "Understood the thing" means it read the app's code. The change he wanted was tiny; the material it read was not. The bill doesn't track what he asked it to answer. It tracks what it read in order to answer.
+
+![Left, a single sheet with one line written on it; right, a whole bookshelf; a bill hangs under each side, and the right-hand bill is as tall as the shelf, unrelated to that one line](/figures/bill-follows-the-reading.svg)
+
+I converted my day to list prices once: if I were paying by the token instead of on a subscription, that day would run about six hundred dollars (an estimate at prices as of 2026-06, cached reads at the discount rate, output at full rate). I didn't pay that, because the subscription flattens it. Flattened isn't gone, though. It comes back as quota. My three quotas this week (as of the morning of 2026-09-06): Claude's weekly allowance at 91% remaining, Codex's weekly allowance down to 29%, Grok's monthly at 45%. Codex goes first because that's where I push the heaviest reading work.
+
+So I'd rewrite his "can't afford it" as this: the cost of a top model isn't in how clever it is, it's in how much it reads. And how much it reads is largely up to the person using it.
+
+## Three things that request taught me
+
+You might ask whether I should do what he did and retreat to cheap and local models. That's not my setup. I split the work instead.
+
+First, don't put heavy reading on the most expensive model. Transcripts, long reports, batches of files: I send those to a cheaper engine to read and have it hand back only the conclusion. The model in my main conversation sees conclusions, not raw material. That 450,000-token average is what a day looks like when I don't hold that line.
+
+Second, clear the context when the topic changes. In his video, nine tenths of that app's code had nothing to do with moving a cursor. The tool can't tell which parts matter. A person can. My habit now is to open a fresh conversation for every new task and let it start reading from empty.
+
+Third, price the smallest question first. This is the part he got right. He ran three little jobs in the chat, saw the dollar, and only then decided whether to wire it into Codex. He said he was "afraid it would wipe the quota in one go," and that fear was correct. He just measured in the wrong place. The chat measures the price of the model itself; the extra cost after you attach a tool is the price of reading. Those two need separate measurements.
+
+![Three panels: a person pays one coin for one sweet at a corner shop; the same person loads the entire shop onto a truck and the cashier hands over a very long bill; he stands in front of the truck still holding only that one sweet](/figures/same-candy-whole-store.svg)
+
+## What it means if you're choosing tools
+
+This episode is pushing against a belief: a stronger model means more productivity. That belief didn't come from nowhere. Around 2023 the gap between models was wide. Switching to a stronger one turned tasks from impossible to possible, and "use the strongest" was right then, because the bottleneck was capability. But on the three small jobs he ran, the top model and the cheap one scored within five points of each other. The bottleneck has moved from capability to the bill, and the bill follows reading, not intelligence.
+
+If you're deciding whether to pay for a top-tier plan, look at the shape of your work first. Is it mostly small and frequent, like moving a cursor? Then cheap plus local, the way he does it, will probably carry you. Is there a tenth of it that needs top-tier reasoning? Keep that tenth for the expensive model, hand off the other nine tenths, and the subscription lasts a lot longer. Both approaches work. What doesn't work is dumping everything on one model and watching the balance go negative.
+
+## Sources worth checking
+
+- Original video: Lunchuizhe, "GPT6 Astra coding test: one request burns ten dollars and scares a broke YouTuber to tears. No clear edge on light tasks, unaffordable on heavy ones" (posted 2026-09-05, 12:43; title translated from the original Simplified Chinese)
+- My own numbers: the usage log of Claude's agent tooling for the full day of 2026-09-04 (request count, output tokens, cached-read tokens); the three quotas are a snapshot from the morning of 2026-09-06
+- Prices used for the conversion: Anthropic's public API list prices as of 2026-06, cached reads at the discounted rate and output at full rate; an estimate
+- My previous notes on his episode about models and agents: "Cheap Is Enough, Expensive Never Runs Out" (2026-09-01)
+- An earlier piece on subscriptions and metered billing being two different doors: "A Subscription Doesn't Mean Saving" (2026-07-09)
+
+## One thing to take with you
+
+What stuck with me from this episode wasn't "don't use the expensive one." It was this: an AI bill charges for how much it reads, not how much it answers. That six-hundred-to-one number is what made me start routing reading and answering separately.
+
+Here's a small thing I tried, if you want to try it too: the next time an AI tool finishes answering you, open its usage page, find the tokens it read for that one request and the tokens it wrote, divide the first by the second, and note the multiple. Mine came out at six hundred. I draw my own line at one hundred: over a hundred, the next question goes in a fresh conversation; under, keep going. It takes two minutes, and once you've done it you know what share of your money is paying for it to read.
