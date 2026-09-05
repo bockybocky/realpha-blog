@@ -27,13 +27,14 @@ CATEGORY = {'_id': '5a978e00fd897800016874cc', 'title': '投資理財', 'score':
 BLOG = 'https://blog.getrealpha.com'
 
 # 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
-NON_INVESTMENT = {'local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
+NON_INVESTMENT = {'lunchuizhe-2026-09-05-ten-dollars-one-request', 'local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
                   'lunchuizhe-2026-08-31-pick-your-model-and-agent', 'tao-2026-08-31-ai-math-drunk-genius', 'runpod-vs-local-gpu-2026-09', 'tao-2026-09-02-coin-game-human-ai-division', 'kelly-tsai-graph-engineering-2026-09', 'lunchuizhe-2026-08-23-no-best-agent-only-right-seat', 'my-creative-path-2026-09', 'fear-of-blowing-up-2026-09', 'xiaotian-2026-09-03-evox-swarm-social-rsi',
                   'dont-let-ai-say-no-problem', 'video-memory-without-the-cloud',
                   'aice-ai-engineering-cert-prep', 'aice-must-know-concepts'}
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
+    'lunchuizhe-2026-09-05-ten-dollars-one-request': ['AI工具', 'token', '訂閱', '本地AI', 'AI agent'],
     'free-us-stock-data-dividend-trap': ['美股', '資料庫', '回測', '生存者偏差', '投資工具'],
     'local-ai-hardware-worth-it': ['本地AI', '硬體', 'NPU', '決策思考', 'AI工具'],
     'gooaye-ep683-cannot-see-the-mountain': ['股癌', '槓桿', '風險管理', '回測'],
@@ -70,6 +71,7 @@ except (OSError, ValueError):
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
 COVERS = {
+    'lunchuizhe-2026-09-05-ten-dollars-one-request': 'lunchuizhe-2026-09-05-ten-dollars-one-request-cover.png',
     'local-ai-hardware-worth-it': 'local-ai-hardware-worth-it.png',
     'gooaye-ep683-cannot-see-the-mountain': 'gooaye-ep683-cover.png',
     'gooaye-ep684-liquidity-carries-and-capsizes': 'gooaye-ep684-cover.png',
