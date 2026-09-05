@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-label="Weak-model accuracy: 50% raw, around 60% with a self-made prompt, 80% with a winning cheat sheet, 96% on easier sets">
+  <style>
+    svg {
+      --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922;
+      }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect width="960" height="440" fill="var(--page)"/>
+  <text class="t" x="480" y="38" text-anchor="middle" font-size="22" fill="var(--ink)">Same weak model, same questions. The only difference is the cheat sheet.</text>
+
+  <line x1="120" y1="330" x2="900" y2="330" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="330" x2="120" y2="90" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="104" y="336" text-anchor="end" font-size="17" fill="var(--dim)">0</text>
+  <text class="t" x="104" y="216" text-anchor="end" font-size="17" fill="var(--dim)">50%</text>
+  <text class="t" x="104" y="100" text-anchor="end" font-size="17" fill="var(--dim)">100%</text>
+  <line x1="120" y1="210" x2="900" y2="210" stroke="var(--grey)" stroke-width="1" stroke-dasharray="6 6"/>
+  <text class="t" x="892" y="200" text-anchor="end" font-size="17" fill="var(--grey)">coin-flip level</text>
+
+  <rect x="180" y="210" width="120" height="120" rx="6" fill="var(--grey)" opacity="0.5"/>
+  <text class="t" x="240" y="196" text-anchor="middle" font-size="22" fill="var(--dim)">50%</text>
+  <text class="t" x="240" y="360" text-anchor="middle" font-size="19" fill="var(--ink)">No help</text>
+
+  <rect x="360" y="186" width="120" height="144" rx="6" fill="var(--accent)" opacity="0.35"/>
+  <text class="t" x="420" y="172" text-anchor="middle" font-size="22" fill="var(--accent)">~60%</text>
+  <text class="t" x="420" y="360" text-anchor="middle" font-size="19" fill="var(--ink)">Self-made prompt</text>
+
+  <rect x="540" y="138" width="120" height="192" rx="6" fill="var(--accent)" opacity="0.75"/>
+  <text class="t" x="600" y="124" text-anchor="middle" font-size="22" fill="var(--accent)">80%</text>
+  <text class="t" x="600" y="360" text-anchor="middle" font-size="19" fill="var(--ink)">Winning sheet</text>
+
+  <rect x="720" y="100" width="120" height="230" rx="6" fill="var(--warn)" opacity="0.75"/>
+  <text class="t" x="780" y="88" text-anchor="middle" font-size="22" fill="var(--warn)">96%</text>
+  <text class="t" x="780" y="360" text-anchor="middle" font-size="19" fill="var(--ink)">Easier sets</text>
+
+  <text class="t" x="480" y="404" text-anchor="middle" font-size="20" fill="var(--dim)">Capped at 10 KB, shorter than this article. The limit is the reason it works.</text>
+</svg>

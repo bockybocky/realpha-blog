@@ -47,6 +47,7 @@ TAGS = {
     'xiaotian-2026-09-03-evox-swarm-social-rsi': ['AI agent', '蜂群', '多Agent', 'AI工具', '自我改進'],
     'tao-2026-08-31-ai-math-drunk-genius': ['陶哲軒', 'AI', '數學', '科學方法', '決策思考'],
     'tao-2026-09-02-coin-game-human-ai-division': ['陶哲軒', 'AI', '人機協作', '數學', 'AI工具'],
+    'tao-2026-09-04-answers-without-understanding': ['陶哲軒', 'AI', '決策思考', '投資心法', '研究方法'],
     'kelly-tsai-graph-engineering-2026-09': ['AI agent', 'Graph Engineering', '多Agent', 'AI工具', 'LangGraph'],
     'lunchuizhe-2026-08-23-no-best-agent-only-right-seat': ['AI agent', 'Codex', 'DeepSeek', '本地AI', 'AI工具'],
     'my-creative-path-2026-09': ['我的創作之路', '寫作', '創作', '劉墉'],

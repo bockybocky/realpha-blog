@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="兩條通往答案的路：舊路必須穿過理解才到得了答案，新路由 AI 直達答案、繞過理解">
+  <style>
+    svg {
+      --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922;
+      }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect width="960" height="420" fill="var(--page)"/>
+  <text class="t" x="480" y="40" text-anchor="middle" font-size="24" fill="var(--ink)">兩條路都到得了答案，只有一條會順便讓你變強</text>
+
+  <rect x="46" y="150" width="118" height="72" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="105" y="194" text-anchor="middle" font-size="21" fill="var(--ink)">問題</text>
+
+  <rect x="796" y="150" width="118" height="72" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="855" y="194" text-anchor="middle" font-size="21" fill="var(--ink)">答案</text>
+
+  <rect x="380" y="82" width="200" height="76" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="480" y="128" text-anchor="middle" font-size="21" fill="var(--accent)">理解這個領域</text>
+
+  <path d="M164 172 C 260 172 280 120 380 120" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <path d="M580 120 C 680 120 700 172 790 172" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="790,166 804,172 790,178" fill="var(--accent)"/>
+  <text class="t" x="480" y="70" text-anchor="middle" font-size="19" fill="var(--accent)">幾百年來的路：非得先懂，才拿得到</text>
+
+  <path d="M164 200 C 380 300 580 300 790 200" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="9 7"/>
+  <polygon points="784,194 800,199 786,206" fill="var(--warn)"/>
+  <text class="t" x="480" y="322" text-anchor="middle" font-size="19" fill="var(--warn)">現在多的那條：把題目打進 AI，繞過中間那格</text>
+
+  <text class="t" x="480" y="378" text-anchor="middle" font-size="20" fill="var(--dim)">答案一樣對、一樣驗得過。差別要等到你被追問「為什麼」的那天才出現。</text>
+</svg>

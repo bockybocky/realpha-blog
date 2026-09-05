@@ -1,0 +1,109 @@
+---
+title: "The Answer He Wanted Was No. The AI Gave Him Several Pages of Yes."
+description: "Terence Tao says mathematicians want two things: answers, and understanding. For centuries the two were inseparable, because getting an answer required understanding first. That link has broken — problems are being solved by people with no domain expertise, the answers are correct and verifiable, and nobody knows what happened. What AI lacks, he argues, is not generation but deletion. I checked one broken alarm and a 16 KB lessons file of my own against him."
+slug: "tao-2026-09-04-answers-without-understanding"
+lang: "en"
+pubDate: 2026-09-05
+category: "tech"
+tags: ["Terence Tao", "AI math", "interpretability", "decision making", "research process"]
+ogImage: "/covers/tao-2026-09-04-answers-without-understanding-cover.png"
+cover: "/covers/tao-2026-09-04-answers-without-understanding-cover.png"
+tldr: "Mathematicians want answers and they want understanding. The two used to travel together; AI has split them apart — the answers arrive, the understanding does not. Tao points to natural friction in human writing: we move fast through easy parts and slow down at hard ones, and that rhythm is itself a signal to the reader. AI has no such friction; it tells you everything matters, which tells you nothing. His remedy is not more compute but more constraint: a competition where the only submission was a 10 KB cheat sheet lifted weak models from 50% to 80%."
+---
+
+![Post-impressionist oil painting cover: an impossibly tall stack of handwritten manuscript pages on a night desk, the top sheets lifted and scattering on the wind, an oil lamp lighting only the one open page below, on which just two short lines are written](/covers/tao-2026-09-04-answers-without-understanding-cover.png)
+
+> *In the pursuit of learning, every day something is acquired. In the pursuit of the Way, every day something is dropped.*<br/>
+> — Laozi, chapter 48
+
+IPAM posted a video yesterday: Terence Tao's closing talk at the interpretability workshop he helped organize. He opens by admitting he had forgotten he agreed to give it — the request went to spam, and he only remembered when staff asked why his title was missing. He spent a week listening to every talk hoping to find a unifying theme, gave up on finding one, and instead spoke about something that has been bothering him personally.
+
+It concerns anyone who uses AI to get work done, and investors most of all.
+
+## Two things that were never separate, separated
+
+Mathematicians want two things, he says. Answers: is this conjecture true, is the value 5.6 or 5.7. And understanding: what does the answer mean, how was it obtained, how does it connect to the rest of the field, what should we ask next.
+
+For centuries nobody needed to distinguish them, because they came bundled. The only way to answer a hard question was to understand the field around it; and the best way to learn a field was to work on its problems. Each was the other's means, so we treated them as one thing.
+
+That bundle has come apart. Problems, he says, are being solved by people with no domain expertise — they type the question into an AI, the AI returns an answer, and the answer is even correct and checkable. Yet the net value of these solutions is far below what we expected, because nobody understands what was done. Even an AI-generated paper with every detail present turns out to be surprisingly hard to absorb, and harder still to build on.
+
+![Two routes to an answer: the old one runs through understanding, the new one is an AI tunnel that bypasses it](/figures/tao-answer-insight-decoupling-en.svg)
+
+He quotes Thurston's 1994 essay *On Proof and Progress in Mathematics*: the measure of our success is whether what we do enables people to think and understand more clearly. Thurston's example was the four colour theorem — proved by brute computation, understood by nobody. Tao notes that in 1994 that kind of output was maybe a tenth of a percent of mathematics. Today it is something like half.
+
+## Humans slow down, and the slowing is the signal
+
+This was my favourite part of the talk.
+
+Human writing is resource-constrained: writing is tedious. So you skate through the easy parts and stop at the hard ones to think about structure, about whether a good definition now would save you pages later. That difference in effort stays in the text, and becomes a signal to the reader — the author is moving fast here, so can I; the author has slowed down and grown careful, so should I. Tao calls it natural friction.
+
+AI has no such friction, and often has it backwards. He describes seeing models spend pages on an obvious point and then compress the genuinely new step into a line of algebra. The reason is not laziness: what is hard for an AI and what is hard for a human are barely related. A messy computation it finds obvious gets a "clearly," while a human needs five steps; something a human sees instantly gets three pages. You can ask an AI to flag the important parts, he notes. It will — and tell you everything is important.
+
+![Human writing thickens at the hard step; AI writing is uniformly thick, so the reader cannot tell where to concentrate](/figures/tao-natural-friction-en.svg)
+
+Reading that gave me a chill, because we broke an alarm exactly this way.
+
+This July we had an automated alert watching a foreign-institution futures positioning measure; it lit whenever the number crossed a threshold. Over the first ten trading days of July it lit nine times. Then on 15, 16 and 17 July it went quiet. On 17 July the Taiwan index fell 2,954 points, down 6.5% (replay record as of 2026-08-20).
+
+The rule was not broken. Those three days genuinely did not cross the threshold; it executed its definition precisely. What broke was the information. A lamp that lights every day gets tuned out within days — and once you have tuned it out, its silence loses meaning too. You do not look when it lights, and you assume safety when it does not. The same mechanism fails in both directions at once.
+
+That is the cost of missing friction. When every day is important, no day is.
+
+## What is missing is not generation. It is deletion.
+
+He offers his own example. Someone recently used an AI to find a counterexample to a conjecture — four or five lines, posted online with no explanation at all. Curious where it came from, Tao spent thirty-odd pages in conversation with an AI trying to reverse-engineer it.
+
+At one point he asked a question. The AI thought for a minute, answered yes, and went on. And on.
+
+The answer he actually wanted was no. The sentence he was after ran roughly: this property is rare, it cannot be checked by any simple computation, and doing it the hard way would be overkill here. He knew enough to dig that sentence out of the pile himself — it took a few minutes. Someone newer to the field would never have found it.
+
+His conclusion: these tools do not lack generative power. They lack the complementary filter. He quotes the author of *The Little Prince*: perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.
+
+So he is not betting on more — more compute, longer inference, bigger models. If all you want is answers, he says, scaling may work; if what you want is understanding, it works against you, because the more superhuman the tool becomes in some dimension, the harder it is for it to reach you. His provocative phrasing: the right direction to AGI now is from above, not from below. Constrain the tools and they become more useful to humans.
+
+We already do this without noticing. His examples: chaining agents with deliberately narrow roles — this one verifies, this one searches literature, this one plans — beats making each one omnicompetent. And ablation, interpretability's bread and butter: switch parts of a capable system off, one at a time, and see which piece was doing the work.
+
+## A 10 KB cheat sheet, from 50% to 80%
+
+Then he described an experiment of his own.
+
+Two years ago he ran a crowdsourcing project that generated 22 million maths questions: for any two of the first few thousand equational laws, does one imply the other? Roughly 99% fall to automated theorem provers from the 1990s. Of the remaining hundred thousand or so, a frontier model thinking for five minutes clears all but about a hundred.
+
+Give the same questions to a small open-source model, though, and it scores like a coin flip.
+
+So he ran a competition. Entrants submitted one thing only: a 10 KB cheat sheet, used as a prompt. Scoring meant feeding that sheet to the weak models and measuring how much their accuracy improved. About a hundred entrants; accuracy went from 50% to 80%, with winners higher still and easier problem sets reaching 96–97%. The winning prompts, he says, read like something a person would write — you are a mathematician specialising in equational theories, look for a counterexample first, here are the kinds worth trying.
+
+![Weak-model accuracy: 50% raw, around 60% with a self-made prompt, 80% with a winning cheat sheet, 96% on easier sets](/figures/tao-cheatsheet-experiment-en.svg)
+
+The cleverness hides in the choice of a weak model. A frontier model needs no cheat sheet, so scoring against one is pointless; only a resource-constrained model forces the question of which sentences are worth saying. And what helps a weak model tends to help a human. He mentions a vague hope: that any course could run an exercise like this, distilling the one page actually worth remembering.
+
+At this point I got up and opened a file of my own.
+
+I keep a file called lessons. It is injected in full at the start of every new conversation, and it holds one-line behavioural corrections, each dated. Today it stands at 40 lines, 16 KB (as of 2026-09-05). Beside it sit 583 detailed memory files — but those have to be retrieved to exist, and anything not retrieved may as well not be there. The lessons file is the one that always arrives.
+
+I had never thought of it as a cheat sheet, and I had always treated the 40-line cap as an annoyance. To add a 41st line I have to merge two old ones first; I did that twice in the past two days, twenty minutes each time. Reading this talk, it landed: the cap is not a constraint on the file's value. The cap is the source of it. Without it, the file becomes the 584th document nobody reads.
+
+## Swap mathematics for investing and it all still holds
+
+Ask an AI whether to buy a stock. You will get a complete, well-formatted, broadly accurate analysis in which every paragraph sounds reasonable. You act on it. You may even make money.
+
+Six months later it is down 30% and you have to decide: add, or cut. That is the day you discover the understanding never made it into your head. What you hold is an answer, and an answer is no help on a day like that. What you need is to know whether the reason you bought it still holds — and that reason was never actually yours.
+
+Answers can be outsourced. Conviction cannot. And the day you most need conviction is the day answers are worth least.
+
+The test is crude: put the analysis away, say three sentences in your own words to the person next to you, and have them ask you why once. If you can keep going, you bought understanding. If you cannot, you bought an answer.
+
+## One thing to take away
+
+Pick something an AI produced for you recently — a stock write-up, a market recap, a technical explanation. Give yourself ten minutes and cut it to a single page, keeping only the sentences that would change a decision if removed.
+
+Somewhere in that cut you will hit an uncomfortable moment: a paragraph you cannot delete, because you cannot tell whether it matters. Those paragraphs are the parts you did not understand — and left in the report they look exactly like the parts you did.
+
+Whatever survives the cut is what you actually got. It is usually far shorter than you expected.
+
+## Sources
+
+- IPAM at UCLA, *Terence Tao — Reflections on the Foundations of Interpretability workshop*, uploaded 2026-09-04, 34 minutes: [youtu.be/AXlif6z9a2A](https://youtu.be/AXlif6z9a2A)
+- William Thurston, *On Proof and Progress in Mathematics*, 1994
+- Earlier in this series: [Numerators without denominators](/en/blog/tao-2026-08-31-ai-math-drunk-genius/), [The coin game division of labor](/en/blog/tao-2026-09-02-coin-game-human-ai-division/), [After the helicopter drops you on the summit](/en/blog/tao-helicopter-honest-ai/)
