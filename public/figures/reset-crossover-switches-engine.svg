@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="兩條額度餘量線各自垂直躍升回滿格，下方色帶在躍升那一刻換掉派工的名字">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .n { font-size:16px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text class="t" x="40" y="56">我沒動手，是燈自己換了名字</text>
+
+<line x1="180" y1="140" x2="900" y2="140" stroke="var(--line)" stroke-width="1" stroke-dasharray="6 6"/>
+<text class="s" x="170" y="146" text-anchor="end">滿格</text>
+<line x1="180" y1="440" x2="900" y2="440" stroke="var(--grey)" stroke-width="1"/>
+<text class="s" x="170" y="446" text-anchor="end">見底</text>
+
+<polyline points="180,356 424,378 430,140 900,206" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text class="n" x="196" y="344" fill="var(--ink)">Codex 28%</text>
+<text class="n" x="452" y="166">重置回滿</text>
+
+<polyline points="180,308 754,344 760,140 900,166" fill="none" stroke="var(--grey)" stroke-width="4"/>
+<text class="n" x="196" y="296" fill="var(--dim)">Grok 44%</text>
+
+<line x1="430" y1="140" x2="430" y2="470" stroke="var(--dim)" stroke-width="1" stroke-dasharray="4 5"/>
+
+<rect x="180" y="482" width="250" height="42" rx="6" fill="var(--card)"/>
+<rect x="430" y="482" width="470" height="42" rx="6" fill="var(--accent)" opacity="0.16"/>
+<text class="g" x="305" y="510" text-anchor="middle">寫程式 → Grok</text>
+<text class="g" x="665" y="510" text-anchor="middle">寫程式 → Codex</text>
+
+<text class="s" x="180" y="466">今天</text>
+<text class="s" x="430" y="466" text-anchor="middle">明天中午</text>
+<text class="s" x="760" y="466" text-anchor="middle">四天後</text>
+
+<text class="c" x="40" y="558">換人的那一刻，只是線交叉過去</text>
+</svg>
