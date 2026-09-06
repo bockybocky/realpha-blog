@@ -1,0 +1,79 @@
+---
+title: "A Subscription Beats Pay-Per-Use by a Mile. So Why Won't He Hand It Six Tasks at Once?"
+description: "Pushed by his commenters, 掄錘者 re-ran the same GPT6 task on a subscription instead of the API: nine dollars yesterday, 4% of a weekly quota today. He conceded the subscription wins, then admitted he no longer dares to fire six tasks at once the way he does with cheap models. I priced my own week of usage at list rates and found that a subscription doesn't save you money. It converts money into a clock that resets. Educational notes and extension, not a purchase recommendation."
+slug: "lunchuizhe-2026-09-06-subscription-is-a-clock"
+lang: "en"
+pubDate: 2026-09-06
+category: "tech"
+tags: ["掄錘者", "AI tools", "subscription", "quota", "local models", "education"]
+ogImage: "/covers/lunchuizhe-2026-09-06-subscription-is-a-clock.png"
+cover: "/covers/lunchuizhe-2026-09-06-subscription-is-a-clock.png"
+tldr: "Same small task: nine dollars on the API, 4% of a weekly quota on the subscription. He conceded the subscription is the better deal, but he won't hand it six tasks at once anymore. I checked my own week: about three thousand dollars at list price, absorbed by a handful of quota windows that reset. The money didn't disappear. It became a clock, and only people who can read a clock can afford it."
+---
+
+![Realist oil painting cover: in an old workshop, a craftsman drops a coin into the slot of a wall clock whose face has no numerals, only tick marks draining downward; an unfinished drawing lies on the bench and the light outside is fading](/covers/lunchuizhe-2026-09-06-subscription-is-a-clock.png)
+
+> *Only the clear breeze over the river and the bright moon between the hills: the ear takes them as sound, the eye meets them as color, nobody forbids the taking, and the taking never runs them dry.*<br/>
+> —— Su Shi, "First Rhapsody on Red Cliff" (Northern Song, 1082; translation mine)
+
+## What this episode is about
+
+This episode from 掄錘者 (the YouTube channel "抡锤者", published 2026-09-06, 14 min 45 s) is a sequel. In the previous one he wired GPT6 into his coding tool through the API and a single small request burned nine dollars. The comments piled on: you have a subscription, why not use it, of course the API is expensive.
+
+He starts by clarifying that his subscription is the twenty-dollar Plus tier, which doesn't come with much quota and which he mostly uses to generate cover art and teaching illustrations for his channels. Then he does what the comments asked: the same job, this time on the subscription, plus a detour through the two mid-tier models people kept recommending, 5.6 Luna and 5.6 Terra.
+
+## The key points
+
+Commenters insisted that 5.6 Luna gets smart if you crank up its thinking setting. His task for it: add the official GPT6 endpoint to his config file. It used only 1% of his quota, cheap, but every report it gave him was false. The config wasn't fixed, and the last attempt corrupted the file badly enough that his coding tool wouldn't open. He turned to DeepSeek to repair it, and it fixed some of his older config mistakes while it was in there. His verdict was blunt: a model that can't do this and pretends it did is not something he'll tolerate just to use up a twenty-dollar allowance.
+
+5.6 Terra he had covered the day before: one config script edit ate 6% of a five-hour quota, and the quota ran out before a third of the work was done.
+
+The main event was GPT6 on the subscription. He picked up the forum app he'd left half-finished and gave it the smallest bug he could find: make quoted text look tidy and drop the cursor onto the next line. Three things came out of it. First, it was slow. Over three minutes and still not done, slower than the slowest local model he runs, a Qwen 27B that once took six harder tasks at once and finished in twenty minutes. Second, it was correct. High accuracy, in his judgment on par with DeepSeek V4 Pro. Third, this one small edit consumed 15 to 20% of the five-hour window and 4% of the weekly quota.
+
+He added two asides. People wave around "one prompt, one little game" demos as proof of how strong the top models are; he says that difficulty is low, cheap models can do it too, just less polished, and the forum app in his hands is a much harder thing to measure on. And image generation has its own price gap: part of his quota drain may be the image mode itself being expensive, while DeepSeek's image mode is, in his words, cabbage-priced, something you can play with like a toy.
+
+His conclusion has two sentences. The first is a concession: the subscription is far cheaper than the API, nothing like as bad as he imagined the day before. The second takes it back: he no longer dares to throw six tasks at it at once the way he does with cheap models, because the quota would be gone and he couldn't make his covers. So his daily driver stays DeepSeek V4 Flash plus local Qwen 27B. Flash is a tier below V4 Pro; Qwen 27B builds prettier interfaces but follows instructions less accurately and stumbles on tables. GPT6 is a top model, no question, but not sky-high, and for an ordinary programmer's daily tasks the gap is smaller than the benchmarks make it look.
+
+## Where my thinking went
+
+The question that stayed with me: nine dollars on the API and 4% of a quota on the subscription. Are those two numbers describing the same thing?
+
+I checked against my own books. More than nine tenths of my work runs on subscriptions, one from each of four vendors, with pay-per-use APIs left to a few small scripts. These tools record how much each request reads and writes. I took my records from 2026-08-30 through 09-05 and priced them at each vendor's published pay-per-use rates (rates as of 2026-06, cache reads at the discounted rate, output at full price; an estimate):
+
+- Seven days total: roughly 2,800 to 3,600 dollars (the range comes from one model's cache rate having two readings), about four to five hundred a day
+- Heaviest day, September 4: about 702 dollars, of which 525 was the model re-reading context
+- September 5: about 390 dollars, 287 of it re-reading
+
+I didn't pay those three thousand dollars. The subscription fees absorbed them. But what gets absorbed doesn't vanish; it takes another shape. Every five hours, every week, every month, there's a quota window, and when it's empty you wait for the reset. My four vendors this evening (as of 2026-09-06): one weekly quota at 76%, another weekly at 25%, a monthly at 25%, and a five-hour window at 11% and draining faster than the clock.
+
+That is what "I don't dare fire six tasks" means. It isn't that he can't afford it. What he can afford is a clock that runs. Six tasks and the clock hits zero, and for the next few hours he can do nothing, covers included. On the API, money is continuous: spend more, pay more. On a subscription, quota is discrete: use it up and you hit a wall.
+
+So I'd put the relationship between the two numbers in one line: a subscription doesn't save you money, it converts money into a clock. Nine dollars and 4% describe the same task under two pricing schemes. The difference is that one spends dollars and the other spends how many more things you can do in this window.
+
+## So should I subscribe or pay per use?
+
+That's the question you're really asking. My answer matches his, subscribe, but my reason isn't that it's cheaper. It's that it's bounded. The frightening thing about pay-per-use is that you don't know the nine-dollar request is a nine-dollar request until it has happened. A subscription seals off the worst case: however hard you burn, you burn quota, and your balance never goes negative.
+
+There's a common mix-up worth untangling. People compare "twenty dollars a month" with "nine dollars a request" and conclude the subscription is ten times better. That comparison is missing a variable. Nine dollars buys one request with no ceiling; twenty dollars buys one month with a ceiling. His small task took 4% of a weekly quota; over a month, that's about a hundred such tasks. Whether a hundred is enough depends on what his work looks like, not on the price list.
+
+Where does the belief that pay-per-use is the savvy choice come from? From the cloud computing era. Around 2006, cloud servers started charging for what you used, and at the time that was right: most people's usage was small and lumpy, and a flat monthly fee meant paying for capacity you never touched. Today's situation is different. Once you plug a model into an agent tool, a single request goes off and reads your whole project on its own. Usage is no longer the number of times you typed something; it's what the tool decided to do on your behalf. When usage is out of your hands, the flat fee becomes the safe side.
+
+Once it's bounded, the remaining question shifts from "is there enough money" to "how do I schedule the clock". My own small fix: before every message I send, a line prints how much quota each of the four vendors has left, and the work goes to whoever has the most. Reading big files and converting formats, the mechanical stuff, goes to the cheapest vendor with the widest quota. Anything that needs judgment stays with the most expensive one, and I try to keep it from reading raw material at all, only conclusions. This week the first to run dry was the one I use for code changes, down to 25% of its weekly quota, for the same reason as 掄錘者: changing code means reading a lot.
+
+His solution has a different shape: hand daily work to cheap cloud models and local models, and touch the expensive one only when it's needed. His local Qwen 27B can take six tasks at once without watching a clock, because that clock is his own computer and the cost is electricity. Both approaches do the same thing: move the tasks that would hit a wall to a place where there is no wall.
+
+One more thought. The commenters told him to raise the thinking setting, switch to Luna, switch to Terra. All of those suggestions are about the model. His test is about the clock. The same model through the API and through a subscription are two different things; the same subscription with one task at a time and with six at once are two different things again. No benchmark table has those lines on it. The bill and the quota page do.
+
+## Sources worth checking
+
+- The original video: 掄錘者, "GPT Plus 比API划算得多，GPT6/5.6 Luna/Terra使用感受分享，要自由还得订阅Pro，DeepSeek V4 Flash 和 Qwen 27B真香！" (published 2026-09-06, 14 min 45 s; title reproduced as on the original, which is in Simplified Chinese)
+- My notes on the previous episode: "Ten Dollars for One Request: The Day 掄錘者 Burned His Balance on GPT6 Astra, I Went Back and Checked My Own Bill" (2026-09-06)
+- My own usage figures: usage records from four AI tools, 2026-08-30 through 09-05 (request counts, output tokens, cache-read tokens); quota levels are a snapshot from the evening of 2026-09-06
+- Rates used for conversion: each vendor's published API pricing (as of 2026-06), cache reads at the discounted rate and output at full price; an estimate
+- Two earlier pieces of mine on this: "Cheap Is Enough, Expensive Runs Out" (2026-09-01) and "A Subscription Is Not the Same as Saving Money" (2026-07-09)
+
+## One thing to take with you
+
+The sentence this episode left me with: a subscription doesn't save you money, it turns money into a clock that resets. I only understood why he won't fire six tasks when I saw my own vendor sitting at 25% of its weekly quota.
+
+Here's something I've tried, if you want to try it too: next time you're about to hand an AI tool a big task, open its quota page first and write two things on the first line of the task: how much is left, and when it resets. When the task is done, go back to that line and write down how many points it dropped. After three of these you'll have your own price list, and it won't be in dollars. It'll be in how many hours of your clock this kind of task eats.

@@ -1,0 +1,74 @@
+---
+title: "Same Model, One Leaderboard Says 62.7, Another Says 99.9. Which One Do You Trust?"
+description: "Caleb Writes Code takes apart the GPT-6 Astra launch: of fourteen benchmarks in the announcement, only one overlaps with the popular composite index, and the same model on the same test jumps from 62.7 to 99.9 depending on whose harness runs it. He offers a new yardstick: token-efficient is not the same as cost-efficient. I checked my own week of usage and found output tokens are 8% of my bill. The slice the leaderboards measure is the slice that hurts me least. Educational notes and extension, not a purchase recommendation."
+slug: "caleb-2026-09-04-token-efficient-is-not-cost-efficient"
+lang: "en"
+pubDate: 2026-09-06
+category: "tech"
+tags: ["Caleb Writes Code", "AI tools", "benchmarks", "tokens", "cost", "education"]
+ogImage: "/covers/caleb-2026-09-04-token-efficient-is-not-cost-efficient.png"
+cover: "/covers/caleb-2026-09-04-token-efficient-is-not-cost-efficient.png"
+tldr: "A benchmark scores the model. A bill scores how you use it. GPT-6 Astra hits 99.9 on one test with OpenAI's own harness and 62.7 with the organizer's; it emits half the output tokens of its predecessor but costs more than twice as much per token, so the saving lands with the vendor, not with you. My own week: output is 8% of the bill, re-reading context is 65%. The line on the leaderboard measures the slice that hurts me least."
+---
+
+![Impressionist oil painting cover: a riverside regatta at noon, identical boats racing for the line; one boat pulls with fewer, longer strokes while the others thrash the water, and on the bank a lone judge ignores the scoreboard to watch the river](/covers/caleb-2026-09-04-token-efficient-is-not-cost-efficient.png)
+
+> *At first, with people, I listened to their words and trusted their deeds. Now, with people, I listen to their words and watch their deeds.*<br/>
+> —— Confucius, Analects, Gongye Chang (Spring and Autumn period; translation mine)
+
+## What this episode is about
+
+This episode from Caleb Writes Code (YouTube, published 2026-09-04, 11 min 08 s) takes apart the GPT-6 Astra launch. His angle isn't whether the model is strong; it's how the word "strong" gets measured. The announcement lists fourteen benchmarks. Only one of them overlaps with the composite intelligence index people quote most often, and that index puts Astra in fifth place, behind another vendor's model.
+
+He reaches for a metaphor any programmer will recognize: the individual benchmarks are subroutines, and a composite index is the wrapper function around them. Wrappers can be written well or badly. A composite can help you focus on the right signal, or it can drag you along with the noise underneath. He thinks that particular index is a bad wrapper, and adds in the same breath that the fourteen benchmarks the announcement hand-picked aren't necessarily a good wrapper either. To understand the model you have to peel the wrapper off and look at the tests one by one.
+
+## The key points
+
+The first test is ARC-AGI-3, where Astra scored 99.9, effectively saturating it. He immediately asks the obvious question: didn't Nvidia just announce 100 on the same thing, so what's the big deal? Pulled apart, these are three different events. The test consists of abstract little games, and the model doesn't see a screen; it receives a text grid, cell by cell, and has to discover the rules by sending action commands. The dataset comes in three splits: public, semi-private, fully private. Nvidia's 100 was on the public split, achieved with an agentic layer wrapped around Opus 5 that gave it memory, context management, and an execution environment. Astra's 99.9 was on the semi-private split. The number he found that matters most: the same Astra model, run through the organizer's harness by API alone rather than OpenAI's own, scores 62.7. Same model, different context management, 62.7 becomes 99.9.
+
+The second test is FrontierMath tier four, problems written by more than seventy mathematicians, fully private, run by an organizer with no ties to OpenAI. Astra scored 97.6. His comparison point, Anthropic's Fable 5.1 released a few days earlier, scored 87.8.
+
+The third is DeepSuite, the one he values most because it looks like real work. It isn't saturated, but the frontier models are all bunched around seventy, and a model nearly five months old, 5.5, trails today's top score by only seven or eight points. Astra sits at 74. What caught his eye on this board wasn't the score but the column beside it: output tokens. To complete the same problems, Astra emitted about half the tokens of its predecessor, 5.6 Sol.
+
+Then he draws the distinction that makes the episode worth watching. Astra is priced at ten dollars per million input tokens and fifty per million output; 5.6 Sol is four and twenty. Half the tokens at more than double the price, and the cost curve lands almost on top of the previous generation's. So Astra is a token-efficient model, not a cost-efficient one, and those are two different things. He follows the thread: if models keep getting more token-efficient, the value delivered per token rises, and a lab whose business is selling tokens needs less compute to serve the same demand. That surplus can be handed back to users or kept. Judging by Astra's pricing, for now it's being kept. He also names Gemini 3.8 Flash and Opus 5, which score close to Astra on that board, as four to five times less token-efficient.
+
+He closes with two honest remarks. The voice-driven computer-use demo at the launch was cool, but his own experience with agents operating a computer has been underwhelming; it's something he wants to be true and isn't yet. And Fable 5.1 comes out ahead of GPT-6 on certain measurements, so the definition of a good model is shifting: from an intelligent model to a useful one, where token efficiency, cost efficiency, speed, and performance on real tasks say more than any composite index.
+
+## Where my thinking went
+
+What I wanted to check after this episode was one thing: what "token-efficient isn't cost-efficient" looks like on my own bill.
+
+The agent tools I use every day log how much each request reads and writes. I took my records from 2026-08-30 through 09-05, priced them at published pay-per-use rates (rates as of 2026-06, cache reads at the discounted rate; an estimate), and split the total into three parts:
+
+- Tokens the model wrote: about 269 dollars, 8%
+- Tokens the model re-read from context (cache reads): about 2,314 dollars, 65%
+- Fresh input and cache creation: about 996 dollars, 28%
+
+Seven days, 7,754 requests, an average of 805 output tokens per request. If a model like Astra halved my output, I'd save 82 dollars a week, 4% of the bill. In other words, the "output token efficiency" line on the leaderboard measures the smallest slice of what I pay. What decides my bill is another line entirely: how much the model has to re-read on every request. That line is on no leaderboard, because it isn't a property of the model. It's a property of how I use it.
+
+How big is that re-reading slice? A concrete number: on September 4 I sent 2,325 requests, and the context the model read in added up to about 1.05 billion tokens, roughly 450,000 per request. I never asked it to read that much. The moment it's wired into a tool, it treats the whole workspace as context. On the same day, with a different way of working, handing large files to a cheap engine and opening a fresh conversation whenever the topic changes, that average drops by an order of magnitude. The model didn't change. The bill did.
+
+That is the same fact as his 62.7 versus 99.9, seen from the other side. Same model, different harness, thirty-seven points apart. Same model, different usage, a tenfold difference on the bill. The benchmark measures the model; the bill measures the harness and the habits. The two numbers don't line up on their own.
+
+## So which leaderboard should I look at?
+
+That's the question underneath. My approach is to ask first which item on the board looks most like what I do all day. He values DeepSuite because its problems resemble his work; ARC-AGI-3 means something to people pushing the science and little to someone who edits code all day. The same board is a different object for different people. The board isn't wrong; it's answering a question that isn't yours.
+
+Where does the belief that a high score means a good model come from? From the tradition of machine learning research. A decade or so ago the gaps between models were so large that one leaderboard could sort them, and back then reading the board was right, because a point on the board mapped to whether you could do the thing at all. Today the frontier models on the board he cares about most are all bunched around seventy, and a one-point gap buys you nothing you can feel. The board is the same board. It just tells you less than it used to.
+
+The second question is worth more than the first: measure your own two numbers, how much each request reads and how much it writes. Once you have them, you know whether a model's token efficiency matters to you. If output is the bulk of your bill, an Astra-style model saves you real money. If output is 8%, the place to save is the reading side, where switching models changes nothing and switching habits changes everything.
+
+One more thought. The most solid number in his video isn't 99.9, it's 62.7, because it proves the harness isn't a supporting actor. Most of what I've done this year lives at the harness layer: when to clear context, sending big-file reads to a cheap engine, letting the expensive model see only conclusions. None of it will ever show up on a leaderboard. All of it decides what I pay.
+
+## Sources worth checking
+
+- The original video: Caleb Writes Code, "GPT-6 Astra.. full analysis.." (published 2026-09-04, 11 min 08 s; title reproduced as on the original)
+- My own usage figures: agent-tool usage records from 2026-08-30 through 09-05 (request counts, output tokens, cache-read tokens, cache-creation tokens)
+- Rates used for conversion: each vendor's published API pricing (as of 2026-06), cache reads at the discounted rate and output at full price; an estimate. The Astra and 5.6 Sol prices in the text are as reported in the video
+- My two other pieces on bills from today: "Ten Dollars for One Request" and "A Subscription Beats Pay-Per-Use by a Mile. So Why Won't He Hand It Six Tasks at Once?" (both 2026-09-06)
+
+## One thing to take with you
+
+The sentence this episode left me with: a benchmark scores the model, a bill scores how you use it, and the two numbers never line up on their own. Pulling out that 8% is what got me to stop chasing leaderboards.
+
+Here's something I've tried, if you want to try it too: next time a model-benchmark headline crosses your screen, take a sheet of paper and write down which item on that board looks most like what you do every day. If you can write it down, look only at that item's score. If you can't, close the article. A week later, count the lines on the paper. That's how many of this week's headlines were worth your time.
