@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="上面一條線只有終點有一個標記，下面一條線沿途有五個標記">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<g font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',sans-serif">
+<text x="60" y="56" font-size="27" fill="var(--ink)">兩種順序，能不能提前看見</text>
+
+<text x="60" y="168" font-size="20" fill="var(--dim)">順序一　算力先過剩</text>
+<line x1="150" y1="212" x2="800" y2="212" stroke="var(--line)" stroke-width="5"/>
+<circle cx="150" cy="212" r="7" fill="var(--grey)"/>
+<circle cx="475" cy="212" r="7" fill="var(--grey)"/>
+<circle cx="800" cy="212" r="11" fill="var(--warn)"/>
+<g font-size="15" fill="var(--dim)" text-anchor="middle">
+<text x="150" y="252">開始蓋</text>
+<text x="475" y="252">蓋完</text>
+<text x="800" y="252">才發現過剩</text>
+</g>
+<text x="860" y="219" font-size="19" fill="var(--grey)">一次</text>
+
+<text x="60" y="338" font-size="20" fill="var(--dim)">順序二　錢先斷</text>
+<line x1="150" y1="382" x2="800" y2="382" stroke="var(--line)" stroke-width="5"/>
+<g fill="var(--accent)">
+<circle cx="180" cy="382" r="9"/>
+<circle cx="335" cy="382" r="9"/>
+<circle cx="490" cy="382" r="9"/>
+<circle cx="645" cy="382" r="9"/>
+<circle cx="800" cy="382" r="9"/>
+</g>
+<g font-size="15" fill="var(--dim)" text-anchor="middle">
+<text x="180" y="356">募資新聞</text>
+<text x="490" y="356">電力合約</text>
+<text x="800" y="356">新一輪</text>
+<text x="335" y="418">現金流比例</text>
+<text x="645" y="418">資本支出</text>
+</g>
+<text x="860" y="389" font-size="19" fill="var(--accent)">每季</text>
+
+<text x="60" y="484" font-size="22" fill="var(--ink)">看得見的那條，才有得反應。</text>
+</g>
+</svg>
