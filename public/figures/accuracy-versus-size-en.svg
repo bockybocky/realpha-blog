@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="A dot moves along an arrow from lower left to upper right, with a shaded danger zone in the top right">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    svg text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text x="60" y="56" font-size="27" fill="var(--ink)">More research, bigger bets</text>
+
+<rect x="620" y="120" width="240" height="200" fill="var(--warn)" fill-opacity="0.15"/>
+<text x="740" y="168" font-size="16" fill="var(--warn)" text-anchor="middle">One error, out</text>
+
+<line x1="140" y1="120" x2="140" y2="480" stroke="var(--grey)" stroke-width="3"/>
+<line x1="140" y1="480" x2="880" y2="480" stroke="var(--accent)" stroke-width="3"/>
+<text x="128" y="112" font-size="19" fill="var(--dim)" text-anchor="start">Position size</text>
+<text x="128" y="136" font-size="15" fill="var(--dim)">AI can't help</text>
+<text x="878" y="512" font-size="19" fill="var(--accent)" text-anchor="end">Hit rate</text>
+<text x="878" y="536" font-size="15" fill="var(--dim)" text-anchor="end">AI moves this axis</text>
+
+<path d="M296 412 Q 480 344 684 232" fill="none" stroke="var(--ink)" stroke-width="3" stroke-dasharray="7 6"/>
+<polygon points="676,222 700,222 690,246" fill="var(--ink)"/>
+<circle cx="284" cy="420" r="8" fill="var(--grey)"/>
+<text x="284" y="452" font-size="15" fill="var(--dim)" text-anchor="middle">Before</text>
+<circle cx="700" cy="220" r="9" fill="var(--accent)"/>
+<text x="700" y="196" font-size="15" fill="var(--ink)" text-anchor="middle">Now</text>
+
+<text x="480" y="572" font-size="22" fill="var(--ink)" text-anchor="middle">Hit rate up, error cost up too</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Two bars: a tall fifty-times bar on the left, a short twenty-times bar on the right, with a dashed arrow marking the gap.">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.h { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:19px; font-weight:600; fill:var(--ink); }
+.b { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:600; fill:var(--ink); }
+</style>
+<text class="h" x="60" y="60">Same cash flow, two denominators</text>
+<text class="b" x="60" y="94">Cash flow grows 3% a year</text>
+<line x1="140" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+<rect x="255" y="130" width="170" height="300" fill="var(--accent)"/>
+<rect x="535" y="310" width="170" height="120" fill="var(--warn)"/>
+<text class="g" x="340" y="118" text-anchor="middle">50x</text>
+<text class="g" x="620" y="298" text-anchor="middle">20x</text>
+<text class="g" x="340" y="462" text-anchor="middle">Required return 5%</text>
+<text class="g" x="620" y="462" text-anchor="middle">Required return 8%</text>
+<line x1="440" y1="130" x2="740" y2="130" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="6 6"/>
+<line x1="740" y1="130" x2="740" y2="310" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="6 6"/>
+<path d="M740,310 L732,290 L748,290 Z" fill="var(--dim)"/>
+<text class="b" x="756" y="228">40% left</text>
+<text class="c" x="60" y="502">Nothing changed</text>
+</svg>

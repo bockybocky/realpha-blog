@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A payoff line for the convertible bond buyer: flat while the stock is below the conversion price, rising to the upper right past it, and profitable only after crossing the dashed purchase-cost line">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+svg{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.t{font-size:27px;fill:var(--ink);font-weight:700}
+.g{font-size:20px;fill:var(--ink);font-weight:700}
+.b{font-size:16px;fill:var(--dim)}
+.c{font-size:22px;fill:var(--ink);font-weight:700}
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="62">0% coupon, paid a premium</text>
+<line x1="140" y1="400" x2="890" y2="400" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="110" x2="140" y2="400" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="310" x2="880" y2="310" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 7"/>
+<text class="b" x="880" y="298" text-anchor="end" fill="var(--warn)">Buy cost</text>
+<line x1="520" y1="400" x2="520" y2="150" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<polyline points="140,340 520,340 860,160" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="577" cy="310" r="8" fill="var(--accent)"/>
+<text class="g" x="597" y="286">Profit</text>
+<text class="b" x="300" y="322" text-anchor="middle">Par</text>
+<text class="g" x="740" y="222" text-anchor="middle">Shares</text>
+<text class="b" x="520" y="426" text-anchor="middle">Strike</text>
+<text class="g" x="170" y="150">Coupon 0%</text>
+<text class="b" x="170" y="180">No coupon income</text>
+<text class="b" x="890" y="452" text-anchor="end">Future price</text>
+<text class="b" x="124" y="255" text-anchor="middle" transform="rotate(-90 124 255)">Buyer value</text>
+<text class="c" x="60" y="510">Bet on years, not now</text>
+</svg>

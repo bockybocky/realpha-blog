@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Three buckets on a timeline: shipping now, volume from 2027 to 2029, and a dashed bucket at the far right with no schedule">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:20px; font-weight:700; fill:var(--ink); }
+    .bd  { font-size:16px; fill:var(--dim); }
+    .sm  { font-size:15px; fill:var(--dim); }
+    .cc  { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">Three buckets, three different stretches of time</text>
+
+  <rect x="70" y="140" width="230" height="140" rx="14" fill="var(--accent)" fill-opacity="0.16" stroke="var(--accent)" stroke-width="2"/>
+  <text class="grp" x="185" y="196" text-anchor="middle" fill="var(--accent)">Temporary carrier</text>
+  <text class="bd" x="185" y="230" text-anchor="middle">Already shipping</text>
+
+  <rect x="330" y="140" width="290" height="140" rx="14" fill="var(--accent)" fill-opacity="0.10" stroke="var(--accent)" stroke-width="2"/>
+  <text class="grp" x="475" y="188" text-anchor="middle" fill="var(--accent)">Glass substrate</text>
+  <text class="bd" x="475" y="220" text-anchor="middle">2027 small volume</text>
+  <text class="bd" x="475" y="246" text-anchor="middle">Late 2028 into 2029 volume</text>
+
+  <rect x="660" y="140" width="230" height="140" rx="14" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 7"/>
+  <text class="grp" x="775" y="196" text-anchor="middle" fill="var(--dim)">Glass interposer</text>
+  <text class="bd" x="775" y="230" text-anchor="middle">No schedule</text>
+
+  <line x1="185" y1="280" x2="185" y2="330" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="475" y1="280" x2="475" y2="330" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="775" y1="280" x2="775" y2="330" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <line x1="70" y1="332" x2="900" y2="332" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="912,332 896,325 896,339" fill="var(--grey)"/>
+  <text class="bd" x="185" y="366" text-anchor="middle">Today</text>
+  <text class="bd" x="475" y="366" text-anchor="middle">2027 to 2029</text>
+  <text class="bd" x="775" y="366" text-anchor="middle">After 2030?</text>
+
+  <text class="cc" x="60" y="470">Which bucket is today's price discounting</text>
+</svg>

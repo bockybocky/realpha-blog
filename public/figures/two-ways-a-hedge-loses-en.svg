@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="fig-two-losses" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="The line in the left panel oscillates around the center; the line in the right panel keeps falling away from it and never returns">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+#fig-two-losses text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+#fig-two-losses .h { font-size:27px; fill:var(--ink); font-weight:700; }
+#fig-two-losses .g { font-size:19px; fill:var(--ink); font-weight:600; }
+#fig-two-losses .b { font-size:16px; fill:var(--dim); }
+#fig-two-losses .s { font-size:15px; fill:var(--dim); }
+#fig-two-losses .c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="h" x="60" y="54">Two ways a hedge loses</text>
+<rect x="60" y="100" width="400" height="290" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="84" y="138">Good-times premium</text>
+<line x1="90" y1="270" x2="430" y2="270" stroke="var(--line)" stroke-width="2"/>
+<polyline fill="none" stroke="var(--accent)" stroke-width="4" points="90,270 130,240 170,292 210,252 250,296 290,246 330,288 370,258 430,282"/>
+<text class="s" x="84" y="352">Still works, just not needed</text>
+<text class="b" x="84" y="378">→ Sit tight</text>
+<rect x="500" y="100" width="400" height="290" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="524" y="138">Premise changed</text>
+<line x1="530" y1="270" x2="870" y2="270" stroke="var(--line)" stroke-width="2"/>
+<polyline fill="none" stroke="var(--warn)" stroke-width="4" points="530,262 580,268 630,282 680,300 730,318 780,334 830,346 870,356"/>
+<text class="s" x="524" y="352">The mechanism loosened</text>
+<text class="b" x="524" y="378">→ Recompute</text>
+<text class="c" x="60" y="470">Know which one before you act</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two curves from the same starting point with task steps on the horizontal axis; on short tasks they nearly overlap, and past a few dozen steps the mixture-of-experts curve drops sharply, opening an ever-wider gap from the dense model">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .capA  { font-size: 19px; font-weight: 700; fill: var(--accent); }
+    .capW  { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .hint  { font-size: 16px; font-weight: 700; fill: var(--dim); }
+    .ax    { font-size: 16px; fill: var(--dim); }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">Errors compound over long tasks</text>
+
+    <!-- 短任務區：淡底 -->
+    <rect x="170" y="100" width="210" height="340" fill="var(--card)"/>
+    <text x="275" y="424" class="hint" text-anchor="middle">Short: overlap</text>
+
+    <!-- 座標軸 -->
+    <line x1="170" y1="440" x2="880" y2="440" stroke="var(--ink)" stroke-width="1.5"/>
+    <line x1="170" y1="440" x2="170" y2="100" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="880" y="470" class="ax" text-anchor="end">Steps →</text>
+    <text x="170" y="470" class="ax" text-anchor="middle">1 step</text>
+    <text x="380" y="470" class="ax" text-anchor="middle">10 steps</text>
+    <text x="640" y="470" class="ax" text-anchor="middle">100 steps</text>
+    <text x="156" y="112" class="ax" text-anchor="end">On track</text>
+    <text x="156" y="444" class="ax" text-anchor="end">Drifted</text>
+
+    <!-- 稠密模型：緩緩下滑 -->
+    <path d="M170,120 C360,124 540,140 880,190" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+    <text x="880" y="178" class="capA" text-anchor="end">Dense 27B</text>
+
+    <!-- 混合專家：幾十步後急轉直下 -->
+    <path d="M170,124 C330,130 400,170 470,260 C540,350 660,420 880,432" fill="none" stroke="var(--warn)" stroke-width="5" stroke-linecap="round"/>
+    <text x="880" y="402" class="capW" text-anchor="end">MoE 35B (3B active)</text>
+
+    <!-- 缺口 -->
+    <line x1="640" y1="158" x2="640" y2="410" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <text x="654" y="290" class="hint" text-anchor="start">Gap widens</text>
+
+    <text x="480" y="525" class="kick" text-anchor="middle">One step, go cheap; 100 steps, pay up</text>
+  </g>
+</svg>

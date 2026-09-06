@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two parallel lines on one time axis; the upper turns down on the day of the event, the lower at a later decision cycle, with the gap marked between them">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<defs>
+<marker id="a5a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--grey)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="56">One event, two paths at different speeds</text>
+
+<line x1="300" y1="110" x2="300" y2="410" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+<text class="b" x="300" y="100" text-anchor="middle" fill="var(--warn)">Long end rises</text>
+
+<text class="g" x="60" y="176">Paper value</text>
+<text class="b" x="60" y="202">Discount rate</text>
+<polyline points="230,160 300,160 340,236 880,246" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="300" cy="160" r="6" fill="var(--accent)"/>
+<text class="b" x="356" y="196">Changes today</text>
+
+<text class="g" x="60" y="336">Orders and capex</text>
+<text class="b" x="60" y="362">Real operations</text>
+<polyline points="230,320 660,320 700,392 880,398" fill="none" stroke="var(--accent)" stroke-width="3" stroke-opacity="0.55"/>
+<circle cx="660" cy="320" r="6" fill="var(--accent)" fill-opacity="0.55"/>
+<text class="b" x="716" y="356">Next decision cycle</text>
+
+<line x1="300" y1="272" x2="660" y2="272" stroke="var(--grey)" stroke-width="2" marker-end="url(#a5a)"/>
+<text class="b" x="480" y="264" text-anchor="middle">Time gap</text>
+
+<line x1="230" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-width="2" marker-end="url(#a5a)"/>
+<text class="b" x="880" y="466" text-anchor="end">Time</text>
+
+<text class="c" x="60" y="500">The news isn't lying; the two paths move at different speeds</text>
+</svg>

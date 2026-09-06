@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="A five-layer funnel narrowing downward: 51,110 papers, 4,717 open conjectures, 1,050 claimed new solutions, 598 passing automated review, 77 recommended to experts; the small box at the bottom is a manual spot-check of 15, all correct, with one already solved before">
+  <style>
+    svg {
+      --page:   #ffffff;
+      --card:   #f6f8fc;
+      --line:   #dde3ee;
+      --ink:    #1a212b;
+      --dim:    #57616f;
+      --grey:   #b9c2d0;
+      --accent: #1f6feb;
+      --warn:   #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --page:   #0d1117;
+        --card:   #161b22;
+        --line:   #272e39;
+        --ink:    #e6edf3;
+        --dim:    #8b949e;
+        --grey:   #4a5464;
+        --accent: #58a6ff;
+        --warn:   #d29922;
+      }
+    }
+    .t     { font-family: "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h1    { font-size: 27px; font-weight: 700; fill: var(--ink); }
+    .cap   { font-size: 19px; font-weight: 700; fill: var(--dim); }
+    .capW  { font-size: 19px; font-weight: 700; fill: var(--warn); }
+    .big   { font-size: 30px; font-weight: 700; fill: var(--ink); }
+    .pct   { font-size: 16px; font-weight: 700; }
+    .kick  { font-size: 22px; font-weight: 700; fill: var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="46" class="h1" text-anchor="middle">A denominator at every layer</text>
+
+    <!-- 漏斗五層：寬度依對數縮，中心 x=400 -->
+    <rect x="80"  y="80"  width="640" height="56" rx="4" fill="var(--grey)"/>
+    <rect x="152" y="152" width="496" height="56" rx="4" fill="var(--grey)"/>
+    <rect x="212" y="224" width="376" height="56" rx="4" fill="var(--grey)"/>
+    <rect x="248" y="296" width="304" height="56" rx="4" fill="var(--grey)"/>
+    <rect x="316" y="368" width="168" height="56" rx="4" fill="var(--accent)"/>
+    <rect x="372" y="440" width="56"  height="56" rx="4" fill="var(--accent)"/>
+
+    <text x="400" y="116" class="pct" fill="var(--page)" text-anchor="middle">51,110 papers</text>
+    <text x="400" y="188" class="pct" fill="var(--page)" text-anchor="middle">4,717 open conjectures</text>
+    <text x="400" y="260" class="pct" fill="var(--page)" text-anchor="middle">1,050 claimed solutions</text>
+    <text x="400" y="332" class="pct" fill="var(--page)" text-anchor="middle">598 pass auto-review</text>
+    <text x="400" y="404" class="pct" fill="var(--page)" text-anchor="middle">77 to experts</text>
+    <text x="400" y="476" class="pct" fill="var(--page)" text-anchor="middle">15 sampled</text>
+
+    <!-- 右側註記 -->
+    <text x="760" y="116" class="cap" text-anchor="start">Scan lit</text>
+    <text x="760" y="188" class="cap" text-anchor="start">Filter</text>
+    <text x="760" y="260" class="cap" text-anchor="start">Machine tries</text>
+    <text x="760" y="332" class="cap" text-anchor="start">Machine review</text>
+    <text x="760" y="404" class="cap" text-anchor="start">Human read</text>
+    <text x="760" y="476" class="cap" text-anchor="start">Spot-check</text>
+    <text x="400" y="524" class="capW" text-anchor="middle">15 all correct, 1 already solved</text>
+
+    <text x="480" y="560" class="kick" text-anchor="middle">51,110 to 77: never heard in interviews</text>
+  </g>
+</svg>

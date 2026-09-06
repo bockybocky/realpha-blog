@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two curves of the same shape offset horizontally, the stock price leading and the quote following, with a dashed box below for the invisible long-term contract price">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="50" y="62" font-size="27" fill="var(--ink)">What moves first is unseen</text>
+
+  <rect x="50" y="100" width="860" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <polyline points="100,320 160,300 220,250 280,200 340,170 400,150 460,162 520,192" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="100" y="352" font-size="19" fill="var(--accent)">Stock price</text>
+
+  <polyline points="260,360 320,340 380,290 440,240 500,210 560,190 620,202 680,232" fill="none" stroke="var(--grey)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="620" y="272" font-size="19" fill="var(--dim)">Quote</text>
+
+  <line x1="400" y1="150" x2="400" y2="132" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="560" y1="190" x2="560" y2="132" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="400" y1="132" x2="560" y2="132" stroke="var(--dim)" stroke-width="2"/>
+  <text x="404" y="122" font-size="16" fill="var(--dim)">6–12 months</text>
+
+  <rect x="700" y="330" width="190" height="76" rx="10" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 8"/>
+  <text x="722" y="365" font-size="17" fill="var(--dim)">LT price</text>
+  <text x="722" y="391" font-size="15" fill="var(--dim)">Unseen</text>
+
+  <text x="50" y="487" font-size="22" fill="var(--ink)">You're chasing an echo</text>
+</svg>

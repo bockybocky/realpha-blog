@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two data paths compared: the top detours through memory in three segments, the bottom connects cores directly in two">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" fill="var(--ink)">Merging two cores: two very different routes</text>
+
+<text x="60" y="122" font-size="19" fill="var(--dim)">Hardware scheduling: via memory</text>
+<rect x="110" y="150" width="130" height="54" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text x="175" y="184" font-size="16" fill="var(--ink)" text-anchor="middle">Core 1</text>
+<rect x="110" y="228" width="130" height="54" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text x="175" y="262" font-size="16" fill="var(--ink)" text-anchor="middle">Core 3</text>
+<rect x="390" y="150" width="150" height="132" rx="8" fill="var(--card)" stroke="var(--grey)"/>
+<text x="465" y="222" font-size="16" fill="var(--dim)" text-anchor="middle">Memory</text>
+<rect x="670" y="180" width="140" height="54" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text x="740" y="214" font-size="16" fill="var(--ink)" text-anchor="middle">Merge core</text>
+
+<line x1="240" y1="177" x2="378" y2="177" stroke="var(--grey)" stroke-width="2"/>
+<polygon points="388,177 374,171 374,183" fill="var(--grey)"/>
+<line x1="240" y1="255" x2="378" y2="255" stroke="var(--grey)" stroke-width="2"/>
+<polygon points="388,255 374,249 374,261" fill="var(--grey)"/>
+<line x1="540" y1="207" x2="658" y2="207" stroke="var(--grey)" stroke-width="2"/>
+<polygon points="668,207 654,201 654,213" fill="var(--grey)"/>
+<text x="262" y="206" font-size="15" fill="var(--dim)">Write back</text>
+<text x="556" y="196" font-size="15" fill="var(--dim)">Fetch again</text>
+
+<text x="60" y="336" font-size="19" fill="var(--dim)">Spatial: core to core</text>
+<rect x="110" y="360" width="130" height="54" rx="8" fill="var(--card)" stroke="var(--accent)"/>
+<text x="175" y="394" font-size="16" fill="var(--ink)" text-anchor="middle">Core 1</text>
+<rect x="390" y="360" width="130" height="54" rx="8" fill="var(--card)" stroke="var(--accent)"/>
+<text x="455" y="394" font-size="16" fill="var(--ink)" text-anchor="middle">Core 3</text>
+<rect x="670" y="360" width="140" height="54" rx="8" fill="var(--accent)"/>
+<text x="740" y="394" font-size="16" fill="var(--page)" text-anchor="middle">Result</text>
+
+<line x1="240" y1="387" x2="378" y2="387" stroke="var(--accent)" stroke-width="2"/>
+<polygon points="388,387 374,381 374,393" fill="var(--accent)"/>
+<line x1="520" y1="387" x2="658" y2="387" stroke="var(--accent)" stroke-width="2"/>
+<polygon points="668,387 654,381 654,393" fill="var(--accent)"/>
+<text x="272" y="376" font-size="15" fill="var(--dim)">Direct</text>
+<text x="552" y="376" font-size="15" fill="var(--dim)">Direct</text>
+
+<text x="60" y="492" font-size="22" fill="var(--ink)">Shortest path; one misroute, all wait</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two cards compared: the temporary carrier's glass is gone from the finished part, the permanent substrate's glass stays in it">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:20px; font-weight:700; fill:var(--ink); }
+    .bd  { font-size:16px; fill:var(--dim); }
+    .sm  { font-size:15px; fill:var(--dim); }
+    .cc  { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">Same glass, two identities</text>
+
+  <rect x="60" y="92" width="400" height="350" rx="16" fill="var(--card)" stroke="var(--line)"/>
+  <text class="grp" x="88" y="134">Temporary carrier</text>
+  <text class="sm" x="88" y="160">Like a workbench</text>
+  <text class="sm" x="185" y="196" text-anchor="middle">In process</text>
+  <rect x="120" y="208" width="130" height="36" rx="6" fill="none" stroke="var(--grey)" stroke-width="2"/>
+  <text class="bd" x="185" y="232" text-anchor="middle" fill="var(--ink)">Material</text>
+  <rect x="120" y="244" width="130" height="36" rx="6" fill="var(--accent)" fill-opacity="0.16" stroke="var(--accent)" stroke-width="2"/>
+  <text class="bd" x="185" y="268" text-anchor="middle" fill="var(--accent)">Glass</text>
+  <line x1="268" y1="262" x2="312" y2="262" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="322,262 308,255 308,269" fill="var(--grey)"/>
+  <text class="sm" x="375" y="196" text-anchor="middle">Finished part</text>
+  <rect x="310" y="208" width="130" height="36" rx="6" fill="none" stroke="var(--grey)" stroke-width="2"/>
+  <text class="bd" x="375" y="232" text-anchor="middle" fill="var(--ink)">Die</text>
+  <rect x="310" y="244" width="130" height="36" rx="6" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="sm" x="375" y="268" text-anchor="middle">Removed</text>
+  <text class="grp" x="260" y="400" text-anchor="middle" fill="var(--dim)">No glass in the finished part</text>
+
+  <rect x="500" y="92" width="400" height="350" rx="16" fill="var(--card)" stroke="var(--line)"/>
+  <text class="grp" x="528" y="134">Permanent substrate</text>
+  <text class="sm" x="528" y="160">Stays in the finished part</text>
+  <text class="sm" x="625" y="196" text-anchor="middle">In process</text>
+  <rect x="560" y="208" width="130" height="36" rx="6" fill="none" stroke="var(--grey)" stroke-width="2"/>
+  <text class="bd" x="625" y="232" text-anchor="middle" fill="var(--ink)">Material</text>
+  <rect x="560" y="244" width="130" height="36" rx="6" fill="var(--accent)" fill-opacity="0.16" stroke="var(--accent)" stroke-width="2"/>
+  <text class="bd" x="625" y="268" text-anchor="middle" fill="var(--accent)">Glass</text>
+  <line x1="708" y1="262" x2="752" y2="262" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="762,262 748,255 748,269" fill="var(--grey)"/>
+  <text class="sm" x="815" y="196" text-anchor="middle">Finished part</text>
+  <rect x="750" y="208" width="130" height="36" rx="6" fill="none" stroke="var(--grey)" stroke-width="2"/>
+  <text class="bd" x="815" y="232" text-anchor="middle" fill="var(--ink)">Die</text>
+  <rect x="750" y="244" width="130" height="36" rx="6" fill="var(--accent)" fill-opacity="0.30" stroke="var(--accent)" stroke-width="2"/>
+  <text class="bd" x="815" y="268" text-anchor="middle" fill="var(--accent)">Glass</text>
+  <text class="grp" x="700" y="400" text-anchor="middle" fill="var(--dim)">Glass is part of the product</text>
+
+  <text class="cc" x="60" y="505">Check which one is meant, and two contradictory lines can both be right</text>
+</svg>

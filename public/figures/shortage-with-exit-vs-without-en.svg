@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two progress bars: the left is full, the right only half">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .ra { font-size:19px; fill:var(--accent); font-weight:700; }
+    .rw { font-size:19px; fill:var(--warn); font-weight:700; }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="80" y="58">Both tight, different exits</text>
+  <text class="s" x="80" y="90">Bar = how far the gap is filled</text>
+
+  <rect x="80" y="128" width="380" height="292" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="112" y="170">Copper foil</text>
+  <text class="b" x="112" y="200">Leaders expanded, yield held</text>
+  <rect x="112" y="230" width="316" height="38" rx="8" fill="var(--page)" stroke="var(--grey)"/>
+  <rect x="112" y="230" width="316" height="38" rx="8" fill="var(--accent)"/>
+  <text class="ra" x="112" y="310">Money and time fill it</text>
+  <text class="b" x="112" y="342">Supply tight</text>
+  <text class="b" x="112" y="370">But not short</text>
+
+  <rect x="500" y="128" width="380" height="292" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="532" y="170">Low CTE fabric</text>
+  <text class="b" x="532" y="200">3x may still fall short</text>
+  <rect x="532" y="230" width="316" height="38" rx="8" fill="var(--page)" stroke="var(--warn)" stroke-width="2"/>
+  <rect x="532" y="230" width="174" height="38" rx="8" fill="var(--warn)"/>
+  <text class="rw" x="532" y="310">Gap unfilled</text>
+  <text class="b" x="532" y="342">Spec downgraded</text>
+  <text class="b" x="532" y="370">Power upstream</text>
+
+  <text class="c" x="80" y="500">Who expands, how long, any substitute</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="The dot on the top scale moves a notch under evidence while the dot below does not, and only a cost arrow moves it">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<defs>
+  <marker id="arw-f10a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+  <marker id="arw-f10b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--warn)"/></marker>
+</defs>
+<text x="48" y="62" font-size="27" fill="var(--ink)">Judgement moves a notch on evidence, a position doesn't</text>
+
+<text x="180" y="236" font-size="20" fill="var(--ink)" text-anchor="end">Judgement</text>
+<line x1="220" y1="230" x2="780" y2="230" stroke="var(--line)" stroke-width="2"/>
+<line x1="300" y1="220" x2="300" y2="240" stroke="var(--line)" stroke-width="2"/>
+<line x1="380" y1="220" x2="380" y2="240" stroke="var(--line)" stroke-width="2"/>
+<line x1="460" y1="220" x2="460" y2="240" stroke="var(--line)" stroke-width="2"/>
+<line x1="540" y1="220" x2="540" y2="240" stroke="var(--line)" stroke-width="2"/>
+<line x1="620" y1="220" x2="620" y2="240" stroke="var(--line)" stroke-width="2"/>
+<circle cx="380" cy="230" r="10" fill="var(--accent)"/>
+<circle cx="460" cy="230" r="10" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="396" y1="230" x2="440" y2="230" stroke="var(--accent)" stroke-width="3" marker-end="url(#arw-f10a)"/>
+<text x="420" y="196" font-size="15" fill="var(--dim)" text-anchor="middle">New evidence comes in, move a notch</text>
+
+<text x="180" y="386" font-size="20" fill="var(--ink)" text-anchor="end">Position</text>
+<line x1="220" y1="380" x2="780" y2="380" stroke="var(--line)" stroke-width="2"/>
+<line x1="300" y1="370" x2="300" y2="390" stroke="var(--line)" stroke-width="2"/>
+<line x1="380" y1="370" x2="380" y2="390" stroke="var(--line)" stroke-width="2"/>
+<line x1="460" y1="370" x2="460" y2="390" stroke="var(--line)" stroke-width="2"/>
+<line x1="540" y1="370" x2="540" y2="390" stroke="var(--line)" stroke-width="2"/>
+<line x1="620" y1="370" x2="620" y2="390" stroke="var(--line)" stroke-width="2"/>
+<circle cx="380" cy="380" r="10" fill="var(--grey)"/>
+<line x1="290" y1="380" x2="356" y2="380" stroke="var(--grey)" stroke-width="3"/>
+<line x1="366" y1="356" x2="366" y2="404" stroke="var(--grey)" stroke-width="3"/>
+<text x="290" y="348" font-size="15" fill="var(--dim)">Evidence can't move it</text>
+<line x1="380" y1="450" x2="380" y2="400" stroke="var(--warn)" stroke-width="3" marker-end="url(#arw-f10b)"/>
+<text x="396" y="446" font-size="15" fill="var(--warn)">Only cost can</text>
+
+<text x="480" y="502" font-size="22" fill="var(--ink)" text-anchor="middle">Write down exactly what would make you admit you were wrong</text>
+</svg>

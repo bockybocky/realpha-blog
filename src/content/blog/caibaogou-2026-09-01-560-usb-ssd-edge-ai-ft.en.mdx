@@ -27,17 +27,27 @@ I was doing dishes when I listened. Halfway through I dried my hands and rewound
 
 **1. Demand isn't created. It's already there.** When a host suggested Phison is good at creating demand, he pushed back immediately. Was the smartphone created? No — the need existed, nobody had made it usable and cheap yet. He went back to the USB era: laptops carried twenty or thirty dollars of extra cost for a floppy drive and an optical drive, both bulky, and a floppy held 1.44MB. Did PC makers want that gone? Yes. Did users? Yes. That's not creation. Somebody finally built it.
 
+![On the left a thick heavy laptop with two large gray blocks inside taking up half the body; on the right just one slim USB stick, a stark difference in size](/figures/usb-before-after-en.svg)
+
 **2. "No need, no deal" — which is why he tells his sales team to stop chasing customers who don't need them.** He said it three times, and it cuts both ways. Toward customers: if they don't need you, don't waste time. Toward the hyperscalers: he flatly said they have no reason to care about him, that business belongs to the fab, and there's no point begging. This separates *effort* from *effectiveness* — a lot of energy goes into persuading people who simply don't need you.
 
 **3. He didn't convince anyone. He made his own company the first user.** His analogy: I made a pill and told you it grants long life, but I've never taken it — would you believe me? If I'd taken it and lived to a hundred, would I even need to sell it? Phison put six servers to work internally; by June the savings equaled roughly 114 engineers' worth of output, and the hardware paid for itself within a month. He then spent NT$1.5 billion on 45 B300 systems and 221 Pro 6000 cards. His reasoning was almost blunt: I can see the money coming back immediately, so why wouldn't I spend it. A smaller example rode along — one month, roughly NT$1.5 million on cloud services compressed a three-week design job into three days, saving eighteen days of labor. He said he didn't believe the number at first and told them to recount.
 
 **4. Flash isn't a substitute for DRAM. It's a complement.** He called this basic knowledge: DRAM computes, flash stores, and they aren't interchangeable. The real relationship is that inference produces tokens endlessly, tokens have to be stored, and unstored tokens generate no profit — and no amount of money fits a KV cache into DRAM. He then ran the supply math out loud: wafer output at the fabs might grow 1.6x over two years at best, while the number of AI users, the times each person uses it per day, and the shift from text to images and video are all multiplying against each other. His conclusion was that arguing about whether memory is sufficient wastes time. Whether you accept that conclusion is a separate question — but the method (break demand into three multiplying factors, pin supply to physical capacity) is something you can borrow.
 
+![On the left supply is a single short bar; on the right demand is three small blocks multiplied together into a bar far taller](/figures/supply-add-demand-multiply-en.svg)
+
 **5. An 80% gross margin is already great; 90% is unhealthy for the industry.** I didn't expect that from someone on the profitable side. His arithmetic: material costs one dollar, the fab sells it for ten, the next layer takes a 50% margin, and the end user pays sixty. What's the point of pushing to 99%, he asked, if the market can't hold it up and the whole thing collapses. He also admitted it can't stop right now, because when things are scarce, buyers bid with their voices.
 
 **6. Hire the gamers, not the top of the class.** Students used to ranking first, he said, are trained to finish the book before acting — but there's no book now, with new models appearing daily. Gamers don't read walkthroughs. They log in, get killed, try again, and when stuck they go ask the community until they win. That's who he wants: stamina, no sleep, endless forum-crawling, no quitting. Then a very practical footnote — keeping people takes money, so the core business must be profitable, or every vision statement is fantasy. He described an employee leaving for NT$4 million when he could only offer NT$2 million, and said that was on him.
 
+![Three horizontal bars from short to long, stacking from one unit of material to ten at the maker to sixty at the end user](/figures/cost-stacking-to-end-user-en.svg)
+
 Two more worth writing down. First, to judge a company's fundamentals he watches R&D spending — today's revenue was seeded five years ago, and two quarters of declining R&D means it's over. Second, his inventory explanation is quietly funny: inventory went from NT$30 billion to NT$90 billion, a threefold rise, while flash prices rose eight to tenfold — meaning actual capacity went *down*. His words: please do the math.
+
+![Three bar groups: the amount rises, the unit price rises further, and the third group for actual capacity shrinks instead](/figures/inventory-amount-up-volume-down-en.svg)
+
+![On the left a straight-line process that breaks off halfway; on the right a closed loop that keeps circling back to the start](/figures/read-first-vs-play-first-en.svg)
 
 ## Going Further
 
@@ -46,6 +56,8 @@ Two more worth writing down. First, to judge a company's fundamentals he watches
 This is the honest question after any executive interview. My old approach was lazy: believe it if it sounds reasonable, distrust it if it sounds too smooth. Both are reactions to tone, not content.
 
 This episode offers a cleaner cut: sort what he wants you to believe into two piles. One pile is **already happened and checkable**. The other is **hasn't happened, and only he is betting on it**. The six servers, the savings, the dozen-plus banks in Taiwan, the enterprise line that went from 2019 to being half of revenue by 2023 — first pile. You don't have to believe all of it, but you know where to go check. That small businesses will all eventually own an AI box, that the overseas model will be joint ventures — second pile. Those are bets, not facts.
+
+![Two columns side by side; the left holds accomplished facts you can go and verify, the right holds bets that have not happened yet](/figures/two-piles-checkable-vs-bet-en.svg)
 
 He drew that line himself. Asked how much the new business would earn, he said plainly: I don't know, I really don't know, I only know it's the trend. Someone who gives you numbers where numbers exist and admits ignorance where they don't is more credible than someone who sounds certain about everything.
 
@@ -59,6 +71,8 @@ One is the supply math: capacity up 1.6x in two years, demand a product of three
 
 Together they say something specific: **a structural shortage and a price spiral can both be true at once, and they point you in opposite directions.** The first says demand isn't going away soon. The second says price has entered a range that destroys itself. My mistake used to be collapsing them into one question — "is there more left in this?" — and getting a blurry answer.
 
+![A merged question crossed out at the top, splitting below into two separately trackable tracks](/figures/shortage-and-price-two-tracks-en.svg)
+
 The practical move is to track them separately. Whether it's scarce depends on slow supply-side variables (capacity plans, process nodes, yields). Whether it's expensive depends on whether anyone downstream still earns a return at this price. He demonstrated the test himself: if buyers stop making their money back, they stop buying, and demand falls on its own. Translated for anyone watching a chart — **look at the buyer's return, not the seller's margin.**
 
 ### "The market disagrees with me. Should I hold?"
@@ -68,6 +82,8 @@ This part made me uncomfortable, because he was describing my own habit.
 He said the enterprise product line took six years to make money, and a hired manager would have been replaced long before that. The current solutions business has run three and a half years — same logic. So he was honest about it: this isn't about who has more foresight, it's that founders and hired managers live on different clocks.
 
 For an individual investor I think the sentence should be read in reverse. The question isn't whether *he* can hold on. It's whether **your clock lines up with his**. He's betting on five to ten years. Can your money sit for five years, and would you be forced to sell during some 50% drawdown in the middle? That's your problem, and it's independent of whether his judgment is right.
+
+![Two timelines of very different length; the lower one is cut short at a dip partway along](/figures/timeline-mismatch-en.svg)
 
 He also said something rather blunt: 99.9% of the market is speculators, not investors. It's easy to hear that as an insult, but it reads more like a request for classification. He isn't saying speculation is bad — he's saying that if you're trading in and out, don't judge his decisions on his timescale, because that's unfair to both sides. I've certainly used a five-year thesis to explain a three-month loss, and ended up understanding neither.
 
@@ -83,6 +99,8 @@ He also said something rather blunt: 99.9% of the market is speculators, not inv
 One idea: **take the pill yourself before you open your mouth.**
 
 I listened twice, the second time to make sure I hadn't misheard him. He never once tried to persuade. Analysts doubted him, the market said he'd be finished in two years, the fabs didn't believe him, the customers didn't believe him — and his answer was always the same: I'll show you. And the first target of that showing wasn't a customer. It was his own company. Six servers, real results, and only then the conversations with Nvidia, with banks, with small businesses. As he put it: nobody believes it right now, so I have to let them *see* it, not hear it.
+
+![On the left an arrow held out without having taken it breaks off partway; on the right three rings spread outward from his own circle](/figures/take-the-pill-first-en.svg)
 
 Something I've tried: before urging anyone to do something, ask myself which version of it I've actually done. If the answer is none, shut up and go do it once. That habit has filtered out a fair amount of my own noise this year.
 

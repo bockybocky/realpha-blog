@@ -1,0 +1,35 @@
+<svg id="fig-iltb-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Three bars compare waste: compute is shortest, cache and idle cards are both much longer">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+#fig-iltb-5 text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+#fig-iltb-5 .t { font-size:27px; fill:var(--ink); font-weight:700; }
+#fig-iltb-5 .g { font-size:19px; fill:var(--ink); font-weight:600; }
+#fig-iltb-5 .b { font-size:16px; fill:var(--dim); }
+#fig-iltb-5 .c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<defs><marker id="ar5" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="var(--dim)"/></marker></defs>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="52">Wrong savings</text>
+
+<text class="g" x="60" y="170">Compute</text>
+<rect x="320" y="140" width="90" height="44" fill="var(--grey)"/>
+<text class="b" x="320" y="212">Sparse models wake few experts</text>
+
+<text class="g" x="60" y="270">KV cache</text>
+<rect x="320" y="240" width="520" height="44" fill="var(--accent)"/>
+<text class="b" x="320" y="312">Barely compressed, 1–2 orders off</text>
+
+<text class="g" x="60" y="370">Idle cards</text>
+<rect x="320" y="340" width="450" height="44" fill="var(--accent)"/>
+<text class="b" x="320" y="412">Silicon and power sit idle</text>
+
+<line x1="320" y1="444" x2="840" y2="444" stroke="var(--dim)" stroke-width="2" marker-end="url(#ar5)"/>
+<text class="b" x="320" y="470">Waste</text>
+
+<text class="c" x="60" y="500">Compute is fine; idling costs</text>
+</svg>

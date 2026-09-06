@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" role="img" aria-label="Two stacked panels: a price line that swings against a flat price line pinned below the cost line, with the plants beside the latter going dark one by one">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="620" fill="var(--page)"/>
+  <text x="48" y="54" font-size="27" fill="var(--ink)">Not a functioning market</text>
+
+  <text x="48" y="116" font-size="19" fill="var(--ink)">Oil</text>
+  <text x="48" y="142" font-size="15" fill="var(--dim)">Brent · WTI</text>
+  <polyline points="200,200 260,160 320,224 380,150 440,210 500,166 560,232 620,178 680,214 740,158 800,206 860,184"
+            fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <line x1="200" y1="258" x2="860" y2="258" stroke="var(--line)" stroke-width="2"/>
+  <text x="860" y="284" font-size="15" fill="var(--dim)" text-anchor="end">Swings</text>
+
+  <line x1="48" y1="318" x2="912" y2="318" stroke="var(--line)" stroke-width="2"/>
+
+  <text x="48" y="366" font-size="19" fill="var(--ink)">C·Cu·Al</text>
+  <line x1="200" y1="372" x2="560" y2="372" stroke="var(--dim)" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="200" y="360" font-size="15" fill="var(--dim)">Cost</text>
+  <line x1="200" y1="432" x2="560" y2="432" stroke="var(--accent)" stroke-width="4"/>
+  <text x="200" y="458" font-size="15" fill="var(--accent)">Price, 20 yrs</text>
+
+  <rect x="620" y="392" width="52" height="52" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+  <rect x="684" y="392" width="52" height="52" fill="var(--card)" stroke="var(--dim)" stroke-width="2"/>
+  <rect x="748" y="392" width="52" height="52" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <rect x="812" y="392" width="52" height="52" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="742" y="480" font-size="15" fill="var(--dim)" text-anchor="middle">Closing</text>
+
+  <text x="48" y="574" font-size="22" fill="var(--ink)">No real price, no industry</text>
+</svg>

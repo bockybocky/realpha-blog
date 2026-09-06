@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two lines split: usage climbs steeply, total spend flattens after April">
+<defs><style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+  .ttl{font-size:27px;fill:var(--ink);font-weight:700}
+  .lbl{font-size:19px;fill:var(--ink);font-weight:600}
+  .txt{font-size:16px;fill:var(--dim)}
+  .cc{font-size:22px;fill:var(--ink);font-weight:600}
+</style></defs>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="ttl" x="60" y="62">Usage multiplied, bill didn't</text>
+<line x1="120" y1="410" x2="890" y2="410" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="110" x2="120" y2="410" stroke="var(--line)" stroke-width="2"/>
+<polyline points="170,388 400,300 630,205 860,140" fill="none" stroke="var(--accent)" stroke-width="3.5"/>
+<polyline points="170,362 400,300 630,292 860,298" fill="none" stroke="var(--grey)" stroke-width="3.5"/>
+<circle cx="860" cy="140" r="6" fill="var(--accent)"/>
+<circle cx="860" cy="298" r="6" fill="var(--grey)"/>
+<text class="lbl" x="855" y="118" text-anchor="end" fill="var(--accent)">Weekly requests × 9.4</text>
+<text class="lbl" x="855" y="336" text-anchor="end">Total AI spend flat</text>
+<text class="txt" x="170" y="440" text-anchor="middle">Feb</text>
+<text class="txt" x="400" y="440" text-anchor="middle">Apr</text>
+<text class="txt" x="630" y="440" text-anchor="middle">Jun</text>
+<text class="txt" x="860" y="440" text-anchor="middle">Aug</text>
+<rect x="120" y="468" width="360" height="56" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<rect x="520" y="468" width="360" height="56" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="txt" x="146" y="502">Cost per 1k requests</text>
+<text class="cc" x="454" y="504" text-anchor="end" fill="var(--accent)">−34%</text>
+<text class="txt" x="546" y="502">Cost per session</text>
+<text class="cc" x="854" y="504" text-anchor="end" fill="var(--accent)">−52%</text>
+</svg>

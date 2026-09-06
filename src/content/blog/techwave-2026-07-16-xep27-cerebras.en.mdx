@@ -33,11 +33,17 @@ There's a very human aside in the middle. He has a habit of buying a tiny positi
 
 **The shape of the deal matters more than the size.** OpenAI is buying compute, not machines — it isn't taking hardware home to run itself; it wants Cerebras to stand the capacity up and then sell access. That effectively forces Cerebras to grow a cloud-service business as a side effect. And OpenAI lent them money, because the buildings, cooling and power are heavy capex. A customer willing to lend you money is not the same species as a customer who merely places an order.
 
+![On the left a single one-way arrow from customer to supplier; on the right a closed loop formed by arrows running both ways between them, two big orders with different shapes.](/figures/order-shape-versus-loop-en.svg)
+
 **The Amazon deal is currently all shape and no size.** Announced publicly in March, with not a word about dollars or scale. Technically it's disaggregated inference: Trainium handles prefill, chewing through context to compute the KV cache; Cerebras handles decode, emitting tokens one at a time. The division of labour is spelled out; the commercial scale isn't. Investors being unsure whether it turns into anything is a fair reaction.
 
 **Supply-chain numbers are a lagging indicator, not a verdict.** Harry says every time he covers Cerebras, people tell him to stop looking at technology and go look at how many wafers TSMC is booking — barely any, so the story's over. His rebuttal holds up: the market has to value the thing first, demand has to appear first, only then does the company expand capacity, and only then does the supply chain show it. Using the last link in the chain to judge the first link runs the timeline backwards.
 
+![A four-stage time chain running left to right, with a long arrow at the far right pointing back to the far left, showing the question runs opposite to the flow of information.](/figures/supply-chain-lagging-order-en.svg)
+
 **Paying a premium for speed is already proven — just on someone else's hardware.** Over the past year both OpenAI and Anthropic shipped a "fast mode": the identical model, the identical intelligence, roughly six times the price for two to two and a half times the speed. Harry points out those ratios obviously aren't Cerebras — it's batch-size tuning that sacrifices GPU utilization to buy you priority. So it doesn't prove demand for Cerebras specifically. But it proves, very firmly, that people will pay wildly disproportionate money for speed, and that supply hasn't caught up with that demand.
+
+![Two bars side by side: the price bar stands about three times the height of the speed bar, with a dashed line between them for the original baseline.](/figures/speed-price-disproportion-en.svg)
 
 ## Going further
 
@@ -49,11 +55,15 @@ The way I've learned to sort it out is to ask one question: **is this number des
 
 That doesn't make the technology story the better one, though. Its weakness is that it almost always works — you can construct a plausible "why this architecture wins" for any architecture. So I add a step: **make each side write down the condition that would make them admit they were wrong.** The bull should be able to say "if there's still no second Silicon Valley customer by date X, I was wrong." The bear should be able to say "if supply-chain volume rises for several consecutive quarters, I was wrong." Whichever side can't write that sentence isn't holding a judgment. It's holding a position.
 
+![In the left panel a horizontal arrow runs right into a vertical dashed line; in the right panel a rising line crosses a horizontal dashed line, each side having a line that would make it admit it was wrong.](/figures/two-sides-falsify-lines-en.svg)
+
 ### "Two customers" — is that a risk?
 
 Yes, genuinely, and there's no point softening it. But stopping the sentence there throws away half the information.
 
 Customer concentration comes in two very different flavours. One is "the product isn't selling, so we're clinging to the few buyers we have." The other is "the product just exists, and the pickiest people came to try it first." On the income statement those look identical: revenue concentrated in a handful of names.
+
+![A revenue bar at the top almost entirely filled by a single block, with two sets of arrows below pointing at it from opposite directions, one group of customers leaving and one group arriving.](/figures/concentration-two-origins-en.svg)
 
 Listening to this episode, I came away with three things that help tell them apart. Who arrived first — a random buyer, or the most demanding operator in the field? What shape did they buy in — hardware they take away and run, or a service that requires you to keep supplying them? And did they pay some extra price for it, like lending you the money to build. That third one is interesting because it's nearly impossible to fake: a lender has tied their own P&L to yours.
 
@@ -66,6 +76,8 @@ Harry buys a tiny position before researching, because owning a piece stops you 
 But when I've tried it, there's a side effect: once you own it, your research stops being neutral. You start noticing the supporting evidence, and bad news arrives pre-softened — *it's probably not that bad*. There's a detail in this episode that shows the failure mode: because of the fat-finger, a 50% drawdown would now hurt. And a position that can hurt you is hard to keep out of your judgment.
 
 Where I've landed is: buy, but keep it too small to persuade me. Small enough that selling the whole thing tomorrow would feel like nothing. It buys attention, not conviction. I'm not sure that's the best answer, but it does mean my hand doesn't shake when I write down "I might be wrong about this."
+
+![Two curves rising with position size: attention climbs fast to a ceiling and flattens, while judgment bias hugs the bottom before shooting up, with a narrow sweet spot on the left.](/figures/attention-saturates-bias-grows-en.svg)
 
 ## Worth a look
 

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A smooth surface forks into two outcomes: fine lines stacked high on the left, particles sliding off on the right">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:20px; font-weight:700; fill:var(--ink); }
+    .bd  { font-size:16px; fill:var(--dim); }
+    .sm  { font-size:15px; fill:var(--dim); }
+    .cc  { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">One smoothness, two outcomes</text>
+
+  <rect x="340" y="96" width="280" height="66" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="grp" x="480" y="137" text-anchor="middle">Extremely smooth surface</text>
+  <path d="M440 162 L300 226" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="290,231 305,231 300,216" fill="var(--grey)"/>
+  <path d="M520 162 L660 226" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="670,231 655,231 660,216" fill="var(--grey)"/>
+
+  <rect x="90" y="238" width="350" height="212" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="130" y="286" width="270" height="4" fill="var(--accent)"/>
+  <rect x="130" y="300" width="270" height="4" fill="var(--accent)"/>
+  <rect x="130" y="314" width="270" height="4" fill="var(--accent)"/>
+  <rect x="130" y="328" width="270" height="4" fill="var(--accent)"/>
+  <rect x="130" y="342" width="270" height="4" fill="var(--accent)"/>
+  <rect x="130" y="360" width="270" height="10" rx="3" fill="var(--grey)"/>
+  <text class="grp" x="265" y="416" text-anchor="middle" fill="var(--accent)">Fine lines, tall stacks</text>
+
+  <rect x="520" y="238" width="350" height="212" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <path d="M556 356 L834 300" fill="none" stroke="var(--grey)" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="700" cy="312" r="9" fill="var(--warn)"/>
+  <circle cx="646" cy="330" r="9" fill="var(--warn)"/>
+  <path d="M620 348 L566 366" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="556,370 572,372 568,358" fill="var(--warn)"/>
+  <text class="grp" x="695" y="416" text-anchor="middle" fill="var(--warn)">Nothing sticks to it</text>
+
+  <text class="cc" x="60" y="498">Asphalt holds dust, an ice rink doesn't</text>
+</svg>

@@ -32,6 +32,8 @@ With that cleared up, the main thread unfolds: what role glass actually plays in
 
 Glass has two entirely different identities in packaging. The first is as a temporary carrier — a workbench, a table on which material sits during processing. When the job is done, the table is the table and the chip is the chip; there is no glass in the finished product. This use is already widespread; for both existing and broader wafer-level packaging flows, the mainstream carrier material has long been glass. The second identity is the one currently generating excitement: glass that genuinely becomes part of the packaged chip and stays there permanently.
 
+![Two cards compared. On the left, under "temporary carrier", the glass is removed after processing and the finished part shows only a dashed empty slot. On the right, under "permanent substrate", the glass stays in the stack both before and after processing.](/figures/glass-two-identities-en.svg)
+
 So when you encounter both "glass is already in mass use" and "glass is still two or three years from maturity," both may be true — they are simply talking about different things. This is the most basic and most frequently skipped step when parsing industry news: confirm which layer the term refers to.
 
 **2. Why so many layers between chip and board? Because the gap is a thousandfold.**
@@ -40,27 +42,41 @@ Chip wiring is at nanometer scale — three nanometers, two nanometers — while
 
 The interposer and the substrate are those degrees. A signal leaves the chip's internal metal layers, enters the interposer's copper traces, then the substrate's, and only then reaches the board. Someone once proposed removing the substrate layer and connecting the interposer straight to the board — appealing, since one fewer layer means one less stretch of routing loss — but it is not yet technically achievable, so the ladder stays.
 
+![A staircase of four steps rising to the right; within each step two lines go from extremely fine to very coarse, scaling up from the die to the board, with a note above that the difference is over a thousandfold.](/figures/nanometer-to-micron-staircase-en.svg)
+
 Beyond the smooth fine-to-coarse transition, the interposer has a second reason to exist: as advanced-node scaling hits its limits, the industry has shifted toward chiplets, splitting functions across several dies and reassembling them. That requires a board whose wiring resolution approaches advanced-node levels to hold them together.
 
 **3. Glass got picked for a focused reason: it does not warp, and it can *agree* not to warp.**
 
 As package area grows, both interposer and substrate grow with it — and the traditional material is a composite organic resin. Multiple materials, mismatched coefficients of thermal expansion, and warpage on every heating cycle. Glass addresses this two ways. First, it is rigid and simply resists bending. Second — and this gets mentioned less — glass's coefficient of thermal expansion can be tuned by formulation. If your material expands a lot, glass can be tuned to expand a lot; if little, little. It is not merely "I am stiff so I do not move," but "I can move the way you move."
 
+![On the left, two organic layers bow upward visibly after heating; on the right, two glass layers stay flat after heating, with a note that the expansion can be tuned by formulation.](/figures/warpage-cte-matching-en.svg)
+
 **4. Then the flip side arrives immediately: hard means brittle — and the issue isn't whether it shatters.**
 
 The hardest problem for glass substrates is drilling. Why drill? Because both faces of the glass are wanted. On top you stack ten or twenty layers of copper wiring like a tower; underneath you want the same, like a basement. And the tower and the basement need a direct elevator between them — routing around means longer traces and more loss. That elevator is the through-hole.
 
+![A cross section with a dozen copper wiring layers stacked above the glass panel and several more below, a vertical via running straight through the middle, and a dashed line beside it routing around the edge of the panel, marked as the long way around.](/figures/through-glass-via-elevator-en.svg)
+
 The subtlety is that the real bar is not "will it break." As the episode makes clear, total shattering is actually unlikely. What is fatal is a barely visible micro-crack beside the hole wall: harmless today, but it grows across repeated thermal cycles until the whole piece fails. So the standard is not "unbroken is good enough" — it is "not a single crack anywhere," which is a full order of magnitude harder.
+
+![Three progressive panels: a fine crack beside the hole wall goes from nearly invisible to longer and branching after repeated heating, until the whole piece shatters.](/figures/micro-crack-grows-en.svg)
 
 **5. Too smooth is the same story: you can draw fine lines that refuse to stay.**
 
 Copper traces are formed by photolithography, and light has no idea whether the surface underneath is rough — it assumes flatness. So on a rough surface, the straight line you designed lands on peaks and valleys and comes out distorted, with accuracy gone. Glass is far flatter than organic materials like ABF or BT resin, so in principle it supports finer lines and taller stacks — you can only build high on a level foundation.
 
+![A box labeled "smooth surface" forks downward into two sides: neat fine lines stacking upward on the left, and particles sliding away down a slick slope on the right.](/figures/smoothness-both-sides-en.svg)
+
 The price is adhesion. Dust that lands on asphalt sticks; dust that lands on an ice rink slides away. Glass is the ice rink: the fine lines can be drawn but struggle to hold. That is the flat surface. The hole wall is worse — a narrow, deep hole whose interior is equally smooth, which metal must fill evenly. It may look well adhered at first, and later reveal thick patches, thin patches, and outright discontinuities. Surface metallization is hard; via metallization is harder still.
+
+![Three narrow deep holes in cross section side by side: the first has plating of even thickness top to bottom, the second thins from top to bottom, and the third is broken through the middle section.](/figures/via-plating-uniformity-en.svg)
 
 **6. The third barrier is the easiest to overlook: glass invalidates the entire inspection method.**
 
 Existing packaging inspection leans heavily on reflected-light imaging — illuminate, reflect, image, camera-style, to see whether anything inside is wrong. The whole method rests on an assumption nobody states out loud: the material is opaque.
+
+![Left and right compared: on the left light hits an opaque material and reflects back to the camera, and a defect shows in the image; on the right light passes straight through the glass and the camera's image is empty.](/figures/inspection-assumes-opaque-en.svg)
 
 Glass is transparent. The assumption disappears, and the method fails with it. Manufacturers must move to scattering, X-ray, or infrared approaches — meaning new equipment, rebuilt procedures, and a fresh accumulation of stability and yield experience. This cost never appears on a material quotation, yet it is the real brake on adoption speed.
 
@@ -70,6 +86,8 @@ The glass substrate concept was proposed over a decade ago; the shift from coppe
 
 The episode's phrasing is apt: "usually you only switch when it really can't be done anymore." What is moving now is AI, pressing the old approach from two directions at once — packages must be larger (warpage surfaces) and signals must be faster (loss surfaces). Glass happens to help with both. So the variable worth tracking is not "is the technology mature" but "when does the cost of not switching exceed the cost of switching."
 
+![Two curves over time: the cost of switching drifts gently down while the cost of not switching is pushed up sharply; they cross on the right, and the crossing point is marked as the moment of switching.](/figures/cost-of-not-switching-en.svg)
+
 ## Going Further
 
 ### 1. It's in the news every day — am I too early?
@@ -78,9 +96,13 @@ This is the honest thought after any thematic episode. And this one has already 
 
 Sort the mentioned milestones by stage: the temporary-carrier use is **selling right now** and will grow naturally as chips get larger; glass substrates enter commercial products at **small volume in 2027**, with meaningful volume only from **late 2028 into 2029**; glass interposers have no timeline at all — the estimate offered is possibly after 2030, contingent on whether TSMC and Intel choose to adopt.
 
+![A timeline running right from today with three buckets placed along it: a solid bucket shipping now, a solid bucket spanning 2027 to 2029, and a dashed bucket at the far right with no start date.](/figures/three-buckets-timeline-en.svg)
+
 Three buckets, three completely different arrival times on a financial statement. The judgment worth practicing is this: after any thematic story, sort what you heard into "already shipping," "about to enter production," and "still in papers and demos" — then ask which bucket today's price is discounting. If a company's entire imagined upside sits in the third bucket, what you are buying is not a product but a three-to-five-year gap in time, and time gaps are easily defeated by delay.
 
 There is also a genuinely useful cross-check buried in the episode: **upstream and downstream timelines can be checked against each other**. Material production must lead end-customer adoption by more than a year. So if the end customer says late 2028 to 2029, the material side should be announcing shipments around 2028 — and indeed Samsung Electro-Mechanics and America's Absolics target 2027, Dai Nippon Printing 2028, and Nippon Electric Glass 2029–2030. When those numbers line up, the timeline has credibility. When one company's schedule runs far ahead of everyone up and downstream with nobody moving in step, that is usually marketing language rather than a capacity plan.
+
+![Four rows of milestones on a year axis: three material makers land at 2027, 2028 and 2029 to 2030, end-customer adoption lands in late 2028 to 2029, and the lead of the material side over the end customer is marked between them.](/figures/upstream-downstream-schedule-check-en.svg)
 
 An aside worth noticing: Korean players' schedules run over a year ahead of Japanese ones, and their share price moves have been correspondingly more energetic. That does not necessarily mean better technology — it may only mean greater willingness to announce. But it does remind us that "difference in progress" is something observable and verifiable, not merely something to believe.
 
@@ -93,6 +115,8 @@ The episode's decomposition is clean: break the thing into process steps, then s
 Then comes what I think is the episode's most counterintuitive and most portable judgment: **the hardest step today may be the one with the least defensibility later.**
 
 The reason is crowding. Drilling and via-wall metallization is the acknowledged hardest stretch — and precisely because it looks hardest and most like an opportunity, all three player types want in. Glass makers offer to drill it for you; substrate makers plan to integrate upstream once they scale; the display supply chain says this is exactly what they are best at. When that many parties attack one barrier simultaneously, the barrier rarely holds long. The defensibility instead sits at the two ends: glass formulation is a decades-deep four-firm oligopoly, hard to attack from below; and stacking twenty or thirty build-up layers depends on long yield-tuning experience and on being one of the few survivors of an industry shakeout, hard to attack from above.
+
+![Three process steps side by side; the density of dots above shows how many players are attacking each, with the middle step the most crowded, while the barrier bars below are high at both ends and low in the middle.](/figures/crowding-vs-moat-en.svg)
 
 The general rule this yields is handy: when judging whether a step can earn money over the long run, "how hard is it now" matters far less than "how many people are attacking it" and "once solved, how copyable is it." Difficulty gets diluted by crowds. Accumulation does not.
 
@@ -119,6 +143,8 @@ A good investment hypothesis should look like this: not only "I think this will 
 ## The One Thing to Take Away
 
 **One idea**: an object's strength and its weakness are often not two things but two faces of one property. Glass does not warp because it is rigid, and it is brittle because it is rigid. It supports ultra-fine lines and tall stacks because it is smooth, and nothing adheres to it because it is smooth. You cannot take only the first half. The skill is not finding something with advantages only, but knowing exactly what is written on the back of the advantage you chose — and arranging for that back side in advance.
+
+![Two mirrored pairs of blocks with a center line marking them as one and the same thing: rigid on the left maps to brittle on the right, smooth on the left maps to nothing sticking on the right.](/figures/two-sides-same-property-en.svg)
 
 **One exercise you can do today**: pick the trait you most admire in yourself — conscientiousness, decisiveness, softheartedness, high standards, a good memory, any of them. Then write down one specific piece of trouble that trait caused you in the past week. Not "what are my flaws," but a case where the trouble was **caused by precisely that strength**: conscientious, so the work never finished; decisive, so you missed what someone was telling you; softhearted, so you agreed to something you shouldn't have.
 

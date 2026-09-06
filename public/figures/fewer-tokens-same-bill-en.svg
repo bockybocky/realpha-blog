@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A short wide rectangle and a tall narrow one of equal area, meaning half the tokens at double the price costs the same">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="80" y="58" font-size="27" font-weight="700" fill="var(--ink)">The area is the cost of that question</text>
+
+  <line x1="120" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="140" x2="120" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <text x="880" y="470" font-size="15" fill="var(--dim)" text-anchor="end">Tokens used on one question</text>
+  <text x="120" y="126" font-size="15" fill="var(--dim)">Price per token</text>
+
+  <rect x="150" y="340" width="320" height="100" rx="4" fill="var(--grey)" opacity="0.75"/>
+  <text x="310" y="398" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">5.6 Sol</text>
+  <text x="310" y="492" font-size="16" fill="var(--dim)" text-anchor="middle">2x the tokens</text>
+  <text x="310" y="516" font-size="16" fill="var(--dim)" text-anchor="middle">$20 per million output</text>
+
+  <rect x="560" y="240" width="160" height="200" rx="4" fill="var(--accent)" opacity="0.85"/>
+  <text x="640" y="348" font-size="20" font-weight="700" fill="var(--page)" text-anchor="middle">Astra</text>
+  <text x="640" y="492" font-size="16" fill="var(--dim)" text-anchor="middle">Half the tokens</text>
+  <text x="640" y="516" font-size="16" fill="var(--dim)" text-anchor="middle">$50 per million output</text>
+
+  <text x="80" y="106" font-size="22" font-weight="600" fill="var(--ink)">Equal areas: what's saved is compute, not your money.</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two panels compared: the same marker shrinks from a large circle to one dot in a full grid">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+  </style>
+  <defs>
+    <pattern id="crowd" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="16" cy="16" r="5" fill="var(--grey)"/>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="80" y="72" font-size="27">At scale, you lose yourself</text>
+  <text x="255" y="128" font-size="19" fill="var(--dim)" text-anchor="middle">200-person lab</text>
+  <rect x="60" y="146" width="390" height="290" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <circle cx="180" cy="220" r="13" fill="var(--grey)"/>
+  <circle cx="330" cy="220" r="13" fill="var(--grey)"/>
+  <circle cx="170" cy="345" r="13" fill="var(--grey)"/>
+  <circle cx="340" cy="345" r="13" fill="var(--grey)"/>
+  <circle cx="255" cy="285" r="48" fill="var(--accent)"/>
+  <text x="255" y="410" font-size="16" fill="var(--dim)" text-anchor="middle">Moves the dial</text>
+  <text x="705" y="128" font-size="19" fill="var(--dim)" text-anchor="middle">Thousands + $750B</text>
+  <rect x="510" y="146" width="390" height="290" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="545" y="195" width="320" height="160" fill="url(#crowd)"/>
+  <circle cx="689" cy="275" r="5" fill="var(--accent)"/>
+  <circle cx="689" cy="275" r="16" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <text x="705" y="410" font-size="16" fill="var(--dim)" text-anchor="middle">Same person, inside</text>
+  <text x="480" y="500" font-size="22" text-anchor="middle">Not bearish; just placeless</text>
+</svg>

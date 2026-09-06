@@ -32,15 +32,25 @@ A small detail worth keeping: the whole episode started because he saw a model o
 
 **2. The core trick is trading frequency for volume.** Transformer size scales inversely with frequency, and the grid runs at 50 or 60 Hz — so transformers must be physically large. In 1968 a GE research engineer named William McMurray patented a design that used power semiconductors to "chop up" the incoming current and raise its frequency to thousands or tens of thousands of hertz. At that frequency a much smaller transformer can do the stepping, and a second set of semiconductors converts back down for actual use. Footprint drops 70–80%, and because electronics sit in the path, the device can actively clean up the waveform. A conventional transformer is passive — voltage dips and spikes simply pass through it.
 
+![On the left a large block is the core that must be big at 50/60 Hz; on the right the same function shrinks to a small core flanked by two power semiconductors; below, two waveforms, one sparse and one dense, with the dense one matching the small core.](/figures/sst-frequency-for-volume-en.svg)
+
 **3. Even the name is a misunderstanding.** The US Navy studied something adjacent in the 1970s, and a 1980 paper coined the term "solid state transformer," which stuck. By today's standards what the Navy explored wasn't one: it had no high-frequency transformer inside, and therefore none of the galvanic isolation a real transformer provides for free. That paper predicted practical devices maybe ten to fifteen years out. That was miss number one.
 
 **4. The train era failed with every box ticked.** In 2007 ABB demonstrated the PETT, a solid state traction transformer; by 2012 it hit 95–96% efficiency at half the size of a conventional traction transformer — genuinely valuable for a component that must fit under the carriage floor and is among the heaviest things on the train. More than twenty prototype systems were built, involving Alstom, Siemens and Bombardier. None reached commercial deployment. The reasons were mundane: too complex, unproven over time, and over 50% more expensive. **Twenty prototypes and three industry giants could not outweigh one line about cost.**
+
+![On the left, four stacked blocks of technical achievement only reach half height; on the right, a single block standing for "50% more expensive" rises far above them, both on the same baseline.](/figures/sst-lost-to-fifty-percent-en.svg)
 
 **5. The smart grid era failed by telling too large a story.** Wide bandgap semiconductors like silicon carbide matured around 2010, and distributed renewables were creating real power-quality headaches. NC State's FREEDM center proposed the "Energy Internet," in which the solid state transformer is not merely a step-up/step-down device but the router of the energy network. The concept was elegant enough to land "smart transformer" on MIT's 2011 breakthrough technologies list, and one 2012 forecast had the market growing 82% a year to $5 billion by 2020. What actually happened: Varentec took money from Bill Gates and Khosla Ventures and pivoted, Amantys never got there, and GridCo burned $54 million and closed in 2018.
 
 **6. The most valuable line in the episode comes from someone who lived it.** Haroon Inam, Varentec's VP of Engineering and Operations at the time, later recalled on the SemiAnalysis podcast that it took two years and millions of dollars to realise that building an AC-to-AC solid state transformer "was probably one of the dumbest things we could have done… You're taking a hunk of iron and a hunk of copper that's going to last 40, 50 years — why the hell would anybody in their right mind try to replace that with a bunch of electronics that are going to be more delicate?" Varentec's former CEO Deepak Divan went into academia and co-authored a 2022 paper concluding that neither solid state nor hybrid transformers are economically viable without a 60% cut in capital cost.
 
 **7. What's different this time is a physical dead end on the demand side.** A modern AI rack can draw a megawatt. Power equals voltage times current, and more current means thicker copper — at 1 MW under the existing 54-volt rack architecture you may need up to 200 kilograms of copper busbars. That is expensive, heavy, and occupies floor space that generates no revenue. So the architecture is being redesigned around 800 volts DC. That change gives the "energy router" concept a real slot: take medium-voltage grid power, deliver 800 VDC to the rack, and delete a whole layer of rectifiers and uninterruptible power supplies. Nvidia has it on the architecture roadmap, and a new cohort has appeared — DG Matrix, Heron Power, Singapore's Amperesand, and Delta Electronics, which in February 2026 discussed installing a solid state transformer at a data centre campus in mainland China operated by Meituan.
+
+![The top row is a chain of six blocks; the bottom row runs from the same start to the same end with only three blocks, the four removed ones drawn as empty dashed boxes.](/figures/sst-chain-shortened-en.svg)
+
+![Two copper busbars carrying the same 1 MW side by side: the 54-volt one on the left is thick and wide, the 800-volt one on the right is a thin strip.](/figures/sst-copper-busbar-en.svg)
+
+![A timeline with three arcs that rise and fall back to the baseline, and a fourth segment that rises and keeps going, ending in a question mark.](/figures/sst-fifty-eight-years-en.svg)
 
 ## Going Further
 
@@ -57,6 +67,8 @@ So the three questions worth asking are not about how strong the technology is:
 **How good is the incumbent?** This is the question people skip. New technology usually gets compared against an ideal, rarely against the ugly old thing that runs for forty years. That's the force in Inam's "hunk of iron and a hunk of copper": the incumbent isn't merely adequate, it's good enough that change becomes pure downside risk.
 
 **What's the price gap, and who eats it?** Over 50% killed the trains. Roughly five times, plus a paper saying costs must fall 60%, killed the grid. That number is checkable and trackable, and it predicts outcomes better than any technical spec.
+
+![A four-quadrant chart with the top-right cell highlighted; smart grid sits in the lower left, trains low in the middle, and data centers in the top-right cell.](/figures/sst-buyer-quadrant-en.svg)
 
 ### "But it's on a major vendor's roadmap now — surely that means something?"
 
@@ -97,5 +109,7 @@ Today's exercise has nothing to do with markets.
 Pick something you've complained about for a long time and still haven't replaced — a workflow, a tool you use daily, a way you handle someone, a habit. Draw two columns on paper. In the left, write what's wrong with it; you'll fill that in thirty seconds. In the right, write **what it does for you that the replacement you have in mind cannot do**. That column will be hard, and the difficulty is the answer: the reason you've complained for years without changing is that you never sat down and wrote the right-hand column.
 
 Then ask one question: can the new option do something outside that column that I urgently need right now?
+
+![Two boxes side by side: the left is filled with five bars, the right has only one short bar and is otherwise blank.](/figures/sst-two-columns-en.svg)
 
 If you can't answer, it isn't time. If you can, that thing is your 200 kilograms of copper.

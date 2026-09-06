@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Three positions in the quadrants: factories top right, golf courses upper middle, data centers bottom left">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t  { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g  { font-size:20px; font-weight:600; }
+    .b  { font-size:16px; fill:var(--dim); }
+    .c  { font-size:22px; font-weight:600; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="58">Water and power aren't the point; liking what it does is</text>
+
+<rect x="230" y="110" width="330" height="200" fill="var(--card)"/>
+<line x1="230" y1="110" x2="890" y2="110" stroke="var(--line)" stroke-width="2"/>
+<line x1="230" y1="510" x2="890" y2="510" stroke="var(--line)" stroke-width="2"/>
+<line x1="230" y1="110" x2="230" y2="510" stroke="var(--line)" stroke-width="2"/>
+<line x1="890" y1="110" x2="890" y2="510" stroke="var(--line)" stroke-width="2"/>
+<line x1="230" y1="310" x2="890" y2="310" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="560" y1="110" x2="560" y2="510" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+
+<text class="b" x="60" y="180">Physical impact</text>
+<text class="b" x="60" y="202">Water, power, noise</text>
+<text class="b" x="88" y="140">Large</text>
+<text class="b" x="88" y="490">Small</text>
+
+<text class="b" x="230" y="548">Dislike what it does</text>
+<text class="b" x="760" y="548">Like what it does</text>
+
+<circle cx="770" cy="180" r="12" fill="var(--accent)"/>
+<text class="g" x="700" y="152" fill="var(--accent)">Factory</text>
+<text class="b" x="700" y="216">More water, more emissions</text>
+<text class="b" x="700" y="240">Red carpet</text>
+
+<circle cx="590" cy="220" r="12" fill="var(--grey)"/>
+<text class="g" x="600" y="256" fill="var(--dim)">Golf</text>
+
+<circle cx="330" cy="420" r="12" fill="var(--warn)"/>
+<text class="g" x="290" y="392" fill="var(--warn)">Data center</text>
+<text class="b" x="290" y="456">Closed loop, less water</text>
+<text class="b" x="290" y="480">Met with pitchforks</text>
+
+<text class="g" x="250" y="290" fill="var(--warn)">A double no</text>
+</svg>

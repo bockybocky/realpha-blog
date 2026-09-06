@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Four nodes strung left to right as a time chain, with a long arrow beneath running from the last node back to the first">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="ad2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--grey)"/>
+    </marker>
+    <marker id="aw2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+
+  <text x="60" y="58" font-size="27" fill="var(--ink)">The order things happen</text>
+
+  <rect x="60" y="150" width="176" height="76" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="148" y="196" font-size="16" fill="var(--ink)" text-anchor="middle">Market sees value</text>
+  <rect x="268" y="150" width="176" height="76" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <text x="356" y="196" font-size="16" fill="var(--ink)" text-anchor="middle">Demand rises</text>
+  <rect x="476" y="150" width="176" height="76" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <text x="564" y="196" font-size="16" fill="var(--ink)" text-anchor="middle">Company expands</text>
+  <rect x="684" y="150" width="216" height="76" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <text x="792" y="196" font-size="16" fill="var(--ink)" text-anchor="middle">Supply chain books</text>
+
+  <line x1="240" y1="188" x2="262" y2="188" stroke="var(--grey)" stroke-width="3" marker-end="url(#ad2)"/>
+  <line x1="448" y1="188" x2="470" y2="188" stroke="var(--grey)" stroke-width="3" marker-end="url(#ad2)"/>
+  <line x1="656" y1="188" x2="678" y2="188" stroke="var(--grey)" stroke-width="3" marker-end="url(#ad2)"/>
+
+  <text x="148" y="128" font-size="19" fill="var(--accent)" text-anchor="middle">Question here</text>
+  <text x="792" y="128" font-size="19" fill="var(--dim)" text-anchor="middle">Numbers here</text>
+
+  <path d="M792,262 L792,340 L148,340 L148,268" fill="none" stroke="var(--warn)" stroke-width="3" marker-end="url(#aw2)"/>
+  <text x="470" y="372" font-size="19" fill="var(--warn)" text-anchor="middle">The timeline is reversed</text>
+
+  <text x="60" y="440" font-size="16" fill="var(--dim)">Already happened</text>
+  <text x="900" y="440" font-size="16" fill="var(--dim)" text-anchor="end">Not yet</text>
+  <line x1="60" y1="458" x2="900" y2="458" stroke="var(--line)" stroke-width="2"/>
+
+  <text x="60" y="505" font-size="22" fill="var(--ink)">Reliable, but about the past</text>
+</svg>

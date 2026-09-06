@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="A road stretching into the distance, blocked midway by a dashed line marked as the finish I imagined, while the road itself keeps running to the right past it">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+svg{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.t{font-size:27px;fill:var(--ink);font-weight:700}
+.g{font-size:20px;font-weight:700}
+.b{font-size:16px;fill:var(--dim)}
+.c{font-size:22px;fill:var(--ink);font-weight:700}
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="62">Your limit vs the road's</text>
+<polygon points="80,420 900,270 900,240 80,360" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="300" cy="354" r="10" fill="var(--accent)"/>
+<text class="g" x="300" y="322" text-anchor="middle" fill="var(--accent)">Now</text>
+<line x1="470" y1="286" x2="470" y2="366" stroke="var(--warn)" stroke-width="4" stroke-dasharray="9 7"/>
+<text class="g" x="470" y="256" text-anchor="middle" fill="var(--warn)">My imagined end</text>
+<text class="b" x="470" y="230" text-anchor="middle">Body's signal</text>
+<text class="g" x="890" y="212" text-anchor="end" fill="var(--dim)">Road goes on</text>
+<text class="c" x="60" y="476">Your body drew that line</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Five equal cells on the top row and five uneven cells below, the third stretched much longer">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .sw { font-size:15px; fill:var(--warn); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="58">Every step you planned is equal; walking them isn't</text>
+
+<text class="g" x="60" y="122">Before starting・inferred</text>
+<g fill="var(--card)" stroke="var(--line)" stroke-width="2">
+<rect x="80" y="142" width="140" height="60" rx="6"/>
+<rect x="230" y="142" width="140" height="60" rx="6"/>
+<rect x="380" y="142" width="140" height="60" rx="6"/>
+<rect x="530" y="142" width="140" height="60" rx="6"/>
+<rect x="680" y="142" width="140" height="60" rx="6"/>
+</g>
+
+<g stroke="var(--grey)" stroke-width="2" stroke-dasharray="4 5">
+<line x1="80" y1="202" x2="80" y2="308"/>
+<line x1="230" y1="202" x2="180" y2="308"/>
+<line x1="380" y1="202" x2="250" y2="308"/>
+<line x1="530" y1="202" x2="590" y2="308"/>
+<line x1="680" y1="202" x2="670" y2="308"/>
+</g>
+
+<text class="g" x="60" y="290">After walking it・known</text>
+<g stroke="var(--line)" stroke-width="2">
+<rect x="80" y="308" width="90" height="60" rx="6" fill="var(--accent)"/>
+<rect x="180" y="308" width="60" height="60" rx="6" fill="var(--accent)"/>
+<rect x="250" y="308" width="330" height="60" rx="6" fill="var(--warn)"/>
+<rect x="590" y="308" width="70" height="60" rx="6" fill="var(--accent)"/>
+<rect x="670" y="308" width="150" height="60" rx="6" fill="var(--accent)"/>
+</g>
+<text class="sw" x="250" y="398">The step that took longest</text>
+
+<text class="c" x="60" y="470">The longest step is rarely the one you prepared for</text>
+</svg>

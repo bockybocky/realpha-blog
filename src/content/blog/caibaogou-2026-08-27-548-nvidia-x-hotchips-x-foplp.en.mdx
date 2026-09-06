@@ -33,6 +33,8 @@ My overall takeaway: every story this week is answering the same question. **Whe
 
 The worry had been that NVIDIA invests in AI companies and then sells hardware to them. This call didn't dodge it. The company laid out that it will backstop minimum compute revenue for neocloud startups and participate in securing land and power for data centers. The show's read is the right one: this **moves the customer's credit risk onto NVIDIA's own balance sheet**. Those startups were never short on demand; they were short on financing. NVIDIA fills that hole with its own credit and gets one thing in return — certainty that the hardware gets bought. Revenue splits into two lines: selling boxes, and renting compute.
 
+![Two panels compared; on the left the line from capital markets to the neocloud is broken and the risk marker sits on the neocloud, on the right NVIDIA adds a backstop line from below and the risk marker moves onto NVIDIA](/figures/nvidia-credit-risk-relocation-en.svg)
+
 Whether this is brilliant or reckless rests entirely on one premise: demand has to keep climbing. As long as the capacity rents out and the investment gets recovered, it's a money machine. The moment demand turns, the same guarantee flips from asset to liability. This isn't magic — it's turning a conviction about the future into a signed contract.
 
 **2. "Which link is the bottleneck?" — "Haven't you noticed I'm out having dinner with everyone?"**
@@ -41,9 +43,13 @@ The funniest and most informative moment. Asked to rank power, land, memory, and
 
 The numbers reinforce it. Demand is described as more than doubling; revenue confidence is set around seventy percent. That gap isn't conservatism, it's capacity. One easy trap to avoid: NVIDIA's fiscal year runs ahead of the calendar, so the "2028" in its commentary maps roughly to calendar 2027.
 
+![The top row is a chain of four cells with only one marked in the warning color, the bottom row has all four marked, showing there is no single bottleneck to attack first](/figures/no-single-bottleneck-en.svg)
+
 **3. What analysts actually pressed on wasn't demand — it was competitive intensity in inference.**
 
 Nobody doubts that agentic AI generates enormous inference load anymore. The repeated question was how durable NVIDIA's edge is specifically in inference, given the parade of custom ASICs arriving. The show's example: OpenAI presented its in-house silicon at Hot Chips claiming it beats GB300, and got teased because GB300 is already last generation. Fair rebuttal from the hosts — you can only benchmark against what exists when you design it, and being one generation behind isn't embarrassing.
+
+![Two bars, demand tall and the revenue commitment short, with the difference between them boxed by a dashed line as the capacity gap](/figures/demand-double-revenue-seventy-en.svg)
 
 **4. The hard part of an ASIC isn't the chip. It's the chain from chip to full rack.**
 
@@ -57,17 +63,29 @@ The detail I most wanted to write down. Next year's TPU unit forecasts: US broke
 
 The show's posture toward the sensational "TPU overtakes NVIDIA by 2028" headline is worth copying: nobody knows who's right, the gap next year is still very large, and the program was strategically delayed by a year anyway. But one framing landed well — for supply chain companies, a second large customer isn't a split of the pie. It's a bigger pie.
 
+![Three rising bars for the sales price per rack system, going from 18 million to 25 million and then to 40 million US dollars](/figures/rack-price-ladder-en.svg)
+
 **6. Hot Chips became a memory conference.**
 
 Last year's theme was optics; this year the hall was full of memory. The reason is blunt: AI compute scales roughly with HBM capacity times bandwidth, so whoever pushes bandwidth up one notch controls the line. The competitive frontier has moved down a layer, to the logic base die underneath the stack — it needs a different process from the memory itself, and it directly sets the speed of the whole stack. Custom HBM grows out of exactly that.
 
 The more interesting branch is 3D DRAM. Startup D-Matrix stacks compute logic on top; Samsung puts logic underneath — two opposite extremes chasing the same goal: a middle point between SRAM's speed and HBM's capacity, with claimed bandwidth above current HBM and better power, at the cost of capacity. The hosts' stance is right: it sounds lovely, don't expect it tomorrow. Drilling through DRAM is genuinely hard, and 2028–2029 is the optimistic window. The big three memory makers will follow this path eventually.
 
+![A line rising from left to right, with three estimates ordered by how far each brokerage sits from the supply chain; the closer to the production line, the higher the estimate](/figures/tpu-estimate-by-distance-en.svg)
+
 **7. Powerchip's panel-level packaging started in 2016 — ten years, exactly.**
 
 Its message this week amounts to: this field shouldn't be handed entirely to the display makers, we've been at it longest. Of its four approaches, the pivotal one is chip-middle, conceptually the counterpart to TSMC's CoWoS-L, embedding a silicon bridge for fine interconnect. The difference lies in where the bridge goes: one route builds it into an organic layer, while Powerchip cuts into the ABF substrate and drops the bridge in. **That shifts the entire difficulty onto the substrate rather than the layer above it.**
 
 Why now, after ten years? The show's explanation is mechanical and convincing: wafer-level packaging prices are already up thirty to forty percent, and panels are square, so the cut efficiency is better. The technology didn't get better — the alternative got expensive. Reports indicate the first line has orders and is full, with large customers in discussions.
+
+![On the left a round wafer tiled with squares where only the nine central cells are whole and the outer ring is cut off by the edge; on the right a square panel where all twenty-five cells are whole](/figures/round-vs-square-panel-en.svg)
+
+![Two cross sections compared; on the left the silicon bridge is buried in the upper organic layer and the hard part sits there, on the right it is buried in a cavity in the substrate and the hard part moves down with it](/figures/silicon-bridge-position-en.svg)
+
+![A map with capacity on the horizontal axis and bandwidth on the vertical; SRAM sits top left, fast and small, HBM bottom right, big and slower, and 3D DRAM lands in the middle, slightly above center](/figures/memory-speed-capacity-map-en.svg)
+
+![A stack of memory dies resting on a base die picked out in an accent color, with an arrow pointing at it to say the whole stack's speed is set there](/figures/hbm-base-die-bottleneck-en.svg)
 
 ## Going Further
 
@@ -79,7 +97,11 @@ My suggestion is to shift attention from *how good it sounded* to **what the com
 
 The second layer: split the guidance into **demand rhetoric** and **falsifiable commitments**. "AI demand is exceptionally strong" is the former — unverifiable a year out. "Demand doubles, revenue up seventy percent" is the latter, and the thirty-point gap even tells you where to look: is power connected, is memory available, has packaging capacity come online. The first kind sets a mood; only the second can be graded. If you finish a call without a single falsifiable sentence written down, you effectively didn't listen.
 
+![Two sentences extend to the right; the upper one fades out halfway and never reaches the verification line a year out, the lower solid one runs into that line and leaves a mark](/figures/narrative-vs-falsifiable-en.svg)
+
 The third layer is the uncomfortable one: better visibility and a cheaper valuation are not the same thing. As the show put it, everyone's confidence got topped up. But confidence sits in the numerator; price sits in the denominator. The same guidance at two prices is two entirely different trades. So "should I chase" is the wrong question. The right one is: **if everything he said is true, how much of it does today's price already assume?**
+
+![Two entry points on a rising outlook curve; from the cheaper one there is still a long stretch to the top, from the dearer one only a short one](/figures/same-outlook-two-prices-en.svg)
 
 ### 2. A headline says X will overtake NVIDIA. Should I switch positions?
 
@@ -87,9 +109,13 @@ This episode hands you a near-perfect teaching case, and I think it's worth more
 
 The lazy read is "Taiwan is too optimistic." The better read is that **each analyst is forecasting the slice they can see.** The supply chain sits in Taiwan, so Taiwanese analysts can check real lines and real pull-in behavior. Those signals are genuine, warm, and concrete. What they can't see — whether another link jams, whether the customer eventually cuts — simply isn't in frame. Visible things get amplified; invisible things get treated as zero. Nobody is being stupid; this is a systematic bias set by information position, and its direction is predictable: closer to the line, higher the number.
 
+![A supply chain in five segments; from where the analyst stands a cone of vision lights up only two segments, leaving the other three in the dark and treated as zero](/figures/analyst-field-of-view-en.svg)
+
 So next time a dramatic forecast lands, don't start with "is this right." Start with **"who produced it, and where on the chain do they stand."** The same figure sourced from fab checks, from customer surveys, or from a macro model deserves entirely different haircuts.
 
 On switching positions, the show's angle is more fundamental: for a supplier that used to have one giant customer, a second and a third means a larger addressable market, not a divided one. **A fight over architecture and a fight over total volume are different fights.** If your position is a bet that one architecture wins, this headline matters enormously. If it's a bet that everything has to pass through your layer regardless, the headline is a point in your favor. Knowing which one you own is far easier — and far more reliable — than predicting the winner.
+
+![On the left a small circle cut into two pieces stands for the architecture fight, on the right the same circle grown large stands for the total-size fight, with a band underneath marking the stretch everyone must pass through whoever wins](/figures/architecture-vs-total-size-en.svg)
 
 ### 3. This technology has been "coming" for ten years. How do I know this time is real?
 
@@ -104,6 +130,8 @@ The episode supplies a usable set of verification signals, all mechanical facts 
 **Third, whether the difficulty has moved.** This is the subtle one. Embedding the bridge into the ABF substrate relocates the hardest part from the upper layer down to the substrate. The path from impossible to viable usually looks exactly like this: **the hard part keeps migrating**. Solve one, and the difficulty relocates to the next station. So when the conversation about a technology shifts from "can it be built" to "how do we cut the cavity in the substrate," that shift *is* the progress. **A problem becoming specific is the most reliable maturity signal there is.** Conversely, if a decade of debate is still about the same question of principle, it hasn't moved.
 
 **Fourth, remember that "not yet" is information too.** 3D DRAM in the same episode is the control group: lovely simulations, interesting architectures, everyone interested — and a 2028–2029 window with the through-silicon-via problem unsolved. Both are new technologies worth following, but only one currently has cash flow you can check. Giving them the same level of excitement is the most common misjudgment.
+
+![On a timeline, panel-level packaging is a solid dot in the current year marked as fully booked, while 3D DRAM is a dashed span across 2028 to 2029 marked as still sampling](/figures/order-book-vs-tapeout-en.svg)
 
 ## Worth Reading
 
@@ -120,6 +148,8 @@ Of everything in this episode, one idea is worth keeping for life:
 **"Able but unwanted" and "wanted but unable" look identical from outside — growth came in below full marks — and they mean opposite things.**
 
 NVIDIA said demand doubles and committed to seventy percent. Read only the second half and it's a shortfall. Read the first half and it's growth pinned by capacity. Same numbers, opposite conclusions, and the only difference is whether you asked one more question: **is it can't, or is it won't?**
+
+![The same shrunken number forks downward into cannot and will not, each leading to an opposite remedy, with two crossing gray lines in the middle marking the common mismatch](/figures/cannot-versus-will-not-en.svg)
 
 This distinction is even more useful outside markets. A team slipping schedule, a child's grades dropping, a relationship going cold — all you ever observe is that a number got smaller, and the reflex is to jump to "not trying hard enough" or "doesn't care anymore." The truth is often on the other side: they want to, and one square is jammed. And if you keep prescribing for "won't," that square never loosens.
 

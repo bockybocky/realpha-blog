@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Two bars of equal height for the same nominal rate, each cut into expected inflation and the real rate, with the left real segment above the dashed neutral line and the right one stopping on it">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text x="48" y="62" font-size="27" fill="var(--ink)">One nominal rate, two inflation assumptions, opposite conclusions</text>
+<text x="48" y="96" font-size="16" fill="var(--dim)">Both nominal rates are 4%; only the assumed inflation differs</text>
+
+<line x1="120" y1="370" x2="880" y2="370" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+<text x="860" y="360" font-size="16" fill="var(--dim)" text-anchor="end">Neutral 1%</text>
+
+<rect x="200" y="190" width="130" height="120" fill="var(--card)" stroke="var(--line)"/>
+<rect x="200" y="310" width="130" height="120" fill="var(--accent)"/>
+<text x="265" y="256" font-size="15" fill="var(--dim)" text-anchor="middle">Expected inflation 2%</text>
+<text x="265" y="376" font-size="15" fill="var(--page)" text-anchor="middle">Real 2%</text>
+<text x="265" y="464" font-size="19" fill="var(--ink)" text-anchor="middle">Assume inflation 2%</text>
+<text x="265" y="500" font-size="22" fill="var(--accent)" text-anchor="middle">Restrictive</text>
+
+<rect x="560" y="190" width="130" height="180" fill="var(--card)" stroke="var(--line)"/>
+<rect x="560" y="370" width="130" height="60" fill="var(--accent)"/>
+<text x="625" y="286" font-size="15" fill="var(--dim)" text-anchor="middle">Expected inflation 3%</text>
+<text x="625" y="406" font-size="15" fill="var(--page)" text-anchor="middle">Real 1%</text>
+<text x="625" y="464" font-size="19" fill="var(--ink)" text-anchor="middle">Assume inflation 3%</text>
+<text x="625" y="500" font-size="22" fill="var(--dim)" text-anchor="middle">Not restrictive</text>
+
+<text x="480" y="548" font-size="22" fill="var(--ink)" text-anchor="middle">Ask first what inflation he assumes</text>
+</svg>

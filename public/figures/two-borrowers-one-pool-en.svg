@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two borrowers each run an arrow into the same pool, with a rising price scale to the right and a note that demand exceeds supply">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<defs>
+<marker id="a2a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+<marker id="a2b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--warn)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="56">One pool, two pipes drawing from it</text>
+
+<rect x="60" y="110" width="290" height="76" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="205" y="145" text-anchor="middle">Business sector</text>
+<text class="b" x="205" y="170" text-anchor="middle">AI and data center buildout</text>
+
+<rect x="560" y="110" width="290" height="76" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="705" y="145" text-anchor="middle">Public sector</text>
+<text class="b" x="705" y="170" text-anchor="middle">Steady issuance</text>
+
+<line x1="230" y1="190" x2="382" y2="264" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#a2a)"/>
+<line x1="680" y1="190" x2="528" y2="264" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#a2a)"/>
+
+<rect x="330" y="272" width="250" height="110" rx="14" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="455" y="322" text-anchor="middle">The same pool of funds</text>
+<text class="b" x="455" y="350" text-anchor="middle">Credit market</text>
+
+<line x1="640" y1="392" x2="640" y2="248" stroke="var(--warn)" stroke-width="3" marker-end="url(#a2b)"/>
+<text class="g" x="664" y="292" fill="var(--warn)">Price</text>
+<text class="b" x="664" y="318">Yields rising</text>
+
+<text class="b" x="455" y="424" text-anchor="middle">More demand · same pool</text>
+
+<text class="c" x="60" y="500">If the price is moving, supply and demand are moving</text>
+</svg>

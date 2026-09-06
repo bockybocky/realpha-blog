@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Two crossing curves: the cost of not switching rises past the gently falling cost of switching, and the crossing is the moment of change">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:20px; font-weight:700; fill:var(--ink); }
+    .bd  { font-size:16px; fill:var(--dim); }
+    .sm  { font-size:15px; fill:var(--dim); }
+    .cc  { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">When does a material actually get switched</text>
+
+  <line x1="120" y1="120" x2="120" y2="400" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="120" y1="400" x2="890" y2="400" stroke="var(--grey)" stroke-width="2"/>
+  <text class="sm" x="120" y="106" text-anchor="middle">Cost</text>
+  <text class="sm" x="880" y="428" text-anchor="end">Time</text>
+
+  <path d="M150 196 C 400 226 640 250 860 262" fill="none" stroke="var(--grey)" stroke-width="5"/>
+  <text class="bd" x="176" y="180">Cost of switching: new tools, relearning</text>
+
+  <path d="M150 372 C 430 356 620 300 860 148" fill="none" stroke="var(--warn)" stroke-width="5"/>
+  <text class="bd" x="612" y="386" fill="var(--warn)">Cost of not switching: warpage, loss</text>
+
+  <line x1="560" y1="330" x2="560" y2="286" stroke="var(--warn)" stroke-width="3" stroke-dasharray="6 5"/>
+  <polygon points="560,276 552,292 568,292" fill="var(--warn)"/>
+  <text class="sm" x="576" y="300" fill="var(--warn)">AI pushes it up</text>
+
+  <circle cx="702" cy="256" r="9" fill="var(--accent)"/>
+  <line x1="702" y1="256" x2="702" y2="400" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+  <text class="grp" x="716" y="232" fill="var(--accent)">Only now does it switch</text>
+
+  <text class="cc" x="60" y="478">The tech existed a decade ago; what was missing was having no choice</text>
+</svg>

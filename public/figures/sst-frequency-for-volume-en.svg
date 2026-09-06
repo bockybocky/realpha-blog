@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-label="A size comparison of a large core and a small core, with two waveforms of different density below">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink) }
+    .grp { font-size:20px; font-weight:600; fill:var(--ink) }
+    .sml { font-size:15px; fill:var(--dim) }
+    .cnc { font-size:22px; font-weight:600; fill:var(--accent) }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="ttl" x="60" y="64">Raise frequency 1,000x, the core shrinks</text>
+
+  <rect x="60" y="110" width="360" height="360" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="grp" x="240" y="147" text-anchor="middle">Conventional transformer</text>
+  <rect x="130" y="180" width="220" height="170" rx="8" fill="var(--grey)"/>
+  <text class="sml" x="240" y="378" text-anchor="middle" fill="var(--ink)">Large core</text>
+  <path d="M100,410 q 40,-38 80,0 t 80,0 t 80,0" fill="none" stroke="var(--dim)" stroke-width="2.5"/>
+  <text class="sml" x="240" y="448" text-anchor="middle">50/60 Hz</text>
+
+  <path d="M440,265 L520,265" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="520,258 534,265 520,272" fill="var(--accent)"/>
+  <text class="sml" x="480" y="240" text-anchor="middle" fill="var(--accent)">Raise frequency</text>
+
+  <rect x="540" y="110" width="360" height="360" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="grp" x="720" y="147" text-anchor="middle">Solid state transformer</text>
+  <rect x="610" y="240" width="44" height="50" rx="6" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <rect x="700" y="235" width="80" height="60" rx="6" fill="var(--grey)"/>
+  <rect x="808" y="240" width="44" height="50" rx="6" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <text class="sml" x="632" y="330" text-anchor="middle" fill="var(--accent)">Power semiconductors</text>
+  <text class="sml" x="740" y="378" text-anchor="middle" fill="var(--ink)">Small core</text>
+  <path d="M580,410 q 10,-26 20,0 t 20,0 t 20,0 t 20,0 t 20,0 t 20,0 t 20,0 t 20,0 t 20,0 t 20,0 t 20,0 t 20,0 t 20,0" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text class="sml" x="720" y="448" text-anchor="middle">Thousands to tens of thousands Hz</text>
+
+  <text class="cnc" x="480" y="520" text-anchor="middle">Volume down to about a quarter</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Four industry layers each with a left bar for three years ago and a right bar for now, the changing lengths showing the rent moving from chips and foundry to the model layer and memory.">
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.h { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:19px; font-weight:600; fill:var(--ink); }
+.b { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:600; fill:var(--ink); }
+</style>
+<text class="h" x="60" y="60">Rent moved three times in 3 yrs</text>
+<text class="g" x="300" y="132" text-anchor="end">Around 2023</text>
+<text class="g" x="660" y="132">Now</text>
+<line x1="480" y1="150" x2="480" y2="470" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="5 6"/>
+<text class="g" x="480" y="196" text-anchor="middle">Models</text>
+<rect x="256" y="172" width="44" height="30" fill="var(--warn)"/>
+<text class="b" x="246" y="194" text-anchor="end">Below cost</text>
+<rect x="660" y="172" width="196" height="30" fill="var(--accent)"/>
+<text class="g" x="480" y="266" text-anchor="middle">Memory</text>
+<rect x="266" y="242" width="34" height="30" fill="var(--grey)"/>
+<rect x="660" y="242" width="216" height="30" fill="var(--accent)"/>
+<text class="b" x="866" y="290">Up most</text>
+<text class="g" x="480" y="336" text-anchor="middle">Chips · foundry</text>
+<rect x="70" y="312" width="230" height="30" fill="var(--accent)"/>
+<rect x="660" y="312" width="104" height="30" fill="var(--grey)"/>
+<text class="b" x="70" y="362">Took most margin</text>
+<text class="g" x="480" y="406" text-anchor="middle">Cloud</text>
+<rect x="230" y="382" width="70" height="30" fill="var(--grey)"/>
+<rect x="660" y="382" width="88" height="30" fill="var(--grey)"/>
+<path d="M330,458 C440,506 560,506 640,470" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<path d="M640,470 L618,468 L630,484 Z" fill="var(--accent)"/>
+<text class="c" x="60" y="548">It moves; ask where it jams now</text>
+</svg>

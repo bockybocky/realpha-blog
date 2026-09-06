@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Side by side: on the left a thin line fires at one target, on the right a fan covers six falling targets">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="40" y="54" font-size="27" font-weight="700" fill="var(--ink)">Laser vs microwave: two rulers</text>
+
+  <rect x="40" y="86" width="420" height="384" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="500" y="86" width="420" height="384" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <text x="70" y="126" font-size="20" font-weight="700" fill="var(--accent)">Laser · one at a time</text>
+  <text x="120" y="126" font-size="20" fill="var(--dim)">​</text>
+
+  <rect x="76" y="418" width="76" height="30" rx="6" fill="var(--accent)"/>
+  <line x1="152" y1="422" x2="386" y2="196" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="396" cy="186" r="19" fill="none" stroke="var(--ink)" stroke-width="2"/>
+  <circle cx="396" cy="186" r="7" fill="var(--accent)"/>
+  <text x="70" y="386" font-size="16" fill="var(--dim)">Narrow beam</text>
+  <text x="70" y="410" font-size="16" fill="var(--dim)">Burns through</text>
+
+  <text x="530" y="126" font-size="20" font-weight="700" fill="var(--accent)">Microwave · a group at once</text>
+  <text x="580" y="126" font-size="20" fill="var(--dim)">​</text>
+
+  <rect x="536" y="418" width="76" height="30" rx="6" fill="var(--accent)"/>
+  <polygon points="612,422 902,166 902,352" fill="var(--accent)" opacity="0.16"/>
+  <polyline points="612,422 902,166" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 5"/>
+  <polyline points="612,422 902,352" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 5"/>
+  <circle cx="716" cy="322" r="11" fill="none" stroke="var(--ink)" stroke-width="2"/>
+  <circle cx="778" cy="270" r="11" fill="none" stroke="var(--ink)" stroke-width="2"/>
+  <circle cx="792" cy="352" r="11" fill="none" stroke="var(--ink)" stroke-width="2"/>
+  <circle cx="846" cy="222" r="11" fill="none" stroke="var(--ink)" stroke-width="2"/>
+  <circle cx="856" cy="308" r="11" fill="none" stroke="var(--ink)" stroke-width="2"/>
+  <circle cx="874" cy="262" r="11" fill="none" stroke="var(--ink)" stroke-width="2"/>
+  <line x1="716" y1="336" x2="716" y2="372" stroke="var(--grey)" stroke-width="2"/>
+  <polygon points="712,372 720,372 716,382" fill="var(--grey)"/>
+  <line x1="792" y1="366" x2="792" y2="392" stroke="var(--grey)" stroke-width="2"/>
+  <polygon points="788,392 796,392 792,402" fill="var(--grey)"/>
+  <line x1="856" y1="322" x2="856" y2="360" stroke="var(--grey)" stroke-width="2"/>
+  <polygon points="852,360 860,360 856,370" fill="var(--grey)"/>
+  <text x="530" y="386" font-size="16" fill="var(--dim)">Wide fan</text>
+  <text x="530" y="410" font-size="16" fill="var(--dim)">Kills electronics</text>
+
+  <text x="40" y="520" font-size="22" font-weight="700" fill="var(--ink)">One measures power, one measures effect, different rulers</text>
+</svg>

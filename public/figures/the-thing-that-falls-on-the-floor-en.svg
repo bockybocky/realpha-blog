@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A handover diagram: three cards pass from the left box to the right box while the fourth falls along a dashed line to an uncaught gray band at the bottom">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<g font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',sans-serif">
+<text x="60" y="56" font-size="27" fill="var(--ink)">One thing falls on the floor</text>
+
+<rect x="90" y="150" width="230" height="300" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<text x="205" y="132" font-size="20" fill="var(--dim)" text-anchor="middle">The outgoing</text>
+<rect x="640" y="150" width="230" height="300" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<text x="755" y="132" font-size="20" fill="var(--dim)" text-anchor="middle">The incoming</text>
+
+<rect x="110" y="176" width="190" height="48" rx="8" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="205" y="206" font-size="16" fill="var(--ink)" text-anchor="middle">Title</text>
+<rect x="110" y="240" width="190" height="48" rx="8" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="205" y="270" font-size="16" fill="var(--ink)" text-anchor="middle">Process</text>
+<rect x="110" y="304" width="190" height="48" rx="8" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="205" y="334" font-size="16" fill="var(--ink)" text-anchor="middle">Handover list</text>
+<rect x="110" y="376" width="190" height="48" rx="8" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="205" y="406" font-size="16" fill="var(--warn)" text-anchor="middle">The unmentioned one</text>
+
+<line x1="320" y1="200" x2="620" y2="200" stroke="var(--accent)" stroke-width="3"/>
+<polygon points="632,200 618,193 618,207" fill="var(--accent)"/>
+<line x1="320" y1="264" x2="620" y2="264" stroke="var(--accent)" stroke-width="3"/>
+<polygon points="632,264 618,257 618,271" fill="var(--accent)"/>
+<line x1="320" y1="328" x2="620" y2="328" stroke="var(--accent)" stroke-width="3"/>
+<polygon points="632,328 618,321 618,335" fill="var(--accent)"/>
+
+<rect x="660" y="176" width="190" height="48" rx="8" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="755" y="206" font-size="16" fill="var(--ink)" text-anchor="middle">Title</text>
+<rect x="660" y="240" width="190" height="48" rx="8" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="755" y="270" font-size="16" fill="var(--ink)" text-anchor="middle">Process</text>
+<rect x="660" y="304" width="190" height="48" rx="8" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="755" y="334" font-size="16" fill="var(--ink)" text-anchor="middle">Handover list</text>
+<rect x="660" y="376" width="190" height="48" rx="8" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 8"/>
+
+<path d="M320 404 C 400 412 440 452 500 466" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="9 7"/>
+<polygon points="512,469 497,464 500,477" fill="var(--warn)"/>
+<rect x="360" y="474" width="500" height="34" rx="6" fill="var(--warn)" opacity="0.18"/>
+<text x="610" y="498" font-size="19" fill="var(--warn)" text-anchor="middle">Nobody catches it</text>
+
+<text x="60" y="544" font-size="22" fill="var(--accent)">Ask who holds it now</text>
+</g>
+</svg>

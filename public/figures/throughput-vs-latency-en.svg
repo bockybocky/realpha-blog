@@ -1,0 +1,51 @@
+<svg id="fig-iltb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Above, a direct route carrying one person; below, a stopping route carrying a full load; on the right the height difference between two bars shows eight times the hardware buys only four and a half times the speed">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+#fig-iltb-2 text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+#fig-iltb-2 .t { font-size:27px; fill:var(--ink); font-weight:700; }
+#fig-iltb-2 .g { font-size:19px; fill:var(--ink); font-weight:600; }
+#fig-iltb-2 .b { font-size:16px; fill:var(--dim); }
+#fig-iltb-2 .c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<defs><marker id="ar2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="var(--accent)"/></marker></defs>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text class="t" x="60" y="52">Same road: direct or full</text>
+
+<text class="g" x="60" y="120">Low latency</text>
+<line x1="140" y1="165" x2="460" y2="165" stroke="var(--accent)" stroke-width="4" marker-end="url(#ar2)"/>
+<circle cx="290" cy="140" r="8" fill="var(--accent)"/>
+<text class="b" x="140" y="200">One car, direct</text>
+
+<text class="g" x="60" y="262">High throughput</text>
+<line x1="140" y1="305" x2="460" y2="305" stroke="var(--accent)" stroke-width="4" marker-end="url(#ar2)"/>
+<circle cx="205" cy="305" r="9" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="270" cy="305" r="9" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="335" cy="305" r="9" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="400" cy="305" r="9" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="180" cy="272" r="8" fill="var(--accent)"/>
+<circle cx="230" cy="272" r="8" fill="var(--accent)"/>
+<circle cx="280" cy="272" r="8" fill="var(--accent)"/>
+<circle cx="330" cy="272" r="8" fill="var(--accent)"/>
+<circle cx="380" cy="272" r="8" fill="var(--accent)"/>
+<circle cx="430" cy="272" r="8" fill="var(--accent)"/>
+<text class="b" x="140" y="345">Full bus, all stops</text>
+
+<line x1="520" y1="110" x2="520" y2="470" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="560" y="120">To cut latency</text>
+<rect x="610" y="190" width="76" height="240" fill="var(--accent)"/>
+<rect x="760" y="295" width="76" height="135" fill="var(--accent)"/>
+<rect x="760" y="190" width="76" height="105" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 5"/>
+<text class="g" x="648" y="176" text-anchor="middle">8×</text>
+<text class="g" x="798" y="281" text-anchor="middle">4.5×</text>
+<text class="b" x="798" y="176" text-anchor="middle" fill="var(--warn)">Comms cost</text>
+<line x1="580" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="648" y="458" text-anchor="middle">Cards in</text>
+<text class="b" x="798" y="458" text-anchor="middle">Speed out</text>
+
+<text class="c" x="60" y="540">Pick throughput or latency</text>
+</svg>

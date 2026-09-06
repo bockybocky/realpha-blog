@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="The same falling line, without an expected band on the left and inside a band drawn beforehand on the right">
+<defs><style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+  .ttl{font-size:27px;fill:var(--ink);font-weight:700}
+  .lbl{font-size:19px;fill:var(--ink);font-weight:600}
+  .txt{font-size:16px;fill:var(--dim)}
+  .cc{font-size:22px;fill:var(--ink);font-weight:600}
+</style></defs>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="ttl" x="60" y="62">Same streak, two readings</text>
+<text class="lbl" x="270" y="112" text-anchor="middle">No failure shape written</text>
+<text class="lbl" x="690" y="112" text-anchor="middle">Band drawn first</text>
+<rect x="90" y="140" width="360" height="240" rx="12" fill="none" stroke="var(--line)" stroke-width="2"/>
+<rect x="510" y="140" width="360" height="240" rx="12" fill="none" stroke="var(--line)" stroke-width="2"/>
+<rect x="530" y="196" width="320" height="150" rx="8" fill="var(--card)" stroke="var(--line)" stroke-dasharray="8 6"/>
+<polyline points="120,190 180,214 240,206 300,262 360,290 420,330" fill="none" stroke="var(--warn)" stroke-width="3.5"/>
+<polyline points="540,190 600,214 660,206 720,262 780,290 840,330" fill="none" stroke="var(--accent)" stroke-width="3.5"/>
+<text class="cc" x="270" y="424" text-anchor="middle" fill="var(--warn)">It's broken</text>
+<text class="cc" x="690" y="424" text-anchor="middle" fill="var(--accent)">It's the bill</text>
+<text class="cc" x="60" y="502">Not the line, the band you drew</text>
+</svg>

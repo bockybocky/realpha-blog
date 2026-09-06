@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="A two-by-two of decision quality crossed with outcome quality, with the upper-left good decision and bad outcome cell marked">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="72" font-size="27" font-weight="700" fill="var(--ink)">Two rulers</text>
+
+  <text class="t" x="130" y="180" font-size="19" font-weight="700" fill="var(--dim)">Decision</text>
+  <text class="t" x="196" y="235" font-size="16" fill="var(--dim)" text-anchor="end">Good</text>
+  <text class="t" x="196" y="385" font-size="16" fill="var(--dim)" text-anchor="end">Bad</text>
+  <text class="t" x="360" y="510" font-size="16" fill="var(--dim)" text-anchor="middle">Bad</text>
+  <text class="t" x="660" y="510" font-size="16" fill="var(--dim)" text-anchor="middle">Good</text>
+  <text class="t" x="510" y="542" font-size="19" font-weight="700" fill="var(--dim)" text-anchor="middle">Outcome</text>
+
+  <rect x="210" y="160" width="300" height="150" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t" x="360" y="228" font-size="22" font-weight="700" fill="var(--accent)" text-anchor="middle">Didn't work</text>
+  <text class="t" x="360" y="262" font-size="15" fill="var(--dim)" text-anchor="middle">Good decision, bad luck</text>
+
+  <rect x="510" y="160" width="300" height="150" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="660" y="245" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">Deserved</text>
+
+  <rect x="210" y="310" width="300" height="150" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="360" y="395" font-size="22" font-weight="700" fill="var(--dim)" text-anchor="middle">Had it coming</text>
+
+  <rect x="510" y="310" width="300" height="150" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="660" y="395" font-size="22" font-weight="700" fill="var(--dim)" text-anchor="middle">Lucky</text>
+
+  <text class="t" x="60" y="110" font-size="16" fill="var(--dim)">Score by outcome alone and the upper-left cell gets thrown away</text>
+</svg>

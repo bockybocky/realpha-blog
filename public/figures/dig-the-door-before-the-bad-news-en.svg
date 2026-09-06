@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A box stands for a position note, with good news entering from the left, counter-evidence blocked by the wall on the right, and an opening dug in advance at the bottom">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.h{font-size:27px;fill:var(--ink)}
+.g{font-size:19px;fill:var(--ink)}
+.b{font-size:16px;fill:var(--dim)}
+.s{font-size:15px;fill:var(--dim)}
+.c{font-size:22px;fill:var(--ink)}
+</style>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+<marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--warn)"/></marker>
+</defs>
+<text class="h" x="80" y="70">Dig the door first</text>
+<rect x="320" y="140" width="340" height="200" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="490" y="196" text-anchor="middle">Position note</text>
+<text class="b" x="490" y="244" text-anchor="middle">Why hold it</text>
+<text x="490" y="288" font-size="16" fill="var(--accent)" text-anchor="middle">When I'd be wrong</text>
+<path d="M96 214 L 306 214" stroke="var(--accent)" stroke-width="3" fill="none" marker-end="url(#ar)"/>
+<text class="b" x="96" y="188">Good news</text>
+<path d="M884 214 L 700 214" stroke="var(--warn)" stroke-width="3" fill="none" marker-end="url(#arg)"/>
+<text class="b" x="884" y="188" text-anchor="end">Counter-evidence</text>
+<path d="M672 200 L 692 228 M 692 200 L 672 228" stroke="var(--warn)" stroke-width="4"/>
+<rect x="440" y="332" width="100" height="16" fill="var(--page)"/>
+<path d="M490 452 L 490 350" stroke="var(--accent)" stroke-width="3" fill="none" marker-end="url(#ar)"/>
+<text class="b" x="490" y="486" text-anchor="middle">Door dug earlier</text>
+<text class="c" x="80" y="530">Dig it first, so bad news gets in</text>
+</svg>

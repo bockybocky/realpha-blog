@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Left versus right: a subscription is twelve equal solid bars, an annualized run rate is one solid bar plus eleven dashed assumed ones, while the actual next month is only a stub">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+.t { font-size:27px; font-weight:700; }
+.g { font-size:19px; font-weight:700; }
+.b { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="70" y="62">Same label, different source</text>
+<rect x="60" y="100" width="410" height="330" rx="10" fill="var(--card)"/>
+<rect x="500" y="100" width="410" height="330" rx="10" fill="var(--card)"/>
+<text class="g" x="90" y="140">Subscription (ARR)</text>
+<text class="g" x="530" y="140">Annualized usage (run rate)</text>
+<line x1="80" y1="390" x2="450" y2="390" stroke="var(--line)" stroke-width="2"/>
+<line x1="520" y1="390" x2="890" y2="390" stroke="var(--line)" stroke-width="2"/>
+<rect x="95" y="270" width="22" height="120" fill="var(--accent)"/>
+<rect x="125" y="270" width="22" height="120" fill="var(--accent)"/>
+<rect x="155" y="270" width="22" height="120" fill="var(--accent)"/>
+<rect x="185" y="270" width="22" height="120" fill="var(--accent)"/>
+<rect x="215" y="270" width="22" height="120" fill="var(--accent)"/>
+<rect x="245" y="270" width="22" height="120" fill="var(--accent)"/>
+<rect x="275" y="270" width="22" height="120" fill="var(--accent)"/>
+<rect x="305" y="270" width="22" height="120" fill="var(--accent)"/>
+<rect x="335" y="270" width="22" height="120" fill="var(--accent)"/>
+<rect x="365" y="270" width="22" height="120" fill="var(--accent)"/>
+<rect x="395" y="270" width="22" height="120" fill="var(--accent)"/>
+<rect x="425" y="270" width="22" height="120" fill="var(--accent)"/>
+<text class="b" x="95" y="420">Signed, renews next year</text>
+<rect x="535" y="270" width="22" height="120" fill="var(--accent)"/>
+<rect x="565" y="270" width="22" height="120" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="595" y="270" width="22" height="120" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="625" y="270" width="22" height="120" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="655" y="270" width="22" height="120" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="685" y="270" width="22" height="120" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="715" y="270" width="22" height="120" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="745" y="270" width="22" height="120" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="775" y="270" width="22" height="120" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="805" y="270" width="22" height="120" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="835" y="270" width="22" height="120" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="865" y="270" width="22" height="120" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="565" y="368" width="22" height="22" fill="var(--warn)"/>
+<text class="b" x="535" y="255" fill="var(--ink)">This month</text>
+<text class="b" x="600" y="360" fill="var(--warn)">Actual next month</text>
+<text class="b" x="535" y="420">One month × 12</text>
+<text class="c" x="70" y="500">Signed contracts vs this month × 12</text>
+</svg>

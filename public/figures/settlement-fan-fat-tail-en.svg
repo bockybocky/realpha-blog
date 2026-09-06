@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The normal curve overlaid on the real settlement distribution, where the real one has a sharper peak and heavier tails and the share falling inside the same range drops from 79 percent to 54 percent.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" fill="var(--ink)">One range, two distributions, two answers</text>
+
+<text x="200" y="104" font-size="20" fill="var(--accent)">Normal says 79%</text>
+<text x="760" y="104" font-size="20" fill="var(--warn)" text-anchor="end">Actual 54%</text>
+
+<rect x="350" y="140" width="260" height="300" fill="var(--card)"/>
+<line x1="350" y1="140" x2="350" y2="440" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+<line x1="610" y1="140" x2="610" y2="440" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+<text x="480" y="132" font-size="19" fill="var(--dim)" text-anchor="middle">The width of one straddle</text>
+
+<line x1="90" y1="440" x2="890" y2="440" stroke="var(--line)" stroke-width="3"/>
+
+<path d="M 200 440 C 330 440, 370 190, 480 190 C 590 190, 630 440, 760 440" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<path d="M 120 438 C 320 432, 400 158, 480 158 C 560 158, 640 432, 840 438" fill="none" stroke="var(--warn)" stroke-width="4"/>
+
+<text x="150" y="410" font-size="16" fill="var(--warn)">Fat tail</text>
+<text x="820" y="410" font-size="16" fill="var(--warn)" text-anchor="end">Fat tail</text>
+
+<text x="480" y="478" font-size="16" fill="var(--dim)" text-anchor="middle">113 TAIEX settlements, as-of 2026-08-23</text>
+<text x="480" y="522" font-size="22" fill="var(--ink)" text-anchor="middle">The fan points the right way; it is just drawn too narrow</text>
+</svg>

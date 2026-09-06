@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="A long bar split into cash flow and borrowing, with a dashed extension below for buildings and power plants not yet counted.">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.h { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:19px; font-weight:600; fill:var(--ink); }
+.b { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:600; fill:var(--ink); }
+</style>
+<text class="h" x="60" y="60">$11T of capex, $5T borrowed</text>
+<text class="b" x="110" y="170">2024–2029 total</text>
+<rect x="110" y="190" width="425" height="92" fill="var(--grey)"/>
+<rect x="535" y="190" width="355" height="92" fill="var(--accent)"/>
+<text class="g" x="322" y="230" text-anchor="middle" fill="var(--ink)">Cash flow</text>
+<text class="b" x="322" y="256" text-anchor="middle">$6T</text>
+<text class="g" x="712" y="230" text-anchor="middle" fill="var(--page)">Borrowed</text>
+<text class="b" x="712" y="256" text-anchor="middle" fill="var(--page)">$5T</text>
+<rect x="110" y="320" width="640" height="70" fill="none" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="9 7"/>
+<text class="g" x="134" y="352" fill="var(--warn)">Not counted</text>
+<text class="b" x="134" y="376">Buildings · power plants (30-yr assets)</text>
+<path d="M750,355 L900,355" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="9 7"/>
+<path d="M900,355 L884,346 L884,364 Z" fill="var(--warn)"/>
+<text class="c" x="60" y="466">The real bill runs longer</text>
+</svg>

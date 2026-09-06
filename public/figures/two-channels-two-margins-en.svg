@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two paths: the direct one has a tall bar on the right, the one with an extra stop has a short bar">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="60" y="70" font-size="27" fill="var(--ink)">The margin difference comes from the channel</text>
+
+  <text x="90" y="128" font-size="19" fill="var(--dim)">Sell direct to the customer</text>
+  <rect x="90" y="144" width="150" height="62" rx="8" fill="var(--card)" stroke="var(--line)"/>
+  <text x="118" y="182" font-size="16" fill="var(--ink)">Chipmaker</text>
+  <line x1="246" y1="175" x2="370" y2="175" stroke="var(--accent)" stroke-width="2"/>
+  <polygon points="380,175 366,169 366,181" fill="var(--accent)"/>
+  <rect x="388" y="144" width="150" height="62" rx="8" fill="var(--card)" stroke="var(--line)"/>
+  <text x="424" y="182" font-size="16" fill="var(--ink)">Customer</text>
+
+  <text x="90" y="272" font-size="19" fill="var(--dim)">Sell through distribution</text>
+  <rect x="90" y="288" width="140" height="62" rx="8" fill="var(--card)" stroke="var(--line)"/>
+  <text x="114" y="326" font-size="16" fill="var(--ink)">Chipmaker</text>
+  <line x1="236" y1="319" x2="266" y2="319" stroke="var(--grey)" stroke-width="2"/>
+  <polygon points="276,319 262,313 262,325" fill="var(--grey)"/>
+  <rect x="282" y="288" width="150" height="62" rx="8" fill="var(--card)" stroke="var(--line)"/>
+  <text x="308" y="326" font-size="16" fill="var(--ink)">Distribution</text>
+  <text x="312" y="372" font-size="15" fill="var(--warn)">Price competition</text>
+  <line x1="438" y1="319" x2="468" y2="319" stroke="var(--grey)" stroke-width="2"/>
+  <polygon points="478,319 464,313 464,325" fill="var(--grey)"/>
+  <rect x="484" y="288" width="120" height="62" rx="8" fill="var(--card)" stroke="var(--line)"/>
+  <text x="514" y="326" font-size="16" fill="var(--ink)">Customer</text>
+
+  <line x1="640" y1="430" x2="900" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <rect x="668" y="200" width="92" height="230" fill="var(--accent)"/>
+  <text x="668" y="188" font-size="20" fill="var(--ink)">74%</text>
+  <text x="668" y="456" font-size="15" fill="var(--dim)">Direct</text>
+  <rect x="800" y="306" width="92" height="124" fill="var(--grey)"/>
+  <text x="800" y="294" font-size="20" fill="var(--dim)">Lower</text>
+  <text x="800" y="456" font-size="15" fill="var(--dim)">Via distribution</text>
+
+  <text x="60" y="518" font-size="22" fill="var(--ink)">Not the same business, so not the same number</text>
+</svg>

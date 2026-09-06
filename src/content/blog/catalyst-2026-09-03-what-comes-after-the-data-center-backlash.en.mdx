@@ -24,17 +24,27 @@ Shayle opened by splitting the problem in two, and I paused there. Two different
 
 The line I wrote down: you can't rate your way out of a values fight.
 
+![A line chart whose horizontal axis is the growing number of remedies a developer can offer; the line for concrete grievances falls steadily while the line for the values fight stays flat from beginning to end.](/figures/two-things-in-one-coat-en.svg)
+
 ## The main points
 
 - Red carpet to pitchforks, with nothing in between. Brian has been building data centers for twenty years, and says communities used to roll out the welcome mat. His first explanation is scale. Microsoft took nearly two decades to reach roughly a gigawatt in Quincy, Washington; that town got a $15 million aquatic center, a $150 million school, and unemployment down from 9% to 6%. Someone now wants to do the same volume in eighteen months. The number is the same, but something that grows in slowly and something that lands all at once are different objects in a person's mind.
 
+![Two lines climb from the same origin to the same height, one a gentle slope across twenty years and one nearly vertical across eighteen months.](/figures/same-gigawatt-different-slope-en.svg)
+
 - The water fight contains an arithmetic error. Some of the scary projections take an old facility's water draw and multiply by a hundred, ignoring that cooling has largely moved to closed-loop systems. Measured against almonds, avocados, golf courses, or chemical plants, data center water use is not the outlier. But Brian made a sharper observation: propose a factory in the same town — more water, more emissions — and the carpet comes back out, because people like cars. Dislike the building and dislike what happens inside it, and you get a double no.
+
+![A quadrant chart whose horizontal axis is how people feel about what it does and whose vertical axis is physical impact; factories land top right and get the red carpet, data centers land bottom left and get pitchforks.](/figures/double-no-quadrant-en.svg)
 
 - Transparency fixes part of it and not the rest. Cloverleaf won't sign NDAs with government officials, and Brian thinks the Pennsylvania-style rules (no NDAs, disclose the cooling system) point the right way. He also described the early-stage developer's bind: he sometimes genuinely doesn't know who the end user will be, and "I don't know" gets heard as "you won't say." Even full disclosure often lands on "I just don't believe you," or more plainly, "I just don't like it."
 
 - On power prices, the micro and the macro can both be true. Under today's deal structures, a data center arriving in your utility territory tends to push your rates down. Meanwhile the industry-wide buildout has bid up transformers, gas turbines, and natural gas — raising the price of every component inside your bill. "Having one nearby is good for me" and "these things are making electricity more expensive" are not in contradiction.
 
+![Two layers of arrows pointing opposite ways: on the top layer your local rates go down, on the bottom layer national transformers, gas turbines and natural gas go up.](/figures/local-down-national-up-en.svg)
+
 - Bring-your-own-generation sounds like a fix and often isn't. Brian has long been skeptical of behind-the-meter power. If the inflationary pressure comes from equipment costs rather than added load, buying that equipment and putting it behind your own meter only makes it scarcer. Going off-grid with any reliability target means overbuilding — he cited a gigawatt facility needing 2.6 gigawatts of generation and storage. And his most grounded point: someone who doesn't want a data center next door probably doesn't want a data center plus a power plant next door.
+
+![Two bars of very different length: the upper one is the 1 GW of load to be served, the lower one is 2.6 times longer, the generation and storage an off-grid site must build for reliability.](/figures/offgrid-overbuild-en.svg)
 
 - On the underwater and orbital ideas, he was in the room. Around 2016 at Microsoft, someone on his team built a Lego data center, dropped it in a fish tank, and wrote it up; the company actually did it, first at kilowatt scale off California, then at megawatt scale in the North Sea. The conclusion was "you proved it can be done," and then it went on the shelf — land is easier, and your technicians don't need scuba training. Companies are pursuing it seriously now, and he's more open than he was nine months ago, but he still has a long list of questions about scale.
 
@@ -58,11 +68,15 @@ I listened to the behind-the-meter section twice, because it's a textbook fallac
 
 Here's how I ended up reading it. Putting generation behind your own meter isn't bad for your community's bills — you added no load to the grid and you paid for the hardware yourself. But the long-run case for cheaper power runs through a growing denominator: more users sharing the fixed cost of the same backbone. Removing yourself from that denominator helps nobody. Brian's phrasing was that it isn't negative, it just doesn't help.
 
+![Two panels compared: the same fixed cost split five ways is $12 each, and with one more person joining it becomes $10 each — and that person chose to stay behind the meter.](/figures/taking-yourself-out-of-the-denominator-en.svg)
+
 That frame travels well. A company that builds its own capacity, signs its own long-term contracts, and locks up a bottleneck resource has done itself a favor. If the whole industry does it, the price of that bottleneck goes up and everyone's cost base rises with it. Reading a bullish report, it's worth asking: is this edge "they moved first," or "this makes everyone better off"? The first has a shelf life exactly as long as it takes others to copy it.
 
 ### "Something that never penciled out is suddenly being recommended — should I buy it?"
 
 The oil well analogy is the most portable thing in the episode. Cheap gas, and those wells sit there untouched. Expensive gas, and the same wells are worth drilling. The wells didn't change; the price signal did.
+
+![Six cost bars of differing height with a horizontal price line moving up from a low level; at first only one bar sits below it, and after the line moves four bars fall below and become worth drilling.](/figures/price-line-moves-not-the-wells-en.svg)
 
 So when a business "suddenly becomes viable," separate two cases: was it opened up by a new capability, or propped up by a high price? Both can make money, but their failure conditions differ. For a scarcity-spread business, ask when the scarcity ends and what's left in its hands when it does. For a capability business, ask how long before the capability is copied.
 

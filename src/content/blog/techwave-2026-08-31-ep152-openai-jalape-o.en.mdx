@@ -30,11 +30,17 @@ The interesting part isn't the win itself. It's three layers underneath: how muc
 
 **2. The scores are strong.** The benchmark is SemiAnalysis's InferenceX, currently the most credible inference test available. At equal power draw, throughput leads by 1.5–1.9x. End-to-end latency — from a user's request arriving to the full answer completing — is 1.7–3.6x faster. If you optimize purely for latency regardless of cost, the ceiling is 2.1–4.1x. And it didn't only run OpenAI's own model: three models across small, medium and large sizes with differing architectures, which is unusually disciplined for a first-party benchmark submission.
 
+![Three bars extending to the right, all starting to the right of the dashed baseline for the previous-generation Blackwell; the farther right, the bigger the lead, and the third bar, latency ceiling, reaches farthest.](/figures/jalapeno-three-metrics-range-en.svg)
+
 **3. The host's four caveats matter more than the multiples.** Power is computed from the chip's rated package TDP, not measured at the wall. The test scope is a single rack, not a full AI factory — and full-factory co-design is precisely where NVIDIA is strongest. The workload is a fixed long-input, short-output shape, while the dominant real-world pattern today is agentic back-and-forth. And the comparison is against Blackwell, when by process node and memory generation the fair opponent is Rubin. His read: these narrow the gap, but don't overturn the conclusion.
 
 **4. The prettiest hardware idea is one chip switching its own mode.** Inference splits into phases with completely different hardware appetites. Processing your whole prompt is compute-hungry — every token's relationship to every other token gets computed at once. Emitting the answer token by token is bandwidth-hungry — each token requires hauling model weights out of memory again. The conventional answer is different chips for different phases, which forces intermediate state to be shipped between chips, and leaves capacity idle whenever the phase mix shifts with user behavior. Jalapeño lets one chip reconfigure itself between modes: nothing gets shipped, and units not needed in the current mode are simply switched off and draw no power. The saving is transport cost plus idle cost.
 
+![Two panels compared: on the left, two stacked blocks with an arrow between them for moving intermediate results and an idle area alongside; on the right, one block whose upper and lower zones switch back and forth, with a row of small cells beneath, several grayed out to show power off.](/figures/jalapeno-one-chip-two-modes-en.svg)
+
 **5. The real dividing line is the spatial architecture.** On a normal GPU, work assignment is done by hardware — an on-chip scheduler hands jobs to whichever unit is free. That makes software easy to write, portable across cards, and gives a floor on utilization. The cost is that the scheduler only sees the present moment. The host's example: if core one's result will later be combined with core three's, the scheduler doesn't know, so both write results back to memory and a third core is dispatched to fetch and merge them — a long detour. A spatial architecture lets software specify exactly where each piece of data lives, which core computes it, and who it goes to next. Much higher ceiling, because every path can be the shortest one. The price is that software complexity explodes, and badly written software is *worse* than the GPU: give one core a long job everyone else is waiting on, and the whole batch stalls.
+
+![Two data paths compared: in the top row data detours into memory and is fetched back out to be merged, three segments in all; in the bottom row a single short arrow passes the result straight between two cores.](/figures/spatial-architecture-data-path-en.svg)
 
 **6. Nobody designed chips this way before because nobody could write the software.** The one outside firm with real exposure describes OpenAI's low-level code as being like writing assembly, with single kernels running past three thousand lines. Where do you hire engineers to write that? You don't — which is why the industry never traded that much programming pain for a bit more performance. OpenAI could take the trade because the complexity is now borne by AI: humans write the high-level function correctly, and the data-flow optimization and shortcut routing are left to the compiler and an AI optimizer. The evidence is how quickly they produced custom kernels for three architecturally different models.
 
@@ -52,6 +58,8 @@ That's the first thought, and it's almost always too fast, because "beat" is an 
 
 **Third: where are the test boundaries.** Single rack, not full factory. Rated power, not measured power. A fixed long-in/short-out workload, not today's dominant agentic pattern. And note that every one of those boundaries happens to disadvantage NVIDIA, because full-factory co-design — its strongest asset — simply cannot express itself inside a single-rack test.
 
+![Four left-aligned bars running from long to short: the top is the scope the headline claims, and each question cuts a piece off, the shortest at the bottom being what can actually be inferred.](/figures/three-questions-scope-shrink-en.svg)
+
 After those three questions the conclusion isn't "the news is fake." It's "the news is real, and it supports a smaller claim than the headline." That's what reading skill buys you: not rejecting good news, but knowing where its edges are. And the genuinely alarming detail here isn't any of the multiples — it's the two phrases "first generation" and "nine months."
 
 ### "So is the moat gone or not? The same episode seems to say both."
@@ -64,6 +72,8 @@ That confusion comes from treating "moat" as one object. It's several layers of 
 
 **Capital and installed-base moats:** deployed scale creates its own inertia — toolchains, operational experience, partners all stuck to it. Slowest layer to move.
 
+![Three strata stacked top to bottom: the top layer's upper edge is gnawed into a jagged line and is thinnest, the middle thicker, the bottom thickest; an arrow down the right side marks erosion slowing from fast to slow.](/figures/moat-three-layers-en.svg)
+
 With that split, the episode stops contradicting itself. Jalapeño is attacking layer one and barely touching two and three. The fact that it wins convincingly in a single rack but might win by far less at full-factory scale is itself evidence that layer two is intact.
 
 This decomposition generalizes. For any competitive advantage you're assessing, ask: **what material is this moat made of — "it's a hassle for others," or "others physically cannot"?** The shelf life of the first kind depends entirely on how fast that hassle gets eaten by tooling.
@@ -73,6 +83,8 @@ This decomposition generalizes. For any competitive advantage you're assessing, 
 The closing stretch is unusually honest. He says his prior view was that NVIDIA was safe for three years — carried by interconnect, full-factory co-design, and capital plus installed base — with real uncertainty only after that. Having seen these results, he says he may need to revisit that timeline.
 
 Notice precisely what he revised. Not "I was wrong, NVIDIA is finished." Not "this changes nothing." He revised the **timeline**. The structure of his view — three moat layers, the software layer being the fragile one — is unchanged. What changed is that the fragile layer is eroding faster than he assumed.
+
+![A timeline running from today to three years out; the checkpoint once marked at the far right is shown as a gray dashed circle and an arc pulls it back to an earlier spot, with four things to watch hanging beneath.](/figures/checkpoint-moved-earlier-en.svg)
 
 That distinction is useful for your own thinking, because new information only has three possible destinations: change the conclusion, change the timeline, or change the invalidation conditions. Most people only use the first and the last — either overturn everything or pretend they didn't see it. In practice the middle one is the most common: the framework was right, the speed estimate wasn't.
 
@@ -92,6 +104,8 @@ Worth noting: the other two purpose-built chips still submitted nothing. If they
 **When the difficulty of something gets outsourced, whatever value rested on that difficulty disappears with it.**
 
 The real message of this episode isn't whose chip is faster. It's that a price nobody was willing to pay — three-thousand-line low-level kernels, humans hand-routing every piece of data — is now being paid by something else. Once a price is absorbed, every option that was previously "too painful to bother with" comes back onto the table at once. And simultaneously, every advantage built on "this is hard, so nobody can catch me" starts loosening underfoot.
+
+![On the left a high wall with one person standing on top and only a single figure on the empty ground behind it; on the right the same wall cut down, its old height kept as a dashed line, and a row of people crowding the ground behind.](/figures/difficulty-wall-lowered-en.svg)
 
 This isn't confined to silicon. It holds anywhere your value comes from something being a hassle — knowing a complicated tool, remembering a tedious process, having the patience to do the tidying nobody else wants to do.
 

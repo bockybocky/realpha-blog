@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two bars of very different height side by side, short on the left and tall on the right, with a double arrow marking the gap between them">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.t{font-size:27px;fill:var(--ink);font-weight:700}
+.g{font-size:20px;fill:var(--ink);font-weight:700}
+.s{font-size:16px;fill:var(--dim)}
+.w{font-size:19px;fill:var(--warn);font-weight:700}
+.c{font-size:22px;fill:var(--ink)}
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="56">The bar sits above the user's ability</text>
+<line x1="150" y1="420" x2="810" y2="420" stroke="var(--line)" stroke-width="2"/>
+
+<rect x="230" y="316" width="150" height="104" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="305" y="300" text-anchor="middle">The user's hands</text>
+<text class="s" x="305" y="452" text-anchor="middle">Tremor</text>
+
+<rect x="590" y="150" width="150" height="270" rx="8" fill="none" stroke="var(--warn)" stroke-width="2.5"/>
+<text class="g" x="665" y="134" text-anchor="middle">First-generation box</text>
+<text class="s" x="665" y="452" text-anchor="middle">Needs steady hands</text>
+
+<line x1="450" y1="316" x2="450" y2="150" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="380" y1="316" x2="590" y2="316" stroke="var(--grey)" stroke-width="1.5" stroke-dasharray="4 6"/>
+<line x1="450" y1="150" x2="590" y2="150" stroke="var(--grey)" stroke-width="1.5" stroke-dasharray="4 6"/>
+<path d="M450 160 L444 176 L456 176 Z" fill="var(--warn)"/>
+<path d="M450 306 L444 290 L456 290 Z" fill="var(--warn)"/>
+<text class="w" x="466" y="240">Gap</text>
+
+<text class="c" x="480" y="504" text-anchor="middle">A tremor device that needs steady hands to open</text>
+</svg>

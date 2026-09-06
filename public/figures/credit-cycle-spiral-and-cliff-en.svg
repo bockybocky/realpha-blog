@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="On the left a loop that grows with each turn, on the right a line that rises slowly and then drops vertically">
+<defs>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<marker id="f1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="48" y="64" font-size="27" font-weight="700" fill="var(--ink)">Up in loops, down in one</text>
+<text x="48" y="96" font-size="16" fill="var(--dim)">Self-driving cycles reverse all at once</text>
+
+<rect x="48" y="120" width="430" height="350" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<path d="M294 201 A105 105 0 0 1 357 264" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#f1a)"/>
+<path d="M357 336 A105 105 0 0 1 294 399" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#f1a)"/>
+<path d="M222 399 A105 105 0 0 1 159 336" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#f1a)"/>
+<path d="M159 264 A105 105 0 0 1 222 201" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#f1a)"/>
+<circle cx="258" cy="195" r="9" fill="var(--accent)"/>
+<circle cx="363" cy="300" r="14" fill="var(--accent)"/>
+<circle cx="258" cy="405" r="19" fill="var(--accent)"/>
+<circle cx="153" cy="300" r="24" fill="var(--accent)"/>
+<text x="258" y="168" font-size="16" text-anchor="middle" fill="var(--ink)">Prices rise</text>
+<text x="376" y="345" font-size="16" text-anchor="middle" fill="var(--ink)">Collateral up</text>
+<text x="258" y="452" font-size="16" text-anchor="middle" fill="var(--ink)">More money in</text>
+<text x="140" y="255" font-size="16" text-anchor="middle" fill="var(--ink)">Looser terms</text>
+
+<rect x="502" y="120" width="410" height="350" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<path d="M530 428 L600 412 L660 382 L712 332 L748 264 L764 230" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<path d="M764 230 L782 448" fill="none" stroke="var(--warn)" stroke-width="5"/>
+<text x="618" y="396" font-size="16" fill="var(--dim)">Stacks up</text>
+<text x="806" y="330" font-size="20" font-weight="700" fill="var(--warn)">Flip</text>
+
+<text x="480" y="520" font-size="22" font-weight="700" text-anchor="middle" fill="var(--ink)">Self-reinforcing means no slow decline</text>
+</svg>

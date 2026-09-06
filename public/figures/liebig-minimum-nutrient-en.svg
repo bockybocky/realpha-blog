@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Six nutrient bars of different heights side by side; the shortest draws a dashed line across the whole figure, and the other five do not change where that line sits">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:19px; fill:var(--ink); }
+.d { font-size:16px; fill:var(--dim); }
+.w { font-size:16px; fill:var(--warn); }
+.c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="58">Scarcest sets harvest</text>
+<rect x="150" y="140" width="76" height="290" fill="var(--grey)"/>
+<rect x="260" y="155" width="76" height="275" fill="var(--grey)"/>
+<rect x="370" y="180" width="76" height="250" fill="var(--grey)"/>
+<rect x="480" y="168" width="76" height="262" fill="var(--grey)"/>
+<rect x="590" y="195" width="76" height="235" fill="var(--grey)"/>
+<rect x="700" y="350" width="76" height="80" fill="var(--warn)"/>
+<line x1="110" y1="430" x2="890" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="110" y1="350" x2="890" y2="350" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="9 7"/>
+<text class="w" x="890" y="336" text-anchor="end">Harvest stops here</text>
+<text class="d" x="188" y="458" text-anchor="middle">Sunlight</text>
+<text class="d" x="298" y="458" text-anchor="middle">Water</text>
+<text class="d" x="408" y="458" text-anchor="middle">Phosphorus</text>
+<text class="d" x="518" y="458" text-anchor="middle">Potassium</text>
+<text class="d" x="628" y="458" text-anchor="middle">Calcium</text>
+<text class="g" x="738" y="458" text-anchor="middle">Nitrogen</text>
+<line x1="188" y1="135" x2="188" y2="105" stroke="var(--dim)" stroke-width="2"/>
+<polygon points="188,96 182,110 194,110" fill="var(--dim)"/>
+<line x1="298" y1="150" x2="298" y2="105" stroke="var(--dim)" stroke-width="2"/>
+<polygon points="298,96 292,110 304,110" fill="var(--dim)"/>
+<text class="d" x="243" y="82" text-anchor="middle">Doubled</text>
+<text class="c" x="60" y="505">Harvest stops at nitrogen's height</text>
+</svg>

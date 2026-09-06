@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="On the left a line runs to a point and fades into dashes for an expiring forecast; on the right a circular loop for a criterion you can check again and again">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<defs>
+  <marker id="arw-f7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+</defs>
+<text x="48" y="62" font-size="27" fill="var(--ink)">Forecasts expire, criteria don't</text>
+
+<line x1="480" y1="120" x2="480" y2="430" stroke="var(--line)" stroke-width="2"/>
+
+<text x="240" y="140" font-size="20" fill="var(--dim)" text-anchor="middle">Forecast</text>
+<line x1="110" y1="240" x2="320" y2="240" stroke="var(--dim)" stroke-width="3"/>
+<circle cx="320" cy="240" r="8" fill="var(--dim)"/>
+<line x1="330" y1="240" x2="420" y2="240" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="320" y="214" font-size="15" fill="var(--dim)" text-anchor="middle">That day</text>
+<text x="240" y="306" font-size="16" fill="var(--dim)" text-anchor="middle">All you can do is believe it or not</text>
+<text x="240" y="336" font-size="16" fill="var(--dim)" text-anchor="middle">Next headline, pick a side again</text>
+
+<text x="720" y="140" font-size="20" fill="var(--accent)" text-anchor="middle">Criterion</text>
+<circle cx="720" cy="252" r="70" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<path d="M720,182 A70,70 0 0,1 776,214" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arw-f7)"/>
+<circle cx="720" cy="182" r="7" fill="var(--accent)"/>
+<circle cx="781" cy="287" r="7" fill="var(--accent)"/>
+<circle cx="659" cy="287" r="7" fill="var(--accent)"/>
+<text x="720" y="166" font-size="16" fill="var(--ink)" text-anchor="middle">New data</text>
+<text x="800" y="292" font-size="16" fill="var(--ink)">Check it</text>
+<text x="640" y="292" font-size="16" fill="var(--ink)" text-anchor="end">Move a notch</text>
+<text x="720" y="376" font-size="16" fill="var(--dim)" text-anchor="middle">In three months you can check it yourself</text>
+
+<text x="480" y="482" font-size="22" fill="var(--ink)" text-anchor="middle">What you want is his reaction function, not his forecast</text>
+</svg>

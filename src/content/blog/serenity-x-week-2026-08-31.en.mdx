@@ -17,6 +17,8 @@ cover: /covers/serenity-x-week-2026-08-31-cover.png
 
 Liebig was talking about fields, but the sentence holds for any production chain: output is set by the scarcest input, not the most abundant one. Double the fertiliser, double the sunlight, double the water — if nitrogen is still short, the harvest does not move an inch.
 
+![Six nutrient bars of different heights side by side; the shortest draws a dashed line across the whole figure, and no matter how tall the other five grow the line does not move](/figures/liebig-minimum-nutrient-en.svg)
+
 Almost everything in this week's public information is about exactly that.
 
 ## What this piece is
@@ -37,9 +39,13 @@ For two years, "optical bottleneck in the AI datacentre" mostly meant switches, 
 
 What surfaced this week sits one step further upstream: the continuous-wave laser. It's the light source in an optical engine. It doesn't modulate, it doesn't compute — it just emits, stably. Technically unglamorous. But when the number of optical lanes per server doubles and doubles again, that unglamorous part becomes the nitrogen.
 
+![A five-box supply chain from upstream to end device; a brace above the two middle boxes marks where attention used to sit, and an arrow below the most upstream box points out the new bottleneck](/figures/bottleneck-moved-upstream-en.svg)
+
 Lay this week's independent public statements side by side and the shape appears. Two major optics suppliers were publicly described as having their capacity fully allocated. Another Asian laser maker signed a four-year supply agreement with a US customer, explicitly to ensure "sufficient supply." An analog company that bought its way into the space said on its late-August earnings call that its own continuous-wave laser revenue for transceivers only begins in the first half of fiscal 2028 — and stated plainly that capacity is limited. Another player's capacity doesn't come online until the second half of 2027.
 
 Any one of these is just a company's schedule. Five stacked together say something else: this layer's capacity isn't "not built yet," it's "already spoken for" — with long-term agreements running out to 2030.
+
+![Five bars of different lengths on a timeline from 2026 to 2030, their starts stepped back one after another and their right ends all aligned at 2030](/figures/capacity-locked-to-2030-en.svg)
 
 The thing to watch isn't the shortage. The shortage is the outcome. Watch the contract duration. When suppliers are willing to lock capacity to 2030 and customers are willing to accept that lock, both sides share a view that this will be short for five years. Contract length is a public, readable confidence indicator, and it's harder to fake than any analyst estimate — because signing it means being accountable for it.
 
@@ -56,6 +62,8 @@ The instinctive market reaction is negative. Peers signed long-term deals and th
 But this is a symmetrical wager, not an error. Sign the agreement and you get demand visibility and cash up front, at the cost of future pricing upside and concentration risk. Refuse it and you give up certainty in exchange for the right to reprice every quarter through the shortage.
 
 Which side is right turns on one variable: how long the shortage lasts. If it's a two-year shortage, the signers win — they locked volume at the top. If it's a five-year shortage, the refusers win, because every renegotiation is a price increase.
+
+![Two lines running opposite ways cross in the middle; the horizontal axis is how long the shortage lasts, with the signers winning left of the crossing and the refusers winning right of it](/figures/long-contract-symmetric-bet-en.svg)
 
 Which is why "agreements running to 2030" from the first line matters here too — it's an indirect vote on this question. Everyone signing that far out is betting the shortage is long.
 
@@ -75,15 +83,21 @@ Add a third, independent revision: an optics company quoted industry forecasts o
 
 Three independent sources, three revisions, one direction. That's the shape of the week — not that the numbers are big, but that they are being revised upward continuously, from sources that don't depend on each other.
 
+![Three independent two-point lines side by side, all three sloping from lower left to upper right, pointing the same way](/figures/three-independent-upward-revisions-en.svg)
+
 I'm habitually sceptical of big numbers; "trillion" has been cheapened by headlines. But consistency of revision is different. It means this isn't one company's optimism — it's an entire chain updating its worldview at once.
 
 One more line from that call is worth keeping: management said demand is much greater than 70%, and that capacity is simply what allows them to deliver 70%. That converts the company from a demand story into a capacity story — and the beneficiaries of a capacity story always sit further upstream than the storyteller.
+
+![A bar cut across by a horizontal line: below the line the solid part is what can be delivered, above it a dashed box is what cannot, and a lower dashed line marks the original market consensus](/figures/demand-capped-by-capacity-en.svg)
 
 ### 4. The layer that gets squeezed out also gets more expensive
 
 The most enjoyable piece of reasoning this week has nothing to do with the first three. It's about memory.
 
 Serenity explained it through farming. There's a very hungry buyer who only wants high-priced potatoes, so carrot farmers convert their fields to potatoes. Trouble is, people still eat carrots. Once every field has switched, there are no carrots — and the few farmers still growing them suddenly hold pricing power.
+
+![Two grids of fields of the same size; the left is mostly light squares, the right is filled with dark squares except three still highlighted in the lower right corner](/figures/carrot-field-squeezed-out-en.svg)
 
 Translated: demand for leading-edge memory explodes, major suppliers shift capacity toward high-value product, and older-generation lines — legacy DRAM, NOR flash, SLC NAND — get squeezed out. But demand for the old stuff hasn't gone anywhere. Industrial, automotive, consumer, networking gear consume it every day. Supply contracts, demand doesn't, prices rise.
 
@@ -92,6 +106,8 @@ The public industry price forecasts he cited: SLC NAND up roughly 120–170% for
 That flagging is itself worth learning from. He separated "figures I'm citing" from "figures I derived," so readers know which can be used directly and which need to be recomputed. It's a form of respect for the reader, and a good test of whether a source is trustworthy.
 
 The extension of the analogy is the better part. Shortage doesn't just pile up within one product — it spills down the specification ladder. People who only bought the newest generation can't get it, so they buy one generation older; people who used that generation get pushed older still. Scarcity propagates downward. And when a manufacturer takes the opportunity to retire an even older line, the gap widens again.
+
+![A three-step staircase descending from upper left to lower right, each step topped with blocks standing for demand, two arrows pushing blocks down a step, and the lowest step piled highest](/figures/shortage-cascades-down-spec-ladder-en.svg)
 
 The general value here: when all attention is on the most advanced layer, nobody is watching the space that layer vacated. And "nobody is watching" is precisely where pricing is least efficient.
 
@@ -104,6 +120,8 @@ One public explanation this week accounted for a stock's decline: an institution
 A second, more technical note: when a stock's primary exchange is closed, the over-the-counter market is extremely thin, and a small sell order can trigger a large percentage move.
 
 Together they say one thing: a large share of the price movement you see on screen has nothing to do with fundamentals. It might be a seller executing an exit decided months ago. It might be a false report. It might just be that nobody was buying that day.
+
+![One long bar cut into six segments of very different widths, with the narrow segment at the far right called out separately by a leader line](/figures/price-move-decomposition-en.svg)
 
 This is the hardest one to practise, because price is the only piece of information that is instant, free, and updated every second, while fundamentals update once a quarter. Humans instinctively explain the low-frequency thing with the high-frequency thing, and so read price moves as fundamental change.
 
@@ -139,6 +157,8 @@ Phase two is the turning-away phase. Suppliers begin admitting they are declinin
 
 Phase three is when prices rise. That's the phase the news covers.
 
+![A timeline cut into three stretches; a bar above marking the language in transcripts covers only the first two, a bar below marking news coverage covers only the last, and the price line turns up only in the final stretch](/figures/bottleneck-three-stages-en.svg)
+
 So the leading indicator isn't price, it's language. What you're hunting in transcripts isn't a number, it's three sentence patterns: we're signing long-term agreements; we turned customers away; availability currently matters more than pricing. That last one came verbatim from a public earnings call this week, and it defines the current market better than any revenue figure.
 
 Which is also why chasing news never works — news reports price, and price is the last of the three to happen.
@@ -152,6 +172,8 @@ Finding the bottleneck is half the job. The other half is judging whether the co
 Often they can't. A part can be critical and genuinely scarce while its maker earns nothing — because customer concentration is too high, because long-term agreements locked the price, because a substitute is being qualified, because its own inputs are rising faster than its output prices.
 
 There is only one place the answer shows up: whether that layer's own gross margin is rising. Scarcity shows up in revenue. Pricing power shows up in margin.
+
+![A four-quadrant chart with degree of shortage on the horizontal axis and gross margin on the vertical; a marked point sits in the upper right and another in the lower right, equally short but with margins moving opposite ways](/figures/shortage-versus-pricing-power-en.svg)
 
 One detail this week is a positive case: a company stated that no near-term erosion is expected on booked optical orders, which means cost increases are being passed through cleanly. That's direct evidence of pricing power — not "I'm short of supply," but "I raised prices and the customer accepted."
 

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Three deep-hole cross sections: even plating, thick at top and thin at bottom, and broken in the middle">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:20px; font-weight:700; fill:var(--ink); }
+    .bd  { font-size:16px; fill:var(--dim); }
+    .sm  { font-size:15px; fill:var(--dim); }
+    .cc  { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">Narrow deep holes: is the plating even inside</text>
+
+  <rect x="60" y="98" width="250" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="grp" x="185" y="140" text-anchor="middle">Ideal</text>
+  <rect x="145" y="168" width="80" height="190" rx="4" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+  <rect x="145" y="168" width="12" height="190" fill="var(--accent)"/>
+  <rect x="213" y="168" width="12" height="190" fill="var(--accent)"/>
+  <text class="sm" x="185" y="386" text-anchor="middle">Even top to bottom</text>
+
+  <rect x="355" y="98" width="250" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="grp" x="480" y="140" text-anchor="middle">Thick above, thin below</text>
+  <rect x="440" y="168" width="80" height="190" rx="4" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+  <polygon points="440,168 456,168 446,358 440,358" fill="var(--warn)"/>
+  <polygon points="520,168 504,168 514,358 520,358" fill="var(--warn)"/>
+  <text class="sm" x="480" y="386" text-anchor="middle">Deeper means less plating gets in</text>
+
+  <rect x="650" y="98" width="250" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="grp" x="775" y="140" text-anchor="middle">Broken</text>
+  <rect x="735" y="168" width="80" height="190" rx="4" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+  <rect x="735" y="168" width="12" height="70" fill="var(--warn)"/>
+  <rect x="735" y="288" width="12" height="70" fill="var(--warn)"/>
+  <rect x="803" y="168" width="12" height="52" fill="var(--warn)"/>
+  <rect x="803" y="300" width="12" height="58" fill="var(--warn)"/>
+  <text class="sm" x="775" y="386" text-anchor="middle">No connection in the middle</text>
+
+  <text class="cc" x="60" y="470">It looks well bonded now; you find out later</text>
+</svg>

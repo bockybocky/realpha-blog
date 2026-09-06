@@ -32,11 +32,15 @@ The two stories look unrelated. Underneath they're the same question: **when som
 
 **3. The strongest evidence is one weekend.** He cites Anthropic co-founder Tom Brown, speaking at an AMD event: they expected porting their most advanced model onto AMD racks to be a major engineering campaign and had braced for a long fight. Instead they handed the task to Claude on a Friday afternoon. By Monday morning, performance had climbed by some large multiple. What used to take a team now takes one prompt and a weekend.
 
+![Two bars of very different lengths: the long one on top for the months a team once needed, the short one below with the original length left as a dashed outline, for a weekend now](/figures/kernel-port-team-to-weekend-en.svg)
+
 **4. Eroded is not dead — and he says outright he's bullish.** He notes that on performance per watt, Blackwell is still hard for anyone to match. His claim is narrow: porting cost genuinely fell. He adds a vivid piece of corroboration — don't take his word for it, look at what kernel engineers are saying publicly. **They are the ones announcing that their own jobs are about to be automated.**
 
 **5. The new walls are elsewhere, and there are several.** On the technical side: extreme co-design. GPUs, interconnect, memory, rack design, power delivery, liquid cooling, storage, all the way up to the inference software — the entire factory optimized as one object. That's a level a single chip can't compete at. The capital side is the more interesting one. For two years NVIDIA has been using its own balance sheet to manufacture purchasing power for customers who couldn't otherwise buy. But that path has a ceiling: **its cash is finite, demand isn't.**
 
 **6. Hence the Hilton analogy.** The endgame, he argues, is for AI factories to become like commercial real estate. Hilton operates hotels; it typically doesn't own the buildings. Insurers, banks, private equity and REITs do. That separation makes the operator asset-light and unshackles expansion from its own balance sheet. Transplant the logic: a compute-rental company wouldn't have to finance every data center it builds — outside capital owns the factory, the operator just leases and runs it. The binding constraint on the whole industry is financing, and this move is designed to bring new money in. He also names the two hard conditions for becoming an asset class: **residual value and easy resale.** GPUs are general-purpose, so whatever model architectures do next they'll likely still compute something; and the secondhand market is the deepest. Right now only NVIDIA clears both bars. He cites Huang's own example: the A100 is six years old and its rental price is still holding up.
+
+![Two panels compared: on the left a bar rises into a solid ceiling and stops; on the right the ceiling becomes dashed and the bar's arrow passes through, with arrows of outside capital flowing in from both sides](/figures/balance-sheet-ceiling-to-outside-capital-en.svg)
 
 **7. He's equally clear about the other edge.** This is an accelerant — it speeds up the good future and it speeds up the bubble. If AI really did overbuild, the damage today would land mainly on hyperscalers and neoclouds: painful, but localized. Once pension funds, insurers and sovereign wealth are wired in through standardized products, the same failure becomes systemic. He puts the odds of a bubble low, and — importantly — gives a falsifier: **unless the large-model paradigm is overturned**, say a one-billion-parameter on-device model that beats the best frontier model. He notes plenty of academics argued for that in 2023, and fewer do now.
 
@@ -52,9 +56,13 @@ Most people own something they describe that way. Ask one follow-up — **what w
 
 What makes Harry's segment useful is exactly the step most people skip: he shrinks the definition down to one checkable sentence. Not "the CUDA ecosystem is strong," which is true under every possible future, but "how expensive is it to move code from vendor A to vendor B." Once a claim has a narrow shape, it acquires failure conditions. Once it has failure conditions, you can see it loosening early.
 
+![On the left a small solid circle inside a large dashed circle, standing for narrowing a broad definition; an arrow points right to a pair of bars of very different heights, standing for something you can now measure](/figures/moat-definition-narrowed-to-testable-en.svg)
+
 Second layer: **the signal usually doesn't appear in the financials.** By the time falling porting costs show up in market share or margins, several quarters have passed. It appears first among the people who do the work — kernel engineers saying publicly that their jobs are on the clock. You don't need to understand what they write. You only need to notice that this group has started talking this way. The first crack in a moat is usually heard by the people standing inside it.
 
 Third layer: don't overcorrect. His own conclusion is the demonstration — porting costs fell, performance per watt still favors one side, other walls remain, he's still bullish. **"That wall got shorter" and "that company is finished" are separated by several inferential steps, and if any one of them breaks, the conclusion doesn't hold.** One advantage failing is only fatal when it was the only advantage. So the real second question is: how many other walls are there, and what's the failure condition of each?
+
+![Four walls side by side; the leftmost has visibly dropped and keeps a dashed outline of its original height while the other three still stand tall](/figures/one-wall-lowered-others-still-standing-en.svg)
 
 ### 2. "The news says AI cures cancer and the stock doubled in a day" — how do I read that?
 
@@ -66,6 +74,8 @@ Which yields a counterintuitive inference the episode genuinely supports: **in f
 
 So next time a headline claims AI conquered something, don't ask whether to chase it. Ask: **is this bottleneck the kind compute can buy, or the kind it can't?** The first moves faster than you'd guess. The second, much slower. That single question requires no domain expertise and filters most of the noise.
 
+![Two rows of dashed boxes of equal length: in the top row the solid bar is compressed to a short stub, in the bottom row it still fills the box, showing one shrinks with more compute and one does not move at all](/figures/bottleneck-compute-swappable-or-not-en.svg)
+
 ### 3. "Everyone says there's no bubble — should I believe them?"
 
 The valuable part isn't his conclusion, it's the shape of it. He says the odds are low, then doesn't stop — he supplies **a falsifier concrete enough for you to monitor yourself**: unless the large-model paradigm is overturned by a small on-device model beating frontier systems. And he adds which way that condition has been trending: more people believed it in 2023, fewer now.
@@ -73,6 +83,8 @@ The valuable part isn't his conclusion, it's the shape of it. He says the odds a
 That's the complete form of a judgment: a claim, a specific event that would kill it, and the current direction of that event. Without the last two pieces, "I don't think it's a bubble" carries exactly as much information as "I think it is" — **neither can be shown wrong, so neither is worth anything.**
 
 One more layer. This move lowers near-term risk and raises long-tail risk at the same time. Unlocking financing means more data centers get built and the supply gap closes — good. But when everyone's money, including the slice inside your pension, is wired to the same asset through standardized products, what was a few companies' problem becomes everyone's. **Risk didn't vanish; it changed shape, from "a few people lose a lot" to "everyone loses a little."** Diversification substitutes one distribution for another. This is the old portfolio problem: what matters isn't how many things you hold, it's whether those things fall together on the worst day. When an asset successfully becomes something everyone owns, it graduates from being someone else's risk into being yours — and you generally don't get a notification.
+
+![Three very tall bars on the left and a dozen or so very short bars covering the baseline on the right, of roughly equal area, joined by an arrow in the middle](/figures/risk-changes-shape-not-total-en.svg)
 
 ## Sources worth your time
 

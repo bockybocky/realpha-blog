@@ -44,11 +44,15 @@ XBM stands for Crossbar Memory — a name one host teased for freeloading off HB
 
 The hosts compare it to Yangtze Memory's Xtacking, which separated the memory cells from the peripheral circuitry precisely because flash can't take a high-temperature process, then joined them at the end. Same idea, moved to DRAM.
 
+![Two panels side by side. On the left, one solid square with memory cells and control logic crammed onto the same die in the same process. On the right, it splits into two pieces: a three-layer stack of memory cell arrays on top, control logic made in a different process below, and a dashed bonding interface between them labeled hybrid bonding and UCIe, with a note that nobody has clean yield yet.](/figures/xbm-split-and-bond-en.svg)
+
 They also flag the hard part: the published patent material calls for double-sided hybrid bonding interconnect, and nobody has that yield looking good yet — everyone is still trying. So it's a clean concept sitting on brutal engineering, and it's still at the freshly-published-patent stage.
 
 ### 4. The number 2029 tells you more than XBM does
 
 Intel also has ZAM, with samples next year and commercialization in 2029; XBM comes later still. One host's reading is the sharpest cut in the episode: the timeline alone tells you Intel does not believe the memory cycle ends before 2029, or it would never schedule a product to launch then. It plainly intends to earn the money that comes after 2030.
+
+![A timeline running from 2026 past 2031, marked above with ZAM samples next year, commercialization in 2029 and XBM later still; below, a thick band representing the memory cycle runs off the right edge without ending, so scheduling a product for 2029 amounts to betting the cycle is not over by then.](/figures/2029-schedule-as-belief-en.svg)
 
 A historical aside the episode digs up: Intel was a memory company first, driven out in 1985 by Japanese competitors, and only then pivoted to processors and struck gold. That's forty years ago. Intel doing memory isn't a foray into someone else's business — it's going home.
 
@@ -66,6 +70,8 @@ Both hosts found this odd. SRAM costs vastly more per unit of capacity than HBM,
 
 The hosts also explain where SRAM genuinely sits in the stack: it's fast enough to spit out several candidate answers at once, which the larger memory behind it then evaluates for which is most promising. Like guessing three or four exam questions before the test — guessing is quick, checking is what takes time. It's a speed tier, not a capacity tier. It doesn't replace HBM.
 
+![A two-layer structure. The upper layer is a narrow small block for SRAM, marked fast, expensive and small, firing off four candidate answers at once; the lower layer is a much wider block for HBM, marked large capacity and cheap per unit, which picks among the candidates. One handles speed and the other capacity, so they occupy different positions rather than replacing each other.](/figures/sram-speed-layer-hbm-capacity-layer-en.svg)
+
 ### 7. Unitree's prospectus is more interesting than its dancing
 
 Unitree spiked close to ninefold on debut. Reading the prospectus, the hosts found two things genuinely impressive: it is actually profitable, still profitable with subsidies stripped out; and the transition from quadrupeds to humanoids was startlingly fast, going from hundreds to thousands of humanoid units within a year. The method is very Chinese — ASP cut from around 260,000 to a bit over 100,000, and volume follows.
@@ -81,6 +87,8 @@ Three new memory acronyms surfaced in a single week, each claiming to relieve th
 The episode demonstrates a test that needs no lab. I'd write it as three questions.
 
 First: does it move the denominator? The structural line of the whole episode is that the ceiling for AI is still HBM capacity multiplied by bandwidth, and that equation hasn't changed. PCIe generations, CXL, KV cache offload, new SSD controllers — all of it exists to serve the same thing, getting data into the compute fast enough. So when a new solution appears, ask whether it enlarges that denominator or merely routes around using it. Routing buys time. If the equation is untouched, the pressure comes back.
+
+![At the center is an equation: capacity times bandwidth. Two groups of terms above point down with arrows, one pushing on the capacity term and one on the bandwidth term; a dashed line runs from the left around the whole equation to the right, standing for approaches that route around it without touching the equation at all.](/figures/the-denominator-capacity-times-bandwidth-en.svg)
 
 Second: what is the failure mode? The HBF dispute isn't about benchmarks, it's about whether you can replace the part after it dies. That's the column the spec sheet never has and the production floor pays for first. The same question generalizes: when this breaks, do I reboot, halt the line, or scrap the batch?
 
@@ -115,6 +123,8 @@ The other is simulation to reality: practice folding laundry inside a virtual fa
 Both metaphors say the same thing: the moment your simulated physics diverges from reality, the harder you train the more spectacularly the transfer fails. That's the real reason everyone is chasing world models. Not showmanship — if the simulation isn't faithful, the synthetic data is worthless.
 
 And the episode names a gap almost nobody mentions: even once you can generate simulated data, who verifies it's correct? In software we write a second program to test the first. Robot simulation needs the equivalent, and that layer is essentially empty today.
+
+![Four layers stacked from the bottom up. The bottom two are solid: hardware supply chain and cerebellum-level balance control, marked as already there. The top two are empty dashed boxes: brain-level scene generalization and the simulation verification layer, marked as missing and nearly empty. An arrow on the left shows difficulty rising with height, with all the gaps in the upper half.](/figures/robot-stack-brain-and-verification-gap-en.svg)
 
 So, back to the anxiety. A ninefold move prices in expectation of an enormous market, and the expectation isn't unreasonable — research houses put humanoids at 600,000 units by 2030, and Musk's number is higher. But equating "this is a big market" with "this company captures it" skips exactly the part the episode dwells on: the use case isn't settled, the cerebrum isn't there, the verification layer isn't built. The way to tell is simple — look at whether shipments concentrate in one steady vertical or scatter across demos and trials. The first is a business. The second is a proof of capability. Both have value; they aren't worth the same money.
 

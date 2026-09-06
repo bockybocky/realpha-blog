@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two bars of very different height, the tall one pointed back at itself by a curving arrow">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<defs>
+  <marker id="arw-f2" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+    <path d="M0 0 L12 6 L0 12 z" fill="var(--accent)"/>
+  </marker>
+</defs>
+<text x="80" y="66" font-size="27" fill="var(--ink)">The talkers scored higher</text>
+
+<line x1="140" y1="410" x2="860" y2="410" stroke="var(--line)" stroke-width="2"/>
+
+<rect x="190" y="300" width="130" height="110" rx="6" fill="var(--grey)" opacity="0.55"/>
+<text x="255" y="284" font-size="16" fill="var(--dim)" text-anchor="middle">Low score</text>
+<text x="255" y="442" font-size="19" fill="var(--ink)" text-anchor="middle">No channel</text>
+
+<rect x="420" y="170" width="130" height="240" rx="6" fill="var(--accent)"/>
+<text x="485" y="154" font-size="16" fill="var(--accent)" text-anchor="middle">High score</text>
+<text x="485" y="442" font-size="19" fill="var(--ink)" text-anchor="middle">Found a channel</text>
+
+<rect x="640" y="230" width="220" height="96" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<text x="750" y="272" font-size="19" fill="var(--ink)" text-anchor="middle">This behavior</text>
+<text x="750" y="300" font-size="19" fill="var(--ink)" text-anchor="middle">Was kept</text>
+
+<path d="M550 200 L640 258" fill="none" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#arw-f2)"/>
+<path d="M640 306 C560 350 540 360 495 400" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#arw-f2)"/>
+
+<text x="80" y="500" font-size="22" fill="var(--ink)">Not taught, selected by score</text>
+</svg>

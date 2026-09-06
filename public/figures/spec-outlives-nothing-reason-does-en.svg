@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Two bars compared: the spec bar breaks short into a dashed line, the reason bar extends to the far right">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<g font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',sans-serif">
+<text x="60" y="56" font-size="27" fill="var(--ink)">Specs get beaten, reasons do not</text>
+
+<text x="60" y="182" font-size="20" fill="var(--dim)">Spec</text>
+<rect x="140" y="152" width="240" height="56" rx="8" fill="var(--grey)" opacity="0.35"/>
+<rect x="140" y="152" width="240" height="56" rx="8" fill="none" stroke="var(--grey)" stroke-width="2"/>
+<line x1="380" y1="180" x2="860" y2="180" stroke="var(--grey)" stroke-width="2" stroke-dasharray="9 8"/>
+<line x1="380" y1="130" x2="380" y2="232" stroke="var(--warn)" stroke-width="2"/>
+<text x="392" y="126" font-size="16" fill="var(--warn)">Three months</text>
+<text x="500" y="172" font-size="16" fill="var(--dim)">Beaten by others</text>
+
+<text x="60" y="330" font-size="20" fill="var(--dim)">Reason</text>
+<rect x="140" y="300" width="720" height="56" rx="8" fill="var(--accent)" opacity="0.22"/>
+<rect x="140" y="300" width="720" height="56" rx="8" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="164" y="336" font-size="16" fill="var(--ink)">Why it exists</text>
+
+<line x1="140" y1="410" x2="880" y2="410" stroke="var(--line)" stroke-width="2"/>
+<polygon points="890,410 876,404 876,416" fill="var(--line)"/>
+<text x="140" y="440" font-size="16" fill="var(--dim)">First gen ships</text>
+
+<text x="60" y="492" font-size="22" fill="var(--accent)">First gen proves the reason, not spec</text>
+</g>
+</svg>

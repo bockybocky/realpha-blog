@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two curves rise together in the left half; past the dashed threshold in the middle one bends down and the other keeps rising">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="40" y="54" font-size="27" font-weight="700" fill="var(--ink)">A new thing arrives first as one more option</text>
+
+  <line x1="80" y1="452" x2="920" y2="452" stroke="var(--line)" stroke-width="2"/>
+  <line x1="560" y1="110" x2="560" y2="452" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+
+  <path d="M 100 392 C 260 358 420 322 560 300" fill="none" stroke="var(--grey)" stroke-width="4"/>
+  <path d="M 560 300 C 680 306 780 348 900 408" fill="none" stroke="var(--grey)" stroke-width="4"/>
+  <text x="104" y="376" font-size="19" font-weight="700" fill="var(--dim)">The old layer</text>
+
+  <path d="M 100 428 C 260 410 420 372 560 344" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <path d="M 560 344 C 680 314 790 246 900 172" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <text x="104" y="452" font-size="19" font-weight="700" fill="var(--accent)" dy="-4">The new layer</text>
+
+  <text x="120" y="150" font-size="20" font-weight="700" fill="var(--ink)">Additive phase</text>
+  <text x="120" y="180" font-size="16" fill="var(--dim)">Both growing</text>
+  <circle cx="330" cy="238" r="8" fill="var(--accent)"/>
+  <text x="348" y="244" font-size="16" font-weight="700" fill="var(--accent)">Now</text>
+
+  <text x="596" y="150" font-size="20" font-weight="700" fill="var(--ink)">Replacement phase</text>
+  <text x="596" y="180" font-size="16" fill="var(--dim)">Old layer retired</text>
+
+  <text x="596" y="212" font-size="16" font-weight="700" fill="var(--ink)">Threshold</text>
+  <text x="596" y="238" font-size="16" fill="var(--dim)">Old layer's limits solved</text>
+  <text x="596" y="262" font-size="16" fill="var(--dim)">And cheap enough</text>
+
+  <text x="40" y="512" font-size="22" font-weight="700" fill="var(--ink)">No end date for the old one means still additive</text>
+</svg>

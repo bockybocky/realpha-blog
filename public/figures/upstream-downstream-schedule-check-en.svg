@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="On a year axis all three material makers' volume dates come before the end-customer adoption date, with the lead marked">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:20px; font-weight:700; fill:var(--ink); }
+    .bd  { font-size:16px; fill:var(--dim); }
+    .sm  { font-size:15px; fill:var(--dim); }
+    .cc  { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">Upstream and downstream timelines must line up</text>
+
+  <line x1="300" y1="118" x2="300" y2="386" stroke="var(--line)" stroke-width="2"/>
+  <line x1="470" y1="118" x2="470" y2="386" stroke="var(--line)" stroke-width="2"/>
+  <line x1="640" y1="118" x2="640" y2="386" stroke="var(--line)" stroke-width="2"/>
+  <line x1="810" y1="118" x2="810" y2="386" stroke="var(--line)" stroke-width="2"/>
+  <text class="bd" x="300" y="412" text-anchor="middle">2027</text>
+  <text class="bd" x="470" y="412" text-anchor="middle">2028</text>
+  <text class="bd" x="640" y="412" text-anchor="middle">2029</text>
+  <text class="bd" x="810" y="412" text-anchor="middle">2030</text>
+
+  <text class="bd" x="270" y="162" text-anchor="end" fill="var(--ink)">SEMCO, Absolics</text>
+  <rect x="288" y="146" width="24" height="24" rx="6" fill="var(--accent)"/>
+  <text class="bd" x="270" y="212" text-anchor="end" fill="var(--ink)">Dai Nippon Printing</text>
+  <rect x="458" y="196" width="24" height="24" rx="6" fill="var(--accent)"/>
+  <text class="bd" x="270" y="262" text-anchor="end" fill="var(--ink)">Nippon Electric Glass</text>
+  <rect x="628" y="246" width="194" height="24" rx="6" fill="var(--accent)" fill-opacity="0.45"/>
+
+  <line x1="60" y1="298" x2="900" y2="298" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 6"/>
+  <text class="grp" x="270" y="346" text-anchor="end">End-customer adoption</text>
+  <rect x="555" y="328" width="170" height="24" rx="6" fill="var(--warn)"/>
+
+  <line x1="312" y1="158" x2="543" y2="158" stroke="var(--dim)" stroke-width="2"/>
+  <line x1="555" y1="158" x2="555" y2="328" stroke="var(--dim)" stroke-width="2" stroke-dasharray="5 5"/>
+  <polygon points="553,158 539,151 539,165" fill="var(--dim)"/>
+  <text class="sm" x="428" y="140" text-anchor="middle">Materials should lead by over a year</text>
+
+  <text class="cc" x="60" y="478">If they don't line up, it's marketing, not a capacity plan</text>
+</svg>

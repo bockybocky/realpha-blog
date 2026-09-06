@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="A five-box supply chain from upstream to end device; a brace above the two middle boxes marks where attention used to sit, and an arrow below the most upstream box points to the new bottleneck">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:19px; fill:var(--ink); }
+.d { font-size:16px; fill:var(--dim); }
+.w { font-size:19px; fill:var(--warn); }
+.c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="58">Bottleneck moved a step upstream</text>
+<text class="d" x="60" y="238">Upstream</text>
+<text class="d" x="900" y="238" text-anchor="end">End device</text>
+<rect x="60" y="250" width="140" height="92" rx="10" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+<rect x="232" y="250" width="140" height="92" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="404" y="250" width="140" height="92" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="576" y="250" width="140" height="92" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="748" y="250" width="140" height="92" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="130" y="290" text-anchor="middle">Continuous-wave</text>
+<text class="g" x="130" y="316" text-anchor="middle">laser</text>
+<text class="g" x="302" y="290" text-anchor="middle">Optical engine</text>
+<text class="g" x="302" y="316" text-anchor="middle">Fiber array</text>
+<text class="g" x="474" y="304" text-anchor="middle">Transceiver</text>
+<text class="g" x="646" y="304" text-anchor="middle">Switch</text>
+<text class="g" x="818" y="290" text-anchor="middle">AI</text>
+<text class="g" x="818" y="316" text-anchor="middle">server</text>
+<line x1="200" y1="296" x2="232" y2="296" stroke="var(--line)" stroke-width="2"/>
+<line x1="372" y1="296" x2="404" y2="296" stroke="var(--line)" stroke-width="2"/>
+<line x1="544" y1="296" x2="576" y2="296" stroke="var(--line)" stroke-width="2"/>
+<line x1="716" y1="296" x2="748" y2="296" stroke="var(--line)" stroke-width="2"/>
+<path d="M404 214 L404 194 L716 194 L716 214" fill="none" stroke="var(--grey)" stroke-width="2.5"/>
+<text class="d" x="560" y="178" text-anchor="middle">Two years of eyes here</text>
+<line x1="130" y1="392" x2="130" y2="352" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="130,342 122,360 138,360" fill="var(--warn)"/>
+<text class="w" x="130" y="418" text-anchor="middle">This week's neck</text>
+<text class="c" x="60" y="478">The dullest layer jams the system</text>
+</svg>

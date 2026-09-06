@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A nearly horizontal smooth line on the left, a square wave jumping between two levels on the right, and a box joining the two">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .sw { font-size:15px; fill:var(--warn); }
+    .n { font-size:19px; font-weight:700; fill:var(--ink); text-anchor:middle; }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="58">It isn't only whether there's enough power, it's the shape</text>
+
+<text class="g" x="60" y="120">What the grid needs to see</text>
+<path d="M60 310 C120 298 170 322 230 310 C290 298 340 322 400 310" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<text class="s" x="60" y="380">Smooth・predictable</text>
+
+<rect x="424" y="238" width="112" height="144" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="n" x="480" y="318">Conversion</text>
+<text class="s" x="410" y="418">SST・SiC</text>
+
+<text class="g" x="560" y="120">AI training load</text>
+<path d="M560 250 L610 250 L610 380 L654 380 L654 250 L700 250 L700 380 L744 380 L744 250 L800 250 L800 380 L842 380 L842 250 L900 250" fill="none" stroke="var(--warn)" stroke-width="5"/>
+<line x1="560" y1="222" x2="900" y2="222" stroke="var(--line)" stroke-width="2" stroke-dasharray="5 5"/>
+<line x1="560" y1="408" x2="900" y2="408" stroke="var(--line)" stroke-width="2" stroke-dasharray="5 5"/>
+<text class="s" x="560" y="212">80%</text>
+<text class="s" x="560" y="436">20%</text>
+<text class="sw" x="700" y="436">Back and forth within a second</text>
+
+<text class="c" x="60" y="510">Join the two and the power reaches the rack</text>
+</svg>

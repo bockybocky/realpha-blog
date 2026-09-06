@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="A two-by-two grid: the top-left and bottom-right diagonal are the right moves, the other diagonal is two kinds of pain">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+.t { font-size:27px; font-weight:700; }
+.s { font-size:16px; fill:var(--dim); }
+.g { font-size:19px; font-weight:600; }
+.n { font-size:15px; fill:var(--dim); }
+.c { font-size:22px; font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="t" x="60" y="60">Two questions, not one</text>
+<text class="s" x="60" y="92">Price fell vs substance gone</text>
+<text class="g" x="410" y="162" text-anchor="middle" fill="var(--dim)">Just temporary</text>
+<text class="g" x="730" y="162" text-anchor="middle" fill="var(--dim)">Now permanent</text>
+<text class="g" x="240" y="262" text-anchor="end" fill="var(--dim)">I wait</text>
+<text class="g" x="240" y="432" text-anchor="end" fill="var(--dim)">I cut</text>
+<rect x="260" y="180" width="300" height="150" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="g" x="410" y="262" text-anchor="middle" fill="var(--accent)">Hold</text>
+<rect x="580" y="180" width="300" height="150" rx="10" fill="var(--warn)" opacity="0.16"/>
+<rect x="580" y="180" width="300" height="150" rx="10" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 5"/>
+<text class="g" x="730" y="262" text-anchor="middle" fill="var(--warn)">Held a loser</text>
+<rect x="260" y="350" width="300" height="150" rx="10" fill="var(--warn)" opacity="0.16"/>
+<rect x="260" y="350" width="300" height="150" rx="10" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 5"/>
+<text class="g" x="410" y="432" text-anchor="middle" fill="var(--warn)">Sold too early</text>
+<rect x="580" y="350" width="300" height="150" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="g" x="730" y="432" text-anchor="middle" fill="var(--accent)">Cut</text>
+<text class="c" x="60" y="562">Both pains: wrong side</text>
+</svg>

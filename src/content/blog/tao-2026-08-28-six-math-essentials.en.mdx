@@ -26,11 +26,17 @@ The conversation has three parts: what each of the six ideas is; how mathematics
 
 On probability, he traces its origin to gamblers writing to mathematician friends to ask the odds on certain dice totals: get it right and you win, get it wrong and you lose over the long run. Probability later spread to stock markets, to whether a drug will work, to any system that can't be modeled fully from first principles. Then he adds a boundary. Probability is most effective when an event repeats, when there are thousands of trials and the odds can be measured. For something that happens once a century, probability may not be the right mathematics; the mathematics of very rare events is still being developed, and mathematicians are still looking for something better than probability there. He also says that sometimes we simply don't know the odds.
 
+![Axis from once-in-a-lifetime to thousands of repeats: probability applies on the right, tail analysis in the middle, worst-case survival on the left](/figures/probability-scale-by-repetition-en.svg)
+
 On analysis, he uses the casino. With finite capital, no betting strategy can beat the house over the long run; that's a theorem. Doubling your bet after every loss looks like a scheme that only needs one win to recover, but that's because it assumes infinite money. What the strategy really does is compress the risk of loss into an event of tiny probability, and one day you're betting millions of dollars, and you're bankrupt. Analysis, he says, is the discipline that lets you see what those tail risks look like and reason about infinity without falling into paradox.
+
+![A bar chart of seven bets that double each time, where the first six stay below a dashed line marking the limit of your capital and the seventh breaks through it and is labeled ruin.](/figures/martingale-hidden-ruin-en.svg)
 
 On dynamics, he uses the Los Angeles freeway. Each car does its own simple optimization, and the whole produces compression waves. After an accident is cleared, the obstacle is gone, but the wave takes hours to dissipate, which is why he often finds himself in a jam with no accident anywhere. He also distinguishes stable from unstable equilibrium: a hanging pendulum returns when nudged; an inverted pendulum is technically in equilibrium too, but any small push topples it. Telling which kind you're standing on matters.
 
 The fourth is a piece of history he brings up while discussing AI. When Copernicus proposed his heliocentric model, it was less accurate than the geocentric model of the day; it only won after Kepler replaced circles with ellipses. If Kepler and Copernicus had had AI, he says, the model that was heading toward the right answer might have been discarded because its early predictions were worse than the old one's. Fitting the data isn't the only criterion, and science doesn't always get immediate feedback. He also names the overfitting risk that comes from AI moving too fast: building a complicated model unrelated to the real mechanism that fits the data extremely well and can't extrapolate.
+
+![Two error curves, where the old model stays flat while the new model starts with higher error and then falls, crossing below the old one midway, with a dashed cutoff line placed before that crossover.](/figures/model-error-crossover-en.svg)
 
 In the same stretch he says something I wrote down: every component getting faster doesn't mean science as a whole accelerates. The effort might go into optimizing the wrong target, with success on paper and no real progress.
 
@@ -40,11 +46,17 @@ I held these four things up against two numbers of my own.
 
 The first is my settlement fan. Every day I draw a fan of where the Taiwan index might settle, and my earliest version used the at-the-money straddle as one standard deviation and assumed a normal distribution. In August I checked it against 113 real settlements: the normal curve said 79% of days would land within one straddle, and the actual figure was 54% (as of 2026-08-23, from my own settlement records). The tails are much fatter than normal, and the fan was drawn too narrow. That's exactly the boundary he describes: settlement happens every week, the sample is large, probability is the right tool, and I'd chosen the wrong distribution. Switching to empirical quantiles didn't just fix the width; it revealed a skew I hadn't known was there.
 
+![Two distribution curves overlaid, where the normal curve is thin with tails that fall off fast and the real distribution has a sharper peak and longer, heavier tails, with a vertical band marking the width of one straddle in which the normal curve claims 79 percent while the real figure is only 54 percent.](/figures/settlement-fan-fat-tail-en.svg)
+
 The second is my prediction ledger. Since August I've been writing my judgments as cards, with the criterion and expiry date fixed in advance and a machine checking the answer at expiry. Nine cards so far: one right, one wrong, seven not yet due (as of 2026-09-06). The wrong one is from August 24: five sources simultaneously said the option sellers' buffer on the Taiwan index was exhausted, and settlement went the other way by more than 1,300 points. Taken apart afterward, four of the five sources were reading the same batch of open-interest data, and the fifth was answering a different question altogether. There was one independent piece of evidence.
+
+![Five sources across the top, where four of them converge on the same data box while the fifth connects to a box answering a different question, with a note below showing only one truly independent piece of evidence.](/figures/five-sources-one-evidence-en.svg)
 
 Put those two numbers next to his four points and I see one shape. The settlement fan sits on the "things repeat" side: probability applies, and what was wrong was my distribution. The failed card sits on the "happens once" side: I stacked five sources into what looked like high confidence, which is doubling down in another costume, squeezing the risk into "all five sources wrong at once," an event I assumed was tiny, when those five sources fail together.
 
 As for the traffic jam, I thought about positions I hold. Bad news comes out, the price drops, the news is clarified, and the price keeps dropping; I used to read that as the market being irrational. His framing offers another reading: it's a compression wave, and once the accident is cleared it takes its own time to dissipate, unconnected to the accident itself. That's not a reason to catch falling knives. It's a reminder that when the cause is gone and the price is still moving, ask first whether this is a delay effect, instead of rushing to find a new cause.
+
+![Three road strips shown in time order, where the crash is cleared after the second strip yet the jam keeps shifting upstream to the left across all three, ending up further and further from where the crash was.](/figures/traffic-shockwave-lag-en.svg)
 
 ## What this means if you're the one deciding
 

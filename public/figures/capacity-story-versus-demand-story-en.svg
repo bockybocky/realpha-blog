@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Two pairs of bars; on the left capacity towers over demand with a long unsold section, on the right the two are nearly level.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); }
+    .sub { font-size:16px; fill:var(--dim); }
+    .wrn { font-size:16px; fill:var(--warn); }
+    .end { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="ttl" x="60" y="64">Two stories looking at different ends</text>
+
+  <rect x="60" y="96" width="400" height="330" fill="var(--card)" rx="10"/>
+  <rect x="500" y="96" width="400" height="330" fill="var(--card)" rx="10"/>
+
+  <line x1="90" y1="392" x2="430" y2="392" stroke="var(--line)" stroke-width="2"/>
+  <line x1="530" y1="392" x2="870" y2="392" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="140" y="172" width="90" height="220" fill="var(--grey)" rx="3"/>
+  <rect x="290" y="326" width="90" height="66" fill="var(--accent)" rx="3"/>
+  <line x1="245" y1="172" x2="275" y2="172" stroke="var(--warn)" stroke-width="2"/>
+  <line x1="245" y1="326" x2="275" y2="326" stroke="var(--warn)" stroke-width="2"/>
+  <line x1="260" y1="172" x2="260" y2="326" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 5"/>
+  <text class="wrn" x="260" y="256" text-anchor="middle">Unsold</text>
+
+  <rect x="580" y="172" width="90" height="220" fill="var(--grey)" rx="3"/>
+  <rect x="730" y="196" width="90" height="196" fill="var(--accent)" rx="3"/>
+
+  <text class="sub" x="185" y="418" text-anchor="middle">Capacity</text>
+  <text class="sub" x="335" y="418" text-anchor="middle">Demand</text>
+  <text class="sub" x="625" y="418" text-anchor="middle">Capacity</text>
+  <text class="sub" x="775" y="418" text-anchor="middle">Demand</text>
+
+  <text class="grp" x="260" y="466" text-anchor="middle">Capacity story: how big I built</text>
+  <text class="grp" x="700" y="466" text-anchor="middle">Demand story: who nearby buys</text>
+
+  <text class="end" x="480" y="504" text-anchor="middle">Ask first how many people live nearby</text>
+</svg>

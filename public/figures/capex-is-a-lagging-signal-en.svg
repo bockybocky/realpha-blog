@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The share price line above starts falling at the far left, while the capex announcement is only the fourth point on the timeline below, joined by a dashed line to an already low part of the curve">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">By the time it's announced, the price has already moved</text>
+<path d="M130 196 C 300 206, 420 296, 560 338 C 680 362, 780 372, 870 376" stroke="var(--accent)" stroke-width="4" fill="none"/>
+<text x="130" y="176" font-size="16" fill="var(--accent)">Share price</text>
+<path d="M190 206 V440" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="204" y="248" font-size="15" fill="var(--dim)">Price starts reflecting it</text>
+<path d="M800 378 V440" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="812" y="356" font-size="15" fill="var(--warn)">You see it</text>
+<path d="M120 448 H890" stroke="var(--line)" stroke-width="2"/>
+<circle cx="190" cy="448" r="9" fill="var(--grey)"/>
+<circle cx="393" cy="448" r="9" fill="var(--grey)"/>
+<circle cx="596" cy="448" r="9" fill="var(--grey)"/>
+<circle cx="800" cy="448" r="11" fill="var(--warn)"/>
+<text x="190" y="486" font-size="15" fill="var(--ink)" text-anchor="middle">Demand softens</text>
+<text x="393" y="486" font-size="15" fill="var(--ink)" text-anchor="middle">Internal number-crunching</text>
+<text x="596" y="486" font-size="15" fill="var(--ink)" text-anchor="middle">To the board</text>
+<text x="800" y="486" font-size="15" fill="var(--warn)" text-anchor="middle">Cut announced</text>
+<text x="60" y="530" font-size="22" fill="var(--ink)">Capex is the output of a decision, not the process.</text>
+</svg>

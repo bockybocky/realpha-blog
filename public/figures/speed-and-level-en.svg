@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="fig-speed-level" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two paths climb to the same horizontal line, one steep and one gradual, and the line itself is a threshold">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+#fig-speed-level text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+#fig-speed-level .h { font-size:27px; fill:var(--ink); font-weight:700; }
+#fig-speed-level .g { font-size:19px; fill:var(--ink); font-weight:600; }
+#fig-speed-level .b { font-size:16px; fill:var(--dim); }
+#fig-speed-level .s { font-size:15px; fill:var(--dim); }
+#fig-speed-level .c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="h" x="60" y="54">Speed is not level</text>
+<line x1="120" y1="450" x2="880" y2="450" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="150" x2="120" y2="450" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="190" x2="880" y2="190" stroke="var(--line)" stroke-width="2" stroke-dasharray="8 8"/>
+<text class="g" x="880" y="176" text-anchor="end">10-year at 5%</text>
+<path d="M 120 430 L 420 190 L 840 190" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<path d="M 120 430 L 840 190" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<circle cx="120" cy="430" r="7" fill="var(--dim)"/>
+<text class="s" x="132" y="452">Start</text>
+<text class="g" x="220" y="290" fill="var(--warn)">Fast</text>
+<text class="s" x="220" y="314" fill="var(--warn)">Only shock</text>
+<text class="g" x="600" y="330" fill="var(--accent)">Slow</text>
+<text class="s" x="600" y="354" fill="var(--accent)">Time to reprice</text>
+<text class="b" x="480" y="228" text-anchor="middle">At this line, it reprices</text>
+<text class="c" x="60" y="512">Both true — don't pick the easy one</text>
+</svg>

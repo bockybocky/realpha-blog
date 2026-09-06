@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two lines running opposite ways cross in the middle; the horizontal axis is how long the shortage lasts, signers win left of the crossing, refusers win right of it">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:19px; fill:var(--ink); }
+.d { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="58">Not signing bets on a long shortage</text>
+<line x1="140" y1="110" x2="140" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="430" x2="890" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="470" y1="120" x2="470" y2="430" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 6"/>
+<polyline points="180,180 860,335" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<polyline points="180,380 860,140" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<circle cx="470" cy="246" r="8" fill="var(--ink)"/>
+<text class="g" x="180" y="166" fill="var(--accent)">Sign</text>
+<text class="g" x="860" y="128" text-anchor="end" fill="var(--warn)">Do not sign</text>
+<text class="d" x="470" y="458" text-anchor="middle">~3-year shortage</text>
+<text class="g" x="290" y="410" text-anchor="middle">Signers win</text>
+<text class="g" x="680" y="410" text-anchor="middle">Refusers win</text>
+<text class="d" x="890" y="486" text-anchor="end">How long the shortage lasts</text>
+<text class="d" x="140" y="100">Who wins</text>
+<text class="c" x="60" y="518">Both bet on one variable</text>
+</svg>

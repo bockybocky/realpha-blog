@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two axes of very different length; the long one connects plants and lines marked slow, the short one inventory and credit lines marked fast, with a crossed-out dashed line between them">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="56">Which board is this decision screwed into</text>
+
+<text class="g" x="60" y="152">Long end</text>
+<text class="b" x="60" y="178">Ten-year</text>
+<rect x="240" y="132" width="620" height="26" rx="13" fill="var(--accent)" fill-opacity="0.55"/>
+<text class="b" x="240" y="196">Plants · campuses · lines　　payback 10 to 20 years</text>
+<text class="b" x="860" y="196" text-anchor="end">Reacts: slow</text>
+
+<text class="g" x="60" y="330">Short end</text>
+<text class="b" x="60" y="356">Policy rate</text>
+<rect x="240" y="310" width="150" height="26" rx="13" fill="var(--accent)" fill-opacity="0.55"/>
+<text class="b" x="240" y="374">Inventory · 25 bp more on a revolver</text>
+<text class="b" x="860" y="374" text-anchor="end">Reacts: fast</text>
+
+<path d="M420,306 C500,270 520,220 560,166" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 6"/>
+<line x1="480" y1="222" x2="518" y2="252" stroke="var(--warn)" stroke-width="2.5"/>
+<line x1="518" y1="222" x2="480" y2="252" stroke="var(--warn)" stroke-width="2.5"/>
+<text class="b" x="546" y="252" fill="var(--warn)">Canceling a plant over 25 bp: very rare</text>
+
+<text class="c" x="60" y="490">A short-end screw won't hold the long-end board</text>
+</svg>

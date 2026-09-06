@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Three work bars run consecutively across a four-year schedule with the start-of-production line at the end, showing the gap between investment and output">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl{font-size:27px;fill:var(--ink);font-weight:700}
+    .grp{font-size:20px;fill:var(--ink);font-weight:600}
+    .bd{font-size:16px;fill:var(--dim)}
+    .val{font-size:16px;fill:var(--ink)}
+    .ac{font-size:20px;fill:var(--accent);font-weight:600}
+    .cc{font-size:22px;fill:var(--ink);font-weight:600}
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="ttl" x="60" y="62">When does that money turn into output</text>
+
+<text class="grp" x="140" y="150">Building construction</text>
+<rect x="140" y="160" width="280" height="36" rx="6" fill="var(--grey)"/>
+
+<text class="grp" x="325" y="220">Transport system install</text>
+<rect x="325" y="230" width="370" height="36" rx="6" fill="var(--accent)" opacity="0.28"/>
+<rect x="325" y="230" width="370" height="36" rx="6" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text class="val" x="339" y="254">Two years, $50M to $100M</text>
+
+<text class="grp" x="640" y="290">Interfacing and tuning</text>
+<rect x="640" y="300" width="180" height="36" rx="6" fill="var(--grey)"/>
+
+<line x1="820" y1="130" x2="820" y2="420" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 6"/>
+<text class="ac" x="826" y="146">Production</text>
+
+<line x1="140" y1="420" x2="880" y2="420" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="420" x2="140" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="325" y1="420" x2="325" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="510" y1="420" x2="510" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="695" y1="420" x2="695" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="880" y1="420" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+<text class="bd" x="140" y="452" text-anchor="middle">Groundbreak</text>
+<text class="bd" x="325" y="452" text-anchor="middle">Year 1</text>
+<text class="bd" x="510" y="452" text-anchor="middle">Year 2</text>
+<text class="bd" x="695" y="452" text-anchor="middle">Year 3</text>
+<text class="bd" x="880" y="452" text-anchor="middle">Year 4</text>
+
+<text class="cc" x="60" y="504">The slowest link sets the start date, not the priciest one.</text>
+</svg>

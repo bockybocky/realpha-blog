@@ -29,9 +29,15 @@ So this plays less like a debate and more like a reconciliation session. The hos
 
 **1. His case isn't "AI is useless." It's "where does the money come from?"** Zitron repeatedly grants that Nvidia is making real money. His question is about the source upstream. His figure: of roughly $34.33 billion in Microsoft AI revenue for the fiscal year just ended, $24.1 billion came from OpenAI alone. Strip OpenAI out and the company he calls "the apex predator of software sales" — hundreds of thousands of resellers, tens of thousands of salespeople — is selling single-digit billions of AI product to every other business on earth, against north of $260 billion in capex. Nvidia has the same shape: one customer at 16% of the most recent quarter, three customers at 44% of the first half, five customers at about 70%.
 
+![Two bars of equal length each split about seventy-thirty; the large block on the left is a handful of buyers, the small block on the right is every other customer, and both bars split at the same place](/figures/demand-concentration-two-companies-en.svg)
+
 **2. "Run rate" is, to him, the biggest sleight of hand in the whole story.** Classic ARR means annual recurring revenue: ten $100 million contracts, a billion a year, done. What's being reported now is annualized token spend — not a subscription, nothing that renews itself. A customer burning ten million this month may burn half a million next month, especially if they're migrating to open weights. Nobody defines whether the period is four weeks times twelve or times thirteen, and nobody defines which four weeks. His line: that this gets accepted is an insult to investors' intelligence.
 
+![On the left, twelve solid bars of equal height stand for contracts that renew every year; on the right only the first is solid, the eleven behind it are dashed empty bars, and the actual second month is only a short stub](/figures/arr-versus-run-rate-en.svg)
+
 **3. Circular financing, in specific shapes.** Nvidia invests in OpenAI; OpenAI buys compute. Nvidia carries roughly $30 billion in cloud compute agreements — renting back its own GPUs — plus about $25 billion in data center leases. His question is hard to answer cleanly: you sell to the data centers, so why are you also renting them? In the same filing, accounts receivable grew 55% sequentially. He didn't claim to know what that means. He asked it well: why is collection slowing down as revenue accelerates? Are you near the edge of what you can collect without extending terms?
+
+![Four nodes form a closed circle with arrows joined head to tail all the way back to the start; outside the circle only one dashed arrow with a question mark points in](/figures/circular-money-flow-en.svg)
 
 **4. The four pale horses.** This is where the episode title comes from. Asked what the first sign would look like if he won't name a date, he listed: a hyperscaler cutting its capex guidance; a debt downgrade at a heavily AI-levered company (he named Oracle, and said the ratings agencies don't have the nerve); a marquee AI startup running out of money; and a neocloud — he named CoreWeave — failing to roll its debt. A fifth: an IPO that lands badly. What they share is one mechanism: **not demand disappearing, but the money tap seizing up.**
 
@@ -39,7 +45,11 @@ So this plays less like a debate and more like a reconciliation session. The hos
 
 **6. The bull evidence is solid, and his answer is to move the question.** A host cited Airbnb: 45% of customer support calls last quarter closed by AI with no human involved, with specific numbers on cash flow and expenses, achieved after moving to open source models. He also cited their own firm — ninety-odd employees, four thousand client households, finding something new to automate every week. Zitron didn't claim it was fake. He relocated the question: does any of that saved money flow back to OpenAI and Anthropic? If customers end up on hosted open-weight models, those efficiency gains are unrelated to whether these two companies survive. He also picked apart a fine detail: a report of "80 to 90% savings" at a telecom reads, one paragraph down, as savings *in some functions* — and one paragraph after that, the company has plugged AI into thousands of things.
 
+![Two bars of very different height: the short one on the left is Amazon's twelve years of company-wide capital spending, the one on the right, nearly nine times taller, is one company's spending in a single year today](/figures/capex-scale-then-and-now-en.svg)
+
 **7. The details you remember.** A report that a private credit firm agreed to invest in a multi-billion-dollar data center project after ten minutes — a host said flatly he didn't believe it, and Zitron offered to pull up the article. His image for executives claiming AI made them 100x more productive: the opening of *The Death of Stalin*, everyone standing around the corpse saying he looks great, he looks so healthy. GitHub Copilot letting people burn $5,000 of tokens for $40, then switching to usage billing on June 1 — "an insane thing to do to customers." And the best analogy in the episode: token prices haven't risen, but models burn more tokens per task, so it's a car with the same miles per gallon that you're now driving two hundred extra miles.
+
+![Two rectangles of the same height, the right one stretched more than twice as wide so its area is clearly larger; height is labeled unit price, width is labeled usage](/figures/same-price-bigger-bill-en.svg)
 
 ## Going Further
 
@@ -50,6 +60,8 @@ This is the question most listeners are actually carrying, and the most honest p
 Asked whether he could be wrong, he said: I *was* wrong, in 2024, and I know why. I was naive. I thought the market was a sensible place, I didn't think Microsoft, Google, Amazon and Meta would spend hundreds of billions for no reason, and I didn't think the debt system would support it. What he got wrong wasn't the arithmetic. It was how long that arithmetic could be sustained. Which is why he no longer gives timelines.
 
 The useful distinction here: **being right about the thesis and being right about the timing are independent, and the market only pays for the second one.** A flawless bear case can lose you money for two years. A leaky bull case can make you money over the same two years. Confusing the two produces the worst behavior available — selling everything because the argument sounds good, then chasing it back six months later, and losing on both ends.
+
+![A two-by-two grid with the thesis right or wrong on one axis and the timing right or wrong on the other; only the entire top row is marked as getting paid](/figures/thesis-right-timing-right-en.svg)
 
 The workable move is to track the narrative and the funding chain as two separate lines. The narrative line tells you what premium the market is willing to pay right now. The funding line tells you how much longer that premium can be paid. The value of Zitron's horsemen list isn't prophecy — it's that it converts the second line into **observable events**: a capex guidance cut, a debt round that won't clear, an IPO that lands cold. Those aren't feelings; they make the news. You can disagree with every one of his conclusions and still copy the list down as a dashboard.
 
@@ -65,6 +77,8 @@ The most practically useful thing this episode does is demonstrate how to read a
 
 **Line three: receivables and inventory.** If either grows faster than revenue, the gap between recognized revenue and collected cash is widening. That signal is industry-agnostic; it has nothing to do with AI. Worth noting that this is where Zitron is most restrained — he says he doesn't know, maybe some customers are just slow, and only then states the suspicion. **Naming your uncertainty first is where credibility comes from.**
 
+![Two rising lines start from the same point, one climbing noticeably steeper, and the gap between them widens to the right and is filled in](/figures/receivables-outrun-revenue-en.svg)
+
 ### "A headline says a company saved 90% with AI. Can I believe it?"
 
 The episode hands you a clean control pair.
@@ -72,6 +86,8 @@ The episode hands you a clean control pair.
 On one side, the "80 to 90% savings" story: a whole-company headline that becomes "in some functions" one paragraph down, and "thousands of things plugged into AI" one paragraph after that. From ninety percent to unknowable, in two paragraphs.
 
 On the other, Airbnb: 45% of support calls closed end to end without a human, with specific figures on cash flow and expense, achieved by moving to open source models.
+
+![On the left a three-tier funnel narrows step by step downward; on the right a block with clear edges and a fixed size](/figures/granularity-of-a-claim-en.svg)
 
 The difference isn't honesty. It's **granularity**. The first gives you a percentage too large to falsify. The second gives you a scenario small enough to check. A good efficiency claim looks like the second one: it names the process, gives the denominator, and states the cost — Airbnb's cost being that they stopped paying a model vendor, which is bad news for anyone invested in the AI supply chain.
 
@@ -94,6 +110,8 @@ One idea survives the whole episode: **when the money is circular, the number st
 Nvidia invests in OpenAI. OpenAI buys Nvidia chips. Nvidia's revenue rises, its stock rises, and it becomes better able to invest in the next customer. Every number in that loop is individually true, audited, and printed in a filing. Taken together, the loop may contain no dollar that came from outside it. What Zitron does for two hours is hold up a sheet of paper, draw the arrows one by one, and ask: **which arrow points in from outside?** The answer to that matters more than any single revenue figure.
 
 None of this is confined to investing. Anything you're evaluating — a job, a relationship, a habit, a plan you badly want to believe in — takes the same question: **is some of the evidence supporting this actually produced by the thing itself?** "Everyone says this company is great" is one piece of evidence copied many times, if everyone's source turns out to be the same article. "I'm doing well lately," supported by the fact that it feels that way, is the same loop.
+
+![A sheet split into two columns: the left has only two entries filled and a third slot still empty, marked by a dashed threshold line, while the right column is full](/figures/outside-inside-tally-en.svg)
 
 **An exercise for today.** Pick the thing you're currently most certain about — it needn't be financial. "I'm sure that person doesn't like me." "I'm sure this job is a dead end." "I'm sure this decision was right." Take a sheet of paper and list, line by line, where the certainty comes from. Then mark each line: **OUT** for evidence from somewhere you can't influence (something someone volunteered, an event that happened, a number written down), and **IN** for evidence your own behavior or inference generated (you believed it, so you acted a certain way, and then took the result as proof).
 

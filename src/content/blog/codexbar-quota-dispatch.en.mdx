@@ -35,6 +35,8 @@ The hard part first. These four quotas are not the same kind of thing:
 
 "30% left" on Codex means it comes back tomorrow at noon. "30% left" on Grok means stretching it over ten more days. Nobody keeps four rhythms straight in their head, so dispatching by feel drifts.
 
+![Four rows of reset ticks on the same thirty-day axis; agy's ticks are so dense they merge into a background mesh, the two weekly windows have four ticks each, and Grok's monthly window has only one at the far right](/figures/four-quota-windows-same-axis-en.svg)
+
 Where do the readings come from? I use an open-source tool, Win-CodexBar. It started life as a system-tray icon that shows the usage of each account you're logged into. It ships with a command-line tool that dumps the numbers as structured data. The window lengths in the table above came out of those fields (read on 2026-09-06).
 
 ## Turning numbers into three colours
@@ -44,6 +46,8 @@ A number on its own tells you nothing. It needs a "so what". I wrote a small scr
 First, it looks at how much of the binding window is left and turns it into a light: 40% or more is green, 15 to 40 is yellow, under 15 is red, unreadable is grey. Grey doesn't block anything, dispatch falls back to defaults, but the grey light stays visible. The worst thing a meter can do is break quietly.
 
 Second, it computes "ahead of pace". If usage is running fifteen points faster than time has elapsed in the window, it adds a little fire icon. That means the account won't last to its reset even if it's still green right now.
+
+![In a line chart the diagonal is on-pace consumption, while a steeper line sits fifteen points above it and hits the exhausted ceiling before the reset](/figures/burn-rate-ahead-of-clock-en.svg)
 
 Third, it prints the result as one line and hangs it in front of every message. This morning's line looked like this (reading from 2026-09-06, 01:20):
 
@@ -69,6 +73,8 @@ Mechanical work goes to agy first. It's the fastest, the cheapest, and its outpu
 Engineering goes to Codex. Codex red, it goes to Grok. Both red, and only then does a Claude Opus sub-agent step in, and only if Claude itself is green.
 
 Judgment goes to Fable and is never downgraded. If Fable's own weekly window goes red, it falls back to Opus. If Claude's overall weekly window goes red, judgment work is trimmed to what's necessary, not handed to someone else.
+
+![Three side-by-side line panels; mechanical and engineering work step down one and two levels as the lights worsen, while the judgment panel is a flat, unmoving line](/figures/three-kinds-of-work-fallback-en.svg)
 
 ## Four rules that ignore the lights
 
@@ -104,7 +110,11 @@ Today's live example (2026-09-06):
 
 Codex's weekly window is at 28%, yellow, and Grok is at 44%, so code goes to Grok. Tomorrow at noon Codex's weekly window resets to 100% and code switches back to Codex on its own. Four days from now Grok's monthly window resets; nothing changes there, it was already green. Any time Claude's usage runs fifteen points ahead of the clock, one-off work drops to Sonnet automatically.
 
+![Two remaining-quota lines slide down over time and each jump vertically back to full, and a color band below swaps the dispatch name at the moment of the jump](/figures/reset-crossover-switches-engine-en.svg)
+
 One more thing the meter showed me that I couldn't see before. I had assumed the bulk of my Claude usage was this interactive window. The previous day's log (2026-09-05) says otherwise: Opus was called 1,372 times and read 540 million cached tokens, fifteen times Fable's figure. That's scheduled jobs and bots running, not me typing. From now on, when Claude's window turns yellow, I look at the schedulers first, not at how much I'm talking.
+
+![Two bars of equal length; the top one is mostly the main session, while the proportions flip in the lower one, where scheduled jobs and bots take up nearly the whole bar](/figures/who-actually-burns-the-quota-en.svg)
 
 ## Two honest limits
 

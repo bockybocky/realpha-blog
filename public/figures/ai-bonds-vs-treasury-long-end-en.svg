@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two AI issuance bars for last year and this year plus one Treasury long-bond bar all feed into the same pool of long-duration demand below, with this year's AI bar the tallest">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ti { font-size:27px; fill:var(--ink); font-weight:700; }
+    .gl { font-size:19px; fill:var(--ink); font-weight:700; }
+    .bd { font-size:16px; fill:var(--dim); }
+    .bs { font-size:15px; fill:var(--dim); }
+    .cc { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="ti" x="48" y="58">Same long-end buyers</text>
+<text class="gl" x="310" y="132" text-anchor="middle">AI issuance</text>
+<text class="gl" x="650" y="132" text-anchor="middle">Treasury LT</text>
+<rect x="210" y="260" width="90" height="140" fill="var(--grey)"/>
+<rect x="320" y="200" width="90" height="200" fill="var(--accent)"/>
+<rect x="590" y="220" width="120" height="180" fill="var(--accent)"/>
+<text class="bs" x="255" y="248" text-anchor="middle">Last yr ~$300B+</text>
+<text class="bs" x="365" y="188" text-anchor="middle">This yr ~$500B</text>
+<text class="bs" x="650" y="208" text-anchor="middle">Yr $400–450B</text>
+<line x1="320" y1="300" x2="410" y2="300" stroke="var(--page)" stroke-width="2" stroke-dasharray="6 5"/>
+<text class="bs" x="420" y="305">Half is cloud</text>
+<rect x="180" y="400" width="600" height="90" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<text class="gl" x="480" y="452" text-anchor="middle">Long-end bid</text>
+<text class="cc" x="48" y="536">Clouds issue 13–15yr, same slot</text>
+</svg>

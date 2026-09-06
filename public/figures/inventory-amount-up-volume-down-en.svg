@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The amount and unit price bars both grow while the third group for actual capacity shrinks, moving the other way">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="62" font-size="27" fill="var(--ink)">The amount got bigger, what you got got smaller</text>
+
+<line x1="60" y1="430" x2="900" y2="430" stroke="var(--line)" stroke-width="2"/>
+
+<text x="80" y="128" font-size="20" fill="var(--dim)">Inventory value</text>
+<rect x="80" y="374" width="62" height="56" rx="4" fill="var(--grey)"/>
+<rect x="162" y="262" width="62" height="168" rx="4" fill="var(--accent)"/>
+<text x="80" y="464" font-size="16" fill="var(--dim)">3 billion</text>
+<text x="162" y="464" font-size="16" fill="var(--ink)">9 billion</text>
+<text x="80" y="496" font-size="16" fill="var(--accent)">×3</text>
+
+<text x="380" y="128" font-size="20" fill="var(--dim)">Unit price, same period</text>
+<rect x="380" y="402" width="62" height="28" rx="4" fill="var(--grey)"/>
+<rect x="462" y="206" width="62" height="224" rx="4" fill="var(--accent)"/>
+<text x="380" y="464" font-size="16" fill="var(--dim)">Before</text>
+<text x="462" y="464" font-size="16" fill="var(--ink)">After the rise</text>
+<text x="380" y="496" font-size="16" fill="var(--accent)">×8 ~ ×10</text>
+
+<text x="700" y="128" font-size="20" fill="var(--dim)">Actual capacity</text>
+<rect x="700" y="290" width="62" height="140" rx="4" fill="var(--grey)"/>
+<rect x="782" y="374" width="62" height="56" rx="4" fill="var(--warn)"/>
+<line x1="762" y1="300" x2="782" y2="360" stroke="var(--warn)" stroke-width="3"/>
+<path d="M782 366 L770 352 L786 346 Z" fill="var(--warn)"/>
+<text x="700" y="464" font-size="16" fill="var(--dim)">Before</text>
+<text x="782" y="464" font-size="16" fill="var(--warn)">Now</text>
+<text x="700" y="496" font-size="16" fill="var(--warn)">Down</text>
+
+<text x="60" y="540" font-size="22" fill="var(--ink)">Read the amount and you get the opposite conclusion</text>
+</svg>
