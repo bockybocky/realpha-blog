@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一條發生次數軸，左端只發生一次的事不適用機率，右端重複幾千次的事適用機率，中間有一條分界虛線">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" fill="var(--ink)">機率是一把只在重複時才準的尺</text>
+
+<rect x="70" y="100" width="340" height="200" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text x="100" y="140" font-size="20" fill="var(--warn)">一輩子遇到一次</text>
+<text x="100" y="180" font-size="16" fill="var(--ink)">產業被顛覆</text>
+<text x="100" y="210" font-size="16" fill="var(--ink)">公司活不活得下來</text>
+<text x="100" y="240" font-size="16" fill="var(--ink)">政策會不會轉向</text>
+<text x="100" y="280" font-size="19" fill="var(--warn)">問：最壞情況扛得住嗎</text>
+
+<rect x="450" y="100" width="440" height="200" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text x="480" y="140" font-size="20" fill="var(--accent)">重複幾千次</text>
+<text x="480" y="180" font-size="16" fill="var(--ink)">骰子點數</text>
+<text x="480" y="210" font-size="16" fill="var(--ink)">每週結算</text>
+<text x="480" y="240" font-size="16" fill="var(--ink)">保險理賠</text>
+<text x="480" y="280" font-size="19" fill="var(--accent)">用機率：去找歷史分佈</text>
+
+<line x1="430" y1="100" x2="430" y2="398" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+
+<line x1="70" y1="380" x2="880" y2="380" stroke="var(--line)" stroke-width="3"/>
+<polygon points="880,372 900,380 880,388" fill="var(--line)"/>
+<text x="905" y="386" font-size="16" fill="var(--dim)" text-anchor="end"></text>
+
+<circle cx="140" cy="380" r="8" fill="var(--warn)"/>
+<circle cx="300" cy="380" r="8" fill="var(--warn)"/>
+<circle cx="580" cy="380" r="8" fill="var(--accent)"/>
+<circle cx="820" cy="380" r="8" fill="var(--accent)"/>
+
+<text x="140" y="412" font-size="16" fill="var(--ink)" text-anchor="middle">1 次</text>
+<text x="140" y="434" font-size="15" fill="var(--dim)" text-anchor="middle">顛覆</text>
+<text x="300" y="412" font-size="16" fill="var(--ink)" text-anchor="middle">9 次</text>
+<text x="300" y="434" font-size="15" fill="var(--dim)" text-anchor="middle">我的判斷卡</text>
+<text x="580" y="412" font-size="16" fill="var(--ink)" text-anchor="middle">113 次</text>
+<text x="580" y="434" font-size="15" fill="var(--dim)" text-anchor="middle">台指結算</text>
+<text x="820" y="412" font-size="16" fill="var(--ink)" text-anchor="middle">幾百次</text>
+<text x="820" y="434" font-size="15" fill="var(--dim)" text-anchor="middle">骰子</text>
+
+<text x="480" y="490" font-size="22" fill="var(--ink)" text-anchor="middle">先問：這件事你看過幾次</text>
+</svg>

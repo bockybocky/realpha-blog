@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="三個時間點的高速公路，事故排除之後塞車那一團仍持續往上游移動">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" fill="var(--ink)">事故排除了，那道波還在往回走</text>
+
+<line x1="210" y1="100" x2="860" y2="100" stroke="var(--grey)" stroke-width="2"/>
+<polygon points="860,93 880,100 860,107" fill="var(--grey)"/>
+<text x="210" y="90" font-size="16" fill="var(--dim)">車流方向</text>
+
+<text x="60" y="160" font-size="19" fill="var(--ink)">事故發生</text>
+<rect x="210" y="130" width="670" height="48" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<rect x="690" y="130" width="100" height="48" rx="8" fill="var(--accent)"/>
+<rect x="800" y="130" width="48" height="48" rx="8" fill="var(--warn)"/>
+
+<text x="60" y="290" font-size="19" fill="var(--ink)">事故排除</text>
+<rect x="210" y="260" width="670" height="48" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<rect x="560" y="260" width="130" height="48" rx="8" fill="var(--accent)"/>
+<rect x="800" y="260" width="48" height="48" rx="8" fill="var(--page)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 5"/>
+
+<text x="60" y="420" font-size="19" fill="var(--ink)">兩小時後</text>
+<rect x="210" y="390" width="670" height="48" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<rect x="390" y="390" width="150" height="48" rx="8" fill="var(--accent)"/>
+<rect x="800" y="390" width="48" height="48" rx="8" fill="var(--page)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="824" y="470" font-size="16" fill="var(--dim)" text-anchor="middle">路面淨空</text>
+
+<text x="465" y="470" font-size="16" fill="var(--accent)" text-anchor="middle">波往上游傳</text>
+
+<text x="480" y="522" font-size="22" fill="var(--ink)" text-anchor="middle">看到原因消失價格還在動，先想延遲</text>
+</svg>
