@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊連續下降的斜線走出畫面，右邊階梯狀下降並停在一道粗橫線上">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="62" font-size="27" fill="var(--ink)">同一個任務，兩種形狀</text>
+
+<line x1="480" y1="100" x2="480" y2="500" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+
+<text x="90" y="130" font-size="20" fill="var(--ink)">按量：錢</text>
+<line x1="110" y1="160" x2="430" y2="450" stroke="var(--dim)" stroke-width="3"/>
+<line x1="430" y1="450" x2="472" y2="488" stroke="var(--dim)" stroke-width="3" stroke-dasharray="5 5"/>
+<text x="232" y="286" font-size="16" fill="var(--ink)">九美元</text>
+<text x="90" y="492" font-size="16" fill="var(--dim)">多花就多付</text>
+
+<text x="530" y="130" font-size="20" fill="var(--ink)">訂閱：額度</text>
+<path d="M530 160 H600 V230 H670 V300 H740 V370 H810 V440 H870" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="612" y="150" font-size="16" fill="var(--accent)">4%</text>
+<rect x="530" y="452" width="340" height="10" fill="var(--warn)"/>
+<text x="530" y="492" font-size="16" fill="var(--warn)">用完就是牆</text>
+
+<text x="60" y="534" font-size="22" fill="var(--ink)">一個花的是錢，一個花的是時鐘</text>
+</svg>

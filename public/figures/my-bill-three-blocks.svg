@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="帳單堆疊條，輸出只佔最左邊一小截，重讀上下文佔絕大部分">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text x="90" y="58" font-size="27" font-weight="700" fill="var(--ink)">我一週帳單的三塊</text>
+
+  <text x="152" y="146" font-size="19" font-weight="600" fill="var(--accent)" text-anchor="middle">跑分在量這裡</text>
+  <line x1="152" y1="162" x2="152" y2="228" stroke="var(--accent)" stroke-width="2.5"/>
+  <path d="M152 240 L145 224 L159 224 Z" fill="var(--accent)"/>
+
+  <rect x="90" y="248" width="62" height="96" fill="var(--accent)"/>
+  <rect x="152" y="248" width="507" height="96" fill="var(--grey)"/>
+  <rect x="659" y="248" width="211" height="96" fill="var(--line)"/>
+
+  <text x="121" y="386" font-size="20" font-weight="700" fill="var(--accent)" text-anchor="middle">8%</text>
+  <text x="121" y="412" font-size="16" fill="var(--dim)" text-anchor="middle">輸出</text>
+
+  <text x="405" y="386" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">65%</text>
+  <text x="405" y="412" font-size="16" fill="var(--dim)" text-anchor="middle">重讀上下文</text>
+
+  <text x="764" y="386" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">28%</text>
+  <text x="764" y="412" font-size="16" fill="var(--dim)" text-anchor="middle">新輸入與建快取</text>
+
+  <text x="90" y="472" font-size="22" font-weight="600" fill="var(--ink)">輸出砍一半，整張帳單只動 4%。</text>
+</svg>
