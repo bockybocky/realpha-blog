@@ -34,6 +34,7 @@ NON_INVESTMENT = {'codexbar-quota-dispatch', 'lunchuizhe-2026-09-05-ten-dollars-
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
+    'infinity-machine-who-pays-for-compute': ['讀書筆記', 'DeepMind', '資本支出', '自由現金流', 'AI供應鏈'],
     'codexbar-quota-dispatch': ['AI工具', 'AI agent', '訂閱', '額度', 'CodexBar'],
     'lunchuizhe-2026-09-05-ten-dollars-one-request': ['AI工具', 'token', '訂閱', '本地AI', 'AI agent'],
     'lunchuizhe-2026-09-06-subscription-is-a-clock': ['AI工具', '訂閱', '額度', '本地AI', 'AI agent'],
@@ -75,6 +76,7 @@ except (OSError, ValueError):
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
 COVERS = {
+    'infinity-machine-who-pays-for-compute': 'infinity-machine-who-pays-for-compute.png',
     'codexbar-quota-dispatch': 'codexbar-quota-dispatch-cover.png',
     'lunchuizhe-2026-09-05-ten-dollars-one-request': 'lunchuizhe-2026-09-05-ten-dollars-one-request-cover.png',
     'lunchuizhe-2026-09-06-subscription-is-a-clock': 'lunchuizhe-2026-09-06-subscription-is-a-clock.png',
