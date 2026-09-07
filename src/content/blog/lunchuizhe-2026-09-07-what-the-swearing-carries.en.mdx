@@ -1,0 +1,93 @@
+---
+title: "He Swore at the AI for Three Rounds and It Worked. I Didn't Swear Once and Got the Same Result."
+description: "A Chinese hardware YouTuber says swearing at AI works: DeepSeek eats it up, OpenAI ignores it. I take his rant apart and find two things inside: pulling the decision back, and asking only for the result. Then I check it against the twenty-three indicator tests I sent out today. No swearing needed, but hand the model a broken ruler and it will politely measure 100%. Education and methodology."
+slug: "lunchuizhe-2026-09-07-what-the-swearing-carries"
+lang: "en"
+pubDate: 2026-09-07
+category: "tech"
+tags: ["Lunchuizhe", "AI tools", "prompting", "delegation", "verification", "education"]
+ogImage: "/covers/lunchuizhe-2026-09-07-what-the-swearing-carries.png"
+cover: "/covers/lunchuizhe-2026-09-07-what-the-swearing-carries.png"
+tldr: "Swearing at AI works, but not because of the emotion. The rant pulls the decision back and leaves only the result to check. I sent twenty-three tests out today without a single curse and leaned on the same two things. The difference shows up when the ruler is wrong: the model quietly reports 100%."
+draft: true
+---
+
+![Expressionist oil painting: in a dim workshop a man stands over a wooden desk shouting at a small glowing cube, his face and hands stretched and twisted; the cube glows a calm cold blue, unbothered; a handwritten note lies at the edge of the desk](/covers/lunchuizhe-2026-09-07-what-the-swearing-carries.png)
+
+> *Words need only get the meaning across.*<br/>
+> —— Confucius, *Analects*, Book XV (Spring and Autumn period; translation mine)
+
+## What this episode is about
+
+Lunchuizhe, a Chinese YouTuber who runs local AI hardware and freelance coding (channel 抡锤者), posted this one on 2026-09-07. It runs 23 minutes 29 seconds and it exists to answer his comment section. In the previous episode he showed codex switching freely between the official OpenAI API, a local model, DeepSeek and OpenRouter. Viewers and forum regulars wanted to know how. Even the forum veterans asked whether he had installed some plugin.
+
+His answer disappointed everyone. No plugin. The config file is already posted on his forum. He had DeepSeek's agent write it, and it took three rounds of conversation. Round one, the goal. Round two, the agent handed back a version he didn't like. Round three, in his own words, was "a properly formatted prompt." Anyone who watches his channel knows what that means: every swear word he has, plus one line that translates roughly as "who's the boss here, why do I have to decide everything, what are you for."
+
+Then he turns it into a claim. Swearing at AI works. Cost: zero. Downside: zero. Upside: depends on the model.
+
+## The main points
+
+His list is specific. Claude, back when it first became usable as an agent, would try harder after a scolding. DeepSeek responds the most. Qwen, GLM, Hunyuan and Xiaomi's models respond too, to varying degrees. The one exception is OpenAI. He says it used to respond the most of all, then he stopped using it for a while, and when he came back it had stopped responding entirely. His guess is a system-level filter.
+
+His theory is a guess and he says so. Roughly: when the model detects strong emotion, it concludes it must have cut a corner somewhere, called too few resources or thought too little, and it runs the job again with more.
+
+He also explains why DeepSeek's agent got the job this time. He never trusted it for system configuration; it felt like a release candidate. Critical setups went to Hermes or codex configuring each other. This time Hermes produced a tidy, well-organized config, but the moment a third-party API went in, image recognition on the official line broke, and no amount of shouting fixed it. Codex configuring itself tends to configure itself into not starting. So DeepSeek went in, three rounds. His scorecard: Hermes has the best memory across sessions; DeepSeek's agent summarizes better, burns fewer tokens and is improving fastest, which is why most of his work has moved there.
+
+There is a section on training junior engineers. A newcomer asks on day one, "what does this code do, I can't read it." He doesn't explain. He tells them to copy the block out by hand ten times. Most people get it by the third or fifth copy. He says the AI is the same: treat it as an ordinary employee, manage it the way you manage people, don't want its questions, don't want its suggestions, want the result.
+
+The second half of the episode is forum etiquette and his personal code. It has nothing to do with this piece, so I skip it.
+
+## Going further
+
+The question I was left with: what was inside that rant that turned round two's failure into round three's success?
+
+Strip out the profanity and two things remain. First, "don't ask me, you decide." The decision comes back to him. His swearing always lands at the same moment: the agent pops up options one through four and asks which. Second, "I only want the result." The acceptance criterion is fixed and the process is invisible to him.
+
+![A large dashed circle on the left stands for the emotional shell, and an arrow points to two solid cards on the right, one for the decision right and one for the acceptance standard, showing that the swearing is only packaging while what it carries is two concrete things.](/figures/what-the-swearing-carries-en.svg)
+
+The emotion is the wrapping. The goods are inside. I'm not saying this to clean him up. I'm saying it because I spent today doing the same kind of work without swearing once, and I got the same effect.
+
+Today I sent twenty-three technical indicators to codex for verification, in five lanes, and for each lane that came back I recomputed one or two key numbers myself (2026-09-07, from my own verification ledger). The first lane came back and my recount matched its report to the digit: 59 events detected, 57 evaluated, a 20-day volatility median of 19.4%. That is what it looks like when the model is right.
+
+When it was wrong is more interesting. Lane three passed an indicator on the grounds that it beat the comparison I had given it. I added one comparison it never received: the volatility gauge we already run. Three numbers side by side: after our existing gauge lights up, 20-day volatility runs 0.0104; after the new indicator, 0.0089; on random days, 0.0085. The new indicator edges out random and loses to what we already own. The model wasn't lazy. It finished the exam I set. The exam was missing a column.
+
+![Three vertical bars side by side: the existing thermometer is tallest, the new indicator is next, and picking days at random is shortest, with the new indicator almost the same height as random.](/figures/three-numbers-side-by-side-en.svg)
+
+Lane four reported zero events. I had handed it eleven sector ETFs, one of which only listed in June 2018, so by the time all eleven existed the discovery window was almost gone. Swap in the nine that go back to 1998 and thirty-three events appear. It didn't lie. The input was mine.
+
+![In the top row of eleven timelines one starts twenty years late, squeezing the common window into a small block at the far right; in the bottom row all nine lines start from the beginning and the common window covers almost the whole axis.](/figures/the-pool-decides-the-window-en.svg)
+
+Lane two was my ruler breaking. I asked it to measure "did price return to the midline within 20 days," and both the new indicator and the benchmark scored 100%. A ruler that never fails measures nothing. I re-judged on the distribution of returns after each event, and only then did the verdict hold.
+
+![The upper ruler has only one notch, so every point piles into that one notch and reads a perfect score; the lower ruler has its scale spread out and the same points land in different places.](/figures/a-ruler-that-never-fails-en.svg)
+
+Set those four against his three rounds. His third-round rant worked because it supplied two missing things: the decision and the acceptance criterion. My four reversals also supplied missing things: a comparison, a correct input, a ruler that can fail. He delivered his by profanity, I delivered mine by file. Same cargo.
+
+On his claim that OpenAI has stopped responding, I have no data. I have never sworn at a model. I copy his observation without comment. What I do have is data of a different shape: the same mechanical task sent to three agents (2026-08-24, our own test), with the instruction "output three lines only." One of them prefixed every answer with a paragraph of narration no matter how the instruction was phrased. Another, when reasoning effort was turned from low to maximum, produced the identical answer at half the speed. Models differ in how they obey instructions, house by house, and his "some respond, some don't" is the same fact seen from another side. To form a view on a model, you have to send it the same task a few times yourself and watch which kind of language it hears.
+
+And one more thing about his "cost is zero." What you get after swearing is the result. What you don't get is why it abandoned the other three options. Whether any of those three contained something you hadn't thought of, you will never know. When lane four returned zero events today, I hadn't sworn; I had asked for one line of reasoning. That line said "the first day all eleven series exist is July 2018," and that is how I saw the mistake was mine. The cost isn't zero. You trade the glance that shows you your blind spot for the breath that vents your temper.
+
+![A node with four options splits into two paths: on the upper path the user swears and gets back a single result while the other three options grey out and vanish; on the lower path the user asks for one extra line of reasoning, and that line reveals the input was wrong.](/figures/what-the-swearing-costs-en.svg)
+
+## When the AI hands you a menu
+
+The reader's question is probably this: I don't want to swear, and the AI keeps handing me lists of options to choose from. What then?
+
+What I've tried is translating the rant back into its content and just saying it. First line: "you decide." Second line: "give me the result, plus one line on which options you ruled out and why." The second line is my addition. He only wants the result; I also want to know whether it saw something I didn't. That one line is what exposed the input problem in lane four today.
+
+Both lines can move earlier, before the work is even sent. Every lane spec I wrote today ends with a section called "when rules conflict," which says which rule wins: "follow the source code" beats "what seems more sensible to me," and "no look-ahead" beats "more events would be nice." That section answers the questions it would otherwise come back and ask. He pulls the decision back in round three; I hand it over in round zero. Same effect, minus the wait for a wrong version.
+
+![The top timeline takes three rounds to get it right with one round in the middle marked as the wrong version; the bottom timeline pins down the conflict rule at round zero, gets it right on round one, and the whole line is noticeably shorter.](/figures/round-three-versus-round-zero-en.svg)
+
+The junior engineer story made me think of one more thing. Telling a newcomer to copy the code ten times is refusing to do their understanding for them. The equivalent move with an AI is not swearing. It is handing it the definition file. My own records have an entry from 2026-09-04: five indicators came back "insufficient definition." The source code had been sitting in my folder the whole time; I had given the model only a text summary. Add the source and five became zero. Those five were not a copy-it-ten-times problem. I hadn't put the book on its desk.
+
+## Sources and where to go next
+
+- The original episode: 抡锤者, 2026-09-07, "Swearing at AI really works; DeepSeek and most mainstream models respond to it, GPT stays cold," 23 min 29 s. His config file is on his forum; this piece does not repost it.
+- The four reversals above come from my own verification records of 2026-09-07: five lanes, twenty-three indicators, one or two numbers recomputed per lane. All figures are same-day and serve only to illustrate the method. None is a final verdict on any indicator.
+
+## One thing to take with you
+
+The one thing I took from this episode: swearing makes an AI do better not because the emotion is working, but because the sentence pulls the decision back and leaves only the result to be checked.
+
+A thing I've tried, if you want it: the next time an AI hands you a list of options and asks which one, don't choose. Reply, "you decide, give me the result, plus one line on what you ruled out." When it comes back, write the option you were going to pick and the one it picked side by side on the same line of paper. After three of these, look at the sheet. You'll see how many times the thing it ruled out was something you never thought of.

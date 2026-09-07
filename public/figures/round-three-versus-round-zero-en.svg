@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The top row reaches the correct result only at the third node with one marked wrong, while the bottom row reaches it at the second node on a visibly shorter line.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text x="60" y="66" font-size="27" fill="var(--ink)">Which round you hand over the decision right</text>
+<text x="60" y="98" font-size="16" fill="var(--dim)">Same result, three rounds apart</text>
+
+<text x="60" y="196" font-size="19" fill="var(--ink)">Him</text>
+<line x1="200" y1="190" x2="740" y2="190" stroke="var(--line)" stroke-width="3"/>
+<circle cx="230" cy="190" r="13" fill="var(--grey)"/>
+<circle cx="410" cy="190" r="13" fill="var(--warn)"/>
+<circle cx="590" cy="190" r="13" fill="var(--accent)"/>
+<polygon points="756,190 738,180 738,200" fill="var(--accent)"/>
+<text x="230" y="232" font-size="16" fill="var(--dim)" text-anchor="middle">States the goal</text>
+<text x="410" y="232" font-size="16" fill="var(--warn)" text-anchor="middle">The wrong version</text>
+<text x="590" y="232" font-size="16" fill="var(--accent)" text-anchor="middle">Takes the decision right back</text>
+<text x="800" y="196" font-size="19" fill="var(--ink)">Right</text>
+
+<text x="60" y="376" font-size="19" fill="var(--ink)">Me</text>
+<line x1="200" y1="370" x2="560" y2="370" stroke="var(--line)" stroke-width="3"/>
+<circle cx="230" cy="370" r="13" fill="var(--accent)"/>
+<circle cx="410" cy="370" r="13" fill="var(--grey)"/>
+<polygon points="576,370 558,360 558,380" fill="var(--accent)"/>
+<text x="230" y="412" font-size="16" fill="var(--accent)" text-anchor="middle">Spec pins down "on conflict"</text>
+<text x="410" y="412" font-size="16" fill="var(--dim)" text-anchor="middle">Dispatched</text>
+<text x="620" y="376" font-size="19" fill="var(--ink)">Right</text>
+
+<text x="60" y="480" font-size="22" fill="var(--ink)">The difference is the wrong version never happened.</text>
+</svg>
