@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一條路徑中間那一段斷開，另一條實線繞過斷點直接接到終點">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .gy  { font-size:20px; fill:var(--grey); font-weight:700; }
+    .ac  { font-size:19px; fill:var(--accent); font-weight:700; }
+    .wn  { font-size:15px; fill:var(--warn); }
+    .bd  { font-size:15px; fill:var(--dim); }
+    .cc  { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="ttl" x="60" y="60">坑一：中間那一段，手機視窗看不到</text>
+
+<rect x="60" y="150" width="220" height="92" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="170" y="196" text-anchor="middle">手機視窗打 herdr</text>
+<text class="bd" x="170" y="222" text-anchor="middle">SSH 進來的那個</text>
+
+<line x1="280" y1="196" x2="336" y2="196" stroke="var(--grey)" stroke-width="3"/>
+<rect x="345" y="150" width="230" height="92" rx="12" fill="none" stroke="var(--grey)" stroke-width="3" stroke-dasharray="8 7"/>
+<text class="gy" x="460" y="196" text-anchor="middle">current 捷徑</text>
+<text class="wn" x="460" y="222" text-anchor="middle">看不到</text>
+<line x1="418" y1="132" x2="502" y2="132" stroke="var(--warn)" stroke-width="3"/>
+<line x1="418" y1="132" x2="502" y2="132" stroke="var(--warn)" stroke-width="3" transform="rotate(0)"/>
+<line x1="440" y1="118" x2="480" y2="146" stroke="var(--warn)" stroke-width="3"/>
+<line x1="480" y1="118" x2="440" y2="146" stroke="var(--warn)" stroke-width="3"/>
+
+<line x1="575" y1="196" x2="640" y2="196" stroke="var(--grey)" stroke-width="3" stroke-dasharray="8 7"/>
+<rect x="650" y="150" width="250" height="92" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="775" y="190" text-anchor="middle">真正的版本資料夾</text>
+<text class="bd" x="775" y="218" text-anchor="middle">herdr.exe 在這裡</text>
+
+<rect x="345" y="352" width="230" height="92" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="ac" x="460" y="392" text-anchor="middle">轉接檔</text>
+<text class="bd" x="460" y="418" text-anchor="middle">C:\Windows\herdr.cmd</text>
+<polyline points="170,242 170,398 345,398" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<polyline points="575,398 775,398 775,242" fill="none" stroke="var(--accent)" stroke-width="3"/>
+
+<text class="cc" x="480" y="510" text-anchor="middle">繞過捷徑，直指真實路徑</text>
+</svg>

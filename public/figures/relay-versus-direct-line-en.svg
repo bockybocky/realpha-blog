@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The top path detours through a box in the middle, and the bottom path is a straight line.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .wn  { font-size:19px; fill:var(--warn); font-weight:700; }
+    .ac  { font-size:19px; fill:var(--accent); font-weight:700; }
+    .bd  { font-size:15px; fill:var(--dim); }
+    .cc  { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="ttl" x="60" y="60">Which route the content takes</text>
+
+<text class="wn" x="60" y="128">UU Remote</text>
+<rect x="70" y="150" width="130" height="80" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="135" y="198" text-anchor="middle">Phone</text>
+<rect x="780" y="150" width="130" height="80" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="845" y="198" text-anchor="middle">Computer</text>
+<rect x="410" y="88" width="200" height="72" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+<text class="wn" x="510" y="132" text-anchor="middle">A server in the middle</text>
+<polyline points="200,190 320,190 320,124 410,124" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<polyline points="610,124 700,124 700,190 780,190" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<text class="bd" x="510" y="182" text-anchor="middle">The screen passes through here</text>
+
+<text class="ac" x="60" y="318">Tailscale</text>
+<rect x="70" y="340" width="130" height="80" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="135" y="388" text-anchor="middle">Phone</text>
+<rect x="780" y="340" width="130" height="80" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="845" y="388" text-anchor="middle">Computer</text>
+<line x1="200" y1="380" x2="780" y2="380" stroke="var(--accent)" stroke-width="4"/>
+<text class="bd" x="490" y="356" text-anchor="middle">No stopover in between</text>
+
+<text class="cc" x="480" y="480" text-anchor="middle">One less hop, one less place to watch</text>
+</svg>

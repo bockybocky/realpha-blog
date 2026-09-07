@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A phone and a computer are joined by a straight line, and inside the computer is a room containing three windows.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .sub { font-size:19px; fill:var(--accent); font-weight:700; }
+    .bd  { font-size:15px; fill:var(--dim); }
+    .cc  { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="ttl" x="60" y="64">Three parts, one job each</text>
+
+<rect x="70" y="150" width="170" height="250" rx="18" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="155" y="190" text-anchor="middle">Phone</text>
+<rect x="95" y="215" width="120" height="76" rx="10" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text class="sub" x="155" y="252" text-anchor="middle">Moshi</text>
+<text class="bd" x="155" y="276" text-anchor="middle">The door</text>
+<text class="bd" x="155" y="340" text-anchor="middle">Terminal app</text>
+
+<line x1="240" y1="275" x2="558" y2="275" stroke="var(--accent)" stroke-width="4"/>
+<circle cx="240" cy="275" r="6" fill="var(--accent)"/>
+<circle cx="558" cy="275" r="6" fill="var(--accent)"/>
+<text class="sub" x="399" y="252" text-anchor="middle">Tailscale</text>
+<text class="bd" x="399" y="304" text-anchor="middle">Two machines, nobody in between</text>
+
+<rect x="560" y="120" width="330" height="310" rx="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="586" y="156">Computer</text>
+<rect x="590" y="176" width="272" height="204" rx="10" fill="none" stroke="var(--grey)" stroke-width="2"/>
+<text class="sub" x="726" y="208" text-anchor="middle">Herdr workspace</text>
+<rect x="612" y="228" width="66" height="60" rx="6" fill="none" stroke="var(--ink)" stroke-width="2"/>
+<rect x="700" y="228" width="66" height="60" rx="6" fill="none" stroke="var(--ink)" stroke-width="2"/>
+<rect x="788" y="228" width="66" height="60" rx="6" fill="none" stroke="var(--ink)" stroke-width="2"/>
+<text class="bd" x="726" y="330" text-anchor="middle">Running agent windows</text>
+
+<text class="cc" x="480" y="500" text-anchor="middle">One breaks, swap that one</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="On the left is a single block, and on the right are three small blocks with one of them able to be swapped out.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .ac  { font-size:19px; fill:var(--accent); font-weight:700; }
+    .bd  { font-size:15px; fill:var(--dim); }
+    .cc  { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="ttl" x="60" y="60">What happens when one breaks</text>
+
+<text class="grp" x="80" y="120">Tied to one vendor</text>
+<rect x="80" y="142" width="330" height="250" rx="14" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+<text class="grp" x="245" y="248" text-anchor="middle">One app does it all</text>
+<text class="bd" x="245" y="284" text-anchor="middle">Link. Terminal. Workspace</text>
+<text class="bd" x="245" y="424" text-anchor="middle">One breaks, nothing to swap</text>
+
+<text class="grp" x="540" y="120">Three separate parts</text>
+<rect x="540" y="142" width="290" height="66" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="685" y="184" text-anchor="middle">Tailscale</text>
+<rect x="540" y="222" width="290" height="66" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="685" y="264" text-anchor="middle">Herdr</text>
+<rect x="540" y="302" width="290" height="66" rx="10" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="9 7"/>
+<text class="ac" x="685" y="344" text-anchor="middle">Moshi</text>
+<polyline points="685,368 685,404 685,404" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<rect x="540" y="404" width="290" height="56" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="ac" x="685" y="440" text-anchor="middle">Swap in another terminal</text>
+
+<text class="cc" x="480" y="512" text-anchor="middle">If you can name the swap, it's a generic part</text>
+</svg>

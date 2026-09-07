@@ -1,0 +1,188 @@
+---
+title: "出門在外，用手機接手電腦上的 AI agent：Tailscale ＋ Herdr ＋ Moshi 一步一步裝"
+description: "Fred大大 教的方法：三個通用零件，把電腦上正在跑的 AI agent 視窗原樣搬到手機。照 Windows 筆電實裝順序寫，含兩個會踩的坑與修法，並和 X 上流行的 UU远程 方案比較。"
+slug: "phone-to-pc-agent-tailscale-herdr-moshi"
+lang: "zh-TW"
+pubDate: 2026-09-08
+category: systems
+tldr: "手機到電腦直連，不經第三方伺服器；電腦開的視窗手機直接看得到；哪個零件壞了換哪個。"
+tags: ["Tailscale", "Herdr", "Moshi", "AI agent", "遠端終端機", "教學"]
+ogImage: "/covers/phone-to-pc-agent-tailscale-herdr-moshi-cover.png"
+cover: "/covers/phone-to-pc-agent-tailscale-herdr-moshi-cover.png"
+---
+
+![黃昏山坡上的旅人手持一面發光的小鏡子，鏡中是遠方燈火通明的書房，幾個小人物仍在桌前工作，一條細細的金線越過山谷把兩邊連在一起](/covers/phone-to-pc-agent-tailscale-herdr-moshi-cover.png)
+
+> 海內存知己，天涯若比鄰。
+>
+> —— 王勃《送杜少府之任蜀州》（唐，約 7 世紀）
+
+王勃寫這句是送朋友去遠方上任。我把它借來講一件小事：電腦在家裡跑著幾個 AI agent，人在外面，手機一掏出來，它們就在旁邊。這篇是 **Fred大大 教學**，他的 GitHub 在 [github.com/fredchu](https://github.com/fredchu)。我照著他教的，在一台 Windows 筆電上從頭裝到能用，把每一步和踩到的坑都記下來。
+
+## 這篇在解決什麼
+
+你在電腦上開了好幾個 AI agent 的視窗，它們正在跑。你出門了。你想在手機上看它們跑到哪裡、下一句指令、再把手機收起來，回家坐到電腦前接著做。
+
+Fred大大 教的方法用三個零件把這件事接起來：
+
+| 零件 | 它是什麼 | 一句話比喻 |
+|---|---|---|
+| Tailscale | 免費的私人網路 | 手機和電腦之間拉一條專屬的線，外人碰不到 |
+| Herdr | 終端機的工作區管理員 | 一間房間，你關掉門，裡面的人照樣工作 |
+| Moshi | iPhone 上的終端機 App | 手機上的那扇門，開了就走進那間房間 |
+
+三個零件都是通用零件。任何一個壞了，換掉那一個就好。
+
+![左邊手機、右邊電腦，中間一條標著 Tailscale 的粗線把兩端直接連起來；電腦裡框著一間叫 Herdr 工作區的房間，房間裡有三個小視窗](/figures/three-parts-one-line.svg)
+
+## 事前確認
+
+在電腦上先確認三件事。少一件，後面會卡。
+
+1. 電腦已開啟 SSH 服務。SSH 是讓別台機器用文字連進來的標準門。Windows 查法：
+   ```powershell
+   Get-Service sshd
+   ```
+   要看到 Running。沒有的話在「設定 → 系統 → 選用功能」加「OpenSSH 伺服器」。
+2. 電腦已裝 Herdr。查法：
+   ```powershell
+   herdr --version
+   ```
+3. 你知道這台電腦的 Windows 登入密碼。第一次連線要用。
+
+## 第一段：電腦裝 Tailscale
+
+1. 打開 PowerShell，貼這一行安裝：
+   ```powershell
+   winget install --id tailscale.tailscale --accept-package-agreements --accept-source-agreements --silent
+   ```
+2. 貼這一行拿登入網址：
+   ```powershell
+   & "C:\Program Files\Tailscale\tailscale.exe" login --timeout 20s
+   ```
+3. 打開它印出的網址，用 Google 帳號登入，按 Connect。
+4. 貼這一行拿電腦的專屬位址，抄下來：
+   ```powershell
+   & "C:\Program Files\Tailscale\tailscale.exe" ip -4
+   ```
+   會看到一組 100 開頭的數字，像 `100.xx.xx.xx`。這就是手機要連的位址。
+
+電腦名字是中文的話，Tailscale 不收，會自動叫它 `node`。不影響使用，用位址連就好。
+
+## 第二段：手機裝 Tailscale
+
+1. 在 App Store 裝 Tailscale。
+2. 用同一個 Google 帳號登入。
+3. 把開關撥到開。
+4. 看機器清單，有出現電腦那台，就代表線接上了。
+
+沒看到電腦那台，後面怎麼填都連不上。先把這一步弄到看得見。我第一次就是卡在這裡，Moshi 填得再對也連不進去。
+
+## 第三段：手機裝 Moshi 並連線
+
+1. 在 App Store 裝 Moshi。
+2. 按新增主機，填四格：
+   - 名稱：隨便取，自己認得就好
+   - 主機：第一段抄下的那組 100 開頭位址
+   - 埠號：`22`
+   - 使用者：你的 Windows 使用者名稱
+3. 密碼填 Windows 登入密碼。
+4. 按連線。第一次會問要不要信任這台主機，選是。
+
+連上會看到黑底白字的 PowerShell 畫面。
+
+## 第四段：進 Herdr
+
+在手機畫面打：
+
+```powershell
+herdr
+```
+
+就會接到電腦上原本開著的工作區。你電腦上開的視窗全部在這裡。
+
+Windows 上有兩個坑，我都踩了，照這樣修。
+
+**坑一：打 `herdr` 說找不到。**
+原因：手機連進來的視窗看不到「捷徑型」資料夾。Herdr 的安裝路徑常用一個叫 `current` 的捷徑指向真正的版本資料夾。
+修法：在手機那個視窗貼一行，放一個轉接檔到 Windows 系統資料夾。路徑換成你真正的版本資料夾：
+
+```powershell
+'@"C:\Users\你的名字\tools\herdr\preview-2026-08-04\herdr.exe" %*' | Set-Content C:\Windows\herdr.cmd -Encoding ascii
+```
+
+以後 Herdr 升級，版本資料夾名字會變，記得改這個檔。
+
+![上排三格路徑中間那格是虛線灰框並打叉，代表看不到；下排一條實線從指令繞過那格直接接到真正的執行檔](/figures/shortcut-invisible-to-ssh.svg)
+
+**坑二：改了路徑設定還是找不到。**
+原因：SSH 服務啟動時把環境抄了一份，之後改的它看不到。
+修法：在手機視窗貼 `Restart-Service sshd`。手機會斷線，那是正常的。等十秒重連。
+
+![一條時間線上有三個時點，手機連進來的箭頭往回指向啟動時抄下的舊環境副本，而不是後來改好的新設定](/figures/sshd-copied-the-old-environment.svg)
+
+## 每天怎麼用
+
+1. 打開 Moshi，點那台電腦。
+2. 打 `herdr`。
+3. 做完直接關 App。電腦上的東西不會停。
+
+![左右兩格畫同一間房間，左邊門開著三個視窗在跑，右邊門關上三個視窗還在同樣的位置繼續跑](/figures/close-the-door-work-continues.svg)
+
+要再省一步：Moshi 的主機設定裡有「連線後自動執行」的欄位，填 `herdr`，以後點一下就進去。
+
+## 跟另一種做法比：X 上「实践哥 Li」的 UU远程 方案
+
+2026 年 9 月 5 日，X 帳號 @MinLiBuilds 發了一篇〈1 分钟，开源模型原生支持移动端〉。他在 Mac 上用一個叫「UU远程」的中國遠端軟體，把終端機搬到手機。那個軟體本來是給玩家在手機上遠端打遊戲用的，後來加了終端機功能。他碰到「電腦先開的視窗手機看不到」的問題，自己寫了一個橋接工具 uu-term-bridge 補上，只支援 Mac 加 iTerm2。
+
+兩邊蓋的是同一棟房子：把電腦上的 tmux 類工作區搬到手機。差別在磚頭。
+
+![上排的線從手機先繞上去經過一個中繼伺服器方塊才到電腦，下排的線從手機直接一條橫線到電腦](/figures/relay-versus-direct-line.svg)
+
+| 比什麼 | UU远程 方案（@MinLiBuilds） | Fred大大 方案（Tailscale ＋ Herdr ＋ Moshi） |
+|---|---|---|
+| 連線怎麼走 | 經過 UU远程 的伺服器轉一手 | Tailscale 兩台直連，中間沒有第三方看得到內容 |
+| 軟體來自哪 | 中國的遊戲遠端軟體 | 美國的 Tailscale，加開源工具 |
+| 支援什麼電腦 | 只有 Mac | Windows、Mac、Linux 都行 |
+| 電腦開的視窗手機看得到嗎 | 原本看不到，作者自己寫橋接補的 | Herdr 原生就有 |
+| 登入 | 帳號對上直接進，不打密碼 | 第一次打密碼；換金鑰後也不用打 |
+| 語音輸入 | 有專屬輸入框，接手機的語音鍵盤 | 用 iPhone 內建語音鍵盤 |
+| 費用 | 免費 | 三個零件都有免費方案 |
+| 壞了怎麼辦 | 綁一家軟體，它改版你跟著改 | 三個零件各自獨立，哪個壞換哪個 |
+
+**UU远程 方案的優點**：一個 App 裝完就能用，不用打密碼，輸入框做得順手。
+**UU远程 方案的缺點**：畫面要送到一家中國公司的伺服器轉手；只有 Mac；作者自己最得意的「電腦視窗自動出現在手機」要靠他補的橋接，而且只吃 iTerm2。
+
+**Fred大大 方案的優點**：直連不經第三方；跨平台；工作區同步是內建的，不用補；每個零件都能單獨換。
+**Fred大大 方案的缺點**：要裝三個東西；Windows 上有兩個坑要修，上面寫了；金鑰登入要自己再設一次。
+
+一件我沒驗證的：UU远程 的傳輸會不會經過它的伺服器，是從它遊戲遠端軟體的本質推的，文章沒明說。
+
+## 我們這樣子做的好處
+
+四個好處，一個一個講。
+
+1. **內容不經過別人的伺服器。** 手機到電腦是直連，中間沒有第三家公司看得到你的 agent 在做什麼。你在終端機裡跑的是持股、是帳號、是還沒發表的東西，這一條最重要。
+2. **哪個零件壞了換哪個。** 三個零件各做一件事，用標準的門（SSH）接起來。Tailscale 哪天收費就換別家私人網路，Moshi 下架就換別的終端機 App，其他兩個照用。綁一家全包的軟體沒有這條退路。
+3. **電腦和手機看的是同一間房間。** 電腦開的視窗手機直接看得到，反過來也一樣。@MinLiBuilds 那篇文章裡最得意的功能，就是自己補這一段。Herdr 一開始就有，不用補。
+4. **Windows、Mac、Linux 都能用。** 對方的方案只有 Mac。我這台是 Windows 筆電，當晚裝完就能用。
+
+這四個好處不是碰巧來的，是 Fred大大 挑零件的眼光。他沒有挑「一個 App 全包」的路，挑的是三個各做一件事的零件，用標準的門接起來。
+
+他的 GitHub（[github.com/fredchu](https://github.com/fredchu)）有六十四個公開專案。跟這篇相關的幾個：
+
+- `herdr-collab`：讓好幾個 AI agent 在同一台機器上互相挑錯的工作流程。我手機接上的那些視窗，就是這套在用的東西。
+- `discord-claude-code-bot`：把 Discord 討論串接到 Claude Code。我天天在用的 bot 就是從這個來的。
+- `claude-session-handoff`：讓 AI agent 跨天記得昨天做到哪。
+- `claude-dotfiles`：他整套 Claude Code 的設定、規則、skill、hook，公開給人抄。
+- `ft-cli`：用指令下單 Firstrade 美股、同步到 Google 試算表。
+
+他做東西有一個固定的樣子：先想清楚「這件事的標準零件是什麼」，再寫最少的膠水把零件接起來。手機接電腦這件事，他在 2026 年 7 月就把 Herdr 的做法整理好給我了，兩個月後 X 上才開始有人拿別的軟體做同一件事。
+
+## 帶得走的一件事
+
+挑工具的時候，先問「這東西壞了我換什麼」。答得出來的，才是通用零件；答不出來的，是把自己綁在一家公司身上。
+
+![左邊是一整塊不可分割的大方塊，右邊是三塊各自獨立的小方塊，其中一塊被虛線拉出來換成旁邊的備用塊](/figures/one-block-versus-three-swappable.svg)
+
+今天可以做的一個練習：打開你手機上最常用的三個 App，每一個問一次「它明天下架，我用什麼頂上」。答不出來的那個，就是你該開始找備案的。這個練習跟軟體無關，換成你的券商、你的雲端硬碟、你的通訊軟體，一樣問得通。

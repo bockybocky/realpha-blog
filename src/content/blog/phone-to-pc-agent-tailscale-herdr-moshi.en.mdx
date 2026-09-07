@@ -1,0 +1,195 @@
+---
+title: "Take Over Your AI Agents from Anywhere: Tailscale + Herdr + Moshi, Step by Step"
+description: "Fred's method: three replaceable components that bring the AI agent windows running on your computer straight to your phone. A Windows laptop installation guide, including two gotchas and how to fix them, plus a comparison with the UU Remote setup popular on X."
+slug: "phone-to-pc-agent-tailscale-herdr-moshi"
+lang: "en"
+pubDate: 2026-09-08
+category: systems
+tldr: "A direct phone-to-computer connection with no third-party relay; the phone sees the windows already open on the computer; and each component can be replaced independently."
+tags: ["Tailscale", "Herdr", "Moshi", "AI agents", "remote terminal", "tutorial"]
+ogImage: "/covers/phone-to-pc-agent-tailscale-herdr-moshi-cover.png"
+cover: "/covers/phone-to-pc-agent-tailscale-herdr-moshi-cover.png"
+---
+
+![A traveler on a hillside at dusk holds a small glowing mirror. In the mirror is a distant study full of lights, with several small figures still working at a desk; a thin golden line crosses the valley and connects the two sides](/covers/phone-to-pc-agent-tailscale-herdr-moshi-cover.png)
+
+> 海內存知己，天涯若比鄰。<br/>
+> *A true friend within the four seas makes the far edge of the sky feel next door.*
+>
+> —— Wang Bo, "Seeing Off Vice-Prefect Du to Shuzhou" (Tang, c. 7th century); translation mine
+
+Wang Bo wrote that line to send a friend off to a distant post. I am borrowing it for a small practical problem: several AI agents are running at home, you are somewhere else, and the moment you pull out your phone, they are right there beside you. This is **Fred's tutorial** (Fred大大, as we call him); his GitHub is at [github.com/fredchu](https://github.com/fredchu). I followed his instructions from start to finish on a Windows laptop, recording every step and every trap along the way.
+
+## What this solves
+
+You have several AI agent windows open on your computer, and they are working. You leave the house. You want to check their progress on your phone, send the next instruction, put the phone away, and continue from the computer when you get home.
+
+Fred's method connects three components:
+
+| Component | What it is | One-line metaphor |
+|---|---|---|
+| Tailscale | A free private network | A private line between your phone and computer that outsiders cannot touch |
+| Herdr | A terminal workspace manager | A room whose occupants keep working even after you close the door |
+| Moshi | A terminal app for iPhone | The door on your phone that takes you into that room |
+
+All three are general-purpose components. If one breaks, replace that one.
+
+![On the left a phone, on the right a computer, joined directly by a thick line labelled Tailscale; inside the computer sits a room called the Herdr workspace, holding three small windows.](/figures/three-parts-one-line-en.svg)
+
+## Check these first
+
+Confirm three things on the computer before you start. Miss one and you may get stuck later.
+
+1. SSH is running on the computer. SSH is the standard door that lets another machine connect through text. On Windows, check with:
+   ```powershell
+   Get-Service sshd
+   ```
+   You should see `Running`. If not, add **OpenSSH Server** under **Settings → System → Optional features**.
+2. Herdr is installed on the computer. Check with:
+   ```powershell
+   herdr --version
+   ```
+3. You know the Windows sign-in password for this computer. You will need it for the first connection.
+
+## Part 1: Install Tailscale on the computer
+
+1. Open PowerShell and paste this installation command:
+   ```powershell
+   winget install --id tailscale.tailscale --accept-package-agreements --accept-source-agreements --silent
+   ```
+2. Paste this command to get a login URL:
+   ```powershell
+   & "C:\Program Files\Tailscale\tailscale.exe" login --timeout 20s
+   ```
+3. Open the URL it prints, sign in with your Google account, and click **Connect**.
+4. Paste this command to get the computer's private address and write it down:
+   ```powershell
+   & "C:\Program Files\Tailscale\tailscale.exe" ip -4
+   ```
+   You will see a number beginning with `100`, such as `100.xx.xx.xx`. This is the address your phone will use.
+
+If the computer's name is in Chinese, Tailscale will not accept it and will automatically call the machine `node`. That does not affect anything; just connect using the address.
+
+## Part 2: Install Tailscale on the phone
+
+1. Install Tailscale from the App Store.
+2. Sign in with the same Google account.
+3. Turn the switch on.
+4. Check the machine list. If the computer appears, the line is connected.
+
+If the computer does not appear, nothing you enter later will connect. Fix this step first. This was where I got stuck the first time: no matter how accurately I filled in Moshi, it could not get through.
+
+## Part 3: Install Moshi and connect
+
+1. Install Moshi from the App Store.
+2. Tap **Add host** and fill in the four fields:
+   - Name: Anything you will recognize
+   - Host: The `100`-starting address you wrote down in Part 1
+   - Port: `22`
+   - User: Your Windows username
+3. Enter your Windows sign-in password.
+4. Tap **Connect**. The first time, Moshi will ask whether you trust this host. Choose yes.
+
+You should now see a black-and-white PowerShell screen.
+
+## Part 4: Enter Herdr
+
+Type this on the phone:
+
+```powershell
+herdr
+```
+
+You will land in the workspace that was already open on the computer. Every window from the computer will be there.
+
+There are two Windows-specific traps. I hit both; here is how to fix them.
+
+**Trap 1: `herdr` says it cannot be found.**
+
+The reason: the window you connect to from the phone cannot see shortcut-style folders. Herdr's installation path often uses a folder called `current` that points to the actual version folder.
+
+The fix: paste one line into the phone window to put a wrapper file in the Windows system folder. Replace the path with your actual version folder:
+
+![In the top row of three path boxes, the middle box is a dashed grey frame with a cross through it, meaning it cannot be seen; in the bottom row a solid line runs from the command straight past that box to the real executable.](/figures/shortcut-invisible-to-ssh-en.svg)
+
+```powershell
+'@"C:\Users\YourName\tools\herdr\preview-2026-08-04\herdr.exe" %*' | Set-Content C:\Windows\herdr.cmd -Encoding ascii
+```
+
+![On a timeline with three moments, the arrow from the incoming phone connection points back to the environment copy taken at startup rather than to the settings that were fixed later.](/figures/sshd-copied-the-old-environment-en.svg)
+
+When Herdr upgrades, the version-folder name will change. Remember to update this file.
+
+**Trap 2: You changed the path, but it still cannot find Herdr.**
+
+The reason: the SSH service copied its environment when it started, so it cannot see changes made afterward.
+
+The fix: paste `Restart-Service sshd` into the phone window. The phone will disconnect; that is normal. Wait ten seconds and reconnect.
+
+## How to use it every day
+
+1. Open Moshi and tap the computer.
+2. Type `herdr`.
+3. Close the app when you are done. The processes on the computer will keep running.
+
+![Two panels show the same room: on the left the door is open with three windows running, on the right the door is shut and the same three windows are still running in the same places.](/figures/close-the-door-work-continues-en.svg)
+
+You can save one more step: Moshi's host settings have a field for a command to run after connecting. Enter `herdr`; from then on, one tap takes you straight in.
+
+## Comparing it with the UU Remote setup on X
+
+On September 5, 2026, the X account [@MinLiBuilds](https://x.com/MinLiBuilds) posted “1 minute, open-source models with native mobile support.” On a Mac, the author used a Chinese remote-access tool called **UU Remote (UU远程)** to bring a terminal to the phone. The app was originally made for playing games remotely from a phone and later added terminal features. When the author found that windows opened on the computer were not visible on the phone, he wrote a bridge called `uu-term-bridge`. It supports only Mac plus iTerm2.
+
+Both approaches build the same house: moving a tmux-like workspace from the computer to the phone. The difference is in the bricks.
+
+![In the top row the line goes up from the phone through a relay server box before reaching the computer, while in the bottom row a single horizontal line runs from the phone straight to the computer.](/figures/relay-versus-direct-line-en.svg)
+
+| Comparison | UU Remote setup (@MinLiBuilds) | Fred's setup (Tailscale + Herdr + Moshi) |
+|---|---|---|
+| How the connection travels | Relayed through UU Remote's servers | The two devices connect directly through Tailscale; no third party sees the contents |
+| Where the software comes from | A Chinese remote gaming app | Tailscale from the US, plus open-source tools |
+| Supported computers | Mac only | Windows, Mac, and Linux |
+| Can the phone see windows already open on the computer? | Not originally; the author added a bridge | Built into Herdr |
+| Login | Match accounts and enter directly, without a password | Enter a password the first time; a key removes that step later |
+| Voice input | A dedicated input field that uses the phone's voice keyboard | The iPhone's built-in voice keyboard |
+| Cost | Free | All three components have free plans |
+| What happens if it breaks? | You are tied to one app and follow its updates | Each component is independent; replace whichever one breaks |
+
+**Advantages of UU Remote:** install one app and go; no password; a well-designed input field.
+
+**Disadvantages of UU Remote:** the screen is relayed through a Chinese company's server; Mac only; the author's most distinctive feature (making the computer's windows appear automatically on the phone) depends on a bridge he wrote, and it works only with iTerm2.
+
+**Advantages of Fred's setup:** direct connection without a third-party relay; cross-platform; workspace synchronization is built in; every component can be replaced separately.
+
+**Disadvantages of Fred's setup:** you need to install three things; Windows has the two traps described above; setting up key-based login is another step.
+
+One thing I have not verified: whether UU Remote's traffic actually passes through its servers. That is an inference from the nature of its remote-gaming software; the original post does not state it explicitly.
+
+## Why build it this way?
+
+There are four benefits.
+
+1. **Your content does not pass through someone else's server.** The phone connects directly to the computer, so no third company can see what your agent is doing. The terminal may contain holdings, account details, or unpublished work. This is the most important point.
+2. **Replace the broken component, not the whole system.** Each of the three components does one job, connected through the standard SSH door. If Tailscale starts charging someday, replace the private-network layer. If Moshi disappears, replace the terminal app. The other two stay. An all-in-one app tied to one company does not give you that exit route.
+3. **The computer and phone see the same room.** Windows open on the computer are visible directly on the phone, and vice versa. The feature @MinLiBuilds was most proud of in that post is the bridge he had to add himself. Herdr has it from the start.
+4. **It works on Windows, Mac, and Linux.** The other setup supports only Mac. I used a Windows laptop and had it working the same evening.
+
+These four benefits are not accidental. They come from Fred's choice of components. He did not choose one app that does everything; he chose three components that each do one thing, connected through a standard interface.
+
+His GitHub ([github.com/fredchu](https://github.com/fredchu)) has sixty-four public repositories. A few related to this article:
+
+- `herdr-collab`: a workflow that lets several AI agents challenge one another on the same machine. The windows I connected to from my phone are running this.
+- `discord-claude-code-bot`: connects Discord threads to Claude Code. The bot I use every day came from this.
+- `claude-session-handoff`: lets an AI agent remember where it stopped the day before.
+- `claude-dotfiles`: his full Claude Code setup, rules, skills, and hooks, published for others to copy.
+- `ft-cli`: place orders for US stocks through Firstrade and sync them to Google Sheets from the command line.
+
+His work has a consistent pattern: first identify the standard component for the job, then write the minimum glue needed to connect the pieces. He had organized Herdr's approach to connecting a phone to a computer for me in July 2026. Two months later, people on X started using other software to do the same thing.
+
+## One thing to take with you
+
+When choosing a tool, ask: “What do I replace this with if it breaks?” If you can answer, it is a general-purpose component. If you cannot, you are tying yourself to one company.
+
+![On the left is one large block that cannot be split, and on the right are three separate small blocks, one of which is pulled out along a dashed line and replaced by a spare block beside it.](/figures/one-block-versus-three-swappable-en.svg)
+
+Here is a small exercise you can do today: open the three apps you use most on your phone and ask, for each one, “If it disappeared tomorrow, what would replace it?” The one you cannot answer is where you should start looking for a backup. This works beyond software too. Ask it of your broker, cloud drive, and messaging app.
