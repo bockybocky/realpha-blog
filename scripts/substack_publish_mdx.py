@@ -18,6 +18,7 @@ from substack.api import Api
 from substack.exceptions import SubstackAPIException, SubstackRequestException
 from substack.nodes import blockquote as node_blockquote
 from substack.nodes import bullet_list as node_bullet_list
+from substack.nodes import code_block as node_code_block
 from substack.nodes import list_item as node_list_item
 from substack.post import Post, parse_inline, tokens_to_text_nodes
 
@@ -130,6 +131,42 @@ def append_quote(post, lines, poem):
     post.draft_body.setdefault('content', []).append(node_blockquote(paras))
 
 
+def split_table_row(line):
+    """拆一列 pipe table；支援反斜線跳脫的 pipe。"""
+    row = line.strip()
+    if row.startswith('|'):
+        row = row[1:]
+    if row.endswith('|') and not row.endswith('\\|'):
+        row = row[:-1]
+    cells, buf, escaped = [], [], False
+    for char in row:
+        if char == '|' and not escaped:
+            cells.append(''.join(buf).strip().replace('\\|', '|'))
+            buf = []
+        else:
+            buf.append(char)
+        escaped = char == '\\' and not escaped
+        if char != '\\':
+            escaped = False
+    cells.append(''.join(buf).strip().replace('\\|', '|'))
+    return cells
+
+
+def is_table_separator(line):
+    cells = split_table_row(line)
+    return bool(cells) and all(re.fullmatch(r':?-{3,}:?', cell.replace(' ', ''))
+                               for cell in cells)
+
+
+def append_table(post, rows):
+    """以穩定的純文字列呈現表格，避免使用 Substack 未公開的 table schema。"""
+    for row_number, cells in enumerate(rows):
+        rendered = ' | '.join(cells)
+        if row_number == 0:
+            rendered = '**' + rendered.replace(' | ', '** | **') + '**'
+        post.paragraph(parse_inline(rendered))
+
+
 
 def add_image_block(post, url, alt='', size=None):
     """獨立的圖片區塊（Substack 編輯器的 captionedImage 節點），公開頁才會畫出來。
@@ -208,10 +245,14 @@ def fill_post(post, body, paywall_k, upload_image=None):
             post.heading(parse_inline(title), level=level)
             i += 1
             continue
-        if ln.startswith('|'):
-            print('⚠️ 跳過表格（Substack 轉換未支援）')
+        if (ln.startswith('|') and i + 1 < len(lines)
+                and is_table_separator(lines[i + 1])):
+            rows = [split_table_row(ln)]
+            i += 2  # 標題列與 Markdown 對齊分隔列
             while i < len(lines) and lines[i].strip().startswith('|'):
+                rows.append(split_table_row(lines[i]))
                 i += 1
+            append_table(post, rows)
             continue
         if ln.startswith('- '):
             items = []
@@ -222,12 +263,20 @@ def fill_post(post, body, paywall_k, upload_image=None):
                 node_bullet_list([node_list_item(tokens_to_text_nodes(parse_inline(it)))
                                   for it in items]))
             continue
-        if ln.startswith('```'):
-            print('⚠️ 跳過 code fence')
+        fence = re.match(r'^\s*(`{3,}|~{3,})([^`]*)$', ln)
+        if fence:
+            marker, info = fence.groups()
+            language = info.strip() or None
+            code = []
             i += 1
-            while i < len(lines) and not lines[i].startswith('```'):
+            while i < len(lines) and not re.match(
+                    r'^\s*' + re.escape(marker[0]) + r'{' + str(len(marker)) + r',}\s*$',
+                    lines[i]):
+                code.append(lines[i])
                 i += 1
-            i += 1
+            if i < len(lines):
+                i += 1
+            post.add(node_code_block('\n'.join(code), language=language))
             continue
         post.paragraph(parse_inline(ln.strip()))
         i += 1
