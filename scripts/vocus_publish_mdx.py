@@ -13,7 +13,8 @@ slug ＝ blog 的檔名主幹（src/content/blog/<slug>.zh-TW.mdx）。
 token 從 scratchpad 的 vocus_token.txt 讀（見 vocus-publish skill §token 取得）。
 節點與 API 慣例沿用 vocus_publish_ep682_ep541.py。
 """
-import json, math, os, re, struct, sys, uuid, datetime
+import json, math, os, re, struct, sys, uuid, datetime, textwrap
+from html import escape
 import urllib.request, urllib.error
 
 ROOT = r'C:\Users\Charles\projects\realpha-blog'
@@ -128,6 +129,23 @@ def mdx_to_blocks(body):
         ln = lines[i].rstrip()
         if not ln.strip():
             i += 1
+            continue
+        # Fenced code block：不要讓 ``` 及程式碼行落入一般段落。
+        # 開頭允許最多三格縮排；結尾需使用相同的 fence 字元，且長度不短於開頭。
+        m_fence = re.match(r'^ {0,3}(`{3,}|~{3,})(.*)$', ln)
+        if m_fence:
+            fence, info = m_fence.group(1), m_fence.group(2).strip()
+            language = info.split()[0] if info else ''
+            code_lines = []
+            i += 1
+            while i < len(lines):
+                close = re.match(r'^ {0,3}([`~]{3,})\s*$', lines[i].rstrip())
+                if close and close.group(1)[0] == fence[0] and len(close.group(1)) >= len(fence):
+                    i += 1
+                    break
+                code_lines.append(lines[i])
+                i += 1
+            blocks.append(('code', language, textwrap.dedent('\n'.join(code_lines))))
             continue
         # 圖片 ![alt](/covers/x.png) 或內文圖 ![alt](/figures/x.svg)
         if ln.startswith('!['):
@@ -289,6 +307,18 @@ def list_node(items):
             'type': 'list', 'version': 1, 'listType': 'bullet', 'start': 1, 'tag': 'ul'}
 
 
+def code_node(code, language=''):
+    """Lexical CodeNode；單一 text child 保留程式碼中的換行與空白。"""
+    return {'children': [t_node(code)], 'direction': 'ltr', 'format': '', 'indent': 0,
+            'type': 'code', 'version': 1, 'language': language or None}
+
+
+def code_html(code, language=''):
+    """方格子內容 HTML 的 fenced code 對應物。"""
+    cls = f' class="language-{escape(language, quote=True)}"' if language else ''
+    return f'<pre><code{cls}>{escape(code)}</code></pre>'
+
+
 def runs_html(text):
     out = []
     for seg, fmt in parse_runs(text):
@@ -407,6 +437,10 @@ def build(art, meta):
             lex.append(list_node(b[1]))
             html.append('<ul>' + ''.join(f'<li>{inline_html(i)}</li>' for i in b[1]) + '</ul>')
             plain.extend(i.replace('**', '') for i in b[1])
+        elif kind == 'code':
+            lex.append(code_node(b[2], b[1]))
+            html.append(code_html(b[2], b[1]))
+            plain.append(b[2])
         else:
             raise ValueError('未知 block: ' + kind)
     return lex, ''.join(html), len(''.join(plain))
