@@ -131,12 +131,14 @@ def append_quote(post, lines, poem):
 
 
 
-def add_image_block(post, url, alt=''):
-    """獨立的圖片區塊（Substack 編輯器的 captionedImage 節點），公開頁才會畫出來。"""
+def add_image_block(post, url, alt='', size=None):
+    """獨立的圖片區塊（Substack 編輯器的 captionedImage 節點），公開頁才會畫出來。
+    size=(寬, 高) 用實際 PNG 尺寸；2026-09-07 前寫死 1456×819，內文圖實際 1456×789 被拉伸、底部被切（Charles 抓到）。"""
+    w, h = size if size else (1456, 819)
     post.draft_body.setdefault('content', []).append({'type': 'captionedImage', 'content': [{
         'type': 'image2',
         'attrs': {'src': url, 'fullscreen': False, 'imageSize': 'normal',
-                  'height': 819, 'width': 1456, 'resizeWidth': 728,
+                  'height': int(h), 'width': int(w), 'resizeWidth': 728,
                   'bytes': None, 'alt': alt or None, 'title': None, 'type': None,
                   'href': None, 'belowTheFold': False, 'internalRedirect': None}}]})
 
@@ -166,7 +168,7 @@ def fill_post(post, body, paywall_k, upload_image=None):
                     if url:
                         # 套件的 captioned_image 是把圖塞進「前一個節點」的 content；本文開頭沒有前一個節點，
                         # 直接放一個獨立的 captionedImage 區塊（Substack 編輯器自己的節點型別）
-                        add_image_block(post, url, alt)
+                        add_image_block(post, url, alt, getattr(upload_image, 'last_size', None))
             elif upload_image is None:
                 print('⚠️ 跳過內文圖（未提供上傳函式）：' + src)
             else:
@@ -177,7 +179,7 @@ def fill_post(post, body, paywall_k, upload_image=None):
                     # 2026-09-03 實測：套件的 captioned_image 會把 image2 塞進「前一個段落」裡，
                     # 編輯器看得到、公開頁卻不畫（文章頁只剩空白）。正確結構＝獨立的 captionedImage 區塊，
                     # 跟封面同一種寫法。
-                    add_image_block(post, url, alt)
+                    add_image_block(post, url, alt, getattr(upload_image, 'last_size', None))
                 else:
                     print('⚠️ 內文圖上傳失敗，略過：' + src)
             i += 1
@@ -319,8 +321,21 @@ def svg_to_png(src_path):
     import subprocess, tempfile, hashlib
     cache = os.path.join(tempfile.gettempdir(), 'substack_fig_png')
     os.makedirs(cache, exist_ok=True)
-    key = hashlib.sha1(open(src_path, 'rb').read()).hexdigest()[:12]
-    png = os.path.join(cache, os.path.basename(src_path).replace('.svg', '') + '-' + key + '.png')
+    raw = open(src_path, 'rb').read()
+    key = hashlib.sha1(raw).hexdigest()[:12]
+    # 2026-09-07：視窗高度照 SVG 原稿比例算（viewBox 或 width/height），不再寫死 640——
+    # 960×520 的圖放到 1456 寬要 789 高，寫死 640 底部被截 149px。快取檔名加 v2 讓舊截圖失效。
+    head = raw[:2000].decode('utf-8', 'ignore')
+    m = re.search(r'viewBox="[\d.\-]+\s+[\d.\-]+\s+([\d.]+)\s+([\d.]+)"', head)
+    if not m:
+        mw = re.search(r'\swidth="([\d.]+)', head); mh = re.search(r'\sheight="([\d.]+)', head)
+        m = (mw, mh) if mw and mh else None
+    if m:
+        vw, vh = (float(m.group(1)), float(m.group(2))) if not isinstance(m, tuple) else (float(m[0].group(1)), float(m[1].group(1)))
+        height = max(200, int(round(1456 * vh / vw)))
+    else:
+        height = 640
+    png = os.path.join(cache, os.path.basename(src_path).replace('.svg', '') + '-' + key + '-v2.png')
     if os.path.exists(png) and os.path.getsize(png) > 1000:
         return png
     html = os.path.join(cache, key + '.html')
@@ -328,7 +343,7 @@ def svg_to_png(src_path):
         f.write('<html><body style="margin:0;background:#fff"><img src="file:///%s" style="width:1456px;display:block"></body></html>'
                 % src_path.replace(os.sep, '/'))
     edge = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
-    subprocess.run([edge, '--headless=new', '--disable-gpu', '--window-size=1456,640',
+    subprocess.run([edge, '--headless=new', '--disable-gpu', '--window-size=1456,%d' % height,
                     '--screenshot=' + png, 'file:///' + html.replace(os.sep, '/')],
                    capture_output=True, timeout=60)
     return png if os.path.exists(png) and os.path.getsize(png) > 1000 else None
@@ -347,8 +362,15 @@ def make_uploader(api):
             if not local:
                 print('⚠️ SVG 轉 PNG 失敗：' + src)
                 return None
+        try:
+            from PIL import Image
+            with Image.open(local) as im:
+                upload.last_size = im.size
+        except Exception:
+            upload.last_size = None
         img = api_try(api.get_image, local)
         return img.get('url') if isinstance(img, dict) else None
+    upload.last_size = None
     return upload
 
 
