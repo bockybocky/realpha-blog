@@ -1,0 +1,113 @@
+---
+title: "The Chip in Your Mac Nobody Looks At Just Made AI Inference 1.8x Faster: Xiaotian's Test, and the Number I Ran on Windows"
+description: "Xiaotian spent a week on an entry-level Mac mini and cut video-to-vector indexing from 127 seconds to 70, using a part of Apple's chip most people never notice: the Neural Engine. I put his numbers next to the same kind of job running on my own Windows machine to answer a more practical question: when your computer is slow at AI, do you swap the machine or swap the model? Educational notes and extension, not a buying guide."
+slug: "xiaotian-2026-09-07-mac-ane-inference-1-8x"
+lang: "en"
+pubDate: 2026-09-08
+category: "tech"
+tags: ["Xiaotian", "Mac", "ANE", "NPU", "local AI", "hardware", "decision-making"]
+ogImage: "/covers/xiaotian-2026-09-07-mac-ane-inference-1-8x-cover.png"
+cover: "/covers/xiaotian-2026-09-07-mac-ane-inference-1-8x-cover.png"
+tldr: "Same entry-level Mac mini, same model. Hand part of the computation to Apple's Neural Engine and a four-minute video goes from 127 seconds to 70. The real value is not the speed; it is that the engine keeps its pace while the GPU is busy. I compared that with the same kind of job on my Windows box, pure CPU, and the gap came down to model size. So measure the model before you buy the machine."
+---
+
+![Neoclassical oil painting cover: a solemn stone workshop, a large machine of many gears at the center, craftsmen crowded around the biggest wheel, and in a corner a small bronze gear turning quietly with a shaft of morning light on it; symmetric composition, restrained palette](/covers/xiaotian-2026-09-07-mac-ane-inference-1-8x-cover.png)
+
+> *It slips in with the wind by night, and soaks the world without a sound.*<br/>
+> —— Du Fu, "Welcome Rain on a Spring Night" (Tang dynasty, 761; translation mine)
+
+Du Fu was writing about spring rain: it falls in the dark, waters everything, and nobody hears it. Those two lines came back to me while watching Xiaotian's [video](https://youtu.be/VKEXWXMlVS0) from September 7. He is talking about a piece of Apple's chip that almost nobody checks when buying a computer. It works in the background, makes no noise, and when it is done all you notice is that the machine got faster.
+
+## His problem is one I have too
+
+Xiaotian and I share a habit: when we watch a tutorial, we want to remember it and find it again with one search. He built a browser extension called Indexed. Click once while watching, the video is cut into segments and stored in a vector database, and later a single sentence brings back the exact segment.
+
+The trouble was speed. On an entry-level Mac mini M4 with 16 GB of memory, running a two-billion-parameter multimodal embedding model, indexing a four-minute video took 127 seconds. Waiting two minutes for a four-minute clip is the kind of thing that makes you stop opening the tool after the second try.
+
+He spent a week tinkering. Same machine, same model, and the time dropped to 70 seconds. That is 1.8 times faster. The hardware did not change. What changed is that part of the work was handed to that chip.
+
+## What the chip is
+
+It is called the ANE, the Apple Neural Engine. Every iPhone, iPad, and Mac has one. Until recently it was mostly Apple's own features using it, and third-party software rarely got a chance. Put simply, it is Apple's version of an NPU, a processor built only to run neural networks. Intel and AMD have put NPUs into their newer processors too, but the software has not caught up, so those sit idle most of the time.
+
+Xiaotian offered an analogy that I find clearer than any spec sheet:
+
+| Part | What it is like | What it is good at |
+|---|---|---|
+| CPU | The foreman | Handles any odd job, makes judgment calls, coordinates the others |
+| GPU | A large crew of workers | Reassign them and they can do a different job; the cost is power and heat |
+| ANE | An automated production line | Does only specific steps, but once the line is tuned it beats the crew on both speed and energy |
+
+So most of the work in programming for the ANE is rearranging a model's computation into steps that suit the line. Xiaotian did not do that rearranging himself. He used GPT6 Astra for it, as his video description says.
+
+![Three columns side by side: on the left, one central block fans out to four lines; in the middle, a large grid of identical small blocks; on the right, a few cells strung along a single track, shaped like one person, a crowd, and a line.](/figures/three-parts-three-shapes-en.svg)
+
+## The sweet spot, and a more important finding
+
+He ran four configurations, A through D, each giving more work to the ANE. The numbers are from the test results shown on screen in the video, September 7, 2026:
+
+| Setting | Who does the work | Time |
+|---|---|---|
+| A | GPU only | 130 s |
+| B | Vision handed to ANE | 120 s |
+| C | Vision plus part of the language computation on ANE | 70 s |
+| D | Even more pushed to ANE | Slower than C |
+
+More is not always faster. There is a sweet spot in the middle. That part is not surprising. What surprised me is that in his second live run, D won. The GPU happened to be busy with something else that round. The settings that leaned on the GPU slowed down; the setting that leaned on the ANE did not.
+
+![Four bars from left to right represent handing more and more work to the ANE; the heights dip slightly, then drop to a low, and the fourth rises again, with the lowest bar marked as the sweet spot.](/figures/ane-sweet-spot-four-runs-en.svg)
+
+That is the part I want to remember. The ANE's value is not only speed, it is steadiness. GPU load on any computer rises and falls all day. An AI job that has to run quietly in the background will stall every time another program grabs the GPU, if it shares the GPU. On the ANE it has its own lane. Xiaotian's machine used to sit at full CPU load and run hot; moving the model to the ANE freed the CPU and GPU for other things.
+
+![Two lines run left to right: the GPU-based one bends clearly upward slower as the GPU gets busy, while the ANE-based one stays nearly flat, and the two cross in the middle.](/figures/gpu-busy-two-paths-cross-en.svg)
+
+## Why now
+
+At its developer conference in June, Apple shipped new tooling that makes the ANE easier for developers to reach. Xiaotian counted ANE-related pull requests on GitHub: 134 in March, 421 in August. Three times as many in half a year.
+
+People in the community have started trying it on all sorts of jobs. He names a few in the video, all third-party tests he is relaying (September 7, 2026):
+
+- Qwen 3.8 27B on an M3 Ultra under MLX: with the ANE sharing the load, prompt processing sped up by more than twenty percent.
+- A video generation model on a 24 GB M4 mini: one step dropped from 32 seconds to 26, an 18 percent saving.
+- Someone bypassed Apple's native interface and scheduled the ANE by hand, building an image classifier that runs entirely on the ANE: 2.03 milliseconds down to 0.33, at roughly one sixteenth of the energy.
+
+In the long run, anything that can happen in the background is a fit: speech recognition, live captions, telling speakers apart, auto-tagging photos, text to speech. What these jobs share is that they do not need to be the fastest. They need to stay out of the way of whatever you are doing.
+
+## I ran the comparison with my own numbers
+
+My first thought after the video: I do not own a Mac. Does any of this apply to me?
+
+As it happens, I had something to compare against. In late August I wrote a fully local backend for this same Indexed extension, because the official build at the time relied on a cloud vector service and I wanted my data to stay home. That backend runs on my Windows PC, no discrete graphics card, using Google's SigLIP 2 base as the embedding model. Measured on my own machine, August 28, 2026:
+
+| Job | Time |
+|---|---|
+| One text segment to a vector | 0.06 s |
+| One image to a vector | 0.3 s |
+
+The video pipeline takes one middle frame every ten seconds as a segment. A four-minute video is 24 segments, done in under ten seconds. Pure CPU, no accelerator of any kind.
+
+Same task, video into a vector database. Xiaotian needs 127 seconds, I need under 10. Where is the gap? Not in the machines. It is the model, and it is an order of magnitude. He runs a two-billion-parameter multimodal model; I run a base-size model with less than a fifth of the parameters. His model sees finer detail and returns better search results. Mine is good enough, with less nuance.
+
+![Two rows compared: the top row pairs a large circle with a very long time bar, the bottom row pairs a much smaller circle with an extremely short bar, and the gap in bar length is larger than the gap in circle size.](/figures/model-size-decides-the-wait-en.svg)
+
+That changed the question I was asking. I started with "should I buy a Mac for the ANE." After the comparison it became "how big a model does this job need." A small model flies on a CPU, so for me the ANE is a nice extra. The moment I move to a large model to chase accuracy, the CPU gives out, and the ANE stops being a bonus and becomes the ticket in.
+
+![The horizontal axis shows models getting larger; two curves are drawn: the CPU one starts lower but rises steeply, the ANE one stays gentle throughout, and a dashed line at their crossing is labelled the threshold.](/figures/when-accelerator-becomes-a-ticket-en.svg)
+
+## So, buy or not
+
+Xiaotian's read is blunt. The M6 Mac mini has two ANEs and can run two jobs at once. The M5 Ultra's ANE goes from 16 cores to 32. He guesses that once some breakout app built on the ANE shows up, the M6 Mac mini will be sold out overnight. He adds that this is all guesswork and may well be wrong.
+
+I will not make that call, since I do not own the machine. What I can share is how I decide whether to follow:
+
+1. Measure first. Run the AI job you use most, note the seconds, and note how many billion parameters its model has.
+2. Then ask: is it slow because the model is too big, or because the machine has no part that can take this kind of work? The first is fixed by a smaller model. Only the second calls for a new machine.
+3. Last, look at the software. Whether an NPU is worth anything is decided by software. NPUs on Windows sit idle because nothing talks to them; on Apple's side the pull requests tripled in six months, which means people are talking to it. Buying hardware means buying the part of it that will be used over the next year, not the spec sheet.
+
+Xiaotian closes with a principle I agree with. Software used to lag hardware, so hardware never reached its potential. Now AI is writing the software, and it is filling the gaps faster than new hardware ships: the same 27B model that ran at 23 tokens per second on release now does over 100 on the same machine a few months later. The unused corners of your hardware will light up one by one. The ANE is one of them.
+
+## One thing to take with you
+
+When your computer is slow at AI, find out which part is slow before deciding whether to replace the machine.
+
+Something I have tried myself: tonight, run the AI job you use most, write the seconds and the model's parameter count on a sticky note, and put it on the edge of your screen. Next time you are about to click the cart, look at the note first and write down how many seconds you think the new machine would take. After you buy, measure again. Put the two numbers side by side and you will know exactly what the money bought.

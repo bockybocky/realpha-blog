@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two lines run left to right, one bending upward and slowing, one nearly flat, crossing in the middle.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="480" y="54" text-anchor="middle" font-size="27" fill="var(--ink)">When the GPU is busy, who is unaffected</text>
+
+<line x1="150" y1="130" x2="150" y2="410" stroke="var(--line)" stroke-width="2"/>
+<text x="150" y="118" text-anchor="middle" font-size="15" fill="var(--dim)">Slow</text>
+<text x="150" y="432" text-anchor="middle" font-size="15" fill="var(--dim)">Fast</text>
+
+<line x1="250" y1="130" x2="250" y2="410" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 5"/>
+<line x1="700" y1="130" x2="700" y2="410" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 5"/>
+
+<line x1="250" y1="340" x2="700" y2="196" stroke="var(--warn)" stroke-width="4"/>
+<line x1="250" y1="288" x2="700" y2="278" stroke="var(--accent)" stroke-width="4"/>
+<circle cx="250" cy="340" r="7" fill="var(--warn)"/>
+<circle cx="700" cy="196" r="7" fill="var(--warn)"/>
+<circle cx="250" cy="288" r="7" fill="var(--accent)"/>
+<circle cx="700" cy="278" r="7" fill="var(--accent)"/>
+
+<text x="718" y="192" font-size="16" fill="var(--warn)">GPU setup</text>
+<text x="718" y="284" font-size="16" fill="var(--accent)">ANE setup</text>
+
+<text x="250" y="462" text-anchor="middle" font-size="19" fill="var(--ink)">GPU idle</text>
+<text x="700" y="462" text-anchor="middle" font-size="19" fill="var(--ink)">GPU busy elsewhere</text>
+
+<text x="480" y="512" text-anchor="middle" font-size="22" fill="var(--ink)">One road jams, the other has its own lane</text>
+</svg>

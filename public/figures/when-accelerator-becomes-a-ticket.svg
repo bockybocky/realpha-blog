@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩條曲線隨模型變大而上升，陡的那條越過平緩那條，交叉處標為門檻">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="480" y="54" text-anchor="middle" font-size="27" fill="var(--ink)">加分，還是門票</text>
+
+<line x1="120" y1="130" x2="120" y2="440" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-width="2"/>
+<text x="120" y="118" text-anchor="middle" font-size="15" fill="var(--dim)">耗時</text>
+
+<path d="M150,425 C 330,420 420,400 470,376 S 700,205 820,162" fill="none" stroke="var(--grey)" stroke-width="4"/>
+<path d="M150,408 C 400,390 620,358 820,338" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text x="832" y="158" font-size="16" fill="var(--dim)">CPU</text>
+<text x="832" y="334" font-size="16" fill="var(--accent)">ANE</text>
+
+<line x1="462" y1="180" x2="462" y2="440" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="462" y="166" text-anchor="middle" font-size="20" fill="var(--warn)">門檻</text>
+
+<text x="200" y="250" font-size="16" fill="var(--dim)">小模型：CPU 就夠</text>
+<text x="600" y="415" font-size="16" fill="var(--dim)">大模型：非它不可</text>
+
+<text x="480" y="490" text-anchor="middle" font-size="22" fill="var(--ink)">模型越大　→</text>
+<text x="480" y="528" text-anchor="middle" font-size="22" fill="var(--ink)">先問模型多大，再問要不要換機</text>
+</svg>
