@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Forecasts, commitments and physical quantities sit along a diagonal, with harder information lagging more.">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:19px; font-weight:600; fill:var(--dim); }
+.b { font-size:16px; fill:var(--ink); }
+.s { font-size:15px; fill:var(--dim); }
+.c { font-size:22px; font-weight:600; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="66">The harder the information, the later it arrives</text>
+
+<line x1="140" y1="120" x2="140" y2="460" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="460" x2="890" y2="460" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="152" y="136">Immediate</text>
+<text class="s" x="152" y="452">Lagging</text>
+<text class="s" x="160" y="492">Soft</text>
+<text class="s" x="856" y="492">Hard</text>
+<path d="M878 460 l-12 -6 l0 12 z" fill="var(--line)"/>
+
+<path d="M300 175 L510 300 L700 400" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6" fill="none"/>
+
+<circle cx="300" cy="175" r="13" fill="var(--card)" stroke="var(--dim)" stroke-width="3"/>
+<text class="g" x="330" y="170">Forecasts</text>
+<text class="s" x="330" y="194">Guidance・price targets</text>
+
+<circle cx="510" cy="300" r="13" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="g" x="540" y="295">Commitments</text>
+<text class="s" x="540" y="319">Long-term deals・orders</text>
+
+<circle cx="700" cy="400" r="13" fill="var(--accent)"/>
+<text class="g" x="730" y="395">Physical volume</text>
+<text class="s" x="730" y="419">Customs・revenue</text>
+
+<text class="c" x="60" y="530">Build on the hardest, treat the softest as a thermometer</text>
+</svg>

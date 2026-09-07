@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="A timeline showing the filing published more than two months after the holdings date, with a liquidation already reported in between.">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:19px; font-weight:600; fill:var(--dim); }
+.b { font-size:16px; fill:var(--ink); }
+.s { font-size:15px; fill:var(--dim); }
+.c { font-size:22px; font-weight:600; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="66">Hard information can still be old information</text>
+
+<line x1="180" y1="160" x2="660" y2="160" stroke="var(--warn)" stroke-width="2"/>
+<line x1="180" y1="160" x2="180" y2="176" stroke="var(--warn)" stroke-width="2"/>
+<line x1="660" y1="160" x2="660" y2="176" stroke="var(--warn)" stroke-width="2"/>
+<text class="g" x="330" y="146" fill="var(--warn)">A gap of more than two months</text>
+
+<line x1="120" y1="300" x2="890" y2="300" stroke="var(--line)" stroke-width="2"/>
+<path d="M900 300 l-14 -7 l0 14 z" fill="var(--line)"/>
+
+<circle cx="180" cy="300" r="9" fill="var(--accent)"/>
+<text class="g" x="150" y="248">End of June</text>
+<text class="s" x="132" y="272">The holdings position</text>
+
+<circle cx="420" cy="300" r="9" fill="var(--warn)"/>
+<text class="g" x="396" y="352">July</text>
+<text class="s" x="360" y="376">Liquidation already reported</text>
+
+<circle cx="660" cy="300" r="9" fill="var(--accent)"/>
+<text class="g" x="628" y="248">Mid-August</text>
+<text class="s" x="604" y="272">The filing appears</text>
+
+<circle cx="850" cy="300" r="9" fill="var(--ink)"/>
+<text class="g" x="790" y="352">You read it</text>
+
+<text class="c" x="60" y="450">It tells you his thinking, not your next move</text>
+</svg>
