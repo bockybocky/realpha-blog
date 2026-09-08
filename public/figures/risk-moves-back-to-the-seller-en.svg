@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The risk dots all sat on the buyer's side before, and some of them have now moved to the seller's side.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--ink); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<defs>
+  <marker id="f5g" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+    <path d="M0 0 L10 4 L0 8 Z" fill="var(--grey)"/>
+  </marker>
+</defs>
+<text class="t" x="60" y="58">Some of the risk moved back</text>
+
+<rect x="60" y="110" width="390" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="86" y="152">Before</text>
+<rect x="90" y="196" width="140" height="66" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="160" y="235" text-anchor="middle">NVIDIA</text>
+<rect x="280" y="196" width="140" height="66" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="350" y="235" text-anchor="middle">Customers</text>
+<line x1="234" y1="229" x2="272" y2="229" stroke="var(--grey)" stroke-width="2.5" marker-end="url(#f5g)"/>
+<circle cx="292" cy="320" r="12" fill="var(--warn)"/>
+<circle cx="321" cy="320" r="12" fill="var(--warn)"/>
+<circle cx="350" cy="320" r="12" fill="var(--warn)"/>
+<circle cx="379" cy="320" r="12" fill="var(--warn)"/>
+<circle cx="408" cy="320" r="12" fill="var(--warn)"/>
+<text class="b" x="350" y="372" text-anchor="middle">All risk on the buyer</text>
+<text class="b" x="160" y="372" text-anchor="middle">Income statement</text>
+
+<rect x="510" y="110" width="390" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="536" y="152">Now</text>
+<rect x="540" y="196" width="140" height="66" rx="10" fill="var(--page)" stroke="var(--warn)" stroke-width="2"/>
+<text class="s" x="610" y="235" text-anchor="middle">NVIDIA</text>
+<rect x="730" y="196" width="140" height="66" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="800" y="235" text-anchor="middle">Customers</text>
+<line x1="684" y1="229" x2="722" y2="229" stroke="var(--grey)" stroke-width="2.5" marker-end="url(#f5g)"/>
+<circle cx="581" cy="320" r="12" fill="var(--warn)"/>
+<circle cx="610" cy="320" r="12" fill="var(--warn)"/>
+<circle cx="757" cy="320" r="12" fill="var(--warn)"/>
+<circle cx="786" cy="320" r="12" fill="var(--warn)"/>
+<circle cx="815" cy="320" r="12" fill="var(--warn)"/>
+<text class="b" x="610" y="372" text-anchor="middle">Balance sheet</text>
+<text class="b" x="800" y="372" text-anchor="middle">The rest on the buyer</text>
+
+<text class="c" x="480" y="500" text-anchor="middle">That day the market watched the balance sheet</text>
+</svg>

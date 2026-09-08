@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Money leaves NVIDIA for its customers, and the customers pay that same money back to buy chips, closing the loop.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--ink); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<defs>
+  <marker id="f1a" markerWidth="11" markerHeight="9" refX="10" refY="4.5" orient="auto">
+    <path d="M0 0 L11 4.5 L0 9 Z" fill="var(--accent)"/>
+  </marker>
+  <marker id="f1g" markerWidth="11" markerHeight="9" refX="10" refY="4.5" orient="auto">
+    <path d="M0 0 L11 4.5 L0 9 Z" fill="var(--grey)"/>
+  </marker>
+</defs>
+<text class="t" x="60" y="58">The money goes around and comes back</text>
+<text class="b" x="60" y="90">NVIDIA's 2026 deals, seen side by side</text>
+
+<rect x="118" y="196" width="72" height="32" rx="16" fill="var(--card)" stroke="var(--line)"/>
+<text class="s" x="154" y="218" text-anchor="middle">Supplier</text>
+<rect x="198" y="196" width="72" height="32" rx="16" fill="var(--card)" stroke="var(--line)"/>
+<text class="s" x="234" y="218" text-anchor="middle">Shareholder</text>
+<rect x="278" y="196" width="72" height="32" rx="16" fill="var(--card)" stroke="var(--line)"/>
+<text class="s" x="314" y="218" text-anchor="middle">Guarantor</text>
+
+<rect x="120" y="250" width="230" height="110" rx="14" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="235" y="298" text-anchor="middle">NVIDIA</text>
+<text class="b" x="235" y="328" text-anchor="middle">The chip seller</text>
+
+<rect x="610" y="250" width="230" height="110" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="725" y="298" text-anchor="middle">Customers</text>
+<text class="b" x="725" y="328" text-anchor="middle">Clouds &amp; OpenAI</text>
+
+<path d="M350 288 C 430 205, 530 205, 604 288" fill="none" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#f1a)"/>
+<text class="s" x="480" y="196" text-anchor="middle" fill="var(--accent)">Guarantees, equity, floor revenue</text>
+
+<path d="M610 322 C 530 405, 430 405, 356 322" fill="none" stroke="var(--grey)" stroke-width="2.5" marker-end="url(#f1g)"/>
+<text class="s" x="480" y="432" text-anchor="middle">Money to buy chips</text>
+
+<text class="c" x="480" y="516" text-anchor="middle">One company on both sides of the trade</text>
+</svg>

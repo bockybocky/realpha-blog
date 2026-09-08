@@ -1,0 +1,102 @@
+---
+title: "Record Earnings, and a Rumor About a Guarantee Knocks It Down 4.5%: NVIDIA's Three Hats, and the Half Last Week's Gooaye Post Left Out"
+description: "Kelly Tsai's September 4 video lines up NVIDIA's guarantees, financing platform, and convertible purchase this year and argues it is now supplier, shareholder, and guarantor at once. I set that against last week's Gooaye post, which said the MediaTek deal is not circular, ran the numbers from SEC cash-flow filings, and propose a sharper test: can the party receiving the money borrow on its own? Educational notes and method, not investment advice."
+slug: "kelly-2026-09-04-nvidia-three-hats-bank"
+lang: "en"
+pubDate: 2026-09-08
+category: "investing"
+tags: ["Kelly Tsai", "NVIDIA", "MediaTek", "circular financing", "guarantees", "AI supply chain", "education"]
+ogImage: "/covers/kelly-2026-09-04-nvidia-three-hats-bank-cover.png"
+cover: "/covers/kelly-2026-09-04-nvidia-three-hats-bank-cover.png"
+tldr: "NVIDIA earned 96.2 billion dollars in one quarter, then used the money to guarantee a customer's lease, assemble a financing pool, and buy a convertible bond. Gooaye says the MediaTek deal is not circular; Kelly says the demand numbers are no longer independent. Both are right, because they are talking about different deals. The test: can the party receiving the money borrow on its own? MediaTek can, so that is an investment. OpenAI cannot, and that is what a bank does. The guarantee cap is about eighty percent of NVIDIA's operating cash flow over the past year."
+---
+
+![Baroque oil painting cover: a merchant's counting house at night, one merchant seated at a long table with three hats stacked on his head, one hand pushing a sack of gold coins toward a buyer, the other hand receiving a chest of the same coins back, a ledger open between them, a large bronze key on the wall, a single candle cutting the scene with light and shadow](/covers/kelly-2026-09-04-nvidia-three-hats-bank-cover.png)
+
+> *The cheek and the jaw depend on each other; when the lips are gone, the teeth feel the cold.*<br/>
+> —— Zuo Zhuan, Fifth Year of Duke Xi (Spring and Autumn period, circa 655 BC; translation mine)
+
+When I wrote about last week's Gooaye episode, I broke MediaTek's convertible bond down into an option and noted the host's verdict: not circular, because MediaTek makes money on its own. Then I watched [Kelly Tsai's video from September 4](https://youtu.be/OWFpCOkj0e8). She pulls the camera back. Instead of one MediaTek deal, she lines up everything NVIDIA has done this year, and the picture changes.
+
+## A company that is not short of cash, and where the cash went
+
+On August 26 NVIDIA reported quarterly revenue of 96.2 billion dollars, up 106 percent from a year earlier, with a 75 percent gross margin (fiscal 2027 second quarter, ended July 26, 2026; I checked the revenue figure against the SEC filing). A company this flush would normally pay dividends or buy back stock. It did neither. It put the money into things that do not look like selling chips:
+
+| When | What | Amount |
+|---|---|---|
+| July | Offered a "minimum revenue guarantee" to smaller cloud providers with weak credit, so they could borrow from banks to buy cards; NVIDIA takes half of any rent above the floor | About 36 billion dollars; paused August 27 |
+| August 10 | Formed a compute financing platform with six financial institutions: one bank to issue debt, five asset managers bringing insurance and pension money that can stay parked for years | Over 500 billion dollars of third-party capital mobilized |
+| August 31 | Bought MediaTek's convertible bond, tied to NVLink Fusion, so MediaTek's custom chips can plug into NVIDIA's interconnect | 3.5 billion dollars |
+| SEC filing | Residual value guarantee on a 20-year lease between SB Energy and OpenAI, effective from 2028, triggered if OpenAI cannot pay rent | Cumulative payment obligation capped at 105 billion dollars |
+
+Apart from the earnings figures, everything in the table is public information as relayed in Kelly's video (September 4, 2026).
+
+## Three hats
+
+Kelly's frame is identity. NVIDIA is now supplier, shareholder, and guarantor at the same time, and in some arrangements the buyer of last resort as well. Those roles do not usually sit inside one company. Once they are tied together, the demand numbers the company reports stop being independent numbers.
+
+![A circular diagram: money flows from NVIDIA on the left along the upper arc to the customers on the right, and the customers send that same money back along the lower arc to NVIDIA as payment for chips, with three labels above NVIDIA reading supplier, shareholder, and guarantor.](/figures/nvidia-three-hats-money-loop-en.svg)
+
+She uses Cisco in 2000 as the comparison. Cisco lent money directly to customers to buy Cisco equipment; NVIDIA mostly takes equity stakes and writes guarantees, so the shape of the risk differs. But two things, in her view, are not up for debate. First, purchase and supply obligations in the 10-K jumped from 16.1 billion to 95.2 billion dollars in a year. That is what NVIDIA has promised to buy from its own suppliers; if AI demand cools, it becomes NVIDIA's inventory (Michael Burry pointed this out on earnings day, August 26, 2026). Second, AI servers are useful for about two to three years while the books depreciate them over five. Hardware ages, and that argument cuts against NVIDIA however you frame it.
+
+## Why it had to
+
+The answer is in the other wall she describes. NVIDIA's deepest moat is CUDA: for over a decade the world's AI code has been written to its spec, so switching cards means rewriting. This year that wall loosened on the inference side. In February Meta signed a multi-year deal worth billions with Google Cloud to run Llama 4 and its internal recommendation systems on TPUs. Moving from CUDA to TPU means rewriting sixty to eighty percent of the optimized code, at an engineering cost of roughly two to five million dollars per large model. That is an astronomical number for most companies. It is not for Meta. Training is still bolted to CUDA, but inference now has a layer in the middle, vLLM, that wraps the hardware differences: swap the card underneath and the code on top stays put. And inference is the fastest-growing slice of compute demand in recent years.
+
+![Two stacks side by side: the training stack on the left runs straight down through model code, CUDA, and NVIDIA GPU; the inference stack on the right adds a vLLM layer in the middle and splits at the bottom into two boxes, NVIDIA GPU and TPU.](/figures/cuda-wall-training-vs-inference-en.svg)
+
+NVIDIA still holds 81 percent of the data-center AI chip market (an industry estimate Kelly cites, September 4, 2026), so none of this dents revenue in the short run. What it dents is pricing power. The moment a customer has a second option, NVIDIA has one less card at the negotiating table.
+
+So the hats are one story from several angles. The moat is shifting from "your code cannot leave me" to "your capital and your racks cannot leave me." The rack half runs on NVLink Fusion. The capital half runs on guarantees and the financing platform.
+
+## Last week's post and this one: which is right
+
+In [my September 2 post](/en/blog/gooaye-2026-09-02-ep693/), Gooaye's test was corporate health: MediaTek is profitable and financially sound, so the 3.5 billion is not "a seller funding its customer to buy its own products." Kelly's test is stacked roles: whatever the health of any single deal, once one company is seller, shareholder, and guarantor at once, the demand numbers lose their independence.
+
+I sat with this for two days and concluded both are right, because they are not talking about the same money. The test can be sharper: look at the party receiving the money, and ask whether it could borrow on its own.
+
+![One question node branches to the right into two paths: the upper path, labeled can borrow, leads to a box marked investment, and the lower path, labeled cannot borrow, leads to a box marked bank, with each box carrying an example and an amount.](/figures/who-takes-the-money-can-they-borrow-en.svg)
+
+- MediaTek can. It does not need NVIDIA's money to survive. NVIDIA paid a premium for a zero-coupon bond and bought an option plus the right to lay its highway into more customers' data centers. That is an investment, not a loop.
+- OpenAI cannot, at least not at ordinary rates. Kelly puts it plainly: the demand is real, but the ability to pay has not caught up, and if no one fills that gap, the cards cannot be sold even if they can be built. The 105 billion dollar guarantee is credit backing for a customer that cannot yet borrow, until it can. One of the contract's termination conditions is exactly that: OpenAI obtaining a satisfactory credit rating. That is what a bank does.
+
+So the question is not "is NVIDIA doing circular financing," it is "which deal." When Jensen Huang says this is absolutely not circular financing, he means the MediaTek deal, and I agree. When Kelly says the demand numbers are no longer independent, she means the OpenAI deal, and I agree with that too.
+
+## Putting my own numbers next to hers
+
+I pulled NVIDIA's operating cash flow from its SEC filings and checked it once (10-Q and 10-K, the four quarters ended July 26, 2026):
+
+| Item | Billions of dollars |
+|---|---|
+| Operating cash flow, past four quarters | 134.3 |
+| Residual value guarantee cap on the OpenAI lease | 105.0 |
+| Purchase and supply obligations to suppliers | 95.2 |
+| Most recent quarterly revenue | 96.2 |
+
+The guarantee cap is about eighty percent of a year's operating cash flow, and the purchase obligations roughly equal one quarter of revenue. Both are obligations that have not yet come due, both sit on the same balance sheet, one backstopping a customer and one committing to suppliers. On this cash flow, every one of these numbers is payable today. The issue was never whether it can pay. The issue is that every trigger points at the same condition: AI demand must not cool.
+
+![Four horizontal bars sorted from longest to shortest: operating cash flow sits at the top as the longest, residual value guarantees and purchase obligations are marked in a warning color at roughly eighty and seventy percent of that cash flow, and one quarter of revenue sits at the bottom.](/figures/nvidia-four-numbers-side-by-side-en.svg)
+
+That connects to my own research notes on NVIDIA. They already carry a failure condition: if hyperscaler capital spending growth drops below 20 percent, the "PEG of about 1" anchor holding up the valuation turns into a double-edged sword. The guarantees raise the price of that failure condition. Before, a cooling in demand meant less revenue. Now it also means a shortfall to make up on a customer's behalf.
+
+![Two columns compared: the before column has a single block, lost revenue; the now column stacks three blocks, from bottom to top lost revenue, shortfall covered for the customer, and inventory absorbed, and stands much taller.](/figures/cost-of-a-slowdown-then-and-now-en.svg)
+
+## "The earnings were that good, so why did a rumor knock it down 4.5%"
+
+In July the market heard that NVIDIA's total guarantees to OpenAI might exceed not 105 billion but 250 billion dollars. Only a rumor, but that day the stock fell about 4.5 percent intraday and the credit default swaps on its bonds posted the largest one-day jump since they began trading actively (as relayed by Kelly, September 4, 2026). A CDS is the premium the market pays to insure a company's debt; a rising premium means the market thinks the company got riskier.
+
+My read is that the market that day was not looking at the income statement. It was looking at the balance sheet. NVIDIA used to sell cards, and buyers carried the risk. Now it sells the specification and the financing of an entire data center, and keeps part of the risk. No income statement, however beautiful, explains the share price of a guarantor.
+
+![Two panels side by side: in the before panel every risk dot sits below the customer box, while in the now panel two of the dots have moved under the NVIDIA box.](/figures/risk-moves-back-to-the-seller-en.svg)
+
+Kelly offers three signals, and I have copied them into my own checklist:
+
+1. How fast inference migration costs fall. Every step forward for vLLM and Torch TPU takes a little pricing power away, and makes it harder for a repossessed batch of used cards to find its next tenant. "The cards can always be re-leased" is the collateral assumption, and it gets discounted.
+2. Who the second and third companies to plug into NVLink Fusion are. If nobody follows MediaTek, that highway is a toll road, not a standard.
+3. Guarantees and investments as a share of cash flow, and the CDS on NVIDIA's bonds.
+
+## One thing to take with you
+
+To tell whether an "investment in a customer" is money moving from one hand to the other, first ask whether the party receiving it could borrow on its own.
+
+Something I have tried myself: tonight, find the company in your portfolio that most recently made news for investing in or guaranteeing a customer. Write down the name of the party that received the money, and next to it whether that party has an investment-grade credit rating. Circle the ones that could borrow, cross out the ones that could not. When the next earnings report comes out, copy the company's guarantee obligations and purchase obligations onto the same sheet and compare them with last quarter. Bigger or smaller shows at a glance.
