@@ -8,6 +8,7 @@ src/content/blog/<slug>.en.mdx，不另抄一份。介面仿 vocus_publish_mdx.p
     python substack_publish_mdx.py draft   <slug> [<slug>...]   # 建／更新草稿（不公開）
     python substack_publish_mdx.py publish <slug> [<slug>...]   # 公開（只在 Charles 說「發」之後呼叫）
     python substack_publish_mdx.py check   <slug>               # 讀回線上草稿，印驗證行
+    python substack_publish_mdx.py cover   <slug>...            # 補封面（讀 frontmatter cover，上傳後更新發布）
     python substack_publish_mdx.py unwall  <slug>... | @清單檔  # 拆掉線上稿的付費牆並開放給所有人（不重傳圖）
     python substack_publish_mdx.py backfill <slug>... | @清單檔  # 回填舊文：建草稿→日期設回 pubDate→發布不寄信；已發過跳過
 
@@ -324,8 +325,15 @@ def paywall_k_for(fm, slug, body):
     return find_paywall_k(slug, body)
 
 
-def find_cover(slug):
+def find_cover(slug, fm=None):
     covers = os.path.join(ROOT, 'public', 'covers')
+    # 2026-09-09：先信 frontmatter 的 cover／ogImage（早期九篇短名封面靠猜檔名全漏，Substack 版無封面）
+    for key in ('cover', 'ogImage'):
+        v = str((fm or {}).get(key, '')).strip()
+        if v.startswith('/'):
+            p = os.path.join(ROOT, 'public', v.lstrip('/').replace('/', os.sep))
+            if os.path.isfile(p):
+                return p
     names = [slug + '-cover.png', slug + '.png']
     if slug in COVERS:
         names.append(COVERS[slug])
@@ -532,7 +540,7 @@ def build_post(api, slug):
     inserted = fill_post(post, body, k, upload_image=make_uploader(api))
     if fm.get('category') == 'investing':
         post.paragraph([{'content': DISCLAIMER, 'marks': [{'type': 'em'}]}])
-    cover_path = find_cover(slug)
+    cover_path = find_cover(slug, fm)
     cover_url = None
     if cover_path:
         img = api_try(api.get_image, cover_path)
@@ -744,6 +752,44 @@ def cmd_unwall(api, slugs):
     return rc
 
 
+def cmd_cover(api, slugs):
+    """補封面（2026-09-09）：讀 frontmatter 封面 → 上傳 → put_draft(cover_image) → 更新發布 → 讀回驗。"""
+    ids = load_ids()
+    rc = 0
+    for slug in slugs:
+        rec = ids.get(slug) or {}
+        draft_id = rec.get('draft_id')
+        if not draft_id:
+            print('❌ 台帳沒有 %s 的 draft_id' % slug)
+            rc = 1
+            continue
+        try:
+            fm, _, _, _ = load_article(slug)
+            path = find_cover(slug, fm)
+            if not path:
+                print('❌ 找不到封面檔：%s' % slug)
+                rc = 1
+                continue
+            img = api_try(api.get_image, path)
+            url = img.get('url') if isinstance(img, dict) else None
+            if not url:
+                print('❌ 上傳沒回 url：%s' % slug)
+                rc = 1
+                continue
+            api_try(api.put_draft, draft_id, cover_image=url)
+            api_try(api.prepublish_draft, draft_id)
+            api_try(api.publish_draft, draft_id, send=False)
+            info = inspect_draft(api_try(api.get_draft, draft_id))
+            print(('✅' if info['cover'] else '❌') + ' 封面 %s：%s（%s）' % ('已掛' if info['cover'] else '讀回仍無', slug, os.path.basename(path)))
+            if not info['cover']:
+                rc = 1
+        except (SystemExit, Exception) as e:
+            print('❌ %s：%s' % (slug, e))
+            rc = 1
+        time.sleep(5)
+    return rc
+
+
 if __name__ == '__main__':
     if hasattr(sys.stdout, 'reconfigure'):
         try:
@@ -753,8 +799,8 @@ if __name__ == '__main__':
     if len(sys.argv) < 3:
         raise SystemExit(__doc__)
     mode, slugs = sys.argv[1], sys.argv[2:]
-    if mode not in ('draft', 'publish', 'check', 'backfill', 'unwall'):
-        raise SystemExit('mode 只能是 draft / publish / check / backfill / unwall')
+    if mode not in ('draft', 'publish', 'check', 'backfill', 'unwall', 'cover'):
+        raise SystemExit('mode 只能是 draft / publish / check / backfill / unwall / cover')
     if len(slugs) == 1 and slugs[0].startswith('@'):   # @清單檔：一行一個 slug
         slugs = [l.strip() for l in open(slugs[0][1:], encoding='utf-8') if l.strip()]
     api = make_api()
@@ -766,4 +812,6 @@ if __name__ == '__main__':
         sys.exit(cmd_backfill(api, slugs))
     if mode == 'unwall':
         sys.exit(cmd_unwall(api, slugs))
+    if mode == 'cover':
+        sys.exit(cmd_cover(api, slugs))
     sys.exit(cmd_check(api, slugs))
