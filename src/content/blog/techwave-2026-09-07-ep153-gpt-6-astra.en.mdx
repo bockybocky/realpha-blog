@@ -1,0 +1,84 @@
+---
+title: "GPT-6 Astra Is Absurdly Good (Most of the Time): When Tools Catch Up to Your Hands"
+description: "Notes after listening to Tech Wave EP153. On 3D modeling, computer use, and security benchmarks — how far this generation jumped, where it didn't, and what's left once skills and prompts get absorbed into the model. Educational, not investment advice."
+slug: "techwave-2026-09-07-ep153-gpt-6-astra"
+lang: "en"
+pubDate: 2026-09-08
+category: "investing"
+tags: ["AI", "OpenAI", "TechWave", "Productivity", "Tech Trends"]
+ogImage: "/covers/techwave-2026-09-07-ep153-gpt-6-astra-cover.png"
+cover: "/covers/techwave-2026-09-07-ep153-gpt-6-astra-cover.png"
+---
+
+![A craftsman's night workshop: a hand-drawn sketch and a small silver cube computer on the bench, a vast miniature city model glowing under warm lights deep in the background](/covers/techwave-2026-09-07-ep153-gpt-6-astra-cover.png)
+
+> Therefore, in painting bamboo, one must first have the finished bamboo complete within the breast. Brush in hand, gaze fixed, you see what you mean to paint; then rush after it, brush flying straight, chasing what you saw — like a hare bolting, a falcon dropping. Hesitate, and it is gone.
+>
+> — Su Shi, *On Wen Tong's Painting of Bamboo in Yundang Valley* (Northern Song, 1079; my own translation)
+
+Su Shi was writing about bamboo: technique doesn't decide whether the painting works — what decides it is whether the bamboo already exists in your head before the brush touches paper. That line kept circling in my head after listening to Tech Wave's EP153 from September 7, 2026, because this generation of models just moved "technique" a very long way forward.
+
+## What the episode covers
+
+Harry spends the whole episode on OpenAI's newly released GPT-6 Astra — the model that broke into Hugging Face on its own and prompted OpenAI to pause frontier training for two weeks. He tested it hands-on for two days, praises what deserves praise, and says plainly where he saw no progress. The last half turns to a question I find worth more than any benchmark: once the model figures out its own steps, what are your skills, prompt templates, and workflow courses still worth?
+
+## Key points
+
+**1. OpenAI admitted it stumbled on pre-training, and this generation fixed it.** Since GPT-4.5, OpenAI hadn't scaled up again — it leaned on post-training to make a smaller model punch at the weight of much larger ones. Harry's metaphor made me laugh: fighting iron swords with a wooden one, so you polish your swordsmanship to a razor edge. Astra is the iron sword finally forged. The industry rumor puts it at a hundred thousand GPUs, several months, a billion dollars of pre-training — and that figure excludes post-training.
+
+**2. 3D modeling is the biggest jump, and it costs less than you'd guess.** He photographed a DGX Spark from six angles, said "rebuild this exactly in Blender," and sixteen minutes later had a model that looks like a photograph from any angle. He suspected it had grabbed existing assets — until he read the execution log: it decomposed the parts, planned the materials, drove Blender with Python, then opened the interface to compare against his photos and went back to fix the metallic sheen. The whole thing burned one to two percent of his weekly quota on a $200 plan. The previous generation rendered that foam-metal surface as sofa leather.
+
+**3. Computer use is the underrated capability.** He pointed it at his own learning platform, launched weeks ago and impossible for the model to have seen in training. Four minutes to play through an entire unit, clicking everything clickable, then poking the things that weren't — and reporting back that a dead button everyone would instinctively click shouldn't be dead. Elsewhere someone had it play a recognizable tune on a web piano, one key click at a time.
+
+**4. This may loosen the enterprise bottleneck.** Big-company reality is data scattered across five systems: check one thing and you're hopping between Salesforce, the invoicing backend, the support desk, and the ticket tracker. The ideal fix is every system exposing a clean interface for AI. Bank internal systems won't get there in five years. Harry's read: until then, a model that operates interfaces directly is the bridge — use the connector where one exists, click through the screen where it doesn't.
+
+**5. He names the places it didn't move.** The slide deck it produced was uglier than the previous generation's. Given free rein on interface design, its taste loses to the competition. But hand it an explicit reference and the style transfer is clean. That gap is itself information: it excels at *executing to a defined target*, not at *deciding what the target should be*.
+
+**6. On general reasoning, ask who measured.** ARC-AGI-3 drops a model into small games with no rulebook and watches whether it works out the rules. On OpenAI's own harness, Astra scores 99.9. On the official standard harness, 62. The standard harness wipes the reasoning context between levels — amnesia every round. Harry finds that unnatural, since humans carry what they learned into the next level. Worth noting though: under that same 62-point yardstick, second place scores 30. Both yardsticks point the same direction, at different magnitudes.
+
+**7. The robotics camps are arguing about it.** A startup that benchmarks robots had it drive an arm to place a block into a cup: 95 out of 100, against 40 for the competing model, using 2.3 times fewer tokens. That result energized the camp betting that scaling language models alone gets you working robots, against the camp betting on world models. An arm is not a humanoid, and that gap is long. But spatial understanding emerging from a language model is genuinely new information.
+
+## Going further
+
+### "Were the skills, prompt templates, and workflow courses I paid for a waste?"
+
+This is the part I most wanted to talk over with a friend. An OpenAI engineer wrote a piece — widely shared since — arguing that after Astra you should audit your skills and prompts, because many don't just burn extra tokens, they drag the model's performance down. Harry's own case: there are piles of skills teaching agents to rebuild 3D objects from photos. He installed none, sent one line of instruction, and the model knew on its own to decompose the object, check the lighting, and go back and adjust. Installing those skills might have forced it down someone else's detour.
+
+There's a line worth drawing here. What you write splits into two kinds. One is **what only you know** — where the data lives, how your company defines "done," what your taste looks like. The other is **instructions on how to do the work** — check this, then compute that, remember to verify. The first can't be deleted; it's context. The second gets absorbed, because it was patching a hole in the model's judgment, and the hole is closing on its own.
+
+I've been caught by this myself: a stack of process documents pinning down every step, and on review after a model upgrade, half of them were teaching the model things it already knew. So my approach now is to start something new with nothing installed, give it the context, let it run, and only patch where it goes wrong. Those few added lines are the part that's actually mine.
+
+Investing has the same shape. Your "procedure" advantages depreciate faster than your assumptions allow. Your context advantages — how long you've known this business, how long your capital can wait, the price at which you stop sleeping — no tool absorbs those.
+
+### "The news says X blows away Y — should I switch tools right now?"
+
+One contrast in this episode is worth more to me than any score.
+
+On one side, the jaw-dropping demos flooding launch day: creators with early access, unlimited free usage for a week, one of them running the model non-stop for seven days to build all of Manhattan. Converted to money, that week's consumption runs into millions of Taiwan dollars. On the other side, Harry on a $200 plan, spending one to two percent of a week's quota, producing that photorealistic little machine.
+
+Same capability, two yardsticks, very different decision value. The first tells you where the ceiling is. Only the second tells you whether *you* can use it. Whenever I see a "blows away the competition" claim now, I ask three things: who measured, how much did the measurement consume, and can I reproduce a small version with what I already have. The two ARC-AGI numbers teach the same lesson — 99.9 and 62 are both honest; they answer different questions.
+
+This transfers straight to reading filings and headlines. Given a piece of good news: who compiled the number, is the basis the same as last quarter, does an independent source point the same way. "The same model scores 37 points apart under two harnesses" and "the same company shows 30% different profit under two accounting treatments" are the same phenomenon.
+
+### "If tools are this strong, does the decade I spent still count?"
+
+Harry raises an image that stopped me. A game in development for fifteen years is about to ship; the team spent a decade hand-sculpting tens of thousands of 3D objects, and now two photos generate one. His read is that the studio isn't in danger — the moat was never the code or the assets. It's character design, balance tuning, the infrastructure serving millions of concurrent players, and a brand nobody can copy.
+
+Translated into investing language: **the execution layer gets absorbed, and value migrates to both ends.** Upward, to deciding what to make — design, taste, understanding the user. Downward, to assets nobody can move — data, distribution, trust, scale. The middle layer, the craft of turning an idea into a finished thing, is repricing fast.
+
+That cut tells you more about a company than "does it use AI." Where does its margin come from? If from the middle layer, every tool improvement trims its profit. If from either end, every tool improvement cuts its costs. The same AI headline means opposite things to those two businesses.
+
+## Worth a look
+
+- Tech Wave EP153, "GPT-6 Astra Is Absurdly Good (Most of the Time)," September 7, 2026 — the source for this piece; two days of hands-on testing, with links in the show notes to the finished projects you can open and play with
+- ARC Prize's ARC-AGI-3 benchmark and its standard harness documentation — worth reading once if you want to understand where "one model, two scores" comes from
+- The OpenAI engineer's piece on rewriting your skills and prompts, which spread widely after this episode mentioned it
+- Anthropic's decision to delete eighty percent of its system prompt on a recent model — independent corroboration of the same argument
+
+## One Thing to Take With You
+
+One idea: **your value is migrating from "how to do it" to "what to make, and how you'll know it's right."** Tools eat the steps. What they can't eat is the bamboo in your head — what the finished thing looks like, and what entitles you to call it finished.
+
+Here's something I tried that you can borrow, and it works outside investing too. This week, pick one thing you're handing to someone else — a colleague, a child, a contractor, a family member. When you write it down, write only two paragraphs. The first: what it looks like when it's done. The second: how I'll judge that it was done right. **Not one word of procedure.** Then hand it over.
+
+The first time I did this I couldn't write the second paragraph. Stuck there, I realized I only knew the process, not what I wanted. The tasks where I could write the acceptance criteria mostly came back better than I expected. The ones where I couldn't meant I hadn't thought it through, and the problem wasn't on the other person's side.
