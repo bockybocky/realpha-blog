@@ -13,7 +13,7 @@ src/content/blog/<slug>.en.mdx，不另抄一份。介面仿 vocus_publish_mdx.p
 from_markdown 處理得了 **粗體**／*斜體*／連結，但 <br/> 會被丟掉、詩引黏成一段，
 所以正文自己拆，用 Post.heading/paragraph/horizontal_rule/add 與 substack.nodes。
 """
-import json, os, re, sys
+import json, os, re, sys, time
 
 from substack.api import Api
 from substack.exceptions import SubstackAPIException, SubstackRequestException
@@ -632,48 +632,65 @@ def cmd_backfill(api, slugs):
         if rec.get('post_id'):
             print('⏭ 已發過，跳過：%s（%s）' % (slug, rec.get('url')))
             continue
-        try:
-            if not rec.get('draft_id'):
-                if cmd_draft(api, [slug]) != 0:
-                    print('❌ 草稿建立有警告，跳過發布：' + slug)
-                    rc = 1
-                    continue
-                rec = load_ids().get(slug) or {}
-            draft_id = rec['draft_id']
-            fm_p, body, _, _ = load_article(slug)
-            k, _ = paywall_k_for(fm_p, slug, body)
-            pub = str(fm_p.get('pubDate', '')).strip().strip('"\'')
-            readback = api_try(api.get_draft, draft_id)
-            info = inspect_draft(readback)
-            if k is not None and info['paywall'] != k:
-                print('❌ paywall 位置不對（讀回 %s，預期 %s），拒絕發布：%s'
-                      % (info['paywall'], k, slug))
-                rc = 1
-                continue
-            api_try(api.prepublish_draft, draft_id)
-            published = api_try(api.publish_draft, draft_id, send=False)
-            post_id = published.get('id') or draft_id
-            # Substack 規定「Post must be published to change post date」→ 發布後才改日期
-            if re.match(r'^\d{4}-\d{2}-\d{2}$', pub):
-                api_try(api.put_draft, draft_id, post_date=pub + 'T00:00:00.000Z')
-            again = api_try(api.get_draft, draft_id)
-            info = inspect_draft(again)
-            ids = load_ids()
-            ids[slug] = {
-                'draft_id': draft_id,
-                'post_id': post_id,
-                'url': info['url'] or published.get('canonical_url') or rec.get('url'),
-                'published_at': (again.get('post_date') or published.get('post_date')
-                                 or rec.get('published_at')),
-                'backfill': True,
-            }
-            save_ids(ids)
-            print_line(slug, info)
-            print('   post_date=%s（預期 %s）' % (again.get('post_date'), pub))
-        except SystemExit as e:
-            print('❌ %s：%s' % (slug, e))
+        for attempt in range(3):
+            if attempt:
+                print('   ⏳ 第 %d 次重試 %s（等 90 秒）' % (attempt + 1, slug))
+                time.sleep(90)
+            ok = _backfill_one(api, slug)
+            if ok:
+                break
+        else:
             rc = 1
+        time.sleep(10)   # 2026-09-08 實測：連發 100 篇後被 429 限流 12 篇、再被切線一次
     return rc
+
+
+def _backfill_one(api, slug):
+    """回填一篇；成功回 True。"""
+    ids = load_ids()
+    rec = ids.get(slug) or {}
+    if rec.get('post_id'):
+        return True
+    try:
+        if not rec.get('draft_id'):
+            if cmd_draft(api, [slug]) != 0:
+                print('❌ 草稿建立有警告，跳過發布：' + slug)
+                return False
+            rec = load_ids().get(slug) or {}
+        draft_id = rec['draft_id']
+        fm_p, body, _, _ = load_article(slug)
+        k, _ = paywall_k_for(fm_p, slug, body)
+        pub = str(fm_p.get('pubDate', '')).strip().strip('"\'')
+        readback = api_try(api.get_draft, draft_id)
+        info = inspect_draft(readback)
+        if k is not None and info['paywall'] != k:
+            print('❌ paywall 位置不對（讀回 %s，預期 %s），拒絕發布：%s'
+                  % (info['paywall'], k, slug))
+            return False
+        api_try(api.prepublish_draft, draft_id)
+        published = api_try(api.publish_draft, draft_id, send=False)
+        post_id = published.get('id') or draft_id
+        # Substack 規定「Post must be published to change post date」→ 發布後才改日期
+        if re.match(r'^\d{4}-\d{2}-\d{2}$', pub):
+            api_try(api.put_draft, draft_id, post_date=pub + 'T00:00:00.000Z')
+        again = api_try(api.get_draft, draft_id)
+        info = inspect_draft(again)
+        ids = load_ids()
+        ids[slug] = {
+            'draft_id': draft_id,
+            'post_id': post_id,
+            'url': info['url'] or published.get('canonical_url') or rec.get('url'),
+            'published_at': (again.get('post_date') or published.get('post_date')
+                             or rec.get('published_at')),
+            'backfill': True,
+        }
+        save_ids(ids)
+        print_line(slug, info)
+        print('   post_date=%s（預期 %s）' % (again.get('post_date'), pub))
+        return True
+    except (SystemExit, Exception) as e:   # 429 限流／連線被切都不能讓整批死掉
+        print('❌ %s：%s' % (slug, e))
+        return False
 
 
 if __name__ == '__main__':
