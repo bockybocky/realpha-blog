@@ -1,0 +1,109 @@
+---
+title: "The Layer You Can't Model: Broadcom's Quarter, Supply-Chain Depth, and Agents Running Loose"
+description: "Notes after listening to The Circuit Ep 191. Custom silicon has turned from a single-winner market into a mix-and-match menu that resists modeling; the bottleneck trade has run its course; and an AI assistant just offered 'skip' as a menu option. Educational, not investment advice."
+slug: "circuit-2026-09-07-ep-191-agents-gone-wild-broadcom-s-asics-and-the-a"
+lang: "en"
+pubDate: 2026-09-08
+category: "investing"
+tags: ["Broadcom", "custom silicon", "supply chain bottleneck", "AI agents", "earnings"]
+tldr: "Broadcom delivered in-line numbers and fell anyway — and the more interesting signal was where management changed its argument. Meanwhile the supply chain's limits are holding this build-out back from excess, and AI assistants are quietly putting 'skip' on the menu."
+ogImage: "/covers/circuit-2026-09-07-ep-191-agents-gone-wild-broadcom-s-asics-and-the-a-cover.png"
+cover: "/covers/circuit-2026-09-07-ep-191-agents-gone-wild-broadcom-s-asics-and-the-a-cover.png"
+---
+
+![A night-time corridor inside a semiconductor plant receding into darkness, an engineer at a glowing control console in the foreground, unfinished scaffolding fading into the far end](/covers/circuit-2026-09-07-ep-191-agents-gone-wild-broadcom-s-asics-and-the-a-cover.png)
+
+> Do not cut the saplings on the mountain, nor fell the young growth in the marsh; spare the fish fry, let the fawns grow.
+>
+> —— *Discourses of the States, Discourses of Lu I* (pre-Qin era; translation mine)
+
+A minister cut his ruler's fishing net and threw it away, on the grounds that you don't drain a pond while the fry are still small. The passage is about limits imposed on purpose. By the end of this episode I noticed the whole conversation was also about limits — except nobody imposed these. The supply chain produced them on its own.
+
+## What the episode covers
+
+The Circuit, episode 191, recorded 2026-09-07. Ben Bajarin and Jay Goldberg start with Broadcom's quarter, move through how the custom silicon market is fragmenting, what the industry is actually constrained by, why Nvidia bought Hugging Face, and end on two moments where their own AI tools unsettled them. The episode title, "Agents Gone Wild," comes from that last stretch.
+
+## The main points
+
+**An in-line quarter, and the stock fell.** Broadcom came in on expectations for both the quarter and the guide, with management pointing to roughly $115B of custom business in fiscal 2027 and $230B in 2028. Both hosts read those as a floor rather than a ceiling — but nobody heard an upside surprise that day, and the stock finished the week down 4%. The numbers weren't wrong. There was simply no gap between them and what was already priced.
+
+![Two bars side by side: the taller left bar is the Street's expectation and the shorter right bar is management's guidance, with the space between the two bar tops marked as the missing piece, showing that the number landed on expectations but left no room above them.](/figures/broadcom-guidance-vs-street-expectation-en.svg)
+
+**Anthropic and OpenAI are set to pass Google as Broadcom's largest ASIC customers.** Google's TPU volume is already enormous, and two customers who came online inside a year are about to go past it. Management used that fact to frame where the business is heading.
+
+**Where they changed the argument carries more information than the numbers.** Two quarters ago Broadcom's management was close to denying that competition existed inside Google. This quarter they named MediaTek, and reframed to "we ship faster, our IP is better." In the same call, gross margin came down and the answer was: don't watch gross margin, watch operating margin. Jay's take was blunt — the argument stands on its own, dollars banked matter more than a percentage — but a metric that was previously wielded as proof of the moat is now something you're asked not to look at. That pivot is the thing to write down.
+
+**Custom silicon has gone from single-winner to a mix-and-match menu.** The old math was clean: whoever won TPUs got credit for the whole program. Now the compute tile may go to one vendor, I/O to another, networking to a third, and a single customer runs three or four programs at once. Jay's prediction is that the coming quarters will produce market-share math adding up past 100%, while every vendor gets more and more precise in its wording. The irony: Broadcom's networking silicon is genuinely excellent — Tomahawk has few peers, and its optical products even fewer — and all of it gets folded into the ASIC line, where outsiders will read it as custom compute.
+
+![A side-by-side comparison: on the left one program connects to a single vendor, while on the right the same program branches to three vendors covering compute, IO and networking, and below a bar runs past a dashed line marked one hundred percent and spills over.](/figures/custom-silicon-single-win-to-mixed-menu-en.svg)
+
+**An industry scales at the speed of its deepest bottleneck.** More memory and more GPUs don't help if substrates, passives, or wafer test capacity run short. Ben called Dell's call his favourite of the week: Michael Dell read out a list of constraints running all the way down to capacitors, which amounts to saying in public that the industry is badly under-built. Ben's read is that 2027 is peak constraint, because the supply chain only got the long-term agreements and the confidence to break ground in late 2025 and early 2026 — and greenfield capacity runs on its own calendar. Relief lands in 2028.
+
+![A pipeline running left to right: the first two segments are wide, the middle three narrow sharply, and the final shipping segment is the same height as the narrowest segment, showing that capacity is set by the tightest link.](/figures/supply-chain-narrowest-segment-en.svg)
+
+**The hosts split here, and that disagreement is the best reasoning in the episode.** Jay deliberately took the other side: if the timeline holds, then 2028 brings a wave of capacity online, and at the same moment that companies celebrate unblocked build-outs, some of them will find their pricing negotiations running the other direction. His example was memory — unit shipments have been flat this year while revenue soared, which means price carried all of it, so what happens when units start rising? He added one number: TSMC currently has twenty fabs under construction. Ben didn't push back, he just noted that going from a 150% supply-demand imbalance to 105% is still a shortage — a less painful one.
+
+![A curve rises and then falls over time, peaking in 2027 before declining, with three moments marked along the timeline: groundbreaking, peak constraint, and new capacity coming online.](/figures/constraint-peak-2027-timeline-en.svg)
+
+**Constraints are a good thing.** The two discuss research covering every past capital-intensive boom — railroads, canals, 3G build-outs — with the same conclusion each time: we collectively overbuild. What differs now is that we want to build more and physically cannot. Jay put it with a shrug: "See, I'm the optimist here. Constraints are good." The same bottlenecks everyone complains about are what's holding this cycle back from excess.
+
+![Two lines start from the same point: units shipped stays nearly flat while revenue climbs steeply, and the gap between them is labeled price increases, with a dashed region showing that pricing is unknown once units start rising.](/figures/memory-units-flat-revenue-surging-en.svg)
+
+**Nvidia is buying Hugging Face for close to $13B.** Jay's read is that the money won't come back as direct economics: Hugging Face's value comes from being open and free, and closing it off to monetise would destroy the thing being bought. It reads more like planting a flag at the centre of the AI software world. Worth noticing: open models winning helps Nvidia's competitors too — AMD needs open models, because they pull the fight back to raw total cost of ownership. On open versus closed, both hosts land in the same place: both will exist five years from now, and the tools we use will route between them so users never have to choose.
+
+**Then the two moments at the end.** Jay had Claude build him a valuation model — something private, never to be published. The model came back and said: I can reach your target valuation, but you're not counting a significant accounting charge that would meaningfully change it; how would you like me to handle it? One option was to skip it. Jay described the jolt: if he were a company, and he clicked skip on a $140M charge, that's fraud, and the option was sitting right there. Ben supplied the other half. The night before, he handed Claude three projects with permissions dangerously set to allow everything and let it run overnight; by 7am his usage was gone. That led him to what enterprises actually need — not smarter agents, but agents that leave a permission record: who changed which file, whether they had authority, and can anyone check afterwards. Today, he says, agents are running wild inside enterprises, and governed production is barely scratched.
+
+## Going further
+
+### "The results were good — so why did the stock drop?"
+
+Probably the wall retail investors hit most often. You read the headline, revenue up, guidance raised, and the stock goes down, so you assume somebody is lying to you.
+
+This episode lays the answer out. Broadcom's numbers were fine; the problem is that the market already carried a number. The buy-side figure circulating for fiscal 2027 custom revenue was around $150B, and management said $115B. Most people read $115B as a floor with room above it — but "room above it" and "delivered a surprise today" are different events. Price moves on the change in expectations, not on the level of the result.
+
+Here's what I do: before a report lands, I write down what I think it should look like. The point isn't accuracy. The point is being forced to admit that I had already priced the good news. An expectation you never wrote down will disguise itself afterwards as objective judgment — you'll conclude the market is irrational rather than that your own number was high.
+
+One layer further: if a company can only deliver "in line" several quarters running, what's moving is the baseline, not the business. The baseline climbs each quarter until one quarter it can't.
+
+![A staircase stepping up each quarter represents the expectation baseline while a gentler line represents actual operations, and in the final quarter the two pull apart into a gap labeled can't climb it.](/figures/expectation-baseline-ratchet-en.svg)
+
+### "How much should I trust what management says?"
+
+I used to read earnings transcripts for what management said. After this episode I think that's the wrong use. A single quarter's language carries little — companies always pick the flattering angle. What carries information is what changed relative to last quarter.
+
+The episode hands you two worked examples. Competition inside Google denied two quarters ago, MediaTek acknowledged now. Gross margin as proof of the moat for years, then "look at operating margin instead." Taken alone, each statement holds up. Placed on a timeline, the direction appears: he swapped weapons because the old one stopped working.
+
+![Two lines side by side, gross margin declining and operating margin flat, with a marker representing what management cites jumping from the declining line to the flat one.](/figures/management-swapped-its-evidence-en.svg)
+
+I've tried turning that into something usable. Read any transcript and note which metric management uses as evidence. Next quarter, check one thing only — whether they still reach for that same metric. If they do, that part hasn't broken. If they reach for something else, that swap is the quarter's most important information, and it will never appear in a headline.
+
+This travels well outside earnings. Partners, managers, anyone trying to convince you: watch the evidence they drop, not the evidence they add.
+
+### "If I can't model it, should I stay away?"
+
+One stretch here made me stop. Jay's point is that custom silicon is getting harder to model because compute, I/O and networking split across vendors while every company words things more carefully — ending in share estimates that sum past 100%. His phrasing: people are going to get this wrong, and it will all get confused.
+
+My old habit when something resisted modeling was to build a finer model. This episode suggested another possibility: when the category boundaries break, precision is fake. You compute two decimal places on top of a premise — which column does this revenue belong in — that nobody can pin down. Broadcom's networking silicon gets read as ASIC revenue by outsiders. That isn't a calculation error. Those things are reported on the same line.
+
+So what instead. The alternative the episode offers is bottleneck thinking: stop measuring how wide the widest layer is, and find the narrowest one. You can't model Broadcom's 2028 custom revenue, but you can ask what the industry is jammed on — and that answer is coarse yet far more stable. Substrates, test capacity, capacitors. Those don't move because somebody rephrased a sentence.
+
+Push once more and it explains why Ben thinks the bottleneck trade is done. The first half of the year paid you for finding who had capacity and who could raise price. Once every rock has been turned over, the information gap is gone, and what's left is looking at companies one at a time — the part most people would rather not do.
+
+## Worth reading alongside
+
+- The Circuit (Ben Bajarin, Jay Goldberg), Ep 191, 2026-09-07
+- Broadcom's earnings call transcript, available from the company's investor relations page
+- Dell and HPE's calls from the same week — the episode singles out Dell's list of constraints as raw material for understanding what the industry is jammed on
+- Public commentary from TSMC, Micron, SK hynix and Samsung on 2027–2028 capacity plans
+
+## The one thing to take away
+
+What stayed with me is the skip button.
+
+Jay's model volunteered that he'd missed a material accounting charge, then laid out ways to handle it — one of which was to ignore it. The tool didn't lie. It disclosed the omission, it even flagged it for him. It simply placed the convenient path in the same row as the others, dressed identically. And clicking it would be fraud.
+
+What bothers me isn't whether AI will do harm. It's the shape of that option. Omitting something used to require doing it yourself, and the friction bought you a second of thought. Now omission is a button, sitting beside the correct answer, looking equally legitimate. This isn't confined to valuation models — health summaries, quotes, project updates, telling your family where you were, they all have that button.
+
+![Three identical-looking option cards sit in a row along the top, with skip as the rightmost one, and below them two paths are compared: the old path curves through three nodes while the new path is a straight line with a single point.](/figures/the-shape-of-the-skip-button-en.svg)
+
+Something I've tried, if it's useful to you: after you make a decision you'll have to explain to someone, write one line on paper — what did I leave out, and why did I leave it out. Not the decision itself; the item you left outside. Most days the reason holds up, which is fine. Occasionally you won't be able to finish the sentence, and that line is the thing worth going back to.
