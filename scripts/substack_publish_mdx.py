@@ -8,6 +8,7 @@ src/content/blog/<slug>.en.mdx，不另抄一份。介面仿 vocus_publish_mdx.p
     python substack_publish_mdx.py draft   <slug> [<slug>...]   # 建／更新草稿（不公開）
     python substack_publish_mdx.py publish <slug> [<slug>...]   # 公開（只在 Charles 說「發」之後呼叫）
     python substack_publish_mdx.py check   <slug>               # 讀回線上草稿，印驗證行
+    python substack_publish_mdx.py unwall  <slug>... | @清單檔  # 拆掉線上稿的付費牆並開放給所有人（不重傳圖）
     python substack_publish_mdx.py backfill <slug>... | @清單檔  # 回填舊文：建草稿→日期設回 pubDate→發布不寄信；已發過跳過
 
 from_markdown 處理得了 **粗體**／*斜體*／連結，但 <br/> 會被丟掉、詩引黏成一段，
@@ -32,6 +33,9 @@ COOKIE_HINT = 'cookie 失效，跑 `python C:/Users/Charles/scripts/substack_coo
 DISCLAIMER = ('This is personal research and educational commentary, not investment advice. '
               'Positions may be held in securities mentioned.')
 EN_PAYWALL_H2 = re.compile(r'Where I took it|Extended|What it means', re.I)
+# 2026-09-08 Charles「先把付費牆拿掉」：台灣開不了 Stripe，Substack 付費訂閱收不到錢，鎖了等於白鎖。
+# 收款帳戶弄好後改回 True，牆的位置規則（substackPaywallAfter／延伸想法）都還在。
+PAYWALL_ENABLED = False
 # Substack 副標上限（API 回 400 Subtitle is too long）；公開文件寫 250
 SUBTITLE_MAX = 250
 
@@ -311,6 +315,8 @@ def paywall_k_for(fm, slug, body):
     """牆的位置（0-based H2 序號，牆插在該 H2 前）。
     優先序：frontmatter `substackPaywallAfter: N`（第 N 節之後免費結束；2026-09-03 Charles「只免費公開第一節」→ 1）
     → 濃縮稿的 paywall_after_insight → 依 zh「延伸想法」對應序號（乙案舊預設）。"""
+    if not PAYWALL_ENABLED:
+        return None, 'disabled'
     for key in ('substackPaywallAfter', 'paywall_after_insight'):
         v = str(fm.get(key, '')).strip()
         if v.isdigit():
@@ -693,6 +699,51 @@ def _backfill_one(api, slug):
         return False
 
 
+def cmd_unwall(api, slugs):
+    """把線上稿的付費牆拿掉（2026-09-08）：讀回草稿 → 刪 paywall 節點 → audience=everyone → 存回。
+    不重傳圖，只動這兩樣；讀回驗 paywall=無 且 audience=everyone 才算成功。已經沒牆的跳過。"""
+    ids = load_ids()
+    rc = 0
+    for slug in slugs:
+        rec = ids.get(slug) or {}
+        draft_id = rec.get('draft_id')
+        if not draft_id:
+            print('❌ 台帳沒有 %s 的 draft_id' % slug)
+            rc = 1
+            continue
+        for attempt in range(3):
+            if attempt:
+                print('   ⏳ 第 %d 次重試 %s（等 90 秒）' % (attempt + 1, slug))
+                time.sleep(90)
+            try:
+                draft = api_try(api.get_draft, draft_id)
+                info = inspect_draft(draft)
+                if info['paywall'] is None and info['audience'] == 'everyone':
+                    print('⏭ 本來就沒牆：%s' % slug)
+                    break
+                body = draft.get('draft_body') or draft.get('body')
+                body = json.loads(body) if isinstance(body, str) else body
+                body['content'] = [n for n in (body.get('content') or []) if n.get('type') != 'paywall']
+                extra = {}
+                if draft.get('cover_image'):
+                    extra['cover_image'] = draft['cover_image']   # 帶著存回，免得被清掉
+                api_try(api.put_draft, draft_id, draft_body=json.dumps(body), audience='everyone', **extra)
+                # 已發布的文章改完要再「更新發布」一次才會反映到公開頁（2026-09-08 實測：只 put_draft 公開頁仍有付費提示）
+                api_try(api.prepublish_draft, draft_id)
+                api_try(api.publish_draft, draft_id, send=False)
+                again = inspect_draft(api_try(api.get_draft, draft_id))
+                if again['paywall'] is None and again['audience'] == 'everyone':
+                    print('✅ 已拆牆：%s（H2=%s）' % (slug, again['h2']))
+                    break
+                print('❌ 存回後讀回仍有牆／audience=%s：%s' % (again['audience'], slug))
+            except (SystemExit, Exception) as e:
+                print('❌ %s：%s' % (slug, e))
+        else:
+            rc = 1
+        time.sleep(3)
+    return rc
+
+
 if __name__ == '__main__':
     if hasattr(sys.stdout, 'reconfigure'):
         try:
@@ -702,8 +753,8 @@ if __name__ == '__main__':
     if len(sys.argv) < 3:
         raise SystemExit(__doc__)
     mode, slugs = sys.argv[1], sys.argv[2:]
-    if mode not in ('draft', 'publish', 'check', 'backfill'):
-        raise SystemExit('mode 只能是 draft / publish / check / backfill')
+    if mode not in ('draft', 'publish', 'check', 'backfill', 'unwall'):
+        raise SystemExit('mode 只能是 draft / publish / check / backfill / unwall')
     if len(slugs) == 1 and slugs[0].startswith('@'):   # @清單檔：一行一個 slug
         slugs = [l.strip() for l in open(slugs[0][1:], encoding='utf-8') if l.strip()]
     api = make_api()
@@ -713,4 +764,6 @@ if __name__ == '__main__':
         sys.exit(cmd_publish(api, slugs))
     if mode == 'backfill':
         sys.exit(cmd_backfill(api, slugs))
+    if mode == 'unwall':
+        sys.exit(cmd_unwall(api, slugs))
     sys.exit(cmd_check(api, slugs))
