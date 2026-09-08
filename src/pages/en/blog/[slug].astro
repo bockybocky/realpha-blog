@@ -1,6 +1,7 @@
 ---
 import Giscus from '../../../components/Giscus.astro';
 import SiteLayout from '../../../layouts/SiteLayout.astro';
+import SubstackLink from '../../../components/SubstackLink.astro';
 import { getBlogPosts } from '../../../lib/content';
 import { formatDate } from '../../../lib/site';
 import { render } from 'astro:content';
@@ -93,6 +94,7 @@ const hasPreregistration = post.data.category === 'lab' && (post.data.hypothesis
 				{post.data.category === 'investing' && <p class="notice">This article is an educational discussion of investment method. It is not advice to buy or sell any individual security, offers no target prices, and does not analyze any current holding. Investing carries risk; make your own decisions or consult a qualified professional.</p>}
 			</div>
 		</article>
+		<SubstackLink slug={post.data.slug} />
 		<Giscus />
 	</main>
 </SiteLayout>

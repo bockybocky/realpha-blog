@@ -1,0 +1,80 @@
+---
+// 英文文章底部的 Substack 引流區塊（2026-09-08 Charles：英文文章加引流到 Substack 訂閱最新文章通知）。
+// 做法照 VocusLink：誘因用真實差異——本站留言要 GitHub 帳號，Substack 用 email 就能訂閱，
+// 新文章會直接寄到信箱。對應表由 scripts/sync-substack-links.mjs 從 blog_auto/substack_ids.json 產生。
+import links from '../data/substack-links.json';
+
+interface Props {
+	slug: string;
+}
+
+const { slug } = Astro.props;
+const PUB = 'https://realphareads.substack.com';
+const SUBSCRIBE = `${PUB}/subscribe`;
+const articleUrl = (links as Record<string, string>)[slug] ?? null;
+---
+
+<aside class="substack">
+	<p class="substack-title">If you'd like the next one in your inbox</p>
+	<p class="substack-lead">
+		Commenting here needs a GitHub account, which is a bit much.
+		{articleUrl ? 'This piece is also on Substack, ' : 'I also write on Substack, '}
+		where you can subscribe with just an email. New posts go straight to your inbox, and you can reply to any of them.
+	</p>
+	<p class="substack-links">
+		{articleUrl && (
+			<a class="substack-primary" href={articleUrl} target="_blank" rel="noopener">
+				Read this on Substack
+			</a>
+		)}
+		<a class="substack-primary" href={SUBSCRIBE} target="_blank" rel="noopener">
+			Subscribe for new posts
+		</a>
+		<span class="substack-secondary">Realpha Reads the World</span>
+	</p>
+</aside>
+
+<style>
+	.substack {
+		margin: 3rem auto 0;
+		max-width: var(--measure);
+		padding: 1.35rem 1.5rem;
+		border: 1px solid var(--line);
+		border-left: 3px solid var(--accent);
+		border-radius: var(--radius);
+		background: var(--soft);
+	}
+	.substack-title {
+		margin: 0 0 0.5rem;
+		font-family: var(--font-display);
+		font-size: 1.02rem;
+		font-weight: 700;
+		color: var(--text);
+	}
+	.substack-lead {
+		margin: 0 0 1rem;
+		color: var(--muted);
+		font-size: 0.95rem;
+		line-height: 1.75;
+	}
+	.substack-links {
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem 1.1rem;
+		align-items: center;
+	}
+	.substack-primary {
+		font-weight: 600;
+		color: var(--accent-strong);
+		text-decoration: none;
+		border-bottom: 2px solid var(--accent-tint);
+	}
+	.substack-primary:hover {
+		border-bottom-color: var(--accent);
+	}
+	.substack-secondary {
+		color: var(--muted);
+		font-size: 0.92rem;
+	}
+</style>
