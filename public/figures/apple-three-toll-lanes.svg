@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩根長度不同的橫條代表兩筆年租金，下方一根很長的灰條上只覆蓋一層極薄的藍線，代表流量大但抽成極薄">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:600; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .n { font-size:16px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:600; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="60">收費站的三條管道</text>
+
+  <text class="g" x="60" y="122">收進來的錢（一年）</text>
+  <rect x="300" y="145" width="378" height="46" fill="var(--accent)"/>
+  <text class="b" x="60" y="176">App Store 抽成</text>
+  <text class="n" x="694" y="176">270 億美元</text>
+
+  <rect x="300" y="212" width="280" height="46" fill="var(--accent)"/>
+  <text class="b" x="60" y="243">Google 預設搜尋</text>
+  <text class="n" x="596" y="243">200 億美元</text>
+
+  <line x1="60" y1="305" x2="900" y2="305" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="g" x="60" y="348">經過的錢（一年）</text>
+  <text class="s" x="694" y="362">每筆 0.15%</text>
+  <rect x="300" y="368" width="590" height="6" fill="var(--accent)"/>
+  <rect x="300" y="374" width="590" height="52" fill="var(--grey)"/>
+  <text class="b" x="60" y="406">Apple Pay</text>
+  <text class="s" x="300" y="450">六兆美元經手</text>
+
+  <text class="c" x="60" y="512">換不換新手機，這三條都照收</text>
+</svg>
