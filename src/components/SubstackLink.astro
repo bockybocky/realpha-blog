@@ -18,19 +18,27 @@ const articleUrl = (links as Record<string, string>)[slug] ?? null;
 	<p class="substack-title">If you'd like the next one in your inbox</p>
 	<p class="substack-lead">
 		Commenting here needs a GitHub account, which is a bit much.
-		{articleUrl ? 'This piece is also on Substack, ' : 'I also write on Substack, '}
-		where you can subscribe with just an email. New posts go straight to your inbox, and you can reply to any of them.
+		{articleUrl ? ' This piece is also on Substack, ' : ' I also write on Substack, '}
+		where you can subscribe with just an email. New posts go straight to your inbox, and you can reply to any of them. Free.
 	</p>
+	<div class="substack-embed">
+		<iframe
+			src={`${PUB}/embed`}
+			title="Subscribe to Realpha Reads the World"
+			loading="lazy"
+			frameborder="0"
+			scrolling="no"
+		></iframe>
+	</div>
 	<p class="substack-links">
 		{articleUrl && (
 			<a class="substack-primary" href={articleUrl} target="_blank" rel="noopener">
 				Read this on Substack
 			</a>
 		)}
-		<a class="substack-primary" href={SUBSCRIBE} target="_blank" rel="noopener">
-			Subscribe for new posts
+		<a class="substack-secondary" href={SUBSCRIBE} target="_blank" rel="noopener">
+			Form not loading? Subscribe here
 		</a>
-		<span class="substack-secondary">Realpha Reads the World</span>
 	</p>
 </aside>
 
@@ -76,5 +84,21 @@ const articleUrl = (links as Record<string, string>)[slug] ?? null;
 	.substack-secondary {
 		color: var(--muted);
 		font-size: 0.92rem;
+		text-decoration: none;
+		border-bottom: 1px solid var(--line);
+	}
+	.substack-embed {
+		margin: 0 0 0.9rem;
+		max-width: 480px;
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		overflow: hidden;
+		background: #fff;
+	}
+	.substack-embed iframe {
+		display: block;
+		width: 100%;
+		height: 150px;
+		border: 0;
 	}
 </style>
