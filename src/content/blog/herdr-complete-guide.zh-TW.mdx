@@ -1,15 +1,15 @@
 ---
-title: "herdr 操作手冊：一個人養一群 AI agent，從安裝、介面到腳本編排，一次講完"
-description: "很多朋友問 herdr 怎麼用。這篇從它是什麼、三個平台怎麼裝、五層介面怎麼看、日常怎麼開第二個 agent 與讀回結果，一路講到我自己的三個實際應用與踩過的坑，最後附學習資源。技術教學，不是投資內容。"
+title: "herdr 新手操作手冊：剛開始用 Claude Code 或 Codex 的人，怎麼把一群 AI agent 放進同一個視窗"
+description: "很多剛開始用 Claude Code 或 Codex 的朋友問 herdr 怎麼用。這篇假設你只開過終端機、對資料夾和設定檔沒什麼概念：先把五個名詞講白話，安裝只講一條最簡單的路，第一次打開只教三個按鍵，用鍵盤就能開第二個 agent。腳本那些放在最後，可以先跳過。技術教學，不是投資內容。"
 slug: "herdr-complete-guide"
 lang: "zh-TW"
 pubDate: 2026-09-10
+updatedDate: 2026-09-10
 category: "systems"
-tags: ["herdr", "AI agent", "終端機", "工具教學", "工作流"]
+tags: ["herdr", "AI agent", "終端機", "工具教學", "新手"]
 ogImage: "/covers/herdr-complete-guide.png"
 cover: "/covers/herdr-complete-guide.png"
-tldr: "herdr 是給 AI 編程 agent 住的終端機工作區：一個 server 管所有窗格，你關掉視窗它們照做事。安裝一行指令，介面五層（session、workspace、tab、pane、agent），前綴鍵 ctrl+b。最有用的是它認得每個 agent 現在是在做事、卡住、還是做完，而且全部能用指令腳本化。我用它開三席對抗，抓到只讀稿的紅隊三輪都沒抓到的洞。"
-
+tldr: "herdr 是一間給 AI agent 住的辦公室：你關掉視窗，裡面的 agent 照樣做事；它認得每個 agent 現在是在做事、在等你、還是做完了。裝好之後只要記三個按鍵就能用：ctrl+b 再按 c 開新分頁、再按 v 把畫面切成兩格、再按 q 離開。在新的一格打 claude 或 codex，第二個 agent 就開好了。腳本、遠端、設定檔放在最後，等你需要再看。"
 ---
 
 ![巴洛克油畫封面：夜裡的山坡上，牧羊人背對觀者提著一盞燈，山坡下散著十來隻從體內發光的羊，遠處是城市燈火](/covers/herdr-complete-guide.png)
@@ -19,201 +19,198 @@ tldr: "herdr 是給 AI 編程 agent 住的終端機工作區：一個 server 管
 
 ## 這篇給誰看
 
-上個月我寫過兩篇跟 herdr 有關的文章。一篇講我從它的設計借了什麼觀念（[herdr：誰在做事、誰卡住了](/blog/herdr-agent-automation/)），一篇講怎麼用手機接手電腦上的 agent（[Tailscale ＋ Herdr ＋ Moshi](/blog/phone-to-pc-agent-tailscale-herdr-moshi/)）。之後陸續有朋友問：所以 herdr 本身到底怎麼用？
+你剛開始用 Claude Code 或 Codex，開過那個黑黑的視窗、打過幾個指令，但對「資料夾在哪」「設定檔是什麼」還沒什麼感覺。然後你發現自己想同時開兩個 agent，一個寫程式、一個幫忙看，視窗就開始亂了。這篇是寫給這個階段的你。
 
-這篇就是回答那個問題。從零開始，安裝、介面、日常操作、腳本編排，講完再放我自己的實際用法與踩過的坑。前面兩篇講過的東西這裡只留一句話加連結。
+我之前寫過兩篇跟 herdr 有關的文章，一篇講我從它借了什麼想法（[herdr：誰在做事、誰卡住了](/blog/herdr-agent-automation/)），一篇講怎麼用手機接手電腦（[Tailscale ＋ Herdr ＋ Moshi](/blog/phone-to-pc-agent-tailscale-herdr-moshi/)）。那兩篇都預設你已經會用，這篇不預設。
+
+## 先弄懂五個詞
+
+後面會一直用到這五個詞，先用白話講一次。已經懂的可以跳過。
+
+- 終端機：那個黑底白字、讓你打字下指令的視窗。Mac 上叫「終端機」，Windows 上常用的是 PowerShell 或 Windows Terminal。Claude Code 和 Codex 都是在這個視窗裡跑的。
+- 指令：你在終端機裡打的一行字，按 Enter 就執行。這篇裡凡是放在灰底方框裡的，都是要你貼進終端機的指令。
+- 資料夾與工作目錄：資料夾就是你電腦裡放檔案的那個夾子。「工作目錄」是終端機現在站在哪個資料夾裡。你在哪個資料夾打 claude，它就只看得到那個資料夾裡的東西。
+- 設定檔：一個純文字檔，程式一啟動會先讀它，決定要用什麼顏色、什麼按鍵。你不改它也能用，這篇的新手部分不碰它。
+- agent：一個會自己動手做事的 AI 程式，像 Claude Code、Codex、Gemini CLI。它跑在終端機的一格裡，跟你對話、幫你改檔案。
 
 ## herdr 是什麼
 
-一句話：給 AI 編程 agent 住的終端機工作區。官方的說法是「the runtime your coding agents live on」。
+一句話：一間給 AI agent 住的辦公室。
 
-你可以把它想成一間辦公室。你是老闆，agent 是員工，每個員工坐一個窗格。herdr 做三件事：第一，房間的門關了，員工照樣工作，你回來再開門，一切還在。第二，它認得每個員工現在是在做事、在等你、還是做完了在發呆。第三，你不用走到每個位子旁邊講話，可以用指令隔空派工、隔空讀回結果。
+你可以這樣想。你是老闆，每個 agent 是一個員工，每個員工坐一個座位。herdr 這間辦公室做三件事：第一，你下班關燈走人，員工照樣工作，你隔天開門一切還在。第二，你一眼就看得出每個員工現在是在做事、在等你點頭、還是做完了在發呆。第三，你不用走到每個座位旁邊講話，可以隔空派工、隔空看結果。
 
-基本資料：Herdr, Inc. 開發，GitHub 組織叫 herdrdev，Apache 2.0 授權，星數約三萬七千（我抓的那天兩次數字不同，只當量級看）。有 stable 與 preview 兩條更新頻道，preview 來自開發分支，官方明說可能有退步。
+它是開源軟體，用 Apache 2.0 授權，公司叫 Herdr, Inc.，GitHub 上有三萬多顆星。
 
-## 安裝
+## 安裝：只講一條路
 
-macOS 與 Linux：
+Mac 或 Linux，打開終端機，貼這一行，按 Enter：
 
 ```bash
 curl -fsSL https://herdr.dev/install.sh | sh
 ```
 
-也可以 `brew install herdr` 或 `mise use -g herdr`，或從 GitHub Releases 抓二進位放進 `~/.local/bin`。
-
-Windows 用 PowerShell：
+Windows，打開 PowerShell，貼這一行，按 Enter：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -c "irm https://herdr.dev/install.ps1 | iex"
 ```
 
-Windows 官方另有一句提醒：用 zip 手動安裝時要整包解壓，不要只複製 herdr.exe 一個檔，它旁邊的 ConPTY 執行環境也要一起帶著。
-
-我自己這台 Windows 的做法不太一樣。我的安全守衛會攔下「從網路抓腳本直接執行」這種樣式，所以我走 GitHub 的 zip 整包解壓，放在 `C:\Users\Charles\tools\herdr\preview-2026-08-04\`，再在 `C:\Windows\herdr.cmd` 放一行轉接：
-
-```
-@"C:\Users\Charles\tools\herdr\preview-2026-08-04\herdr.exe" %*
-```
-
-這樣任何終端機打 `herdr` 都能用。代價是升級時要改兩處：那個 cmd 檔，以及使用者 PATH 裡的 herdr 項。我刻意不用捷徑指向「目前版本」，因為透過 SSH 進來的視窗看不到捷徑，那是手機接手那篇踩到的坑。
-
-裝完先跑三個指令確認：
+裝完把終端機關掉重開，打這一行：
 
 ```bash
-herdr --version        # 版本與頻道
-herdr status           # server 有沒有在跑、client 與 server 版本相不相容
-herdr channel show     # stable 還是 preview
+herdr --version
 ```
 
-設定檔位置在 `herdr --help` 的最後幾行會印出來，Windows 在 `%APPDATA%\herdr\config.toml`，其他平台在 `~/.config/herdr/config.toml`。我的設定檔只有三行，其餘全走預設。
+看到一串版本號，像 `0.8.2`，就是裝好了。看到「找不到指令」，多半是終端機沒重開，關掉再開一次。
 
-## 介面：五層，一個前綴鍵
+其他裝法（Homebrew、手動下載壓縮檔）放在最後的進階段落。
 
-herdr 的東西分五層，由大到小：
+## 第一次打開：看到什麼
 
-1. session（工作階段）：一個常駐的 server。裸打 `herdr` 就是接到預設的那個，叫 default。
-2. workspace（空間）：最上層的專案容器。官方建議一個 repo、一個任務、或一件要查的事開一個。
-3. tab（分頁）：空間裡的一個版面。可以把 agent 放一頁、log 放一頁、審查放一頁。
-4. pane（窗格）：一個真正的終端機。你關掉客戶端，窗格裡的程序照跑。
-5. agent：herdr 在某個窗格裡認出來的 AI 程序。
+在終端機打：
 
-前四層是容器，第五層是活的東西。
+```bash
+herdr
+```
+
+畫面會變成兩塊。左邊一條窄窄的是側欄，右邊一大塊是你的終端機，跟原本的沒兩樣，可以照常打指令。
 
 ![五個由大到小層層相套的方框，從最外的 session 到最內的 agent，前四層是灰色空容器，最內層的 agent 是實心藍色，代表只有它是活的東西](/figures/herdr-five-layers-nested.svg)
 
-三個公開的編號格式是 `w1`、`w1:t1`、`w1:p1`，關掉過的編號不會重用。
+herdr 把東西分成幾層，用大樓來想最快：
 
-左邊的側欄會把每個空間裡的 agent 狀態彙整上來，讓你一眼看到哪裡有人在等你。狀態有五種：
+1. 整棟大樓叫 session，你打 `herdr` 就是走進預設的那棟。新手只會用到這一棟。
+2. 樓層叫 workspace（空間），一個專案開一層。
+3. 每層裡的房間叫 tab（分頁）。
+4. 房間裡的座位叫 pane（窗格），一個座位就是一個終端機。
+5. 坐在座位上的人叫 agent。
 
-- working：在算。
-- blocked：在等你核准或等你輸入。
-- idle：就緒，等新指令。
-- done：背景做完了，但你還沒看過。
-- unknown：認得出是 agent，但分不出狀態。
+前四層都是容器，只有第五層是活的。新手階段你只需要會開房間、切座位，其他的以後再說。
 
-這五個裡面兩個最容易誤讀。done 只是「還沒被看到的 idle」，用指令去讀它不會把這個標記清掉。unknown 不代表做完，只代表認不出來。
+## 只要記三個按鍵
+
+herdr 的按鍵都是「先按一個開頭鍵，放開，再按一個字母」。開頭鍵預設是 ctrl 加 b。下面寫 `ctrl+b, c` 的意思是：按住 ctrl 按 b，放開，再按 c。
+
+| 想做什麼 | 按鍵 |
+|---|---|
+| 開一個新房間（新分頁） | ctrl+b, c |
+| 把目前的座位切成左右兩格 | ctrl+b, v |
+| 離開辦公室（agent 照跑） | ctrl+b, q |
+
+先只記這三個。其他常用的：ctrl+b 再按 1 到 9 是切房間，ctrl+b 再按 x 是關掉目前這格，ctrl+b 再按 ? 會列出全部按鍵。
+
+## 用鍵盤開第二個 agent
+
+不需要任何腳本。
+
+1. 在右邊那格打 `claude`（或 `codex`），第一個 agent 就開在這格裡。
+2. 按 ctrl+b, v。畫面切成左右兩格，游標跳到新的那格。
+3. 在新的那格打 `codex`（或再開一個 `claude`），第二個 agent 開好了。
+
+這時看左邊側欄，會出現兩個 agent 的名字，每個名字旁邊有一個狀態。狀態有五種，用「同事在幹嘛」來記：
+
+- working：在做事。
+- blocked：在等你。它有事要問你，或要你按一下核准。
+- idle：手上沒事，等你派。
+- done：背景做完了，你還沒看。
+- unknown：認得出是 agent，但看不出在幹嘛。
 
 ![兩軸座標，橫軸是程序在動或停下來、縱軸是要不要你出手，working 在左下、blocked 在右上、done 在右中並有一條箭頭指向右下的 idle 標著看過了，unknown 被畫在座標外的虛線框](/figures/herdr-agent-states-two-axes.svg)
 
-操作靠一個前綴鍵，預設是 `ctrl+b`，按下去再按一個動作鍵。最常用的：
+最要看的是 blocked。它的意思是有一個同事在等你，你不去它就一直停在那裡。側欄就是為了讓你不用一格一格點開看，掃一眼就知道誰在等你。
 
-| 做什麼 | 按鍵 |
-|---|---|
-| 說明 | prefix + ? |
-| 離開（detach） | prefix + q |
-| 新分頁 | prefix + c |
-| 切分頁 | prefix + 1 到 9 |
-| 垂直分割窗格 | prefix + v |
-| 水平分割窗格 | prefix + minus |
-| 關窗格 | prefix + x |
-| 放大／還原窗格 | prefix + z |
-| 焦點左下上右 | prefix + h / j / k / l |
-| 側欄開關 | prefix + b |
-| 新空間 | prefix + shift + n |
-| 空間選單 | prefix + w |
+兩個要小心的：done 不是「結案」，只是「做完了你還沒看」；unknown 不代表做完，只代表看不出來。
 
-不習慣 ctrl+b 可以在設定檔改成 f12 或 esc。有幾個動作預設沒綁鍵，像切到上一個或下一個空間、跳到第 N 個 agent，要自己在 config 加。
+## 離開，然後回來
 
-## 日常怎麼用
+按 ctrl+b, q。畫面回到普通的終端機，但兩個 agent 還在跑。你可以關掉終端機視窗、去睡覺。
 
-開、離開、回來，是最基本也最有價值的三個動作：
-
-```bash
-herdr                          # 啟動或接回 default
-herdr --session review         # 用或建一個具名的工作階段
-herdr session list             # 列出所有工作階段
-```
-
-離開按 `prefix + q`。server 和裡面所有 agent 照常跑，回來再打 `herdr` 就接上，不用重建任何東西。這是我覺得它最像「辦公室」的地方：下班關燈，人還在裡面加班。
+隔天打開終端機，打 `herdr`，兩個 agent 還在原來的座位上，該做完的做完了，該等你的還在等你。這是我覺得它最值得裝的一個理由：關燈，人還在裡面加班。
 
 ![左右兩格對照，左邊你的視窗連著 server 與三個在跑的 agent，右邊你的視窗變成虛線消失，下面的 server 與三個 agent 一模一樣還在跑](/figures/herdr-detach-server-keeps-running.svg)
 
-開第二個 agent 是下一個門檻。這裡有一個順序要記住：先切窗格，再起 agent。`agent start` 不會幫你開窗格，它要一個已經停在提示字元的現成窗格。
+一個提醒：電腦重開機的話，座位的擺法會還原，但 agent 本身不會自己復活，要重新打 `claude` 或 `codex`。所以它不是備份。
 
-![左右對照，左邊直接起 agent 卻沒有可放的窗格因此落空，右邊先切出一個空窗格再把 agent 放進去，agent 穩穩坐在容器裡](/figures/herdr-pane-before-agent.svg)
+到這裡，新手要會的都講完了。下面是進階，需要再看。
+
+## 進階：用指令而不是按鍵
+
+等你開始想「讓一個 agent 自動去開另一個 agent」，就要用指令了。herdr 的每個動作都有對應的指令，全部長 `herdr 什麼 什麼` 的樣子。
+
+先切一格，再把 agent 放進去，順序不能反：
 
 ```bash
-# 1. 在目前窗格右邊切一格，沿用工作目錄，不搶焦點
-herdr pane split --current --direction right --cwd "$PWD" --no-focus
-# 回應是 JSON，從裡面讀新窗格的編號，不要用猜的
+# 1. 在目前這格右邊切一格
+herdr pane split --current --direction right --no-focus
+# 它會印出一段文字，裡面有新那格的編號，像 w1:p2
 
-# 2. 在那格起一個 agent
+# 2. 在那格開一個 agent，取名 reviewer
 herdr agent start reviewer --kind codex --pane w1:p2
 
 # 3. 派工，等它做完
-herdr agent prompt reviewer "Review the current diff and report only actionable findings." --wait --timeout 120000
+herdr agent prompt reviewer "看一下目前的改動，只回報要改的地方" --wait --timeout 120000
 
 # 4. 讀回結果
-herdr agent read reviewer --source recent-unwrapped --lines 120
+herdr agent read reviewer --lines 120
 ```
 
-`--kind` 目前有二十一種合法值，包括 claude、codex、gemini、grok、agy、cursor、copilot、opencode 等。agent 的名字在活著的 agent 裡要唯一，它一離開名字就自動釋放。
+![左右對照，左邊直接起 agent 卻沒有可放的窗格因此落空，右邊先切出一個空窗格再把 agent 放進去，agent 穩穩坐在容器裡](/figures/herdr-pane-before-agent.svg)
 
-讀回結果有一個天花板要先知道。如果 `--lines` 加大還是讀不到完整回答，代表那個 agent 跑在終端機的替代畫面上，捲出去的行不會進 herdr 的紀錄，行數再大也救不回來。我的做法是叫 agent 把完整回覆寫成一個 markdown 檔、只回檔案路徑，然後直接讀檔。
-
-![一根長條答案穿過窗格上緣，框內那截是讀得到的、框外那截灰掉標著捲出去就沒了，右邊另一條路徑把整根答案寫成檔案再整根讀回](/figures/herdr-alt-screen-scrollback-ceiling.svg)
-
-想只等某個狀態，用 `wait`：
+我用最多的是這一行，意思是「等它卡住需要我的時候再叫我」：
 
 ```bash
 herdr agent wait reviewer --until blocked --timeout 120000
 ```
 
-這一行是我用最多的。等它卡在需要我核准的那一刻，而不是每三十秒去看一次。
-
 ![上下兩條時間線，上面那條密密麻麻插著十幾個空手查看的刻度只有最後一個撞到卡住，下面那條一路空白只在卡住的那一刻亮起一個點](/figures/herdr-poll-versus-wait.svg)
 
-其他幾件常用的：
+讀回結果有一個天花板：如果 `--lines` 加大還是讀不到完整回答，是因為那個 agent 的畫面捲出去的部分不會留下來。我的做法是叫它把完整回覆寫成一個檔、只回檔案路徑，我再去讀檔。
 
-- 通知：`herdr notification show "標題" --body "內文" --sound done`。設定檔可以選通知從 herdr 內部彈出、交給終端機、或交給作業系統；背景空間的 agent 換狀態時預設會有聲音。
-- worktree：`herdr worktree create` 用 git worktree 撐一個獨立分支的空間，預設放在 `~/.herdr/worktrees`。
-- 遠端：`herdr --remote <ssh-target>` 直接接遠端機器上的 herdr，前提是你本來就有 SSH 權限。它會自己補 keepalive 設定撐過閒置斷線。我手機那條線沒用這個功能，是走 SSH 進機器再打 herdr，兩者不一樣。
-- 更新：`herdr update`，加 `--handoff` 可以不中斷接手。
-- 設定：`herdr --default-config` 會印出完整預設設定，含全部鍵位，可以整份倒進 config 當範本；改完 `herdr server reload-config` 讓 server 重讀。
+![一根長條答案穿過窗格上緣，框內那截是讀得到的、框外那截灰掉標著捲出去就沒了，右邊另一條路徑把整根答案寫成檔案再整根讀回](/figures/herdr-alt-screen-scrollback-ceiling.svg)
 
-## 我自己的三個用法
+其他幾個有用的指令，一行一個：
 
-第一個是三席對抗。九月一日我把一份技術指標驗證設計（我叫它護劍）從 1.2 版改到 1.3 版。在那之前它已經給 Codex 讀稿紅隊了三輪。我在 herdr 開三個窗格，一席當設計者、一席當統計對手、一席專門守「這是不是他要的題目」，三席各自跑數。結果兩席抓到 Codex 三輪都沒抓到的洞：帳本裡的出場有兩成七集中在五個清倉日，「樣本裡的人不是設計裡的人」；對照組會錯殺完美預知規則 2.9 個百分點。只讀稿的紅隊抓不到要跑數才看得見的洞，這是我用 herdr 得到的最值錢的一句話。
+- `herdr notification show "標題" --body "內文"`：跳一個通知。
+- `herdr --remote 某台機器`：接到另一台機器上的 herdr，前提是你本來就能用 SSH 連過去。
+- `herdr update`：更新。
+- `herdr --default-config`：把預設設定整份印出來，想改按鍵或顏色從這裡抄。設定檔的位置，打 `herdr --help` 最後幾行會告訴你。
+- `herdr --skill`：印一份給 agent 讀的完整操作手冊。這份比官網完整，而且跟你裝的版本相同。
 
-第二個是手機接手，前面那篇寫過了。herdr 在裡面只是一間關了門人照樣工作的房間。
+## 我自己怎麼用
 
-第三個發生在裝之前。我八月八日讀它的文件，借了「卡住是一種獨立狀態」這副眼鏡回頭照自己的系統，當場抓到一隻掛了五十一小時的閒置程序。那篇也寫過了。
+第一個用法是三席對抗。我有一份技術指標的驗證設計，先讓 Codex 讀稿挑毛病，挑了三輪。後來我在 herdr 開三格：一格當設計者、一格當統計對手、一格專門問「這是不是他要的題目」，三格各自跑數字。結果兩格抓到 Codex 三輪都沒抓到的洞。我學到的一句話是：只讀稿的審查抓不到要跑數字才看得見的洞。
 
-一個誠實的補充：不是每個任務都值得開多席。八月三十日我評估過三個候選任務，只有一個通過「爆炸半徑大、有標準答案、需要實作者加驗證者」三個判準。另外兩個開了也只是多燒額度。
+第二個是手機接手電腦，前面那篇寫過。herdr 在裡面只是一間關了門人照樣工作的房間。
 
-## 我踩過的坑
+第三個發生在裝之前。我讀它的文件，借了「卡住是一種獨立狀態」這副眼鏡回頭看自己的電腦，當場抓到一隻掛了五十一小時沒人管的程式。
 
-- Git Bash 會把 `"/effort high"` 這種斜線開頭的字串當成路徑轉換掉。送 agent 指令時前面加 `MSYS_NO_PATHCONV=1`。
-- 用 `--permission-mode acceptEdits` 起的 agent，讀家目錄外的檔會跳確認框，人不在它就假死。要掛一個 `wait --until blocked` 盯著，跳出來就 `herdr agent send-keys <pane> 2 enter` 選「本次允許」。
-- 透過 SSH 進來的 PowerShell 看不到符號連結，PATH 裡指向捷徑的項目等於沒有。安裝路徑寫真實資料夾。
-- `herdr session attach main` 是叫錯房間。電腦上的視窗在 default，裸打 `herdr` 就對了。
-- server 重啟後，版面會從快照還原，但程序不保留、近期畫面預設也不保留（要開 `[experimental] pane_history`）。別把 herdr 當備份。
-- 官方的 agent-skill 頁教你用 npx 裝一份給 agent 讀的操作手冊，版本是 0.8.2；我手上的二進位是 0.8.0 preview。裝了之後指令語法對不上，而且不會有明確的錯誤訊息。手冊自己有一句話：安裝的二進位才是語法權威。所以直接用 `herdr --skill` 印內建那份。
+老實說一句：不是每件事都值得開三格。我評估過三個任務，只有一個值得。另外兩個開了也只是多花錢。
+
+## 新手最常卡的地方
+
+- 裝完打 `herdr` 說找不到：終端機沒重開。關掉再開。
+- 按了 ctrl+b 沒反應：要放開再按下一個鍵，不是三個鍵一起按。
+- 想開第二個 agent 卻開在同一格：先按 ctrl+b, v 切格，再打 `codex`。
+- 側欄上 done 一直不消失：那只是「你還沒看」，點進去看一眼就好。
+- Windows 上按 ctrl+b 被終端機吃掉：在設定檔把開頭鍵改成 f12。怎麼改，看 `herdr --default-config` 印出來的 `[keys]` 那段。
+- 官網有一頁教你用 npx 裝一份給 agent 讀的手冊，但那份的版本可能跟你裝的不同，語法對不上又不報錯。直接用 `herdr --skill` 印你這個版本的。
+
+Windows 進階兩條，用 SSH 遠端進來的人才會碰到：透過 SSH 進來的視窗看不到捷徑，安裝路徑要寫真實資料夾；Git Bash 會把 `/effort` 這種斜線開頭的字當成路徑，送指令前面加 `MSYS_NO_PATHCONV=1`。
 
 ## 學習資源
 
-官方：
-- 文件首頁 https://herdr.dev/docs/
 - 快速開始 https://herdr.dev/docs/quick-start/
 - 核心概念 https://herdr.dev/docs/concepts/
-- Agent 自動化（腳本編排）https://herdr.dev/docs/agent-automation/
-- 連接多台機器 https://herdr.dev/docs/connecting-machines/
-- 設定與鍵位 https://herdr.dev/docs/configuration/
+- 設定與按鍵 https://herdr.dev/docs/configuration/
+- 用指令自動化 https://herdr.dev/docs/agent-automation/
 - GitHub https://github.com/herdrdev/herdr
 
-裝好之後，本機就有兩份最好的文件，比官網好抄：
+裝好之後，`herdr --skill` 和 `herdr --default-config` 這兩份是最好的文件，都在你電腦裡。
 
-```bash
-herdr --skill             # 給 agent 讀的操作手冊，約一萬字元
-herdr --default-config    # 完整預設設定，含全部鍵位
-```
-
-我自己的三席對抗流程是取經朋友 Fred 的 herdr-collab 做法，他的倉庫目前是私有的，等他開放我再補連結。
-
-有問題直接在這篇下面留言，部落格的留言區用 GitHub 帳號就能寫；方格子那邊也看得到。我會把問得多的整理成下一篇。
+有問題直接在這篇下面留言，用 GitHub 帳號登入就能寫；方格子那邊我也看得到。問得多的我會整理成下一篇。
 
 ## 帶得走的一件事
 
-我用了一個月之後想到的一件事是：這類工具能不能幫到你，看你能不能先說出哪個 agent 現在卡住了。
+我用了一個月之後想到的一件事是：這類工具能不能幫到你，看你能不能先說出哪個 agent 現在在等你。
 
-我自己試過的做法是這樣。今晚裝好之後先不要學鍵位，開兩個 agent 各派一件小事，然後只打一行 `herdr agent list`，把每一個的狀態抄在紙上：working、blocked、idle、done、unknown。明天同一時間再抄一次。兩次都寫不出 blocked 是誰，代表你的 agent 還不需要工作區，先別急著搬家。
+我自己試過的做法是這樣。今晚裝好之後先不要學按鍵，開兩格各放一個 agent，各派一件小事，然後只看側欄，把每一個的狀態抄在紙上：working、blocked、idle、done、unknown。明天同一時間再抄一次。兩次都寫不出 blocked 是誰，代表你的 agent 還不需要辦公室，先別急著搬家。

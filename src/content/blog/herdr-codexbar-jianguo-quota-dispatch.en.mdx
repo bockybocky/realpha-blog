@@ -1,0 +1,118 @@
+---
+title: "What Happens After the Quota Runs Out: CodexBar Reads It, a Regency Protocol Hands Over, and the Schedules Slim Down"
+description: "The last piece showed how one line of quota readings sets the daily roster for four AI subscriptions. This one is about what happens when the quota actually hits zero: who takes over, what the caretaker is allowed to touch, how control comes back, and how the scheduled jobs slimmed down to match. Includes the GitHub repo for the regency protocol and five things I only learned by paying for them. Technical notes, not investment content."
+slug: "herdr-codexbar-jianguo-quota-dispatch"
+lang: "en"
+pubDate: 2026-09-10
+category: "systems"
+tags: ["AI agents", "quota", "CodexBar", "regency protocol", "automation", "herdr"]
+ogImage: "/covers/herdr-codexbar-jianguo-quota-dispatch.png"
+cover: "/covers/herdr-codexbar-jianguo-quota-dispatch.png"
+tldr: "Three parts, three layers. CodexBar reads how much each of four subscriptions has left. The regency protocol decides who is in charge when the main agent hits the wall, confines the caretaker to a sandbox, and hands control back with a report of every file it touched. The scheduled jobs got flags that cut per-call context by 84 percent. The valuable part came later: a handover governs who's in charge, not the jobs already running; and a referee that only sees the dispatch layer is blind wherever that layer isn't used. The repo is public on GitHub."
+
+---
+
+![Rococo oil painting cover: in a pastel palace hall, a gilded throne sits empty with a nearly drained hourglass on its armrest; beside it a young steward in pale blue works quietly at a small ornate desk holding a temporary seal, three small lanterns on the desk glowing green, amber and red, while a row of clerks beyond the windows keep working as if nothing happened](/covers/herdr-codexbar-jianguo-quota-dispatch.png)
+
+> *Your Majesty cannot command soldiers, but you excel at commanding generals.*<br/>
+> —— Han Xin to Emperor Gaozu, *Records of the Grand Historian* (Western Han; translation mine)
+
+## The question the last piece left open
+
+On September 6 I wrote about [setting the AI roster with one line of quota readings](/blog/codexbar-quota-dispatch/): four subscriptions, four kinds of quota window, a script that asks CodexBar every ten minutes how much each has left, turns that into green, amber and red, and prints one line before every message. Work gets routed by that line.
+
+What that piece didn't cover: what happens when the quota really runs out. I have thirty-odd scheduled jobs on this machine, most of them leaning on Claude. When Claude's five-hour window hits the wall, the jobs don't stop. They quietly produce broken output. This is how I handle that, using three parts plus one round of putting the schedules on a diet.
+
+First what each part is, then how they connect, then the things I learned the expensive way.
+
+![Three horizontal bands stack top to bottom; a solid line threads the top two into a handover chain, while the bottom band, herdr, sits outside the chain marked with a dashed line.](/figures/three-parts-three-layers-en.svg)
+
+## Three parts, three layers
+
+CodexBar reads the numbers. It's an open-source tray utility with a command-line companion that turns each AI login's usage into structured data. Its only job is to say how much is left and when the window resets.
+
+The regency protocol decides who's in charge. The name comes from a regent who governs while the monarch can't. When the main agent hits its quota, a referee automatically hands control to a secondary agent as caretaker. The caretaker can only work inside a sandbox, and the company's governance files are locked read-only at the operating-system level. When the quota returns, one command hands control back, and the machine lists every file the caretaker touched so I can accept or reject each one. I wrote this layer myself; the repo is at the end.
+
+herdr is where the agents live. The [handbook](/blog/herdr-complete-guide/) covered it: it tracks whether each agent is working, blocked, or done. An honest note here: herdr plays no part in the handover. The regency runs on schedulers and the command line; herdr is a separate layer on the same machine. What it gives me is the signal "this agent is stuck," and on screen, stuck looks identical to out-of-quota. So the two layers get read together.
+
+## One day, end to end
+
+A line prints before every message. It's the thing I look at most in a day. Here's the real one from September 10:
+
+```
+[Quota (7 min ago)] Claude week 🟢 74% left · resets in 123h (Fable 67%) | Codex week 🟡 32% left · resets in 132h 🔥 ahead of pace | Grok month 🔴 0% left · resets in 16h | agy 🔴 probe failed ⇒ mechanical→codex, engineering→codex, judgment→fable, X posts→grok(⚠️ red), code→codex
+```
+
+Three columns per provider: the light, hours to reset, and whether usage is running ahead of pace. Ahead of pace means consumption is more than fifteen percentage points faster than time elapsed, so it won't last to the reset. Two providers on the same light are compared by slack, not by the raw percentage left. This line only advises. It never flips control.
+
+![A chart plots window elapsed on the horizontal axis against quota used on the vertical axis; a diagonal pacing line splits the area, with one lane sitting on the line and another far above it, marked as running ahead.](/figures/room-to-spare-versus-percent-left-en.svg)
+
+The referee flips control. A script runs every five minutes and accepts only hard evidence: when CodexBar reads a five-hour window at one hundred percent, a line of evidence is written with the reset time attached. The referee is the sole writer of the state file; nothing else may touch it. One line of evidence from the morning of September 9:
+
+```
+{"ts": "2026-09-09T09:08:02+08:00", "engine": "claude", "signature": "[codexbar] claude 5h window 100% used. resets at 2026-09-09T10:40+08:00"}
+```
+
+At the moment of handover the machine does three things on its own. It opens a sandbox folder as the caretaker's workspace, takes a snapshot, and sets seven protected zones to read-only: the decision ledger, the company charter, settings, rules, skills, memory, and the handoff file. A caretaker writing there is refused by the operating system itself. That's the design, not a fault. At the same time it assembles a handover pack for the incoming agent: the sandbox path, the full caretaker rules, the quota line at that instant, the handoff file, and the queue of pending items.
+
+The caretaker's authority has edges. It can continue the "do first" items in the handoff, edit scripts, write outputs into the sandbox, and queue anything that needs my decision. It cannot issue decision numbers, write memory, change skills, publish externally, or touch schedules. Every action gets a row in a ledger. Stuck twice, it stops and moves to the next item. No brute-force retries.
+
+![A large frame stands for the whole machine; a small lit box on the left is the only sandbox the caretaker can write to, and seven locked grey cells on the right are off limits.](/figures/caretaker-writable-corner-en.svg)
+
+When the quota returns, I type one command. It spends one minimal call probing whether the main agent is alive, and only then flips control back, unlocks the protected zones, diffs the snapshot, and prints a reclaim report. For September 9: caretaker from 09:08 to 10:43, 3,521 files locked, 4 files modified during the regency, 0 added, 0 deleted, all four being schedule state files. I read the list and accepted each one.
+
+Since this went live on September 6, regencies have come one after another, eleven by September 9. In the two months before that, an automatic handover had never happened once. Why is further down.
+
+## The schedules slim down
+
+A handover settles who's in charge. It doesn't explain why the wall arrives so fast. On September 9 I ran a prompt audit and found thirty-five scheduled jobs calling the Claude command line, none of them with any slimming flag. Every call loaded the company charter, rules, memory, output style, and every hook by default: about 140,000 characters of governance files. At least six of those jobs only needed the model to write one or two sentences.
+
+Measured on the same question, characters per call:
+
+| Flag | Characters | Versus normal |
+|---|---|---|
+| Normal (all governance files loaded) | 105,758 | baseline |
+| Local settings only | 35,052 | 67% less |
+| Safe mode | 16,585 | 84% less |
+
+The remaining sixteen thousand is the tool's own system prompt and tool definitions. That part can't be turned off.
+
+![Three horizontal bars of decreasing length show the context carried per call, with a dashed line past the shortest bar marking the floor that cannot be switched off.](/figures/context-per-call-floor-en.svg)
+
+The rule in one sentence: single-sentence mechanical calls get safe mode plus the lowest reasoning effort; judgment jobs, like the daily holdings review, the weekly scenario, and the four-source flow analysis, get medium effort only and no safe mode, because they need skills, tools, and company context. Judgment never gets downgraded. That rule is the same at the dispatch layer and the schedule layer.
+
+Twenty-one jobs changed, fourteen skipped. Among the skipped: one is the measuring stick itself, and changing it would change what it measures; one explicitly forbids this path; one runs on Grok.
+
+One counterintuitive result: I edited the company charter first, moving out twelve blocks of revision history, and measured only a 7.5 percent drop in size, with no visible change in characters per call. Saving quota comes from the schedule flags. Editing governance files changes behavior, not volume.
+
+## Five things I didn't see coming
+
+First, a handover governs who's in charge, not the jobs already running. On September 7 the five-hour window hit twice, both times during the English figure step of the publishing pipeline. The translation call returned an empty string, every figure was marked "no translation, skip," the post published anyway, Substack sent anyway, and two English posts went live with zero figures. No alarm. I noticed by looking. After every handover there's now an extra step: list the jobs that ran during the window and call the main agent inside a step, and check each one's output, not its log.
+
+![A log column on the left shows every step ticked, while the output column on the right holds six empty dashed placeholders where figures should be, the two columns set side by side.](/figures/green-log-empty-output-en.svg)
+
+Second, a fallback without a gate is no fallback. By the second wall the fallback was already wired to Codex, and it hit a hole where a bare `codex` on Windows couldn't find the .cmd, so it returned empty too. The rule that came out of it: a cross-vendor fallback plus an output-count gate. When a job finishes, count what it produced, and notify if anything is missing.
+
+Third, the referee's eyes are on the dispatch layer. The first version relied on a wrapper script to report walls, but only three of the thirty-odd jobs used that wrapper; the rest called the command line directly. For two months the referee saw no evidence, so an automatic handover never fired and every one was manual. Version two reads CodexBar instead. That routes around the hole. It doesn't fill it.
+
+![Two panels each hold thirty-five scheduled-job squares; on the left only three are lit by the eye's line of sight, while on the right all thirty-five are lit.](/figures/referee-eye-coverage-en.svg)
+
+Fourth, two brains writing the same ledger will collide on IDs. On August 11 the caretaker and I worked at the same time, and decision numbers collided three times: the number I sent had already been used by the caretaker; a duplicate slipped past the duplicate check because each side saw "doesn't exist yet" at write time; and the fix collided once more. Every time, the moment I read was treated as the moment I wrote. The fix is to read back after registering. The real fix is to put number allocation inside one locked transaction, which isn't done yet.
+
+Fifth, a safety switch that lives in an environment variable protects only whoever remembers to set it. At 06:30 on September 7 a scheduled job ran the test suite, a test simulated a handover on a temporary state file, and version two's hook didn't check whether that file was the production one. It opened a real regency on the live system and locked 3,411 files, including my memory directory, until 10:06, when a write of mine was refused and I found out. A real safeguard decides from the data itself whether this is production.
+
+One more, decided only on September 9: the number of fallback layers is not the same as fallback that works. Three external engines on the same billing cycle will all go dark on the same day, which is one layer. A fourth layer has to sit in a different billing pool.
+
+## The repo
+
+The regency protocol's skill and reference implementation are public at https://github.com/bockybocky/jianguo-skill under the MIT license. Ten files: an English README, the skill itself, the caretaker rules, the referee, the sandbox, the evidence adapter, the dispatch wrapper, the human-facing CLI, and two test files.
+
+Porting it takes three steps, which are my summary rather than a section of the README: put the skill file into Claude Code's skills directory; put the scripts into your own scripts directory and edit the constants block at the top of each for paths, notification channel, and probe command; schedule the referee every five minutes and run the two test files. The README opens with a flow diagram and five design points that don't require my vocabulary. The rules and the skill body are in Traditional Chinese, so non-Chinese readers have the README and the code.
+
+Questions go in the comments below, here or on Vocus.
+
+## The one thing to take with you
+
+The thing I kept coming back to after this round: whether a fallback works isn't about how many layers it has. It's about whether, on the day the quota hits zero, something is counting the output.
+
+Here's what I tried. The next time your main AI hits its quota, don't rush to switch providers. Take a sheet of paper, list the automations that ran during that window, and open each one's output and count: six figures expected, how many present; three sections expected, how many present. Write down the ones that came up short. Within a week you'll find at least one that quietly lost something without telling anyone. That one is the one to fix first.
