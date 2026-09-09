@@ -1,0 +1,217 @@
+---
+title: "The herdr Handbook: Running a Flock of AI Agents Alone, from Install to Interface to Scripted Orchestration"
+description: "Readers kept asking how herdr actually works. This walks through what it is, how to install it on three platforms, how to read its five-layer interface, the daily moves for starting a second agent and reading results back, then my own three real uses and the traps I hit, with a learning list at the end. A technical tutorial, not investment content."
+slug: "herdr-complete-guide"
+lang: "en"
+pubDate: 2026-09-10
+category: "systems"
+tags: ["herdr", "AI agents", "terminal", "tooling", "workflow"]
+ogImage: "/covers/herdr-complete-guide.png"
+cover: "/covers/herdr-complete-guide.png"
+tldr: "herdr is a terminal workspace where AI coding agents live: one server owns every pane, so closing the window doesn't stop the work. One-line install, a five-layer interface (session, workspace, tab, pane, agent), prefix key ctrl+b. The useful part is that it knows whether each agent is working, blocked, or done, and all of it can be scripted. I used it to run a three-seat adversarial review that caught holes three rounds of read-only red-teaming had missed."
+
+---
+
+![Baroque oil painting cover: on a dark hillside at night, a shepherd seen from behind holds a single lantern; a dozen sheep glowing from within are scattered below him, city lights far in the distance](/covers/herdr-complete-guide.png)
+
+> *Affairs lie in the four quarters; the pivot lies at the center. The sage holds the pivot, and the four quarters come to serve.*<br/>
+> —— Han Feizi, *Yang Quan* (Warring States period; translation mine)
+
+## Who this is for
+
+Last month I wrote two pieces that touch herdr. One was about what I borrowed from its design ([herdr: who is working, who is stuck](/blog/herdr-agent-automation/)); the other was about taking over your PC's agents from a phone ([Tailscale + Herdr + Moshi](/blog/phone-to-pc-agent-tailscale-herdr-moshi/)). Since then, several readers asked the same thing: fine, but how do you actually use herdr?
+
+This is the answer. From zero: install, interface, daily moves, scripted orchestration, then my own real uses and the traps I hit. Anything the earlier two pieces covered gets one sentence and a link.
+
+## What herdr is
+
+One sentence: a terminal workspace for AI coding agents to live in. The official phrase is "the runtime your coding agents live on."
+
+Think of it as an office. You're the boss, the agents are staff, and each one sits in a pane. herdr does three things. First, when you shut the office door, staff keep working, and when you come back everything is where you left it. Second, it knows whether each person is working, waiting on you, or finished and idling. Third, you don't have to walk to each desk: you can assign work and read results back from the command line.
+
+Basics: built by Herdr, Inc., GitHub organization herdrdev, Apache 2.0 license, roughly thirty-seven thousand stars (two fetches on the same day gave different numbers, so treat that as an order of magnitude). Two update channels, stable and preview; preview comes off the development branch and the docs say plainly it may regress.
+
+## Install
+
+macOS and Linux:
+
+```bash
+curl -fsSL https://herdr.dev/install.sh | sh
+```
+
+You can also `brew install herdr` or `mise use -g herdr`, or grab the binary from GitHub Releases and drop it in `~/.local/bin`.
+
+Windows, in PowerShell:
+
+```powershell
+powershell -ExecutionPolicy Bypass -c "irm https://herdr.dev/install.ps1 | iex"
+```
+
+One Windows-specific note from the docs: if you install from the zip by hand, unpack the whole thing. Don't copy only herdr.exe; the ConPTY runtime next to it has to come along.
+
+My own Windows setup is a little different. My security guard blocks the "fetch a script from the web and run it" pattern, so I went the GitHub zip route, unpacked to `C:\Users\Charles\tools\herdr\preview-2026-08-04\`, and put a one-line shim at `C:\Windows\herdr.cmd`:
+
+```
+@"C:\Users\Charles\tools\herdr\preview-2026-08-04\herdr.exe" %*
+```
+
+Now `herdr` works from any terminal. The cost is that an upgrade means editing two places: that cmd file and the herdr entry in the user PATH. I deliberately don't point at a "current" symlink, because a session that comes in over SSH can't see symlinks. That was one of the traps in the phone piece.
+
+After installing, run three checks:
+
+```bash
+herdr --version        # version and channel
+herdr status           # is the server running, are client and server compatible
+herdr channel show     # stable or preview
+```
+
+The config path is printed at the bottom of `herdr --help`: `%APPDATA%\herdr\config.toml` on Windows, `~/.config/herdr/config.toml` elsewhere. Mine is three lines; everything else is default.
+
+## The interface: five layers, one prefix key
+
+herdr organizes things in five layers, largest first:
+
+1. session: a persistent server. Plain `herdr` attaches to the default one, named default.
+2. workspace: the top-level project container. The docs suggest one per repo, task, or investigation.
+3. tab: a layout inside a workspace. Agents on one tab, logs on another, review on a third.
+4. pane: a real terminal. Close the client and whatever runs in the pane keeps running.
+5. agent: an AI process herdr has recognized inside a pane.
+
+The first four are containers; the fifth is the living thing. The three public ID formats are `w1`, `w1:t1`, and `w1:p1`, and closed IDs are never reused.
+
+![Five boxes nested from largest to smallest, from the outermost session down to the innermost agent; the first four layers are grey empty containers, while the innermost agent is solid blue, showing that only it is a living thing.](/figures/herdr-five-layers-nested-en.svg)
+
+The sidebar on the left rolls up agent states from every workspace so you can see at a glance where someone is waiting on you. There are five states:
+
+- working: computing.
+- blocked: waiting for your approval or input.
+- idle: ready for the next instruction.
+- done: finished in the background, not yet seen by you.
+- unknown: recognized as an agent, state can't be classified.
+
+Two of these are easy to misread. done just means "an idle you haven't looked at yet," and reading it from the CLI doesn't clear the flag. unknown doesn't mean finished; it means unrecognized.
+
+Everything runs off one prefix key, `ctrl+b` by default, followed by an action key. The ones I use most:
+
+![A two-axis chart where the horizontal axis is whether the process is running or has stopped and the vertical axis is whether you have to step in; working sits at the lower left, blocked at the upper right, done at the middle right with an arrow pointing down to idle labelled you looked, and unknown is drawn outside the axes in a dashed box.](/figures/herdr-agent-states-two-axes-en.svg)
+
+| Action | Keys |
+|---|---|
+| Help | prefix + ? |
+| Detach | prefix + q |
+| New tab | prefix + c |
+| Switch tab | prefix + 1 through 9 |
+| Split pane vertically | prefix + v |
+| Split pane horizontally | prefix + minus |
+| Close pane | prefix + x |
+| Zoom / unzoom pane | prefix + z |
+| Focus left / down / up / right | prefix + h / j / k / l |
+| Toggle sidebar | prefix + b |
+| New workspace | prefix + shift + n |
+| Workspace menu | prefix + w |
+
+If ctrl+b bothers you, change the prefix to f12 or esc in the config. A few actions ship unbound, like previous/next workspace and jump-to-agent-N; you add those yourself.
+
+## Daily use
+
+Open, detach, come back. These three are the most basic and the most valuable:
+
+```bash
+herdr                          # start or attach to default
+herdr --session review         # use or create a named session
+herdr session list             # list every session
+```
+
+Detach with `prefix + q`. The server and every agent keep running; come back with `herdr` and you're reattached with nothing to rebuild. This is where it feels most like an office: you turn off the lights and people are still inside working.
+
+![Two panels side by side: on the left your window is connected to the server and three running agents, and on the right your window turns dashed and disappears while the server and the same three agents below are still running exactly as before.](/figures/herdr-detach-server-keeps-running-en.svg)
+
+Starting a second agent is the next threshold, and there's an order to remember: split the pane first, then start the agent. `agent start` doesn't create a pane; it wants an existing pane already sitting at a prompt.
+
+![Two panels side by side: on the left an agent is started directly but has no pane to land in and falls through, and on the right an empty pane is split first and the agent is placed into it, sitting firmly inside its container.](/figures/herdr-pane-before-agent-en.svg)
+
+```bash
+# 1. Split a new pane to the right of the current one, same cwd, don't steal focus
+herdr pane split --current --direction right --cwd "$PWD" --no-focus
+# The response is JSON; read the new pane ID from it, don't guess
+
+# 2. Start an agent in that pane
+herdr agent start reviewer --kind codex --pane w1:p2
+
+# 3. Send a task and wait for it
+herdr agent prompt reviewer "Review the current diff and report only actionable findings." --wait --timeout 120000
+
+# 4. Read the result back
+herdr agent read reviewer --source recent-unwrapped --lines 120
+```
+
+`--kind` accepts twenty-one values right now, including claude, codex, gemini, grok, agy, cursor, copilot, and opencode. Agent names must be unique among live agents, and the name frees itself when the agent exits.
+
+Reading results has a ceiling you should know about up front. If raising `--lines` still doesn't return the full answer, the agent is running on the terminal's alternate screen, and lines that scroll off never enter herdr's history. No line count recovers them. My workaround is to have the agent write the full reply to a markdown file and return only the path, then read the file.
+
+![A long bar of answer text runs past the top edge of the pane, the part inside the frame is readable while the part outside is greyed out and labelled as gone once it scrolls off, and on the right another path writes the whole answer to a file and reads all of it back.](/figures/herdr-alt-screen-scrollback-ceiling-en.svg)
+
+To wait for one specific state, use `wait`:
+
+```bash
+herdr agent wait reviewer --until blocked --timeout 120000
+```
+
+This is the line I use most. Wait for the moment it needs my approval, instead of checking every thirty seconds.
+
+![Two timelines stacked: the upper one is packed with more than ten tick marks for empty checks and only the last one hits the block, while the lower one stays blank all the way and lights up a single dot at the moment of the block.](/figures/herdr-poll-versus-wait-en.svg)
+
+A few other everyday pieces:
+
+- Notifications: `herdr notification show "Title" --body "text" --sound done`. Config lets you route toasts through herdr itself, the terminal, or the OS; agents in background workspaces make a sound on state change by default.
+- Worktrees: `herdr worktree create` stands up a workspace on a git worktree for an isolated branch, stored under `~/.herdr/worktrees` by default.
+- Remote: `herdr --remote <ssh-target>` attaches to herdr on another machine, provided you already have SSH access. It adds keepalive settings to survive idle disconnects. My phone setup doesn't use this; it goes over SSH into the machine and then runs herdr, which is a different thing.
+- Update: `herdr update`, with `--handoff` for a live, uninterrupted swap.
+- Config: `herdr --default-config` prints the complete default configuration including every keybinding, which you can dump into your config as a template; after editing, `herdr server reload-config` makes the running server re-read it.
+
+## My own three uses
+
+The first is three-seat adversarial review. On September 1 I moved a technical-indicator validation design (I call it the third sword) from version 1.2 to 1.3. Before that, Codex had red-teamed the document three rounds, read-only. In herdr I opened three panes: one seat as designer, one as statistical adversary, one whose only job was to guard "is this even the question he's asking." Each seat ran numbers. Two of them caught holes Codex had missed three times: twenty-seven percent of the exits in the ledger were concentrated on five liquidation days, meaning "the person in the sample is not the person in the design," and the control group would wrongly kill a perfect-foresight rule by 2.9 percentage points. A red team that only reads can't catch the holes you only see by running the numbers. That's the single most valuable sentence herdr has given me.
+
+The second is the phone takeover, covered in the earlier piece. herdr's role there is just a room where people keep working after the door closes.
+
+The third happened before I even installed it. On August 8 I read the docs and borrowed the lens "blocked is its own state," pointed it at my own system, and immediately found an idle process that had been hanging for fifty-one hours. That's the first piece.
+
+An honest addendum: not every task deserves multiple seats. On August 30 I evaluated three candidate tasks, and only one passed all three tests: large blast radius, a ground truth to check against, and a need for an implementer plus an independent verifier. Opening seats for the other two would only have burned quota.
+
+## Traps I hit
+
+- Git Bash converts slash-prefixed strings like `"/effort high"` into paths. Prefix agent commands with `MSYS_NO_PATHCONV=1`.
+- An agent started with `--permission-mode acceptEdits` pops a confirmation when it reads outside the home directory, and plays dead if nobody's there. Keep a `wait --until blocked` on it, and when it fires, `herdr agent send-keys <pane> 2 enter` to choose "allow this session."
+- PowerShell arriving over SSH can't see symlinks, so a PATH entry pointing at a shortcut is as good as absent. Use the real folder in install paths.
+- `herdr session attach main` is the wrong room. The window on the PC lives in default; plain `herdr` is right.
+- After a server restart, the layout is restored from a snapshot, but processes are not, and recent screen contents aren't either unless you enable `[experimental] pane_history`. herdr is not a backup.
+- The official agent-skill page tells you to install the agent-facing manual with npx, at version 0.8.2. My binary is 0.8.0 preview. Install that and the command syntax won't match, with no clear error to tell you why. The manual itself says the installed binary is the authority on syntax. So print the built-in copy with `herdr --skill` instead.
+
+## Learning resources
+
+Official:
+- Docs home https://herdr.dev/docs/
+- Quick start https://herdr.dev/docs/quick-start/
+- Core concepts https://herdr.dev/docs/concepts/
+- Agent automation (scripting) https://herdr.dev/docs/agent-automation/
+- Connecting machines https://herdr.dev/docs/connecting-machines/
+- Configuration and keybindings https://herdr.dev/docs/configuration/
+- GitHub https://github.com/herdrdev/herdr
+
+Once installed, the two best documents are already on your machine, and easier to copy from than the website:
+
+```bash
+herdr --skill             # the operator's manual written for agents, about ten thousand characters
+herdr --default-config    # the full default config, every keybinding included
+```
+
+My three-seat workflow borrows from my friend Fred's herdr-collab approach. His repository is private for now; I'll add the link when he opens it.
+
+Questions go in the comments below. The blog's comment box works with a GitHub account, and I read the ones on Vocus too. I'll collect the frequent ones into a follow-up.
+
+## The one thing to take with you
+
+After a month with it, the thing I keep coming back to: a tool like this helps you only if you can first say which agent is stuck right now.
+
+Here's what I tried. Tonight, after installing, skip the keybindings. Start two agents, give each a small job, and type one line: `herdr agent list`. Copy each state onto paper: working, blocked, idle, done, unknown. Do it again tomorrow at the same time. If neither day produces a name next to blocked, your agents don't need a workspace yet, and there's no rush to move house.

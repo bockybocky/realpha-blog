@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="五層層層相套的方框，最外是 session，往內依序是 workspace、tab、pane，最裡面實心的一層是 agent">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="56" y="62" font-size="27" font-weight="700" fill="var(--ink)">一層套一層，最裡面那層才是活的</text>
+
+  <rect x="56" y="100" width="640" height="404" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="76" y="130" font-size="20" fill="var(--dim)">session</text>
+  <text x="76" y="152" font-size="15" fill="var(--grey)">常駐的 server</text>
+
+  <rect x="108" y="164" width="536" height="316" rx="12" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text x="128" y="192" font-size="20" fill="var(--dim)">workspace</text>
+  <text x="128" y="214" font-size="15" fill="var(--grey)">一個專案</text>
+
+  <rect x="160" y="226" width="432" height="228" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="180" y="254" font-size="20" fill="var(--dim)">tab</text>
+  <text x="180" y="276" font-size="15" fill="var(--grey)">一個版面</text>
+
+  <rect x="212" y="288" width="328" height="140" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text x="232" y="316" font-size="20" fill="var(--dim)">pane</text>
+  <text x="232" y="338" font-size="15" fill="var(--grey)">一個終端機</text>
+
+  <rect x="264" y="354" width="224" height="56" rx="10" fill="var(--accent)"/>
+  <text x="376" y="382" font-size="20" font-weight="700" fill="var(--page)" text-anchor="middle">agent</text>
+  <text x="376" y="402" font-size="15" fill="var(--page)" text-anchor="middle">會做事、會卡住</text>
+
+  <rect x="736" y="176" width="20" height="20" rx="4" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="768" y="192" font-size="19" fill="var(--dim)">容器</text>
+  <text x="768" y="216" font-size="15" fill="var(--grey)">前四層</text>
+  <rect x="736" y="252" width="20" height="20" rx="4" fill="var(--accent)"/>
+  <text x="768" y="268" font-size="19" fill="var(--ink)">活的</text>
+  <text x="768" y="292" font-size="15" fill="var(--grey)">第五層</text>
+
+  <text x="56" y="540" font-size="22" fill="var(--ink)">你調度的是容器，你盯的是最裡面那格</text>
+</svg>

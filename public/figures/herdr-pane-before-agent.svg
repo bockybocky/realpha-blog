@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊 agent 懸在半空沒有容器接住，右邊先有一個空窗格，agent 落在裡面">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="56" y="62" font-size="27" font-weight="700" fill="var(--ink)">先有位子，才有員工</text>
+
+  <text x="56" y="116" font-size="20" fill="var(--warn)">直接起 agent</text>
+  <text x="516" y="116" font-size="20" fill="var(--accent)">先切窗格</text>
+
+  <rect x="56" y="140" width="384" height="300" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="140" y="176" width="216" height="56" rx="10" fill="var(--warn)"/>
+  <text x="248" y="212" font-size="20" font-weight="700" fill="var(--page)" text-anchor="middle">agent</text>
+  <line x1="248" y1="240" x2="248" y2="322" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 7"/>
+  <path d="M240 316 L 248 332 L 256 316 Z" fill="var(--warn)"/>
+  <rect x="140" y="340" width="216" height="66" rx="10" fill="var(--page)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="248" y="380" font-size="18" fill="var(--grey)" text-anchor="middle">沒有窗格</text>
+
+  <rect x="516" y="140" width="384" height="300" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="600" y="176" width="216" height="56" rx="10" fill="var(--accent)"/>
+  <text x="708" y="212" font-size="20" font-weight="700" fill="var(--page)" text-anchor="middle">agent</text>
+  <line x1="708" y1="240" x2="708" y2="316" stroke="var(--accent)" stroke-width="3"/>
+  <path d="M700 310 L 708 326 L 716 310 Z" fill="var(--accent)"/>
+  <rect x="580" y="332" width="256" height="86" rx="10" fill="var(--page)" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="708" y="364" font-size="18" fill="var(--ink)" text-anchor="middle">空窗格</text>
+  <text x="708" y="392" font-size="15" fill="var(--dim)" text-anchor="middle">停在提示字元</text>
+
+  <text x="56" y="500" font-size="22" fill="var(--ink)">編號從切窗格的回應裡讀，不要用猜的</text>
+</svg>
