@@ -1,0 +1,109 @@
+---
+title: "No One Is Coming: Reading Crisis Engineering, Then Checking Whether My Stocks Are Actually in Crisis"
+description: "Three engineers who rescued HealthCare.gov wrote a field manual for crises. The most useful part for me wasn't how to fight fires. It was their five indicators for deciding whether you're in a crisis at all. Six of my holdings are down by half, so I ran each one through the five boxes. Educational reading notes and extensions, not investment advice."
+slug: "crisis-engineering-no-one-is-coming"
+lang: "en"
+pubDate: 2026-09-09
+category: "investing"
+tags: ["book notes", "crisis management", "complex systems", "risk", "education"]
+ogImage: "/covers/crisis-engineering-no-one-is-coming.png"
+cover: "/covers/crisis-engineering-no-one-is-coming.png"
+tldr: "The book's core line is 'No one is coming. It is up to us.' But the authors insist on an earlier step: confirm you're in a crisis before acting like it. Five indicators, read together: fundamental surprise, your old explanation breaking, core function failing, everyone watching, a deadline that can't move. I ran my six worst holdings through them. Most tick one or two boxes. That's ugly, not a crisis. One thing I added from my own records: of the 89 failure conditions I wrote for 14 holdings, the only ones a machine checks daily are the price ones."
+
+---
+
+![Neoclassical oil painting cover: a golden grass hillside at dusk, wildfire and smoke sweeping down from the upper right, tiny figures fleeing toward the ridge, and at the center a woman standing still inside a circle of already-burned ground while the fire passes around her](/covers/crisis-engineering-no-one-is-coming.png)
+
+> *A state without law-abiding families and worthy counselors within, without enemy states and foreign threats without, will surely perish.*<br/>
+> *Only then do we learn that we live by hardship and die by ease.*<br/>
+> —— Mencius, *Gaozi II* (Warring States period; translation mine)
+
+## The question I brought to the book
+
+Six of the stocks in my account are down more than half from their one-year highs. Every time I open the statement, the same sentence surfaces: cut, or hold.
+
+I didn't have a good answer, so I read a book that has nothing to do with stocks. *Crisis Engineering: Time-Tested Tools for Turning Chaos into Clarity* is about how government systems, a nuclear plant, and a backlog of unemployment claims got pulled back from the edge. What it answers isn't cut-or-hold. It's the question before that one: are you in a crisis at all?
+
+A word on the book first. The authors are Marina Nitze, Matthew Weaver, and Mikey Dickerson. The latter two were site reliability engineers at Google. When HealthCare.gov crashed on launch in October 2013, Mikey led the rescue, landed on the cover of *Time*, and was then asked by President Obama to set up the United States Digital Service. Marina was chief technology officer at the Department of Veterans Affairs at the time, and that's where the three met. After leaving government they founded Layer Aleph, a firm that takes on crisis work. By their count, they've been involved in close to a hundred complex-system rescues over twenty years, with budgets from tens of millions to over a trillion dollars.
+
+The book was published on April 7, 2026 by Balance, an imprint of Hachette, at 336 pages. I read the English original ([books.com.tw](https://www.books.com.tw/products/F01b445728)). As of September 9, 2026 I couldn't find a Traditional Chinese edition. Quotes below are from the book; the framing is mine.
+
+## No one is coming
+
+The book gives away its most important sentence in the introduction: "If you learn only one thing from this book, let it be this: There is no other room, and there are no grown-ups. No one is coming. It is up to us."
+
+They're talking about organizations. I was thinking about retail investors. When a stock halves, you wait for someone to explain what happened. The company issues a statement, an analyst publishes a note, the press supplies a reason. The authors' experience is that the people in those rooms don't know either. On the morning of the Three Mile Island accident, Pennsylvania's lieutenant governor announced at 10:55 that everything was under control. Reporters and police scanners contradicted him within minutes.
+
+So the book doesn't teach you to wait. It teaches you to judge for yourself. And the first step isn't action. It's telling the difference.
+
+## First, sort it: crisis, or just ugly
+
+The authors write that the very first step in crisis engineering is the ability to tell whether you're in a crisis at all. They give five indicators:
+
+1. Fundamental surprise. Something happened that violates your basic assumptions about reality.
+2. Sensemaking failure. The story you used to understand this company no longer matches what's happening.
+3. Degradation or replacement of core function. The main product, the main customer, the main source of cash is in trouble.
+4. High visibility. Attention spikes, and decision pressure spikes with it.
+5. A rigid deadline. An expiry, a settlement date, the day the cash runs out.
+
+You read the five together. In their words: "You cannot manufacture a crisis. You can't force an organization desensitized to failure to feel fundamental surprise. You can't invent a deadline that is truly immovable." The reverse holds too. If only one or two boxes are ticked, you aren't in a crisis, and crisis tools don't work outside one.
+
+I ran my six halved stocks through the boxes. Most tick one, sometimes two. The price fell a lot, so everyone is watching, and box four is checked. But the reason I bought hasn't been refuted, the core product is still selling, and there's no deadline. That's an ugly year. It isn't a crisis.
+
+![Scatter plot with drop from the high on the horizontal axis and the number of crisis flags met out of five on the vertical axis; all six holdings sit at the far right in deep-drawdown territory, yet every one of them falls below the dashed line marking three flags.](/figures/drawdown-is-not-crisis-en.svg)
+
+One is closer. The failure line I wrote down when I bought it was full-year revenue growth below ten percent, and the latest guidance is sitting right on that line. Box two is nearly checked. That one deserves crisis treatment. Treating the others the same way would hurt me more than help.
+
+The book says false crises are far more common than real ones, because bosses like to see heroic effort and turn everything into an emergency. Retail investors don't have a boss. They have something better at manufacturing false crises: the red numbers on a brokerage statement.
+
+## The gauge shows a signal, not a state
+
+A full chapter goes to Three Mile Island in 1979. The control room had thousands of gauges and not one that directly measured the water level in the reactor. A relief valve stuck open, but the panel light was green, because the light only meant "the close command was sent," not "the valve closed." The operators looked at the green light and shut off the injection pumps that should have stayed on. Eight minutes later the core began to melt.
+
+![A chain running left to right: a green control-room light connects to "close signal sent", the chain is cut there by a cross mark, and to the right the real valve is still open.](/figures/signal-is-not-state-en.svg)
+
+Thirty-four years later, HealthCare.gov was the same story. Fifty-five contractors each owned one piece. The authors call it "a masterful choreography of checks and balances, all working together to ensure that no one person or company was accountable for the whole project actually working." Every contractor's own piece showed green.
+
+I stopped reading here, because my own dashboard works the same way. For fourteen holdings I've written what I call failure conditions, meaning the events that should make me sell. Eighty-nine conditions in total. This September I went back and counted. Of those eighty-nine, the only ones a machine checks every day are the price ones, a stock falling through a level. The conditions about operations, demand, and competition are written in the files, and nothing checks them.
+
+![Four lights in a row stand for four kinds of kill condition; only the price light has a wire running down to a daily machine check, while the wires under the other three hang loose in mid-air.](/figures/eighty-nine-conditions-one-wire-en.svg)
+
+In other words, when my panel says "safe," there are two possibilities. Either it's safe, or that box was never wired up. It's the same green as the Three Mile Island light. Only this month did I start having a script compare those conditions against my daily review notes. On day one it flagged eleven conditions across four holdings as "approaching." They had all been green before.
+
+There's a line from the book I've taped next to my screen: "All answers are lies unless you observe them with your own eyes in a live system."
+
+Here's what observing looks like for them. During the pandemic, five million Californians went months without unemployment benefits, and the official backlog math said it would take forty-eight years to clear. The authors' first move was to tear a promotional poster off the wall and hand-draw the real process on the back. They drove to what was called a call center and found a row of empty desks. Mikey put the post office's bins of unopened mail on a postal scale and added "pounds of unopened mail" to the daily backlog dashboard. The nails they found were small: the address field held thirty characters, so anyone on a long street had their letters bounced; a contractor's driver's-license scanner dropped the color red, and California prints the license number in red. Pull those nails, and forty-eight years became three months.
+
+![A long bar across the top of the image stands for the forty-eight years implied by the official reports, while three months on the same scale shrinks to a hairline below it.](/figures/forty-eight-years-to-three-months-en.svg)
+
+## A comfortable explanation, too soon
+
+The theory section is about sensemaking, which in plain terms is how the brain turns messy information into a story. The authors draw on Karl Weick, and one line hits retail investors hardest: "Sensemaking is driven by plausibility more than accuracy. We will prefer a familiar story that fits some of the facts over a weird one that fits all of the facts."
+
+They list four stories that are useful and harmful at once: blame a person, call for more training, blame the legacy system, say it's just too complicated. What the four share is that once you've told one, you feel the investigation is over.
+
+![A large box stands for all the facts; a small solid block on the left is labelled as the familiar story, and the wide empty area to the right is labelled as the part still unexplained.](/figures/a-comfortable-story-covers-part-of-the-facts-en.svg)
+
+On the day a stock craters, the first explanation to surface usually belongs to one of the four. "Foreign funds are dumping" is blaming a person. "The quarter was bad" is a familiar story that fits some of the facts. They make you comfortable, and then you stop. The book's remedy is to ask how much of the evidence the story covers, and to go look at the part it doesn't.
+
+There's a counterexample in the book. When the National Highway Traffic Safety Administration was created, automakers blamed accidents on "the nut behind the wheel." The agency refused that story and looked at what happens to the car itself in a crash. That's where airbags came from.
+
+## Slightly early beats slightly late
+
+I expected a book about holding on. Instead, the two most counterintuitive chapters are "When to Give Up" and "Know When You're Done."
+
+There are two conditions for giving up. One: the five indicators don't hold, so you were never in a crisis. Two: time has run out and it can't be undone, and the authors' examples are a bankruptcy or a filing deadline that has passed. After a failure, the only useful move is to re-frame the story around what you learned, or you're left with nothing but frustration.
+
+Knowing when you're done is more detailed. They list seven signs of a return to normal, such as the backlog no longer growing, no need for special authority, and meetings turning boring because the agenda repeats. Their conclusion: "It is better to end the crisis engineering effort slightly early than slightly late." Crisis mode starts decaying the moment it starts, and staying too long is more common and more expensive than leaving too soon.
+
+![A curve that starts falling from the moment the mode is switched on, marked with two exit points: the earlier one still high on the curve, the later one already near the bottom.](/figures/crisis-mode-decays-from-the-start-en.svg)
+
+One example made me laugh and then stop laughing. At the peak of HealthCare.gov, Mikey set up a 3 a.m. phone call every night. Ten years later he went back to that agency and found the call still happening every night. He told them he was the one who invented the rule and the reason was long gone. They still didn't dare cancel it.
+
+That maps onto a retail investor's pain point. After a position goes underwater, you start watching the tape, into the second month, the third, until the day something actually breaks and you have no energy left. When crisis mode ends needs to be written down ahead of time, the same as when it begins. My own rule now: when boxes two and three go back to unchecked, I stand down.
+
+## The one thing to take with you
+
+The thing I kept thinking after finishing: how far a stock has fallen doesn't define a crisis. Fewer than three of the five boxes ticked means an ugly quarter, nothing more.
+
+Here's what I've tried. The next time one of your stocks drops more than ten percent in a day, don't open the order page after the close. Open a sheet of paper and write the five boxes: surprise, story broken, core failing, everyone watching, deadline. Tick each one and write the count next to that trade in your log. Come back in a week and see whether the number moved. Under three, leave the order page closed.

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The signal chain breaks midway: the panel's green light connects only to the command that was sent, never to the valve's real state.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">Green→what?</text>
+
+  <rect x="60" y="140" width="230" height="170" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="175" cy="205" r="30" fill="var(--accent)"/>
+  <text class="t" x="175" y="270" font-size="20" text-anchor="middle" fill="var(--ink)">Panel</text>
+  <text class="t" x="175" y="296" font-size="16" text-anchor="middle" fill="var(--dim)">Looks safe</text>
+
+  <line x1="290" y1="225" x2="400" y2="225" stroke="var(--accent)" stroke-width="4"/>
+
+  <rect x="400" y="150" width="200" height="150" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="500" y="215" font-size="20" text-anchor="middle" fill="var(--ink)">Closed</text>
+  <text class="t" x="500" y="245" font-size="20" text-anchor="middle" fill="var(--ink)">cmd sent</text>
+
+  <line x1="600" y1="225" x2="660" y2="225" stroke="var(--grey)" stroke-width="4" stroke-dasharray="8 8"/>
+  <line x1="700" y1="225" x2="760" y2="225" stroke="var(--grey)" stroke-width="4" stroke-dasharray="8 8"/>
+  <line x1="662" y1="203" x2="698" y2="247" stroke="var(--warn)" stroke-width="5"/>
+  <line x1="698" y1="203" x2="662" y2="247" stroke="var(--warn)" stroke-width="5"/>
+  <text class="t" x="680" y="288" font-size="19" text-anchor="middle" fill="var(--warn)">No wire</text>
+
+  <rect x="760" y="150" width="140" height="150" rx="14" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text class="t" x="830" y="205" font-size="20" text-anchor="middle" fill="var(--ink)">Valve</text>
+  <text class="t" x="830" y="240" font-size="20" text-anchor="middle" fill="var(--warn)">Open</text>
+  <text class="t" x="830" y="272" font-size="16" text-anchor="middle" fill="var(--dim)">State</text>
+
+  <text class="t" x="60" y="420" font-size="22" font-weight="700" fill="var(--ink)">Reports the command, not the world</text>
+  <text class="t" x="60" y="456" font-size="16" fill="var(--dim)">Same green: safe-looking, or just not wired</text>
+</svg>
