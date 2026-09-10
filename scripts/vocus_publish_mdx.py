@@ -218,10 +218,47 @@ def mdx_to_blocks(body):
 
 
 SALON_URL = 'https://vocus.cc/salon/6a1e9e1a9da94e81ec5c81e6'
-# 沙龍 CTA（2026-09-10 Charles 拍板「全部都作」）：只加在方格子這份稿的尾端，
-# 不進 .mdx 原稿——原稿的結尾閘規定最後一節必須是「帶得走的一件事」，CTA 屬平台層。
-CTA_BLOCK = ('p', f'如果這篇對你有幫助，[加入沙龍免費會員]({SALON_URL})，'
-                  '新文章和每月的判讀帳本會第一時間通知你。')
+# 沙龍 CTA（2026-09-10 Charles 拍板）：只加在方格子這份稿的尾端，不進 .mdx 原稿
+# ——原稿的結尾閘規定最後一節必須是「帶得走的一件事」，CTA 屬平台層。
+# 同日追加：每篇照文章內容現寫一句幽默邀請（claude -p），寫失敗退回固定句，發文不因此卡住。
+CTA_FALLBACK = '如果這篇對你有幫助，加入沙龍免費會員，新文章和每月的判讀帳本會第一時間通知你。'
+CTA_LINK_BLOCK = ('p', f'👉 [加入沙龍免費會員]({SALON_URL})')
+
+
+def cta_witty(title, abstract, body_head, timeout=180):
+    """照這篇的內容寫一句幽默的加入理由。回 None＝生成失敗，呼叫端用固定句。"""
+    import subprocess, tempfile, re as _re
+    cli = os.path.expanduser(r'~\AppData\Roaming\npm\claude.cmd')
+    prompt = (
+        '你在替一篇已寫完的文章結尾，寫「邀請讀者加入沙龍免費會員」的那一句話。要求：\n'
+        '- 一句話，30～60 字，繁體中文。\n'
+        '- 要幽默，而且理由要長在這篇文章的內容上（拿文中的比喻、例子或主題自嘲、開玩笑），'
+        '不是通用的訂閱口號。\n'
+        '- 禁副詞（真的／其實／非常／完全…）、禁表情符號、禁「你應該」講台句、不喊單、不承諾獲利。\n'
+        '- 不要寫連結、不要寫「點這裡」，連結由程式另附。\n'
+        '- 只輸出那一句話，不要引號、不要其他文字。\n\n'
+        f'文章標題：{title}\n文章摘要：{abstract}\n文章開頭：{body_head}\n')
+    fd, tmp = tempfile.mkstemp(suffix='.txt', prefix='_cta_', dir=os.path.dirname(__file__))
+    os.close(fd)
+    try:
+        open(tmp, 'w', encoding='utf-8').write(prompt)
+        with open(tmp, encoding='utf-8') as fh:
+            r = subprocess.run([cli, '-p', '--model', 'claude-opus-5', '--effort', 'low'],
+                               stdin=fh, capture_output=True, text=True,
+                               encoding='utf-8', errors='replace', timeout=timeout)
+        line = (r.stdout or '').strip().splitlines()
+        line = next((l.strip().strip('「」"') for l in line if l.strip()), '')
+        # 守門：長度合理、沒有連結、沒混進英文句——不合格就退固定句
+        if 10 <= len(line) <= 90 and 'http' not in line and not _re.search(r'[A-Za-z]{12,}', line):
+            return line
+    except Exception:
+        pass
+    finally:
+        try:
+            os.unlink(tmp)
+        except OSError:
+            pass
+    return None
 
 
 def load_article(slug):
@@ -230,9 +267,10 @@ def load_article(slug):
     abstract = fm.get('description', '')
     if len(abstract) > 150:
         abstract = abstract[:147].rstrip('，。、') + '…'
+    witty = cta_witty(fm['title'], abstract, body[:800]) or CTA_FALLBACK
     return {'title': fm['title'], 'abstract': abstract,
             'tags': TAGS.get(slug, SUGGESTED_TAGS.get(slug, ['投資', '心得'])),
-            'blocks': mdx_to_blocks(body) + [CTA_BLOCK]}
+            'blocks': mdx_to_blocks(body) + [('p', witty), CTA_LINK_BLOCK]}
 
 
 # ---------- lexical / html 節點（沿用 ep682 那支） ----------
