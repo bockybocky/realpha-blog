@@ -229,6 +229,23 @@ HEART_FALLBACK = '讀到這裡如果有收穫，順手點個愛心 💗，讓我
 SAVE_FALLBACK = '這篇不短，時間不夠的話，先加入沙龍收藏起來，下次接著慢慢看。'
 LONG_BLOCKS = 30  # 內容塊數超過這個門檻算長文，前段多插一句「先訂閱收藏」
 
+# 簽名檔（2026-09-10 Charles「每一篇文章的後面加入我自己的簽名檔，一句我的智慧佳句，再加上行事曆」）
+# 佳句全部出自 Charles 本人（沙龍關於頁文案與投資核心信念）；按 slug 固定輪替，同一篇永遠同一句。
+SIGN_QUOTES = [
+    '看久了你會發現，你不太需要再問「現在能不能買」，因為你自己就看得懂了。',
+    '對答案的地方，才是學最快的地方——錯的都留著。',
+    '這些問題沒有人能替你回答，但回答它們的方法，是可以學的。',
+    '美國股市長期向上，科技推動生產力循環，讓世界進步。',
+    '看對的會拆，看錯的更會拆——敘事在哪裡騙了人，事後才看得清。',
+]
+SIGN_SCHEDULE = ('每週的節奏：週一 AI 落地應用｜週二・週四 讀財報與電話會議｜週三・週五 讀書｜'
+                 '週六 AI 證照｜每月 判讀帳本（會員限定）｜每天的底色：投資世界觀')
+
+
+def signature_blocks(slug):
+    q = SIGN_QUOTES[sum(ord(c) for c in slug) % len(SIGN_QUOTES)]
+    return [('p_italic', q + ' —— Charles'), ('p', SIGN_SCHEDULE)]
+
 
 def _line_ok(line):
     """守門：長度合理、沒有連結、沒混進英文句。"""
@@ -302,7 +319,8 @@ def load_article(slug):
         blocks = insert_at_fraction(blocks, save, 1 / 3)
     return {'title': fm['title'], 'abstract': abstract,
             'tags': TAGS.get(slug, SUGGESTED_TAGS.get(slug, ['投資', '心得'])),
-            'blocks': blocks + [('p', witty['join'] or CTA_FALLBACK), CTA_LINK_BLOCK]}
+            'blocks': (blocks + [('p', witty['join'] or CTA_FALLBACK), CTA_LINK_BLOCK]
+                       + signature_blocks(slug))}
 
 
 # ---------- lexical / html 節點（沿用 ep682 那支） ----------

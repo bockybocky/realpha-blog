@@ -41,6 +41,24 @@ SAVE_EN_FALLBACK = ('This is a long one — subscribe now and it will wait patie
                     'in your inbox for whenever you are ready.')
 LONG_LINES = 60  # 正文行數超過這個門檻算長文，前段多插一句「先訂閱、回頭慢慢看」
 
+# 簽名檔（2026-09-10 Charles）：他的佳句英譯＋欄目行事曆，按 slug 固定輪替（與中文版同序）。
+SIGN_QUOTES_EN = [
+    'Watch the market long enough and you stop asking "should I buy" — you can read it yourself.',
+    'The moment you check your answers is where you learn fastest — keep every wrong call on the books.',
+    'Nobody can answer these questions for you, but the way to answer them can be learned.',
+    'The US market trends up over the long run; technology keeps compounding productivity.',
+    'Good calls get dissected; bad calls get dissected harder — hindsight shows where the story lied.',
+]
+SIGN_SCHEDULE_EN = ('The weekly rhythm: Mon AI in practice | Tue & Thu earnings & call notes | '
+                    'Wed & Fri book notes | Sat AI certification | monthly scorecard (members) | '
+                    'every day: how I read the world.')
+
+
+def signature_paragraphs(post, slug):
+    q = SIGN_QUOTES_EN[sum(ord(c) for c in slug) % len(SIGN_QUOTES_EN)]
+    post.paragraph([{'content': q + ' — Charles', 'marks': [{'type': 'em'}]}])
+    post.paragraph(parse_inline(SIGN_SCHEDULE_EN))
+
 
 def _en_line_ok(line):
     words = len(line.split())
@@ -619,6 +637,7 @@ def build_post(api, slug):
     if witty is not None:
         post.paragraph(parse_inline(witty['join'] or CTA_EN_FALLBACK))
         post.paragraph(parse_inline(CTA_EN_LINK))
+    signature_paragraphs(post, slug)
     if fm.get('category') == 'investing':
         post.paragraph([{'content': DISCLAIMER, 'marks': [{'type': 'em'}]}])
     cover_path = find_cover(slug, fm)
