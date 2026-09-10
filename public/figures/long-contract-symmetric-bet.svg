@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條方向相反的線在圖中央交叉，橫軸是短缺持續多久，交叉點左邊標簽長約的人贏，右邊標不簽的人贏">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:19px; fill:var(--ink); }
+.d { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="58">不簽長約，是押短缺很長</text>
+<line x1="140" y1="110" x2="140" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="430" x2="890" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="470" y1="120" x2="470" y2="430" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 6"/>
+<polyline points="180,180 860,335" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<polyline points="180,380 860,140" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<circle cx="470" cy="246" r="8" fill="var(--ink)"/>
+<text class="g" x="180" y="166" fill="var(--accent)">簽長約</text>
+<text class="g" x="860" y="128" text-anchor="end" fill="var(--warn)">不簽長約</text>
+<text class="d" x="470" y="458" text-anchor="middle">短缺約三年</text>
+<text class="g" x="290" y="410" text-anchor="middle">簽的人贏</text>
+<text class="g" x="680" y="410" text-anchor="middle">不簽的人贏</text>
+<text class="d" x="890" y="486" text-anchor="end">短缺持續多久</text>
+<text class="d" x="140" y="100">誰划算</text>
+<text class="c" x="60" y="518">兩邊都是賭注，賭的是同一個變數</text>
+</svg>

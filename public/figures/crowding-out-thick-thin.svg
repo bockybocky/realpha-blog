@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊一條粗的資源流分成兩股，往資料中心那股很粗，往其他產業那股被壓得很細，細的那股標著交期拉長與成本上升">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="56">同一批東西，先給了誰</text>
+
+<rect x="60" y="180" width="180" height="180" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="150" y="222" text-anchor="middle">同一批資源</text>
+<text class="b" x="150" y="256" text-anchor="middle">鋼 · 銅</text>
+<text class="b" x="150" y="284" text-anchor="middle">機械 · 貨運</text>
+<text class="b" x="150" y="312" text-anchor="middle">熟練技師</text>
+
+<path d="M240,196 L620,150 L620,266 L240,290 Z" fill="var(--accent)" fill-opacity="0.5"/>
+<path d="M240,300 L620,326 L620,352 L240,344 Z" fill="var(--grey)" fill-opacity="0.55"/>
+
+<rect x="640" y="140" width="260" height="86" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="770" y="177" text-anchor="middle">資料中心建置</text>
+<text class="b" x="770" y="204" text-anchor="middle">先拿走</text>
+
+<rect x="640" y="300" width="260" height="86" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="770" y="337" text-anchor="middle">其他產業</text>
+<text class="b" x="770" y="364" text-anchor="middle" fill="var(--warn)">交期拉長 · 成本上升</text>
+
+<text class="b" x="400" y="430" text-anchor="middle">穀物期貨也被順手帶上去</text>
+
+<text class="c" x="60" y="496">排擠不是理論，是排隊順序</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="成長率曲線高、低、再高，中間凹陷處被標示為空窗">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text x="60" y="70" font-size="27" fill="var(--ink)">兩段成長，中間可能有一個空窗</text>
+
+  <rect x="120" y="128" width="230" height="312" fill="var(--card)"/>
+  <rect x="382" y="128" width="200" height="312" fill="var(--warn)" opacity="0.13"/>
+  <rect x="640" y="128" width="240" height="312" fill="var(--card)"/>
+
+  <line x1="100" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <line x1="100" y1="120" x2="100" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <text x="100" y="110" font-size="15" fill="var(--dim)">成長率</text>
+
+  <path d="M 130 404 C 190 250 220 200 262 198 C 330 194 350 320 470 366 C 600 414 690 240 760 186 C 810 152 850 148 876 146"
+        fill="none" stroke="var(--accent)" stroke-width="3"/>
+
+  <text x="140" y="166" font-size="19" fill="var(--dim)">吃設計導入</text>
+  <text x="402" y="166" font-size="19" fill="var(--warn)">空窗</text>
+  <text x="660" y="166" font-size="19" fill="var(--dim)">吃量產出貨</text>
+
+  <text x="404" y="404" font-size="15" fill="var(--dim)">原型已消化</text>
+  <text x="404" y="426" font-size="15" fill="var(--dim)">量產未開始</text>
+
+  <text x="192" y="470" font-size="15" fill="var(--dim)">今年</text>
+  <text x="456" y="470" font-size="15" fill="var(--dim)">明年</text>
+  <text x="740" y="470" font-size="15" fill="var(--dim)">2028</text>
+
+  <text x="60" y="542" font-size="22" fill="var(--ink)">空窗不等於故事錯了</text>
+</svg>

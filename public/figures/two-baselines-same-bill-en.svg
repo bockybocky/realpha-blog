@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" width="960" height="570" role="img" aria-label="This year's actual price point is hit by two arrows at once: the arrow from last year points up, and the arrow from the dashed no-data-center point points down.">
+<rect x="0" y="0" width="960" height="570" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text class="t" x="480" y="56" text-anchor="middle">Same bill, two baselines</text>
+<text class="b" x="150" y="118">Price per kWh (illustrative)</text>
+<line x1="140" y1="130" x2="140" y2="450" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="450" x2="880" y2="450" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="300" y="484" text-anchor="middle">Last year</text>
+<text class="g" x="660" y="484" text-anchor="middle">This year</text>
+<line x1="310" y1="388" x2="636" y2="316" stroke="var(--warn)" stroke-width="4"/>
+<polygon points="649,313 636,323 633,309" fill="var(--warn)"/>
+<text class="g" x="470" y="392" text-anchor="middle" style="fill:var(--warn)">vs. before ↑1</text>
+<line x1="660" y1="244" x2="660" y2="288" stroke="var(--accent)" stroke-width="4"/>
+<polygon points="651,286 669,286 660,300" fill="var(--accent)"/>
+<text class="g" x="642" y="277" text-anchor="end" style="fill:var(--accent)">vs. without it ↓1</text>
+<circle cx="300" cy="390" r="10" fill="var(--grey)"/>
+<text class="g" x="278" y="397" text-anchor="end">5</text>
+<circle cx="660" cy="310" r="10" fill="var(--ink)"/>
+<text class="g" x="684" y="317">6 actual</text>
+<circle cx="660" cy="230" r="10" fill="var(--page)" stroke="var(--dim)" stroke-width="2.5" stroke-dasharray="4 3"/>
+<text class="g" x="684" y="237" style="fill:var(--dim)">7 without it</text>
+<text class="b" x="684" y="262">Households can't see this</text>
+<text class="c" x="480" y="540" text-anchor="middle">One ledger says up, the other down</text>
+</svg>

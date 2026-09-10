@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="物價曲線先漲先跌，薪資曲線整條往後平移，中間陰影標出物價已跌而薪資還在高點的時間差">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<rect x="560" y="200" width="150" height="240" fill="var(--card)"/>
+<text x="48" y="62" font-size="27" fill="var(--ink)">薪資比物價黏：順序是物價先動，薪資後動</text>
+
+<line x1="120" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-width="2"/>
+<text x="880" y="466" font-size="15" fill="var(--dim)" text-anchor="end">時間</text>
+
+<polyline points="140,400 240,300 340,220 440,200 560,270 680,350 820,392" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<polyline points="140,412 260,396 360,332 470,272 590,252 700,292 830,342" fill="none" stroke="var(--dim)" stroke-width="3"/>
+
+<text x="420" y="178" font-size="16" fill="var(--accent)" text-anchor="middle">物價</text>
+<text x="586" y="232" font-size="16" fill="var(--dim)">薪資</text>
+<text x="635" y="192" font-size="15" fill="var(--dim)" text-anchor="middle">物價在跌，薪資還在高點</text>
+
+<text x="480" y="510" font-size="22" fill="var(--ink)" text-anchor="middle">薪資還很高，只是隊伍還沒走完</text>
+</svg>

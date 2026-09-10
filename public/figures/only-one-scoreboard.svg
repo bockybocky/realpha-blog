@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="二維座標圖，橫軸為良率、縱軸為每位元成本，兩條路徑自同一起點分岔，一條向右水平、一條向右下方下降">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="90" y="72" font-size="27" font-weight="700" fill="var(--ink)">只有一個計分板</text>
+<text x="90" y="108" font-size="16" fill="var(--dim)">兩條路線・示意</text>
+
+<line x1="170" y1="160" x2="170" y2="450" stroke="var(--line)" stroke-width="2"/>
+<line x1="170" y1="450" x2="870" y2="450" stroke="var(--line)" stroke-width="2"/>
+<text x="156" y="168" font-size="15" text-anchor="end" fill="var(--dim)">成本高</text>
+<text x="156" y="446" font-size="15" text-anchor="end" fill="var(--dim)">成本低</text>
+<text x="866" y="478" font-size="15" text-anchor="end" fill="var(--dim)">良率高 →</text>
+
+<circle cx="240" cy="300" r="6" fill="var(--ink)"/>
+<text x="240" y="276" font-size="15" text-anchor="middle" fill="var(--dim)">同一個起點</text>
+
+<path d="M240 300 C400 296 560 292 704 290" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<polygon points="720,290 702,283 702,297" fill="var(--warn)"/>
+<text x="730" y="278" font-size="19" fill="var(--warn)">良率九成九</text>
+<text x="730" y="302" font-size="15" fill="var(--dim)">成本沒降</text>
+
+<path d="M240 300 C400 340 560 380 686 408" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<polygon points="702,412 683,405 680,419" fill="var(--accent)"/>
+<text x="712" y="404" font-size="19" fill="var(--accent)">每位元成本</text>
+<text x="712" y="428" font-size="15" fill="var(--dim)">一路往下</text>
+
+<text x="90" y="522" font-size="22" font-weight="700" fill="var(--ink)">良率往右，成本往下</text>
+</svg>

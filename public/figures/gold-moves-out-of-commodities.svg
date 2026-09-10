@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊商品方框留下虛線空位，黃金方塊移到右邊貨幣方框，中間一支橫向箭頭。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="60" y="72" font-size="27" fill="var(--ink)">黃金換了一個格子</text>
+
+  <rect x="60" y="140" width="360" height="260" rx="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="84" y="180" font-size="20" fill="var(--dim)">商品</text>
+  <rect x="88" y="212" width="140" height="56" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text x="158" y="248" font-size="19" fill="var(--ink)" text-anchor="middle">銅</text>
+  <rect x="252" y="212" width="140" height="56" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text x="322" y="248" font-size="19" fill="var(--ink)" text-anchor="middle">原油</text>
+  <rect x="88" y="292" width="140" height="56" rx="10" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="158" y="328" font-size="19" fill="var(--grey)" text-anchor="middle">黃金</text>
+
+  <rect x="540" y="140" width="360" height="260" rx="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="564" y="180" font-size="20" fill="var(--dim)">貨幣</text>
+  <rect x="568" y="212" width="140" height="56" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text x="638" y="248" font-size="19" fill="var(--ink)" text-anchor="middle">現金</text>
+  <rect x="732" y="212" width="140" height="56" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text x="802" y="248" font-size="19" fill="var(--ink)" text-anchor="middle">短債</text>
+  <rect x="568" y="292" width="140" height="56" rx="10" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <text x="638" y="328" font-size="19" fill="var(--accent)" text-anchor="middle">黃金</text>
+
+  <line x1="430" y1="320" x2="516" y2="320" stroke="var(--accent)" stroke-width="4"/>
+  <polygon points="536,320 512,309 512,331" fill="var(--accent)"/>
+  <text x="480" y="298" font-size="16" fill="var(--dim)" text-anchor="middle">改分類</text>
+
+  <text x="60" y="470" font-size="22" fill="var(--ink)">位子變了，該用什麼標準看它就跟著變</text>
+</svg>

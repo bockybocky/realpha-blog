@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-label="時間軸前段是四個小刻度，末端才出現一個大幅下墜">
+<defs>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<marker id="f6g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--grey)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="500" fill="var(--page)"/>
+<text x="48" y="60" font-size="27" font-weight="700" fill="var(--ink)">股價是結果，不是最早的訊號</text>
+
+<rect x="48" y="100" width="864" height="280" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<line x1="90" y1="290" x2="880" y2="290" stroke="var(--grey)" stroke-width="3" marker-end="url(#f6g)"/>
+
+<line x1="150" y1="290" x2="150" y2="266" stroke="var(--accent)" stroke-width="4"/>
+<text x="150" y="250" font-size="15" text-anchor="middle" fill="var(--accent)">資本支出改口徑</text>
+<line x1="290" y1="290" x2="290" y2="266" stroke="var(--accent)" stroke-width="4"/>
+<text x="290" y="250" font-size="15" text-anchor="middle" fill="var(--accent)">法說用詞轉彎</text>
+<line x1="430" y1="290" x2="430" y2="266" stroke="var(--accent)" stroke-width="4"/>
+<text x="430" y="250" font-size="15" text-anchor="middle" fill="var(--accent)">利差要求補償</text>
+<line x1="570" y1="290" x2="570" y2="266" stroke="var(--accent)" stroke-width="4"/>
+<text x="570" y="250" font-size="15" text-anchor="middle" fill="var(--accent)">租約年限縮短</text>
+<text x="360" y="200" font-size="16" text-anchor="middle" fill="var(--dim)">預期在移動，不上頭條</text>
+
+<path d="M690 290 L740 292 L780 352" fill="none" stroke="var(--warn)" stroke-width="5"/>
+<text x="796" y="352" font-size="20" font-weight="700" fill="var(--warn)">股價才動</text>
+
+<text x="480" y="452" font-size="22" font-weight="700" text-anchor="middle" fill="var(--ink)">先看預期的痕跡，再看價格</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="兩根等高的柱子代表同一個名目利率，各自切成預期通膨與實質利率兩段；左柱的實質段高過中性虛線，右柱的實質段剛好停在中性線上">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text x="48" y="62" font-size="27" fill="var(--ink)">同一個名目利率，配不同通膨假設，結論相反</text>
+<text x="48" y="96" font-size="16" fill="var(--dim)">兩邊的名目利率都是 4%，只有心裡的通膨不同</text>
+
+<line x1="120" y1="370" x2="880" y2="370" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+<text x="860" y="360" font-size="16" fill="var(--dim)" text-anchor="end">中性 1%</text>
+
+<rect x="200" y="190" width="130" height="120" fill="var(--card)" stroke="var(--line)"/>
+<rect x="200" y="310" width="130" height="120" fill="var(--accent)"/>
+<text x="265" y="256" font-size="15" fill="var(--dim)" text-anchor="middle">預期通膨 2%</text>
+<text x="265" y="376" font-size="15" fill="var(--page)" text-anchor="middle">實質 2%</text>
+<text x="265" y="464" font-size="19" fill="var(--ink)" text-anchor="middle">假設通膨 2%</text>
+<text x="265" y="500" font-size="22" fill="var(--accent)" text-anchor="middle">偏緊</text>
+
+<rect x="560" y="190" width="130" height="180" fill="var(--card)" stroke="var(--line)"/>
+<rect x="560" y="370" width="130" height="60" fill="var(--accent)"/>
+<text x="625" y="286" font-size="15" fill="var(--dim)" text-anchor="middle">預期通膨 3%</text>
+<text x="625" y="406" font-size="15" fill="var(--page)" text-anchor="middle">實質 1%</text>
+<text x="625" y="464" font-size="19" fill="var(--ink)" text-anchor="middle">假設通膨 3%</text>
+<text x="625" y="500" font-size="22" fill="var(--dim)" text-anchor="middle">不緊</text>
+
+<text x="480" y="548" font-size="22" fill="var(--ink)" text-anchor="middle">先問他心裡的通膨是幾</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="歷史折線走到現在的位置後散開成扇形，中心一條線、外面兩層越往右越寬的區間帶">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="60" y="56" font-size="27" fill="var(--ink)">中心的看法，加上可能的範圍</text>
+
+<path d="M90 440 L890 440" stroke="var(--line)" stroke-width="2"/>
+<path d="M90 110 L90 440" stroke="var(--line)" stroke-width="2"/>
+
+<path d="M480 320 L860 156 L860 396 Z" fill="var(--accent)" opacity="0.16"/>
+<path d="M480 320 L860 210 L860 330 Z" fill="var(--accent)" opacity="0.3"/>
+<path d="M480 320 L860 262" stroke="var(--accent)" stroke-width="3.5" fill="none"/>
+
+<polyline points="120,250 190,306 260,272 330,344 400,300 480,320"
+          fill="none" stroke="var(--ink)" stroke-width="3"/>
+<path d="M480 110 L480 460" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="6 6"/>
+<text x="440" y="486" font-size="16" fill="var(--dim)">現在</text>
+
+<text x="120" y="146" font-size="19" fill="var(--dim)">走過的</text>
+<text x="560" y="146" font-size="19" fill="var(--accent)">還沒走的</text>
+<text x="700" y="252" font-size="16" fill="var(--ink)">中心看法</text>
+<text x="700" y="176" font-size="16" fill="var(--dim)">可能落在這裡</text>
+<text x="60" y="516" font-size="22" fill="var(--ink)">把不確定畫出來，而不是只報一個數字</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="三個點由左下往右上單調上升，橫軸是離供應鏈的遠近">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="48" y="54" font-size="27" fill="var(--ink)">同一件未來的事，離產線越近估得越高</text>
+
+<line x1="150" y1="120" x2="150" y2="440" stroke="var(--line)" stroke-width="2"/>
+<line x1="150" y1="440" x2="890" y2="440" stroke="var(--line)" stroke-width="2"/>
+<text x="150" y="104" font-size="16" fill="var(--dim)" text-anchor="middle">出貨估值</text>
+
+<line x1="240" y1="380" x2="520" y2="290" stroke="var(--accent)" stroke-width="3"/>
+<line x1="520" y1="290" x2="800" y2="210" stroke="var(--accent)" stroke-width="3"/>
+
+<line x1="240" y1="360" x2="240" y2="400" stroke="var(--accent)" stroke-width="6" stroke-linecap="round"/>
+<text x="240" y="336" font-size="20" fill="var(--ink)" text-anchor="middle">600–700 萬</text>
+<circle cx="520" cy="290" r="9" fill="var(--accent)"/>
+<text x="520" y="264" font-size="20" fill="var(--ink)" text-anchor="middle">800 萬</text>
+<circle cx="800" cy="210" r="9" fill="var(--accent)"/>
+<text x="800" y="184" font-size="20" fill="var(--ink)" text-anchor="middle">900 萬</text>
+
+<text x="240" y="472" font-size="16" fill="var(--dim)" text-anchor="middle">美國券商</text>
+<text x="520" y="472" font-size="16" fill="var(--dim)" text-anchor="middle">香港</text>
+<text x="800" y="472" font-size="16" fill="var(--dim)" text-anchor="middle">台灣與中資</text>
+
+<line x1="240" y1="500" x2="800" y2="500" stroke="var(--grey)" stroke-width="2"/>
+<polygon points="812,500 796,493 796,507" fill="var(--grey)"/>
+<text x="240" y="524" font-size="15" fill="var(--dim)" text-anchor="middle">離供應鏈遠</text>
+<text x="800" y="524" font-size="15" fill="var(--dim)" text-anchor="middle">近</text>
+</svg>

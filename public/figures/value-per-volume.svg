@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="橫軸體積縱軸價值的散布圖，手錶在左上、沙發在右下，海關注意力只框住現金">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="h" x="60" y="58">每單位體積的價值</text>
+<line x1="150" y1="450" x2="900" y2="450" stroke="var(--line)" stroke-width="2"/>
+<line x1="150" y1="110" x2="150" y2="450" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="820" y="480">體積大</text>
+<text class="b" x="60" y="126">價值高</text>
+<rect x="330" y="230" width="180" height="120" rx="12" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="8 6"/>
+<text class="b" x="330" y="222" fill="var(--accent)">海關看這一格</text>
+<circle cx="230" cy="160" r="10" fill="var(--warn)"/>
+<text class="g" x="250" y="166">手錶</text>
+<circle cx="310" cy="215" r="10" fill="var(--grey)"/>
+<text class="g" x="252" y="200">古柯鹼</text>
+<circle cx="420" cy="290" r="10" fill="var(--accent)"/>
+<text class="g" x="440" y="296">百元鈔</text>
+<circle cx="500" cy="335" r="10" fill="var(--grey)"/>
+<text class="g" x="520" y="341">名牌包</text>
+<circle cx="820" cy="420" r="10" fill="var(--grey)"/>
+<text class="g" x="760" y="410">沙發</text>
+<text class="c" x="60" y="520">同一類東西，只有一種要申報</text>
+</svg>

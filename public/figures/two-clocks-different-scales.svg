@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="上下兩條時間軸：上面刻度稀疏跨數年，下面刻度密集事件全擠在眼前">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text x="50" y="62" font-size="27" fill="var(--ink)">兩個時鐘，刻度不一樣</text>
+
+  <rect x="50" y="110" width="860" height="140" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text x="80" y="150" font-size="20" fill="var(--accent)">基本面</text>
+  <line x1="80" y1="205" x2="880" y2="205" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="80" y1="190" x2="80" y2="220" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="280" y1="190" x2="280" y2="220" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="480" y1="190" x2="480" y2="220" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="680" y1="190" x2="680" y2="220" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="880" y1="185" x2="880" y2="225" stroke="var(--accent)" stroke-width="3"/>
+  <text x="70" y="242" font-size="15" fill="var(--dim)">季</text>
+  <text x="470" y="242" font-size="15" fill="var(--dim)">年</text>
+  <text x="822" y="180" font-size="16" fill="var(--ink)">新產能</text>
+
+  <rect x="50" y="290" width="860" height="140" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text x="80" y="330" font-size="20" fill="var(--ink)">籌碼</text>
+  <line x1="80" y1="385" x2="880" y2="385" stroke="var(--grey)" stroke-width="3"/>
+  <g stroke="var(--grey)" stroke-width="2">
+    <line x1="80" y1="373" x2="80" y2="397"/><line x1="105" y1="373" x2="105" y2="397"/>
+    <line x1="130" y1="373" x2="130" y2="397"/><line x1="155" y1="373" x2="155" y2="397"/>
+    <line x1="180" y1="373" x2="180" y2="397"/><line x1="205" y1="373" x2="205" y2="397"/>
+    <line x1="230" y1="373" x2="230" y2="397"/><line x1="255" y1="373" x2="255" y2="397"/>
+    <line x1="280" y1="373" x2="280" y2="397"/><line x1="305" y1="373" x2="305" y2="397"/>
+    <line x1="330" y1="373" x2="330" y2="397"/><line x1="355" y1="373" x2="355" y2="397"/>
+    <line x1="380" y1="373" x2="380" y2="397"/><line x1="405" y1="373" x2="405" y2="397"/>
+    <line x1="430" y1="373" x2="430" y2="397"/><line x1="455" y1="373" x2="455" y2="397"/>
+    <line x1="480" y1="373" x2="480" y2="397"/><line x1="505" y1="373" x2="505" y2="397"/>
+    <line x1="530" y1="373" x2="530" y2="397"/><line x1="555" y1="373" x2="555" y2="397"/>
+    <line x1="580" y1="373" x2="580" y2="397"/><line x1="605" y1="373" x2="605" y2="397"/>
+    <line x1="630" y1="373" x2="630" y2="397"/><line x1="655" y1="373" x2="655" y2="397"/>
+    <line x1="680" y1="373" x2="680" y2="397"/><line x1="705" y1="373" x2="705" y2="397"/>
+    <line x1="730" y1="373" x2="730" y2="397"/><line x1="755" y1="373" x2="755" y2="397"/>
+    <line x1="780" y1="373" x2="780" y2="397"/><line x1="805" y1="373" x2="805" y2="397"/>
+    <line x1="830" y1="373" x2="830" y2="397"/><line x1="855" y1="373" x2="855" y2="397"/>
+    <line x1="880" y1="373" x2="880" y2="397"/>
+  </g>
+  <circle cx="105" cy="385" r="8" fill="var(--warn)"/>
+  <circle cx="180" cy="385" r="8" fill="var(--warn)"/>
+  <text x="80" y="358" font-size="16" fill="var(--warn)">斷頭</text>
+  <text x="160" y="422" font-size="16" fill="var(--warn)">補保證金</text>
+  <text x="820" y="422" font-size="15" fill="var(--dim)">天　週</text>
+
+  <text x="50" y="483" font-size="22" fill="var(--ink)">一個回答走多久，一個回答有多顛</text>
+</svg>

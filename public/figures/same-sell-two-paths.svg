@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="同一個賣出點分出兩條路，一條繞回名單、一條走向終止">
+<defs>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+.t{font-size:27px;font-weight:700}
+.g{font-size:20px;font-weight:700}
+.s{font-size:16px;fill:var(--dim)}
+.c{font-size:22px;font-weight:700}
+</style>
+<marker id="a11" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M0 0 L11 5.5 L0 11 Z" fill="var(--accent)"/></marker>
+<marker id="a11b" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M0 0 L11 5.5 L0 11 Z" fill="var(--warn)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="62">同一個動作，兩種後續</text>
+<rect x="60" y="90" width="840" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<circle cx="180" cy="256" r="16" fill="var(--ink)"/>
+<text class="g" x="112" y="310">賣了一些</text>
+<path d="M200 246 L340 176" fill="none" stroke="var(--accent)" stroke-width="5" marker-end="url(#a11)"/>
+<path d="M200 268 L340 340" fill="none" stroke="var(--warn)" stroke-width="5" marker-end="url(#a11b)"/>
+<rect x="366" y="140" width="220" height="66" rx="12" fill="var(--accent)" opacity="0.18"/>
+<rect x="366" y="140" width="220" height="66" rx="12" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text class="g" x="392" y="182">論點還在</text>
+<path d="M600 173 C 720 130, 760 250, 640 262 L 500 262" fill="none" stroke="var(--accent)" stroke-width="4" marker-end="url(#a11)"/>
+<text class="s" x="640" y="298">留在名單，等條件成立</text>
+<rect x="366" y="306" width="220" height="66" rx="12" fill="var(--warn)" opacity="0.2"/>
+<rect x="366" y="306" width="220" height="66" rx="12" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<text class="g" x="392" y="348">論點作廢</text>
+<line x1="612" y1="322" x2="612" y2="356" stroke="var(--warn)" stroke-width="6"/>
+<line x1="632" y1="322" x2="632" y2="356" stroke="var(--warn)" stroke-width="6"/>
+<text class="s" x="660" y="346">從清單刪掉</text>
+<text class="c" x="60" y="482">分不清的人，會留著死掉的部位</text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩個等高的長方形，右邊比左邊寬上兩倍多，高度代表沒變的單價，寬度代表變多的用量，面積代表你付的錢">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+.t { font-size:27px; font-weight:700; }
+.g { font-size:19px; font-weight:700; }
+.b { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="70" y="62">單價沒漲，帳單卻變大</text>
+<line x1="80" y1="180" x2="900" y2="180" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="80" y1="330" x2="900" y2="330" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<text class="g" x="110" y="165">以前</text>
+<rect x="110" y="180" width="170" height="150" fill="var(--grey)"/>
+<text class="b" x="195" y="262" text-anchor="middle" fill="var(--ink)">花費</text>
+<text class="g" x="440" y="165">現在</text>
+<rect x="440" y="180" width="450" height="150" fill="var(--accent)"/>
+<text class="b" x="665" y="262" text-anchor="middle" fill="var(--page)">花費</text>
+<text class="b" x="80" y="368">高度＝每個 token 的價格（沒變）</text>
+<text class="b" x="80" y="396">寬度＝同一件事燒掉的 token（變多）</text>
+<text class="c" x="70" y="460">油耗一樣，但你每天多開兩百英里</text>
+</svg>

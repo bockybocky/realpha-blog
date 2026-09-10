@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊兩根幾乎一樣高的柱子被一條事先畫好的水平虛線切齊，右邊的股價柱從零線往下掉一小截">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+    .a { fill:var(--accent); }
+    .w { fill:var(--warn); }
+</style>
+<text class="t" x="60" y="64">你看的是高度，市場看的是那條線</text>
+<line x1="110" y1="176" x2="470" y2="176" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+<text class="s" x="110" y="160">事先畫好的線</text>
+<rect x="160" y="176" width="100" height="244" fill="var(--grey)"/>
+<rect x="310" y="168" width="100" height="252" fill="var(--accent)"/>
+<line x1="110" y1="420" x2="470" y2="420" stroke="var(--line)" stroke-width="1.5"/>
+<text class="s" x="210" y="446" text-anchor="middle">預期 92</text>
+<text class="s a" x="360" y="446" text-anchor="middle">實際 95</text>
+<line x1="530" y1="120" x2="530" y2="470" stroke="var(--line)" stroke-width="1"/>
+<text class="g" x="600" y="160">財報後的股價</text>
+<line x1="600" y1="290" x2="880" y2="290" stroke="var(--line)" stroke-width="1.5"/>
+<text class="s" x="600" y="278">0</text>
+<rect x="700" y="290" width="90" height="46" fill="var(--warn)"/>
+<text class="s w" x="745" y="360" text-anchor="middle">往下</text>
+<text class="c" x="60" y="512">創了紀錄，但只是符合</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="大框內套小塊，小塊有實線往下接到對帳，大框其餘部分虛線接到無從對帳">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text x="60" y="70" font-size="27" fill="var(--ink)">一個會被對帳，一個不會</text>
+
+  <rect x="100" y="130" width="720" height="280" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text x="124" y="168" font-size="20" fill="var(--dim)">TAM　整個市場</text>
+
+  <rect x="160" y="220" width="260" height="170" rx="6" fill="var(--accent)"/>
+  <text x="184" y="288" font-size="20" fill="var(--page)">SAM</text>
+  <text x="184" y="322" font-size="16" fill="var(--page)">我賣得進去</text>
+
+  <line x1="290" y1="390" x2="290" y2="466" stroke="var(--accent)" stroke-width="2"/>
+  <polygon points="290,476 284,462 296,462" fill="var(--accent)"/>
+  <rect x="180" y="478" width="220" height="58" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="206" y="514" font-size="16" fill="var(--accent)">下一季營收對帳</text>
+
+  <line x1="620" y1="410" x2="620" y2="466" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <polygon points="620,476 614,462 626,462" fill="var(--grey)"/>
+  <rect x="520" y="478" width="200" height="58" rx="8" fill="var(--page)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="558" y="514" font-size="16" fill="var(--dim)">無從對帳</text>
+
+  <text x="60" y="574" font-size="22" fill="var(--ink)">能被對帳的那一塊，才交得到你手上</text>
+</svg>

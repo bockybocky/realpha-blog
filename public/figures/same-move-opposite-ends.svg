@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="上方一個方塊分岔成兩條線，左邊那條末端箭頭朝上，右邊那條末端箭頭朝下">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.t{font-size:27px;fill:var(--ink)}
+.g{font-size:19px;fill:var(--ink)}
+.s{font-size:16px;fill:var(--dim)}
+.c{font-size:22px;fill:var(--ink)}
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="58">同一個動作，兩端相反</text>
+<rect x="310" y="96" width="340" height="60" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="480" y="134" text-anchor="middle">頂住壓力升息</text>
+<path d="M420,156 C 360,210 300,230 250,270" fill="none" stroke="var(--line)" stroke-width="3"/>
+<path d="M540,156 C 600,210 660,230 710,270" fill="none" stroke="var(--line)" stroke-width="3"/>
+<text class="g" x="250" y="316" text-anchor="middle">短端</text>
+<text class="g" x="710" y="316" text-anchor="middle">長端</text>
+<path d="M250,430 L250,350" stroke="var(--warn)" stroke-width="6"/>
+<path d="M250,336 L268,362 L232,362 Z" fill="var(--warn)"/>
+<path d="M710,350 L710,430" stroke="var(--accent)" stroke-width="6"/>
+<path d="M710,444 L728,418 L692,418 Z" fill="var(--accent)"/>
+<text class="s" x="250" y="472" text-anchor="middle">利率預期被推高</text>
+<text class="s" x="710" y="472" text-anchor="middle">期限溢價有機會降</text>
+<text class="c" x="60" y="516">兩端在定價的東西不一樣</text>
+</svg>

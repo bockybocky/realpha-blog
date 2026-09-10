@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="三根柱子由左至右越來越高，最右一根約為最左的四倍">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .n { font-size:19px; fill:var(--dim); font-weight:600; }
+    .na { font-size:19px; fill:var(--accent); font-weight:600; }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <defs>
+    <pattern id="lay" width="130" height="8" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="7.5" x2="130" y2="7.5" stroke="var(--line)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <text class="t" x="80" y="58">規格是跳級，不是微調</text>
+  <text class="s" x="80" y="90">層數依比例畫出，同一把尺</text>
+
+  <line x1="120" y1="468" x2="860" y2="468" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="175" y="388" width="130" height="80" fill="url(#lay)" stroke="var(--grey)" stroke-width="2"/>
+  <text class="n" x="240" y="372" text-anchor="middle">約 10 層</text>
+  <text class="g" x="240" y="498" text-anchor="middle">消費性</text>
+
+  <rect x="415" y="260" width="130" height="208" fill="url(#lay)" stroke="var(--grey)" stroke-width="2"/>
+  <text class="n" x="480" y="244" text-anchor="middle">22–26 層</text>
+  <text class="g" x="480" y="498" text-anchor="middle">AI 伺服器・現在</text>
+
+  <rect x="655" y="116" width="130" height="352" fill="url(#lay)" stroke="var(--accent)" stroke-width="2.5"/>
+  <text class="na" x="720" y="100" text-anchor="middle">26–44 層</text>
+  <text class="g" x="720" y="498" text-anchor="middle">下一波</text>
+
+  <text class="c" x="80" y="536">板子變厚，翹曲、鑽孔、壓合全部變成新問題</text>
+</svg>

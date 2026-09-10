@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩根堆疊柱：現在的赤字由固定的利息段與較小的基本赤字段組成，目標柱裡只有上面那小段被壓到歸零，利息段紋風不動。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="70" font-size="27" fill="var(--ink)">赤字六趴，能動的只有一段</text>
+
+  <line x1="150" y1="430" x2="830" y2="430" stroke="var(--line)" stroke-width="2"/>
+
+  <path d="M244,160 L232,160 L232,430 L244,430" fill="none" stroke="var(--grey)" stroke-width="2"/>
+  <text class="t" x="222" y="300" font-size="19" fill="var(--dim)" text-anchor="end">赤字 6%</text>
+
+  <rect x="260" y="250" width="140" height="180" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="330" y="348" font-size="16" fill="var(--dim)" text-anchor="middle">利息 4%</text>
+  <rect x="260" y="160" width="140" height="90" fill="var(--accent)" opacity="0.18"/>
+  <rect x="260" y="160" width="140" height="90" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text class="t" x="330" y="212" font-size="16" fill="var(--ink)" text-anchor="middle">基本赤字 2%</text>
+  <text class="t" x="330" y="462" font-size="19" fill="var(--ink)" text-anchor="middle">現在</text>
+
+  <rect x="580" y="250" width="140" height="180" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="650" y="348" font-size="16" fill="var(--dim)" text-anchor="middle">利息 4%</text>
+  <rect x="580" y="160" width="140" height="90" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="7 7"/>
+  <line x1="650" y1="178" x2="650" y2="226" stroke="var(--accent)" stroke-width="2.5"/>
+  <polygon points="650,240 642,224 658,224" fill="var(--accent)"/>
+  <text class="t" x="650" y="146" font-size="16" fill="var(--accent)" text-anchor="middle">壓到零</text>
+  <text class="t" x="650" y="462" font-size="19" fill="var(--ink)" text-anchor="middle">目標</text>
+
+  <text class="t" x="830" y="410" font-size="15" fill="var(--dim)" text-anchor="end">利息已大於國防</text>
+
+  <text class="t" x="60" y="524" font-size="22" fill="var(--ink)">成長要跑贏的，是上面那一小段</text>
+</svg>

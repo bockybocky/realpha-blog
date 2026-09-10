@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩條等長的產能條，高階區段擴張、消費級區段被壓縮">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--dim); font-weight:700; }
+    .seg { font-size:16px; fill:var(--page); font-weight:700; }
+    .cap { font-size:15px; fill:var(--dim); }
+    .cc  { font-size:22px; fill:var(--accent); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="ttl" x="60" y="72">同一條產線，被重新分配</text>
+<text class="cap" x="60" y="102">兩條總長相同</text>
+
+<text class="grp" x="60" y="188">去年</text>
+<rect x="180" y="150" width="200" height="62" rx="4" fill="var(--accent)"/>
+<rect x="382" y="150" width="220" height="62" rx="4" fill="var(--grey)"/>
+<rect x="604" y="150" width="296" height="62" rx="4" fill="var(--line)"/>
+<text class="seg" x="280" y="188" text-anchor="middle">高階</text>
+<text class="seg" x="492" y="188" text-anchor="middle" fill="var(--page)">車用</text>
+<text class="seg" x="752" y="188" text-anchor="middle" fill="var(--dim)">消費級</text>
+
+<text class="grp" x="60" y="328">現在</text>
+<rect x="180" y="290" width="420" height="62" rx="4" fill="var(--accent)"/>
+<rect x="602" y="290" width="170" height="62" rx="4" fill="var(--grey)"/>
+<rect x="774" y="290" width="126" height="62" rx="4" fill="var(--line)"/>
+<text class="seg" x="390" y="328" text-anchor="middle">高階</text>
+<text class="seg" x="687" y="328" text-anchor="middle" fill="var(--page)">車用</text>
+<text class="seg" x="837" y="328" text-anchor="middle" fill="var(--dim)">消費級</text>
+
+<line x1="380" y1="212" x2="600" y2="290" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="602" y1="212" x2="772" y2="290" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="900" y1="140" x2="900" y2="370" stroke="var(--line)" stroke-width="2"/>
+<line x1="180" y1="140" x2="180" y2="370" stroke="var(--line)" stroke-width="2"/>
+
+<text class="cc" x="180" y="430">總量沒變，是被讓位</text>
+</svg>

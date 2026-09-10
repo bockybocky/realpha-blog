@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一條軸上三個位置，下方方塊由小到大代表央行可見度往右遞增">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="72">同樣叫數位，站在軸的兩端</text>
+
+<line x1="120" y1="280" x2="880" y2="280" stroke="var(--line)" stroke-width="3"/>
+
+<circle cx="190" cy="280" r="13" fill="var(--accent)"/>
+<text class="g" x="190" y="240" text-anchor="middle">加密</text>
+<text class="b" x="190" y="212" text-anchor="middle">去中心</text>
+
+<circle cx="490" cy="280" r="13" fill="var(--grey)"/>
+<text class="g" x="490" y="240" text-anchor="middle">今天的錢</text>
+<text class="b" x="490" y="212" text-anchor="middle">銀行居中</text>
+
+<circle cx="790" cy="280" r="13" fill="var(--warn)"/>
+<text class="g" x="790" y="240" text-anchor="middle">央行數位貨幣</text>
+<text class="b" x="790" y="212" text-anchor="middle">帳戶開在央行</text>
+
+<rect x="178" y="342" width="24" height="24" rx="4" fill="var(--grey)" opacity="0.5"/>
+<rect x="455" y="330" width="70" height="48" rx="5" fill="var(--grey)" opacity="0.7"/>
+<rect x="710" y="318" width="160" height="72" rx="6" fill="var(--warn)" opacity="0.85"/>
+<text class="b" x="120" y="360">可見度</text>
+
+<text class="c" x="60" y="470">一個看不到你，一個把你看得一清二楚</text>
+</svg>

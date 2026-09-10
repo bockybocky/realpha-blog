@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊只有方向：一個起點散出三條虛線落在不同高度；右邊加上速度：一條實線落到明確的目標線與期限交會點">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="56" font-size="27" fill="var(--ink)">方向　與　速度</text>
+
+<rect x="60" y="90" width="390" height="340" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text x="84" y="126" font-size="20" fill="var(--dim)">只有方向</text>
+<circle cx="110" cy="180" r="7" fill="var(--grey)"/>
+<path d="M110 180 L410 250" stroke="var(--grey)" stroke-width="2.5" stroke-dasharray="7 7" fill="none"/>
+<path d="M110 180 L410 310" stroke="var(--grey)" stroke-width="2.5" stroke-dasharray="7 7" fill="none"/>
+<path d="M110 180 L410 380" stroke="var(--grey)" stroke-width="2.5" stroke-dasharray="7 7" fill="none"/>
+<circle cx="410" cy="250" r="5" fill="var(--grey)"/>
+<circle cx="410" cy="310" r="5" fill="var(--grey)"/>
+<circle cx="410" cy="380" r="5" fill="var(--grey)"/>
+<text x="132" y="212" font-size="16" fill="var(--dim)">往下</text>
+<text x="84" y="410" font-size="16" fill="var(--dim)">哪個結果都對　→　無從對答案</text>
+
+<rect x="510" y="90" width="390" height="340" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text x="534" y="126" font-size="20" fill="var(--accent)">方向 ＋ 速度</text>
+<circle cx="560" cy="180" r="7" fill="var(--accent)"/>
+<path d="M560 180 L830 340" stroke="var(--accent)" stroke-width="3.5" fill="none"/>
+<circle cx="830" cy="340" r="6" fill="var(--accent)"/>
+<path d="M534 340 L876 340" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 6" fill="none"/>
+<path d="M830 160 L830 356" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="5 6" fill="none"/>
+<text x="534" y="332" font-size="16" fill="var(--accent)">目標水準</text>
+<text x="800" y="150" font-size="16" fill="var(--dim)">期限</text>
+<text x="534" y="410" font-size="16" fill="var(--dim)">可以對答案　→　有內容</text>
+
+<text x="60" y="500" font-size="22" fill="var(--ink)">沒有速度，方向不算話</text>
+</svg>

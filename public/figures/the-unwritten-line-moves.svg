@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩格對比，左格結果高於虛線但虛線事後往上滑齊，右格結果低於虛線但虛線事後往下滑齊，兩邊落差都變成零">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+    .a { fill:var(--accent); }
+    .w { fill:var(--warn); }
+</style>
+<text class="t" x="60" y="64">沒寫下來的線，事後會自己移動</text>
+<rect x="60" y="110" width="400" height="330" fill="var(--card)"/>
+<rect x="500" y="110" width="400" height="330" fill="var(--card)"/>
+<line x1="100" y1="300" x2="420" y2="300" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+<text class="s" x="100" y="288">你原本的線</text>
+<line x1="100" y1="200" x2="420" y2="200" stroke="var(--accent)" stroke-width="2" stroke-dasharray="7 6"/>
+<circle cx="330" cy="200" r="9" fill="var(--accent)"/>
+<text class="s a" x="348" y="192">結果</text>
+<line x1="150" y1="290" x2="150" y2="222" stroke="var(--accent)" stroke-width="2"/>
+<polygon points="150,208 142,228 158,228" fill="var(--accent)"/>
+<text class="b" x="100" y="376">「本來就該這樣」</text>
+<text class="s" x="100" y="410">落差 ＝ 0</text>
+<line x1="540" y1="230" x2="860" y2="230" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+<text class="s" x="540" y="218">你原本的線</text>
+<line x1="540" y1="330" x2="860" y2="330" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 6"/>
+<circle cx="770" cy="330" r="9" fill="var(--warn)"/>
+<text class="s w" x="788" y="322">結果</text>
+<line x1="590" y1="240" x2="590" y2="308" stroke="var(--warn)" stroke-width="2"/>
+<polygon points="590,322 582,302 598,302" fill="var(--warn)"/>
+<text class="b" x="540" y="376">「我早就覺得不對」</text>
+<text class="s" x="540" y="410">落差 ＝ 0</text>
+<text class="c" x="60" y="504">兩邊你都學不到東西</text>
+</svg>

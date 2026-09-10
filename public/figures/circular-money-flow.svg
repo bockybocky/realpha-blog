@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" role="img" aria-label="四個節點圍成一個閉合的循環，箭頭順著圓周轉一圈回到起點，圓外只有一根帶問號的虛線箭頭指向圈內">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+.t { font-size:27px; font-weight:700; }
+.n { font-size:19px; font-weight:700; }
+.b { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:700; }
+</style>
+<defs>
+<marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+<path d="M0,0 L9,4 L0,8 Z" fill="var(--accent)"/>
+</marker>
+<marker id="aw" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+<path d="M0,0 L9,4 L0,8 Z" fill="var(--warn)"/>
+</marker>
+</defs>
+<rect x="0" y="0" width="960" height="620" fill="var(--page)"/>
+<text class="t" x="70" y="62">哪一根箭頭是從外面指進來的</text>
+<path d="M525.3,151 A175,175 0 0 1 649,274.7" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#ah)"/>
+<path d="M649,365.3 A175,175 0 0 1 525.3,489" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#ah)"/>
+<path d="M434.7,489 A175,175 0 0 1 311,365.3" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#ah)"/>
+<path d="M311,274.7 A175,175 0 0 1 434.7,151" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="395" y="118" width="170" height="54" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="n" x="480" y="152" text-anchor="middle">輝達</text>
+<rect x="570" y="293" width="170" height="54" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="n" x="655" y="327" text-anchor="middle">OpenAI</text>
+<rect x="395" y="468" width="170" height="54" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="n" x="480" y="502" text-anchor="middle">買晶片與算力</text>
+<rect x="220" y="293" width="170" height="54" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="n" x="305" y="327" text-anchor="middle">營收與股價</text>
+<text class="b" x="625" y="200">投資</text>
+<text class="b" x="625" y="450">付錢</text>
+<text class="b" x="320" y="450">認列</text>
+<text class="b" x="300" y="200">更有能力投資</text>
+<path d="M120,180 L262,262" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#aw)"/>
+<text class="n" x="90" y="158" fill="var(--warn)">圈外的錢？</text>
+<text class="c" x="70" y="580">圈裡每個數字都是真的，問題是那根箭頭在哪</text>
+</svg>

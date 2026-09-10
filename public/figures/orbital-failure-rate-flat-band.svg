@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="失敗率折線在百分之二到八的帶內來回，四十多年沒有下降趨勢">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="56">入軌失敗率，四十多年停在同一條帶子裡</text>
+
+  <rect x="130" y="150" width="770" height="140" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="130" y1="150" x2="900" y2="150" stroke="var(--grey)" stroke-dasharray="5 6"/>
+  <line x1="130" y1="290" x2="900" y2="290" stroke="var(--grey)" stroke-dasharray="5 6"/>
+  <text class="b" x="118" y="156" text-anchor="end">八％</text>
+  <text class="b" x="118" y="296" text-anchor="end">二％</text>
+  <line x1="130" y1="380" x2="900" y2="380" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="130" y="410">一九八〇</text>
+  <text class="b" x="900" y="410" text-anchor="end">現在</text>
+
+  <polyline points="150,196 210,250 270,178 330,262 390,204 450,240 510,172 570,268 630,210 690,182 750,258 810,214 870,236"
+            fill="none" stroke="var(--accent)" stroke-width="4"/>
+
+  <text class="g" x="150" y="128">沒有往下走</text>
+
+  <rect x="560" y="424" width="340" height="56" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text class="b" x="730" y="458" text-anchor="middle">汽車能召回，火箭不能</text>
+
+  <text class="c" x="60" y="466">要往下壓，只能靠飛過的同一批硬體再飛</text>
+</svg>

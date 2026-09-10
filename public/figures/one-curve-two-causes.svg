@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="一條下滑曲線分出兩個相反解釋，一個旁證箭頭指向其中一個">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<defs>
+<marker id="gd1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--grey)"/></marker>
+<marker id="gd2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+</defs>
+<text x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">同一條往下的曲線，兩種相反的原因</text>
+<rect x="60" y="110" width="300" height="190" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<polyline points="90,150 150,172 200,168 260,222 330,268" fill="none" stroke="var(--ink)" stroke-width="3"/>
+<text x="210" y="332" font-size="16" text-anchor="middle" fill="var(--dim)">中低階手機銷量</text>
+<path d="M366 205 L420 205 L420 175 L508 175" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#gd1)"/>
+<path d="M420 205 L420 345 L508 345" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#gd2)"/>
+<rect x="520" y="120" width="380" height="110" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="542" y="162" font-size="20" font-weight="700" fill="var(--grey)">「不想買」需求衰退</text>
+<text x="542" y="196" font-size="16" fill="var(--dim)">循環要結束了</text>
+<rect x="520" y="290" width="380" height="110" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="542" y="332" font-size="20" font-weight="700" fill="var(--ink)">「做不出來」供給衝擊</text>
+<text x="542" y="366" font-size="16" fill="var(--dim)">缺口還在，甚至更緊</text>
+<path d="M660 434 L660 406" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#gd2)"/>
+<rect x="60" y="436" width="840" height="86" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="84" y="474" font-size="19" font-weight="700" fill="var(--ink)">旁證｜民間零售消費 仍在成長</text>
+<text x="84" y="504" font-size="16" fill="var(--dim)">錢沒消失，是沒東西買</text>
+<text x="480" y="566" font-size="22" text-anchor="middle" fill="var(--ink)">切開兩者的不是感覺，是旁證</text>
+</svg>

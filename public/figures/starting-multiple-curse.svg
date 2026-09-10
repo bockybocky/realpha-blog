@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="從同一個買進點分岔出兩條線，一條代表公司獲利持續往上，另一條代表股價年化報酬持續往下">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+    .a { fill:var(--accent); }
+    .w { fill:var(--warn); }
+</style>
+<text class="t" x="60" y="64">公司真的長大了，你還是賠錢</text>
+<line x1="250" y1="140" x2="250" y2="430" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+<text class="g" x="250" y="122" text-anchor="middle">買在 50 倍以上</text>
+<polygon points="250,300 860,160 860,360" fill="var(--card)"/>
+<polyline points="250,300 480,254 680,206 860,160" fill="none" stroke="var(--accent)" stroke-width="3.5"/>
+<polyline points="250,300 480,320 680,342 860,362" fill="none" stroke="var(--warn)" stroke-width="3.5"/>
+<circle cx="250" cy="300" r="7" fill="var(--ink)"/>
+<text class="b a" x="860" y="140" text-anchor="end">獲利 每年 ＋15~20%</text>
+<text class="b w" x="860" y="392" text-anchor="end">股價 每年 −2%</text>
+<line x1="250" y1="430" x2="890" y2="430" stroke="var(--line)" stroke-width="1.5"/>
+<text class="s" x="880" y="456" text-anchor="end">五年後</text>
+<text class="c" x="60" y="512">看對公司，還是可能付太多錢</text>
+</svg>

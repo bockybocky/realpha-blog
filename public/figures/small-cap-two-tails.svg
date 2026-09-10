@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="鐘形分佈的左右兩尾都被灰掉，中間只剩一段；下方長條有八成被灰色佔滿，只剩右邊一小段是公開市場">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+.t { font-size:27px; font-weight:700; }
+.s { font-size:16px; fill:var(--dim); }
+.g { font-size:19px; font-weight:600; }
+.n { font-size:15px; fill:var(--dim); }
+.c { font-size:22px; font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="t" x="60" y="62">小型股的兩條尾巴</text>
+<text class="s" x="60" y="94">一條有人講，另一條很少人講</text>
+<defs>
+<clipPath id="leftTail"><rect x="110" y="150" width="160" height="250"/></clipPath>
+<clipPath id="midBody"><rect x="270" y="150" width="430" height="250"/></clipPath>
+<clipPath id="rightTail"><rect x="700" y="150" width="150" height="250"/></clipPath>
+</defs>
+<path d="M120,380 C260,380 300,190 480,190 C660,190 700,380 840,380 Z" fill="var(--grey)" clip-path="url(#leftTail)"/>
+<path d="M120,380 C260,380 300,190 480,190 C660,190 700,380 840,380 Z" fill="var(--grey)" clip-path="url(#rightTail)"/>
+<path d="M120,380 C260,380 300,190 480,190 C660,190 700,380 840,380 Z" fill="var(--accent)" opacity="0.28" clip-path="url(#midBody)"/>
+<path d="M120,380 C260,380 300,190 480,190 C660,190 700,380 840,380" fill="none" stroke="var(--ink)" stroke-width="2"/>
+<line x1="270" y1="380" x2="270" y2="300" stroke="var(--line)" stroke-width="2"/>
+<line x1="700" y1="380" x2="700" y2="300" stroke="var(--line)" stroke-width="2"/>
+<line x1="110" y1="380" x2="860" y2="380" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="195" y="412" text-anchor="middle" fill="var(--warn)">被 AI 取代</text>
+<text class="g" x="775" y="412" text-anchor="middle" fill="var(--dim)">沒錢投 AI</text>
+<text class="n" x="775" y="436" text-anchor="middle">吃不到這一波</text>
+<text class="g" x="480" y="300" text-anchor="middle">剩下的</text>
+<text class="n" x="330" y="472" text-anchor="middle">約八成留在私募市場</text>
+<text class="n" x="768" y="472" text-anchor="middle">公開的小型股指數</text>
+<rect x="120" y="486" width="576" height="34" fill="var(--grey)"/>
+<rect x="696" y="486" width="144" height="34" fill="var(--accent)"/>
+<text class="c" x="60" y="574">兩頭被切掉，中間那批還是被挑剩的</text>
+</svg>

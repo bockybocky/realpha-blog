@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="景氣循環波浪圖，兩個谷底標示買入方向向下，右側上升段標示興建方向向上，中間虛線分隔前後兩個時期">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text x="90" y="72" font-size="27" font-weight="700" fill="var(--ink)">買產能，和蓋產能</text>
+<text x="90" y="108" font-size="16" fill="var(--dim)">記憶體景氣循環・示意</text>
+
+<path d="M90 330 C150 230 210 230 270 330 C330 430 390 430 450 330 C510 230 570 230 630 330 C690 430 750 430 800 340 C840 300 870 272 900 250"
+      fill="none" stroke="var(--grey)" stroke-width="3"/>
+
+<line x1="790" y1="180" x2="790" y2="470" stroke="var(--line)" stroke-width="2" stroke-dasharray="8 8"/>
+<text x="776" y="168" font-size="19" text-anchor="end" fill="var(--dim)">過去二十五年</text>
+<text x="802" y="168" font-size="19" fill="var(--warn)">接下來十年</text>
+
+<text x="360" y="286" font-size="19" text-anchor="middle" fill="var(--accent)">買・低點承接</text>
+<path d="M360 300 L360 372" stroke="var(--accent)" stroke-width="3"/>
+<polygon points="360,386 353,370 367,370" fill="var(--accent)"/>
+
+<text x="700" y="286" font-size="19" text-anchor="middle" fill="var(--accent)">再買</text>
+<path d="M700 300 L700 372" stroke="var(--accent)" stroke-width="3"/>
+<polygon points="700,386 693,370 707,370" fill="var(--accent)"/>
+
+<text x="858" y="408" font-size="19" text-anchor="middle" fill="var(--warn)">自己蓋</text>
+<text x="858" y="432" font-size="15" text-anchor="middle" fill="var(--dim)">淨增供給</text>
+<path d="M858 386 L858 316" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="858,302 851,318 865,318" fill="var(--warn)"/>
+
+<text x="90" y="546" font-size="22" font-weight="700" fill="var(--ink)">一個買在谷底，一個蓋在高點</text>
+</svg>

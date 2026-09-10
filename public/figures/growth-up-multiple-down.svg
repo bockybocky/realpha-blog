@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一條線先往右上升代表獲利成長，再往右下降代表倍數收縮，終點回到與起點同高的水平虛線上">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+    .a { fill:var(--accent); }
+    .w { fill:var(--warn); }
+</style>
+<text class="t" x="60" y="64">一邊在賺，一邊在還</text>
+<line x1="200" y1="320" x2="860" y2="320" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+<line x1="200" y1="320" x2="500" y2="180" stroke="var(--accent)" stroke-width="4"/>
+<polygon points="512,174 486,176 498,200" fill="var(--accent)"/>
+<line x1="512" y1="180" x2="820" y2="320" stroke="var(--warn)" stroke-width="4"/>
+<polygon points="834,326 812,306 806,330" fill="var(--warn)"/>
+<circle cx="200" cy="320" r="8" fill="var(--ink)"/>
+<circle cx="834" cy="320" r="8" fill="var(--ink)"/>
+<text class="b a" x="300" y="222">獲利 ＋20%</text>
+<text class="b w" x="640" y="270">倍數 50 → 25</text>
+<text class="s" x="200" y="352" text-anchor="middle">買進</text>
+<text class="b" x="834" y="356" text-anchor="middle">原地</text>
+<text class="c" x="60" y="504">每一分成長，都在替過去的樂觀還債</text>
+</svg>

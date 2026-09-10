@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一條擺幅由左向右放大的鞭形曲線，五個節點沿線排開，最右端的節點最大、抵達時間最晚。">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.h { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:19px; font-weight:600; fill:var(--ink); }
+.b { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:600; fill:var(--ink); }
+</style>
+<text class="h" x="60" y="60">鞭梢最晚動，也擺得最大</text>
+<line x1="110" y1="300" x2="880" y2="300" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 6"/>
+<path d="M110,300 C160,286 210,314 260,300 C320,272 380,332 440,300 C520,250 590,356 660,300 C752,220 800,392 866,300" fill="none" stroke="var(--accent)" stroke-width="3.5"/>
+<circle cx="110" cy="300" r="6" fill="var(--accent)"/>
+<circle cx="260" cy="300" r="8" fill="var(--accent)"/>
+<circle cx="440" cy="300" r="11" fill="var(--accent)"/>
+<circle cx="660" cy="300" r="14" fill="var(--accent)"/>
+<circle cx="866" cy="300" r="18" fill="var(--warn)"/>
+<text class="g" x="110" y="192" text-anchor="middle">終端需求</text>
+<text class="g" x="260" y="192" text-anchor="middle">資料中心</text>
+<text class="g" x="440" y="192" text-anchor="middle">晶片</text>
+<text class="g" x="660" y="192" text-anchor="middle">EUV 機台</text>
+<text class="g" x="866" y="192" text-anchor="end">鏡片</text>
+<line x1="110" y1="212" x2="110" y2="272" stroke="var(--line)" stroke-width="1.5"/>
+<line x1="260" y1="212" x2="260" y2="272" stroke="var(--line)" stroke-width="1.5"/>
+<line x1="440" y1="212" x2="440" y2="272" stroke="var(--line)" stroke-width="1.5"/>
+<line x1="660" y1="212" x2="660" y2="272" stroke="var(--line)" stroke-width="1.5"/>
+<line x1="866" y1="212" x2="866" y2="270" stroke="var(--line)" stroke-width="1.5"/>
+<text class="b" x="110" y="420" text-anchor="middle">立刻</text>
+<text class="b" x="260" y="420" text-anchor="middle">數週</text>
+<text class="b" x="440" y="420" text-anchor="middle">數月</text>
+<text class="b" x="660" y="420" text-anchor="middle">半年</text>
+<text class="b" x="866" y="420" text-anchor="end">一年以上</text>
+<text class="b" x="110" y="452">訊號抵達的時間</text>
+<text class="c" x="60" y="512">真正的瓶頸在最上游</text>
+</svg>

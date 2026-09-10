@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="左邊一整片密集圓點對比右邊單一個空心圓圈">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<defs>
+  <pattern id="dots-f5" width="26" height="26" patternUnits="userSpaceOnUse">
+    <circle cx="13" cy="13" r="5.5" fill="var(--accent)" opacity="0.6"/>
+  </pattern>
+</defs>
+<text x="80" y="66" font-size="27" fill="var(--ink)">一千兩百個裡面，示警的是零</text>
+
+<rect x="90" y="140" width="520" height="260" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<rect x="102" y="152" width="496" height="236" rx="8" fill="url(#dots-f5)"/>
+<text x="350" y="432" font-size="19" fill="var(--ink)" text-anchor="middle">知情的代理人</text>
+
+<circle cx="770" cy="270" r="74" fill="none" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="9 8"/>
+<text x="770" y="282" font-size="27" fill="var(--warn)" text-anchor="middle">零</text>
+<text x="770" y="432" font-size="19" fill="var(--warn)" text-anchor="middle">去通知人類的</text>
+
+<text x="80" y="488" font-size="22" fill="var(--ink)">預設是幫同伴，不是舉報</text>
+</svg>

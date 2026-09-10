@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="目標價圓點多數落在現價左側，只有零星幾點在最右端">
+<defs><style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+  .ttl{font-size:27px;fill:var(--ink);font-weight:700}
+  .lbl{font-size:19px;fill:var(--ink);font-weight:600}
+  .txt{font-size:16px;fill:var(--dim)}
+  .cc{font-size:22px;fill:var(--ink);font-weight:600}
+</style></defs>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="ttl" x="60" y="62">看的是分布，不是最高的那一根</text>
+<line x1="110" y1="360" x2="890" y2="360" stroke="var(--line)" stroke-width="2"/>
+<circle cx="200" cy="330" r="9" fill="var(--grey)"/>
+<circle cx="248" cy="300" r="9" fill="var(--grey)"/>
+<circle cx="262" cy="336" r="9" fill="var(--grey)"/>
+<circle cx="310" cy="272" r="9" fill="var(--grey)"/>
+<circle cx="322" cy="322" r="9" fill="var(--grey)"/>
+<circle cx="338" cy="290" r="9" fill="var(--grey)"/>
+<circle cx="372" cy="334" r="9" fill="var(--grey)"/>
+<circle cx="388" cy="262" r="9" fill="var(--grey)"/>
+<circle cx="404" cy="306" r="9" fill="var(--grey)"/>
+<circle cx="440" cy="330" r="9" fill="var(--grey)"/>
+<circle cx="456" cy="284" r="9" fill="var(--grey)"/>
+<circle cx="492" cy="316" r="9" fill="var(--grey)"/>
+<circle cx="546" cy="296" r="9" fill="var(--grey)"/>
+<circle cx="612" cy="330" r="9" fill="var(--grey)"/>
+<circle cx="700" cy="308" r="9" fill="var(--grey)"/>
+<circle cx="838" cy="288" r="9" fill="var(--warn)"/>
+<line x1="392" y1="180" x2="392" y2="380" stroke="var(--accent)" stroke-width="3"/>
+<text class="lbl" x="392" y="164" text-anchor="middle" fill="var(--accent)">平均目標價</text>
+<line x1="524" y1="180" x2="524" y2="380" stroke="var(--ink)" stroke-width="3" stroke-dasharray="8 6"/>
+<text class="lbl" x="524" y="164" text-anchor="middle">當時股價</text>
+<text class="txt" x="838" y="256" text-anchor="middle" fill="var(--warn)">最高的那個</text>
+<text class="txt" x="140" y="400">看空</text>
+<text class="txt" x="880" y="400" text-anchor="end">看多</text>
+<text class="cc" x="60" y="472">大多數人，其實站在現價的左邊</text>
+</svg>

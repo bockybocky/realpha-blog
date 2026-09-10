@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條同起點的折線往右上爬，應收帳款那條比營收那條陡得多，中間的缺口越往右越寬並被填上顏色">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+.t { font-size:27px; font-weight:700; }
+.g { font-size:19px; font-weight:700; }
+.b { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="70" y="62">認列的收入，和收到的錢</text>
+<line x1="120" y1="110" x2="120" y2="420" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="420" x2="880" y2="420" stroke="var(--line)" stroke-width="2"/>
+<polygon points="140,380 300,340 460,300 620,265 800,225 800,120 620,180 460,255 300,325" fill="var(--warn)" opacity="0.18"/>
+<polyline points="140,380 300,340 460,300 620,265 800,225" fill="none" stroke="var(--grey)" stroke-width="4"/>
+<polyline points="140,380 300,325 460,255 620,180 800,120" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<text class="g" x="810" y="230">營收</text>
+<text class="g" x="810" y="125" fill="var(--warn)">應收帳款</text>
+<text class="b" x="620" y="230">距離拉開</text>
+<text class="b" x="140" y="450">時間</text>
+<text class="c" x="70" y="500">跑得比營收快的那條，是還沒收到的錢</text>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左：三步驟排在一條軸上可以對答案；右：一團沒有軸的訊號詞，無從判定對錯">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .w { font-size:16px; fill:var(--ink); font-weight:600; }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <defs>
+    <marker id="a2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <text class="t" x="60" y="56">有尺的東西，和沒有尺的東西</text>
+
+  <rect x="60" y="96" width="400" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="500" y="96" width="400" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="80" y="134" fill="var(--accent)">他自己給的序列</text>
+  <text class="g" x="520" y="134" fill="var(--warn)">外面在傳的訊號</text>
+
+  <line x1="120" y1="180" x2="120" y2="420" stroke="var(--accent)" stroke-width="3" marker-end="url(#a2)"/>
+  <circle cx="120" cy="212" r="9" fill="var(--accent)"/>
+  <circle cx="120" cy="296" r="9" fill="var(--accent)"/>
+  <circle cx="120" cy="380" r="9" fill="var(--accent)"/>
+  <text class="w" x="150" y="206">飛一</text>
+  <text class="b" x="150" y="232">出去，不回來</text>
+  <text class="w" x="150" y="290">飛二</text>
+  <text class="b" x="150" y="316">在軌能力</text>
+  <text class="w" x="150" y="374">飛三</text>
+  <text class="b" x="150" y="400">再入與熱盾</text>
+
+  <rect x="536" y="180" width="150" height="52" rx="26" fill="var(--card)" stroke="var(--grey)"/>
+  <text class="w" x="611" y="212" text-anchor="middle">募資金額</text>
+  <rect x="712" y="238" width="150" height="52" rx="26" fill="var(--card)" stroke="var(--grey)"/>
+  <text class="w" x="787" y="270" text-anchor="middle">署長來訪</text>
+  <rect x="546" y="300" width="150" height="52" rx="26" fill="var(--card)" stroke="var(--grey)"/>
+  <text class="w" x="621" y="332" text-anchor="middle">媒體聲量</text>
+  <rect x="702" y="366" width="150" height="52" rx="26" fill="var(--card)" stroke="var(--grey)"/>
+  <text class="w" x="777" y="398" text-anchor="middle">下一輪估值</text>
+
+  <text class="b" x="80" y="446">每一格都能對答案</text>
+  <text class="b" x="520" y="446">沒有一格會告訴你錯了</text>
+
+  <text class="c" x="60" y="514">沒有尺的時候，你只能靠情緒進出</text>
+</svg>

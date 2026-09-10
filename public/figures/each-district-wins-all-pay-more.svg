@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="四個轄區各自一支向下箭頭，匯流到底部一個共用市場的向上箭頭">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text class="t" x="480" y="54" text-anchor="middle">每個轄區都划算，全體變貴</text>
+<line x1="165" y1="240" x2="480" y2="350" stroke="var(--grey)" stroke-width="2"/>
+<line x1="375" y1="240" x2="480" y2="350" stroke="var(--grey)" stroke-width="2"/>
+<line x1="585" y1="240" x2="480" y2="350" stroke="var(--grey)" stroke-width="2"/>
+<line x1="795" y1="240" x2="480" y2="350" stroke="var(--grey)" stroke-width="2"/>
+<rect x="90" y="112" width="150" height="128" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="165" y="143" text-anchor="middle">轄區 A</text>
+<line x1="165" y1="160" x2="165" y2="194" stroke="var(--accent)" stroke-width="5"/>
+<polygon points="155,192 175,192 165,208" fill="var(--accent)"/>
+<text class="b" x="165" y="230" text-anchor="middle">本地電價</text>
+<rect x="300" y="112" width="150" height="128" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="375" y="143" text-anchor="middle">轄區 B</text>
+<line x1="375" y1="160" x2="375" y2="194" stroke="var(--accent)" stroke-width="5"/>
+<polygon points="365,192 385,192 375,208" fill="var(--accent)"/>
+<text class="b" x="375" y="230" text-anchor="middle">本地電價</text>
+<rect x="510" y="112" width="150" height="128" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="585" y="143" text-anchor="middle">轄區 C</text>
+<line x1="585" y1="160" x2="585" y2="194" stroke="var(--accent)" stroke-width="5"/>
+<polygon points="575,192 595,192 585,208" fill="var(--accent)"/>
+<text class="b" x="585" y="230" text-anchor="middle">本地電價</text>
+<rect x="720" y="112" width="150" height="128" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="795" y="143" text-anchor="middle">轄區 D</text>
+<line x1="795" y1="160" x2="795" y2="194" stroke="var(--accent)" stroke-width="5"/>
+<polygon points="785,192 805,192 795,208" fill="var(--accent)"/>
+<text class="b" x="795" y="230" text-anchor="middle">本地電價</text>
+<rect x="200" y="350" width="560" height="90" rx="10" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+<line x1="255" y1="428" x2="255" y2="384" stroke="var(--warn)" stroke-width="6"/>
+<polygon points="242,386 268,386 255,364" fill="var(--warn)"/>
+<text class="g" x="490" y="388" text-anchor="middle">共用的設備與人力市場</text>
+<text class="g" x="490" y="422" text-anchor="middle" style="fill:var(--warn)">全體成本 ↑</text>
+<text class="c" x="480" y="505" text-anchor="middle">個別最佳 ≠ 全體最佳</text>
+</svg>

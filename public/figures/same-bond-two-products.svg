@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一條起伏的線，中間低谷處與最右端各有一個圓點標記">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.t{font-size:27px;fill:var(--ink)}
+.g{font-size:19px;fill:var(--ink)}
+.s{font-size:16px;fill:var(--dim)}
+.c{font-size:22px;fill:var(--ink)}
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="58">同一張債券，兩種商品</text>
+<text class="s" x="60" y="90">價格路徑一樣，出場點不一樣</text>
+<line x1="120" y1="410" x2="850" y2="410" stroke="var(--line)" stroke-width="2"/>
+<path d="M140,270 C 210,190 260,340 330,310 C 400,282 410,368 470,352 C 540,334 590,236 660,240 C 730,244 780,214 830,206" fill="none" stroke="var(--grey)" stroke-width="4"/>
+<circle cx="470" cy="352" r="12" fill="var(--warn)"/>
+<circle cx="830" cy="206" r="12" fill="var(--accent)"/>
+<line x1="470" y1="352" x2="470" y2="410" stroke="var(--warn)" stroke-width="2" stroke-dasharray="5 5"/>
+<line x1="830" y1="206" x2="830" y2="410" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<text class="g" x="470" y="440" text-anchor="middle">中途要用錢</text>
+<text class="s" x="470" y="466" text-anchor="middle">波動變成損失</text>
+<text class="g" x="830" y="440" text-anchor="end">抱到到期</text>
+<text class="s" x="830" y="466" text-anchor="end">拿回票面</text>
+<text class="c" x="60" y="516">差別不在標的，在這筆錢的期限</text>
+</svg>

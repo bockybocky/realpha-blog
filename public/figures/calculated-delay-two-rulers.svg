@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條時間刻度尺，各有一條不能越過的線，實際都停在線之前">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">拖延是精算過的：停在線之前</text>
+
+<text x="60" y="132" font-size="20" font-weight="700" fill="var(--ink)">車貸</text>
+<rect x="60" y="160" width="600" height="26" rx="13" fill="var(--accent)" opacity="0.25"/>
+<rect x="660" y="160" width="240" height="26" rx="13" fill="var(--warn)" opacity="0.3"/>
+<line x1="60" y1="150" x2="900" y2="150" stroke="var(--line)"/>
+<line x1="660" y1="140" x2="660" y2="212" stroke="var(--warn)" stroke-width="3"/>
+<line x1="600" y1="146" x2="600" y2="200" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="600" cy="173" r="9" fill="var(--accent)"/>
+<text x="600" y="234" font-size="16" fill="var(--accent)" text-anchor="middle">逾期六十天</text>
+<text x="672" y="234" font-size="16" fill="var(--warn)">一百二十天：車被收走</text>
+<text x="64" y="234" font-size="15" fill="var(--dim)">準時</text>
+
+<text x="60" y="326" font-size="20" font-weight="700" fill="var(--ink)">瓦斯費</text>
+<rect x="60" y="354" width="600" height="26" rx="13" fill="var(--accent)" opacity="0.25"/>
+<rect x="660" y="354" width="240" height="26" rx="13" fill="var(--warn)" opacity="0.3"/>
+<line x1="60" y1="344" x2="900" y2="344" stroke="var(--line)"/>
+<line x1="660" y1="334" x2="660" y2="406" stroke="var(--warn)" stroke-width="3"/>
+<circle cx="420" cy="367" r="9" fill="var(--accent)"/>
+<text x="420" y="428" font-size="16" fill="var(--accent)" text-anchor="middle">夏天先不繳</text>
+<text x="672" y="428" font-size="16" fill="var(--warn)">冬天：一定要繳</text>
+
+<text x="480" y="500" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">不是垮了，是把順序排好了</text>
+</svg>

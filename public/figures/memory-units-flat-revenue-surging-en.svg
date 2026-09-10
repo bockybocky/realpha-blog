@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A flat units line and a steeply rising revenue line, with the gap labeled price increases and a dashed region to the right for after units start rising.">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t  { font-size:27px; font-weight:700; fill:var(--ink); }
+.g  { font-size:19px; font-weight:600; fill:var(--ink); }
+.gd { font-size:19px; font-weight:600; fill:var(--dim); }
+.ga { font-size:19px; font-weight:600; fill:var(--accent); }
+.gw { font-size:19px; font-weight:600; fill:var(--warn); }
+.b  { font-size:16px; fill:var(--dim); }
+.c  { font-size:22px; font-weight:600; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="64">Volume flat, dollars surging</text>
+<line x1="120" y1="130" x2="120" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="430" x2="860" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="500" y1="150" x2="500" y2="430" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 8"/>
+<line x1="150" y1="340" x2="500" y2="336" stroke="var(--grey)" stroke-width="4"/>
+<line x1="150" y1="340" x2="500" y2="180" stroke="var(--accent)" stroke-width="4"/>
+<line x1="500" y1="336" x2="800" y2="256" stroke="var(--warn)" stroke-width="4" stroke-dasharray="10 8"/>
+<line x1="470" y1="196" x2="470" y2="330" stroke="var(--dim)" stroke-width="2"/>
+<polygon points="470,190 464,204 476,204" fill="var(--dim)"/>
+<polygon points="470,336 464,322 476,322" fill="var(--dim)"/>
+<text class="gd" x="236" y="322">Gap = price</text>
+<text class="ga" x="514" y="176">Revenue</text>
+<text class="gd" x="180" y="380">Units shipped</text>
+<text class="gw" x="620" y="222">Units start rising</text>
+<text class="b" x="620" y="248">Where does price go</text>
+<text class="b" x="506" y="146">Ahead</text>
+<text class="c" x="60" y="524">Price is holding revenue up, not volume</text>
+</svg>

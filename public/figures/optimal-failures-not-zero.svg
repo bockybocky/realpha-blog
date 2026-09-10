@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="U形成本曲線，兩端都高、谷底在中間，標示最適出錯次數不是零">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    svg { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; } /* 字型：思源黑體優先 */
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" font-weight="700" fill="var(--ink)">最適的出錯次數不是零</text>
+
+<line x1="140" y1="120" x2="140" y2="440" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-width="2"/>
+<text x="98" y="132" font-size="15" fill="var(--dim)">總成本</text>
+<text x="880" y="464" font-size="15" fill="var(--dim)" text-anchor="end">容許出錯的程度</text>
+
+<path d="M 190,150 C 320,382 380,394 500,394 C 620,394 680,382 810,150" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="500" cy="394" r="7" fill="var(--accent)"/>
+<line x1="500" y1="394" x2="500" y2="440" stroke="var(--accent)" stroke-dasharray="4 4"/>
+<text x="500" y="352" font-size="20" font-weight="600" fill="var(--accent)" text-anchor="middle">最低點在中間</text>
+
+<text x="190" y="132" font-size="20" font-weight="600" fill="var(--ink)" text-anchor="middle">零容忍</text>
+<text x="190" y="190" font-size="15" fill="var(--dim)" text-anchor="middle">在機場空等</text>
+<text x="190" y="212" font-size="15" fill="var(--dim)" text-anchor="middle">管到不放款</text>
+
+<text x="810" y="132" font-size="20" font-weight="600" fill="var(--ink)" text-anchor="middle">放任</text>
+<text x="810" y="190" font-size="15" fill="var(--dim)" text-anchor="middle">錯過班機</text>
+<text x="810" y="212" font-size="15" fill="var(--dim)" text-anchor="middle">倒閉潮</text>
+
+<text x="60" y="507" font-size="22" font-weight="600" fill="var(--ink)">零，是另一種昂貴</text>
+</svg>

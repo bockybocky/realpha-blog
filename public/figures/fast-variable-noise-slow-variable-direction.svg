@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="同一條時間軸上兩條線，一條劇烈上下鋸齒但起點與終點高度差不多，另一條平緩地一路往上。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); }
+    .sub { font-size:16px; fill:var(--dim); }
+    .end { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="ttl" x="60" y="64">吵的那條，不是決定結局的那條</text>
+
+  <line x1="110" y1="430" x2="890" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <text class="sub" x="890" y="458" text-anchor="end">時間</text>
+
+  <path d="M110 300 L170 200 L230 330 L290 180 L350 320 L410 210 L470 340 L530 190 L590 330 L650 200 L710 320 L770 210 L830 300" fill="none" stroke="var(--grey)" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M110 400 C 330 392, 560 330, 830 150" fill="none" stroke="var(--accent)" stroke-width="5"/>
+
+  <circle cx="290" cy="180" r="6" fill="var(--grey)"/>
+  <text class="sub" x="290" y="162" text-anchor="middle">新聞在這裡</text>
+
+  <text class="grp" x="846" y="306" fill="var(--dim)">快變數</text>
+  <text class="sub" x="846" y="330">價格</text>
+  <text class="grp" x="846" y="146" fill="var(--accent)">慢變數</text>
+  <text class="sub" x="846" y="170">方向</text>
+
+  <text class="end" x="110" y="500">方向由慢的決定</text>
+</svg>

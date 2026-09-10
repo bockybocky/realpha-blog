@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Four quadrants: bottleneck or not on the horizontal axis, defensible or not on the vertical, with the top-right cell as the place that makes money.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .q { font-size:20px; fill:var(--ink); font-weight:700; }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text class="t" x="60" y="56">Two questions to ask separately</text>
+
+  <rect x="200" y="100" width="320" height="180" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="520" y="100" width="320" height="180" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <rect x="200" y="280" width="320" height="180" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="520" y="280" width="320" height="180" rx="10" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+
+  <text class="q" x="360" y="184" text-anchor="middle">Ceiling already sealed</text>
+  <text class="b" x="360" y="216" text-anchor="middle">Hunting names on this chain is wasted effort</text>
+  <text class="q" x="680" y="184" text-anchor="middle" fill="var(--accent)">Makes money</text>
+  <text class="b" x="680" y="216" text-anchor="middle">The tight layer, and defensible</text>
+  <text class="q" x="360" y="364" text-anchor="middle">Neither one</text>
+  <text class="b" x="360" y="396" text-anchor="middle">Not tight and not defensible</text>
+  <text class="q" x="680" y="364" text-anchor="middle" fill="var(--warn)">Shortage for now</text>
+  <text class="b" x="680" y="396" text-anchor="middle">Nothing left once capacity comes online</text>
+
+  <line x1="140" y1="460" x2="140" y2="100" stroke="var(--line)" stroke-width="2"/>
+  <line x1="200" y1="500" x2="840" y2="500" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="120" y="290" text-anchor="end" transform="rotate(-90 120 290)">Defensible?</text>
+  <text class="b" x="128" y="130" text-anchor="end">Yes</text>
+  <text class="b" x="128" y="450" text-anchor="end">No</text>
+  <text class="b" x="360" y="530" text-anchor="middle">Not the bottleneck</text>
+  <text class="b" x="680" y="530" text-anchor="middle">The bottleneck</text>
+
+  <text class="c" x="60" y="576">The first question sets the ceiling; the second decides who captures it</text>
+</svg>

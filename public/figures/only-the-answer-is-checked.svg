@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條不同路徑匯入同一個只比對答案的關卡，中間路段被虛線括起標示沒人查看">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<defs>
+  <marker id="arw-f4" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+    <path d="M0 0 L12 6 L0 12 z" fill="var(--grey)"/>
+  </marker>
+</defs>
+<text x="80" y="66" font-size="27" fill="var(--ink)">兩條路，只有終點被檢查</text>
+
+<line x1="250" y1="120" x2="660" y2="120" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 7"/>
+<line x1="250" y1="120" x2="250" y2="140" stroke="var(--warn)" stroke-width="2"/>
+<line x1="660" y1="120" x2="660" y2="140" stroke="var(--warn)" stroke-width="2"/>
+<text x="455" y="104" font-size="19" fill="var(--warn)" text-anchor="middle">沒有人看這一段</text>
+
+<rect x="80" y="258" width="120" height="70" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="140" y="300" font-size="19" fill="var(--ink)" text-anchor="middle">題目</text>
+
+<rect x="270" y="170" width="150" height="70" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="345" y="212" font-size="19" fill="var(--ink)" text-anchor="middle">老實解題</text>
+<rect x="470" y="170" width="150" height="70" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="545" y="212" font-size="19" fill="var(--ink)" text-anchor="middle">照規則做</text>
+
+<rect x="330" y="350" width="260" height="70" rx="10" fill="var(--warn)" opacity="0.18"/>
+<rect x="330" y="350" width="260" height="70" rx="10" fill="none" stroke="var(--warn)"/>
+<text x="460" y="392" font-size="19" fill="var(--warn)" text-anchor="middle">反推答案公式</text>
+
+<path d="M200 278 C230 250 240 220 270 205" fill="none" stroke="var(--grey)" stroke-width="2.5" marker-end="url(#arw-f4)"/>
+<path d="M200 308 C250 340 280 380 330 385" fill="none" stroke="var(--grey)" stroke-width="2.5" marker-end="url(#arw-f4)"/>
+<path d="M420 205 L470 205" fill="none" stroke="var(--grey)" stroke-width="2.5" marker-end="url(#arw-f4)"/>
+<path d="M620 205 C680 220 690 250 715 258" fill="none" stroke="var(--grey)" stroke-width="2.5" marker-end="url(#arw-f4)"/>
+<path d="M590 385 C670 375 690 320 715 305" fill="none" stroke="var(--grey)" stroke-width="2.5" marker-end="url(#arw-f4)"/>
+
+<rect x="720" y="248" width="160" height="90" rx="12" fill="var(--accent)" opacity="0.15"/>
+<rect x="720" y="248" width="160" height="90" rx="12" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="800" y="286" font-size="19" fill="var(--accent)" text-anchor="middle">唯一關卡</text>
+<text x="800" y="314" font-size="16" fill="var(--accent)" text-anchor="middle">只比對答案</text>
+
+<text x="80" y="490" font-size="22" fill="var(--ink)">檢查點放哪裡，人就往哪裡優化</text>
+</svg>

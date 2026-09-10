@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左框開了一道門讓證據進入，右框密封把證據彈開">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<defs>
+  <marker id="a11a" markerWidth="11" markerHeight="11" refX="9" refY="4.5" orient="auto">
+    <path d="M0 0 L9 4.5 L0 9 Z" fill="var(--accent)"/>
+  </marker>
+  <marker id="a11w" markerWidth="11" markerHeight="11" refX="9" refY="4.5" orient="auto">
+    <path d="M0 0 L9 4.5 L0 9 Z" fill="var(--warn)"/>
+  </marker>
+</defs>
+<text x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">有沒有一扇門，決定它是不是判斷</text>
+
+<text x="230" y="140" font-size="20" font-weight="700" fill="var(--accent)" text-anchor="middle">判斷</text>
+<path d="M120 180 L 340 180 L 340 260 M340 320 L 340 420 L 120 420 L 120 180" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text x="368" y="296" font-size="15" fill="var(--accent)">門</text>
+<path d="M470 290 L 348 290" fill="none" stroke="var(--accent)" stroke-width="4" marker-end="url(#a11a)"/>
+<text x="230" y="306" font-size="16" fill="var(--ink)" text-anchor="middle">可以被推翻</text>
+<text x="230" y="466" font-size="16" fill="var(--dim)" text-anchor="middle">「如果 X 發生，我承認我錯」</text>
+
+<text x="740" y="140" font-size="20" font-weight="700" fill="var(--warn)" text-anchor="middle">身分</text>
+<rect x="630" y="180" width="220" height="240" rx="6" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<path d="M520 290 L 620 290 L 560 232" fill="none" stroke="var(--warn)" stroke-width="4" marker-end="url(#a11w)"/>
+<text x="740" y="306" font-size="16" fill="var(--ink)" text-anchor="middle">推不翻</text>
+<text x="740" y="466" font-size="16" fill="var(--dim)" text-anchor="middle">那句話寫不出來</text>
+
+<text x="495" y="230" font-size="15" fill="var(--dim)" text-anchor="middle">證據</text>
+<text x="480" y="512" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">吵不完的架，幾乎都是右邊那種</text>
+</svg>

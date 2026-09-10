@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="估值區間由寬而模糊變成窄而實：左側高寬虛線塊，右側低窄實心塊">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="62">身分換了，倍數的形狀也換了</text>
+
+  <line x1="150" y1="110" x2="150" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <polygon points="150,100 144,116 156,116" fill="var(--line)"/>
+  <text class="s" x="60" y="104">市場願意給的倍數</text>
+
+  <rect x="190" y="130" width="290" height="210" fill="var(--card)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="9 7" rx="6"/>
+  <text class="g" x="335" y="380" text-anchor="middle">前沿模型的探索者</text>
+  <text class="s" x="335" y="406" text-anchor="middle">沒人知道未來長怎樣</text>
+  <text class="s" x="335" y="428" text-anchor="middle">想像空間寬</text>
+
+  <polygon points="520,255 570,235 570,275" fill="var(--accent)"/>
+
+  <rect x="620" y="290" width="150" height="90" fill="var(--accent)" rx="6"/>
+  <text class="g" x="695" y="418" text-anchor="middle">基建供應商</text>
+  <text class="s" x="695" y="444" text-anchor="middle">算得出來</text>
+  <text class="s" x="695" y="466" text-anchor="middle">錢是真金白銀</text>
+
+  <text class="c" x="60" y="522">用倍數換誠實：從沒人知道，變成可以算</text>
+</svg>

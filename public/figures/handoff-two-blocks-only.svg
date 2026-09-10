@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="交辦單三塊，頭尾兩塊保留，中間的步驟那塊被劃掉">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" fill="var(--ink)">交辦單上只留兩段</text>
+<rect x="230" y="100" width="500" height="360" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="270" y="140" width="420" height="80" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<text x="294" y="188" font-size="20" fill="var(--ink)">做完之後長什麼樣</text>
+<rect x="270" y="240" width="420" height="80" rx="8" fill="var(--page)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="294" y="288" font-size="20" fill="var(--grey)">步驟</text>
+<line x1="270" y1="240" x2="690" y2="320" stroke="var(--grey)" stroke-width="2"/>
+<line x1="270" y1="320" x2="690" y2="240" stroke="var(--grey)" stroke-width="2"/>
+<rect x="270" y="340" width="420" height="80" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<text x="294" y="388" font-size="20" fill="var(--ink)">我怎麼判斷它做對了</text>
+<text x="758" y="188" font-size="16" fill="var(--dim)">通常寫得出來</text>
+<text x="758" y="388" font-size="16" fill="var(--warn)">常常寫不出來</text>
+<text x="60" y="512" font-size="22" fill="var(--ink)">寫不出第二段，就是還沒想清楚</text>
+</svg>

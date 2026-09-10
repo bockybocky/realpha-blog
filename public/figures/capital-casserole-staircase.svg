@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="一道由左下往右上的階梯，每一階都比前一階更高，最上面兩階換成警示色">
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+    .a { fill:var(--accent); }
+    .w { fill:var(--warn); }
+</style>
+<text class="t" x="60" y="64">從無聊到刺激的階梯</text>
+<line x1="72" y1="500" x2="72" y2="180" stroke="var(--dim)" stroke-width="2"/>
+<polygon points="72,166 64,186 80,186" fill="var(--dim)"/>
+<text class="g" x="52" y="360" text-anchor="middle" transform="rotate(-90 52 360)">愈刺激</text>
+<rect x="110" y="500" width="95" height="20" fill="var(--grey)"/>
+<text class="s" x="157" y="488" text-anchor="middle">現金</text>
+<rect x="210" y="452" width="95" height="68" fill="var(--grey)"/>
+<text class="s" x="257" y="440" text-anchor="middle">指數</text>
+<rect x="310" y="404" width="95" height="116" fill="var(--grey)"/>
+<text class="s" x="357" y="392" text-anchor="middle">因子</text>
+<rect x="410" y="356" width="95" height="164" fill="var(--accent)" opacity="0.45"/>
+<text class="s" x="457" y="344" text-anchor="middle">選擇權疊加</text>
+<rect x="510" y="308" width="95" height="212" fill="var(--accent)" opacity="0.65"/>
+<text class="s" x="557" y="296" text-anchor="middle">加密</text>
+<rect x="610" y="260" width="95" height="260" fill="var(--accent)"/>
+<text class="s" x="657" y="248" text-anchor="middle">槓桿 ETF</text>
+<rect x="710" y="212" width="95" height="308" fill="var(--warn)" opacity="0.7"/>
+<text class="s w" x="757" y="200" text-anchor="middle">事件合約</text>
+<rect x="810" y="164" width="95" height="356" fill="var(--warn)"/>
+<text class="s w" x="857" y="152" text-anchor="middle">每小時重設</text>
+<line x1="100" y1="520" x2="915" y2="520" stroke="var(--line)" stroke-width="1.5"/>
+<text class="c" x="60" y="576">愈上面，問的不是「這對你好嗎」</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="上下兩條長度懸殊的軸，長軸連著蓋廠與產線標示反應慢，短軸連著囤庫存與信用額度標示反應快，兩條之間一條打叉的虛線">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="56">這個決定，鎖在哪一塊板子上</text>
+
+<text class="g" x="60" y="152">長端</text>
+<text class="b" x="60" y="178">十年期</text>
+<rect x="240" y="132" width="620" height="26" rx="13" fill="var(--accent)" fill-opacity="0.55"/>
+<text class="b" x="240" y="196">蓋廠 · 園區 · 產線　　回收期 十到二十年</text>
+<text class="b" x="860" y="196" text-anchor="end">反應：慢</text>
+
+<text class="g" x="60" y="330">短端</text>
+<text class="b" x="60" y="356">政策利率</text>
+<rect x="240" y="310" width="150" height="26" rx="13" fill="var(--accent)" fill-opacity="0.55"/>
+<text class="b" x="240" y="374">囤庫存 · 循環額度多付 25 個基點</text>
+<text class="b" x="860" y="374" text-anchor="end">反應：快</text>
+
+<path d="M420,306 C500,270 520,220 560,166" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 6"/>
+<line x1="480" y1="222" x2="518" y2="252" stroke="var(--warn)" stroke-width="2.5"/>
+<line x1="518" y1="222" x2="480" y2="252" stroke="var(--warn)" stroke-width="2.5"/>
+<text class="b" x="546" y="252" fill="var(--warn)">升息一碼就取消建廠：非常罕見</text>
+
+<text class="c" x="60" y="490">短端的螺絲，鎖不住長端的板子</text>
+</svg>

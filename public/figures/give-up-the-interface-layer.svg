@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="三層堆疊中最上層虛線飄離，下面兩層變厚，資源往下移">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+.t{font-size:27px;font-weight:700}
+.g{font-size:19px;font-weight:600;fill:var(--dim)}
+.b{font-size:16px;fill:var(--dim)}
+.c{font-size:22px;font-weight:600}
+</style>
+<defs><marker id="ahB" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 z" fill="var(--dim)"/></marker></defs>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="62">把最容易被換掉的那層讓出去</text>
+<rect x="330" y="128" width="340" height="66" rx="10" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+<text class="b" x="500" y="168" text-anchor="middle" fill="var(--grey)">介面層</text>
+<rect x="742" y="96" width="180" height="44" rx="10" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6" opacity="0.55"/>
+<text class="b" x="832" y="124" text-anchor="middle" fill="var(--grey)" opacity="0.8">放掉</text>
+<line x1="686" y1="150" x2="734" y2="126" stroke="var(--grey)" stroke-width="2" marker-end="url(#ahB)"/>
+<rect x="330" y="226" width="340" height="96" rx="10" fill="var(--accent)" opacity="0.5"/>
+<text class="b" x="500" y="280" text-anchor="middle">應用與行動</text>
+<rect x="330" y="346" width="340" height="130" rx="10" fill="var(--accent)"/>
+<text class="b" x="500" y="416" text-anchor="middle" fill="var(--page)">流程知識與資料</text>
+<line x1="266" y1="150" x2="266" y2="440" stroke="var(--dim)" stroke-width="2" marker-end="url(#ahB)"/>
+<text class="g" x="252" y="300" text-anchor="end">資源</text>
+<text class="c" x="60" y="522">換不掉的那一層，才值得押</text>
+</svg>

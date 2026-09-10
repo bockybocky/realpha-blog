@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="長期資產分布長條圖，最大一段在台灣、最小一段在美國，箭頭分別指向能力所在地與名字登記地">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="90" y="72" font-size="27" font-weight="700" fill="var(--ink)">名字在愛達荷，資產在亞洲</text>
+<text x="90" y="108" font-size="16" fill="var(--dim)">長期資產（廠房與設備）分布・示意</text>
+
+<text x="250" y="228" font-size="19" text-anchor="middle" fill="var(--accent)">能力長在這裡</text>
+<path d="M250 242 L250 264" stroke="var(--accent)" stroke-width="3"/>
+<polygon points="250,276 244,262 256,262" fill="var(--accent)"/>
+
+<text x="800" y="228" font-size="19" text-anchor="middle" fill="var(--warn)">名字寫在這裡</text>
+<path d="M800 242 L800 264" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="800,276 794,262 806,262" fill="var(--warn)"/>
+
+<rect x="90" y="280" width="320" height="100" fill="var(--accent)"/>
+<rect x="410" y="280" width="190" height="100" fill="var(--accent)" opacity="0.68"/>
+<rect x="600" y="280" width="130" height="100" fill="var(--accent)" opacity="0.42"/>
+<rect x="730" y="280" width="140" height="100" fill="var(--warn)"/>
+
+<text x="250" y="412" font-size="20" text-anchor="middle" fill="var(--ink)">台灣</text>
+<text x="250" y="438" font-size="15" text-anchor="middle" fill="var(--dim)">第一大製造中心</text>
+<text x="505" y="412" font-size="20" text-anchor="middle" fill="var(--ink)">日本</text>
+<text x="665" y="412" font-size="20" text-anchor="middle" fill="var(--ink)">新加坡</text>
+<text x="800" y="412" font-size="20" text-anchor="middle" fill="var(--ink)">美國</text>
+<text x="800" y="438" font-size="15" text-anchor="middle" fill="var(--dim)">總部・Boise</text>
+
+<text x="90" y="496" font-size="22" font-weight="700" fill="var(--ink)">名字一邊，能力一邊</text>
+</svg>

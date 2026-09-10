@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Cross-section comparison of two thermal protection approaches: passively enduring the heat versus actively carrying it away.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="var(--warn)"/>
+    </marker>
+    <marker id="ab" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <text class="t" x="60" y="58">Either the material takes the heat, or fluid carries it off</text>
+
+  <rect x="60" y="96" width="380" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="520" y="96" width="380" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="80" y="132">Ceramic tiles</text>
+  <text class="g" x="540" y="132">Metal shield + coolant channels</text>
+
+  <line x1="90" y1="200" x2="200" y2="200" stroke="var(--warn)" stroke-width="4" marker-end="url(#ah)"/>
+  <line x1="90" y1="250" x2="200" y2="250" stroke="var(--warn)" stroke-width="4" marker-end="url(#ah)"/>
+  <line x1="90" y1="300" x2="200" y2="300" stroke="var(--warn)" stroke-width="4" marker-end="url(#ah)"/>
+  <rect x="212" y="170" width="46" height="160" fill="var(--grey)"/>
+  <rect x="212" y="170" width="46" height="52" fill="var(--warn)" opacity="0.55"/>
+  <text class="b" x="290" y="206">The material takes it alone</text>
+  <text class="b" x="290" y="252">Brittle</text>
+  <text class="b" x="290" y="298">Fears impacts and dropped tools</text>
+  <text class="b" x="100" y="400">Inspected tile by tile after each flight</text>
+
+  <line x1="550" y1="200" x2="660" y2="200" stroke="var(--warn)" stroke-width="4" marker-end="url(#ah)"/>
+  <line x1="550" y1="250" x2="660" y2="250" stroke="var(--warn)" stroke-width="4" marker-end="url(#ah)"/>
+  <line x1="550" y1="300" x2="660" y2="300" stroke="var(--warn)" stroke-width="4" marker-end="url(#ah)"/>
+  <rect x="672" y="170" width="46" height="160" fill="var(--grey)"/>
+  <circle cx="695" cy="196" r="9" fill="var(--accent)"/>
+  <circle cx="695" cy="240" r="9" fill="var(--accent)"/>
+  <circle cx="695" cy="284" r="9" fill="var(--accent)"/>
+  <circle cx="695" cy="322" r="9" fill="var(--accent)"/>
+  <line x1="718" y1="352" x2="830" y2="392" stroke="var(--accent)" stroke-width="4" marker-end="url(#ab)"/>
+  <text class="b" x="750" y="206">LH2 flows through</text>
+  <text class="b" x="750" y="252">Heat carried away</text>
+  <text class="b" x="750" y="298">Dings are fine</text>
+  <text class="b" x="560" y="430">No refit after reentry</text>
+
+  <text class="c" x="60" y="516">Engines cool this way already; this moves it to the hull</text>
+</svg>

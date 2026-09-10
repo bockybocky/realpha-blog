@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="上下兩帶對照，上帶的股價線在時間軸前段就急升然後轉為平坦，下帶的好消息柱子要到最後才長到最高，兩者的高點在時間軸上明顯錯開">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+    .a { fill:var(--accent); }
+    .w { fill:var(--warn); }
+</style>
+<text class="t" x="60" y="64">價格先走，消息後到</text>
+<text class="g" x="60" y="122">股價</text>
+<line x1="150" y1="312" x2="910" y2="312" stroke="var(--line)" stroke-width="1"/>
+<polyline points="150,300 220,288 290,216 360,160 460,148 600,156 760,148 900,156" fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linejoin="round"/>
+<circle cx="360" cy="160" r="6" fill="var(--accent)"/>
+<text class="s a" x="380" y="152">已定價</text>
+<line x1="60" y1="342" x2="910" y2="342" stroke="var(--line)" stroke-width="1"/>
+<text class="g" x="60" y="384">好消息</text>
+<rect x="170" y="442" width="44" height="18" fill="var(--grey)"/>
+<rect x="250" y="438" width="44" height="22" fill="var(--grey)"/>
+<rect x="330" y="432" width="44" height="28" fill="var(--grey)"/>
+<rect x="410" y="426" width="44" height="34" fill="var(--grey)"/>
+<rect x="490" y="416" width="44" height="44" fill="var(--grey)"/>
+<rect x="570" y="404" width="44" height="56" fill="var(--grey)"/>
+<rect x="650" y="388" width="44" height="72" fill="var(--grey)"/>
+<rect x="730" y="368" width="44" height="92" fill="var(--grey)"/>
+<rect x="810" y="344" width="44" height="116" fill="var(--accent)"/>
+<line x1="150" y1="462" x2="910" y2="462" stroke="var(--line)" stroke-width="1.5"/>
+<text class="s" x="192" y="486" text-anchor="middle">1月</text>
+<text class="s" x="512" y="486" text-anchor="middle">5月</text>
+<text class="s a" x="832" y="486" text-anchor="middle">8月 財報</text>
+<text class="c" x="60" y="522">消息公布那天，價格早就在別的地方了</text>
+</svg>

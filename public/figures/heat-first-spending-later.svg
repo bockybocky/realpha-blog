@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條錯開的曲線：熱度先高後落，支出很久之後才開始上升">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<defs>
+  <marker id="arw-f7" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+    <path d="M0 0 L12 6 L0 12 z" fill="var(--warn)"/>
+  </marker>
+</defs>
+<text x="80" y="66" font-size="27" fill="var(--ink)">熱度與支出，不在同一個時間點</text>
+
+<line x1="100" y1="400" x2="880" y2="400" stroke="var(--line)" stroke-width="2"/>
+
+<path d="M120 396 C150 396 160 190 200 190 C250 190 260 330 330 366 C420 392 600 398 870 399" fill="none" stroke="var(--grey)" stroke-width="3"/>
+<text x="232" y="180" font-size="19" fill="var(--dim)">新聞熱度</text>
+
+<path d="M120 396 L440 394 C540 392 640 340 760 268 C800 244 840 232 870 226" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="870" y="212" font-size="19" fill="var(--accent)" text-anchor="end">必要支出</text>
+
+<line x1="175" y1="392" x2="175" y2="408" stroke="var(--grey)" stroke-width="2"/>
+<line x1="470" y1="392" x2="470" y2="408" stroke="var(--grey)" stroke-width="2"/>
+<line x1="790" y1="392" x2="790" y2="408" stroke="var(--grey)" stroke-width="2"/>
+<text x="175" y="432" font-size="16" fill="var(--dim)" text-anchor="middle">事件</text>
+<text x="470" y="432" font-size="16" fill="var(--dim)" text-anchor="middle">下個年度預算</text>
+<text x="790" y="432" font-size="16" fill="var(--dim)" text-anchor="middle">財報上看得到</text>
+
+<path d="M175 468 L790 468" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 7" marker-end="url(#arw-f7)"/>
+<text x="480" y="460" font-size="19" fill="var(--warn)" text-anchor="middle">這段落差</text>
+
+<text x="80" y="512" font-size="22" fill="var(--ink)">我要等的是後面那條線</text>
+</svg>

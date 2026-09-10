@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="兩個一百點方陣，左邊只有四點著色，右邊只有四點沒著色，比例完全相反">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+.f4-b{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+.f4-t{font-size:27px;font-weight:700}
+.f4-g{font-size:19px;font-weight:700}
+.f4-s{font-size:15px;fill:var(--dim)}
+.f4-c{font-size:22px;font-weight:700}
+</style>
+<defs>
+<pattern id="f4grey" patternUnits="userSpaceOnUse" x="120" y="170" width="30" height="30">
+<circle cx="15" cy="15" r="10" fill="var(--grey)"/>
+</pattern>
+<pattern id="f4acc" patternUnits="userSpaceOnUse" x="120" y="170" width="30" height="30">
+<circle cx="15" cy="15" r="10" fill="var(--accent)"/>
+</pattern>
+</defs>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="f4-b f4-t" x="60" y="66">同樣是少數決定一切，方向卻相反</text>
+<text class="f4-b f4-g" x="270" y="140" text-anchor="middle">買進持有</text>
+<text class="f4-b f4-g" x="690" y="140" text-anchor="middle">趨勢跟隨</text>
+<rect x="120" y="170" width="300" height="300" fill="url(#f4grey)"/>
+<rect x="120" y="170" width="120" height="30" fill="url(#f4acc)"/>
+<rect x="540" y="170" width="300" height="300" fill="url(#f4acc)"/>
+<rect x="720" y="440" width="120" height="30" fill="url(#f4grey)"/>
+<text class="f4-b f4-s" x="270" y="514" text-anchor="middle">約 4% 的股票，貢獻全部超額報酬</text>
+<text class="f4-b f4-s" x="690" y="514" text-anchor="middle">約 96% 的市場，最終都有貢獻</text>
+<text class="f4-b f4-c" x="480" y="566" text-anchor="middle">一個靠極少數，一個靠幾乎全部</text>
+</svg>

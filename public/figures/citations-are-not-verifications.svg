@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊三份報告指向同一個源，右邊三種方法各自得到相近答案">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="h" x="60" y="58">引用次數，不是驗證次數</text>
+<text class="g" x="60" y="118" fill="var(--dim)">引用三次</text>
+<rect x="60" y="150" width="120" height="52" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="82" y="182">報告 A</text>
+<rect x="60" y="238" width="120" height="52" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="82" y="270">報告 B</text>
+<rect x="60" y="326" width="120" height="52" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="82" y="358">報告 C</text>
+<line x1="184" y1="176" x2="290" y2="252" stroke="var(--grey)" stroke-width="3"/>
+<line x1="184" y1="264" x2="290" y2="264" stroke="var(--grey)" stroke-width="3"/>
+<line x1="184" y1="352" x2="290" y2="276" stroke="var(--grey)" stroke-width="3"/>
+<circle cx="330" cy="264" r="42" fill="var(--grey)"/>
+<text class="b" x="300" y="340">同一個源</text>
+<line x1="470" y1="100" x2="470" y2="420" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="530" y="118" fill="var(--accent)">驗證三次</text>
+<rect x="530" y="150" width="140" height="52" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="b" x="556" y="182">宏觀算法</text>
+<rect x="530" y="238" width="140" height="52" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="b" x="556" y="270">微觀算法</text>
+<rect x="530" y="326" width="140" height="52" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="b" x="556" y="358">另一路徑</text>
+<line x1="674" y1="176" x2="790" y2="252" stroke="var(--accent)" stroke-width="3"/>
+<line x1="674" y1="264" x2="790" y2="264" stroke="var(--accent)" stroke-width="3"/>
+<line x1="674" y1="352" x2="790" y2="276" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="830" cy="264" r="42" fill="var(--accent)"/>
+<text class="b" x="786" y="340">相近的答案</text>
+<text class="c" x="60" y="490">看它被引幾次沒有用，要看它被誰重算過</text>
+</svg>

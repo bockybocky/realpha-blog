@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="金額與單價兩組長條都往上長，第三組實際容量的長條反而變短，方向相反">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="62" font-size="27" fill="var(--ink)">金額變大，拿到的東西變少</text>
+
+<line x1="60" y1="430" x2="900" y2="430" stroke="var(--line)" stroke-width="2"/>
+
+<text x="80" y="128" font-size="20" fill="var(--dim)">庫存金額</text>
+<rect x="80" y="374" width="62" height="56" rx="4" fill="var(--grey)"/>
+<rect x="162" y="262" width="62" height="168" rx="4" fill="var(--accent)"/>
+<text x="80" y="464" font-size="16" fill="var(--dim)">三百億</text>
+<text x="162" y="464" font-size="16" fill="var(--ink)">九百億</text>
+<text x="80" y="496" font-size="16" fill="var(--accent)">×3</text>
+
+<text x="380" y="128" font-size="20" fill="var(--dim)">同期單價</text>
+<rect x="380" y="402" width="62" height="28" rx="4" fill="var(--grey)"/>
+<rect x="462" y="206" width="62" height="224" rx="4" fill="var(--accent)"/>
+<text x="380" y="464" font-size="16" fill="var(--dim)">原本</text>
+<text x="462" y="464" font-size="16" fill="var(--ink)">漲上去</text>
+<text x="380" y="496" font-size="16" fill="var(--accent)">×8 ~ ×10</text>
+
+<text x="700" y="128" font-size="20" fill="var(--dim)">實際容量</text>
+<rect x="700" y="290" width="62" height="140" rx="4" fill="var(--grey)"/>
+<rect x="782" y="374" width="62" height="56" rx="4" fill="var(--warn)"/>
+<line x1="762" y1="300" x2="782" y2="360" stroke="var(--warn)" stroke-width="3"/>
+<path d="M782 366 L770 352 L786 346 Z" fill="var(--warn)"/>
+<text x="700" y="464" font-size="16" fill="var(--dim)">原本</text>
+<text x="782" y="464" font-size="16" fill="var(--warn)">現在</text>
+<text x="700" y="496" font-size="16" fill="var(--warn)">往下</text>
+
+<text x="60" y="540" font-size="22" fill="var(--ink)">看金額會得到相反的結論</text>
+</svg>

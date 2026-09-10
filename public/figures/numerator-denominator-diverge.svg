@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一個大分數：上面的線往上、下面的線往下，右邊相除後的比率衝出正常區間">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="50" y="62" font-size="27" fill="var(--ink)">分子在漲，分母在縮</text>
+
+  <rect x="50" y="100" width="470" height="380" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text x="80" y="136" font-size="19" fill="var(--accent)">融資餘額　＋15%</text>
+  <polyline points="90,232 160,222 230,238 300,206 370,172 440,148" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="80" y1="290" x2="490" y2="290" stroke="var(--ink)" stroke-width="3"/>
+  <polyline points="90,340 160,336 230,358 300,386 370,410 440,428" fill="none" stroke="var(--grey)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="80" y="466" font-size="19" fill="var(--dim)">存款餘額　−30%</text>
+
+  <text x="535" y="302" font-size="34" fill="var(--dim)">=</text>
+
+  <rect x="580" y="100" width="330" height="380" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text x="610" y="140" font-size="19" fill="var(--ink)">融資 ÷ 存款</text>
+  <line x1="600" y1="392" x2="890" y2="392" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+  <text x="600" y="428" font-size="15" fill="var(--dim)">正常區間</text>
+  <polyline points="610,404 660,398 710,412 760,360 810,276 872,176" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="872" cy="176" r="7" fill="var(--accent)"/>
+
+  <text x="50" y="527" font-size="22" fill="var(--ink)">錢變少，槓桿變多</text>
+</svg>

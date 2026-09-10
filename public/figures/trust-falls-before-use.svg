@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩條走勢線的下滑點在時間軸上錯開，中間標出時間差">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="72">資格先掉，位置很久以後才掉</text>
+
+<line x1="480" y1="130" x2="480" y2="430" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+<line x1="760" y1="130" x2="760" y2="430" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+
+<text class="g" x="60" y="185">被信任的資格</text>
+<polyline points="240,170 480,170 620,250 900,250" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linejoin="round"/>
+
+<text class="g" x="60" y="325">被使用的位置</text>
+<polyline points="240,310 760,310 900,390" fill="none" stroke="var(--warn)" stroke-width="5" stroke-linejoin="round"/>
+
+<line x1="480" y1="450" x2="760" y2="450" stroke="var(--dim)" stroke-width="2"/>
+<line x1="480" y1="442" x2="480" y2="458" stroke="var(--dim)" stroke-width="2"/>
+<line x1="760" y1="442" x2="760" y2="458" stroke="var(--dim)" stroke-width="2"/>
+<text class="b" x="620" y="480" text-anchor="middle">時間差</text>
+
+<text class="c" x="60" y="530">差別只在，有沒有人早一點去看那個數字</text>
+</svg>

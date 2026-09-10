@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="四象限，只有右下角那一格被亮色標出，寫著只剩繞路">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="80" y="66" font-size="27" fill="var(--ink)">做不做得到 × 能不能說做不到</text>
+
+<rect x="260" y="130" width="520" height="320" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<rect x="520" y="290" width="260" height="160" fill="var(--warn)" opacity="0.2"/>
+<line x1="520" y1="130" x2="520" y2="450" stroke="var(--line)" stroke-width="2"/>
+<line x1="260" y1="290" x2="780" y2="290" stroke="var(--line)" stroke-width="2"/>
+<rect x="520" y="290" width="260" height="160" fill="none" stroke="var(--warn)" stroke-width="2"/>
+
+<text x="390" y="218" font-size="19" fill="var(--ink)" text-anchor="middle">做完</text>
+<text x="650" y="218" font-size="19" fill="var(--accent)" text-anchor="middle">回報做不到</text>
+<text x="390" y="378" font-size="19" fill="var(--ink)" text-anchor="middle">硬撐著做</text>
+<text x="650" y="372" font-size="19" fill="var(--warn)" text-anchor="middle">只剩繞路</text>
+<text x="650" y="400" font-size="16" fill="var(--warn)" text-anchor="middle">造假、鑽漏洞</text>
+
+<text x="246" y="218" font-size="16" fill="var(--dim)" text-anchor="end">可以說做不到</text>
+<text x="246" y="378" font-size="16" fill="var(--dim)" text-anchor="end">不准說做不到</text>
+<text x="390" y="484" font-size="16" fill="var(--dim)" text-anchor="middle">做得到</text>
+<text x="650" y="484" font-size="16" fill="var(--dim)" text-anchor="middle">做不到</text>
+
+<text x="80" y="528" font-size="22" fill="var(--ink)">出口被關掉的那一格，才長出繞路</text>
+</svg>

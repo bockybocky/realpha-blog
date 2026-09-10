@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一條時間軸切成三段，上方一條標示逐字稿語言的橫條只蓋住前兩段，下方一條標示新聞覆蓋的橫條只蓋住最後一段，價格線在最後一段才往上翹">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:19px; fill:var(--ink); }
+.d { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="58">三個階段，新聞只報最後一個</text>
+<polyline points="100,300 380,296 640,285 900,175" fill="none" stroke="var(--ink)" stroke-width="3.5"/>
+<text class="d" x="900" y="158" text-anchor="end">價格</text>
+<rect x="100" y="196" width="540" height="28" rx="6" fill="var(--accent)" opacity="0.28"/>
+<rect x="100" y="196" width="540" height="28" rx="6" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text class="d" x="110" y="184" fill="var(--accent)">逐字稿裡讀得到的語言</text>
+<rect x="100" y="340" width="280" height="58" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2.5"/>
+<rect x="380" y="340" width="260" height="58" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<rect x="640" y="340" width="260" height="58" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+<text class="g" x="240" y="376" text-anchor="middle">產能承諾期</text>
+<text class="g" x="510" y="376" text-anchor="middle">拒絕訂單期</text>
+<text class="g" x="770" y="376" text-anchor="middle">價格上漲期</text>
+<rect x="640" y="424" width="260" height="28" rx="6" fill="var(--warn)" opacity="0.28"/>
+<rect x="640" y="424" width="260" height="28" rx="6" fill="none" stroke="var(--warn)" stroke-width="2"/>
+<text class="d" x="770" y="478" text-anchor="middle" fill="var(--warn)">新聞只報這一段</text>
+<line x1="100" y1="504" x2="890" y2="504" stroke="var(--line)" stroke-width="2"/>
+<polygon points="900,504 884,498 884,510" fill="var(--line)"/>
+<text class="c" x="60" y="542">領先指標不在價格，在語言</text>
+</svg>

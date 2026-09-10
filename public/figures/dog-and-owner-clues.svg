@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" role="img" aria-label="直線向右上代表產業，擺盪曲線代表股價並在末端原地繞圈，下方兩欄分列主人的線索與狗的線索">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="620" fill="var(--page)"/>
+  <text class="t" x="60" y="60">你手上握的是哪一條線索</text>
+
+  <line x1="120" y1="320" x2="860" y2="150" stroke="var(--accent)" stroke-width="4"/>
+  <text class="g" x="860" y="128" text-anchor="end" fill="var(--accent)">產業（主人）</text>
+
+  <path d="M120 340 Q165 250 210 300 Q255 356 300 280 Q345 200 390 258 Q435 320 480 238 Q525 160 570 218 Q615 276 660 196 Q705 120 750 176" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M750 176 C 800 122, 862 142, 832 176 C 802 208, 762 192, 792 162 C 812 142, 852 152, 862 164" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <text class="s" x="196" y="360">股價（狗）</text>
+  <text class="s" x="700" y="248">現在在原地繞圈</text>
+
+  <rect x="60" y="400" width="400" height="160" fill="var(--card)" stroke="var(--line)" stroke-width="2" rx="8"/>
+  <text class="g" x="88" y="438" fill="var(--accent)">主人的線索</text>
+  <text class="s" x="88" y="472">訂單能見度</text>
+  <text class="s" x="88" y="502">超額消費比率</text>
+  <text class="s" x="88" y="532">大客戶的資本支出方向</text>
+
+  <rect x="500" y="400" width="400" height="160" fill="var(--card)" stroke="var(--line)" stroke-width="2" rx="8"/>
+  <text class="g" x="528" y="438" fill="var(--dim)">狗的線索</text>
+  <text class="s" x="528" y="472">漲停鎖不鎖得住</text>
+  <text class="s" x="528" y="502">隔天開高開低</text>
+  <text class="s" x="528" y="532">這幾天量縮還是量增</text>
+
+  <text class="c" x="60" y="600">拿右邊的證據去論證左邊的方向，那叫套牢不叫看長</text>
+</svg>

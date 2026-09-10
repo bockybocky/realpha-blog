@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="零到十五秒的刻度軸，第二秒分出兩條路，一條立刻岔出並在半途終止，另一條走滿十五秒抵達右端">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.h{font-size:27px;fill:var(--ink)}
+.g{font-size:19px;fill:var(--ink)}
+.b{font-size:16px;fill:var(--dim)}
+.s{font-size:15px;fill:var(--dim)}
+.c{font-size:22px;fill:var(--ink)}
+</style>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+</defs>
+<text class="h" x="80" y="70">十五秒，決定答案屬於誰</text>
+<line x1="100" y1="330" x2="820" y2="330" stroke="var(--line)" stroke-width="2"/>
+<g stroke="var(--line)" stroke-width="2">
+<line x1="100" y1="322" x2="100" y2="342"/><line x1="148" y1="326" x2="148" y2="338"/><line x1="196" y1="322" x2="196" y2="342"/><line x1="244" y1="326" x2="244" y2="338"/><line x1="292" y1="326" x2="292" y2="338"/><line x1="340" y1="322" x2="340" y2="342"/><line x1="388" y1="326" x2="388" y2="338"/><line x1="436" y1="326" x2="436" y2="338"/><line x1="484" y1="326" x2="484" y2="338"/><line x1="532" y1="326" x2="532" y2="338"/><line x1="580" y1="322" x2="580" y2="342"/><line x1="628" y1="326" x2="628" y2="338"/><line x1="676" y1="326" x2="676" y2="338"/><line x1="724" y1="326" x2="724" y2="338"/><line x1="772" y1="326" x2="772" y2="338"/><line x1="820" y1="322" x2="820" y2="342"/>
+</g>
+<text class="s" x="100" y="368" text-anchor="middle">0 秒</text>
+<text class="s" x="340" y="368" text-anchor="middle">5</text>
+<text class="s" x="580" y="368" text-anchor="middle">10</text>
+<text class="s" x="820" y="368" text-anchor="middle">15</text>
+<circle cx="196" cy="330" r="9" fill="var(--accent)"/>
+<text class="b" x="196" y="298" text-anchor="middle">答案浮出</text>
+<path d="M196 320 C 240 240 260 214 330 214 L 420 214" stroke="var(--grey)" stroke-width="3" fill="none"/>
+<path d="M428 200 L 448 228 M 448 200 L 428 228" stroke="var(--grey)" stroke-width="4"/>
+<text class="g" x="470" y="208" fill="var(--dim)">我的指示</text>
+<text class="s" x="470" y="238">留不下來</text>
+<circle cx="436" cy="330" r="6" fill="var(--warn)"/>
+<text class="s" x="436" y="404" text-anchor="middle">我第一次撐到這</text>
+<path d="M205 330 L 820 330" stroke="var(--accent)" stroke-width="4" fill="none"/>
+<path d="M820 330 C 866 330 872 300 872 274" stroke="var(--accent)" stroke-width="4" fill="none" marker-end="url(#ar)"/>
+<text class="g" x="872" y="246" fill="var(--accent)" text-anchor="middle">他的發現</text>
+<text class="c" x="80" y="466">我說的是指示，他說的會長在他身上。</text>
+</svg>

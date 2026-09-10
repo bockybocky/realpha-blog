@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="上下兩條同樣的時間軸，上面中間有寬的緩衝帶而成本方塊在最右邊，下面緩衝帶被壓成一條線而同一個成本方塊移到最左邊">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<defs>
+<marker id="a10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="56">成本不會消失，只會換一格放</text>
+
+<text class="b" x="200" y="106" text-anchor="middle">事前</text>
+<text class="b" x="500" y="106" text-anchor="middle">過程</text>
+<text class="b" x="800" y="106" text-anchor="middle">事後</text>
+
+<text class="g" x="60" y="176">有緩衝</text>
+<line x1="60" y1="210" x2="900" y2="210" stroke="var(--line)" stroke-width="2"/>
+<rect x="330" y="150" width="340" height="52" rx="10" fill="var(--grey)" fill-opacity="0.35" stroke="var(--line)"/>
+<text class="b" x="500" y="182" text-anchor="middle">時間差 · 還來得及</text>
+<rect x="720" y="150" width="160" height="52" rx="10" fill="var(--warn)" fill-opacity="0.3" stroke="var(--warn)"/>
+<text class="g" x="800" y="182" text-anchor="middle">成本</text>
+
+<text class="g" x="60" y="356">沒緩衝</text>
+<line x1="60" y1="390" x2="900" y2="390" stroke="var(--line)" stroke-width="2"/>
+<line x1="330" y1="330" x2="670" y2="330" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 6"/>
+<text class="b" x="500" y="362" text-anchor="middle">0 秒</text>
+<rect x="120" y="330" width="160" height="52" rx="10" fill="var(--accent)" fill-opacity="0.3" stroke="var(--accent)"/>
+<text class="g" x="200" y="362" text-anchor="middle">存量</text>
+
+<path d="M760,214 C700,270 300,262 210,322" fill="none" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#a10)"/>
+<text class="b" x="480" y="290" text-anchor="middle">同一筆，搬到前面</text>
+
+<text class="c" x="60" y="480">效率不是免費的，是先付</text>
+</svg>

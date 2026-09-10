@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="左邊一個專案對一家供應商，右邊同一個專案分岔給三家，下方橫條溢出一百趴的虛線">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t  { font-size:27px; font-weight:700; fill:var(--ink); }
+.g  { font-size:19px; font-weight:600; fill:var(--ink); }
+.gd { font-size:19px; font-weight:600; fill:var(--dim); }
+.b  { font-size:16px; fill:var(--dim); }
+.bi { font-size:16px; fill:var(--ink); }
+.s  { font-size:15px; fill:var(--dim); }
+.sw { font-size:15px; fill:var(--warn); }
+.c  { font-size:22px; font-weight:600; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text class="t" x="60" y="64">從單一得標，變成混搭菜單</text>
+<text class="gd" x="60" y="122">以前</text>
+<rect x="60" y="142" width="200" height="58" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="bi" x="112" y="178">一個專案</text>
+<line x1="160" y1="202" x2="160" y2="244" stroke="var(--grey)" stroke-width="2"/>
+<polygon points="160,252 154,238 166,238" fill="var(--grey)"/>
+<rect x="60" y="254" width="200" height="58" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="bi" x="100" y="290">一家供應商</text>
+<text class="s" x="60" y="344">市佔就是 100%</text>
+<line x1="400" y1="110" x2="400" y2="350" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 8"/>
+<text class="gd" x="470" y="122">現在</text>
+<rect x="470" y="142" width="390" height="58" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="bi" x="617" y="178">同一個專案</text>
+<line x1="665" y1="202" x2="530" y2="246" stroke="var(--accent)" stroke-width="2"/>
+<line x1="665" y1="202" x2="660" y2="246" stroke="var(--accent)" stroke-width="2"/>
+<line x1="665" y1="202" x2="790" y2="246" stroke="var(--accent)" stroke-width="2"/>
+<rect x="470" y="254" width="120" height="58" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="bi" x="506" y="290">運算</text>
+<rect x="600" y="254" width="120" height="58" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="bi" x="644" y="290">IO</text>
+<rect x="730" y="254" width="120" height="58" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="bi" x="766" y="290">網通</text>
+<text class="s" x="470" y="344">三家各報各的</text>
+<text class="g" x="60" y="408">外面加總起來的市佔</text>
+<rect x="60" y="428" width="600" height="46" rx="4" fill="var(--accent)"/>
+<rect x="660" y="428" width="130" height="46" rx="4" fill="var(--warn)"/>
+<line x1="660" y1="416" x2="660" y2="490" stroke="var(--ink)" stroke-width="2" stroke-dasharray="6 6"/>
+<text class="s" x="60" y="506">網通被混進 ASIC 那一欄</text>
+<text class="s" x="614" y="506">100%</text>
+<text class="sw" x="694" y="506">超出的部分</text>
+<text class="c" x="60" y="552">同一筆收入，被算進兩欄</text>
+</svg>

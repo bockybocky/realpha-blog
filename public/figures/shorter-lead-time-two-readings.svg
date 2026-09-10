@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一個現象往下走到一個判準圓，再分岔成左右兩個方向完全不同的結論">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<defs>
+<marker id="f6a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+<marker id="f6w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--warn)"/></marker>
+<marker id="f6d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--grey)"/></marker>
+</defs>
+<text x="60" y="60" font-size="27" font-weight="700" fill="var(--ink)">交期縮短，可能是相反的兩件事</text>
+<rect x="380" y="104" width="200" height="62" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="480" y="143" font-size="20" fill="var(--ink)" text-anchor="middle">交期縮短</text>
+<path d="M480 168 V202" stroke="var(--grey)" stroke-width="2.5" fill="none" marker-end="url(#f6d)"/>
+<circle cx="480" cy="252" r="44" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="480" y="259" font-size="16" fill="var(--accent)" text-anchor="middle">看報價</text>
+<path d="M446 280 L 268 348" stroke="var(--accent)" stroke-width="2.5" fill="none" marker-end="url(#f6a)"/>
+<path d="M514 280 L 692 348" stroke="var(--warn)" stroke-width="2.5" fill="none" marker-end="url(#f6w)"/>
+<rect x="110" y="356" width="250" height="92" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="235" y="392" font-size="19" fill="var(--accent)" text-anchor="middle">報價撐住</text>
+<text x="235" y="422" font-size="16" fill="var(--dim)" text-anchor="middle">供給補上來</text>
+<rect x="600" y="356" width="250" height="92" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+<text x="725" y="392" font-size="19" fill="var(--warn)" text-anchor="middle">報價鬆動</text>
+<text x="725" y="422" font-size="16" fill="var(--dim)" text-anchor="middle">需求退了</text>
+<text x="60" y="492" font-size="22" fill="var(--ink)">同一個現象，要看第二個變數才分得開。</text>
+</svg>

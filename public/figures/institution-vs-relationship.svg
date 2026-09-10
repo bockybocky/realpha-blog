@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一條時間線上有三個換人的節點，上排的關係線在每個節點斷開重來，下排的制度線連續穿過所有節點">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--ink); }
+    .d { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="60">換人那一刻，誰還在</text>
+<text class="d" x="60" y="90">橫向＝時間，虛線＝換人</text>
+
+<line x1="330" y1="128" x2="330" y2="380" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="560" y1="128" x2="560" y2="380" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="790" y1="128" x2="790" y2="380" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<text class="d" x="330" y="120" text-anchor="middle">換人</text>
+<text class="d" x="560" y="120" text-anchor="middle">換人</text>
+<text class="d" x="790" y="120" text-anchor="middle">換人</text>
+
+<text class="g" x="60" y="212">關係</text>
+<line x1="180" y1="205" x2="308" y2="205" stroke="var(--warn)" stroke-width="4"/>
+<circle cx="308" cy="205" r="6" fill="var(--page)" stroke="var(--warn)" stroke-width="3"/>
+<line x1="352" y1="205" x2="538" y2="205" stroke="var(--warn)" stroke-width="4"/>
+<circle cx="538" cy="205" r="6" fill="var(--page)" stroke="var(--warn)" stroke-width="3"/>
+<line x1="582" y1="205" x2="768" y2="205" stroke="var(--warn)" stroke-width="4"/>
+<circle cx="768" cy="205" r="6" fill="var(--page)" stroke="var(--warn)" stroke-width="3"/>
+<line x1="812" y1="205" x2="900" y2="205" stroke="var(--warn)" stroke-width="4"/>
+<text class="d" x="180" y="248">每次重來</text>
+
+<text class="g" x="60" y="322">制度</text>
+<line x1="180" y1="315" x2="900" y2="315" stroke="var(--accent)" stroke-width="4"/>
+<circle cx="330" cy="315" r="6" fill="var(--accent)"/>
+<circle cx="560" cy="315" r="6" fill="var(--accent)"/>
+<circle cx="790" cy="315" r="6" fill="var(--accent)"/>
+<text class="d" x="180" y="358">建得慢・拆不掉</text>
+
+<text class="c" x="60" y="440">捷徑走的是關係，慢路建的是制度。</text>
+<text class="c" x="60" y="474">護城河的耐久度，看它掛在哪一條線上。</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="The tower's outflow pipe is far thicker than the pipe refilling it, so the water line sits lower each year.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t{font-size:27px;font-weight:700;fill:var(--ink)}
+    .g{font-size:20px;font-weight:700;fill:var(--ink)}
+    .b{font-size:16px;fill:var(--dim)}
+    .s{font-size:15px;fill:var(--dim)}
+    .c{font-size:22px;font-weight:700;fill:var(--ink)}
+    .w{font-size:16px;font-weight:700;fill:var(--warn)}
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="t" x="56" y="56">Stock, flow, and the rate of withdrawal</text>
+<rect x="56" y="104" width="300" height="380" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<rect x="72" y="200" width="268" height="268" rx="8" fill="var(--accent)" opacity="0.3"/>
+<path d="M56 200 L356 200" stroke="var(--accent)" stroke-width="3" stroke-dasharray="8 6"/>
+<path d="M56 300 L356 300" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 6"/>
+<text class="g" x="76" y="164">Natural capital · the stock</text>
+<text class="b" x="76" y="190">Water line this year</text>
+<text class="w" x="76" y="290">Water line next year</text>
+<path d="M356 244 L520 244" stroke="var(--accent)" stroke-width="8"/>
+<path d="M512 232 L536 244 L512 256 Z" fill="var(--accent)"/>
+<text class="g" x="552" y="238">Services · the flow</text>
+<text class="s" x="552" y="264">Water · soil · pollination · flood control</text>
+<path d="M356 392 L520 392" stroke="var(--warn)" stroke-width="26"/>
+<path d="M508 366 L548 392 L508 418 Z" fill="var(--warn)"/>
+<text class="g" x="564" y="386">Human withdrawal</text>
+<text class="s" x="564" y="412">Production and consumption</text>
+<rect x="700" y="96" width="204" height="132" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<circle cx="756" cy="164" r="34" fill="var(--accent)" opacity="0.75"/>
+<path d="M838 164 m -26 0 a 26 26 0 1 1 42 20 Z" fill="var(--warn)" opacity="0.8"/>
+<text class="b" x="720" y="216">1.7 Earths</text>
+<text class="c" x="56" y="548">Withdrawing faster than the flow eats the principal</text>
+<text class="b" x="56" y="580">Not a future overshoot — we are overshooting right now</text>
+</svg>

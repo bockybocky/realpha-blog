@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="四象限圖上兩個點位在同一垂直線上、卻分居上下相反象限">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="t" x="60" y="72">站在同一邊，理由卻是相反的</text>
+
+<line x1="150" y1="340" x2="850" y2="340" stroke="var(--line)" stroke-width="2"/>
+<line x1="500" y1="140" x2="500" y2="530" stroke="var(--line)" stroke-width="2"/>
+
+<text class="b" x="150" y="372">離開美元</text>
+<text class="b" x="850" y="372" text-anchor="end">留在美元</text>
+<text class="b" x="500" y="128" text-anchor="middle">中心化</text>
+<text class="b" x="500" y="552" text-anchor="middle">去中心化</text>
+
+<line x1="310" y1="230" x2="310" y2="450" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+
+<circle cx="310" cy="230" r="15" fill="var(--accent)"/>
+<text class="g" x="310" y="200" text-anchor="middle">央行買黃金</text>
+
+<circle cx="310" cy="450" r="15" fill="var(--warn)"/>
+<text class="g" x="310" y="492" text-anchor="middle">一般人買加密</text>
+
+<text class="c" x="60" y="580">看到大買家的行為，你買到的是行為，不是理由</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="回本期長度對比：自研晶片約一年、AI 伺服器不到兩年、流行敘事假設的回本期長到超出畫面">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62">錢多久回來</text>
+
+  <line x1="240" y1="120" x2="240" y2="410" stroke="var(--line)" stroke-width="2"/>
+  <line x1="388" y1="120" x2="388" y2="410" stroke="var(--line)" stroke-width="1"/>
+  <line x1="536" y1="120" x2="536" y2="410" stroke="var(--line)" stroke-width="1"/>
+  <line x1="684" y1="120" x2="684" y2="410" stroke="var(--line)" stroke-width="1"/>
+  <line x1="832" y1="120" x2="832" y2="410" stroke="var(--line)" stroke-width="1"/>
+
+  <rect x="240" y="150" width="148" height="52" fill="var(--accent)" rx="4"/>
+  <text class="g" x="60" y="182">自研晶片</text>
+  <text class="g" x="404" y="182">約 1 年</text>
+
+  <rect x="240" y="240" width="270" height="52" fill="var(--accent)" rx="4"/>
+  <text class="g" x="60" y="272">AI 伺服器整體</text>
+  <text class="g" x="526" y="272">不到 2 年</text>
+
+  <rect x="240" y="330" width="620" height="52" fill="var(--card)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 6" rx="4"/>
+  <polygon points="860,336 900,356 860,376" fill="var(--grey)"/>
+  <text class="g" x="60" y="352">流行敘事假設</text>
+  <text class="s" x="60" y="376">開票買設備、賺不到</text>
+  <text class="s" x="264" y="362">久到說不出是幾年</text>
+
+  <line x1="240" y1="410" x2="900" y2="410" stroke="var(--line)" stroke-width="2"/>
+  <text class="s" x="240" y="436" text-anchor="middle">0</text>
+  <text class="s" x="388" y="436" text-anchor="middle">1 年</text>
+  <text class="s" x="536" y="436" text-anchor="middle">2 年</text>
+  <text class="s" x="684" y="436" text-anchor="middle">3 年</text>
+  <text class="s" x="832" y="436" text-anchor="middle">4 年</text>
+
+  <text class="c" x="60" y="500">回本的長度，決定了「繼續砸錢」是躁進還是理性</text>
+</svg>

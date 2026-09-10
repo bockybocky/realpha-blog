@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="兩格對照，左格支出曲線在紅利到達後才上揚，右格在紅利到達前就上揚">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text x="48" y="62" font-size="27" fill="var(--ink)">同樣的紅利，行為有沒有提前調整，方向相反</text>
+<text x="48" y="96" font-size="16" fill="var(--dim)">曲線是「大家現在花的錢」，虛線是「紅利真的到達」</text>
+
+<rect x="48" y="130" width="410" height="330" fill="var(--card)" stroke="var(--line)" rx="8"/>
+<text x="253" y="122" font-size="20" fill="var(--ink)" text-anchor="middle">紅利是意外</text>
+<line x1="253" y1="192" x2="253" y2="400" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="253" y="182" font-size="15" fill="var(--dim)" text-anchor="middle">紅利到達</text>
+<line x1="88" y1="400" x2="418" y2="400" stroke="var(--line)" stroke-width="2"/>
+<polyline points="88,362 253,360 320,330 418,268" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="140" y="344" font-size="15" fill="var(--dim)">支出</text>
+<text x="253" y="440" font-size="20" fill="var(--accent)" text-anchor="middle">通膨下降，可以降息</text>
+
+<rect x="502" y="130" width="410" height="330" fill="var(--card)" stroke="var(--line)" rx="8"/>
+<text x="707" y="122" font-size="20" fill="var(--ink)" text-anchor="middle">大家提前相信，現在就花</text>
+<line x1="707" y1="192" x2="707" y2="400" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="707" y="182" font-size="15" fill="var(--dim)" text-anchor="middle">紅利到達</text>
+<line x1="542" y1="400" x2="872" y2="400" stroke="var(--line)" stroke-width="2"/>
+<polyline points="542,362 620,326 707,282 790,254 872,246" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<text x="560" y="344" font-size="15" fill="var(--dim)">支出</text>
+<text x="707" y="440" font-size="20" fill="var(--warn)" text-anchor="middle">短期過熱，必須升息</text>
+
+<text x="480" y="528" font-size="22" fill="var(--ink)" text-anchor="middle">信得越滿，資金成本上升的機率越高</text>
+</svg>

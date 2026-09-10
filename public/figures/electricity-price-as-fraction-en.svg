@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Three fractions compared side by side: when kilowatt-hours grow faster than cost, the price per kWh falls from 1.0 to 0.8, and when cost grows faster than kilowatt-hours, it rises to 1.2.">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+    .n { font-size:34px; font-weight:700; }
+</style>
+<text class="t" x="480" y="56" text-anchor="middle">Price is a fraction</text>
+<text class="b" x="480" y="90" text-anchor="middle">Illustrative numbers</text>
+<text class="g" x="270" y="150" text-anchor="middle">Before</text>
+<text class="g" x="540" y="150" text-anchor="middle">With grid slack</text>
+<text class="g" x="810" y="150" text-anchor="middle">No grid slack</text>
+<text class="b" x="130" y="213" text-anchor="end">Cost</text>
+<text class="b" x="130" y="291" text-anchor="end">kWh</text>
+<rect x="150" y="190" width="120" height="34" fill="var(--grey)"/>
+<text class="b" x="282" y="213">10</text>
+<line x1="150" y1="250" x2="390" y2="250" stroke="var(--ink)" stroke-width="2"/>
+<rect x="150" y="268" width="120" height="34" fill="var(--grey)"/>
+<text class="b" x="282" y="291">10</text>
+<rect x="420" y="190" width="120" height="34" fill="var(--grey)"/>
+<rect x="540" y="190" width="24" height="34" fill="var(--accent)"/>
+<text class="b" x="576" y="213">12</text>
+<line x1="420" y1="250" x2="660" y2="250" stroke="var(--ink)" stroke-width="2"/>
+<rect x="420" y="268" width="120" height="34" fill="var(--grey)"/>
+<rect x="540" y="268" width="60" height="34" fill="var(--accent)"/>
+<text class="b" x="612" y="291">15</text>
+<rect x="690" y="190" width="120" height="34" fill="var(--grey)"/>
+<rect x="810" y="190" width="96" height="34" fill="var(--warn)"/>
+<text class="b" x="914" y="213">18</text>
+<line x1="690" y1="250" x2="930" y2="250" stroke="var(--ink)" stroke-width="2"/>
+<rect x="690" y="268" width="120" height="34" fill="var(--grey)"/>
+<rect x="810" y="268" width="60" height="34" fill="var(--accent)"/>
+<text class="b" x="882" y="291">15</text>
+<text class="n" x="270" y="390" text-anchor="middle">1.0</text>
+<text class="n" x="540" y="390" text-anchor="middle" style="fill:var(--accent)">0.8 ↓</text>
+<text class="n" x="810" y="390" text-anchor="middle" style="fill:var(--warn)">1.2 ↑</text>
+<text class="b" x="270" y="425" text-anchor="middle">Per kWh</text>
+<text class="b" x="540" y="425" text-anchor="middle">Spread thinner</text>
+<text class="b" x="810" y="425" text-anchor="middle">Numerator surges</text>
+<text class="c" x="480" y="500" text-anchor="middle">Which grows faster: numerator or denominator</text>
+</svg>

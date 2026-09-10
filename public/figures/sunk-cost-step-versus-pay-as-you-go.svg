@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="累積投入圖上兩條線，一條在起點就垂直跳上一大階再水平延伸、中途又跳一階，另一條從零緩緩斜上，很晚才追上。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); }
+    .sub { font-size:16px; fill:var(--dim); }
+    .end { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="ttl" x="60" y="64">錢什麼時候付，形狀完全不同</text>
+
+  <line x1="120" y1="110" x2="120" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="470" x2="890" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <text class="sub" x="120" y="98">累積投入</text>
+  <text class="sub" x="890" y="498" text-anchor="end">時間</text>
+
+  <path d="M120 470 L120 230 L540 230 L540 178 L880 178" fill="none" stroke="var(--grey)" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M120 470 L880 196" fill="none" stroke="var(--accent)" stroke-width="5"/>
+
+  <circle cx="540" cy="230" r="6" fill="var(--grey)"/>
+  <text class="sub" x="540" y="212" text-anchor="middle">再買一批</text>
+
+  <text class="grp" x="300" y="212" fill="var(--dim)">機器：一次付清</text>
+  <text class="grp" x="300" y="392" fill="var(--accent)">人力：隨用隨付</text>
+
+  <line x1="120" y1="470" x2="120" y2="230" stroke="var(--warn)" stroke-width="5"/>
+  <text class="sub" x="140" y="358" fill="var(--warn)">門檻在這一段</text>
+
+  <text class="end" x="890" y="536" text-anchor="end">貴的不是總價，是第一筆</text>
+</svg>
