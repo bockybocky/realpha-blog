@@ -13,39 +13,22 @@ slug ＝ blog 的檔名主幹（src/content/blog/<slug>.zh-TW.mdx）。
 token 從 scratchpad 的 vocus_token.txt 讀（見 vocus-publish skill §token 取得）。
 節點與 API 慣例沿用 vocus_publish_ep682_ep541.py。
 """
-import json, math, os, re, struct, sys, uuid, datetime, textwrap
-from html import escape
+import json, math, os, re, struct, sys, uuid, datetime
 import urllib.request, urllib.error
 
 ROOT = r'C:\Users\Charles\projects\realpha-blog'
-# 2026-08-22 點狀修（合議庭裁決 S2）：預設改指 blog_auto（ids SoT，與每晚排程同源、figures 工具同目錄）。
-# 代價：舊預設不設 env 會 401 硬撞牆＝意外保險絲；改後零設定就能對正式帳號開真草稿。
-#    保險絲換成 SKILL.md 第 0 步「線上實搜這篇發過沒有」（DEC-0523），不是消失。
-SP = os.environ.get('VOCUS_SP') or r'C:\Users\Charles\scripts\blog_auto'
+SP = os.environ.get('VOCUS_SP') or r'D:\Temp\claude\C--Users-Charles\894714d7-16ee-4082-b052-9c3f7e90d047\scratchpad'
 TOK = open(os.path.join(SP, 'vocus_token.txt'), encoding='utf-8').read().strip()
 IDS_PATH = os.path.join(SP, 'vocus_ids.json')
 CATEGORY = {'_id': '5a978e00fd897800016874cc', 'title': '投資理財', 'score': 0}
 BLOG = 'https://blog.getrealpha.com'
 
 # 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
-NON_INVESTMENT = {'herdr-complete-guide', 'herdr-codexbar-jianguo-quota-dispatch', 'xiaotian-2026-09-07-mac-ane-inference-1-8x', 'codexbar-quota-dispatch','lunchuizhe-2026-09-05-ten-dollars-one-request', 'lunchuizhe-2026-09-06-subscription-is-a-clock', 'caleb-2026-09-04-token-efficient-is-not-cost-efficient', 'tao-2026-08-28-six-math-essentials','local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
-                  'lunchuizhe-2026-08-31-pick-your-model-and-agent', 'tao-2026-08-31-ai-math-drunk-genius', 'runpod-vs-local-gpu-2026-09', 'tao-2026-09-02-coin-game-human-ai-division', 'kelly-tsai-graph-engineering-2026-09', 'lunchuizhe-2026-08-23-no-best-agent-only-right-seat', 'my-creative-path-2026-09', 'fear-of-blowing-up-2026-09', 'xiaotian-2026-09-03-evox-swarm-social-rsi',
-                  'dont-let-ai-say-no-problem', 'video-memory-without-the-cloud',
-                  'aice-ai-engineering-cert-prep', 'aice-must-know-concepts'}
+NON_INVESTMENT = {'local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
+                  'dont-let-ai-say-no-problem'}
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
-    'herdr-complete-guide': ['herdr', 'AI agent', '終端機', '工具教學', '工作流'],
-    'herdr-codexbar-jianguo-quota-dispatch': ['AI agent', '額度', 'CodexBar', '監國協議', '自動化'],
-    'crisis-engineering-no-one-is-coming': ['讀書筆記', '危機管理', '複雜系統', '風控', '持股檢查'],
-    'apple-first-50-years-toll-booth': ['讀書筆記', '蘋果', '商業模式', '庫藏股', '反壟斷'],
-    'infinity-machine-who-pays-for-compute': ['讀書筆記', 'DeepMind', '資本支出', '自由現金流', 'AI供應鏈'],
-    'codexbar-quota-dispatch': ['AI工具', 'AI agent', '訂閱', '額度', 'CodexBar'],
-    'lunchuizhe-2026-09-05-ten-dollars-one-request': ['AI工具', 'token', '訂閱', '本地AI', 'AI agent'],
-    'lunchuizhe-2026-09-06-subscription-is-a-clock': ['AI工具', '訂閱', '額度', '本地AI', 'AI agent'],
-    'caleb-2026-09-04-token-efficient-is-not-cost-efficient': ['AI工具', '跑分', 'token', 'AI agent', '決策思考'],
-    'tao-2026-08-28-six-math-essentials': ['陶哲軒', '數學', '機率', '風險管理', '決策思考'],
-    'free-us-stock-data-dividend-trap': ['美股', '資料庫', '回測', '生存者偏差', '投資工具'],
     'local-ai-hardware-worth-it': ['本地AI', '硬體', 'NPU', '決策思考', 'AI工具'],
     'gooaye-ep683-cannot-see-the-mountain': ['股癌', '槓桿', '風險管理', '回測'],
     'gooaye-ep684-liquidity-carries-and-capsizes': ['股癌', '流動性', '風險管理'],
@@ -53,44 +36,14 @@ TAGS = {
     'serenity-x-reading-method': ['光通訊', '研究方法', '美股', '投資心得'],
     'herdr-agent-automation-vocus': ['AI', '終端機', '自動化', '工程方法', 'coding agent'],
     'lunchuizhe-2026-08-11-ai-content-factory': ['AI', '創作者經濟', 'YouTube', 'AI內容', '自媒體'],
-    'lunchuizhe-2026-08-31-pick-your-model-and-agent': ['AI工具', 'AI agent', '本地AI', 'DeepSeek', '決策思考'],
-    'lunchuizhe-2026-09-01-can-you-still-buy-it': ['記憶體', '蘋果', 'AI基礎建設', '供應鏈', '美股'],
-    'xiaotian-2026-09-03-evox-swarm-social-rsi': ['AI agent', '蜂群', '多Agent', 'AI工具', '自我改進'],
-    'tao-2026-08-31-ai-math-drunk-genius': ['陶哲軒', 'AI', '數學', '科學方法', '決策思考'],
-    'tao-2026-09-02-coin-game-human-ai-division': ['陶哲軒', 'AI', '人機協作', '數學', 'AI工具'],
-    'tao-2026-09-04-answers-without-understanding': ['陶哲軒', 'AI', '決策思考', '投資心法', '研究方法'],
-    'kelly-tsai-graph-engineering-2026-09': ['AI agent', 'Graph Engineering', '多Agent', 'AI工具', 'LangGraph'],
-    'lunchuizhe-2026-08-23-no-best-agent-only-right-seat': ['AI agent', 'Codex', 'DeepSeek', '本地AI', 'AI工具'],
-    'my-creative-path-2026-09': ['我的創作之路', '寫作', '創作', '劉墉'],
-    'fear-of-blowing-up-2026-09': ['內心的恐懼', '恐懼', '交易', '停損'],
-    'runpod-vs-local-gpu-2026-09': ['RunPod', '雲端GPU', '本地AI', '語音辨識', 'Whisper'],
     'sk-hynix-hbm-moat': ['半導體', '記憶體', 'HBM', '護城河', '美股'],
     'central-bank-two-traps': ['央行', '總體經濟', '穩定幣', '通膨'],
     'hardware-is-hard': ['硬體', '供應鏈', '新創', '護城河'],
     'supply-chained-midyear-2026': ['AI', '半導體', '供應鏈', '通膨', '美股'],
-    'video-memory-without-the-cloud': ['AI工具', '開源', '本地AI', '向量搜尋', '資料隱私'],
-    'aice-ai-engineering-cert-prep': ['AI證照', '資策會', 'AICE', '學習方法', '考試準備'],
-    'aice-must-know-concepts': ['AI證照', 'AICE', '機器學習', 'AI入門', '學習筆記'],
 }
-
-SUGGESTED_TAGS_PATH = os.path.join(SP, 'vocus_tags_suggested.json')
-try:
-    SUGGESTED_TAGS = json.load(open(SUGGESTED_TAGS_PATH, encoding='utf-8'))
-except (OSError, ValueError):
-    SUGGESTED_TAGS = {}
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
 COVERS = {
-    'herdr-complete-guide': 'herdr-complete-guide.png',
-    'herdr-codexbar-jianguo-quota-dispatch': 'herdr-codexbar-jianguo-quota-dispatch.png',
-    'crisis-engineering-no-one-is-coming': 'crisis-engineering-no-one-is-coming.png',
-    'apple-first-50-years-toll-booth': 'apple-first-50-years-toll-booth.png',
-    'infinity-machine-who-pays-for-compute': 'infinity-machine-who-pays-for-compute.png',
-    'codexbar-quota-dispatch': 'codexbar-quota-dispatch-cover.png',
-    'lunchuizhe-2026-09-05-ten-dollars-one-request': 'lunchuizhe-2026-09-05-ten-dollars-one-request-cover.png',
-    'lunchuizhe-2026-09-06-subscription-is-a-clock': 'lunchuizhe-2026-09-06-subscription-is-a-clock.png',
-    'caleb-2026-09-04-token-efficient-is-not-cost-efficient': 'caleb-2026-09-04-token-efficient-is-not-cost-efficient.png',
-    'tao-2026-08-28-six-math-essentials': 'tao-2026-08-28-six-math-essentials.png',
     'local-ai-hardware-worth-it': 'local-ai-hardware-worth-it.png',
     'gooaye-ep683-cannot-see-the-mountain': 'gooaye-ep683-cover.png',
     'gooaye-ep684-liquidity-carries-and-capsizes': 'gooaye-ep684-cover.png',
@@ -98,10 +51,6 @@ COVERS = {
     # 2026-08-18：前後編兩篇共用同一張封面（後編的專屬封面當初沒產生成功，
     # mdx 指向的檔案是 404，已一併改指這張）
     'invsunday-2026-08-02-rehacq-interfm': 'invsunday-rehacq-takahashi-media-cover.png',
-    'video-memory-without-the-cloud': 'video-memory-without-the-cloud.png',
-    'aice-ai-engineering-cert-prep': 'aice-ai-engineering-cert-prep.png',
-    'aice-must-know-concepts': 'aice-must-know-concepts.png',
-    'free-us-stock-data-dividend-trap': 'free-us-stock-data-dividend-trap.png',
 }
 
 
@@ -138,23 +87,6 @@ def mdx_to_blocks(body):
         if not ln.strip():
             i += 1
             continue
-        # Fenced code block：不要讓 ``` 及程式碼行落入一般段落。
-        # 開頭允許最多三格縮排；結尾需使用相同的 fence 字元，且長度不短於開頭。
-        m_fence = re.match(r'^ {0,3}(`{3,}|~{3,})(.*)$', ln)
-        if m_fence:
-            fence, info = m_fence.group(1), m_fence.group(2).strip()
-            language = info.split()[0] if info else ''
-            code_lines = []
-            i += 1
-            while i < len(lines):
-                close = re.match(r'^ {0,3}([`~]{3,})\s*$', lines[i].rstrip())
-                if close and close.group(1)[0] == fence[0] and len(close.group(1)) >= len(fence):
-                    i += 1
-                    break
-                code_lines.append(lines[i])
-                i += 1
-            blocks.append(('code', language, textwrap.dedent('\n'.join(code_lines))))
-            continue
         # 圖片 ![alt](/covers/x.png) 或內文圖 ![alt](/figures/x.svg)
         if ln.startswith('!['):
             m_img = re.match(r'!\[.*?\]\((.*?)\)', ln)
@@ -182,25 +114,6 @@ def mdx_to_blocks(body):
             blocks.append(('h3', ln.lstrip('#').strip()))
             i += 1
             continue
-        # 表格：方格子不支援，原樣送出會變成一排「| | 租 | 買 |」（2026-09-01 Charles：「這一段是表格嗎？我都看不懂」）
-        # → 每一列轉成一句「第一欄：欄名＝值；欄名＝值」，當清單送。分隔列（|---|）丟掉。
-        if ln.startswith('|'):
-            rows = []
-            while i < len(lines) and lines[i].strip().startswith('|'):
-                cells = [c.strip() for c in lines[i].strip().strip('|').split('|')]
-                if not all(re.fullmatch(r':?-{2,}:?', c or '--') for c in cells):
-                    rows.append(cells)
-                i += 1
-            if rows:
-                header, body_rows = rows[0], rows[1:]
-                items = []
-                for r in body_rows:
-                    r = r + [''] * (len(header) - len(r))
-                    lead = r[0]
-                    rest = [f'{h}＝{v}' if h else v for h, v in zip(header[1:], r[1:]) if v]
-                    items.append((f'{lead}：' if lead else '') + '；'.join(rest))
-                blocks.append(('ul', items))
-            continue
         if ln.startswith('- '):
             items = []
             while i < len(lines) and lines[i].startswith('- '):
@@ -217,113 +130,15 @@ def mdx_to_blocks(body):
     return blocks
 
 
-SALON_URL = 'https://vocus.cc/salon/6a1e9e1a9da94e81ec5c81e6'
-# 沙龍 CTA（2026-09-10 Charles 拍板）：只加在方格子這份稿的尾端，不進 .mdx 原稿
-# ——原稿的結尾閘規定最後一節必須是「帶得走的一件事」，CTA 屬平台層。
-# 同日追加：每篇照文章內容現寫一句幽默邀請（claude -p），寫失敗退回固定句，發文不因此卡住。
-CTA_FALLBACK = '如果這篇對你有幫助，加入沙龍免費會員，新文章和每月的判讀帳本會第一時間通知你。'
-CTA_LINK_BLOCK = ('p', f'👉 [加入沙龍免費會員]({SALON_URL})')
-
-
-HEART_FALLBACK = '讀到這裡如果有收穫，順手點個愛心 💗，讓我知道這篇有幫上忙。'
-SAVE_FALLBACK = '這篇不短，時間不夠的話，先加入沙龍收藏起來，下次接著慢慢看。'
-LONG_BLOCKS = 30  # 內容塊數超過這個門檻算長文，前段多插一句「先訂閱收藏」
-
-# 簽名檔（2026-09-10 Charles 兩次拍板：加佳句與行事曆→佳句改用大師名言「上網找比自己創好」）
-# 名言皆為公認出處、附原作者；按 slug 固定輪替，同一篇永遠同一句。
-SIGN_QUOTES = [
-    '別人貪婪時恐懼，別人恐懼時貪婪。── 華倫・巴菲特',
-    '潮水退了，才知道誰在裸泳。── 華倫・巴菲特',
-    '市場短期是投票機，長期是體重計。── 班傑明・葛拉漢',
-    '第一條規則：不要賠錢。第二條規則：別忘記第一條。── 華倫・巴菲特',
-    '反過來想，永遠要反過來想。── 查理・蒙格',
-    '投資人為了防備回檔而賠掉的錢，遠比回檔本身賠掉的多。── 彼得・林區',
-    '成功的投資不是買到好東西，而是把東西買得好。── 霍華・馬克斯',
-    '市場保持非理性的時間，可以比你保持不破產的時間更久。── 凱因斯',
-]
-SIGN_SCHEDULE = ('每週的節奏：週一 AI 落地應用｜週二・週四 讀財報與電話會議｜週三・週五 讀書｜'
-                 '週六 AI 證照｜每月 判讀帳本（會員限定）｜每天的底色：投資世界觀')
-
-
-def signature_blocks(slug):
-    q = SIGN_QUOTES[sum(ord(c) for c in slug) % len(SIGN_QUOTES)]
-    return [('p_italic', q), ('p', SIGN_SCHEDULE)]
-
-
-def _line_ok(line):
-    """守門：長度合理、沒有連結、沒混進英文句。"""
-    import re as _re
-    return 10 <= len(line) <= 90 and 'http' not in line and not _re.search(r'[A-Za-z]{12,}', line)
-
-
-def cta_witty(title, abstract, body_head, timeout=180):
-    """照這篇的內容寫兩句話：文中請點愛心＋結尾邀加入沙龍（一次生成省一半呼叫）。
-    回 dict {'heart':…,'join':…}，缺哪句哪句是 None，呼叫端各自退固定句。"""
-    import subprocess, tempfile, json as _json
-    cli = os.path.expanduser(r'~\AppData\Roaming\npm\claude.cmd')
-    prompt = (
-        '你在替一篇已寫完的文章寫兩句話。共同要求：繁體中文、要幽默、'
-        '而且哏要長在這篇文章的內容上（拿文中的比喻、例子或主題自嘲、開玩笑），不是通用口號；'
-        '禁副詞（真的／其實／非常／完全…）、禁「你應該」講台句、不喊單、不承諾獲利、'
-        '不要寫連結、不要寫「點這裡」。\n'
-        '1. heart：放在文章約三分之二處，請讀者順手點愛心，30～60 字，句尾放一個 💗。\n'
-        '2. join：放在文章結尾，邀請讀者加入沙龍免費會員，30～60 字，不用表情符號。\n'
-        '3. save：放在文章前三分之一處，跟讀者說這篇很長、可以先加入沙龍收藏起來下次慢慢看，'
-        '30～60 字，不用表情符號。\n'
-        '只輸出一行 JSON：{"heart": "...", "join": "...", "save": "..."}，'
-        '不要其他文字、不要程式碼圍欄。\n\n'
-        f'文章標題：{title}\n文章摘要：{abstract}\n文章開頭：{body_head}\n')
-    fd, tmp = tempfile.mkstemp(suffix='.txt', prefix='_cta_', dir=os.path.dirname(__file__))
-    os.close(fd)
-    out = {'heart': None, 'join': None, 'save': None}
-    try:
-        open(tmp, 'w', encoding='utf-8').write(prompt)
-        with open(tmp, encoding='utf-8') as fh:
-            r = subprocess.run([cli, '-p', '--model', 'claude-opus-5', '--effort', 'low'],
-                               stdin=fh, capture_output=True, text=True,
-                               encoding='utf-8', errors='replace', timeout=timeout)
-        m = re.search(r'\{.*\}', r.stdout or '', re.S)
-        if m:
-            d = _json.loads(m.group(0))
-            for key in out:
-                line = str(d.get(key, '')).strip().strip('「」"')
-                if line and _line_ok(line):
-                    out[key] = line
-    except Exception:
-        pass
-    finally:
-        try:
-            os.unlink(tmp)
-        except OSError:
-            pass
-    return out
-
-
-def insert_at_fraction(blocks, line, frac):
-    """把一句話插進文章的 frac 位置：插在最靠近該位置的小節標題前；沒有小節就照位置插。"""
-    target = int(len(blocks) * frac)
-    h3s = [i for i, b in enumerate(blocks) if b[0] == 'h3']
-    pos = min(h3s, key=lambda i: abs(i - target)) if h3s else target
-    return blocks[:pos] + [('p', line)] + blocks[pos:]
-
-
 def load_article(slug):
     path = os.path.join(ROOT, 'src', 'content', 'blog', slug + '.zh-TW.mdx')
     fm, body = parse_frontmatter(open(path, encoding='utf-8').read())
     abstract = fm.get('description', '')
     if len(abstract) > 150:
         abstract = abstract[:147].rstrip('，。、') + '…'
-    witty = cta_witty(fm['title'], abstract, body[:800])
-    blocks = mdx_to_blocks(body)
-    # 三分之二處：點愛心；長文再於前三分之一處：先加入收藏、回頭慢慢看（帶連結）
-    blocks = insert_at_fraction(blocks, witty['heart'] or HEART_FALLBACK, 2 / 3)
-    if len(blocks) >= LONG_BLOCKS:
-        save = (witty['save'] or SAVE_FALLBACK) + f' 👉 [加入沙龍免費會員]({SALON_URL})'
-        blocks = insert_at_fraction(blocks, save, 1 / 3)
     return {'title': fm['title'], 'abstract': abstract,
-            'tags': TAGS.get(slug, SUGGESTED_TAGS.get(slug, ['投資', '心得'])),
-            'blocks': (blocks + [('p', witty['join'] or CTA_FALLBACK), CTA_LINK_BLOCK]
-                       + signature_blocks(slug))}
+            'tags': TAGS.get(slug, ['投資', '心得']),
+            'blocks': mdx_to_blocks(body)}
 
 
 # ---------- lexical / html 節點（沿用 ep682 那支） ----------
@@ -413,18 +228,6 @@ def list_node(items):
             'type': 'list', 'version': 1, 'listType': 'bullet', 'start': 1, 'tag': 'ul'}
 
 
-def code_node(code, language=''):
-    """Lexical CodeNode；單一 text child 保留程式碼中的換行與空白。"""
-    return {'children': [t_node(code)], 'direction': 'ltr', 'format': '', 'indent': 0,
-            'type': 'code', 'version': 1, 'language': language or None}
-
-
-def code_html(code, language=''):
-    """方格子內容 HTML 的 fenced code 對應物。"""
-    cls = f' class="language-{escape(language, quote=True)}"' if language else ''
-    return f'<pre><code{cls}>{escape(code)}</code></pre>'
-
-
 def runs_html(text):
     out = []
     for seg, fmt in parse_runs(text):
@@ -490,18 +293,6 @@ def resolve_image(src, meta):
         url, w, h = upload_img(figure_png(name))
     except Exception as e:
         print('⚠️ 內文圖處理失敗，這張退回封面圖：%s（%s）' % (name, e))
-        # 案底（2026-08-26 Charles 拍板）：頂替是合理設計，但發生時必須留紀錄。
-        # 病理實證：Dylan Patel 篇第 3 張圖被封面頂替，零紀錄，靠 Charles 肉眼發現。
-        # 案底寫入失敗也不准影響發文（fail-open，同 lane_ledger_hook 原則）。
-        try:
-            with open(os.path.join(SP, 'vocus_fig_fallback.jsonl'), 'a',
-                      encoding='utf-8') as fh:
-                fh.write(json.dumps({
-                    'date': datetime.datetime.now().strftime('%Y-%m-%d %H:%M'),
-                    'figure': name, 'articleId': meta.get('articleId', '?'),
-                    'error': str(e)[:200]}, ensure_ascii=False) + '\n')
-        except OSError:
-            pass
         return meta['imgUrl'], meta['w'], meta['h']
     cache[name] = {'url': url, 'w': w, 'h': h}
     with open(FIG_CACHE, 'w', encoding='utf-8') as f:
@@ -543,10 +334,6 @@ def build(art, meta):
             lex.append(list_node(b[1]))
             html.append('<ul>' + ''.join(f'<li>{inline_html(i)}</li>' for i in b[1]) + '</ul>')
             plain.extend(i.replace('**', '') for i in b[1])
-        elif kind == 'code':
-            lex.append(code_node(b[2], b[1]))
-            html.append(code_html(b[2], b[1]))
-            plain.append(b[2])
         else:
             raise ValueError('未知 block: ' + kind)
     return lex, ''.join(html), len(''.join(plain))
@@ -662,22 +449,6 @@ def cmd_push(slugs, publish):
         print(f"[{slug}] readback: status={a.get('status')} 塊數={len(art['blocks'])} "
               f"字數={a.get('wordsCount')} inv={a.get('isInvestment')} "
               f"thumb={'OK' if 'static/og_img' not in str(a.get('thumbnailUrl')) else '預設圖!'}")
-
-        # 對圖（2026-08-26 加）：mdx 引用的每張內文圖，讀回的本體裡必須出現
-        # 它在快取裡的圖床網址。頂替發生時這裡會當場點名，不再靠肉眼。
-        fig_names = sorted(set(re.findall(r'/figures/([\w-]+)\.\w+',
-                                          json.dumps(art['blocks']))))
-        if fig_names:
-            fcache = (json.load(open(FIG_CACHE, encoding='utf-8'))
-                      if os.path.isfile(FIG_CACHE) else {})
-            body_str = str(a.get('content', ''))
-            bad = [n for n in fig_names
-                   if fcache.get(n, {}).get('url', '\x00') not in body_str]
-            if bad:
-                print(f'[{slug}] ❌ 對圖：{len(fig_names)} 張內文圖有 {len(bad)} 張'
-                      f'沒對上（被頂替或沒上傳）：{", ".join(bad)}')
-            else:
-                print(f'[{slug}] 對圖：{len(fig_names)} 張內文圖全數對上 ✅')
 
         if publish:
             st, body = api('PATCH', f'/api/articles/{aid}/status/2', {'status': 2, 'showCatalog': True})

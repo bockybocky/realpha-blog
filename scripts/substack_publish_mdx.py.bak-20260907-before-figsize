@@ -8,20 +8,16 @@ src/content/blog/<slug>.en.mdx，不另抄一份。介面仿 vocus_publish_mdx.p
     python substack_publish_mdx.py draft   <slug> [<slug>...]   # 建／更新草稿（不公開）
     python substack_publish_mdx.py publish <slug> [<slug>...]   # 公開（只在 Charles 說「發」之後呼叫）
     python substack_publish_mdx.py check   <slug>               # 讀回線上草稿，印驗證行
-    python substack_publish_mdx.py cover   <slug>...            # 補封面（讀 frontmatter cover，上傳後更新發布）
-    python substack_publish_mdx.py unwall  <slug>... | @清單檔  # 拆掉線上稿的付費牆並開放給所有人（不重傳圖）
-    python substack_publish_mdx.py backfill <slug>... | @清單檔  # 回填舊文：建草稿→日期設回 pubDate→發布不寄信；已發過跳過
 
 from_markdown 處理得了 **粗體**／*斜體*／連結，但 <br/> 會被丟掉、詩引黏成一段，
 所以正文自己拆，用 Post.heading/paragraph/horizontal_rule/add 與 substack.nodes。
 """
-import json, os, re, sys, time
+import json, os, re, sys
 
 from substack.api import Api
 from substack.exceptions import SubstackAPIException, SubstackRequestException
 from substack.nodes import blockquote as node_blockquote
 from substack.nodes import bullet_list as node_bullet_list
-from substack.nodes import code_block as node_code_block
 from substack.nodes import list_item as node_list_item
 from substack.post import Post, parse_inline, tokens_to_text_nodes
 
@@ -30,104 +26,10 @@ SP = os.environ.get('SUBSTACK_SP') or r'C:\Users\Charles\scripts\blog_auto'
 COOKIES_PATH = os.path.join(SP, 'substack_cookies.json')
 IDS_PATH = os.path.join(SP, 'substack_ids.json')
 PUB_URL = 'https://realphareads.substack.com'
-
-# 訂閱 CTA（2026-09-10 Charles「英文版的就請讀者訂 substack」）：
-# 每篇照內容現寫一句幽默邀請（claude -p），失敗退固定句；連結由程式另附，發文不因此卡住。
-CTA_EN_FALLBACK = ('If this piece saved you an hour of reading, the next one is already '
-                   'on its way — subscribing is free.')
-CTA_EN_LINK = f'👉 [Subscribe to Realpha Reads the World — free]({PUB_URL}/subscribe)'
-HEART_EN_FALLBACK = 'If something here just clicked for you, tap the heart ❤️ so I know what to write more of.'
-SAVE_EN_FALLBACK = ('This is a long one — subscribe now and it will wait patiently '
-                    'in your inbox for whenever you are ready.')
-LONG_LINES = 60  # 正文行數超過這個門檻算長文，前段多插一句「先訂閱、回頭慢慢看」
-
-# 簽名檔（2026-09-10 Charles：佳句改用大師名言原文）：按 slug 固定輪替（與中文版同序同 hash）。
-SIGN_QUOTES_EN = [
-    '"Be fearful when others are greedy and greedy when others are fearful." — Warren Buffett',
-    '"Only when the tide goes out do you discover who\'s been swimming naked." — Warren Buffett',
-    '"In the short run, the market is a voting machine; in the long run, it is a weighing machine." — Benjamin Graham',
-    '"Rule No. 1: Never lose money. Rule No. 2: Never forget Rule No. 1." — Warren Buffett',
-    '"Invert, always invert." — Charlie Munger',
-    '"Far more money has been lost by investors preparing for corrections than has been lost in corrections themselves." — Peter Lynch',
-    '"Investment success doesn\'t come from buying good things, but from buying things well." — Howard Marks',
-    '"Markets can remain irrational longer than you can remain solvent." — John Maynard Keynes',
-]
-SIGN_SCHEDULE_EN = ('The weekly rhythm: Mon AI in practice | Tue & Thu earnings & call notes | '
-                    'Wed & Fri book notes | Sat AI certification | monthly scorecard (members) | '
-                    'every day: how I read the world.')
-
-
-def signature_paragraphs(post, slug):
-    q = SIGN_QUOTES_EN[sum(ord(c) for c in slug) % len(SIGN_QUOTES_EN)]
-    post.paragraph([{'content': q, 'marks': [{'type': 'em'}]}])
-    post.paragraph(parse_inline(SIGN_SCHEDULE_EN))
-
-
-def _en_line_ok(line):
-    words = len(line.split())
-    return 8 <= words <= 40 and 'http' not in line
-
-
-def cta_witty_en(title, subtitle, body_head, timeout=180):
-    """照這篇的內容寫兩句英文：文中請點愛心＋結尾訂閱邀請（一次生成）。
-    回 dict {'heart':…,'join':…}，缺哪句哪句是 None，呼叫端各自退固定句。"""
-    import subprocess, tempfile, json as _json
-    cli = os.path.expanduser(r'~\AppData\Roaming\npm\claude.cmd')
-    prompt = (
-        'You are writing two one-liners for an already-finished article. Shared rules: '
-        'in English, witty, and the joke must grow out of THIS article (reuse its metaphor, '
-        'example or theme) — not a generic slogan. No hashtags, no promises of profit, '
-        'no "you should" lecturing, no links, no "click here".\n'
-        '1. "heart": sits about two-thirds in, asks the reader to tap the heart; '
-        '15-30 words; end it with a single heart emoji.\n'
-        '2. "join": the sign-off, invites the reader to subscribe to the newsletter; '
-        '15-30 words; no emoji.\n'
-        '3. "save": sits in the first third, tells the reader this is a long piece and '
-        'they can subscribe now and come back to finish it at their own pace; '
-        '15-30 words; no emoji.\n'
-        'Output one line of JSON only: {"heart": "...", "join": "...", "save": "..."} — '
-        'nothing else, no code fences.\n\n'
-        f'Title: {title}\nSubtitle: {subtitle}\nOpening: {body_head}\n')
-    fd, tmp = tempfile.mkstemp(suffix='.txt', prefix='_ctaen_', dir=os.path.dirname(__file__))
-    os.close(fd)
-    out = {'heart': None, 'join': None, 'save': None}
-    try:
-        open(tmp, 'w', encoding='utf-8').write(prompt)
-        with open(tmp, encoding='utf-8') as fh:
-            r = subprocess.run([cli, '-p', '--model', 'claude-opus-5', '--effort', 'low'],
-                               stdin=fh, capture_output=True, text=True,
-                               encoding='utf-8', errors='replace', timeout=timeout)
-        m = re.search(r'\{.*\}', r.stdout or '', re.S)
-        if m:
-            d = _json.loads(m.group(0))
-            for key in out:
-                line = str(d.get(key, '')).strip().strip('"')
-                if line and _en_line_ok(line):
-                    out[key] = line
-    except Exception:
-        pass
-    finally:
-        try:
-            os.unlink(tmp)
-        except OSError:
-            pass
-    return out
-
-
-def insert_md_at_fraction(body, line, frac):
-    """把一句話插進 markdown 正文的 frac 位置：插在最靠近該位置的 ## 標題前；沒有就照位置插。"""
-    lines = body.split('\n')
-    h2s = [i for i, ln in enumerate(lines) if ln.startswith('## ')]
-    target = int(len(lines) * frac)
-    pos = min(h2s, key=lambda i: abs(i - target)) if h2s else target
-    return '\n'.join(lines[:pos] + [line, ''] + lines[pos:])
 COOKIE_HINT = 'cookie 失效，跑 `python C:/Users/Charles/scripts/substack_cookies_from_profile.py`'
 DISCLAIMER = ('This is personal research and educational commentary, not investment advice. '
               'Positions may be held in securities mentioned.')
 EN_PAYWALL_H2 = re.compile(r'Where I took it|Extended|What it means', re.I)
-# 2026-09-08 Charles「先把付費牆拿掉」：台灣開不了 Stripe，Substack 付費訂閱收不到錢，鎖了等於白鎖。
-# 收款帳戶弄好後改回 True，牆的位置規則（substackPaywallAfter／延伸想法）都還在。
-PAYWALL_ENABLED = False
 # Substack 副標上限（API 回 400 Subtitle is too long）；公開文件寫 250
 SUBTITLE_MAX = 250
 
@@ -228,51 +130,13 @@ def append_quote(post, lines, poem):
     post.draft_body.setdefault('content', []).append(node_blockquote(paras))
 
 
-def split_table_row(line):
-    """拆一列 pipe table；支援反斜線跳脫的 pipe。"""
-    row = line.strip()
-    if row.startswith('|'):
-        row = row[1:]
-    if row.endswith('|') and not row.endswith('\\|'):
-        row = row[:-1]
-    cells, buf, escaped = [], [], False
-    for char in row:
-        if char == '|' and not escaped:
-            cells.append(''.join(buf).strip().replace('\\|', '|'))
-            buf = []
-        else:
-            buf.append(char)
-        escaped = char == '\\' and not escaped
-        if char != '\\':
-            escaped = False
-    cells.append(''.join(buf).strip().replace('\\|', '|'))
-    return cells
 
-
-def is_table_separator(line):
-    cells = split_table_row(line)
-    return bool(cells) and all(re.fullmatch(r':?-{3,}:?', cell.replace(' ', ''))
-                               for cell in cells)
-
-
-def append_table(post, rows):
-    """以穩定的純文字列呈現表格，避免使用 Substack 未公開的 table schema。"""
-    for row_number, cells in enumerate(rows):
-        rendered = ' | '.join(cells)
-        if row_number == 0:
-            rendered = '**' + rendered.replace(' | ', '** | **') + '**'
-        post.paragraph(parse_inline(rendered))
-
-
-
-def add_image_block(post, url, alt='', size=None):
-    """獨立的圖片區塊（Substack 編輯器的 captionedImage 節點），公開頁才會畫出來。
-    size=(寬, 高) 用實際 PNG 尺寸；2026-09-07 前寫死 1456×819，內文圖實際 1456×789 被拉伸、底部被切（Charles 抓到）。"""
-    w, h = size if size else (1456, 819)
+def add_image_block(post, url, alt=''):
+    """獨立的圖片區塊（Substack 編輯器的 captionedImage 節點），公開頁才會畫出來。"""
     post.draft_body.setdefault('content', []).append({'type': 'captionedImage', 'content': [{
         'type': 'image2',
         'attrs': {'src': url, 'fullscreen': False, 'imageSize': 'normal',
-                  'height': int(h), 'width': int(w), 'resizeWidth': 728,
+                  'height': 819, 'width': 1456, 'resizeWidth': 728,
                   'bytes': None, 'alt': alt or None, 'title': None, 'type': None,
                   'href': None, 'belowTheFold': False, 'internalRedirect': None}}]})
 
@@ -302,7 +166,7 @@ def fill_post(post, body, paywall_k, upload_image=None):
                     if url:
                         # 套件的 captioned_image 是把圖塞進「前一個節點」的 content；本文開頭沒有前一個節點，
                         # 直接放一個獨立的 captionedImage 區塊（Substack 編輯器自己的節點型別）
-                        add_image_block(post, url, alt, getattr(upload_image, 'last_size', None))
+                        add_image_block(post, url, alt)
             elif upload_image is None:
                 print('⚠️ 跳過內文圖（未提供上傳函式）：' + src)
             else:
@@ -313,7 +177,7 @@ def fill_post(post, body, paywall_k, upload_image=None):
                     # 2026-09-03 實測：套件的 captioned_image 會把 image2 塞進「前一個段落」裡，
                     # 編輯器看得到、公開頁卻不畫（文章頁只剩空白）。正確結構＝獨立的 captionedImage 區塊，
                     # 跟封面同一種寫法。
-                    add_image_block(post, url, alt, getattr(upload_image, 'last_size', None))
+                    add_image_block(post, url, alt)
                 else:
                     print('⚠️ 內文圖上傳失敗，略過：' + src)
             i += 1
@@ -342,14 +206,10 @@ def fill_post(post, body, paywall_k, upload_image=None):
             post.heading(parse_inline(title), level=level)
             i += 1
             continue
-        if (ln.startswith('|') and i + 1 < len(lines)
-                and is_table_separator(lines[i + 1])):
-            rows = [split_table_row(ln)]
-            i += 2  # 標題列與 Markdown 對齊分隔列
+        if ln.startswith('|'):
+            print('⚠️ 跳過表格（Substack 轉換未支援）')
             while i < len(lines) and lines[i].strip().startswith('|'):
-                rows.append(split_table_row(lines[i]))
                 i += 1
-            append_table(post, rows)
             continue
         if ln.startswith('- '):
             items = []
@@ -360,20 +220,12 @@ def fill_post(post, body, paywall_k, upload_image=None):
                 node_bullet_list([node_list_item(tokens_to_text_nodes(parse_inline(it)))
                                   for it in items]))
             continue
-        fence = re.match(r'^\s*(`{3,}|~{3,})([^`]*)$', ln)
-        if fence:
-            marker, info = fence.groups()
-            language = info.strip() or None
-            code = []
+        if ln.startswith('```'):
+            print('⚠️ 跳過 code fence')
             i += 1
-            while i < len(lines) and not re.match(
-                    r'^\s*' + re.escape(marker[0]) + r'{' + str(len(marker)) + r',}\s*$',
-                    lines[i]):
-                code.append(lines[i])
+            while i < len(lines) and not lines[i].startswith('```'):
                 i += 1
-            if i < len(lines):
-                i += 1
-            post.add(node_code_block('\n'.join(code), language=language))
+            i += 1
             continue
         post.paragraph(parse_inline(ln.strip()))
         i += 1
@@ -407,8 +259,6 @@ def paywall_k_for(fm, slug, body):
     """牆的位置（0-based H2 序號，牆插在該 H2 前）。
     優先序：frontmatter `substackPaywallAfter: N`（第 N 節之後免費結束；2026-09-03 Charles「只免費公開第一節」→ 1）
     → 濃縮稿的 paywall_after_insight → 依 zh「延伸想法」對應序號（乙案舊預設）。"""
-    if not PAYWALL_ENABLED:
-        return None, 'disabled'
     for key in ('substackPaywallAfter', 'paywall_after_insight'):
         v = str(fm.get(key, '')).strip()
         if v.isdigit():
@@ -416,15 +266,8 @@ def paywall_k_for(fm, slug, body):
     return find_paywall_k(slug, body)
 
 
-def find_cover(slug, fm=None):
+def find_cover(slug):
     covers = os.path.join(ROOT, 'public', 'covers')
-    # 2026-09-09：先信 frontmatter 的 cover／ogImage（早期九篇短名封面靠猜檔名全漏，Substack 版無封面）
-    for key in ('cover', 'ogImage'):
-        v = str((fm or {}).get(key, '')).strip()
-        if v.startswith('/'):
-            p = os.path.join(ROOT, 'public', v.lstrip('/').replace('/', os.sep))
-            if os.path.isfile(p):
-                return p
     names = [slug + '-cover.png', slug + '.png']
     if slug in COVERS:
         names.append(COVERS[slug])
@@ -476,21 +319,8 @@ def svg_to_png(src_path):
     import subprocess, tempfile, hashlib
     cache = os.path.join(tempfile.gettempdir(), 'substack_fig_png')
     os.makedirs(cache, exist_ok=True)
-    raw = open(src_path, 'rb').read()
-    key = hashlib.sha1(raw).hexdigest()[:12]
-    # 2026-09-07：視窗高度照 SVG 原稿比例算（viewBox 或 width/height），不再寫死 640——
-    # 960×520 的圖放到 1456 寬要 789 高，寫死 640 底部被截 149px。快取檔名加 v2 讓舊截圖失效。
-    head = raw[:2000].decode('utf-8', 'ignore')
-    m = re.search(r'viewBox="[\d.\-]+\s+[\d.\-]+\s+([\d.]+)\s+([\d.]+)"', head)
-    if not m:
-        mw = re.search(r'\swidth="([\d.]+)', head); mh = re.search(r'\sheight="([\d.]+)', head)
-        m = (mw, mh) if mw and mh else None
-    if m:
-        vw, vh = (float(m.group(1)), float(m.group(2))) if not isinstance(m, tuple) else (float(m[0].group(1)), float(m[1].group(1)))
-        height = max(200, int(round(1456 * vh / vw)))
-    else:
-        height = 640
-    png = os.path.join(cache, os.path.basename(src_path).replace('.svg', '') + '-' + key + '-v2.png')
+    key = hashlib.sha1(open(src_path, 'rb').read()).hexdigest()[:12]
+    png = os.path.join(cache, os.path.basename(src_path).replace('.svg', '') + '-' + key + '.png')
     if os.path.exists(png) and os.path.getsize(png) > 1000:
         return png
     html = os.path.join(cache, key + '.html')
@@ -498,7 +328,7 @@ def svg_to_png(src_path):
         f.write('<html><body style="margin:0;background:#fff"><img src="file:///%s" style="width:1456px;display:block"></body></html>'
                 % src_path.replace(os.sep, '/'))
     edge = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
-    subprocess.run([edge, '--headless=new', '--disable-gpu', '--window-size=1456,%d' % height,
+    subprocess.run([edge, '--headless=new', '--disable-gpu', '--window-size=1456,640',
                     '--screenshot=' + png, 'file:///' + html.replace(os.sep, '/')],
                    capture_output=True, timeout=60)
     return png if os.path.exists(png) and os.path.getsize(png) > 1000 else None
@@ -517,15 +347,8 @@ def make_uploader(api):
             if not local:
                 print('⚠️ SVG 轉 PNG 失敗：' + src)
                 return None
-        try:
-            from PIL import Image
-            with Image.open(local) as im:
-                upload.last_size = im.size
-        except Exception:
-            upload.last_size = None
         img = api_try(api.get_image, local)
         return img.get('url') if isinstance(img, dict) else None
-    upload.last_size = None
     return upload
 
 
@@ -628,22 +451,10 @@ def build_post(api, slug):
     # 2026-09-03 實測：Substack 規定「有付費牆的文 audience 必須是 only_paid」（設 everyone 發布時回 400）；
     # only_paid＋牆＝牆上免費預覽、牆下付費，正是乙案要的；沒牆的文才用 everyone。
     post = Post(title, subtitle, api.get_user_id(), audience='only_paid' if k is not None else 'everyone')
-    if os.environ.get('SUBSTACK_NO_CTA') != '1':  # 批次回填舊文時可關，省生成呼叫
-        witty = cta_witty_en(title, subtitle, body[:800])
-        body = insert_md_at_fraction(body, witty['heart'] or HEART_EN_FALLBACK, 2 / 3)
-        if len(body.split('\n')) >= LONG_LINES:
-            save = (witty['save'] or SAVE_EN_FALLBACK) + f' 👉 [Subscribe free]({PUB_URL}/subscribe)'
-            body = insert_md_at_fraction(body, save, 1 / 3)
-    else:
-        witty = None
     inserted = fill_post(post, body, k, upload_image=make_uploader(api))
-    if witty is not None:
-        post.paragraph(parse_inline(witty['join'] or CTA_EN_FALLBACK))
-        post.paragraph(parse_inline(CTA_EN_LINK))
-    signature_paragraphs(post, slug)
     if fm.get('category') == 'investing':
         post.paragraph([{'content': DISCLAIMER, 'marks': [{'type': 'em'}]}])
-    cover_path = find_cover(slug, fm)
+    cover_path = find_cover(slug)
     cover_url = None
     if cover_path:
         img = api_try(api.get_image, cover_path)
@@ -737,162 +548,6 @@ def cmd_publish(api, slugs):
     return rc
 
 
-def cmd_backfill(api, slugs):
-    """回填舊文（2026-09-08 Charles「部落格英文文章都放到 Substack」）。
-    與 publish 三點不同：①沒草稿就先建 ②發文日期設回 .en.mdx 的 pubDate，Substack 目錄才會照原順序排
-    ③publish_draft(send=False)——一次補 180 多篇，每篇寄一封信會把訂閱者炸掉。
-    已在台帳且有 post_id 的直接跳過（重跑即續）。"""
-    ids = load_ids()
-    rc = 0
-    for slug in slugs:
-        rec = ids.get(slug) or {}
-        if rec.get('post_id'):
-            print('⏭ 已發過，跳過：%s（%s）' % (slug, rec.get('url')))
-            continue
-        for attempt in range(3):
-            if attempt:
-                print('   ⏳ 第 %d 次重試 %s（等 90 秒）' % (attempt + 1, slug))
-                time.sleep(90)
-            ok = _backfill_one(api, slug)
-            if ok:
-                break
-        else:
-            rc = 1
-        time.sleep(10)   # 2026-09-08 實測：連發 100 篇後被 429 限流 12 篇、再被切線一次
-    return rc
-
-
-def _backfill_one(api, slug):
-    """回填一篇；成功回 True。"""
-    ids = load_ids()
-    rec = ids.get(slug) or {}
-    if rec.get('post_id'):
-        return True
-    try:
-        if not rec.get('draft_id'):
-            if cmd_draft(api, [slug]) != 0:
-                print('❌ 草稿建立有警告，跳過發布：' + slug)
-                return False
-            rec = load_ids().get(slug) or {}
-        draft_id = rec['draft_id']
-        fm_p, body, _, _ = load_article(slug)
-        k, _ = paywall_k_for(fm_p, slug, body)
-        pub = str(fm_p.get('pubDate', '')).strip().strip('"\'')
-        readback = api_try(api.get_draft, draft_id)
-        info = inspect_draft(readback)
-        if k is not None and info['paywall'] != k:
-            print('❌ paywall 位置不對（讀回 %s，預期 %s），拒絕發布：%s'
-                  % (info['paywall'], k, slug))
-            return False
-        api_try(api.prepublish_draft, draft_id)
-        published = api_try(api.publish_draft, draft_id, send=False)
-        post_id = published.get('id') or draft_id
-        # Substack 規定「Post must be published to change post date」→ 發布後才改日期
-        if re.match(r'^\d{4}-\d{2}-\d{2}$', pub):
-            api_try(api.put_draft, draft_id, post_date=pub + 'T00:00:00.000Z')
-        again = api_try(api.get_draft, draft_id)
-        info = inspect_draft(again)
-        ids = load_ids()
-        ids[slug] = {
-            'draft_id': draft_id,
-            'post_id': post_id,
-            'url': info['url'] or published.get('canonical_url') or rec.get('url'),
-            'published_at': (again.get('post_date') or published.get('post_date')
-                             or rec.get('published_at')),
-            'backfill': True,
-        }
-        save_ids(ids)
-        print_line(slug, info)
-        print('   post_date=%s（預期 %s）' % (again.get('post_date'), pub))
-        return True
-    except (SystemExit, Exception) as e:   # 429 限流／連線被切都不能讓整批死掉
-        print('❌ %s：%s' % (slug, e))
-        return False
-
-
-def cmd_unwall(api, slugs):
-    """把線上稿的付費牆拿掉（2026-09-08）：讀回草稿 → 刪 paywall 節點 → audience=everyone → 存回。
-    不重傳圖，只動這兩樣；讀回驗 paywall=無 且 audience=everyone 才算成功。已經沒牆的跳過。"""
-    ids = load_ids()
-    rc = 0
-    for slug in slugs:
-        rec = ids.get(slug) or {}
-        draft_id = rec.get('draft_id')
-        if not draft_id:
-            print('❌ 台帳沒有 %s 的 draft_id' % slug)
-            rc = 1
-            continue
-        for attempt in range(3):
-            if attempt:
-                print('   ⏳ 第 %d 次重試 %s（等 90 秒）' % (attempt + 1, slug))
-                time.sleep(90)
-            try:
-                draft = api_try(api.get_draft, draft_id)
-                info = inspect_draft(draft)
-                if info['paywall'] is None and info['audience'] == 'everyone':
-                    print('⏭ 本來就沒牆：%s' % slug)
-                    break
-                body = draft.get('draft_body') or draft.get('body')
-                body = json.loads(body) if isinstance(body, str) else body
-                body['content'] = [n for n in (body.get('content') or []) if n.get('type') != 'paywall']
-                extra = {}
-                if draft.get('cover_image'):
-                    extra['cover_image'] = draft['cover_image']   # 帶著存回，免得被清掉
-                api_try(api.put_draft, draft_id, draft_body=json.dumps(body), audience='everyone', **extra)
-                # 已發布的文章改完要再「更新發布」一次才會反映到公開頁（2026-09-08 實測：只 put_draft 公開頁仍有付費提示）
-                api_try(api.prepublish_draft, draft_id)
-                api_try(api.publish_draft, draft_id, send=False)
-                again = inspect_draft(api_try(api.get_draft, draft_id))
-                if again['paywall'] is None and again['audience'] == 'everyone':
-                    print('✅ 已拆牆：%s（H2=%s）' % (slug, again['h2']))
-                    break
-                print('❌ 存回後讀回仍有牆／audience=%s：%s' % (again['audience'], slug))
-            except (SystemExit, Exception) as e:
-                print('❌ %s：%s' % (slug, e))
-        else:
-            rc = 1
-        time.sleep(3)
-    return rc
-
-
-def cmd_cover(api, slugs):
-    """補封面（2026-09-09）：讀 frontmatter 封面 → 上傳 → put_draft(cover_image) → 更新發布 → 讀回驗。"""
-    ids = load_ids()
-    rc = 0
-    for slug in slugs:
-        rec = ids.get(slug) or {}
-        draft_id = rec.get('draft_id')
-        if not draft_id:
-            print('❌ 台帳沒有 %s 的 draft_id' % slug)
-            rc = 1
-            continue
-        try:
-            fm, _, _, _ = load_article(slug)
-            path = find_cover(slug, fm)
-            if not path:
-                print('❌ 找不到封面檔：%s' % slug)
-                rc = 1
-                continue
-            img = api_try(api.get_image, path)
-            url = img.get('url') if isinstance(img, dict) else None
-            if not url:
-                print('❌ 上傳沒回 url：%s' % slug)
-                rc = 1
-                continue
-            api_try(api.put_draft, draft_id, cover_image=url)
-            api_try(api.prepublish_draft, draft_id)
-            api_try(api.publish_draft, draft_id, send=False)
-            info = inspect_draft(api_try(api.get_draft, draft_id))
-            print(('✅' if info['cover'] else '❌') + ' 封面 %s：%s（%s）' % ('已掛' if info['cover'] else '讀回仍無', slug, os.path.basename(path)))
-            if not info['cover']:
-                rc = 1
-        except (SystemExit, Exception) as e:
-            print('❌ %s：%s' % (slug, e))
-            rc = 1
-        time.sleep(5)
-    return rc
-
-
 if __name__ == '__main__':
     if hasattr(sys.stdout, 'reconfigure'):
         try:
@@ -902,19 +557,11 @@ if __name__ == '__main__':
     if len(sys.argv) < 3:
         raise SystemExit(__doc__)
     mode, slugs = sys.argv[1], sys.argv[2:]
-    if mode not in ('draft', 'publish', 'check', 'backfill', 'unwall', 'cover'):
-        raise SystemExit('mode 只能是 draft / publish / check / backfill / unwall / cover')
-    if len(slugs) == 1 and slugs[0].startswith('@'):   # @清單檔：一行一個 slug
-        slugs = [l.strip() for l in open(slugs[0][1:], encoding='utf-8') if l.strip()]
+    if mode not in ('draft', 'publish', 'check'):
+        raise SystemExit('mode 只能是 draft / publish / check')
     api = make_api()
     if mode == 'draft':
         sys.exit(cmd_draft(api, slugs))
     if mode == 'publish':
         sys.exit(cmd_publish(api, slugs))
-    if mode == 'backfill':
-        sys.exit(cmd_backfill(api, slugs))
-    if mode == 'unwall':
-        sys.exit(cmd_unwall(api, slugs))
-    if mode == 'cover':
-        sys.exit(cmd_cover(api, slugs))
     sys.exit(cmd_check(api, slugs))
