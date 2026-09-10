@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Three layers of money: funds flow from model makers through cloud providers to chipmakers, cloud providers and model makers share an internal loop, and the only outside inflow comes from end customers.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text class="t" x="60" y="62">Payers</text>
+
+  <rect x="300" y="110" width="380" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2" rx="8"/>
+  <text class="g" x="490" y="150" text-anchor="middle">Chip supply</text>
+  <text class="s" x="490" y="178" text-anchor="middle">Paid on delivery</text>
+
+  <rect x="300" y="250" width="380" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2" rx="8"/>
+  <text class="g" x="490" y="290" text-anchor="middle">Cloud</text>
+  <text class="s" x="490" y="318" text-anchor="middle">Fronts cash; 5-yr deals</text>
+
+  <rect x="300" y="390" width="380" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2" rx="8"/>
+  <text class="g" x="490" y="430" text-anchor="middle">Labs</text>
+  <text class="s" x="490" y="458" text-anchor="middle">Burns cash</text>
+
+  <line x1="360" y1="390" x2="360" y2="352" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="360,340 352,356 368,356" fill="var(--grey)"/>
+  <line x1="360" y1="250" x2="360" y2="212" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="360,200 352,216 368,216" fill="var(--grey)"/>
+
+  <path d="M680 300 C 800 300, 800 430, 690 430" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="682,424 698,432 682,440" fill="var(--warn)"/>
+  <text class="s" x="812" y="360">Cloud=VC</text>
+  <text class="s" x="812" y="382">Same $ loops</text>
+
+  <rect x="60" y="480" width="200" height="80" fill="var(--accent)" rx="8"/>
+  <text class="g" x="160" y="528" text-anchor="middle" fill="var(--page)">Users</text>
+  <line x1="260" y1="500" x2="345" y2="470" stroke="var(--accent)" stroke-width="4"/>
+  <polygon points="356,464 340,462 346,478" fill="var(--accent)"/>
+  <text class="s" x="60" y="580">Only outside money</text>
+
+  <text class="c" x="400" y="560">Loops stop; inflow lasts</text>
+</svg>
