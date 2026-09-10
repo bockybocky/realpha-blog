@@ -37,6 +37,9 @@ CTA_EN_FALLBACK = ('If this piece saved you an hour of reading, the next one is 
                    'on its way — subscribing is free.')
 CTA_EN_LINK = f'👉 [Subscribe to Realpha Reads the World — free]({PUB_URL}/subscribe)'
 HEART_EN_FALLBACK = 'If something here just clicked for you, tap the heart ❤️ so I know what to write more of.'
+SAVE_EN_FALLBACK = ('This is a long one — subscribe now and it will wait patiently '
+                    'in your inbox for whenever you are ready.')
+LONG_LINES = 60  # 正文行數超過這個門檻算長文，前段多插一句「先訂閱、回頭慢慢看」
 
 
 def _en_line_ok(line):
@@ -54,16 +57,19 @@ def cta_witty_en(title, subtitle, body_head, timeout=180):
         'in English, witty, and the joke must grow out of THIS article (reuse its metaphor, '
         'example or theme) — not a generic slogan. No hashtags, no promises of profit, '
         'no "you should" lecturing, no links, no "click here".\n'
-        '1. "heart": sits mid-article, asks the reader to tap the heart; 15-30 words; '
-        'end it with a single heart emoji.\n'
+        '1. "heart": sits about two-thirds in, asks the reader to tap the heart; '
+        '15-30 words; end it with a single heart emoji.\n'
         '2. "join": the sign-off, invites the reader to subscribe to the newsletter; '
         '15-30 words; no emoji.\n'
-        'Output one line of JSON only: {"heart": "...", "join": "..."} — nothing else, '
-        'no code fences.\n\n'
+        '3. "save": sits in the first third, tells the reader this is a long piece and '
+        'they can subscribe now and come back to finish it at their own pace; '
+        '15-30 words; no emoji.\n'
+        'Output one line of JSON only: {"heart": "...", "join": "...", "save": "..."} — '
+        'nothing else, no code fences.\n\n'
         f'Title: {title}\nSubtitle: {subtitle}\nOpening: {body_head}\n')
     fd, tmp = tempfile.mkstemp(suffix='.txt', prefix='_ctaen_', dir=os.path.dirname(__file__))
     os.close(fd)
-    out = {'heart': None, 'join': None}
+    out = {'heart': None, 'join': None, 'save': None}
     try:
         open(tmp, 'w', encoding='utf-8').write(prompt)
         with open(tmp, encoding='utf-8') as fh:
@@ -87,13 +93,13 @@ def cta_witty_en(title, subtitle, body_head, timeout=180):
     return out
 
 
-def insert_heart_md(body, heart_line):
-    """把點愛心那句插進 markdown 正文中段：插在最靠近一半位置的 ## 標題前；沒有就插在一半。"""
+def insert_md_at_fraction(body, line, frac):
+    """把一句話插進 markdown 正文的 frac 位置：插在最靠近該位置的 ## 標題前；沒有就照位置插。"""
     lines = body.split('\n')
     h2s = [i for i, ln in enumerate(lines) if ln.startswith('## ')]
-    target = len(lines) // 2
+    target = int(len(lines) * frac)
     pos = min(h2s, key=lambda i: abs(i - target)) if h2s else target
-    return '\n'.join(lines[:pos] + [heart_line, ''] + lines[pos:])
+    return '\n'.join(lines[:pos] + [line, ''] + lines[pos:])
 COOKIE_HINT = 'cookie 失效，跑 `python C:/Users/Charles/scripts/substack_cookies_from_profile.py`'
 DISCLAIMER = ('This is personal research and educational commentary, not investment advice. '
               'Positions may be held in securities mentioned.')
@@ -603,7 +609,10 @@ def build_post(api, slug):
     post = Post(title, subtitle, api.get_user_id(), audience='only_paid' if k is not None else 'everyone')
     if os.environ.get('SUBSTACK_NO_CTA') != '1':  # 批次回填舊文時可關，省生成呼叫
         witty = cta_witty_en(title, subtitle, body[:800])
-        body = insert_heart_md(body, witty['heart'] or HEART_EN_FALLBACK)
+        body = insert_md_at_fraction(body, witty['heart'] or HEART_EN_FALLBACK, 2 / 3)
+        if len(body.split('\n')) >= LONG_LINES:
+            save = (witty['save'] or SAVE_EN_FALLBACK) + f' 👉 [Subscribe free]({PUB_URL}/subscribe)'
+            body = insert_md_at_fraction(body, save, 1 / 3)
     else:
         witty = None
     inserted = fill_post(post, body, k, upload_image=make_uploader(api))

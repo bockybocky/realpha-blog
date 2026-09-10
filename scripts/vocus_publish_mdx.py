@@ -226,6 +226,8 @@ CTA_LINK_BLOCK = ('p', f'👉 [加入沙龍免費會員]({SALON_URL})')
 
 
 HEART_FALLBACK = '讀到這裡如果有收穫，順手點個愛心 💗，讓我知道這篇有幫上忙。'
+SAVE_FALLBACK = '這篇不短，時間不夠的話，先加入沙龍收藏起來，下次接著慢慢看。'
+LONG_BLOCKS = 30  # 內容塊數超過這個門檻算長文，前段多插一句「先訂閱收藏」
 
 
 def _line_ok(line):
@@ -244,13 +246,16 @@ def cta_witty(title, abstract, body_head, timeout=180):
         '而且哏要長在這篇文章的內容上（拿文中的比喻、例子或主題自嘲、開玩笑），不是通用口號；'
         '禁副詞（真的／其實／非常／完全…）、禁「你應該」講台句、不喊單、不承諾獲利、'
         '不要寫連結、不要寫「點這裡」。\n'
-        '1. heart：放在文章中段，請讀者順手點愛心，30～60 字，句尾放一個 💗。\n'
+        '1. heart：放在文章約三分之二處，請讀者順手點愛心，30～60 字，句尾放一個 💗。\n'
         '2. join：放在文章結尾，邀請讀者加入沙龍免費會員，30～60 字，不用表情符號。\n'
-        '只輸出一行 JSON：{"heart": "...", "join": "..."}，不要其他文字、不要程式碼圍欄。\n\n'
+        '3. save：放在文章前三分之一處，跟讀者說這篇很長、可以先加入沙龍收藏起來下次慢慢看，'
+        '30～60 字，不用表情符號。\n'
+        '只輸出一行 JSON：{"heart": "...", "join": "...", "save": "..."}，'
+        '不要其他文字、不要程式碼圍欄。\n\n'
         f'文章標題：{title}\n文章摘要：{abstract}\n文章開頭：{body_head}\n')
     fd, tmp = tempfile.mkstemp(suffix='.txt', prefix='_cta_', dir=os.path.dirname(__file__))
     os.close(fd)
-    out = {'heart': None, 'join': None}
+    out = {'heart': None, 'join': None, 'save': None}
     try:
         open(tmp, 'w', encoding='utf-8').write(prompt)
         with open(tmp, encoding='utf-8') as fh:
@@ -274,12 +279,12 @@ def cta_witty(title, abstract, body_head, timeout=180):
     return out
 
 
-def insert_heart(blocks, heart_line):
-    """把點愛心那句插進文章中段：插在最靠近一半位置的小節標題前；沒有小節就插在一半。"""
-    target = len(blocks) // 2
+def insert_at_fraction(blocks, line, frac):
+    """把一句話插進文章的 frac 位置：插在最靠近該位置的小節標題前；沒有小節就照位置插。"""
+    target = int(len(blocks) * frac)
     h3s = [i for i, b in enumerate(blocks) if b[0] == 'h3']
     pos = min(h3s, key=lambda i: abs(i - target)) if h3s else target
-    return blocks[:pos] + [('p', heart_line)] + blocks[pos:]
+    return blocks[:pos] + [('p', line)] + blocks[pos:]
 
 
 def load_article(slug):
@@ -289,7 +294,12 @@ def load_article(slug):
     if len(abstract) > 150:
         abstract = abstract[:147].rstrip('，。、') + '…'
     witty = cta_witty(fm['title'], abstract, body[:800])
-    blocks = insert_heart(mdx_to_blocks(body), witty['heart'] or HEART_FALLBACK)
+    blocks = mdx_to_blocks(body)
+    # 三分之二處：點愛心；長文再於前三分之一處：先加入收藏、回頭慢慢看（帶連結）
+    blocks = insert_at_fraction(blocks, witty['heart'] or HEART_FALLBACK, 2 / 3)
+    if len(blocks) >= LONG_BLOCKS:
+        save = (witty['save'] or SAVE_FALLBACK) + f' 👉 [加入沙龍免費會員]({SALON_URL})'
+        blocks = insert_at_fraction(blocks, save, 1 / 3)
     return {'title': fm['title'], 'abstract': abstract,
             'tags': TAGS.get(slug, SUGGESTED_TAGS.get(slug, ['投資', '心得'])),
             'blocks': blocks + [('p', witty['join'] or CTA_FALLBACK), CTA_LINK_BLOCK]}
