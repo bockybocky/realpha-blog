@@ -36,35 +36,47 @@ PUB_URL = 'https://realphareads.substack.com'
 CTA_EN_FALLBACK = ('If this piece saved you an hour of reading, the next one is already '
                    'on its way — subscribing is free.')
 CTA_EN_LINK = f'👉 [Subscribe to Realpha Reads the World — free]({PUB_URL}/subscribe)'
+HEART_EN_FALLBACK = 'If something here just clicked for you, tap the heart ❤️ so I know what to write more of.'
+
+
+def _en_line_ok(line):
+    words = len(line.split())
+    return 8 <= words <= 40 and 'http' not in line
 
 
 def cta_witty_en(title, subtitle, body_head, timeout=180):
-    """照這篇的內容寫一句幽默的英文訂閱邀請。回 None＝生成失敗，呼叫端用固定句。"""
-    import subprocess, tempfile
+    """照這篇的內容寫兩句英文：文中請點愛心＋結尾訂閱邀請（一次生成）。
+    回 dict {'heart':…,'join':…}，缺哪句哪句是 None，呼叫端各自退固定句。"""
+    import subprocess, tempfile, json as _json
     cli = os.path.expanduser(r'~\AppData\Roaming\npm\claude.cmd')
     prompt = (
-        'You are writing the one-line sign-off of an already-finished article, inviting '
-        'readers to subscribe to the newsletter. Rules:\n'
-        '- One sentence, 15-30 words, in English.\n'
-        '- Make it witty, and grow the joke out of THIS article (reuse its metaphor, '
-        'example or theme) — not a generic subscribe slogan.\n'
-        '- No emoji, no hashtags, no promises of profit, no "you should" lecturing.\n'
-        '- Do not include any link or "click here"; the link is appended by the program.\n'
-        '- Output only that sentence, no quotes, nothing else.\n\n'
+        'You are writing two one-liners for an already-finished article. Shared rules: '
+        'in English, witty, and the joke must grow out of THIS article (reuse its metaphor, '
+        'example or theme) — not a generic slogan. No hashtags, no promises of profit, '
+        'no "you should" lecturing, no links, no "click here".\n'
+        '1. "heart": sits mid-article, asks the reader to tap the heart; 15-30 words; '
+        'end it with a single heart emoji.\n'
+        '2. "join": the sign-off, invites the reader to subscribe to the newsletter; '
+        '15-30 words; no emoji.\n'
+        'Output one line of JSON only: {"heart": "...", "join": "..."} — nothing else, '
+        'no code fences.\n\n'
         f'Title: {title}\nSubtitle: {subtitle}\nOpening: {body_head}\n')
     fd, tmp = tempfile.mkstemp(suffix='.txt', prefix='_ctaen_', dir=os.path.dirname(__file__))
     os.close(fd)
+    out = {'heart': None, 'join': None}
     try:
         open(tmp, 'w', encoding='utf-8').write(prompt)
         with open(tmp, encoding='utf-8') as fh:
             r = subprocess.run([cli, '-p', '--model', 'claude-opus-5', '--effort', 'low'],
                                stdin=fh, capture_output=True, text=True,
                                encoding='utf-8', errors='replace', timeout=timeout)
-        lines = (r.stdout or '').strip().splitlines()
-        line = next((l.strip().strip('"') for l in lines if l.strip()), '')
-        words = len(line.split())
-        if 8 <= words <= 40 and 'http' not in line:
-            return line
+        m = re.search(r'\{.*\}', r.stdout or '', re.S)
+        if m:
+            d = _json.loads(m.group(0))
+            for key in out:
+                line = str(d.get(key, '')).strip().strip('"')
+                if line and _en_line_ok(line):
+                    out[key] = line
     except Exception:
         pass
     finally:
@@ -72,7 +84,16 @@ def cta_witty_en(title, subtitle, body_head, timeout=180):
             os.unlink(tmp)
         except OSError:
             pass
-    return None
+    return out
+
+
+def insert_heart_md(body, heart_line):
+    """把點愛心那句插進 markdown 正文中段：插在最靠近一半位置的 ## 標題前；沒有就插在一半。"""
+    lines = body.split('\n')
+    h2s = [i for i, ln in enumerate(lines) if ln.startswith('## ')]
+    target = len(lines) // 2
+    pos = min(h2s, key=lambda i: abs(i - target)) if h2s else target
+    return '\n'.join(lines[:pos] + [heart_line, ''] + lines[pos:])
 COOKIE_HINT = 'cookie 失效，跑 `python C:/Users/Charles/scripts/substack_cookies_from_profile.py`'
 DISCLAIMER = ('This is personal research and educational commentary, not investment advice. '
               'Positions may be held in securities mentioned.')
@@ -580,10 +601,14 @@ def build_post(api, slug):
     # 2026-09-03 實測：Substack 規定「有付費牆的文 audience 必須是 only_paid」（設 everyone 發布時回 400）；
     # only_paid＋牆＝牆上免費預覽、牆下付費，正是乙案要的；沒牆的文才用 everyone。
     post = Post(title, subtitle, api.get_user_id(), audience='only_paid' if k is not None else 'everyone')
-    inserted = fill_post(post, body, k, upload_image=make_uploader(api))
     if os.environ.get('SUBSTACK_NO_CTA') != '1':  # 批次回填舊文時可關，省生成呼叫
-        witty = cta_witty_en(title, subtitle, body[:800]) or CTA_EN_FALLBACK
-        post.paragraph(parse_inline(witty))
+        witty = cta_witty_en(title, subtitle, body[:800])
+        body = insert_heart_md(body, witty['heart'] or HEART_EN_FALLBACK)
+    else:
+        witty = None
+    inserted = fill_post(post, body, k, upload_image=make_uploader(api))
+    if witty is not None:
+        post.paragraph(parse_inline(witty['join'] or CTA_EN_FALLBACK))
         post.paragraph(parse_inline(CTA_EN_LINK))
     if fm.get('category') == 'investing':
         post.paragraph([{'content': DISCLAIMER, 'marks': [{'type': 'em'}]}])

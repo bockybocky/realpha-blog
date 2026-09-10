@@ -225,32 +225,45 @@ CTA_FALLBACK = '如果這篇對你有幫助，加入沙龍免費會員，新文�
 CTA_LINK_BLOCK = ('p', f'👉 [加入沙龍免費會員]({SALON_URL})')
 
 
+HEART_FALLBACK = '讀到這裡如果有收穫，順手點個愛心 💗，讓我知道這篇有幫上忙。'
+
+
+def _line_ok(line):
+    """守門：長度合理、沒有連結、沒混進英文句。"""
+    import re as _re
+    return 10 <= len(line) <= 90 and 'http' not in line and not _re.search(r'[A-Za-z]{12,}', line)
+
+
 def cta_witty(title, abstract, body_head, timeout=180):
-    """照這篇的內容寫一句幽默的加入理由。回 None＝生成失敗，呼叫端用固定句。"""
-    import subprocess, tempfile, re as _re
+    """照這篇的內容寫兩句話：文中請點愛心＋結尾邀加入沙龍（一次生成省一半呼叫）。
+    回 dict {'heart':…,'join':…}，缺哪句哪句是 None，呼叫端各自退固定句。"""
+    import subprocess, tempfile, json as _json
     cli = os.path.expanduser(r'~\AppData\Roaming\npm\claude.cmd')
     prompt = (
-        '你在替一篇已寫完的文章結尾，寫「邀請讀者加入沙龍免費會員」的那一句話。要求：\n'
-        '- 一句話，30～60 字，繁體中文。\n'
-        '- 要幽默，而且理由要長在這篇文章的內容上（拿文中的比喻、例子或主題自嘲、開玩笑），'
-        '不是通用的訂閱口號。\n'
-        '- 禁副詞（真的／其實／非常／完全…）、禁表情符號、禁「你應該」講台句、不喊單、不承諾獲利。\n'
-        '- 不要寫連結、不要寫「點這裡」，連結由程式另附。\n'
-        '- 只輸出那一句話，不要引號、不要其他文字。\n\n'
+        '你在替一篇已寫完的文章寫兩句話。共同要求：繁體中文、要幽默、'
+        '而且哏要長在這篇文章的內容上（拿文中的比喻、例子或主題自嘲、開玩笑），不是通用口號；'
+        '禁副詞（真的／其實／非常／完全…）、禁「你應該」講台句、不喊單、不承諾獲利、'
+        '不要寫連結、不要寫「點這裡」。\n'
+        '1. heart：放在文章中段，請讀者順手點愛心，30～60 字，句尾放一個 💗。\n'
+        '2. join：放在文章結尾，邀請讀者加入沙龍免費會員，30～60 字，不用表情符號。\n'
+        '只輸出一行 JSON：{"heart": "...", "join": "..."}，不要其他文字、不要程式碼圍欄。\n\n'
         f'文章標題：{title}\n文章摘要：{abstract}\n文章開頭：{body_head}\n')
     fd, tmp = tempfile.mkstemp(suffix='.txt', prefix='_cta_', dir=os.path.dirname(__file__))
     os.close(fd)
+    out = {'heart': None, 'join': None}
     try:
         open(tmp, 'w', encoding='utf-8').write(prompt)
         with open(tmp, encoding='utf-8') as fh:
             r = subprocess.run([cli, '-p', '--model', 'claude-opus-5', '--effort', 'low'],
                                stdin=fh, capture_output=True, text=True,
                                encoding='utf-8', errors='replace', timeout=timeout)
-        line = (r.stdout or '').strip().splitlines()
-        line = next((l.strip().strip('「」"') for l in line if l.strip()), '')
-        # 守門：長度合理、沒有連結、沒混進英文句——不合格就退固定句
-        if 10 <= len(line) <= 90 and 'http' not in line and not _re.search(r'[A-Za-z]{12,}', line):
-            return line
+        m = re.search(r'\{.*\}', r.stdout or '', re.S)
+        if m:
+            d = _json.loads(m.group(0))
+            for key in out:
+                line = str(d.get(key, '')).strip().strip('「」"')
+                if line and _line_ok(line):
+                    out[key] = line
     except Exception:
         pass
     finally:
@@ -258,7 +271,15 @@ def cta_witty(title, abstract, body_head, timeout=180):
             os.unlink(tmp)
         except OSError:
             pass
-    return None
+    return out
+
+
+def insert_heart(blocks, heart_line):
+    """把點愛心那句插進文章中段：插在最靠近一半位置的小節標題前；沒有小節就插在一半。"""
+    target = len(blocks) // 2
+    h3s = [i for i, b in enumerate(blocks) if b[0] == 'h3']
+    pos = min(h3s, key=lambda i: abs(i - target)) if h3s else target
+    return blocks[:pos] + [('p', heart_line)] + blocks[pos:]
 
 
 def load_article(slug):
@@ -267,10 +288,11 @@ def load_article(slug):
     abstract = fm.get('description', '')
     if len(abstract) > 150:
         abstract = abstract[:147].rstrip('，。、') + '…'
-    witty = cta_witty(fm['title'], abstract, body[:800]) or CTA_FALLBACK
+    witty = cta_witty(fm['title'], abstract, body[:800])
+    blocks = insert_heart(mdx_to_blocks(body), witty['heart'] or HEART_FALLBACK)
     return {'title': fm['title'], 'abstract': abstract,
             'tags': TAGS.get(slug, SUGGESTED_TAGS.get(slug, ['投資', '心得'])),
-            'blocks': mdx_to_blocks(body) + [('p', witty), CTA_LINK_BLOCK]}
+            'blocks': blocks + [('p', witty['join'] or CTA_FALLBACK), CTA_LINK_BLOCK]}
 
 
 # ---------- lexical / html 節點（沿用 ep682 那支） ----------
