@@ -217,6 +217,13 @@ def mdx_to_blocks(body):
     return blocks
 
 
+SALON_URL = 'https://vocus.cc/salon/6a1e9e1a9da94e81ec5c81e6'
+# 沙龍 CTA（2026-09-10 Charles 拍板「全部都作」）：只加在方格子這份稿的尾端，
+# 不進 .mdx 原稿——原稿的結尾閘規定最後一節必須是「帶得走的一件事」，CTA 屬平台層。
+CTA_BLOCK = ('p', f'如果這篇對你有幫助，[加入沙龍免費會員]({SALON_URL})，'
+                  '新文章和每月的判讀帳本會第一時間通知你。')
+
+
 def load_article(slug):
     path = os.path.join(ROOT, 'src', 'content', 'blog', slug + '.zh-TW.mdx')
     fm, body = parse_frontmatter(open(path, encoding='utf-8').read())
@@ -225,7 +232,7 @@ def load_article(slug):
         abstract = abstract[:147].rstrip('，。、') + '…'
     return {'title': fm['title'], 'abstract': abstract,
             'tags': TAGS.get(slug, SUGGESTED_TAGS.get(slug, ['投資', '心得'])),
-            'blocks': mdx_to_blocks(body)}
+            'blocks': mdx_to_blocks(body) + [CTA_BLOCK]}
 
 
 # ---------- lexical / html 節點（沿用 ep682 那支） ----------
