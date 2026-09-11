@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="The gray headcount line keeps rising, while the blue income line climbs to a peak and then falls.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; }
+    .c { font-size:22px; font-weight:700; }
+    .d { fill:var(--dim); }
+    .a { fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<defs><marker id="m6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/></marker></defs>
+<text x="480" y="56" text-anchor="middle" class="t">Bowman's CNC pay: up, then down</text>
+<line x1="120" y1="440" x2="870" y2="440" stroke="var(--dim)" stroke-width="2" marker-end="url(#m6)"/>
+<text x="870" y="470" text-anchor="end" class="b d">Time</text>
+<path d="M140 425 C420 420 520 220 840 190" fill="none" stroke="var(--grey)" stroke-width="4"/>
+<text x="840" y="172" text-anchor="end" class="g d">Coders</text>
+<path d="M140 340 C300 335 380 190 460 180 C540 172 600 268 820 267" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<text x="150" y="320" class="g a">Income</text>
+<circle cx="460" cy="180" r="8" fill="var(--accent)"/>
+<text x="460" y="156" text-anchor="middle" class="b">1989: $30,000</text>
+<circle cx="820" cy="267" r="8" fill="var(--accent)"/>
+<text x="820" y="250" text-anchor="middle" class="b">$20,000</text>
+<text x="330" y="425" text-anchor="middle" class="b d">Few</text>
+<text x="720" y="425" text-anchor="middle" class="b d">Many</text>
+<text x="480" y="525" text-anchor="middle" class="c">Many know, pay dips</text>
+<text x="480" y="560" text-anchor="middle" class="b d">Bill Bowman, 1992 oral history</text>
+</svg>
