@@ -37,6 +37,7 @@ NON_INVESTMENT = {'herdr-complete-guide', 'herdr-codexbar-jianguo-quota-dispatch
 TAGS = {
     'herdr-complete-guide': ['herdr', 'AI agent', '終端機', '工具教學', '工作流'],
     'herdr-codexbar-jianguo-quota-dispatch': ['AI agent', '額度', 'CodexBar', '監國協議', '自動化'],
+    'uncommon-sense-how-many-monkeys': ['新書讀書會', '讀書筆記', '機率', '倖存者偏差', '投資心理'],
     'crisis-engineering-no-one-is-coming': ['讀書筆記', '危機管理', '複雜系統', '風控', '持股檢查'],
     'apple-first-50-years-toll-booth': ['讀書筆記', '蘋果', '商業模式', '庫藏股', '反壟斷'],
     'infinity-machine-who-pays-for-compute': ['讀書筆記', 'DeepMind', '資本支出', '自由現金流', 'AI供應鏈'],
@@ -83,6 +84,7 @@ except (OSError, ValueError):
 COVERS = {
     'herdr-complete-guide': 'herdr-complete-guide.png',
     'herdr-codexbar-jianguo-quota-dispatch': 'herdr-codexbar-jianguo-quota-dispatch.png',
+    'uncommon-sense-how-many-monkeys': 'uncommon-sense-how-many-monkeys.png',
     'crisis-engineering-no-one-is-coming': 'crisis-engineering-no-one-is-coming.png',
     'apple-first-50-years-toll-booth': 'apple-first-50-years-toll-booth.png',
     'infinity-machine-who-pays-for-compute': 'infinity-machine-who-pays-for-compute.png',
