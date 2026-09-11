@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two line-chart panels show that in normal times stocks fall while bonds rise and the lines cross, but in the Liberation Day selloff both stock and bond lines move down together.">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+    .t{font-size:27px;font-weight:700}.g{font-size:20px;font-weight:600}.b{font-size:16px}.d{font-size:15px;fill:var(--dim)}.c{font-size:22px;font-weight:700}.a{fill:var(--accent)}.w{fill:var(--warn)}.p{fill:var(--page)}
+</style>
+<text class="t" x="480" y="52" text-anchor="middle">Haven working?</text>
+<line x1="480" y1="105" x2="480" y2="450" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="260" y="120" text-anchor="middle">Std</text>
+<text class="d" x="260" y="146" text-anchor="middle">Offset</text>
+<text class="g" x="700" y="120" text-anchor="middle">Lib. Day</text>
+<text class="d" x="700" y="146" text-anchor="middle">All↓</text>
+<path d="M100 190 L200 230 L300 300 L400 370" fill="none" stroke="var(--grey)" stroke-width="4"/>
+<path d="M100 370 L200 330 L300 270 L400 200" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text class="b" x="410" y="376">Stk</text>
+<text class="b a" x="410" y="206" font-weight="700">Bnd</text>
+<path d="M540 190 L640 240 L740 300 L840 370" fill="none" stroke="var(--grey)" stroke-width="4"/>
+<path d="M540 170 L640 205 L740 245 L840 285" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<text class="b" x="850" y="376">Stk</text>
+<text class="b w" x="850" y="291" font-weight="700">Bnd</text>
+<text class="b" x="260" y="430" text-anchor="middle">Yield ↓</text>
+<text class="b w" x="700" y="430" text-anchor="middle">Yield ↑</text>
+<text class="c" x="480" y="500" text-anchor="middle">Crash? Watch long yields</text>
+</svg>

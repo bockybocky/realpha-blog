@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="四根從零線往下垂的長條，存續期間越長垂得越深：2 年約跌 2%，5 年約 5%，10 年約 10%，20 年約 20%。">
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+    .t{font-size:27px;font-weight:700}.g{font-size:20px;font-weight:600}.b{font-size:16px}.d{font-size:15px;fill:var(--dim)}.c{font-size:22px;font-weight:700}.a{fill:var(--accent)}.w{fill:var(--warn)}.p{fill:var(--page)}
+</style>
+<text class="t" x="480" y="50" text-anchor="middle">利率升 1 個百分點，價格約跌多少</text>
+<text class="g" x="80" y="110">存續期間</text>
+<text class="d" x="880" y="110" text-anchor="end">粗估：跌幅 ≈ 存續期間 × 利率變動</text>
+<text class="b" x="185" y="155" text-anchor="middle">2 年</text>
+<text class="b" x="385" y="155" text-anchor="middle">5 年</text>
+<text class="b" x="585" y="155" text-anchor="middle">10 年</text>
+<text class="b" x="785" y="155" text-anchor="middle">20 年</text>
+<rect x="120" y="170" width="130" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+<rect x="320" y="170" width="130" height="75" fill="var(--accent)" fill-opacity="0.55"/>
+<rect x="520" y="170" width="130" height="150" fill="var(--accent)" fill-opacity="0.75"/>
+<rect x="720" y="170" width="130" height="300" fill="var(--accent)"/>
+<line x1="80" y1="170" x2="900" y2="170" stroke="var(--dim)" stroke-width="2"/>
+<text class="b" x="185" y="224" text-anchor="middle">約 -2%</text>
+<text class="b" x="385" y="269" text-anchor="middle">約 -5%</text>
+<text class="b" x="585" y="344" text-anchor="middle">約 -10%</text>
+<text class="b" x="785" y="494" text-anchor="middle" font-weight="700">約 -20%</text>
+<text class="c" x="480" y="565" text-anchor="middle">到期越遠，同樣的利率變動擺得越大</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="左側單一放款人注入容器，只裝到上限線；右側幾十個小點經漏斗匯入同樣大小的容器並裝滿。">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+    .t{font-size:27px;font-weight:700}.g{font-size:20px;font-weight:600}.b{font-size:16px}.d{font-size:15px;fill:var(--dim)}.c{font-size:22px;font-weight:700}.a{fill:var(--accent)}.w{fill:var(--warn)}.p{fill:var(--page)}
+</style>
+<defs>
+<pattern id="f2dots" x="0" y="0" width="28" height="30" patternUnits="userSpaceOnUse"><circle cx="14" cy="15" r="6" fill="var(--accent)"/></pattern>
+<marker id="f2arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="var(--dim)"/></marker>
+</defs>
+<text class="t" x="480" y="52" text-anchor="middle">一個放款人，還是幾千個出錢的人</text>
+<line x1="480" y1="100" x2="480" y2="530" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="240" y="120" text-anchor="middle">向一個人借</text>
+<circle cx="240" cy="200" r="42" fill="var(--grey)"/>
+<line x1="240" y1="248" x2="240" y2="355" stroke="var(--dim)" stroke-width="3" marker-end="url(#f2arr)"/>
+<rect x="130" y="370" width="220" height="120" fill="none" stroke="var(--dim)" stroke-width="2"/>
+<rect x="131" y="455" width="218" height="34" fill="var(--grey)"/>
+<line x1="120" y1="455" x2="360" y2="455" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 5"/>
+<text class="b w" x="366" y="461">上限</text>
+<text class="d" x="240" y="520" text-anchor="middle">借得到的錢</text>
+<text class="g" x="720" y="120" text-anchor="middle">發債向很多人借</text>
+<rect x="566" y="145" width="308" height="120" fill="url(#f2dots)"/>
+<polygon points="570,275 870,275 760,355 680,355" fill="var(--accent)" fill-opacity="0.15"/>
+<rect x="610" y="370" width="220" height="120" fill="none" stroke="var(--dim)" stroke-width="2"/>
+<rect x="611" y="380" width="218" height="109" fill="var(--accent)"/>
+<text class="d" x="720" y="520" text-anchor="middle">匯成大錢</text>
+<text class="c" x="480" y="565" text-anchor="middle">能轉手的借據，把小錢匯成大錢</text>
+</svg>

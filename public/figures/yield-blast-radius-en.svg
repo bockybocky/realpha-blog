@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="A small circle on the left shows a stock drop reaching only shareholders; concentric rings on the right spread from rising yields to mortgages, credit cards, and corporate loans, with the government's interest bill as the outermost ring.">
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+    .t{font-size:27px;font-weight:700}.g{font-size:20px;font-weight:600}.b{font-size:16px}.d{font-size:15px;fill:var(--dim)}.c{font-size:22px;font-weight:700}.a{fill:var(--accent)}.w{fill:var(--warn)}.p{fill:var(--page)}
+</style>
+<text class="t" x="480" y="52" text-anchor="middle">Same drop, wider reach</text>
+<text class="g" x="210" y="125" text-anchor="middle">Stock↓</text>
+<circle cx="210" cy="320" r="50" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text class="b" x="210" y="326" text-anchor="middle">Owners</text>
+<line x1="420" y1="110" x2="420" y2="520" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="680" y="125" text-anchor="middle">Yields rise</text>
+<circle cx="680" cy="320" r="185" fill="var(--accent)" fill-opacity="0.06" stroke="var(--accent)" stroke-width="1.5"/>
+<circle cx="680" cy="320" r="135" fill="var(--accent)" fill-opacity="0.10" stroke="var(--accent)" stroke-width="1.5"/>
+<circle cx="680" cy="320" r="88" fill="var(--accent)" fill-opacity="0.14" stroke="var(--accent)" stroke-width="1.5"/>
+<circle cx="680" cy="320" r="44" fill="var(--accent)"/>
+<text class="b p" x="680" y="326" text-anchor="middle" font-weight="700">Yield↑</text>
+<text class="b" x="680" y="258" text-anchor="middle">Mtg</text>
+<text class="b" x="680" y="211" text-anchor="middle">Cards·Firms</text>
+<text class="b" x="680" y="161" text-anchor="middle" font-weight="700">Govt bill</text>
+<text class="c" x="480" y="570" text-anchor="middle">Govts sit inside too</text>
+</svg>
