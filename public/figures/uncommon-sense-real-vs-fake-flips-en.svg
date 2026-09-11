@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A real coin-flip sequence shows a streak of 7 consecutive heads, while a human-invented sequence alternates with a maximum streak of only 2; bars below show that long streaks are highly probable">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .h { fill:var(--dim); }
+    .t { fill:none; stroke:var(--grey); stroke-width:2; }
+    .s { fill:var(--accent); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="480" y="48" font-size="27" font-weight="700" text-anchor="middle">Real flips cluster, humans don't dare</text>
+  <circle cx="400" cy="90" r="7" class="h"/>
+  <text x="414" y="96" font-size="16">Heads</text>
+  <circle cx="500" cy="90" r="7" class="t"/>
+  <text x="514" y="96" font-size="16">Tails</text>
+
+  <text x="40" y="197" font-size="20" font-weight="700">Real flips</text>
+  <rect x="239" y="174" width="142" height="32" rx="8" fill="var(--accent)" fill-opacity="0.14" stroke="var(--accent)" stroke-width="1.5"/>
+  <text x="310" y="162" font-size="19" font-weight="700" text-anchor="middle" fill="var(--accent)">Run of 7</text>
+  <g transform="translate(0,190)">
+    <circle cx="130" r="7" class="h"/><circle cx="150" r="7" class="t"/><circle cx="170" r="7" class="t"/>
+    <circle cx="190" r="7" class="h"/><circle cx="210" r="7" class="h"/><circle cx="230" r="7" class="t"/>
+    <circle cx="250" r="7" class="s"/><circle cx="270" r="7" class="s"/><circle cx="290" r="7" class="s"/>
+    <circle cx="310" r="7" class="s"/><circle cx="330" r="7" class="s"/><circle cx="350" r="7" class="s"/>
+    <circle cx="370" r="7" class="s"/><circle cx="390" r="7" class="t"/><circle cx="410" r="7" class="h"/>
+    <circle cx="430" r="7" class="t"/><circle cx="450" r="7" class="t"/><circle cx="470" r="7" class="h"/>
+    <circle cx="490" r="7" class="h"/><circle cx="510" r="7" class="t"/><circle cx="530" r="7" class="t"/>
+    <circle cx="550" r="7" class="t"/><circle cx="570" r="7" class="h"/><circle cx="590" r="7" class="t"/>
+    <circle cx="610" r="7" class="h"/><circle cx="630" r="7" class="h"/><circle cx="650" r="7" class="t"/>
+    <circle cx="670" r="7" class="t"/><circle cx="690" r="7" class="t"/><circle cx="710" r="7" class="t"/>
+    <circle cx="730" r="7" class="h"/><circle cx="750" r="7" class="t"/><circle cx="770" r="7" class="h"/>
+    <circle cx="790" r="7" class="h"/><circle cx="810" r="7" class="t"/><circle cx="830" r="7" class="t"/>
+    <circle cx="850" r="7" class="h"/><circle cx="870" r="7" class="t"/><circle cx="890" r="7" class="h"/>
+    <circle cx="910" r="7" class="t"/>
+  </g>
+
+  <text x="40" y="297" font-size="20" font-weight="700">Made up</text>
+  <text x="910" y="264" font-size="19" font-weight="700" text-anchor="end" fill="var(--warn)">Max run of 2</text>
+  <g transform="translate(0,290)">
+    <circle cx="130" r="7" class="h"/><circle cx="150" r="7" class="t"/><circle cx="170" r="7" class="h"/>
+    <circle cx="190" r="7" class="h"/><circle cx="210" r="7" class="t"/><circle cx="230" r="7" class="h"/>
+    <circle cx="250" r="7" class="t"/><circle cx="270" r="7" class="t"/><circle cx="290" r="7" class="h"/>
+    <circle cx="310" r="7" class="t"/><circle cx="330" r="7" class="h"/><circle cx="350" r="7" class="t"/>
+    <circle cx="370" r="7" class="h"/><circle cx="390" r="7" class="h"/><circle cx="410" r="7" class="t"/>
+    <circle cx="430" r="7" class="h"/><circle cx="450" r="7" class="t"/><circle cx="470" r="7" class="h"/>
+    <circle cx="490" r="7" class="t"/><circle cx="510" r="7" class="t"/><circle cx="530" r="7" class="h"/>
+    <circle cx="550" r="7" class="t"/><circle cx="570" r="7" class="h"/><circle cx="590" r="7" class="h"/>
+    <circle cx="610" r="7" class="t"/><circle cx="630" r="7" class="h"/><circle cx="650" r="7" class="t"/>
+    <circle cx="670" r="7" class="h"/><circle cx="690" r="7" class="t"/><circle cx="710" r="7" class="t"/>
+    <circle cx="730" r="7" class="h"/><circle cx="750" r="7" class="t"/><circle cx="770" r="7" class="h"/>
+    <circle cx="790" r="7" class="t"/><circle cx="810" r="7" class="h"/><circle cx="830" r="7" class="h"/>
+    <circle cx="850" r="7" class="t"/><circle cx="870" r="7" class="h"/><circle cx="890" r="7" class="t"/>
+    <circle cx="910" r="7" class="h"/>
+  </g>
+
+  <line x1="40" y1="345" x2="920" y2="345" stroke="var(--line)" stroke-width="1.5"/>
+  <text x="480" y="378" font-size="16" fill="var(--dim)" text-anchor="middle">Probability of at least once in 200 flips</text>
+  <text x="200" y="412" font-size="16" text-anchor="end">Run of 5</text>
+  <rect x="220" y="394" width="554" height="26" rx="4" class="s"/>
+  <text x="786" y="413" font-size="16" font-weight="700">≈100%</text>
+  <text x="200" y="456" font-size="16" text-anchor="end">Run of 7</text>
+  <rect x="220" y="438" width="487" height="26" rx="4" class="s"/>
+  <text x="719" y="457" font-size="16" font-weight="700">87%</text>
+  <text x="200" y="500" font-size="16" text-anchor="end">Run of 8</text>
+  <rect x="220" y="482" width="386" height="26" rx="4" class="s"/>
+  <text x="618" y="501" font-size="16" font-weight="700">69%</text>
+</svg>

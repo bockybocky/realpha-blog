@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="A comparison of two timelines: in the first version, the control group spans 1994 to 2026 while the fake indicator only appears after 2019, giving a score of 2.4; after correction, both share the 2019 to 2026 period, bringing the score to 0.7">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .f { fill:var(--accent); }
+    .c { fill:var(--dim); }
+    .ax { stroke:var(--grey); stroke-width:2; }
+    .yr { font-size:15px; fill:var(--dim); text-anchor:middle; }
+    .row { font-size:16px; text-anchor:end; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text x="480" y="46" font-size="27" font-weight="700" text-anchor="middle">Fake indicator vs. control group: sampling eras</text>
+
+  <rect x="642" y="100" width="138" height="175" fill="var(--accent)" fill-opacity="0.08"/>
+  <rect x="642" y="320" width="138" height="175" fill="var(--accent)" fill-opacity="0.08"/>
+
+  <text x="40" y="96" font-size="20" font-weight="700">Version 1</text>
+  <text x="138" y="156" class="row">Fake indicator</text>
+  <g class="f">
+    <circle cx="648" cy="150" r="6"/><circle cx="660" cy="150" r="6"/><circle cx="671" cy="150" r="6"/>
+    <circle cx="685" cy="150" r="6"/><circle cx="694" cy="150" r="6"/><circle cx="706" cy="150" r="6"/>
+    <circle cx="719" cy="150" r="6"/><circle cx="728" cy="150" r="6"/><circle cx="741" cy="150" r="6"/>
+    <circle cx="752" cy="150" r="6"/><circle cx="763" cy="150" r="6"/><circle cx="774" cy="150" r="6"/>
+  </g>
+  <text x="138" y="206" class="row">Control group</text>
+  <g class="c">
+    <circle cx="165" cy="200" r="6"/><circle cx="218" cy="200" r="6"/><circle cx="270" cy="200" r="6"/>
+    <circle cx="322" cy="200" r="6"/><circle cx="375" cy="200" r="6"/><circle cx="428" cy="200" r="6"/>
+    <circle cx="480" cy="200" r="6"/><circle cx="533" cy="200" r="6"/><circle cx="586" cy="200" r="6"/>
+    <circle cx="638" cy="200" r="6"/><circle cx="705" cy="200" r="6"/><circle cx="765" cy="200" r="6"/>
+  </g>
+  <line x1="150" y1="240" x2="780" y2="240" class="ax"/>
+  <text x="150" y="262" class="yr">1994</text>
+  <text x="642" y="262" class="yr">2019</text>
+  <text x="780" y="262" class="yr">2026</text>
+  <text x="870" y="160" font-size="16" fill="var(--dim)" text-anchor="middle">Score</text>
+  <text x="870" y="200" font-size="27" font-weight="700" fill="var(--warn)" text-anchor="middle">2.4</text>
+  <text x="870" y="226" font-size="15" fill="var(--dim)" text-anchor="middle">Over threshold 2</text>
+
+  <text x="40" y="316" font-size="20" font-weight="700">Corrected</text>
+  <text x="138" y="376" class="row">Fake indicator</text>
+  <g class="f">
+    <circle cx="648" cy="370" r="6"/><circle cx="660" cy="370" r="6"/><circle cx="671" cy="370" r="6"/>
+    <circle cx="685" cy="370" r="6"/><circle cx="694" cy="370" r="6"/><circle cx="706" cy="370" r="6"/>
+    <circle cx="719" cy="370" r="6"/><circle cx="728" cy="370" r="6"/><circle cx="741" cy="370" r="6"/>
+    <circle cx="752" cy="370" r="6"/><circle cx="763" cy="370" r="6"/><circle cx="774" cy="370" r="6"/>
+  </g>
+  <text x="138" y="426" class="row">Control group</text>
+  <g class="c">
+    <circle cx="646" cy="420" r="5"/><circle cx="657" cy="420" r="5"/><circle cx="668" cy="420" r="5"/>
+    <circle cx="680" cy="420" r="5"/><circle cx="691" cy="420" r="5"/><circle cx="702" cy="420" r="5"/>
+    <circle cx="714" cy="420" r="5"/><circle cx="725" cy="420" r="5"/><circle cx="736" cy="420" r="5"/>
+    <circle cx="748" cy="420" r="5"/><circle cx="759" cy="420" r="5"/><circle cx="770" cy="420" r="5"/>
+  </g>
+  <line x1="150" y1="460" x2="780" y2="460" class="ax"/>
+  <text x="150" y="482" class="yr">1994</text>
+  <text x="642" y="482" class="yr">2019</text>
+  <text x="780" y="482" class="yr">2026</text>
+  <text x="870" y="380" font-size="16" fill="var(--dim)" text-anchor="middle">Score</text>
+  <text x="870" y="420" font-size="27" font-weight="700" fill="var(--accent)" text-anchor="middle">0.7</text>
+  <text x="870" y="446" font-size="15" fill="var(--dim)" text-anchor="middle">Back to random</text>
+
+  <text x="480" y="546" font-size="22" font-weight="700" text-anchor="middle">What version 1 measured: the gap between two eras</text>
+</svg>

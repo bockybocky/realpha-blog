@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="八根長條每天減半，從 64,000 人縮到 500 人，虛線外框代表被刷掉、收信人看不見的 63,500 人">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .ghost { fill:none; stroke:var(--grey); stroke-width:1.5; stroke-dasharray:5 4; }
+    .bar { fill:var(--accent); }
+    .num { font-size:16px; text-anchor:middle; }
+    .day { font-size:15px; fill:var(--dim); text-anchor:middle; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="480" y="48" font-size="27" font-weight="700" text-anchor="middle">每天砍一半，只寄給猜對的人</text>
+  <rect x="90" y="74" width="16" height="16" class="bar"/>
+  <text x="114" y="88" font-size="16">還在收信</text>
+  <rect x="240" y="74" width="16" height="16" class="ghost"/>
+  <text x="264" y="88" font-size="16">已被刷掉</text>
+
+  <rect x="90" y="120" width="70" height="320" class="ghost"/>
+  <rect x="185" y="120" width="70" height="320" class="ghost"/>
+  <rect x="280" y="120" width="70" height="320" class="ghost"/>
+  <rect x="375" y="120" width="70" height="320" class="ghost"/>
+  <rect x="470" y="120" width="70" height="320" class="ghost"/>
+  <rect x="565" y="120" width="70" height="320" class="ghost"/>
+  <rect x="660" y="120" width="70" height="320" class="ghost"/>
+  <rect x="755" y="120" width="70" height="320" class="ghost"/>
+
+  <rect x="90" y="120" width="70" height="320" class="bar"/>
+  <rect x="185" y="280" width="70" height="160" class="bar"/>
+  <rect x="280" y="360" width="70" height="80" class="bar"/>
+  <rect x="375" y="400" width="70" height="40" class="bar"/>
+  <rect x="470" y="420" width="70" height="20" class="bar"/>
+  <rect x="565" y="430" width="70" height="10" class="bar"/>
+  <rect x="660" y="435" width="70" height="5" class="bar"/>
+  <rect x="755" y="437" width="70" height="3" class="bar"/>
+
+  <text x="125" y="110" class="num">64,000</text>
+  <text x="220" y="270" class="num">32,000</text>
+  <text x="315" y="350" class="num">16,000</text>
+  <text x="410" y="390" class="num">8,000</text>
+  <text x="505" y="410" class="num">4,000</text>
+  <text x="600" y="420" class="num">2,000</text>
+  <text x="695" y="425" class="num">1,000</text>
+  <text x="790" y="428" class="num" font-weight="700" fill="var(--accent)">500</text>
+  <text x="790" y="404" font-size="16" text-anchor="middle" fill="var(--accent)">七天全對</text>
+
+  <text x="125" y="466" class="day">第 1 天</text>
+  <text x="220" y="466" class="day">第 2 天</text>
+  <text x="315" y="466" class="day">第 3 天</text>
+  <text x="410" y="466" class="day">第 4 天</text>
+  <text x="505" y="466" class="day">第 5 天</text>
+  <text x="600" y="466" class="day">第 6 天</text>
+  <text x="695" y="466" class="day">第 7 天</text>
+  <text x="790" y="466" class="day">第 8 天</text>
+
+  <path d="M838 122 H850 V380 H838" fill="none" stroke="var(--dim)" stroke-width="1.5"/>
+  <text x="862" y="240" font-size="19" font-weight="700">63,500</text>
+  <text x="862" y="265" font-size="16">封錯信</text>
+  <text x="862" y="288" font-size="16" fill="var(--dim)">沒人看見</text>
+
+  <text x="480" y="522" font-size="22" font-weight="700" text-anchor="middle">收信的人只看得見最後那 500</text>
+</svg>

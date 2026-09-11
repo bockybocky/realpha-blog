@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="五個來源中有四個的箭頭匯進同一份選擇權未平倉資料，第五個指向另一個問題，表面五個來源實際只有一個獨立">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .src { fill:var(--card); stroke:var(--dim); stroke-width:2; }
+    .n { font-size:19px; font-weight:700; text-anchor:middle; }
+    .a1 { stroke:var(--accent); stroke-width:2.5; fill:none; }
+    .a2 { stroke:var(--grey); stroke-width:2.5; fill:none; stroke-dasharray:7 5; }
+  </style>
+  <defs>
+    <marker id="uc-ha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="uc-hg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--grey)"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="480" y="46" font-size="27" font-weight="700" text-anchor="middle">五個來源同意？先看讀哪一頁</text>
+
+  <text x="170" y="100" font-size="19" font-weight="700" text-anchor="middle">五個來源</text>
+  <circle cx="170" cy="140" r="26" class="src"/><text x="170" y="147" class="n">1</text>
+  <circle cx="170" cy="205" r="26" class="src"/><text x="170" y="212" class="n">2</text>
+  <circle cx="170" cy="270" r="26" class="src"/><text x="170" y="277" class="n">3</text>
+  <circle cx="170" cy="335" r="26" class="src"/><text x="170" y="342" class="n">4</text>
+  <circle cx="170" cy="420" r="26" class="src"/><text x="170" y="427" class="n">5</text>
+
+  <path d="M198 145 L466 222" class="a1" marker-end="url(#uc-ha)"/>
+  <path d="M198 207 L466 233" class="a1" marker-end="url(#uc-ha)"/>
+  <path d="M198 268 L466 246" class="a1" marker-end="url(#uc-ha)"/>
+  <path d="M198 330 L466 258" class="a1" marker-end="url(#uc-ha)"/>
+  <path d="M198 420 L466 420" class="a2" marker-end="url(#uc-hg)"/>
+
+  <rect x="470" y="205" width="230" height="70" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="585" y="247" font-size="19" font-weight="700" text-anchor="middle">選擇權未平倉</text>
+  <text x="585" y="300" font-size="15" fill="var(--dim)" text-anchor="middle">同一批資料</text>
+
+  <rect x="470" y="390" width="230" height="60" rx="10" fill="var(--card)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="585" y="426" font-size="19" text-anchor="middle" fill="var(--dim)">保證金限制</text>
+  <text x="585" y="474" font-size="15" fill="var(--dim)" text-anchor="middle">回答另一題</text>
+
+  <text x="850" y="170" font-size="16" fill="var(--dim)" text-anchor="middle">看起來</text>
+  <text x="850" y="210" font-size="27" font-weight="700" fill="var(--grey)" text-anchor="middle">5 個</text>
+  <path d="M850 226 L850 262" stroke="var(--dim)" stroke-width="2" fill="none"/>
+  <path d="M843 256 L850 268 L857 256" stroke="var(--dim)" stroke-width="2" fill="none"/>
+  <text x="850" y="296" font-size="16" fill="var(--dim)" text-anchor="middle">實際獨立</text>
+  <text x="850" y="336" font-size="27" font-weight="700" fill="var(--accent)" text-anchor="middle">1 個</text>
+
+  <text x="480" y="515" font-size="22" font-weight="700" text-anchor="middle">抄同一份稿，還是一隻猴子</text>
+</svg>
