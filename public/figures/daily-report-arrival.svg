@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一週七列時間軸：藍點每天都整齊落在清晨四點十分，橘點散落在九點半期限虛線的右側，有一天未交，週末空白">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:19px; font-weight:600; }
+    .b { font-size:16px; }
+    .s { font-size:15px; }
+    .c { font-size:22px; font-weight:700; }
+    .ac { fill:var(--accent); }
+    .wn { fill:var(--warn); }
+    .dm { fill:var(--dim); }
+</style>
+<text x="60" y="52" class="t">日報幾點到？（示意一週）</text>
+<line x1="570" y1="100" x2="570" y2="440" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="578" y="98" class="s wn">期限 09:30</text>
+<text x="250" y="106" class="s ac" text-anchor="middle">04:10</text>
+<g stroke="var(--line)" stroke-width="1">
+<line x1="180" y1="120" x2="900" y2="120"/>
+<line x1="180" y1="170" x2="900" y2="170"/>
+<line x1="180" y1="220" x2="900" y2="220"/>
+<line x1="180" y1="270" x2="900" y2="270"/>
+<line x1="180" y1="320" x2="900" y2="320"/>
+<line x1="180" y1="370" x2="900" y2="370"/>
+<line x1="180" y1="420" x2="900" y2="420"/>
+</g>
+<text x="150" y="126" class="b" text-anchor="end">週一</text>
+<text x="150" y="176" class="b" text-anchor="end">週二</text>
+<text x="150" y="226" class="b" text-anchor="end">週三</text>
+<text x="150" y="276" class="b" text-anchor="end">週四</text>
+<text x="150" y="326" class="b" text-anchor="end">週五</text>
+<text x="150" y="376" class="b" text-anchor="end">週六</text>
+<text x="150" y="426" class="b" text-anchor="end">週日</text>
+<g fill="var(--accent)">
+<circle cx="250" cy="120" r="9"/>
+<circle cx="250" cy="170" r="9"/>
+<circle cx="250" cy="220" r="9"/>
+<circle cx="250" cy="270" r="9"/>
+<circle cx="250" cy="320" r="9"/>
+<circle cx="250" cy="370" r="9"/>
+<circle cx="250" cy="420" r="9"/>
+</g>
+<g fill="var(--warn)">
+<circle cx="660" cy="120" r="9"/>
+<circle cx="840" cy="170" r="9"/>
+<circle cx="600" cy="270" r="9"/>
+<circle cx="780" cy="320" r="9"/>
+</g>
+<text x="600" y="226" class="s dm" text-anchor="middle">未交</text>
+<text x="600" y="376" class="s dm" text-anchor="middle">休</text>
+<text x="600" y="426" class="s dm" text-anchor="middle">休</text>
+<text x="180" y="462" class="s dm" text-anchor="middle">03:00</text>
+<text x="360" y="462" class="s dm" text-anchor="middle">06:00</text>
+<text x="540" y="462" class="s dm" text-anchor="middle">09:00</text>
+<text x="720" y="462" class="s dm" text-anchor="middle">12:00</text>
+<text x="900" y="462" class="s dm" text-anchor="middle">15:00</text>
+<circle cx="190" cy="508" r="8" fill="var(--accent)"/>
+<text x="206" y="514" class="b">代理</text>
+<circle cx="290" cy="508" r="8" fill="var(--warn)"/>
+<text x="306" y="514" class="b">人工</text>
+<text x="900" y="516" class="c ac" text-anchor="end">每天 04:10，全年無休</text>
+</svg>

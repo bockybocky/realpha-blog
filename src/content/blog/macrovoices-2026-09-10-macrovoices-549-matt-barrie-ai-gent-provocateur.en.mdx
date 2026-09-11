@@ -1,0 +1,94 @@
+---
+title: "44 AI Agents, 4 Billion Tokens a Day — Notes on MacroVoices #549 with Matt Barrie"
+description: "Reflections on the MacroVoices interview with Freelancer.com founder Matt Barrie (2026-09-10). Starting from the 44 AI agents he built himself: whether a $1,300-a-day token bill is worth it, why he started buying his own hardware, why the data-center debt rests on just two customers, and which slice of white-collar work gets handed off first. Educational notes only — no investment advice, no tickers, no price calls."
+slug: "macrovoices-2026-09-10-macrovoices-549-matt-barrie-ai-gent-provocateur"
+lang: "en"
+pubDate: 2026-09-11
+category: "investing"
+tags: ["AI agents", "data centers", "compute costs", "open-source models", "white-collar automation", "macro"]
+ogImage: "/covers/macrovoices-2026-09-10-macrovoices-549-matt-barrie-ai-gent-provocateur-cover.png"
+cover: "/covers/macrovoices-2026-09-10-macrovoices-549-matt-barrie-ai-gent-provocateur-cover.png"
+---
+
+![An empty office at 4 a.m., rows of vacant desks receding into darkness, four small metal computers glowing softly on the nearest desk, a laptop's blue light falling on a cold cup of coffee, the far window just turning grey with dawn](/covers/macrovoices-2026-09-10-macrovoices-549-matt-barrie-ai-gent-provocateur-cover.png)
+
+> To govern the people of the present age with the policies of the ancient kings is to be like the man waiting by the tree stump for another hare.
+>
+> When the age changes, affairs change … when affairs change, preparations must change.
+>
+> —— Han Feizi, "The Five Vermin" (Warring States period, 3rd century BC; my translation)
+
+## What this episode is about
+
+In the September 10, 2026 episode of MacroVoices, host Erik Townsend brought back Freelancer.com founder Matt Barrie. His earlier AI appearances mostly compared which models were ahead. This time he talked about what he'd done with his own hands over the past month: he built 44 AI agents by himself, burned 4 billion tokens in a single day, and then started doing the accounting — the bill, the hardware, the data leakage, the debt behind the data centers, all the way down to where white-collar jobs sit.
+
+The second half is Patrick Ceresna's market segment on oil, long-bond yields and market breadth. I picked one piece of it to fold into the thoughts below.
+
+## The key points
+
+**1. Start with the work that waits in a queue.** Freelancer.com gets a flood of user-posted projects every day. The ones its statistical classifier can't call get escalated to human reviewers, and covering that 24/7 takes a team of eleven. Barrie says it took him two sessions, half an hour to an hour each, to hand that review queue to an AI agent. He then went team by team, and the ones he picked all shared one shape: you come in in the morning and the work is already lined up waiting.
+
+**2. The daily report he waited 17 years for.** A performance marketer quit — a role paying roughly $150,000–200,000 a year. Barrie first had Claude teach him how Google Ads works, then wrote an agent that, at 4 a.m. every day, reads the ads account, site analytics, the database, the prior day's financials, newly shipped code and the ticketing system, and lands tuning recommendations in his inbox by 4:10. For 17 years he'd asked every team for a daily report by 9:30 a.m. and never got one on time — sometimes 2 p.m., sometimes not at all. Now agents write every team's report. He calls it superhuman for a plain reason: no person will get up at four every day of the year and do the same job equally well.
+
+**3. $1,300 a day — expensive compared with what?** That 4-billion-token day cost about $1,300, $900 of it on Anthropic's Sonnet. Break it down and 3 billion of those tokens were prompt cache; without caching, on an Opus-class model, he estimates $80,000. One more prompt — asking the agents to review their own usage and cut cost — dropped usage by another 85%. Running the same work on China's GLM 5.3 would cost about $150. Same job, $80,000 down to $150: a 500x spread. The host did the math from the other side on the spot: that role's salary is around $800 a day, and trimming 10% off a $500,000-a-month ad budget is worth roughly $1,700 a day.
+
+**4. "Not my AI, not my data."** The price of free models is that your data trains them. He cites a new GLM release that went out free for a week under a code name, giving away 100 trillion tokens — and all that week people online noticed it improving fast. Barrie bought NVIDIA DGX Sparks at about $4,000 each; when he went back for more, the price had risen and stock was gone, and the switch that chains four together was sold out worldwide. A linked pair runs the 300-billion-parameter DeepSeek V4 Flash at 45–60 tokens a second. Supporting his current agent load would take about 16 boxes, $65,000, or roughly $100 a day amortized over two years; at about 100 watts each, the whole cluster draws less than a kettle. At his other company, Escrow.com, GPUs and servers are about to become the second-largest category, as last-generation machines come off lease and flow into the secondary market.
+
+**5. $1.65 trillion of debt, two customers.** He cites critic Ed Zitron: over the past five years the hyperscalers have taken on about $1.65 trillion of debt, before counting what sits off balance sheet in special-purpose vehicles — Meta, for instance, discloses about $46 billion of exposure to its Hyperion data center that its balance sheet doesn't show. Subprime peaked at $1.3 trillion in 2007 with 55 million mortgages behind it. This wave's end customers, he says, are two companies: OpenAI and Anthropic, which account for 73% of Amazon's AI revenue and 74% of Microsoft's. He likens today's token prices to a mortgage teaser rate.
+
+**6. The moats are gone, and agents have no loyalty.** He moved his agents from Claude Code to another agent harness by typing a single line asking them to package themselves into a file he could load on the other side. Building a foundation model, he says, is "like opening a Thai restaurant in a row of Thai restaurants in Thailand, on steroids." OpenAI's new Astra model is billed as reaching artificial general intelligence; he asked it to draw a border around a design for a fitness app, and it botched all six attempts.
+
+**7. Energy is the final boss.** Against Elon Musk's "age of abundance," Barrie offers his own bill: if every person on Earth burned 4 billion tokens a day, it would take 30 terawatts — by his estimate around ten times global energy production, and far beyond anything in today's data-center power plans.
+
+## Going further
+
+### 1. "Won't the token bill eat whatever AI saves?"
+
+When a company adopts AI, or you sign up for a few tools yourself, the month-end bill can sting. Reading earnings reports, AI spending climbs quarter after quarter and it's hard to tell investment from burn. I had the same reaction to Barrie's number, and then noticed what the host did: he swapped the denominator.
+
+Barrie's denominator was "everything on the internet used to be free," so $1,300 looked outrageous. The host swapped in the role's salary plus a tenth of the ad budget — about $2,500 a day — and the math flipped.
+
+The second layer is the 500x spread. Caching, one cost-cutting prompt, switching models: each knocked the price down by an order of magnitude while the agents did the same amount of work. Token price and the value of the work run on two separate lines, and the bill's total can't tell you whether it's worth it.
+
+Near the end Barrie offered his own contrast: using AI is like pulling a slot machine — you pay per token, and sometimes you're amazed and sometimes you go in circles — while a freelance marketplace charges per outcome. He's selling his own platform there, so I discount it, but the distinction holds up. When a company now claims AI saved it money, I look for whether it can state the unit cost of getting one piece of work done, before and after. If it only reports total spend or total usage, I can't yet tell whether it's investing or burning cash.
+
+Barrie named where this reading breaks: the teaser rate ends and token prices jump. Buying hardware is his hedge against that day.
+
+### 2. "Usage keeps climbing — so why do people call data centers a bubble?"
+
+The news says token usage is exploding and data centers can't be built fast enough; others shout bubble. Both sides have numbers. The way I untangle it is to look at volume and price separately.
+
+On demand, Barrie himself is the most aggressive example: from zero to 4 billion tokens a day in a month, with plans to go 10x and 100x. He has no doubt about demand. What he doubts is price. In his words, usage is going through the roof, "but I'm not going to pay the prices the frontier models want to charge." His money flows three ways: cheap Chinese open-source models, his own hardware, and caching plus code optimization. All three push unit prices down.
+
+Connect that to the debt and the problem shows. The ability to repay $1.65 trillion was estimated as frontier-model prices times future volume. If most of the volume growth flows to open-source models and owned hardware, the money spent building data centers and the money coming back stop lining up. In the subprime comparison, the most informative number to me is the denominator: 55 million mortgages versus two customers. The first needs a crowd of borrowers to fail together; the second needs two companies' cash flows to wobble.
+
+The opposing explanation deserves a seat too. Barrie concedes Anthropic's models are still steadier on long, multi-step agentic work, and Chinese models sometimes get stuck in loops. If that gap holds, companies will pay up for reliability, and the debt gets serviced. So what I'd watch is how fast open-source models close the gap with frontier models on agentic tasks; leaderboard rankings tell me little.
+
+Patrick's market segment adds the other side. A month ago about 70% of S&P 500 stocks were trending above their 50-day moving average; now it's around 35%. The index has barely moved because a handful of mega-cap tech and semiconductor names are holding it up. His image is a castle built on sand: the sand is shifting, the castle hasn't moved yet. AI concentration shows up in the data-center debt, and it shows up in the index weights.
+
+### 3. "Is AI going to take my job?"
+
+This was the part that stayed with me most, because it steps outside investing.
+
+The sequence Barrie sees inside his company: first dashboards, then reports, then the queues themselves. His freight team has a dashboard that tells a rep "call this customer in the next two minutes" and how far they are from their commission hurdle, with a box on the side where you type feedback and the dashboard rewrites itself. Each step can be handed off only because someone first cut the work into repeatable, checkable pieces. He says a team leader with five people underneath will become a team leader plus AI.
+
+The host told a story. He'd assumed this would take years to spread, because the consultants who know how are expensive. One day he took the elevator down to grab a sandwich and ran into Pete, the building's maintenance guy; they usually talked about Pete's Jeep. This time Pete said he'd fallen for Claude Code — he'd only just learned websites have APIs, and that he could write his own code to wire them into dashboards. The host said it changed his mind: the speed of spread comes from curiosity, and the barrier has dropped to being able to say clearly in English what you want.
+
+So the test I took away is about the shape of the work: repeated daily, steps that can be written down, results that can be checked. The more of those three a job has, the sooner it gets handed off. Barrie's answer for a 19-year-old is to learn agency; the value he leaves to university is discipline and peer pressure.
+
+I'm less sure about the endpoint he paints — a hyper-competitive society where everyone runs a hustle, like the streets of India where everyone finds their own living. When the host pressed him on the thousand workers let go the day the tractor arrived, he answered from a different angle, and what happens to that generation went unanswered.
+
+## Where to look next
+
+- MacroVoices #549 episode page (macrovoices.com), which links to the essay Matt Barrie published alongside the interview
+- Matt Barrie, "Agent Provocateur," on Medium — an extension of this conversation
+- Ed Zitron's newsletter, Where's Your Ed At (wheresyoured.at), the source of the data-center debt critique
+- Ray Kurzweil, *The Singularity Is Near* (2005), the original source behind the episode's singularity discussion
+
+## The one thing to take away
+
+**Whether a task can be handed off depends on whether its steps can be written down.**
+
+Barrie handed off an eleven-person, round-the-clock queue in two sessions because that queue already had a clear intake, decision and release. The daily report he chased for 17 years now arrives at 4:10 every morning — he'd long since spelled out what the report should contain; what was missing was an executor that never gets tired.
+
+One thing I've tried: pick something you repeat every week — grocery shopping, paying bills, answering one kind of message, booking a parent's follow-up appointment. Take a sheet of paper and pretend you're handing it to a stranger tomorrow. Write the steps down one by one and mark each "just do it" or "needs judgment." The step where all you can write is "depends" is the real decision point in that task; everything marked "just do it" can go to a schedule, a checklist, or someone else in the family.

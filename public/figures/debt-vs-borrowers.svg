@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="左邊一條債務長條下方是密密麻麻的小點，右邊一條更長的債務長條下方只有兩個大圓">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; }
+    .s { font-size:15px; }
+    .ac { fill:var(--accent); }
+    .wn { fill:var(--warn); }
+    .dm { fill:var(--dim); }
+    .pg { fill:var(--page); }
+</style>
+<defs>
+<pattern id="dots549" x="62" y="217" width="17" height="17" patternUnits="userSpaceOnUse">
+<circle cx="8.5" cy="8.5" r="3.5" fill="var(--accent)"/>
+</pattern>
+</defs>
+<text x="60" y="52" class="t">一樣大的債，靠多少人還</text>
+<line x1="470" y1="90" x2="470" y2="500" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="60" y="105" class="g">2007 次貸</text>
+<rect x="60" y="120" width="299" height="40" fill="var(--dim)"/>
+<text x="72" y="146" class="b pg">13,000 億美元</text>
+<text x="520" y="105" class="g">AI 雲端債</text>
+<rect x="520" y="120" width="380" height="40" fill="var(--dim)"/>
+<text x="532" y="146" class="b pg">16,500 億美元</text>
+<text x="60" y="200" class="s dm">還款來源</text>
+<text x="520" y="200" class="s dm">還款來源</text>
+<rect x="62" y="217" width="306" height="187" fill="url(#dots549)"/>
+<text x="215" y="442" class="g" text-anchor="middle">5,500 萬筆房貸</text>
+<text x="215" y="468" class="s dm" text-anchor="middle">很多人同時出事才倒</text>
+<circle cx="630" cy="310" r="78" fill="var(--warn)"/>
+<circle cx="800" cy="310" r="78" fill="var(--warn)"/>
+<text x="630" y="316" class="b pg" text-anchor="middle">OpenAI</text>
+<text x="800" y="316" class="b pg" text-anchor="middle">Anthropic</text>
+<text x="715" y="442" class="g wn" text-anchor="middle">2 家客戶</text>
+<text x="715" y="468" class="s dm" text-anchor="middle">兩家出事就夠</text>
+<text x="715" y="530" class="s dm" text-anchor="middle">佔 Amazon AI 營收 73%・Microsoft 74%</text>
+</svg>
