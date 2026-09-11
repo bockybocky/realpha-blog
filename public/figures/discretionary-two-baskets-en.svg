@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A combined line splits in the middle, with the experiences basket rising alongside the dashed credit-card line and the goods basket falling.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text class="t" x="480" y="50" text-anchor="middle">Discretionary splits</text>
+<line x1="330" y1="90" x2="370" y2="90" stroke="var(--dim)" stroke-width="2.5" stroke-dasharray="7 6"/>
+<text class="s" x="380" y="95">Card spend</text>
+<text class="s" x="600" y="95">Ill.</text>
+<path d="M80,300 L300,300" fill="none" stroke="var(--dim)" stroke-width="5"/>
+<text class="s" x="190" y="285" text-anchor="middle">Combined</text>
+<path d="M300,300 C450,288 620,258 760,228" fill="none" stroke="var(--dim)" stroke-width="2.5" stroke-dasharray="7 6"/>
+<path d="M300,300 C450,282 620,248 760,212" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<path d="M300,300 C450,330 620,390 760,440" fill="none" stroke="var(--warn)" stroke-width="5"/>
+<circle cx="300" cy="300" r="7" fill="var(--ink)"/>
+<text class="s" x="300" y="336" text-anchor="middle">Split</text>
+<text class="g" x="778" y="212" style="fill:var(--accent)">Exp</text>
+<text class="s" x="778" y="236">Air·hotel·gigs</text>
+<text class="g" x="778" y="442" style="fill:var(--warn)">Gds</text>
+<text class="s" x="778" y="466">Garage junk</text>
+<text class="c" x="480" y="530" text-anchor="middle">Goods fall; exp. rise</text>
+</svg>
