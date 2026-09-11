@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="On a timeline, the technology line is present from start to finish, while three other condition lines light up in turn only near the end and meet at the same vertical line.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+    .absent { stroke:var(--grey); stroke-width:2; stroke-dasharray:4 7; }
+    .on { stroke:var(--accent); stroke-width:6; stroke-linecap:round; }
+</style>
+<text x="60" y="64" class="t">Tech old, conditions new</text>
+<text x="820" y="112" text-anchor="middle" class="g" style="fill:var(--accent)">Same year</text>
+<line x1="820" y1="124" x2="820" y2="404" stroke="var(--accent)" stroke-width="2"/>
+<text x="60" y="157" class="g">Tech</text>
+<line x1="150" y1="150" x2="820" y2="150" stroke="var(--grey)" stroke-width="6" stroke-linecap="round"/>
+<text x="450" y="134" text-anchor="middle" class="b">Soon, every year</text>
+<circle cx="820" cy="150" r="7" fill="var(--grey)"/>
+<text x="60" y="247" class="g">Demand</text>
+<line x1="150" y1="240" x2="600" y2="240" class="absent"/>
+<line x1="600" y1="240" x2="820" y2="240" class="on"/>
+<text x="600" y="224" class="b">800V</text>
+<circle cx="820" cy="240" r="7" fill="var(--accent)"/>
+<text x="60" y="317" class="g">Price gap</text>
+<line x1="150" y1="310" x2="680" y2="310" class="absent"/>
+<line x1="680" y1="310" x2="820" y2="310" class="on"/>
+<text x="680" y="294" class="b">Hikes</text>
+<circle cx="820" cy="310" r="7" fill="var(--accent)"/>
+<text x="60" y="387" class="g">Buyer</text>
+<line x1="150" y1="380" x2="760" y2="380" class="absent"/>
+<line x1="760" y1="380" x2="820" y2="380" class="on"/>
+<text x="740" y="364" class="b">SpaceX</text>
+<circle cx="820" cy="380" r="7" fill="var(--accent)"/>
+<line x1="150" y1="440" x2="860" y2="440" stroke="var(--line)" stroke-width="2"/>
+<text x="150" y="468" text-anchor="middle" class="b">10 yrs ago</text>
+<text x="820" y="468" text-anchor="middle" class="b">This year</text>
+<text x="480" y="526" text-anchor="middle" class="c">Check old-route cost</text>
+</svg>

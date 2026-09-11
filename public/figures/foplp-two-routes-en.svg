@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="One node forks into left and right paths: the left path is a small package holding two components, and the right path is a large panel covered in chips, with some chips skewed and the bottom edge curved.">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+    .chip { fill:var(--grey); }
+    .off { fill:var(--grey); stroke:var(--warn); stroke-width:2.5; }
+</style>
+<text x="60" y="64" class="t">FOPLP: two paths</text>
+<rect x="380" y="100" width="200" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="480" y="132" text-anchor="middle" class="g">FOPLP</text>
+<path d="M480 150 L480 175 L240 175 L240 205 M480 175 L710 175 L710 205" fill="none" stroke="var(--dim)" stroke-width="2"/>
+<text x="240" y="232" text-anchor="middle" class="g">Coarse</text>
+<text x="240" y="256" text-anchor="middle" class="b">Power IC</text>
+<rect x="165" y="285" width="150" height="90" rx="10" fill="none" stroke="var(--ink)" stroke-width="2"/>
+<rect x="182" y="305" width="55" height="50" rx="3" fill="var(--accent)"/>
+<rect x="248" y="305" width="50" height="50" rx="3" fill="var(--grey)"/>
+<text x="240" y="400" text-anchor="middle" class="b">GaN+driver</text>
+<text x="240" y="426" text-anchor="middle" class="b">Legacy OK</text>
+<text x="710" y="232" text-anchor="middle" class="g">Fine</text>
+<text x="710" y="256" text-anchor="middle" class="b">TSMC path</text>
+<path d="M540 280 L880 280 L880 450 Q710 485 540 450 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+<rect x="560" y="300" width="44" height="32" rx="2" class="chip"/>
+<rect x="624" y="300" width="44" height="32" rx="2" class="chip"/>
+<rect x="688" y="300" width="44" height="32" rx="2" class="chip"/>
+<rect x="752" y="300" width="44" height="32" rx="2" class="chip"/>
+<rect x="816" y="300" width="44" height="32" rx="2" class="chip"/>
+<rect x="560" y="350" width="44" height="32" rx="2" class="chip"/>
+<rect x="624" y="350" width="44" height="32" rx="2" class="chip"/>
+<rect x="688" y="350" width="44" height="32" rx="2" class="off" transform="rotate(12 710 366)"/>
+<rect x="752" y="350" width="44" height="32" rx="2" class="chip"/>
+<rect x="816" y="350" width="44" height="32" rx="2" class="chip"/>
+<rect x="560" y="400" width="44" height="32" rx="2" class="chip"/>
+<rect x="624" y="400" width="44" height="32" rx="2" class="chip"/>
+<rect x="688" y="400" width="44" height="32" rx="2" class="chip"/>
+<rect x="752" y="400" width="44" height="32" rx="2" class="chip"/>
+<rect x="816" y="400" width="44" height="32" rx="2" class="off" transform="rotate(-10 838 416)"/>
+<text x="890" y="422" class="g" style="fill:var(--warn)">Shift</text>
+<text x="710" y="500" text-anchor="middle" class="g" style="fill:var(--warn)">Warp</text>
+<text x="710" y="526" text-anchor="middle" class="b">Direct-write fix</text>
+<text x="480" y="562" text-anchor="middle" class="c">Cheap vs. area</text>
+</svg>

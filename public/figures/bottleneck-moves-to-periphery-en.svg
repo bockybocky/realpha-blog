@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="A central chip is ringed by a dashed circle, with four arrows pointing outward to four peripheral links, and the alignment stage is highlighted.">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+    .node { fill:var(--card); stroke:var(--accent); stroke-width:2; }
+    .arr { stroke:var(--accent); stroke-width:2.5; fill:none; }
+</style>
+<defs>
+<marker id="ah-periph" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+<text x="60" y="64" class="t">Bottleneck moves out</text>
+<text x="480" y="226" text-anchor="middle" class="b">All eyes</text>
+<circle cx="480" cy="330" r="92" fill="none" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="6 6"/>
+<circle cx="480" cy="330" r="62" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text x="480" y="337" text-anchor="middle" class="g">Chip</text>
+<path d="M411 316 L282 289" class="arr" marker-end="url(#ah-periph)"/>
+<path d="M549 316 L678 289" class="arr" marker-end="url(#ah-periph)"/>
+<path d="M414 352 L292 391" class="arr" marker-end="url(#ah-periph)"/>
+<path d="M546 352 L668 391" class="arr" marker-end="url(#ah-periph)"/>
+<rect x="128" y="249" width="140" height="46" rx="8" class="node"/>
+<text x="198" y="279" text-anchor="middle" class="g">Cold plate</text>
+<rect x="692" y="249" width="140" height="46" rx="8" class="node"/>
+<text x="762" y="279" text-anchor="middle" class="g">Ultrapure water</text>
+<rect x="150" y="392" width="140" height="46" rx="8" class="node"/>
+<text x="220" y="422" text-anchor="middle" class="g">Filters</text>
+<rect x="670" y="392" width="140" height="46" rx="8" fill="var(--accent)"/>
+<text x="740" y="422" text-anchor="middle" class="g" style="fill:var(--page)">Align stage</text>
+<text x="740" y="466" text-anchor="middle" class="b">Breaks first: yes</text>
+<text x="740" y="490" text-anchor="middle" class="b">Pricing power: ?</text>
+<text x="480" y="552" text-anchor="middle" class="c">Demand up, rivals too</text>
+</svg>

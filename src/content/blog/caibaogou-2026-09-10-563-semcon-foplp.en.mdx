@@ -1,0 +1,92 @@
+---
+title: "SEMICON Up Close: Panel-Level Packaging Waited Ten Years, and a Price Gap Is Finally Pushing It"
+description: "Notes and reflections after the Statementdog podcast episode from 2026-09-10, a closer look at SEMICON Taiwan: OSAT capacity expansion, diamond and silicon carbide thermal materials, the cost logic behind fan-out panel-level packaging, the timing of TSMC's next-generation lithography tools, and optical alignment stages. Educational content, not investment advice; no stock picks or price targets."
+slug: "caibaogou-2026-09-10-563-semcon-foplp"
+lang: "en"
+pubDate: 2026-09-11
+category: "investing"
+tags: ["Semiconductors", "SEMICON", "Advanced Packaging", "FOPLP", "Thermal Management", "Optical Communications"]
+ogImage: "/covers/caibaogou-2026-09-10-563-semcon-foplp-cover.png"
+cover: "/covers/caibaogou-2026-09-10-563-semcon-foplp-cover.png"
+---
+
+![A semiconductor trade-show hall at night; in the foreground an optical alignment machine under a spotlight, a hair-thin gap between fiber and chip, the aisle of booths receding into dimmer light behind it](/covers/caibaogou-2026-09-10-563-semcon-foplp-cover.png)
+
+> The gentleman is careful at the beginning: miss by a hair's breadth, and you end up a thousand li off course.
+>
+> — *Book of Rites*, "Jingjie" (Warring States to Western Han; author's translation)
+
+## What This Episode Covers
+
+This Statementdog episode from 2026-09-10 is the follow-up to their "first look at SEMICON." Last time, the show had been open for a single day and the guest was still booking filming slots with exhibitors. This time the show was over, he had also led a few friends' groups around the floor, and he came back to lay things out one by one: OSAT capacity expansion, thermal materials, fan-out panel-level packaging (FOPLP), the next-generation lithography tool TSMC plans to adopt, and finally the alignment stages used in optical communications.
+
+The episode opens with Google's layoffs in its consumer electronics unit in New Taipei. The host's read: the company is shifting weight toward AI and its own TPUs, and the phone and laptop side is shrinking. Then the talk turns to the new iPhone, and the host tells the guest: "Once you've bought one, I'll see whether I want it."
+
+## Key Points
+
+**1. The advanced-packaging buildout is spreading from TSMC to the OSATs.** The guest said the headline for equipment vendors this year is OSAT capital spending, with orders he heard described as "more than double." 2.5D and 3D packaging used to be mostly TSMC's job; part of it is now moving to ASE, SPIL, Powertech and other outsourced assembly and test houses. They started late and have to climb the learning curve TSMC already walked. Their customers care about cost, though, so running every step at the highest spec isn't an option — which tool goes where, and how fine each step needs to be, is up for discussion at every stage.
+
+**2. Diamond heat spreaders are still in R&D, held back by machining and size.** Diamond conducts heat superbly; some call it the fourth generation of semiconductors. Three problems remain. It is extremely hard — as the guest put it, "silicon carbide is so hard we couldn't grind it, so we used diamond; now diamond itself shows up, what do you grind it with?" It has to be bonded to copper, and the interface between the two materials is its own hurdle. And lab-grown diamond substrates can't yet be made large. He compared it to gallium nitride and silicon carbide seven or eight years ago, which also started at two, three, four inches; until the substrate gets big, unit cost won't come down.
+
+**3. Thermal solutions keep multiplying, with no standard yet.** As wattage climbs, one cold plate isn't enough, so now there's one on top and one underneath — "if two isn't enough, three," the guest said. Between chip and heat sink, indium sheets, liquid metal and thermal paste are all still competing. Even the way the material gets applied to the chip is changing, with inkjet-style direct writing among the options. Silicon carbide has joined the race too: semi-insulating SiC can be made into cold plates and heat spreaders placed on the chip, a path apart from the conductive SiC power devices for cars and chargers where Chinese makers move fast. One exhibitor was already showing a 12-inch SiC wafer. The guest's reading was plain: if crystal-growth furnaces are being built that big, someone intends to use a lot of it.
+
+![Three chip cooling stacks sit side by side, going from a single cold plate on top, to one plate above and one below, to three plates; three gray bars underneath rise one after another, showing that as wattage climbs, cold plates stack up one by one.](/figures/cold-plate-stacking-en.svg)
+
+**4. Power chips are the new push behind panel-level packaging.** Panel sizes of 300, 500 and 700 mm were all being studied on the show floor. Many of the design needs the guest saw came from power devices: 800V high-voltage DC power delivery wants the GaN device and its driver chip packaged together, and he cited ST's investment in Malaysia, which builds exactly that combination. Power chips don't need very fine line width and spacing, so the older panel-level route fits them. At the other end sits the fine-line route, represented by TSMC's direction, where glass moves from carrier toward substrate and even interposer, all to enlarge the packageable area and fit more chips and optical engines. Larger packages also bring more die shift and warpage; when photolithography can't align, maskless direct-write tools step in to repair the pattern — a new line of business that advanced packaging has created.
+
+**5. Wafer-level packaging got pricier, and the gap to panel-level widened.** The guest was blunt: logic chips can't be made fast enough, memory can't be made fast enough, 8-inch capacity is full, and wafer-level packaging prices have risen with it — the OSAT share prices tell you as much. Panel-level packaging was already cheaper before the increase; now the gap is wider. SpaceX bought a line earlier this year, and what he's watching is whether others follow.
+
+![Panel-level packaging splits into two paths: on the left, power chips with coarse line widths, where one small package holds a gallium nitride die and a driver chip; on the right, the finer-line TSMC direction, where one large panel is packed with chips, a few of them skewed and the bottom edge bowed, showing that die shift and warpage must be corrected by direct-write tools.](/figures/foplp-two-routes-en.svg)
+
+**6. TSMC will adopt high-NA EUV tools, and the host reads it as the late adopter getting the best cost efficiency.** Intel bought first and experimented; TSMC waited until now, and what it gains is a larger exposure field with no stitching — others expose twice, it exposes once, which comes back to cost. The host compared it to Micron holding out until the end before adopting EUV: a company whose process can hold out adopts last, when tool pricing and maturity both favor it. He added, "in theory, anyway."
+
+![Two pairs of bars compare prices: before the hike, wafer-level is 7 and panel-level is 5, a gap of 2; after the hike, wafer-level rises to 10 while panel-level stays at 5, a gap of 5. Panel-level did not move; the wafer-level option beside it got more expensive, so the gap widened numbers are illustrative.](/figures/wafer-vs-panel-price-gap-en.svg)
+
+**7. In optical communications, the bottleneck is alignment.** Optical components require fibers to be aligned to micron-level positions, and customers already find tens of seconds per unit too slow. If the stage moves fast but control is poor, it overshoots; if it moves slowly, time drags out. Linear motors, stepper motors or piezo motors, and which sensors go with them, all affect speed. This stage isn't standardized either, and a single machine can sell for a lot.
+
+## Going Deeper
+
+### "Every booth says it's doing great. Which claim do I believe?"
+
+This is where I get stuck most often with trade-show notes. No exhibitor will tell you business is bad. This episode gave me three ways to sort the claims.
+
+The first is who is paying. "OSAT orders more than doubled" is an action by buyers, and more reliable than a vendor's slide deck. Diamond thermal is still at R&D, with no buyer in sight.
+
+The second is size. Both are thermal materials, yet silicon carbide has reached 12 inches while diamond substrates can't grow large; one is heading toward volume production, the other is stuck on unit cost. Wafer size is a visible signal of volume, more concrete than "lots of people are researching it."
+
+![The top row is silicon carbide, which started seven or eight years ago as small 2-, 3-, and 4-inch circles and has grown into one large 12-inch circle at this year's trade show; the bottom row is diamond, with only one small circle and the larger sizes after it still empty dashed outlines, showing that its substrates cannot grow larger and its unit price cannot come down.](/figures/sic-vs-diamond-wafer-size-en.svg)
+
+The third is whether a standard exists. Thermal interface materials and optical alignment both lack one, which means many participants and high prices per machine. Once the big players settle a spec, a batch of participants gets eliminated and those left see margins squeezed. What I do is log "no standard yet" as both an opportunity and a failure condition: the day I hear a spec has been locked by a major customer, I go back and check whether my original assumption still holds.
+
+### "A technology has been talked up for ten years. Why now?"
+
+I've heard about panel-level packaging for years, with someone saying every year that it was almost here. This episode made it click: what changed most over the decade was the prices around it.
+
+The chain runs like this: AI fills wafer-level packaging capacity → wafer-level packaging gets more expensive → for power chips that don't need fine lines, the price gap to panel-level widens → 800V power delivery also demands putting several devices into one package → demand, a price gap and a first buyer (that SpaceX line) all landed in the same year.
+
+![On a ten-year timeline, the gray technology line runs from the far left; the demand, price-gap, and buyer lines are dashed through their early stretches and only turn solid blue one after another at the far right, converging on a vertical line marked the same year.](/figures/foplp-conditions-converge-en.svg)
+
+TSMC and the next-generation lithography tool are the same logic from the other side. The tool's capability has existed for a while; TSMC stepped in once its process needed large-field exposure and the tool's price and maturity worked in its favor. The host's attitude toward the new iPhone runs on the same rule: let the guest be the pioneer, hear how it goes, then decide.
+
+The reading I took from this is to check whether the old method has become more expensive or no longer good enough. The failure condition goes in the notes too: if wafer-level capacity loosens next year and prices fall back, the panel-level gap narrows and this chain has to be recalculated. The guest himself framed it as "a direction worth watching," not a conclusion.
+
+### "Everyone is watching the chips. What's being missed?"
+
+Across both SEMICON episodes, the things getting named look less and less like chips: cold plates top and bottom, ultrapure water filtration, air intake filters, the motion stage that aligns an optical fiber. With chip capacity under everyone's gaze, the bottleneck drifts to the periphery — thermal, alignment, facilities.
+
+![At the center is a chip ringed by a dashed circle that everyone is watching; four arrows point outward from it to cold plates, ultrapure water, filters, and the alignment stage, and the alignment stage is highlighted with a note that it will break first but its pricing power is doubtful.](/figures/bottleneck-moves-to-periphery-en.svg)
+
+I check it with the two bottleneck-layer questions. When demand doubles, is this the layer that breaks first? Once it breaks, do the people making it have pricing power? For alignment stages, the first answer leans yes: customers find tens of seconds per unit too slow, so time translates into cost, and a machine that cuts time can command a price. On the second I'm less optimistic: the barrier lies in motors, sensing and mechanisms, skills precision-machinery companies already have, so entrants will pile in. More exhibitors on the floor tells me both that demand is growing and that competition is getting crowded, and I keep both in the same note.
+
+## Where to Look Next
+
+- Statementdog Podcast Ep. 563, "SEMICON Up Close: Materials, Equipment, Alignment Stages and FOPLP" (2026-09-10)
+- Statementdog Podcast Ep. 561, "A First Look at SEMICON!" (2026-09-03), the previous episode on the same show
+- The SEMICON Taiwan 2026 official site's exhibitor list and forum agenda
+- OSAT earnings calls, for what they say about capital spending and panel-level packaging capacity
+
+## One Thing Worth Taking Away
+
+One idea: whether something new gets adopted depends first on whether the old way has become more expensive or no longer good enough. How impressive the new thing is comes after that.
+
+One thing I've tried: pick something you've been putting off replacing — an old phone, your daily commute route, a budgeting method you've used for years. On paper, write one sentence: "The old one would have to become ______ before I switch." Fill the blank with a concrete condition, such as the battery dying before 3 p.m. or the commute taking twenty extra minutes. Tuck it into a notebook, pull it out in three months, and see whether the condition arrived and whether you switched.
