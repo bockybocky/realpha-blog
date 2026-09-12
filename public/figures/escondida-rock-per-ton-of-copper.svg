@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="三堆石頭方塊由矮到高：品位 2% 要 50 噸石頭，0.8% 要 125 噸，0.4% 要 250 噸，才換到 1 噸銅">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; }
+    .d { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+    .ac { fill:var(--accent); }
+    .wn { fill:var(--warn); }
+    .inv { fill:var(--page); }
+</style>
+<defs>
+<pattern id="fig3-rock" width="26" height="26" patternUnits="userSpaceOnUse">
+<rect x="0" y="0" width="22" height="22" rx="3" fill="var(--grey)"/>
+</pattern>
+</defs>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="480" y="52" text-anchor="middle" class="t">挖 1 噸銅，要磨多少石頭</text>
+<rect x="330" y="77" width="22" height="22" rx="3" fill="var(--grey)"/>
+<text x="362" y="94" class="d">＝ 5 噸石頭（示意，未計回收率）</text>
+<rect x="52" y="390" width="260" height="26" fill="url(#fig3-rock)"/>
+<rect x="338" y="364" width="260" height="52" fill="url(#fig3-rock)"/>
+<rect x="338" y="338" width="130" height="26" fill="url(#fig3-rock)"/>
+<rect x="624" y="286" width="260" height="130" fill="url(#fig3-rock)"/>
+<text x="182" y="376" text-anchor="middle" class="g">50 噸</text>
+<text x="468" y="324" text-anchor="middle" class="g">125 噸</text>
+<text x="754" y="272" text-anchor="middle" class="g wn">250 噸</text>
+<text x="182" y="452" text-anchor="middle" class="g">品位 2%</text>
+<text x="468" y="452" text-anchor="middle" class="g">品位 0.8%</text>
+<text x="754" y="452" text-anchor="middle" class="g">品位 0.4%</text>
+<text x="182" y="478" text-anchor="middle" class="d">剛發現</text>
+<text x="468" y="478" text-anchor="middle" class="d">現在</text>
+<text x="754" y="478" text-anchor="middle" class="d">兩年內</text>
+<text x="480" y="532" text-anchor="middle" class="c">品位減半，石頭加倍</text>
+</svg>
