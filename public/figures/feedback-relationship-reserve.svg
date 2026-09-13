@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="兩條折線，一條階梯式上升後下跌仍高於虛線底線，另一條平直後同幅下跌跌破底線">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--accent); }
+    .a { fill:var(--accent); }
+    .w { fill:var(--warn); }
+</style>
+<defs>
+<marker id="yt-ax-fb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text x="480" y="56" text-anchor="middle" class="t">回饋靠平常練</text>
+<line x1="120" y1="520" x2="120" y2="130" stroke="var(--dim)" stroke-width="2" marker-end="url(#yt-ax-fb)"/>
+<line x1="120" y1="520" x2="860" y2="520" stroke="var(--dim)" stroke-width="2" marker-end="url(#yt-ax-fb)"/>
+<text x="132" y="146" class="s">關係存量</text>
+<text x="860" y="548" text-anchor="end" class="s">時間</text>
+<line x1="120" y1="430" x2="840" y2="430" stroke="var(--warn)" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text x="130" y="454" class="s">接得住的底線</text>
+<line x1="640" y1="130" x2="640" y2="520" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="4 5"/>
+<text x="640" y="118" text-anchor="middle" class="g">講重話</text>
+<path d="M120 380 L180 380 L180 360 L240 360 L240 340 L300 340 L300 320 L360 320 L360 300 L420 300 L420 280 L480 280 L480 260 L540 260 L540 240 L600 240 L600 220 L640 220 L640 320 L840 320" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<path d="M120 380 L640 380 L640 480 L840 480" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<text x="262" y="316" text-anchor="middle" class="s">閒聊・稱讚</text>
+<text x="852" y="326" class="g a">平常練</text>
+<text x="852" y="486" class="g w">平常不練</text>
+<text x="740" y="466" text-anchor="middle" class="b w">拉傷</text>
+<text x="480" y="584" text-anchor="middle" class="c">平常存，重話才接得住</text>
+</svg>

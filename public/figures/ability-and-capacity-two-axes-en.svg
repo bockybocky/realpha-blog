@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 590" width="960" height="590" role="img" aria-label="A chart with skill on the horizontal axis and caliber on the vertical axis; a point at the lower right marks high skill and low caliber, with an arrow pointing straight up from it.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--accent); }
+    .a { fill:var(--accent); }
+    .w { fill:var(--warn); }
+</style>
+<defs>
+<marker id="yt-ax-cap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/></marker>
+<marker id="yt-ar-cap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="590" fill="var(--page)"/>
+<text x="480" y="56" text-anchor="middle" class="t">Skill &amp; caliber</text>
+<line x1="150" y1="460" x2="880" y2="460" stroke="var(--dim)" stroke-width="2" marker-end="url(#yt-ax-cap)"/>
+<line x1="150" y1="460" x2="150" y2="110" stroke="var(--dim)" stroke-width="2" marker-end="url(#yt-ax-cap)"/>
+<text x="880" y="495" text-anchor="end" class="g">Skill</text>
+<text x="880" y="520" text-anchor="end" class="s">Numbers, decks</text>
+<text x="150" y="96" text-anchor="middle" class="g">Caliber</text>
+<line x1="720" y1="394" x2="720" y2="204" stroke="var(--accent)" stroke-width="3" marker-end="url(#yt-ar-cap)"/>
+<circle cx="720" cy="410" r="12" fill="var(--warn)"/>
+<circle cx="720" cy="182" r="12" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="700" y="414" text-anchor="end" class="b">Brilliant</text>
+<text x="700" y="440" text-anchor="end" class="b w">Lacking</text>
+<text x="740" y="304" class="g a">Grow</text>
+<text x="742" y="188" class="s">Same skill, bigger</text>
+<text x="480" y="568" text-anchor="middle" class="c">Caliber grows</text>
+</svg>
