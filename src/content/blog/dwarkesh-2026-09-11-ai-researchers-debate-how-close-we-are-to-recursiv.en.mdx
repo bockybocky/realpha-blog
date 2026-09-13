@@ -1,0 +1,116 @@
+---
+title: "When Will AI Improve Itself? Three Frontline Researchers Answer Anywhere From One to Ten Years"
+description: "Notes on Dwarkesh Podcast (2026-09-11): three AI researchers on what still blocks recursive self-improvement, why distillation keeps frontier labs from taking it all, and why continual learning forgets when it learns in small steps. Personal learning notes for educational purposes only, not investment advice."
+slug: "dwarkesh-2026-09-11-ai-researchers-debate-how-close-we-are-to-recursiv"
+lang: "en"
+pubDate: 2026-09-13
+category: "investing"
+tags: ["AI", "Dwarkesh Podcast", "recursive self-improvement", "reinforcement learning", "distillation", "podcast notes"]
+tldr: "The three researchers expect AI to speed up research a lot where the objective is well specified, while choosing objectives, continual learning, and real-world data remain bottlenecks. Their timelines range from one year to ten."
+ogImage: "/covers/dwarkesh-2026-09-11-ai-researchers-debate-how-close-we-are-to-recursiv-cover.png"
+cover: "/covers/dwarkesh-2026-09-11-ai-researchers-debate-how-close-we-are-to-recursiv-cover.png"
+---
+![A long aisle in a robotics factory at night; in the foreground a robotic arm under a warm work lamp assembles a more refined robotic arm, while rows of ever more intricate arms recede into blue darkness](/covers/dwarkesh-2026-09-11-ai-researchers-debate-how-close-we-are-to-recursiv-cover.png)
+
+> If I have seen further, it is by standing on the shoulders of Giants.
+>
+> —— Isaac Newton, letter to Robert Hooke (1676)
+
+## What this episode is about
+
+In the 2026-09-11 episode of Dwarkesh Podcast, the host sat down with three researchers from relatively open labs: Beren Millidge, CTO of Zyphra; John Schulman, chief scientist at Thinking Machines (OpenAI co-founder, who led the RLHF work behind ChatGPT); and Charlie O'Neill, head of model training at Baseten.
+
+There was one question on the table: how far are we from AI that improves itself? Newton's line is about knowledge stacking up layer by layer. What the three argued about all episode is whether AI can stand on its own shoulders.
+
+## Key takeaways
+
+### 1. "This is AGI" — and a month later it feels dumb
+
+One guest described a cycle that keeps repeating: a new model comes out, people say "this is it," and after a month of use it starts to feel dumb. The cause is the weak spots. A model can write many times more code than a person, yet a researcher's output does not go up 100x, because work gets stuck where the model's judgment is weaker and where it can't check itself. How many more rounds this cycle runs, he said, is hard to predict.
+
+Another guest pointed to chess engine Elo: a straight line up for four decades, yet crossing the human range looks like an overnight jump from "humans always win" to "humans never win." He thinks we are close to that crossing. For 2036 to look normal, progress would have to flatten right before it — and he sees heavy regulation as a likelier brake than any technical wall.
+
+![A straight line with a constant slope runs from bottom left to top right and passes through a narrow horizontal "human range" band; the short stretch where it crosses is labeled as the crossover, with "humans always win" on the left and "humans never win" on the right, so it looks like an overnight leap.](/figures/chess-rating-crossing-en.svg)
+
+### 2. With a clean objective, AI speeds research up; choosing the objective still falls to people
+
+One guest gave a concrete case: the original Kaplan scaling laws used intermediate checkpoints without accounting for learning-rate annealing, which skewed the result. An AI spending lots of compute mulling it over would have caught that a year or two earlier. He estimates a 10x speed-up when the objective is well specified — but thinking only updates you on bits you already have. It can't hand you the right objective.
+
+Schulman added his own history: in the early OpenAI days he believed next-token prediction alone wouldn't produce intelligence, since the important bits are such a small share of the loss that noise would drown them. It worked anyway. The biggest advances in the field often come from generalization "we have no right to expect." In his view, the last job humans keep is deciding how models should behave and what "helpful" means — which is why post-training teams need so many people.
+
+### 3. Distillation keeps frontier labs from taking it all
+
+Why hasn't the market consolidated into one or two model providers? One guest's answer: distillation. Behavior learned through RL is a small number of bits, easy to copy once you have trajectories. The hard part is the prompt distribution — knowing what users ask. The episode mentioned that some Chinese companies are likely getting data from proxy services that let users in China reach US frontier models for coding, which gives a near-perfect realistic prompt distribution.
+
+One exchange stuck with me. If you want a "good politician" model, the distiller has it easier than the frontier lab: the frontier model already knows how, so you generate a billion variations. Whoever builds it first has to find data on what politicians do all day. Another guest split training environments along two axes, difficulty and realism. Hard puzzle-like tasks are easy to create and verify, and naive distillation only matches the teacher on that axis — benchmarks line up, while the feel in messy multi-turn, multi-objective settings still lags.
+
+![On a plane with difficulty on the horizontal axis and realism on the vertical axis, the frontier model sits at the top right and the distilled model sits directly below it at the bottom right; the two points share the same horizontal position, meaning their scores match, while a vertical gap remains labeled "feels a notch worse."](/figures/distill-two-axes-en.svg)
+
+### 4. Work that stays done, and work you relearn every day
+
+One guest's split: recursive self-improvement is cumulative. Attention, mixture of experts, a new RL algorithm — discover it once, add it to the training stack, and the next generation just calls it. In theory, a Python file under a million tokens could train a self-improving model from scratch. A paralegal's job is the other kind: who relates to whom, unwritten rules, where things are kept, all shifting daily. Someone chimed in: "It's so unfortunate that RSI happened to be easier than being a paralegal."
+
+![Two side-by-side panels: on the left, five generations of blocks each stand taller than the last, with every generation adding one block on top of the previous one; on the right, five days form a row of sawtooth peaks that climb each day and drop back to zero.](/figures/stack-vs-reset-en.svg)
+
+### 5. Continual learning forgets when it learns in small steps
+
+At large scale with big batches, the outer loop works: pour deployment data back into mid-training and build new environments. It breaks when you zoom in to a single customer. After hundreds of micro-updates, you see catastrophic forgetting and degraded general capabilities. RL changes very little each time, so it does little damage — and for the same reason it struggles to get explicit knowledge in, like "this is how this law firm does things." One guest said capacity isn't the problem; technique is: train a same-size model from scratch on everything and it comes out better, only expensive.
+
+![A general-capability curve starts at a horizontal baseline and keeps falling as hundreds of small updates pile up, with a bracket on the right marking catastrophic forgetting; past a divider on the right, a separate point labeled "retrain from scratch" sits higher than the starting level, noted as better but expensive.](/figures/continual-learning-forgetting-en.svg)
+
+There's also an incentive problem. Companies don't want model providers learning their edge from their deployments, so near-term you'll see plug-in modules (LoRAs, compressed caches) while the base model stays fixed. Cursor is one example: online RL updates every five hours, shipped only if their internal benchmark improves, otherwise thrown out.
+
+### 6. RL learns one bit per episode — so why does it work so well?
+
+Beren gave two layers. First, a lot of the credit belongs to mid-training: synthetic reasoning data takes the model roughly 80% of the way before RL, which then tweaks the policy. Second, supervised fine-tuning makes the model copy someone else's exact reasoning tokens, absorbing too many irrelevant bits; RL gives only the one bit of right or wrong, so the signal isn't drowned in noise.
+
+Another guest offered an image: on individual tasks progress looks like a phase transition — a spreadsheet task jumping from a 0.5% to a 90% pass rate — and averaging thousands of such jumps gives the smooth curve. A side anecdote from the episode: someone fine-tuned a model trained only on pre-1930 data on modern coding-agent traces, and it beat Claude 3 Opus on a coding benchmark. A model that had never seen code caught up after enough demonstrations.
+
+![Six thin gray lines each jump vertically from near zero to ninety percent at a different point in time; a thick blue line is their average and forms a smooth S-shaped curve.](/figures/phase-jumps-average-en.svg)
+
+### 7. Timelines: one year to ten
+
+A drop-in remote worker for a month of white-collar work: one said about a year; another said three years for full generality, with 80–90% arriving sooner as companies reshape workflows to suit AI. A 10x uplift for AI researchers: answers of two years and of five to ten. Beating top experts at all computer-based work: three to four years, and five to ten.
+
+![Three timeline rows share a horizontal axis from zero to ten years; each row uses dots and bars to mark different claims, with the first row falling between one and three years, the second stretching from two to ten years, and the third stretching from three to ten years, so the lower the row, the wider the spread.](/figures/timeline-ranges-en.svg)
+
+The host shared a personal example: this year he told Codex to gather everything his accountant needed, click through, download it, and send it — it got it right the first time. Someone also named something AI can't do yet: yelling at a coworker to get something done. The model is too nice.
+
+## Further thoughts
+
+### Every launch gets called AGI, then a month later it's "not there." Which side do I believe?
+
+After every launch event I get whiplash from the two camps online. After this episode, I think both camps are looking at different slices of the same curve.
+
+Layer one: launch-day scores mostly sit on the difficulty axis. Benchmarks measure hard, verifiable puzzles. What users complain about a month later sits on the realism axis — back-and-forth, shifting requirements, no answer key. The two axes move separately, so both the wow and the letdown can be right.
+
+Layer two: I switched my unit of judgment to the weakest link. The episode was clear that researcher output hasn't gone 100x because the model can't check itself. Now when I look at a launch, I first check whether the weak spots moved: how many experiment steps it can run in a row without crashing, whether it catches its own mistakes. That tracks the bottleneck more closely than leaderboard rank.
+
+![An illustrative bar chart: the coding bar reaches five times, judgment two times, and self-checking only one time; on the right, the research output bar reaches only one time, a dashed box above it is labeled "not 5×," and a dashed line links it to the shortest bar at the same height.](/figures/weakest-link-caps-output-en.svg)
+
+Layer three: the chess curve reminds me that "no big deal" and "everything changed overnight" can sit on the same straight line. The mood of each launch is noise; the slope is structure. What I do is jot one line per launch — did the weak spot move, and by how much — and check back three months later. It may not be the right method, but it keeps me from being led by headlines.
+
+### The frontier labs are so strong — won't the winner take all?
+
+Friends who invest in AI ask me this a lot. This episode offered a way to break it down: split a company's lead into the part that's easy to copy and the part that's hard to copy.
+
+Easy to copy: behavior trained in with RL. It's a small amount of information; once demonstration trajectories get out, others can learn it, and continual learning doesn't stop that, because rivals can distill every day too. The data frontier labs buy from data vendors is for sale to others as well.
+
+Hard to copy: realistic prompt distributions and deployment traces. Distillers with proxy data get close; distill only on easily verifiable tasks and the scores match while the feel doesn't. On top of that, the guests expect the next few years to stay compute-bottlenecked, and compute means money and queues.
+
+I plan to apply this split to any "technology lead" story: is the lead a few bits, or a whole data stream nobody else can reach? The first gets filled in by distillation; the second is the bottleneck layer. That's my own inference from the episode — it didn't name any company as winner or loser.
+
+![Two horizontal bars compared top and bottom: the frontier lab's lead on top splits into a short behavior segment and a long segment of prompt distribution and deployment logs; the distiller below fills in only the short segment, and the long segment is an empty dashed box labeled "out of reach."](/figures/lead-copyable-vs-dataflow-en.svg)
+
+## References
+
+- Dwarkesh Podcast, "AI researchers debate how close we are to recursive self-improvement" (2026-09-11)
+- Kaplan et al., "Scaling Laws for Neural Language Models" (2020) — the scaling-law paper cited as an example in the episode
+- Hoffmann et al., "Training Compute-Optimal Large Language Models" (2022, the Chinchilla paper)
+- Hans Moravec, *Mind Children* (1988) — origin of Moravec's paradox
+
+## One thing to take away
+
+When you finish something, does the next attempt start from zero or from here? Only progress that stays put can stack up. That's what the sub-million-token Python file in the episode means: every earlier discovery is written in, and the next generation calls it instead of rediscovering it.
+
+One thing I've tried: pick a task you've done at least twice this month and had to figure out from scratch each time — filing expenses, booking flights, setting up a parent's phone. Spend twenty minutes writing the steps on one page and save it somewhere you'll find it. Next time, follow the page, and when you're done, add one line beside it: what was different this time.
