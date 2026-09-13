@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="折線圖：兩條線從同一點出發，99% 那條緩降到 89%，96% 那條陡降到 61%，兩線越往右張得越開。"><rect x="0" y="0" width="960" height="560" fill="var(--page)"/><style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+    .t{font-size:27px;font-weight:700}.g{font-size:19px;font-weight:600}.b{font-size:16px;fill:var(--dim)}.k{font-size:22px;font-weight:700}.a{fill:var(--accent)}.w{fill:var(--warn)}
+</style>
+<text x="480" y="52" text-anchor="middle" class="t">良率一層層相乘，差距越疊越大</text>
+<text x="480" y="84" text-anchor="middle" class="b">示意：每層良率 99% 與 96%</text>
+<g stroke="var(--line)" stroke-width="1">
+<line x1="140" y1="190" x2="800" y2="190"/><line x1="140" y1="250" x2="800" y2="250"/><line x1="140" y1="310" x2="800" y2="310"/><line x1="140" y1="370" x2="800" y2="370"/>
+</g>
+<line x1="140" y1="130" x2="140" y2="430" stroke="var(--dim)" stroke-width="1.5"/>
+<line x1="140" y1="430" x2="800" y2="430" stroke="var(--dim)" stroke-width="1.5"/>
+<g text-anchor="end" class="b">
+<text x="128" y="136">100%</text><text x="128" y="196">90%</text><text x="128" y="256">80%</text><text x="128" y="316">70%</text><text x="128" y="376">60%</text><text x="128" y="436">50%</text>
+</g>
+<polyline fill="none" stroke="var(--accent)" stroke-width="4" stroke-linejoin="round" points="140,130 195,136 250,142 305,148 360,153.4 415,159.4 470,165.4 525,170.8 580,176.2 635,181.6 690,187.6 745,193 800,198.4"/>
+<polyline fill="none" stroke="var(--warn)" stroke-width="4" stroke-linejoin="round" points="140,130 195,154 250,177 305,199.2 360,220.4 415,240.8 470,260.3 525,279.2 580,297.2 635,314.5 690,331.1 745,346.1 800,362.4"/>
+<text x="200" y="118" class="b">第 1 層差 3 點</text>
+<line x1="800" y1="200" x2="800" y2="360" stroke="var(--warn)" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="788" y="286" text-anchor="end" class="g w">差 28 點</text>
+<text x="815" y="204" class="g a">89%</text>
+<text x="815" y="228" class="b">每層 99%</text>
+<text x="815" y="368" class="g w">61%</text>
+<text x="815" y="392" class="b">每層 96%</text>
+<g text-anchor="middle" class="b">
+<text x="140" y="455">0</text><text x="360" y="455">4</text><text x="580" y="455">8</text><text x="800" y="455">12</text>
+</g>
+<text x="470" y="482" text-anchor="middle" class="b">堆疊層數</text>
+<text x="480" y="530" text-anchor="middle" class="k">結構瓶頸：砸錢買不到良率</text>
+</svg>

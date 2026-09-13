@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A bell curve with a vertical break-even line; the shaded area right of the line is the probability that revenue clears it, and arrows below show that the line shifting left is better and shifting right is worse."><rect x="0" y="0" width="960" height="560" fill="var(--page)"/><style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+    .t{font-size:27px;font-weight:700}.g{font-size:19px;font-weight:600}.b{font-size:16px;fill:var(--dim)}.k{font-size:22px;font-weight:700}.a{fill:var(--accent)}.w{fill:var(--warn)}
+</style>
+<text x="480" y="52" text-anchor="middle" class="t">Bubble? Track the line</text>
+<polygon points="540,420 540,287.6 580,336.7 620,374 660,397.8 700,410.6 740,416.5 740,420" fill="var(--accent)" fill-opacity="0.3"/>
+<polyline fill="none" stroke="var(--dim)" stroke-width="3" stroke-linejoin="round" points="100,416.5 140,410.6 180,397.8 220,374 260,336.7 300,287.6 340,235.8 380,195.4 420,180 460,195.4 500,235.8 540,287.6 580,336.7 620,374 660,397.8 700,410.6 740,416.5"/>
+<line x1="80" y1="420" x2="880" y2="420" stroke="var(--line)" stroke-width="2"/>
+<text x="880" y="408" text-anchor="end" class="b">AI revenue →</text>
+<text x="400" y="165" text-anchor="middle" class="b">Likely range</text>
+<line x1="540" y1="150" x2="540" y2="432" stroke="var(--ink)" stroke-width="3"/>
+<text x="540" y="140" text-anchor="middle" class="g">B/E</text>
+<text x="552" y="176" class="b">GPU+pay+rent</text>
+<line x1="690" y1="308" x2="605" y2="372" stroke="var(--accent)" stroke-width="1.5"/>
+<text x="698" y="304" class="g a">Odds</text>
+<line x1="452" y1="458" x2="530" y2="458" stroke="var(--accent)" stroke-width="3"/>
+<polygon points="440,458 452,451 452,465" fill="var(--accent)"/>
+<line x1="550" y1="458" x2="628" y2="458" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="640,458 628,451 628,465" fill="var(--warn)"/>
+<text x="470" y="490" text-anchor="middle" class="g a">← better</text>
+<text x="610" y="490" text-anchor="middle" class="g w">worse →</text>
+<text x="480" y="537" text-anchor="middle" class="k">Each Q: line &amp; odds</text>
+</svg>

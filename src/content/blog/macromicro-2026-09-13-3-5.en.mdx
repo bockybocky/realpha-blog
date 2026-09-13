@@ -1,0 +1,104 @@
+---
+title: "After Nvidia Became the House: Which Part of the $3.5 Trillion Off-Balance-Sheet Pile Can Bite"
+description: "Notes after listening to MacroMicro's 2026-09-13 special with Business Weekly: US–China controls moving from chips to models, power lagging chips, the market's focus shifting from demand to delivery, Nvidia guaranteeing its customers' financing, and how to split $3.5 trillion of off-balance-sheet commitments by who pays if things go wrong. Educational only, not investment advice; markets carry risk."
+slug: "macromicro-2026-09-13-3-5"
+lang: "en"
+pubDate: 2026-09-13
+category: "investing"
+tags: ["MacroMicro", "Nvidia", "AI supply chain", "data center power", "off-balance-sheet financing", "podcast notes"]
+ogImage: "/covers/macromicro-2026-09-13-3-5-cover.png"
+cover: "/covers/macromicro-2026-09-13-3-5-cover.png"
+tldr: "The AI machine's choke point has moved from 'is there demand' to 'can it be delivered and plugged in.' About 90% of the $3.5 trillion off-balance-sheet pile is ordinary accounting; the roughly 10% in conditional guarantees is what to watch."
+---
+
+![At dusk on an open grassland, an unfinished data center glows with rack lights while a line of power pylons runs toward the horizon, the farthest ones still without cables](/covers/macromicro-2026-09-13-3-5-cover.png)
+
+> She threw me a quince; I gave her a girdle-jade in return.
+> Not as repayment, but so our bond would last.
+>
+> — *Book of Songs*, "Mu Gua" (Airs of Wei), pre-Qin; translation mine
+
+You give me a quince, I give you jade. Two thousand years ago that was friendship. In today's AI industry it becomes: I invest in you, and you use the money to buy my chips. The "perpetual motion machine" in this episode runs on exactly that loop.
+
+## What this episode is about
+
+This is MacroMicro's special with Business Weekly, released 2026-09-13 and recorded on September 8. The hosts are Roger and research manager Jason; the guest is KP, author of the FOMO Research newsletter. KP is from Hong Kong and spent more than a decade in institutional finance (private banking, a fund house, a trading desk) before recently leaving to write research full time.
+
+Roger introduced him with a story that stuck with me. Last year the internet was full of claims that Nvidia was stuffing the channel, that receivables and inventory had exploded, that it was "the next Enron." KP went through the footnotes: days sales outstanding had fallen quarter over quarter, and the inventory jump was work in progress still on the line. There was no warehouse full of unsold finished goods.
+
+The episode runs in four parts: US–China controls moving from chips to models, Nvidia expanding up and down the stack, power and delivery as the new choke points, and how to read $3.5 trillion of off-balance-sheet commitments now that Nvidia is guaranteeing its customers' financing.
+
+## Key points
+
+**1. Controls have moved from chips to models and people.** The episode's examples: Anthropic released Fable 5 and Mythos 5 on June 9, the US banned them three days later, and access returned on July 1. On the Chinese side, the NDRC blocked Meta's acquisition of Manus, and model experts at Alibaba and DeepSeek can't leave the country. KP says Hong Kong has lived with this for years: he has never been able to use Claude or ChatGPT legally there, and Gemini only opened up a few months ago. In his view, when frontier labs say "AI needs regulation," both motives are true at once: real safety concerns, and raising compliance costs for rivals. Open-source models can be downloaded the moment they're posted, so regulation ends up binding only closed models, and the ones whose hands get tied are the frontier labs themselves.
+
+**2. Nvidia buying Hugging Face is about steering which models get used.** Jason uses Google as the benchmark: apps, TPUs, cloud, energy and models under one roof. Nvidia is filling gaps in its own "five-layer cake": a partnership with Palantir for enterprise, a look at acquiring Perplexity, and its own open model, Nemotron, now at 3.5 Thinking. KP added the point I found most important: Hugging Face is where engineers choose models, and Perplexity routes queries to models on users' behalf. Neither builds models, yet both decide where traffic flows. Microsoft and Amazon are building in-house models so they can run the easy work themselves and pay OpenAI and Anthropic only for the hard work. Nvidia wants all those in-house models to run most cheaply on its chips.
+
+![An hourglass diagram: six models at the top each send a line of different thickness into a narrow waist of Hugging Face and Perplexity, which then fans out to engineers and users below, showing that these two companies build no models yet decide which model gets the traffic.](/figures/router-hourglass-en.svg)
+
+**3. Chips are getting less scarce; power is the shortage.** Jason multiplied this year's GPU and ASIC shipments by their power draw and got 16 to 22 GW of demand, against 10 to 15 GW of utility grid capacity that can come online this year. At Semicon, TSMC said compute capacity needs to grow fivefold a year, so the chip gap is narrowing, while the power has nowhere to plug in. One GW is roughly a city's worth of electricity. The political risk hasn't been priced: 36 states elect governors in this year's midterms, and they cover about 70% of the US data center pipeline. New York has imposed a one-year moratorium, Texas has paused new grid approvals, and Republicans worry data centers could flip swing states like Ohio. Energy captures less than 10% of the chain's profit, yet every other layer is built on top of it.
+
+![Two bars compare this year's power: chips need 16 to 22 GW while the grid can supply only 10 to 15 GW, leaving a shortfall of 1 GW in the best case and 12 GW in the worst.](/figures/power-demand-vs-grid-en.svg)
+
+**4. Price cuts buy volume; the industry gains, model-layer margins get squeezed.** Unit prices fall 10x to 100x a year, yet OpenAI and Anthropic's combined annualized revenue passed $100 billion in July. OpenRouter's research found one model family cut prices 80% and saw usage grow 13x, so Jevons' paradox is in play. Jason expects two tracks, like iOS and Android: top models compete on quality and capture most of the profit, cheap models compete on volume. KP is cooler: frontier labs have to keep widening the gap with open source, R&D may grow faster than revenue, and profit gets eaten by chips upstream and applications downstream. How the power gets split between training and inference (1:1 or 1:3) decides whether they can make money long term, and we won't see it until both companies go public and open their books.
+
+![Two areas compared: before the price cut, a tall narrow rectangle; after an 80% cut, a short wide rectangle spanning 13 units whose area is about 2.6 times larger, showing that the cheaper something gets, the more it is used.](/figures/jevons-price-volume-area-en.svg)
+
+**5. September's question has changed: demand is confirmed, delivery is the test.** KP says every company in the supply chain already has a full backlog, so one more order adds little; if data centers can't be built, finished hardware has nowhere to go. From here, share prices reward on-time delivery. Jason's data shows pressure in final assembly: around Computex in May, Vera Rubin ran into minor assembly and architecture issues, and contract assemblers are dealing with missing components, inventory build-up and margin pressure. Volume shipments are expected from Q4.
+
+**6. Short-term bottlenecks yield to money; structural ones don't.** Jason's test: can money fix it? Mature nodes and some DRAM just need capex. Bigger chips and vertical stacking are different: double the size and the area quadruples, and yields multiply layer by layer, so the gap between 99% compounded and 96% compounded keeps widening. HBM, high-capacity SSDs, cooling, 800V power and the shift from copper to optics are structural problems. KP gave an example from his own writing: when Vera Rubin moved to 45°C warm-water cooling, the market's first reaction was that cooling suppliers were finished. His conclusion was that cooling budgets grow, with the money shifting from chillers to liquid loops. Architectures change every few months, and suppliers willing to spend on R&D and pass qualification first pull away; SK Hynix went from number two to leader by qualifying HBM first.
+
+![Two curves falling from 100%: the line at 99% yield per layer declines gently to about 89% at 12 layers, while the line at 96% per layer drops steeply to about 61%; the gap is 3 points at the first layer and 28 points by the twelfth.](/figures/yield-compounding-gap-en.svg)
+
+**7. Nvidia as the house: two gifted children on the Mongolian steppe.** Nvidia's purchase commitments jumped from $119 billion to $279 billion in one quarter. Jason's breakdown shows most of the increase is memory capacity reserved for the next two years, long-term contracts to lock up supply, and the cost shows up in gross margin guidance: 74% for Q3, 71% to 72% for Q4. Nvidia also set up a compute financing platform with BlackRock and Apollo, offering up to $105 billion in credit. KP quoted Broadcom CEO Hock Tan's analogy: OpenAI and Anthropic are two gifted children on the Mongolian steppe who can't afford school, so suppliers pay their way through university and get repaid after graduation. Nvidia standardizes its racks so that if one borrower can't pay, the whole rack can move to the next one, the way a house backs a mortgage. Roger's reply: kids who go to university can also go astray.
+
+## Further thoughts
+
+### "Order books are full into next year, so why isn't the stock moving?"
+
+Headlines say "sold out through 2027" and "capacity fully booked," and the stock sits still or even drops. That's the question I thought of when KP made his point.
+
+First layer: the market doesn't pay twice for news it already has. In the first half, people were arguing over whether demand existed, and a big order could move a stock. By September every supplier's backlog is full, and one more order just confirms what's known.
+
+Second layer: switch the question from "is anyone buying" to "where is it stuck." The episode lays out a chain: chips, assembly, data centers, the grid, and state approvals and votes. Ask Jason's question at each link: can money fix it? Component shortages in assembly are short-term; with money and time they clear. Connecting several GW to the grid and getting past local voters won't be solved in a quarter.
+
+![A pipe that narrows from wide to thin, running through chips, assembly, data centers, the power grid, and permits and votes; the assembly section has dashed walls that can be stretched and is a short-term problem, the narrowest grid and permit sections are structural problems, and shipments are set by the narrowest section.](/figures/delivery-pipe-bottleneck-en.svg)
+
+Third layer: bring it back to the company. One line from the bottleneck-layer framework I keep reminding myself of: tight supply and pricing power are two separate things. Price hikes from short-term bottlenecks fade once capacity comes online; structural bottlenecks (compounding yields, HBM, cooling architecture changes) are what sustain pricing. After this episode, when I look at a supply-chain company I'll add two questions to the backlog check: which kind of bottleneck is it sitting on, and once its product ships, can the data center downstream get power?
+
+This reasoning has a failure condition too: if Vera Rubin ramps on schedule in Q4, on-site generation and storage cover the grid gap, and moratoriums ease after the state elections, "delivery" fades as a choke point and attention swings back to demand.
+
+### "$3.5 trillion sits off the balance sheet and Nvidia is guaranteeing loans. Is this the next subprime?"
+
+The number is startling the first time you hear it, and "off-balance-sheet" sounds like something is being hidden. Jason's way of splitting it works well for me: sort it into three piles by who pays if things go wrong.
+
+![A bar representing $3.5T in off-balance-sheet commitments is split into three segments: about 90% purchases and leases not yet commenced, under 5% circular investments, and about 10% various guarantees; only the small segment on the far right can drag others down.](/figures/off-balance-three-piles-en.svg)
+
+The first pile, about 90%, is purchase obligations and leases not yet started. The goods haven't been delivered and nothing has been paid; the data centers haven't been handed over and rent hasn't started. Accounting puts these in the footnotes by design. Over time they become capex, inventory and lease liabilities, back on the books.
+
+The second pile is circular investment: I invest in you, you buy my chips or cloud compute, your revenue and valuation rise, and my stake in you gets marked up. Jason puts it under 5% of the off-balance-sheet total, and the worst case is the equity going to zero. It's small but it distorts earnings: the five big tech companies booked $350 billion of pre-tax profit in Q2, and nearly 45% came from marking up stakes in AI labs, recorded under "other income." After hearing this, I'll strip that line out first when reading big-tech results, then look at what the core business earns.
+
+![Two stacked bars: the top shows the five tech giants' Q2 pretax income of $350B, about 55% from core operations and nearly 45% from marked-up stakes in AI labs; the bottom removes the valuation portion, leaving only the core operations segment on the left.](/figures/big-tech-profit-valuation-share-en.svg)
+
+The third pile, about 10%, is the one that bites: residual value guarantees, credit guarantees and data center guarantees, which Jason estimates at $300 to $500 billion, plus debt isolated off the balance sheet through special purpose vehicles and passed by private credit firms to pension funds and insurers. If the industry goes smoothly, this pile never appears. If the two children go astray, it lands back on big tech's balance sheets.
+
+When should anyone worry? KP gave two visible signals. First, borrower quality slipping: right now financing goes to the OpenAI and Anthropic tier. The day small companies with middling revenue can get it too, that's the 2008 path, since subprime also started with good borrowers. Second, something he saw over a decade in finance: products everywhere promising "secured, lent to great companies, 8% to 9% a year," sold to people with little sense of risk. That means private credit has already packaged these loans and is selling them on.
+
+Jason closed with a framework I plan to keep using: don't treat a bubble as a yes-or-no question. A cloud provider that spends $50 billion on a facility needs to earn it back in three to six years; the industry as a whole has a breakeven line, a level of total AI revenue needed to cover compute, people and rent. What to track each quarter is whether that line moves left or right, and whether the odds of actual revenue landing above it are rising or falling.
+
+![A bell curve represents where total AI revenue might land, and a vertical break-even line cuts through its right side; the shaded area to the right of the line is the probability of clearing it, and the line moving left means things are improving while moving right means they are getting worse.](/figures/breakeven-line-probability-en.svg)
+
+## References
+
+- MacroMicro podcast, "US–China Interlock, Nvidia as the House: The $3.5 Trillion Perpetual Motion Machine | Business Weekly Special" (2026-09-13)
+- KP's FOMO Research newsletter (Substack): the Nvidia footnote breakdown from late last year and the piece on Vera Rubin warm-water cooling
+- Business Weekly's *New Wealth Memo* column
+- The "purchase obligations" footnote in Nvidia's quarterly filings: check which years the new commitments fall in
+- The Wall Street Journal's mid-August chart on big tech's off-balance-sheet obligations
+- William Stanley Jevons, *The Coal Question* (1865): the origin of Jevons' paradox
+
+## One Thing to Take Away
+
+Take a frightening total and sort it by who pays if things go wrong: what's certain to be paid, what would hurt only you, and what would drag others down with it. The third pile is the one that bites, and it usually doesn't show up on the books.
+
+One thing I've tried: take a sheet of paper and list everything in your name that becomes yours to pay if someone else can't. A family member's loan you guaranteed, a lease you co-signed, money you fronted a friend and haven't gotten back, a group purchase you put on your card. Next to each item write a name and an amount: if that person can't pay tomorrow, how much comes out of your pocket.
