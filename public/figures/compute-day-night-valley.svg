@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="用量曲線白天高夜裡低，夜間低谷被新功能填滿，上限線不變">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="64" class="t">白天滿，夜裡空</text>
+<line x1="100" y1="160" x2="880" y2="160" stroke="var(--dim)" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="880" y="146" class="b" text-anchor="end">算力上限</text>
+<polygon points="100,380 165,388 230,390 295,370 360,290 425,225 522,200 620,210 718,250 782,320 847,370 880,380 880,440 100,440" fill="var(--grey)" opacity="0.55"/>
+<polygon points="100,300 100,380 165,388 230,390 295,370 352,300" fill="var(--accent)" opacity="0.75"/>
+<polygon points="764,300 782,320 847,370 880,380 880,300" fill="var(--accent)" opacity="0.75"/>
+<polyline points="100,380 165,388 230,390 295,370 360,290 425,225 522,200 620,210 718,250 782,320 847,370 880,380" fill="none" stroke="var(--dim)" stroke-width="3" stroke-linejoin="round"/>
+<line x1="100" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-width="2"/>
+<text x="540" y="340" class="g" text-anchor="middle" style="fill:var(--dim)">白天</text>
+<text x="225" y="285" class="g" text-anchor="middle" style="fill:var(--accent)">新功能</text>
+<text x="100" y="470" class="b" text-anchor="middle">0 時</text>
+<text x="490" y="470" class="b" text-anchor="middle">12 時</text>
+<text x="880" y="470" class="b" text-anchor="middle">24 時</text>
+<text x="480" y="530" class="c" text-anchor="middle">不多要算力，只挪時段</text>
+</svg>

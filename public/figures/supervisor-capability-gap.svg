@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊兩條長條差距小看得住，右邊被監督者高出一大截看不住">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="60" y="64" class="t">監督者不能被甩太遠</text>
+<line x1="100" y1="460" x2="900" y2="460" stroke="var(--line)" stroke-width="2"/>
+<text x="250" y="150" class="g" text-anchor="middle">差距小</text>
+<text x="250" y="185" class="g" text-anchor="middle" style="fill:var(--accent)">看得住</text>
+<rect x="140" y="260" width="90" height="200" fill="var(--accent)"/>
+<rect x="270" y="220" width="90" height="240" fill="var(--grey)"/>
+<line x1="230" y1="260" x2="395" y2="260" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="5 5"/>
+<line x1="385" y1="260" x2="385" y2="220" stroke="var(--accent)" stroke-width="3"/>
+<rect x="560" y="260" width="90" height="200" fill="var(--accent)"/>
+<rect x="690" y="100" width="90" height="360" fill="var(--grey)"/>
+<line x1="650" y1="260" x2="815" y2="260" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="5 5"/>
+<line x1="805" y1="260" x2="805" y2="100" stroke="var(--warn)" stroke-width="3"/>
+<text x="870" y="170" class="g" text-anchor="middle">差距大</text>
+<text x="870" y="205" class="g" text-anchor="middle" style="fill:var(--warn)">看不住</text>
+<text x="185" y="490" class="b" text-anchor="middle">監督者</text>
+<text x="315" y="490" class="b" text-anchor="middle">被監督者</text>
+<text x="605" y="490" class="b" text-anchor="middle">監督者</text>
+<text x="735" y="490" class="b" text-anchor="middle">被監督者</text>
+</svg>
