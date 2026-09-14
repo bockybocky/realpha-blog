@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="股價縱軸上買回區間是底部窄帶、今天股價在頂端；十個方格中三格被買回">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .v { font-size:19px; font-weight:700; }
+    .c { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<defs>
+<marker id="f5a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--grey)"/></marker>
+</defs>
+<text x="60" y="56" class="t">布雷克的回購：買在哪，今天在哪</text>
+<text x="128" y="112" class="b" text-anchor="end">美元</text>
+<line x1="140" y1="120" x2="140" y2="480" stroke="var(--dim)" stroke-width="2"/>
+<line x1="140" y1="480" x2="420" y2="480" stroke="var(--dim)" stroke-width="2"/>
+<line x1="140" y1="380" x2="420" y2="380" stroke="var(--line)" stroke-width="1"/>
+<line x1="140" y1="280" x2="420" y2="280" stroke="var(--line)" stroke-width="1"/>
+<line x1="140" y1="180" x2="420" y2="180" stroke="var(--line)" stroke-width="1"/>
+<text x="128" y="486" class="b" text-anchor="end">0</text>
+<text x="128" y="386" class="b" text-anchor="end">100</text>
+<text x="128" y="286" class="b" text-anchor="end">200</text>
+<text x="128" y="186" class="b" text-anchor="end">300</text>
+<rect x="150" y="430" width="250" height="20" fill="var(--accent)" fill-opacity="0.35" stroke="var(--accent)" stroke-width="2"/>
+<text x="275" y="418" class="v" text-anchor="middle">買回 30–50</text>
+<line x1="275" y1="398" x2="275" y2="156" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#f5a)"/>
+<circle cx="275" cy="140" r="10" fill="var(--accent)"/>
+<text x="295" y="147" class="v">今天 約 340</text>
+<line x1="480" y1="110" x2="480" y2="490" stroke="var(--line)" stroke-width="1"/>
+<text x="691" y="150" class="g" text-anchor="middle">流通股</text>
+<rect x="530" y="190" width="56" height="56" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="596" y="190" width="56" height="56" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="662" y="190" width="56" height="56" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="728" y="190" width="56" height="56" fill="var(--accent)"/>
+<rect x="794" y="190" width="56" height="56" fill="var(--accent)"/>
+<rect x="530" y="256" width="56" height="56" fill="var(--accent)"/>
+<rect x="596" y="256" width="56" height="56" fill="var(--accent)"/>
+<rect x="662" y="256" width="56" height="56" fill="var(--accent)"/>
+<rect x="728" y="256" width="56" height="56" fill="var(--accent)"/>
+<rect x="794" y="256" width="56" height="56" fill="var(--accent)"/>
+<text x="691" y="360" class="v" text-anchor="middle">買回三成</text>
+<text x="691" y="390" class="b" text-anchor="middle">每格 ＝ 一成</text>
+<text x="480" y="536" class="c" text-anchor="middle">回購價到今天：7–11 倍</text>
+</svg>
