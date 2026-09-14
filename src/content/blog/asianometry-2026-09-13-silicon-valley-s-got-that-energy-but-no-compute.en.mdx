@@ -1,0 +1,92 @@
+---
+title: "Silicon Valley Is Starved for Compute. Asianometry Did the Math and Found a 2027 Glut"
+description: "Notes on Asianometry's trip report from Hot Chips and Semicon Taiwan: the return of AI chip startups, the packaging shift driven by ever-bigger chips, the scramble for compute, and the host's estimate that compute flips from shortage to glut in 2027 — extended to how to test a shortage consensus and read conference buzz. Educational only, not investment advice or a recommendation to buy or sell anything."
+slug: "asianometry-2026-09-13-silicon-valley-s-got-that-energy-but-no-compute"
+lang: "en"
+pubDate: 2026-09-14
+category: "investing"
+tags: ["Asianometry", "Compute", "AI Infrastructure", "Advanced Packaging", "Supply Cycles"]
+ogImage: "/covers/asianometry-2026-09-13-silicon-valley-s-got-that-energy-but-no-compute-cover.png"
+cover: "/covers/asianometry-2026-09-13-silicon-valley-s-got-that-energy-but-no-compute-cover.png"
+---
+![A vast data center hall under construction at night: nearby racks glow with blue and green status lights, and the same aisle stretches into dimness where empty rack frames and unconnected cable trays wait, ending at a half-open loading dock lit by work floodlights and stacked equipment crates](/covers/asianometry-2026-09-13-silicon-valley-s-got-that-energy-but-no-compute-cover.png)
+
+> When grain is very dear, it harms the people; when it is very cheap, it harms the farmers. When the people are harmed, they scatter; when the farmers are harmed, the state grows poor. So very dear and very cheap do the same damage.
+>
+> —— Li Kui, quoted in Ban Gu's *Book of Han*, "Treatise on Food and Money, Part One" (Eastern Han, 1st century CE; my translation)
+
+Li Kui managed grain prices in the Warring States period. When grain was too dear, the people buying it couldn't cope; when it was too cheap, the farmers growing it couldn't. Both ends hurt, and different people felt it.
+
+That passage kept coming back to me while I listened to Asianometry's September 13, 2026 episode, "Silicon Valley's Got That Energy (But No Compute)." This year everyone in the Bay Area says there isn't enough compute to rent or buy. The host ran the numbers and concluded that in the second half of 2027, a different group of people will be the ones in pain.
+
+## What this episode is about
+
+In August the host flew to California for Hot Chips 2026, talked with people up and down the Bay Area, then flew to Taipei for Semicon Taiwan. It had been a year since his last US trip. The AI boom is in its fourth year, and long-running agents, agent swarms, the pursuit of recursive self-improvement and the fight for compute have given it new fuel. The episode is his "vibes report": what he saw on the show floors, what people told him, and, at the end, his own arithmetic on compute supply and demand.
+
+## Key points
+
+**1. Hot Chips is packed, and the AI chip window has reopened.** In his first year at Hot Chips, jet-lagged, he fell asleep in the back of the Stanford auditorium — the room was at most 60% full, so nobody noticed. This year you had to step over a row of people to find a seat, and there were far more finance people. The Sunday 9 a.m. memory session with Micron, Samsung and SK hynix was full; his explanation was that a 500% stock run will do that. Last year the packed room was silicon photonics, and he joked that whichever room is packed next year is the alpha. He also took back last year's claim that, apart from Google's TPU, the window for new AI chips had closed. OpenAI presented its own chip, Jalapeno, and outside the hall lurked Etched, MatX, Positron and Fractile. Etched had no talk, yet someone from the company raised a hand at every Q&A, and they handed out a grab bag with a hat inside. He says he'll wear it.
+
+![Two seating grids side by side: on the left, the first year has only the front three rows filled, the back two rows are empty, and one person is asleep in a corner of the last row; on the right, this year all forty seats are filled, with more than a dozen marked as finance people.](/figures/hot-chips-auditorium-then-and-now-en.svg)
+
+**2. Survival comes down to execution.** These startups build racks and full systems, not just chips, which means getting their hands dirty in the lab, and top talent is scarce. He reached for an old military maxim: get there first with the most men. In practice that means four questions: can you get HBM in a constrained supply environment, should you be using HBM at all, can you tape out without major errors, and if not, what then.
+
+**3. Semicon Taiwan is TSMC's request for proposal to the whole industry, and the direction is bigger.** He has attended since 2022, when the show was quiet and sessions ran in Mandarin. This year every room in both halls of the Nangang Exhibition Center was full, attendees walked around in bunny suits carrying fake wafers, and the simulated fab tour filled up before he could get in. TSMC has no booth, yet it dominates the show: its teams walk the floor visiting new vendors, and many sessions open with a TSMC executive laying out the company's problems. The core problem is the reticle limit — a lithography tool can only print a die so large, and AI chips have hit that ceiling. A TSMC slide showed "battleship" chips spanning up to 14 reticles, and the industry wants to swap silicon interposers for square glass panels. Two years ago panels lived only in slide decks; this year the handler robots on the floor were built for square formats. He says warping and cracking are unsolved and he'll believe it when he sees the chips, but he expects this to be the most far-reaching technology transition since 300 mm wafers.
+
+**4. The compute scramble: some are starving, some can't finish their plates.** Around November 2025, Anthropic's more capable models such as Opus 4.5, plus OpenClaw, let long-running agents take root in Silicon Valley. In February 2026 prices started rising as Anthropic led the rush to lock in compute with deals involving SpaceX and Google; by the time of his trip, the spot market had vanished. Neoclouds — pure-play resellers of AI compute such as CoreWeave and Nebius — are certain the shortage lasts at least one to two more years, and he met several unrelated groups trying to start their own. Meanwhile, startups training models may have to tell investors no product is coming until mid-2027, and VCs now help by tracking down a thousand GPUs in places like Eastern Europe. OpenAI and Anthropic hold about 5 GW each, and the anecdotes he heard say it isn't used with great efficiency.
+
+![On the left is a single reticle frame representing the largest area a lithography tool can print in one exposure; on the right, same-sized tiles form a seven-by-two, fourteen-tile battleship-class chip, so the size gap is obvious at a glance.](/figures/reticle-limit-one-vs-fourteen-en.svg)
+
+**5. Neolabs: pre-revenue research startups, and his defense of them.** A neolab is a startup funded to explore an AI idea, built around elite researchers, with little business plan. The best known, Safe Superintelligence, raised $1 billion and has released no product. His case: breakthrough science used to come from research universities, government labs or Bell Labs; universities have lost funding and talent, AI is the first major technology in 50 years to emerge without government involvement, and research has gone closed. OpenAI and Anthropic are locked into a transformer-centric paradigm and won't fund oddball bets. So let Nvidia and VCs place asymmetric bets, mostly paid in compute; if someone strikes gold — say, a more data-efficient architecture that forces the giants to switch — a giant will buy them at an eye-watering price. He thinks that beats spending cash flow on buybacks, and name-checks Apple.
+
+![A round wafer and a square panel of the same width sit side by side: the circle fits only four large interposers and leaves large empty areas at the edges, while the square fits nine; the numbers are illustrative.](/figures/round-wafer-vs-square-panel-en.svg)
+
+**6. His math: 2027 flips from shortage to glut.** Usable AI data center capacity is estimated at about 15 GW at the end of 2026 and 45 to 55 GW at the end of 2027. OpenAI and Anthropic take about 30 GW of the increase; assume half goes to training, leaving 15 GW for inference. Dylan Patel, on the Dwarkesh Podcast, models about $50 billion of annual revenue per gigawatt of inference, possibly $100 billion with smarter models. Plug that in and the two companies need $750 billion to $1.5 trillion of revenue in 2027. Most people put their combined revenue this year at $150 to $200 billion, and he can see $400 to $500 billion next year. The high end is two Walmarts; the low end is two Toyotas. Then look from the landlord's side: if 40 GW comes online in 2027, today's rent of about $20 million per megawatt, matching a three-year payback, means $800 billion paid to infrastructure providers in a single year. He doesn't think that gets paid, so rents fall and someone takes the bath. Most new capacity lands in the second half of 2027 — demand from the 2026 agentic era, supply ordered on late-2025 expectations — and supply will catch up and overshoot. He stresses this isn't a bubble popping, and a next wave, perhaps persistent AI, could swell demand again.
+
+**7. Nobody has measured the return, and resentment is growing outside the bubble.** The impact he can see is in code: finance firms that once hired teams of reporting analysts now need two sharp young analysts and Claude building a dashboard. For the spreadsheets and presentations the marketing keeps promising, he hasn't seen a noticeable effect, and OpenAI's own post still pegs its agents at intern level. Everyone in San Francisco says they have more work than ever — if the models are so capable, why is everyone busier? One more thing: last year someone predicted AI would solve a Millennium Prize problem within a year, and as he wrote this, news broke of an internal OpenAI model producing a proof for the Navier-Stokes problem. The prediction landed on the dot, but accusations of plagiarism and data theft overshadowed it. He sees rising anti-AI sentiment online and among ordinary people, and worries the issue can win elections. San Francisco literally has its own microclimate, and he urges the people inside it to watch what's growing outside.
+
+## Further thoughts
+
+### "Everyone says the shortage lasts two years." How much of that should I believe?
+
+The news says every day that GPUs can't be had and the shortage runs at least two more years. My first reaction to that is excitement. My second is to ask: who is saying it?
+
+In this episode, the most certain voices are the neoclouds, and they are the biggest beneficiaries of the shortage — it lifts their rents and lengthens their contracts. That doesn't make them wrong. It does mean that when the people collecting rent say scarcity will last, I discount it a little.
+
+One layer down, a shortage is a signal that corrects itself. Prices rise, and the supply chain adds capacity; but data centers and chips take more than a year to build. His line — demand from 2026, supply ordered in late 2025 — names the lag. Today's shortage reflects orders placed on expectations from over a year ago, and today's scramble will arrive all at once more than a year from now. Li Kui's grain, and later display panels and memory chips, all went down this road: everyone adds capacity during the shortage, and it all lands in the same delivery year.
+
+![The demand line climbs steadily from end-2025, while the supply line hugs the bottom until the first half of 2027 and then rises steeply; between the two lines there is first a large shortage area, and after they cross, supply overshoots demand into a glut area; below, a lag of more than a year from order to delivery is marked.](/figures/demand-supply-lag-overshoot-en.svg)
+
+The checking method I took from this episode is to do the math from both ends. Demand side: new capacity times revenue per gigawatt gives the revenue required, which you compare with today's — here, from $150–200 billion to at least $750 billion, a fourfold jump or more. Payer side: capacity times rent gives what the landlords need to collect in a year, here $800 billion. Someone has to be able to pay both numbers for the shortage to hold. That's where point 7 bites: the $50 billion per gigawatt assumes users are willing to pay, and that willingness is still estimated from anecdotes.
+
+His conclusion could be wrong in three ways: revenue per gigawatt heads toward $100 billion, the next wave of demand shows up on time, or power and yield delays keep capacity from reaching 45 GW. What I'll watch are rents and spot prices, not conference head counts. There's a portfolio-risk angle too: whether what I hold earns money from scarcity or from usage matters, because the two move in opposite directions in the year the cycle turns. During the shortage, the startups that can't rent compute hurt; during a glut, the landlords who borrowed to build hurt. It's one cycle, and the two ends take turns.
+
+![A U-shaped curve whose x-axis runs from cheap and in glut to expensive and in shortage, with the two raised ends marking the most pain; in the grain-price row, farmers sit at the left end and commoners at the right, and in the compute row, landlords sit at the left end and startups at the right; the 2026 point is at the right end, and a curved arrow points to the second half of 2027 at the left end.](/figures/two-ends-take-turns-hurting-en.svg)
+
+### The conference hall is packed and the stock is up fivefold. Is it too late?
+
+Whenever I see a sold-out conference on some theme and news that a whole industry is queuing up, I worry I'm the last one to find out.
+
+The host is blunt about it: the memory session was full because the stocks had already run up fivefold, and the finance crowd at Hot Chips arrived after the theme got hot. The crowd follows gains that have already happened. Flip his joke about next year's packed room around: by the time I see the room packed, a lot of people have already seen the clue.
+
+![The stock price line climbs from 1x to 5x, with most of the gain made in the early stretch; the bars for the number of people in the room stay short until they shoot up at the end, and at the far right, "I see it packed" is marked when the price is already at 5x.](/figures/crowd-follows-price-en.svg)
+
+What carried information in this episode was TSMC's executives on stage describing where they're stuck. When the biggest buyer publicly lays out its problems, it tells the whole supply chain which layer the next dollar will go to. That lines up with a bottleneck-layer view — when demand doubles, the layer that breaks first gets the orders: the reticle limit pushes advanced packaging, packaging pushes panel interposers, panels push square-format handling equipment, one layer after another.
+
+The host doesn't take it on faith either; he'll believe it when he sees the chips. Warping, cracking and yield are the gates on this road. Handler robots going square is the ecosystem placing an early bet; mass-produced chips are when you check the answer. My reading order now has three steps: what problem the buyer described, what suppliers prepared on the show floor, and whether there's evidence of volume production. Until the third step arrives, it goes in my "story" column.
+
+## References
+
+- Asianometry, "Silicon Valley's Got That Energy (But No Compute)," September 13, 2026
+- Two earlier videos the host mentions: AI-enhanced EDA tools, and panel-level packaging (a theme of Semicon Taiwan 2024)
+- Hot Chips 2026 program: the memory session and OpenAI's Jalapeno presentation
+- Semicon Taiwan 2026, Nangang Exhibition Center, Taipei
+- Dylan Patel's interview on the Dwarkesh Podcast (source of the revenue-per-gigawatt estimate)
+- OpenAI's blog post on agents accelerating its internal research
+- The host's short talk at the Test Vision Symposium, Semicon West, October 15, 2026
+
+## One thing to take with you
+
+When you hear "nobody can get it," turn "shortage" into a delivery schedule: when the new supply arrives, how much of it, and who pays when it does. The line most often missing from a shortage story is the delivery date.
+
+One thing I've tried: pick something around you that people say can't be had — concert tickets, a spot at a popular daycare, a new phone, pre-sale apartments in some neighborhood. Spend ten minutes finding out when supply increases and by how much, put that date in your calendar, and note today's price or queue length next to it. When the date comes, open the calendar and see how much of the price and the queue is left.

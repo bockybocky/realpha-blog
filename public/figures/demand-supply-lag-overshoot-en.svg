@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Demand rises steadily while supply rises late and steeply and overshoots demand, so a shortage comes first and a glut follows.">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text class="t" x="480" y="50" text-anchor="middle">Supply lags demand by over a year</text>
+<text class="b" x="110" y="108" text-anchor="end">Compute</text>
+<line x1="120" y1="100" x2="120" y2="460" stroke="var(--dim)" stroke-width="2"/>
+<line x1="120" y1="460" x2="910" y2="460" stroke="var(--dim)" stroke-width="2"/>
+<polygon points="120,415 200,400 280,370 360,330 440,285 520,245 600,215 680,195 716,189 700,220 660,300 620,370 580,396 520,400 440,403 360,406 280,409 200,412" fill="var(--warn)" opacity="0.2"/>
+<polygon points="716,189 740,160 780,130 840,122 900,120 900,165 840,170 760,180" fill="var(--accent)" opacity="0.22"/>
+<polyline points="120,415 200,400 280,370 360,330 440,285 520,245 600,215 680,195 760,180 840,170 900,165" fill="none" stroke="var(--ink)" stroke-width="3"/>
+<polyline points="120,415 200,412 280,409 360,406 440,403 520,400 580,396 620,370 660,300 700,220 740,160 780,130 840,122 900,120" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text class="g" x="505" y="232" text-anchor="end">Demand</text>
+<text class="g" x="300" y="436" fill="var(--accent)">Supply</text>
+<text class="g" x="440" y="358" text-anchor="middle" fill="var(--warn)">Shortage</text>
+<text class="g" x="830" y="152" text-anchor="middle" fill="var(--accent)">Glut</text>
+<text class="b" x="160" y="490" text-anchor="middle">End 2025</text>
+<text class="b" x="380" y="490" text-anchor="middle">2026</text>
+<text class="b" x="600" y="490" text-anchor="middle">H1 2027</text>
+<text class="b" x="820" y="490" text-anchor="middle">H2 2027</text>
+<path d="M160,508 L160,520 L700,520 L700,508" fill="none" stroke="var(--ink)" stroke-width="2"/>
+<text x="430" y="552" text-anchor="middle" style="font-size:16px;font-weight:700">Order → delivery: over a year</text>
+</svg>

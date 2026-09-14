@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩條橫條比較容量，2027 年底的長條分成既有、訓練、推論、其他四段，推論那段以強調色標出">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text class="t" x="480" y="50" text-anchor="middle">2027 年底的容量怎麼分</text>
+<text class="g" x="132" y="169" text-anchor="end">2026 底</text>
+<rect x="150" y="140" width="210" height="44" fill="var(--card)" stroke="var(--dim)" stroke-width="2"/>
+<text x="255" y="168" text-anchor="middle" style="font-size:16px">15 GW</text>
+<line x1="150" y1="184" x2="150" y2="280" stroke="var(--grey)" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="360" y1="184" x2="360" y2="250" stroke="var(--grey)" stroke-width="2" stroke-dasharray="4 4"/>
+<path d="M360,262 L360,250 L780,250 L780,262" fill="none" stroke="var(--ink)" stroke-width="2"/>
+<text class="g" x="570" y="238" text-anchor="middle">OpenAI＋Anthropic 約 30 GW</text>
+<text class="g" x="132" y="309" text-anchor="end">2027 底</text>
+<rect x="150" y="280" width="210" height="44" fill="var(--card)" stroke="var(--dim)" stroke-width="2"/>
+<text x="255" y="308" text-anchor="middle" style="font-size:16px">既有 15</text>
+<rect x="360" y="280" width="210" height="44" fill="var(--grey)"/>
+<text x="465" y="308" text-anchor="middle" style="font-size:16px">訓練 15</text>
+<rect x="570" y="280" width="210" height="44" fill="var(--accent)"/>
+<text x="675" y="308" text-anchor="middle" style="font-size:16px;font-weight:700;fill:var(--page)">推論 15</text>
+<rect x="780" y="280" width="140" height="44" fill="none" stroke="var(--dim)" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="850" y="308" text-anchor="middle" style="font-size:16px">其他 0–10</text>
+<text class="b" x="920" y="358" text-anchor="end">合計 45–55 GW</text>
+<text class="c" x="480" y="450" text-anchor="middle" fill="var(--accent)">拿去賺錢的：15 GW</text>
+</svg>
