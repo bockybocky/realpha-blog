@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Two hand-off chains: the cash trail fades after the first holder, while every stablecoin holder's identity is a question mark but the public chain below records every transfer.">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .h { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .n { font-size:16px; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<defs>
+  <marker id="yt-tr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--grey)"/>
+  </marker>
+  <marker id="yt-tr-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+  </marker>
+</defs>
+<text x="60" y="62" class="h">Passed along</text>
+<text x="60" y="152" class="g">Cash</text>
+<rect x="60" y="175" width="110" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="115" y="206" class="n" text-anchor="middle">Fed</text>
+<line x1="170" y1="200" x2="258" y2="200" stroke="var(--grey)" stroke-width="2" marker-end="url(#yt-tr-g)"/>
+<circle cx="290" cy="200" r="26" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text x="290" y="206" class="n" text-anchor="middle">A</text>
+<g opacity="0.7">
+  <line x1="316" y1="200" x2="398" y2="200" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#yt-tr-g)"/>
+  <circle cx="430" cy="200" r="26" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="430" y="206" class="b" text-anchor="middle">?</text>
+</g>
+<g opacity="0.45">
+  <line x1="456" y1="200" x2="538" y2="200" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#yt-tr-g)"/>
+  <circle cx="570" cy="200" r="26" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="570" y="206" class="b" text-anchor="middle">?</text>
+</g>
+<g opacity="0.2">
+  <line x1="596" y1="200" x2="678" y2="200" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#yt-tr-g)"/>
+  <circle cx="710" cy="200" r="26" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="710" y="206" class="b" text-anchor="middle">?</text>
+</g>
+<text x="770" y="206" class="b">Lost</text>
+<text x="60" y="332" class="g">Coins</text>
+<text x="570" y="336" class="b" text-anchor="middle">Anonymous</text>
+<rect x="60" y="355" width="110" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="115" y="386" class="n" text-anchor="middle">Mint</text>
+<line x1="170" y1="380" x2="258" y2="380" stroke="var(--accent)" stroke-width="2" marker-end="url(#yt-tr-a)"/>
+<circle cx="290" cy="380" r="26" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="290" y="386" class="n" text-anchor="middle" style="fill:var(--accent)">?</text>
+<line x1="316" y1="380" x2="398" y2="380" stroke="var(--accent)" stroke-width="2" marker-end="url(#yt-tr-a)"/>
+<circle cx="430" cy="380" r="26" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="430" y="386" class="n" text-anchor="middle" style="fill:var(--accent)">?</text>
+<line x1="456" y1="380" x2="538" y2="380" stroke="var(--accent)" stroke-width="2" marker-end="url(#yt-tr-a)"/>
+<circle cx="570" cy="380" r="26" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="570" y="386" class="n" text-anchor="middle" style="fill:var(--accent)">?</text>
+<line x1="596" y1="380" x2="678" y2="380" stroke="var(--accent)" stroke-width="2" marker-end="url(#yt-tr-a)"/>
+<circle cx="710" cy="380" r="26" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="710" y="386" class="n" text-anchor="middle" style="fill:var(--accent)">?</text>
+<line x1="736" y1="380" x2="818" y2="380" stroke="var(--accent)" stroke-width="2" marker-end="url(#yt-tr-a)"/>
+<circle cx="850" cy="380" r="26" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="850" y="386" class="n" text-anchor="middle" style="fill:var(--accent)">?</text>
+<rect x="190" y="424" width="686" height="22" rx="4" fill="var(--accent)" opacity="0.15"/>
+<circle cx="214" cy="435" r="5" fill="var(--accent)"/>
+<circle cx="360" cy="435" r="5" fill="var(--accent)"/>
+<circle cx="500" cy="435" r="5" fill="var(--accent)"/>
+<circle cx="640" cy="435" r="5" fill="var(--accent)"/>
+<circle cx="780" cy="435" r="5" fill="var(--accent)"/>
+<text x="533" y="474" class="b" text-anchor="middle">Chain logs every hop</text>
+<text x="480" y="545" class="c" text-anchor="middle">See flow, not who</text>
+</svg>

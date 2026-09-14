@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="之前一長串六個節點，兩家代理銀行上有施壓標記；之後只剩一條直達箭頭，施壓標記變淡">
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .h { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .n { font-size:16px; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<defs>
+  <marker id="yt-cc-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--grey)"/>
+  </marker>
+  <marker id="yt-cc-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+  </marker>
+</defs>
+<text x="60" y="62" class="h">跨境付款的路徑</text>
+<text x="50" y="112" class="g">之前</text>
+<text x="490" y="126" class="n" text-anchor="middle" style="fill:var(--warn)">美國可施壓</text>
+<line x1="414" y1="150" x2="414" y2="183" stroke="var(--warn)" stroke-width="2"/>
+<circle cx="414" cy="146" r="6" fill="var(--warn)"/>
+<line x1="566" y1="150" x2="566" y2="183" stroke="var(--warn)" stroke-width="2"/>
+<circle cx="566" cy="146" r="6" fill="var(--warn)"/>
+<rect x="50" y="185" width="120" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="110" y="216" class="n" text-anchor="middle">小店</text>
+<rect x="202" y="185" width="120" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="262" y="216" class="n" text-anchor="middle">銀行</text>
+<rect x="354" y="185" width="120" height="50" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+<text x="414" y="216" class="n" text-anchor="middle">代理銀行</text>
+<rect x="506" y="185" width="120" height="50" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+<text x="566" y="216" class="n" text-anchor="middle">代理銀行</text>
+<rect x="658" y="185" width="120" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="718" y="216" class="n" text-anchor="middle">銀行</text>
+<rect x="810" y="185" width="120" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="870" y="216" class="n" text-anchor="middle">供應商</text>
+<line x1="171" y1="210" x2="198" y2="210" stroke="var(--grey)" stroke-width="2" marker-end="url(#yt-cc-g)"/>
+<line x1="323" y1="210" x2="350" y2="210" stroke="var(--grey)" stroke-width="2" marker-end="url(#yt-cc-g)"/>
+<line x1="475" y1="210" x2="502" y2="210" stroke="var(--grey)" stroke-width="2" marker-end="url(#yt-cc-g)"/>
+<line x1="627" y1="210" x2="654" y2="210" stroke="var(--grey)" stroke-width="2" marker-end="url(#yt-cc-g)"/>
+<line x1="779" y1="210" x2="806" y2="210" stroke="var(--grey)" stroke-width="2" marker-end="url(#yt-cc-g)"/>
+<line x1="50" y1="300" x2="930" y2="300" stroke="var(--line)" stroke-width="1.5"/>
+<text x="50" y="352" class="g">之後</text>
+<line x1="490" y1="372" x2="490" y2="398" stroke="var(--grey)" stroke-width="2" stroke-dasharray="4 4" opacity="0.6"/>
+<circle cx="490" cy="366" r="6" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="3 3" opacity="0.6"/>
+<rect x="50" y="405" width="120" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="110" y="436" class="n" text-anchor="middle">小店</text>
+<rect x="810" y="405" width="120" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="870" y="436" class="n" text-anchor="middle">供應商</text>
+<line x1="171" y1="430" x2="800" y2="430" stroke="var(--accent)" stroke-width="4" marker-end="url(#yt-cc-a)"/>
+<text x="490" y="470" class="n" text-anchor="middle" style="fill:var(--accent)">鏈上一次結算</text>
+<text x="480" y="560" class="c" text-anchor="middle">付款變快，制裁槓桿變鈍</text>
+</svg>
