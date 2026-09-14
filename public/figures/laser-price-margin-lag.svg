@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="上下兩條線共用時間軸：上方報價在本季階梯式跳高，下方毛利率在一段灰色區間過後才緩緩上升">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:19px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text x="480" y="52" class="t" text-anchor="middle">報價先動，毛利率後到</text>
+<rect x="410" y="104" width="200" height="316" fill="var(--card)"/>
+<text x="510" y="94" class="b" text-anchor="middle">舊合約・庫存消化</text>
+<text x="40" y="178" class="g">雷射報價</text>
+<text x="40" y="358" class="g">毛利率</text>
+<line x1="220" y1="230" x2="880" y2="230" stroke="var(--line)" stroke-width="2"/>
+<line x1="220" y1="410" x2="880" y2="410" stroke="var(--line)" stroke-width="2"/>
+<path d="M220 210 L410 210 L410 140 L880 140" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text x="420" y="130" class="b" style="fill:var(--accent)">報價上調</text>
+<path d="M220 390 L610 390 C700 385 780 330 880 318" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text x="876" y="304" class="b" text-anchor="end" style="fill:var(--accent)">財報看得到</text>
+<line x1="420" y1="262" x2="600" y2="262" stroke="var(--ink)" stroke-width="2"/>
+<polygon points="420,256 408,262 420,268" fill="var(--ink)"/>
+<polygon points="600,256 612,262 600,268" fill="var(--ink)"/>
+<text x="510" y="252" class="g" text-anchor="middle">時間差</text>
+<text x="260" y="452" class="b" text-anchor="middle">前一季</text>
+<text x="410" y="452" class="b" text-anchor="middle">本季</text>
+<text x="560" y="452" class="b" text-anchor="middle">+1 季</text>
+<text x="710" y="452" class="b" text-anchor="middle">+2 季</text>
+<text x="860" y="452" class="b" text-anchor="middle">+3 季</text>
+</svg>

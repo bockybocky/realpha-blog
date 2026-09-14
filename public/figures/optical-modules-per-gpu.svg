@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左右對照：左邊一顆 GPU 連出 3 個光模組，右邊同樣一顆 GPU 連出 7 個光模組">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:19px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text x="480" y="52" class="t" text-anchor="middle">每顆 GPU 配幾個光模組</text>
+<text x="240" y="118" class="g" text-anchor="middle">現行假設</text>
+<text x="720" y="118" class="g" text-anchor="middle">高盛新假設</text>
+<line x1="360" y1="200" x2="590" y2="200" stroke="var(--grey)" stroke-width="3"/>
+<polygon points="590,192 606,200 590,208" fill="var(--grey)"/>
+<text x="480" y="188" class="b" text-anchor="middle">下一代平台</text>
+<line x1="240" y1="260" x2="190" y2="330" stroke="var(--grey)" stroke-width="2"/>
+<line x1="240" y1="260" x2="240" y2="330" stroke="var(--grey)" stroke-width="2"/>
+<line x1="240" y1="260" x2="290" y2="330" stroke="var(--grey)" stroke-width="2"/>
+<rect x="180" y="140" width="120" height="120" rx="8" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+<text x="240" y="208" class="g" text-anchor="middle">GPU</text>
+<rect x="172" y="330" width="36" height="28" rx="3" fill="var(--accent)"/>
+<rect x="222" y="330" width="36" height="28" rx="3" fill="var(--accent)"/>
+<rect x="272" y="330" width="36" height="28" rx="3" fill="var(--accent)"/>
+<text x="240" y="412" class="t" text-anchor="middle">3 個</text>
+<text x="240" y="442" class="b" text-anchor="middle">3.2T ×3</text>
+<line x1="720" y1="260" x2="570" y2="330" stroke="var(--grey)" stroke-width="2"/>
+<line x1="720" y1="260" x2="620" y2="330" stroke="var(--grey)" stroke-width="2"/>
+<line x1="720" y1="260" x2="670" y2="330" stroke="var(--grey)" stroke-width="2"/>
+<line x1="720" y1="260" x2="720" y2="330" stroke="var(--grey)" stroke-width="2"/>
+<line x1="720" y1="260" x2="770" y2="330" stroke="var(--grey)" stroke-width="2"/>
+<line x1="720" y1="260" x2="820" y2="330" stroke="var(--grey)" stroke-width="2"/>
+<line x1="720" y1="260" x2="870" y2="330" stroke="var(--grey)" stroke-width="2"/>
+<rect x="660" y="140" width="120" height="120" rx="8" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+<text x="720" y="208" class="g" text-anchor="middle">GPU</text>
+<rect x="552" y="330" width="36" height="28" rx="3" fill="var(--accent)"/>
+<rect x="602" y="330" width="36" height="28" rx="3" fill="var(--accent)"/>
+<rect x="652" y="330" width="36" height="28" rx="3" fill="var(--accent)"/>
+<rect x="702" y="330" width="36" height="28" rx="3" fill="var(--accent)"/>
+<rect x="752" y="330" width="36" height="28" rx="3" fill="var(--accent)"/>
+<rect x="803" y="331" width="34" height="26" rx="3" fill="var(--page)" stroke="var(--accent)" stroke-width="2.5"/>
+<rect x="853" y="331" width="34" height="26" rx="3" fill="var(--page)" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="720" y="412" class="t" text-anchor="middle" style="fill:var(--accent)">7 個</text>
+<text x="720" y="442" class="b" text-anchor="middle">3.2T ×5 ＋ 1.6T ×2</text>
+<rect x="330" y="494" width="30" height="22" rx="3" fill="var(--accent)"/>
+<text x="370" y="511" class="b">3.2T</text>
+<rect x="531" y="495" width="28" height="20" rx="3" fill="var(--page)" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="570" y="511" class="b">1.6T</text>
+</svg>

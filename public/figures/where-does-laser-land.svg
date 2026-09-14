@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="橫軸為零件佔比的分區圖：左區下游吃掉，右上縮手，右下照買；雷射以虛線箭頭從左往右移向問號">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:19px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text x="480" y="52" class="t" text-anchor="middle">雷射會落在哪一格</text>
+<text x="480" y="88" class="b" text-anchor="middle">缺的數字：雷射佔光模組成本多少</text>
+<rect x="160" y="110" width="350" height="360" fill="var(--card)"/>
+<rect x="160" y="110" width="700" height="360" fill="none" stroke="var(--line)" stroke-width="2"/>
+<line x1="510" y1="110" x2="510" y2="470" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="510" y1="290" x2="860" y2="290" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="335" y="150" class="g" text-anchor="middle">下游默默吃掉</text>
+<text x="685" y="145" class="b" text-anchor="middle">買方有別的選擇</text>
+<text x="685" y="172" class="g" text-anchor="middle">縮手</text>
+<text x="685" y="425" class="b" text-anchor="middle">買方沒得選</text>
+<text x="685" y="452" class="g" text-anchor="middle">照買・報價上調</text>
+<circle cx="230" cy="340" r="10" fill="var(--dim)"/>
+<text x="230" y="372" class="b" text-anchor="middle">舊記憶體・攝影機</text>
+<circle cx="640" cy="360" r="10" fill="var(--dim)"/>
+<text x="640" y="392" class="b" text-anchor="middle">高頻寬記憶體・加速卡</text>
+<line x1="314" y1="290" x2="588" y2="290" stroke="var(--accent)" stroke-width="3" stroke-dasharray="9 6"/>
+<polygon points="586,282 600,290 586,298" fill="var(--accent)"/>
+<circle cx="300" cy="290" r="12" fill="var(--accent)"/>
+<text x="300" y="266" class="g" text-anchor="middle" style="fill:var(--accent)">雷射</text>
+<circle cx="626" cy="290" r="22" fill="var(--page)" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="626" y="298" class="c" text-anchor="middle" style="fill:var(--accent)">?</text>
+<line x1="160" y1="490" x2="848" y2="490" stroke="var(--ink)" stroke-width="2"/>
+<polygon points="846,483 860,490 846,497" fill="var(--ink)"/>
+<text x="160" y="518" class="b">小</text>
+<text x="860" y="518" class="b" text-anchor="end">大</text>
+<text x="510" y="518" class="b" text-anchor="middle">零件佔成品售價</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Cumulative cash curves in which both seller lines rise, while the debt-funded builder first dips and its delayed version dips deeper and breaks through the floor.">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:19px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text x="480" y="52" class="t" text-anchor="middle">Paid a year or two late: who breaks?</text>
+<text x="140" y="104" class="b">Cumulative cash</text>
+<line x1="140" y1="300" x2="780" y2="300" stroke="var(--grey)" stroke-width="2"/>
+<text x="128" y="305" class="b" text-anchor="end">0</text>
+<line x1="140" y1="470" x2="780" y2="470" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="150" y="460" class="b" style="fill:var(--warn)">Survivable floor</text>
+<path d="M140 300 L780 160" fill="none" stroke="var(--grey)" stroke-width="3"/>
+<path d="M140 300 L780 185" fill="none" stroke="var(--grey)" stroke-width="3" stroke-dasharray="8 5"/>
+<path d="M140 300 C220 400 310 430 390 425 C480 420 530 350 580 300 C640 255 720 225 780 210" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<path d="M140 300 C220 400 330 440 420 470 C500 495 570 500 640 485 C700 470 750 440 780 420" fill="none" stroke="var(--accent)" stroke-width="4" stroke-dasharray="9 6"/>
+<text x="792" y="158" class="b">Seller</text>
+<text x="792" y="190" class="b">Seller, late</text>
+<text x="792" y="216" class="b" style="fill:var(--accent)">Debt-funded</text>
+<text x="792" y="426" class="b" style="fill:var(--accent)">Debt-funded, late</text>
+<text x="580" y="530" class="g" text-anchor="middle" style="fill:var(--warn)">Can't survive</text>
+<text x="780" y="562" class="b" text-anchor="end">Time →</text>
+</svg>
