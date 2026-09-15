@@ -277,7 +277,9 @@ def cta_witty(title, abstract, body_head, timeout=180):
         '1. heart：放在文章約三分之二處，請讀者點一下「這篇文章下方的愛心」，並講明點了這篇的愛心數就會增加'
         '（2026-09-15 Charles：要說清楚點的是文章的愛心、點了愛心數會增加）；'
         '文中的 💗 只是裝飾不能按，不要寫成「看到這裡點一下」這種會讓人以為文字裡的圖示能點的說法；'
-        '幽默可以留在前半句，後半句要白話講清楚動作與結果；30～60 字，句尾放一個 💗。\n'
+        '幽默可以留在前半句，後半句要白話講清楚動作與結果；'
+        '前半句的哏只准拿文章主題或作者自己開玩笑，不准寫人名、公司名、數字或事件經過'
+        '（2026-09-15 批次重寫時 AI 寫出「迪士尼把皮克斯賣掉」這種錯的事實）；30～60 字，句尾放一個 💗。\n'
         '2. join：放在文章結尾，邀請讀者加入沙龍免費會員，30～60 字，不用表情符號。\n'
         '3. save：放在文章前三分之一處，跟讀者說這篇很長、可以先加入沙龍收藏起來下次慢慢看，'
         '30～60 字，不用表情符號。\n'
@@ -290,7 +292,8 @@ def cta_witty(title, abstract, body_head, timeout=180):
     try:
         open(tmp, 'w', encoding='utf-8').write(prompt)
         with open(tmp, encoding='utf-8') as fh:
-            r = subprocess.run([cli, '-p', '--model', 'claude-opus-5', '--effort', 'low'],
+            # CTA_MODEL 環境變數可換模型（2026-09-15 批次重寫愛心句用 claude-sonnet-5）；平常發文不設＝Opus
+            r = subprocess.run([cli, '-p', '--model', os.environ.get('CTA_MODEL', 'claude-opus-5'), '--effort', 'low'],
                                stdin=fh, capture_output=True, text=True,
                                encoding='utf-8', errors='replace', timeout=timeout)
         m = re.search(r'\{.*\}', r.stdout or '', re.S)
