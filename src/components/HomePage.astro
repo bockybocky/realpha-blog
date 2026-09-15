@@ -1,8 +1,8 @@
 ---
-// 首頁（中英共用）：標語帶 → 分頁籤最新 12 篇 → 各主題 4 篇 → 熱門 → 節目系列 → 驗證簿窄帶
+// 首頁（中英共用）：標語帶 → 分頁籤最新 12 篇 → 各主題 4 篇 → 熱門 → 驗證簿窄帶
+// 2026-09-15 Charles「節目系列不要列出來」「先不做 Podcast」：節目頁籤／節目格／podcast 連結全部拿掉
 import SiteLayout from '../layouts/SiteLayout.astro';
 import PostCard from './PostCard.astro';
-import SeriesGrid from './SeriesGrid.astro';
 import { getCatalog, topicPath, type Post } from '../lib/catalog';
 import { formatYmd, ledgerSummary } from '../lib/ledger';
 import { resolveAudio } from '../lib/audio';
@@ -27,13 +27,9 @@ const t = zh
 			latest: '最新文章',
 			all: '全部',
 			listen: '可收聽',
-			subscribe: '訂閱 Podcast →',
-			shows: '節目系列',
 			more: '看更多 →',
 			seeAll: '看全部 →',
 			popular: '熱門文章',
-			seriesTitle: '節目系列',
-			seriesLead: '依 Podcast 節目整理的收聽心得。',
 		}
 	: {
 			title: 'Realpha Blog',
@@ -43,24 +39,19 @@ const t = zh
 			latest: 'Latest posts',
 			all: 'All',
 			listen: 'Listen',
-			subscribe: 'Podcast (in Chinese) →',
-			shows: 'Shows',
 			more: 'See more →',
 			seeAll: 'See all →',
 			popular: 'Popular',
-			seriesTitle: 'Shows',
-			seriesLead: 'Listening notes grouped by podcast.',
 		};
 
-// 「可收聽」只在有音檔時出現；沒有專屬列表頁，無 JS 時頁籤連到 podcast 訂閱源
+// 「可收聽」只在有音檔時出現；沒有專屬列表頁，無 JS 時頁籤連到文章列表
 const audioPosts = cat.posts.filter((p) => resolveAudio(p.data) !== null);
 const tabs = [
 	{ id: 'all', label: t.all, posts: cat.posts.slice(0, 12), more: withLocale(locale, '/blog/') },
-	...(audioPosts.length > 0 ? [{ id: 'audio', label: `🎧 ${t.listen}`, posts: audioPosts.slice(0, 12), more: '/podcast.xml', moreLabel: t.subscribe }] : []),
+	...(audioPosts.length > 0 ? [{ id: 'audio', label: `🎧 ${t.listen}`, posts: audioPosts.slice(0, 12), more: withLocale(locale, '/blog/') }] : []),
 	...cat.topics
 		.filter((topic) => (cat.byTopic.get(topic.id) ?? []).length > 0)
 		.map((topic) => ({ id: topic.id, label: topic.nav[locale], posts: (cat.byTopic.get(topic.id) ?? []).slice(0, 12), more: topicPath(locale, topic.id) })),
-	{ id: 'series', label: t.shows, posts: cat.seriesPosts.slice(0, 12), more: withLocale(locale, '/series/') },
 ];
 
 const topicBlocks = cat.topics
@@ -126,17 +117,6 @@ const ledger = ledgerSummary();
 				</div>
 			</section>
 		)}
-
-		<section class="home-topic" aria-labelledby="series-title">
-			<div class="home-topic-head">
-				<div>
-					<h2 id="series-title">{t.seriesTitle}</h2>
-					<p class="muted">{t.seriesLead}</p>
-				</div>
-				<a class="home-see-all" href={withLocale(locale, '/series/')}>{t.seeAll}</a>
-			</div>
-			<SeriesGrid series={cat.series} locale={locale} />
-		</section>
 
 		<aside class="home-ledger" aria-label={zh ? '驗證簿' : 'Ledger'}>
 			{zh ? (

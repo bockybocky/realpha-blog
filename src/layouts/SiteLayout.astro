@@ -79,13 +79,12 @@ if (article) {
 }
 const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
 const homeHref = withLocale(locale, '/');
-// 主題導向導覽：首頁｜四個主題｜節目｜驗證簿｜關於（「驗證與實驗」篇數少，放首頁區塊不進導覽）
+// 主題導向導覽：首頁｜四個主題｜驗證簿｜關於（「驗證與實驗」篇數少，放首頁區塊不進導覽；節目系列 2026-09-15 依 Charles 拿掉）
 const nav = [
 	{ href: homeHref, label: meta.home },
 	...topicsData.topics
 		.filter((topic) => topic.id !== 'lab')
 		.map((topic) => ({ href: withLocale(locale, `/topics/${topic.id}/`), label: topic.nav[locale] })),
-	{ href: withLocale(locale, '/series/'), label: meta.series },
 	// 驗證簿 / 提案 P0 目前只有 zh-TW 頁，故僅在繁中導覽顯示，避免英文頁連到中文頁
 	...(locale === 'zh-TW' ? [{ href: '/ledger/', label: meta.ledger }] : []),
 	{ href: withLocale(locale, '/about/'), label: meta.aboutNav },
@@ -116,7 +115,6 @@ const footerNav = [
 		{enPath && <link rel="alternate" hreflang="en" href={absoluteUrl(enPath)} />}
 		{zhPath && <link rel="alternate" hreflang="x-default" href={absoluteUrl(zhPath)} />}
 		<link rel="alternate" type="application/rss+xml" title={`${site.name} ${meta.rssLabel}`} href={withLocale(locale, '/rss.xml')} />
-		<link rel="alternate" type="application/rss+xml" title="Realpha 有聲版" href="/podcast.xml" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
@@ -155,7 +153,6 @@ const footerNav = [
 				<nav aria-label="Footer">
 					{footerNav.map((item) => <a href={item.href}>{item.label}</a>)}
 					<a href={withLocale(locale, '/rss.xml')}>RSS</a>
-					<a href="/podcast.xml">Podcast</a>
 					<a href={site.github}>GitHub</a>
 					<a href="/llms.txt">llms.txt</a>
 				</nav>

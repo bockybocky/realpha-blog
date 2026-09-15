@@ -1,5 +1,5 @@
 import { getBlogPosts, getLabs, getProjects } from '../lib/content';
-import { getCatalog, seriesPath, topicPath } from '../lib/catalog';
+import { getCatalog, topicPath } from '../lib/catalog';
 import { absoluteUrl, type Locale } from '../lib/site';
 
 const locales: Locale[] = ['zh-TW', 'en'];
@@ -39,16 +39,12 @@ export async function GET() {
 			});
 		}
 
-		// 主題頁與節目系列頁（只收第 1 頁；lastmod＝該區最新一篇）
+		// 主題頁（只收第 1 頁；lastmod＝該區最新一篇）
 		const catalog = await getCatalog(locale);
 		const newest = (list: typeof posts) => (list[0] ? (list[0].data.updatedDate ?? list[0].data.pubDate).toISOString().slice(0, 10) : undefined);
 		for (const topic of catalog.topics) {
 			const list = catalog.byTopic.get(topic.id) ?? [];
 			if (list.length) dynamicPaths.push({ path: topicPath(locale, topic.id), lastmod: newest(list)! });
-		}
-		dynamicPaths.push({ path: `${prefix}/series/`, lastmod: newest(catalog.seriesPosts) ?? '2026-07-08' });
-		for (const series of catalog.series) {
-			dynamicPaths.push({ path: seriesPath(locale, series.id), lastmod: newest(series.posts)! });
 		}
 
 		for (const lab of labs) {

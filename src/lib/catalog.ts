@@ -39,4 +39,3 @@ export async function getCatalog(locale: Lang) {
 }
 
 export const topicPath = (locale: Lang, id: string) => withLocale(locale, `/topics/${id}/`);
-export const seriesPath = (locale: Lang, id: string) => withLocale(locale, `/series/${id}/`);
