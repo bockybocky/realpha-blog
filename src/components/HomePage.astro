@@ -9,7 +9,7 @@ import PostCard from './PostCard.astro';
 import { getCatalog, type Post } from '../lib/catalog';
 import { readPopular, viewsOf } from '../lib/popular';
 import { withLocale, type Locale } from '../lib/site';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 interface Props {
@@ -58,6 +58,10 @@ try {
 }
 const numLocale = zh ? 'zh-TW' : 'en-US';
 
+// 標語的聲音（2026-09-15 Charles「幫標題加上聲音」，Kelly＝他本人聲音，黑蘋果 Hermes 用 BreezyVoice（Apache-2.0）念）：檔案在才出現播放鈕，只有中文版。
+// 對外文字不寫作者本名（維持 Realpha 品牌、不做作者人設）
+const taglineAudio = zh && existsSync(join(process.cwd(), 'public', 'brand', 'tagline-zh.mp3')) ? '/brand/tagline-zh.mp3' : null;
+
 // 2026-09-15 Charles「首頁這不就重複了」：分類分頁籤與導覽列三類重複，拿掉；首頁只列最新 12 篇
 const latest = cat.posts.slice(0, 12);
 
@@ -72,7 +76,14 @@ const popular = readPopular()
 <SiteLayout title={t.title} description={t.description} locale={locale} path={withLocale(locale, '/')} alternatePath={withLocale(zh ? 'en' : 'zh-TW', '/')}>
 	<main class="page home" data-pagefind-ignore="all">
 		<section class="home-band" aria-labelledby="home-title">
-			<h1 id="home-title">{t.tagline}</h1>
+			<div class="home-title-row">
+				<h1 id="home-title">{t.tagline}</h1>
+				{taglineAudio && (
+					<button class="tagline-play" type="button" data-tagline-audio={taglineAudio} aria-label={`播放：${t.tagline}`} title="播放標語（作者本人聲音，AI 合成）">
+						<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" /><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+					</button>
+				)}
+			</div>
 			<p>{t.sub}</p>
 			<p class="home-stats" data-site-stats={stats ? '' : undefined} data-locale={numLocale} data-date={stats?.date}>
 				<span>{t.posts} <b>{cat.posts.length.toLocaleString(numLocale)}</b></span>
@@ -110,6 +121,24 @@ const popular = readPopular()
 </SiteLayout>
 
 <script>
+	// 標語播放鈕：點一下念一次，播放中再點停止
+	for (const btn of document.querySelectorAll<HTMLButtonElement>('[data-tagline-audio]')) {
+		let audio: HTMLAudioElement | null = null;
+		btn.addEventListener('click', () => {
+			if (!audio) {
+				audio = new Audio(btn.dataset.taglineAudio);
+				audio.addEventListener('ended', () => btn.classList.remove('is-playing'));
+			}
+			if (audio.paused) {
+				audio.currentTime = 0;
+				audio.play().then(() => btn.classList.add('is-playing')).catch(() => btn.classList.remove('is-playing'));
+			} else {
+				audio.pause();
+				btn.classList.remove('is-playing');
+			}
+		});
+	}
+
 	// 全站計數器：抓排程每 10 分鐘更新的 /stats.json；「今日」只在日期是台灣今天時才顯示數字，否則顯示「—」
 	const statsEl = document.querySelector<HTMLElement>('[data-site-stats]');
 	if (statsEl) {
@@ -145,6 +174,30 @@ const popular = readPopular()
 		font-size: clamp(1.7rem, 4.2vw, 2.6rem);
 		line-height: 1.35;
 		text-wrap: balance;
+	}
+	.home-title-row {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+	}
+	.tagline-play {
+		flex: none;
+		display: inline-grid;
+		place-items: center;
+		width: 2.4rem;
+		height: 2.4rem;
+		border: 1px solid var(--line);
+		border-radius: 50%;
+		background: var(--paper);
+		color: var(--accent);
+		cursor: pointer;
+		transition: background 0.2s ease, transform 0.2s ease;
+	}
+	.tagline-play:hover { background: color-mix(in srgb, var(--accent-tint) 100%, var(--paper)); }
+	.tagline-play:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+	.tagline-play.is-playing { background: var(--accent); color: var(--paper); }
+	@media (prefers-reduced-motion: no-preference) {
+		.tagline-play:active { transform: scale(0.94); }
 	}
 	.home-band p {
 		margin: 0.5rem 0 0;
