@@ -300,7 +300,8 @@ def cta_witty(title, abstract, body_head, timeout=180):
         if m:
             d = _json.loads(m.group(0))
             for key in out:
-                line = str(d.get(key, '')).strip().strip('「」"')
+                # 半形逗號換全形（2026-09-15 批次重寫時 Sonnet 在中文句裡寫了半形逗號）
+                line = str(d.get(key, '')).strip().strip('「」"').replace(',', '，')
                 if line and _line_ok(line):
                     out[key] = line
     except Exception:
