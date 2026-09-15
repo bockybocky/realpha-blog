@@ -1,0 +1,125 @@
+---
+title: "[Reading Earnings Calls] Two Quarters Side by Side: Where Snowflake Changed Its Wording"
+description: "I read Snowflake's 2026-09-02 and 2026-05-27 earnings calls side by side: a gross margin promise that loosened within a quarter, a number analysts asked for twice and never got, a quiet change in how growth was credited, and a data problem I hit while preparing that threw no errors and returned nothing. An educational look at a method for reading earnings calls, not investment advice."
+slug: "snow-2026-09-02-earnings-call-fy27q2"
+lang: "en"
+pubDate: 2026-09-15
+category: investing
+tldr: "Read alone, every line on an earnings call makes sense. Put last quarter's exact words next to it, and the few words that changed tell you the most."
+tags: ["Reading Earnings Calls", "Snowflake", "Earnings", "Software Stocks", "education"]
+ogImage: "/covers/snow-2026-09-02-earnings-call-fy27q2.png"
+cover: "/covers/snow-2026-09-02-earnings-call-fy27q2.png"
+---
+
+![A study late at night: seen from behind, a person wearing headphones sits beside an old radio and a green desk lamp, writing in an open notebook with a pencil, city lights far off through the window](/covers/snow-2026-09-02-earnings-call-fy27q2.png)
+
+> Sincere words are not beautiful; beautiful words are not sincere. The good do not argue; those who argue are not good.
+>
+> —— Laozi, *Tao Te Ching*, Chapter 81 (Spring and Autumn period; translation mine)
+
+Laozi says trustworthy words are rarely pretty, and pretty words are rarely trustworthy. That line kept coming back to me while I read Snowflake's (SNOW) September 2 earnings call. The opening remarks were pretty: "the agentic enterprise," "flywheel," "a once-in-a-lifetime technology shift."
+
+An earnings call is the conference call a company holds after it reports each quarter. The CEO and CFO read prepared remarks, then sell-side analysts take turns asking questions. Prepared remarks can be polished in advance. The Q&A is harder to script, so that's the part I read most closely.
+
+This time I added one step. I pulled up the previous call, from May 27, and read the two side by side.
+
+Some background first. Snowflake sells a cloud data platform and charges most customers by usage; that usage-based revenue is what the company calls "product revenue." Its fiscal year ends in late January, so the September call covered the second quarter of fiscal 2027, roughly May through July 2026.
+
+On the surface, the September quarter looked great. The CFO reported second-quarter product revenue of $1.49 billion, up 37% year over year, the third straight quarter of acceleration. Full-year product revenue guidance went from $5.84 billion last quarter to $6.07 billion, which moved expected growth from 31% to 36%. Everyone saw the good news. What follows is what I noticed next to it.
+
+## Last quarter: hold 75%. This quarter: 74%
+
+Gross margin is what's left from every 100 dollars of revenue after direct costs. For Snowflake, most of those direct costs are fees paid to the cloud providers for compute.
+
+On the May call, UBS analyst Karl Keirstead asked why the full-year gross margin target hadn't moved when AI products are widely assumed to carry lower margins. CFO Brian Robins agreed that AI products do run at lower gross margins, said a new AWS contract would lower costs to make up the difference, and finished with:
+
+> "We're committed to find efficiency to be able to maintain that 75% gross margin."
+
+On the September call, the same analyst asked about model choice and margins again. This time Robins said:
+
+> "You saw our non-GAAP product gross margin go down to 74% because we have increased our guidance so much."
+
+One percentage point is small. What caught my attention was which way the explanation pointed. In May, rising AI usage was pressure the company would absorb. In September, the same thing became the reason margin was cut, presented alongside the higher revenue guidance. He then laid out the order of priorities: build a great product, drive adoption, and "Then we will work on sort of the margin implication of that." In one quarter, "committed to maintain" became "we'll work on it later."
+
+The CFO also said where the cost went. Full-year operating margin guidance rose from 13.5% to 14.5% because "we offset growing cloud costs with slowing headcount expense." So far this fiscal year the company has added 334 employees, 173 of them through an acquisition, compared with 935 in the same period a year earlier. Money moved from the people line to the cloud line. Gross margin went down while operating margin went up, and the two only make sense read together. I wrote about why AI product margins depend on who picks the model for the customer in [my post on Gooaye EP694](/en/blog/gooaye-2026-09-05-ep694/).
+
+![Two bars on the left show new hires: 935 in the same period last year versus only 334 this year 173 from acquisitions, with an arrow pointing to a big upward arrow on the right labeled "cloud computing costs rising"; below, two lines move in opposite directions — product gross margin falling from 75% to 74%, and operating margin target rising from 13.5% to 14.5%.](/figures/snow-cost-shift-headcount-to-cloud-en.svg)
+
+Every one of those margins carries the label "non-GAAP," meaning the company's own adjusted version. The biggest adjustment leaves out the stock paid to employees. Under standard accounting (GAAP), Snowflake still loses money; on this call the CEO said the target for GAAP profitability is the fourth quarter of fiscal 2028, roughly late 2027 to January 2028. Add up the four quarters through July 2026 from the September 2 report, and the reported net loss is $1.091 billion while free cash flow is a positive $1.193 billion. Most of the gap is $1.642 billion of stock-based compensation over those four quarters, which counts as an expense on the books but never leaves as cash. One company, three "profit" numbers. When I hear "margins improved," my first question is which one.
+
+![Centered on zero: a downward bar on the left is a net loss of -$1.091bn GAAP; a nearly equal upward bar in the middle is free cash flow of +$1.193bn; a dashed box on the right is about $1.64bn over four quarters in stock-based compensation — expensed as a cost but not paid in cash, the main source of the gap.](/figures/snow-book-loss-vs-free-cash-flow-en.svg)
+
+## Asked both quarters, answered with no number
+
+The claim that carries the whole story is that AI lifts usage across the platform. In the September prepared remarks: "Customers using AI on Snowflake consume more across the data platform, creating a structural multiplier for our business."
+
+A multiplier of how much? Someone asked in both quarters.
+
+In May, Alex Zukin of Wolfe Research asked how much more customers spend once they use CoCo, Snowflake's AI coding assistant. CEO Sridhar Ramaswamy opened with "Among the biggest impact that products like CoCo have with our customers is simply one that of expectation," and went on about customers now expecting faster migrations. No number.
+
+In September, Koji Ikeda of Bank of America made it more specific: how much more do AI adopters consume than comparable non-adopters, and how do you know this is higher lifetime usage rather than projects pulled forward? The answer:
+
+> "At this time, we are not ready to share the exact uplift numbers, but we do measure cohort behavior."
+
+Later on the same call, Zukin came back and opened with "I appreciate that it's too maybe early to share the ARPU expansion." The person asking had already let the company off the hook.
+
+The company did offer something. It described a metric: of the customers who signed up in a given month, what share are using more than 80% of what they bought about three months later. The CEO said it has "very, very visibly improved" for the newest cohorts. The metric has a name and a definition. It has no number.
+
+When I read a call, I keep a small table. I copy down the three claims the story leans on hardest and, next to each, note whether a number came with it. The cell next to the "multiplier" claim was empty in both quarters. An empty cell isn't necessarily bad news; the company may still be gathering data. What it tells me is that, for now, the claim can be believed but can't be checked.
+
+![A small three-row table. The first two rows show both the 5/27 and 9/2 calls being asked "how many times the multiplier," with the "asked" column checked and the "number given" column a dashed empty box. The third row is a new metric the company raised itself — "80% of credits used in three months" — its number column also blank, with only the word "clearly."](/figures/snow-multiplier-number-left-blank-en.svg)
+
+## Same results, split a different way
+
+The two calls explained the acceleration differently.
+
+In May, the CFO said the biggest driver of the raised forecast was CoCo: "CoCo had the largest driver to the increase in our forecast."
+
+In September, Kirk Materne of Evercore ISI asked how much came from the new products versus the core platform. The CEO said, "I would roughly call it even," and added, "Our AI products, which is a pretty broad swath at this point." Along with CoCo and CoWork, he named AI Functions and the AI Gateway.
+
+It was a JPMorgan analyst who spotted the shift, in the last question of the call: last quarter you said most of the raise came from CoCo, and this quarter it sounds more balanced between core and AI, so did something fundamental change? The CFO answered that guidance is based on observed behavior, the AI products are growing, and customers who adopt them also use more of the core platform.
+
+I took two things from this exchange. Analysts do the side-by-side reading too, and it produces their best questions. And before trusting a split like "AI is about half," check what's in the AI bucket. When the bucket gets bigger, "half" means something different.
+
+![Two baskets side by side. The AI basket on the 5/27 call is small, holding only CoCo, with no split given below it; the basket on the 9/2 call is much bigger, holding CoCo, CoWork, AI Functions, and AI Gateway, with a bar below it split into "AI about half, core platform about half."](/figures/snow-ai-basket-got-bigger-en.svg)
+
+I also lined up a few figures the company reported on both calls. Net revenue retention compares what existing customers spend this year with what they spent last year; 126% means a group that spent 100 last year spends 126 this year. Remaining performance obligations are contracted revenue not yet recognized; on the September call that figure was $9 billion.
+
+| Metric | May 27 call | Sept 2 call |
+|---|---|---|
+| Product revenue growth (YoY) | 34% | 37% |
+| Net revenue retention | 126% | 126% |
+| RPO growth (YoY) | 38% | 30% |
+| Net new customer growth (YoY) | 38% | 32% |
+| Use cases deployed, growth (YoY) | 114% | 89% |
+| Use cases won per account executive, growth (YoY) | 86% | 43% |
+
+Revenue is accelerating. Several of the numbers that look like they'd show demand earlier are still growing, but more slowly. On RPO, the CFO said on both calls that customers prefer to renew in the fourth quarter, so bookings will be weighted toward Q4. I can't tell with confidence how these numbers relate to each other, and no analyst on the call pushed on it. I've written them down and will line them up again next quarter.
+
+![Six small panels, each with a line running from 5/27 to 9/2. Product revenue rises from 34% to 37%; net revenue retention holds flat at 126%; remaining performance obligations fall from 38% to 30%, new customer count from 38% to 32%, live use cases from 114% to 89%, and wins per rep from 86% to 43% — all four trending down.](/figures/snow-six-metrics-two-quarters-slopes-en.svg)
+
+## What the statements show: the cash arrives in the fourth quarter
+
+On both calls the CFO said customers prefer to renew in the fourth quarter. You can see that in the cash flow statement. Here are the four quarters through the September 2 report:
+
+| Quarter ended | Revenue | Operating income | Free cash flow |
+|---|---|---|---|
+| Oct 2025 | $1.213 billion | -$329 million | $114 million |
+| Jan 2026 (Q4) | $1.284 billion | -$318 million | $763 million |
+| Apr 2026 | $1.391 billion | -$326 million | $233 million |
+| Jul 2026 | $1.547 billion | -$263 million | $84 million |
+
+Free cash flow across the four quarters adds up to $1.193 billion, and $763 million of it, about 64%, came in the quarter ending in January. Signings and renewals bunch up at year end, the bills go out then, and the cash lands in that quarter, while revenue is recognized over time as customers use the product. So the July quarter's $84 million looks weak on its own; put back into the yearly rhythm, it's the season.
+
+The operating line in the same table is worth a look too. The operating loss narrowed from $326 million in the April quarter to $263 million: revenue grew by $156 million in one quarter while operating expenses rose only about $48 million, which matches what the CFO said about slower hiring offsetting cloud costs. Stock-based compensation was $424 million this quarter, roughly 27% of revenue. It keeps the books in the red, and it's one reason the company puts GAAP profitability out in the fourth quarter of fiscal 2028.
+
+Management's words should be read against last quarter's; the statements should be read against the same point in the year. Cash in a fourth quarter and cash in a second quarter hold different things.
+
+## One thing to take with you
+
+What I took from these two calls: any sentence can make sense on its own, but set it next to what the same person said last time and the few words that changed carry the most information.
+
+Here's something I tried, if you'd like to try it too. Tonight, open a chat thread with someone who made you a promise (a contractor, a landlord, a manager, a customer service rep) and find what they said last time about the same thing: a delivery date, a price, a target. Copy that line and today's version into your phone's notes, one above the other, and circle the words that changed. Copying the two lines counts as done. The next time they bring it up, add the third line underneath.
+
+
+![Three rows: "last time" reads delivery date, by month-end, can deliver; "this time" reads delivery date, 10th next month, should deliver — the changed date and "should" are circled in orange; the bottom row, "next time," is a dashed empty row left for the third line.](/figures/snow-two-lines-circle-the-change-en.svg)

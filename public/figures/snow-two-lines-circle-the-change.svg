@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="上下兩行對齊，第二行改掉的兩處被圈起來，第三行虛線留空。">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .gd { font-size:20px; font-weight:700; fill:var(--dim); }
+    .s { font-size:20px; }
+    .d { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="40" y="52">抄成上下兩行</text>
+<rect x="60" y="120" width="840" height="64" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="gd" x="90" y="159">上次</text>
+<text class="s" x="200" y="159">交期</text>
+<text class="s" x="330" y="159">月底前</text>
+<text class="s" x="600" y="159">可以交</text>
+<line x1="380" y1="184" x2="380" y2="206" stroke="var(--grey)" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="640" y1="184" x2="640" y2="206" stroke="var(--grey)" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="60" y="200" width="840" height="64" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="gd" x="90" y="239">這次</text>
+<text class="s" x="200" y="239">交期</text>
+<text class="s" x="330" y="239">下個月十號</text>
+<text class="s" x="600" y="239">應該能交</text>
+<ellipse cx="380" cy="232" rx="72" ry="26" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<ellipse cx="640" cy="232" rx="60" ry="26" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<rect x="60" y="280" width="840" height="64" rx="10" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 6"/>
+<text class="gd" x="90" y="319">下次</text>
+<text class="d" x="200" y="318">第三句</text>
+<text class="c" x="480" y="440" text-anchor="middle">改掉的字最有資訊</text>
+</svg>
