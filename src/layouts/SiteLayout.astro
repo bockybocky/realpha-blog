@@ -120,8 +120,8 @@ const footerNav = [
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<!-- PWA：可安裝的網頁 app（2026-09-15） -->
 		<link rel="manifest" href="/manifest.webmanifest" />
-		<meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)" />
-		<meta name="theme-color" content="#1b1d24" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#f6f5f1" />
+		<meta name="color-scheme" content="light" />
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -150,8 +150,7 @@ const footerNav = [
 		<header class="site-header" data-pagefind-ignore="all">
 			<nav class="nav" aria-label="Primary">
 				<a class="brand" href={withLocale(locale, '/')} aria-label="Realpha Blog">
-					<img src="/brand/logo-lockup-lighttheme.svg" alt="Realpha" width="640" height="150" class="brand-logo brand-logo-light" />
-					<img src="/brand/logo-lockup.svg" alt="Realpha" width="640" height="150" class="brand-logo brand-logo-dark" />
+					<img src="/brand/logo-lockup-lighttheme.svg" alt="Realpha" width="640" height="150" class="brand-logo" />
 					<span class="brand-suffix">Blog</span>
 				</a>
 				<div class="nav-links">

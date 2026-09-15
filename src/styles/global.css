@@ -1,5 +1,5 @@
 :root {
-	color-scheme: light dark;
+	color-scheme: light;
 	/* 手帳（2026-09-15）：米灰點格紙、靛藍墨水、霞鶩文楷標題。元件只准用這裡的 token，不寫死顏色 */
 	--bg: #f6f5f1;
 	--dot: #d9dde3;
@@ -35,29 +35,7 @@
 		sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		/* 夜間手帳：深墨紙＋暗點格、米白字、淡靛藍墨水 */
-		--bg: #1b1d24;
-		--dot: #2c303a;
-		--paper: #23262f;
-		--text: #e7e4dc;
-		--muted: #a9adb8;
-		--faint: #8f94a0;
-		--line: #343845;
-		--soft: #20232b;
-		--accent: #9fb0ea;
-		--accent-strong: #bcc8f2;
-		--accent-tint: rgba(159, 176, 234, 0.12);
-		--note-bg: #3a3622;
-		--note-text: #f0e6b8;
-		--note-shadow: 0 8px 18px -12px rgba(0, 0, 0, 0.7);
-		--shadow-hover: 0 14px 28px -16px rgba(0, 0, 0, 0.75), 0 3px 8px -6px rgba(0, 0, 0, 0.5);
-		--shadow-rest: 0 1px 2px rgba(0, 0, 0, 0.35);
-		--code-bg: #0d1117;
-		--code-text: #e6edf3;
-	}
-}
+/* 2026-09-15 Charles「不用深色模式了」：整站固定淺色手帳，不跟系統深色切換 */
 
 * {
 	box-sizing: border-box;
@@ -137,19 +115,6 @@ select {
 	height: 30px;
 	width: auto;
 	display: block;
-}
-
-.brand-logo-dark {
-	display: none;
-}
-
-@media (prefers-color-scheme: dark) {
-	.brand-logo-light {
-		display: none;
-	}
-	.brand-logo-dark {
-		display: block;
-	}
 }
 
 .brand-suffix {
