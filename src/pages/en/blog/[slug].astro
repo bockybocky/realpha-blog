@@ -10,6 +10,7 @@ import SubstackLink from '../../../components/SubstackLink.astro';
 import { coverAlt, readingMinutes, relatedPosts } from '../../../lib/article-extras';
 import topicsData from '../../../data/topics.json';
 import { getBlogPosts } from '../../../lib/content';
+import { viewsOf } from '../../../lib/popular';
 import { formatDate } from '../../../lib/site';
 import { render } from 'astro:content';
 
@@ -44,6 +45,8 @@ const hideCoverCss = hideBodyCover
 	: '';
 // English pages only get English audio (<slug>.en.mp3); resolveAudio keys by lang
 const audio = resolveAudio(post.data);
+// Cumulative human views (local logs since 2026-08-19, bots filtered); hidden when 0
+const views = viewsOf('en', post.data.slug);
 ---
 
 <SiteLayout
@@ -72,6 +75,7 @@ const audio = resolveAudio(post.data);
 				<div class="meta">
 					<time datetime={post.data.pubDate.toISOString()}>{pubText}</time>
 					<span>{minutes} min read</span>
+					{views > 0 && <span class="views">{views.toLocaleString('en-US')} {views === 1 ? 'view' : 'views'}</span>}
 					<span>{post.data.category}</span>
 					{updatedText && updatedText !== pubText && (
 						<span>Updated: <time datetime={post.data.updatedDate!.toISOString()}>{updatedText}</time></span>

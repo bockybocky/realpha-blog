@@ -6,7 +6,7 @@ import PostCard from './PostCard.astro';
 import { getCatalog, topicPath, type Post } from '../lib/catalog';
 import { formatYmd, ledgerSummary } from '../lib/ledger';
 import { resolveAudio } from '../lib/audio';
-import { readPopular } from '../lib/popular';
+import { readPopular, viewsOf } from '../lib/popular';
 import { withLocale, type Locale } from '../lib/site';
 
 interface Props {
@@ -92,6 +92,17 @@ const ledger = ledgerSummary();
 			))}
 		</section>
 
+		{popular.length > 0 && (
+			<section class="home-topic" aria-labelledby="popular-title">
+				<div class="home-topic-head">
+					<h2 id="popular-title">🔥 {t.popular}</h2>
+				</div>
+				<div class="grid home-grid">
+					{popular.map((post) => <PostCard post={post} locale={locale} label={label(post)} views={viewsOf(locale, post.data.slug)} />)}
+				</div>
+			</section>
+		)}
+
 		{topicBlocks.map(({ topic, posts }) => (
 			<section class="home-topic" aria-labelledby={`topic-${topic.id}`}>
 				<div class="home-topic-head">
@@ -106,17 +117,6 @@ const ledger = ledgerSummary();
 				</div>
 			</section>
 		))}
-
-		{popular.length > 0 && (
-			<section class="home-topic" aria-labelledby="popular-title">
-				<div class="home-topic-head">
-					<h2 id="popular-title">{t.popular}</h2>
-				</div>
-				<div class="grid home-grid">
-					{popular.map((post) => <PostCard post={post} locale={locale} label={label(post)} />)}
-				</div>
-			</section>
-		)}
 
 		<aside class="home-ledger" aria-label={zh ? '驗證簿' : 'Ledger'}>
 			{zh ? (

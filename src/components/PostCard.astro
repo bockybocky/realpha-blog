@@ -8,11 +8,14 @@ interface Props {
 	post: Post;
 	locale: Locale;
 	label?: string;
+	/** 累計瀏覽數；只有首頁熱門區會傳，其他卡片不顯示 */
+	views?: number;
 }
 
-const { post, locale, label } = Astro.props;
+const { post, locale, label, views } = Astro.props;
 const { data } = post;
 const hasAudio = resolveAudio(data) !== null;
+const viewsText = views && views > 0 ? (locale === 'zh-TW' ? `瀏覽 ${views.toLocaleString('zh-TW')} 次` : `${views.toLocaleString('en-US')} ${views === 1 ? 'view' : 'views'}`) : null;
 ---
 
 <a class={`entry post-card${data.cover ? ' has-cover' : ''}`} href={withLocale(locale, `/blog/${data.slug}/`)}>
@@ -25,6 +28,7 @@ const hasAudio = resolveAudio(data) !== null;
 		<time datetime={data.pubDate.toISOString()}>{formatDate(data.pubDate, locale)}</time>
 		{hasAudio && <span class="audio-badge" title={locale === 'zh-TW' ? '可收聽' : 'Audio available'}>🎧</span>}
 		{label && <span>{label}</span>}
+		{viewsText && <span class="views">{viewsText}</span>}
 	</div>
 	<h3>{data.title}</h3>
 	<p class="post-card-desc">{data.description}</p>

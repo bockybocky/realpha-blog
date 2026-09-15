@@ -10,6 +10,7 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 import { coverAlt, readingMinutes, relatedPosts } from '../../lib/article-extras';
 import topicsData from '../../data/topics.json';
 import { getBlogPosts } from '../../lib/content';
+import { viewsOf } from '../../lib/popular';
 import { formatDate } from '../../lib/site';
 import { render } from 'astro:content';
 
@@ -49,6 +50,8 @@ const hideCoverCss = hideBodyCover
 	? `<style>.prose img[src=${JSON.stringify(cover)}]{display:none}.prose p:has(> img[src=${JSON.stringify(cover)}]:only-child){display:none}</style>`
 	: '';
 const audio = resolveAudio(post.data);
+// 累計真人瀏覽數（2026-08-19 起的本機紀錄，濾掉機器人）；0 就不顯示
+const views = viewsOf('zh-TW', post.data.slug);
 ---
 
 <SiteLayout
@@ -77,6 +80,7 @@ const audio = resolveAudio(post.data);
 				<div class="meta">
 					<time datetime={post.data.pubDate.toISOString()}>{pubText}</time>
 					<span>閱讀約 {minutes} 分鐘</span>
+					{views > 0 && <span class="views">瀏覽 {views.toLocaleString('zh-TW')} 次</span>}
 					<span>{post.data.category}</span>
 					{updatedText && updatedText !== pubText && (
 						<span>更新：<time datetime={post.data.updatedDate!.toISOString()}>{updatedText}</time></span>

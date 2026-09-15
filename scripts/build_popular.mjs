@@ -96,16 +96,36 @@ async function readRows(logsDir, days) {
 	return rows;
 }
 
-export async function run({ logsDir, days, contentDir, outFile }) {
+/** 每篇累計真人瀏覽數：{ 'lang:slug': n }（濾法同 aggregate）。2026-09-15 Charles「顯示瀏覽數」 */
+export function countViews(rows, keys) {
+	const views = {};
+	for (const row of rows) {
+		if (!isHuman(row)) continue;
+		const a = parseArticlePath(row.p);
+		if (!a || !keys.has(`${a.lang}:${a.slug}`)) continue;
+		const k = `${a.lang}:${a.slug}`;
+		views[k] = (views[k] ?? 0) + 1;
+	}
+	return views;
+}
+
+// 累計瀏覽數讀「全部」紀錄檔：紀錄從 2026-08-19 才開始，十年上限只是保險
+const ALL_DAYS = 3650;
+
+export async function run({ logsDir, days, contentDir, outFile, viewsFile }) {
 	let result = { top: [], total: 0 };
+	let views = {};
 	try {
 		const keys = await publishedKeys(contentDir);
 		result = aggregate(await readRows(logsDir, days), keys);
+		views = countViews(await readRows(logsDir, ALL_DAYS), keys);
 	} catch (err) {
 		console.warn(`[build_popular] WARNING ${err?.message ?? err}；輸出 []`);
 	}
 	await mkdir(dirname(outFile), { recursive: true });
 	await writeFile(outFile, `${JSON.stringify(result.top, null, 2)}\n`, 'utf8');
+	if (viewsFile) await writeFile(viewsFile, `${JSON.stringify(views)}\n`, 'utf8');
+	result.views = views;
 	return result;
 }
 
@@ -156,8 +176,11 @@ async function selfTest() {
 			].join('\n'),
 		);
 		await writeFile(join(logs, `visits-${old}.jsonl`), row('/blog/b/').repeat(1) + '\n' + row('/blog/b/'));
-		const r = await run({ logsDir: logs, days: 30, contentDir: content, outFile: out });
+		const viewsOut = join(dir, 'views.json');
+		const r = await run({ logsDir: logs, days: 30, contentDir: content, outFile: out, viewsFile: viewsOut });
 		assert.equal(r.total, 4);
+		// 累計瀏覽數讀全部紀錄：40 天前那兩筆 b 也算進去（近 30 天熱門不算）；草稿 d、不存在的 ghost、機器人都不算
+		assert.deepEqual(JSON.parse(await readFile(viewsOut, 'utf8')), { 'zh-TW:a': 2, 'zh-TW:b': 3, 'en:a': 1 });
 		assert.deepEqual(JSON.parse(await readFile(out, 'utf8')), [
 			{ slug: 'a', lang: 'zh-TW', views: 2 },
 			{ slug: 'a', lang: 'en', views: 1 },
@@ -179,8 +202,10 @@ if (isMain) {
 	} else {
 		const days = Math.max(1, parseInt(arg('--days', '30'), 10) || 30);
 		const logsDir = resolve(arg('--logs', './logs'));
-		const r = await run({ logsDir, days, contentDir: join(ROOT, 'src/content/blog'), outFile: join(ROOT, 'src/data/popular.json') });
+		const r = await run({ logsDir, days, contentDir: join(ROOT, 'src/content/blog'), outFile: join(ROOT, 'src/data/popular.json'), viewsFile: join(ROOT, 'src/data/views.json') });
 		console.log(`[build_popular] 近 ${days} 天真人文章瀏覽總數：${r.total}；寫入 ${r.top.length} 筆到 src/data/popular.json`);
+		const v = Object.values(r.views ?? {});
+		console.log(`[build_popular] 累計瀏覽：${v.length} 篇有紀錄、共 ${v.reduce((a, b) => a + b, 0)} 次，寫入 src/data/views.json`);
 		for (const [i, x] of r.top.slice(0, 10).entries()) console.log(`  ${i + 1}. ${x.views}\t${x.lang}\t${x.slug}`);
 	}
 }
