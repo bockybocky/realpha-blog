@@ -16,7 +16,7 @@ const articleUrl = articleId ? `https://vocus.cc/article/${articleId}` : null;
 ---
 
 <aside class="vocus">
-	<p class="vocus-title">想聊兩句、或想接著看下去的話</p>
+	<p class="vocus-title">{articleUrl ? '這篇也發在方格子，可以在那裡留言、訂閱沙龍' : '想聊兩句的話'}</p>
 	<p class="vocus-lead">
 		這個站的留言要有 GitHub 帳號，門檻有點高。
 		{articleUrl ? '這篇在方格子也放了一份，' : '我在方格子也有一個地方，'}

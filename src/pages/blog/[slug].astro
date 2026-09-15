@@ -1,22 +1,23 @@
 ---
+import AdSlot from '../../components/AdSlot.astro';
+import ArticleToc from '../../components/ArticleToc.astro';
 import Giscus from '../../components/Giscus.astro';
-import ReadMoreGate from '../../components/ReadMoreGate.astro';
+import RelatedPosts from '../../components/RelatedPosts.astro';
 import VocusLink from '../../components/VocusLink.astro';
-import vocusLinks from '../../data/vocus-links.json';
-import vocusStatus from '../../data/vocus-fulltext-status.json';
 import SiteLayout from '../../layouts/SiteLayout.astro';
+import { coverAlt, readingMinutes, relatedPosts } from '../../lib/article-extras';
 import { getBlogPosts } from '../../lib/content';
 import { formatDate } from '../../lib/site';
 import { render } from 'astro:content';
 
 export async function getStaticPaths() {
 	const posts = await getBlogPosts('zh-TW');
-	return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post } }));
+	return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post, posts } }));
 }
 
 const locale = 'zh-TW';
-const { post } = Astro.props;
-const { Content } = await render(post);
+const { post, posts } = Astro.props;
+const { Content, headings } = await render(post);
 const path = `/blog/${post.data.slug}/`;
 // 只有真的存在英文版才給網址——寫死會讓語言鈕指到 404
 const enPosts = await getBlogPosts('en');
@@ -30,15 +31,20 @@ const labLabels = {
 	result: '結果',
 };
 const hasPreregistration = post.data.category === 'lab' && (post.data.hypothesis || post.data.plan || post.data.preregistered_at || post.data.result);
-// 2026-08-31：中文版只放上半部，全文導到方格子（英文版不套用——方格子無英文版）。
-// 收合的前提是那句「全文在方格子」為真，所以要兩個條件同時成立：
-//   1. 有對應的方格子文章編號
-//   2. check-vocus-fulltext.mjs 驗過它還在、且字數不少於本地原文（狀態 ok）
-// 任一不成立就給全文——寧可少導一次流量，不可叫讀者去看不存在的全文。
-const SALON_URL = 'https://vocus.cc/salon/6a1e9e1a9da94e81ec5c81e6';
-const gateArticleId = (vocusLinks as Record<string, string>)[post.data.slug];
-const fullTextOk = (vocusStatus as Record<string, string>)[post.data.slug] === 'ok';
-const gateArticleUrl = gateArticleId && fullTextOk ? `https://vocus.cc/article/${gateArticleId}` : null;
+// 2026-09-15 Charles 拍板：中文版取消「讀到一半導去方格子」的收合，全文留在本站。
+// ReadMoreGate 元件保留不刪，只是這裡不再使用；方格子引流留在文末 VocusLink。
+
+const minutes = readingMinutes(post.body ?? '', locale);
+const pubText = formatDate(post.data.pubDate, locale);
+const updatedText = post.data.updatedDate ? formatDate(post.data.updatedDate, locale) : null;
+const showAds = post.data.category !== 'lab';
+const related = relatedPosts(post, posts);
+// 封面移到標題下方；內文開頭原本就嵌了同一張圖（2026-09-15 查：461 篇全是），把內文那張藏起來免得出現兩次。
+const cover = post.data.cover;
+const hideBodyCover = Boolean(cover && post.body?.includes(cover));
+const hideCoverCss = hideBodyCover
+	? `<style>.prose img[src=${JSON.stringify(cover)}]{display:none}.prose p:has(> img[src=${JSON.stringify(cover)}]:only-child){display:none}</style>`
+	: '';
 ---
 
 <SiteLayout
@@ -60,14 +66,24 @@ const gateArticleUrl = gateArticleId && fullTextOk ? `https://vocus.cc/article/$
 		image: post.data.ogImage,
 	}}
 >
+	<Fragment set:html={hideCoverCss} />
 	<main class="page article-shell">
-		<article>
+		<article data-pagefind-body>
 			<header class="article-header">
 				<div class="meta">
-					<time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate, locale)}</time>
+					<time datetime={post.data.pubDate.toISOString()}>{pubText}</time>
+					<span>閱讀約 {minutes} 分鐘</span>
 					<span>{post.data.category}</span>
+					{updatedText && updatedText !== pubText && (
+						<span>更新：<time datetime={post.data.updatedDate!.toISOString()}>{updatedText}</time></span>
+					)}
 				</div>
 				<h1 class="article-title">{post.data.title}</h1>
+				{cover && (
+					<figure class="article-cover">
+						<img src={cover} alt={coverAlt(post.body ?? '', cover, post.data.title)} width="1600" height="900" decoding="async" fetchpriority="high" />
+					</figure>
+				)}
 				<p class="lead">{post.data.description}</p>
 				<ul class="tag-list">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul>
 			</header>
@@ -105,18 +121,30 @@ const gateArticleUrl = gateArticleId && fullTextOk ? `https://vocus.cc/article/$
 						</dl>
 					</aside>
 				)}
-				<ReadMoreGate articleUrl={gateArticleUrl} salonUrl={SALON_URL}>
-					<Content />
-				</ReadMoreGate>
-				{/* Markdown 原文連結會直接給出全文，等於繞過上面的收合——
-				    只在沒有方格子版（不收合）的文章保留 */}
-				{!gateArticleUrl && (
-					<p class="markdown-link"><a href={`/blog/${post.data.slug}.md`}>Markdown 原文</a></p>
-				)}
+				<ArticleToc headings={headings} locale={locale} />
+				{showAds && <AdSlot slot="top" locale={locale} />}
+				<Content />
+				<p class="markdown-link" data-pagefind-ignore><a href={`/blog/${post.data.slug}.md`}>Markdown 原文</a></p>
 				{post.data.category === 'investing' && <p class="notice">本文為投資方法論的教育性分享，不構成任何個股買賣建議、不提供目標價、不針對當期標的。投資有風險，任何決策請自行判斷或諮詢合格的專業人士。</p>}
 			</div>
 		</article>
 		<VocusLink slug={post.data.slug} />
+		{showAds && <AdSlot slot="bottom" locale={locale} />}
+		<RelatedPosts posts={related} locale={locale} />
 		<Giscus />
 	</main>
 </SiteLayout>
+
+<style>
+	.article-cover {
+		margin: 0;
+	}
+
+	.article-cover img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: var(--radius);
+		border: 1px solid var(--line);
+	}
+</style>

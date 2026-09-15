@@ -1,0 +1,55 @@
+---
+// 延伸閱讀：排序規則在 src/lib/article-extras.ts relatedPosts()。
+import { formatDate, type Locale } from '../lib/site';
+
+interface Props {
+	posts: { data: { slug: string; title: string; description: string; category: string; pubDate: Date } }[];
+	locale: Locale;
+}
+
+const { posts, locale } = Astro.props;
+const prefix = locale === 'en' ? '/en' : '';
+const title = locale === 'en' ? 'Keep reading' : '延伸閱讀';
+---
+
+{posts.length > 0 && (
+	<section class="related" aria-labelledby="related-title" data-pagefind-ignore>
+		<h2 id="related-title">{title}</h2>
+		<div class="grid">
+			{posts.map((p) => (
+				<a class="entry" href={`${prefix}/blog/${p.data.slug}/`}>
+					<div class="meta"><time datetime={p.data.pubDate.toISOString()}>{formatDate(p.data.pubDate, locale)}</time><span>{p.data.category}</span></div>
+					<h3>{p.data.title}</h3>
+					<p>{p.data.description}</p>
+				</a>
+			))}
+		</div>
+	</section>
+)}
+
+<style>
+	.related {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--line);
+	}
+
+	.related h2 {
+		margin: 0 0 1.25rem;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 1.4rem;
+		letter-spacing: -0.02em;
+	}
+
+	.related .entry {
+		min-height: 0;
+	}
+
+	.related .entry p {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+</style>

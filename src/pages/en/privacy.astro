@@ -1,0 +1,46 @@
+---
+import ads from '../../data/ads.json';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const locale = 'en';
+const adsOn = ads.enabled === true && String(ads.client ?? '').trim() !== '';
+---
+
+<SiteLayout title="Privacy" description="What Realpha Blog records, what it does not, and who handles comments and ads." locale={locale} path="/en/privacy/" alternatePath="/privacy/" breadcrumbs={[{ name: 'Privacy', path: '/en/privacy/' }]}>
+	<main class="page article-shell">
+		<header class="article-header">
+			<h1 class="article-title">Privacy</h1>
+			<p class="lead">What this site records, what it does not, and who uses cookies — on one page.</p>
+		</header>
+		<div class="prose">
+			<h2>What this site records</h2>
+			<p>The site is served by a small self-hosted server. Each time a page is opened, the server writes one line containing only:</p>
+			<ul>
+				<li>the time</li>
+				<li>which page (the URL path)</li>
+				<li>the page you came from (the referrer, if your browser sends one)</li>
+				<li>your browser's user-agent string, e.g. "Chrome on Windows"</li>
+				<li>country, e.g. TW or US</li>
+				<li>whether the page was served normally (status code)</li>
+			</ul>
+			<p><strong>No IP addresses are logged, and this site sets no cookies.</strong> There is no third-party analytics. The log is used to see which articles get read and where readers come from.</p>
+			<p>Traffic passes through Cloudflare first; the country above is Cloudflare's estimate, passed along to the server.</p>
+
+			<h2>Comments</h2>
+			<p>The comment section under each article is <a href="https://giscus.app/">giscus</a>, and comments are stored in GitHub Discussions. Commenting requires signing in with GitHub; that sign-in and your comments are handled by GitHub and giscus under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>. Reading without commenting needs no sign-in.</p>
+
+			<h2>Ads</h2>
+			<p>This site is preparing to run Google AdSense ads. {adsOn ? 'Ads are currently on.' : 'Ads are not on yet.'}</p>
+			<p>Once enabled, Google and its partners use cookies to choose ads based on your previous visits to this site or other sites.</p>
+			<ul>
+				<li>How Google uses this data: <a href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a></li>
+				<li>To turn off personalised ads: <a href="https://www.google.com/settings/ads">google.com/settings/ads</a></li>
+			</ul>
+
+			<h2>Questions</h2>
+			<p>Open an issue on <a href="https://github.com/bockybocky/realpha-blog/issues">GitHub</a>, or leave a comment under any article.</p>
+
+			<p class="muted">Last updated: 15 September 2026</p>
+		</div>
+	</main>
+</SiteLayout>

@@ -1,0 +1,73 @@
+---
+// 文章目錄：取 render() 給的 h2/h3，少於 3 個不顯示。純 HTML 錨點，不需要腳本。
+interface Props {
+	headings: { depth: number; slug: string; text: string }[];
+	locale: 'zh-TW' | 'en';
+}
+
+const { headings, locale } = Astro.props;
+const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const title = locale === 'zh-TW' ? '目錄' : 'Contents';
+---
+
+{items.length >= 3 && (
+	<details class="toc" open data-pagefind-ignore>
+		<summary>{title}</summary>
+		<ol>
+			{items.map((h) => (
+				<li class={`toc-d${h.depth}`}>
+					<a href={`#${h.slug}`}>{h.text}</a>
+				</li>
+			))}
+		</ol>
+	</details>
+)}
+
+<style>
+	.toc {
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		padding: 0.85rem 1rem;
+		background: var(--paper);
+	}
+
+	.toc summary {
+		cursor: pointer;
+		font-weight: 700;
+		font-size: 1.05rem;
+	}
+
+	.toc ol {
+		margin: 0.6rem 0 0;
+		padding: 0;
+		list-style: none;
+		display: grid;
+		gap: 0.35rem;
+	}
+
+	.toc li {
+		font-size: 0.95rem;
+		line-height: 1.45;
+	}
+
+	.toc .toc-d3 {
+		padding-left: 1.1rem;
+		font-size: 0.9rem;
+	}
+
+	.toc a {
+		color: var(--muted);
+		text-decoration: none;
+	}
+
+	.toc a:hover {
+		color: var(--accent-strong);
+		text-decoration: underline;
+	}
+
+	/* 黏頂導覽列約 68px（手機折成兩行更高），錨點跳過去標題不要被蓋住 */
+	:global(.prose h2[id]),
+	:global(.prose h3[id]) {
+		scroll-margin-top: 7rem;
+	}
+</style>

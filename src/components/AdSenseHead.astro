@@ -1,0 +1,10 @@
+---
+// Google AdSense 載入腳本。src/data/ads.json 的 enabled 為 true 且 client 有值才輸出，否則什麼都不輸出。
+// 放進 SiteLayout 的 <head>。
+import ads from '../data/ads.json';
+
+const on = ads.enabled === true && typeof ads.client === 'string' && ads.client.trim() !== '';
+const src = on ? `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(ads.client.trim())}` : '';
+---
+
+{on && <script is:inline async src={src} crossorigin="anonymous"></script>}

@@ -1,0 +1,46 @@
+---
+import ads from '../data/ads.json';
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const locale = 'zh-TW';
+const adsOn = ads.enabled === true && String(ads.client ?? '').trim() !== '';
+---
+
+<SiteLayout title="隱私權說明" description="Realpha Blog 記了什麼、沒記什麼，留言與廣告由誰處理。" locale={locale} path="/privacy/" alternatePath="/en/privacy/" breadcrumbs={[{ name: '隱私權說明', path: '/privacy/' }]}>
+	<main class="page article-shell">
+		<header class="article-header">
+			<h1 class="article-title">隱私權說明</h1>
+			<p class="lead">這個站記了什麼、沒記什麼、誰會用到 cookie，一頁講完。</p>
+		</header>
+		<div class="prose">
+			<h2>本站自己記的東西</h2>
+			<p>網站由一台自架的小伺服器送出。每次有人打開一個頁面，伺服器會記一行紀錄，內容只有：</p>
+			<ul>
+				<li>時間</li>
+				<li>看的是哪一頁（網址路徑）</li>
+				<li>從哪個網址點進來（來源網址，瀏覽器有送才有）</li>
+				<li>瀏覽器送來的識別字串，例如「Chrome、Windows」這類資訊</li>
+				<li>國別，例如 TW、US</li>
+				<li>頁面有沒有正常送出（狀態碼）</li>
+			</ul>
+			<p><strong>不記 IP 位址，本站也不設任何 cookie</strong>，沒有掛第三方流量分析工具。這些紀錄用來看哪些文章有人讀、讀者從哪裡來。</p>
+			<p>連線會先經過 Cloudflare 轉送，上面的國別就是 Cloudflare 判斷後傳進來的。</p>
+
+			<h2>留言</h2>
+			<p>文章下方的留言區是 <a href="https://giscus.app/">giscus</a>，留言存放在 GitHub Discussions。留言需要用 GitHub 帳號登入，登入與留言資料由 GitHub 與 giscus 處理，適用 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 的隱私權聲明</a>。只看文章、不留言，就不需要登入。</p>
+
+			<h2>廣告</h2>
+			<p>本站準備接 Google AdSense 廣告，{adsOn ? '目前已經啟用。' : '目前還沒有啟用。'}</p>
+			<p>啟用後，Google 與它的合作夥伴會使用 cookie，依你之前造訪本站或其他網站的紀錄來決定要顯示哪些廣告。</p>
+			<ul>
+				<li>Google 怎麼使用這些資料：<a href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a></li>
+				<li>不想看個人化廣告，可以到這裡關閉：<a href="https://www.google.com/settings/ads">google.com/settings/ads</a></li>
+			</ul>
+
+			<h2>有問題找誰</h2>
+			<p>到 <a href="https://github.com/bockybocky/realpha-blog/issues">GitHub</a> 開一個 issue，或在任何一篇文章下方留言。</p>
+
+			<p class="muted">最後更新：2026 年 9 月 15 日</p>
+		</div>
+	</main>
+</SiteLayout>

@@ -1,19 +1,23 @@
 ---
+import AdSlot from '../../../components/AdSlot.astro';
+import ArticleToc from '../../../components/ArticleToc.astro';
 import Giscus from '../../../components/Giscus.astro';
+import RelatedPosts from '../../../components/RelatedPosts.astro';
 import SiteLayout from '../../../layouts/SiteLayout.astro';
 import SubstackLink from '../../../components/SubstackLink.astro';
+import { coverAlt, readingMinutes, relatedPosts } from '../../../lib/article-extras';
 import { getBlogPosts } from '../../../lib/content';
 import { formatDate } from '../../../lib/site';
 import { render } from 'astro:content';
 
 export async function getStaticPaths() {
 	const posts = await getBlogPosts('en');
-	return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post } }));
+	return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post, posts } }));
 }
 
 const locale = 'en';
-const { post } = Astro.props;
-const { Content } = await render(post);
+const { post, posts } = Astro.props;
+const { Content, headings } = await render(post);
 const path = `/en/blog/${post.data.slug}/`;
 const alternatePath = `/blog/${post.data.slug}/`;
 const labLabels = {
@@ -23,6 +27,18 @@ const labLabels = {
 	result: 'Result',
 };
 const hasPreregistration = post.data.category === 'lab' && (post.data.hypothesis || post.data.plan || post.data.preregistered_at || post.data.result);
+
+const minutes = readingMinutes(post.body ?? '', locale);
+const pubText = formatDate(post.data.pubDate, locale);
+const updatedText = post.data.updatedDate ? formatDate(post.data.updatedDate, locale) : null;
+const showAds = post.data.category !== 'lab';
+const related = relatedPosts(post, posts);
+// Cover moves under the title; the body already embeds the same image at the top, so hide that copy.
+const cover = post.data.cover;
+const hideBodyCover = Boolean(cover && post.body?.includes(cover));
+const hideCoverCss = hideBodyCover
+	? `<style>.prose img[src=${JSON.stringify(cover)}]{display:none}.prose p:has(> img[src=${JSON.stringify(cover)}]:only-child){display:none}</style>`
+	: '';
 ---
 
 <SiteLayout
@@ -44,14 +60,24 @@ const hasPreregistration = post.data.category === 'lab' && (post.data.hypothesis
 		image: post.data.ogImage,
 	}}
 >
+	<Fragment set:html={hideCoverCss} />
 	<main class="page article-shell">
-		<article>
+		<article data-pagefind-body>
 			<header class="article-header">
 				<div class="meta">
-					<time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate, locale)}</time>
+					<time datetime={post.data.pubDate.toISOString()}>{pubText}</time>
+					<span>{minutes} min read</span>
 					<span>{post.data.category}</span>
+					{updatedText && updatedText !== pubText && (
+						<span>Updated: <time datetime={post.data.updatedDate!.toISOString()}>{updatedText}</time></span>
+					)}
 				</div>
 				<h1 class="article-title">{post.data.title}</h1>
+				{cover && (
+					<figure class="article-cover">
+						<img src={cover} alt={coverAlt(post.body ?? '', cover, post.data.title)} width="1600" height="900" decoding="async" fetchpriority="high" />
+					</figure>
+				)}
 				<p class="lead">{post.data.description}</p>
 				<ul class="tag-list">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul>
 			</header>
@@ -89,12 +115,30 @@ const hasPreregistration = post.data.category === 'lab' && (post.data.hypothesis
 						</dl>
 					</aside>
 				)}
+				<ArticleToc headings={headings} locale={locale} />
+				{showAds && <AdSlot slot="top" locale={locale} />}
 				<Content />
-				<p class="markdown-link"><a href={`/en/blog/${post.data.slug}.md`}>Raw Markdown</a></p>
+				<p class="markdown-link" data-pagefind-ignore><a href={`/en/blog/${post.data.slug}.md`}>Raw Markdown</a></p>
 				{post.data.category === 'investing' && <p class="notice">This article is an educational discussion of investment method. It is not advice to buy or sell any individual security, offers no target prices, and does not analyze any current holding. Investing carries risk; make your own decisions or consult a qualified professional.</p>}
 			</div>
 		</article>
 		<SubstackLink slug={post.data.slug} />
+		{showAds && <AdSlot slot="bottom" locale={locale} />}
+		<RelatedPosts posts={related} locale={locale} />
 		<Giscus />
 	</main>
 </SiteLayout>
+
+<style>
+	.article-cover {
+		margin: 0;
+	}
+
+	.article-cover img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: var(--radius);
+		border: 1px solid var(--line);
+	}
+</style>
