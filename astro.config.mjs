@@ -1,4 +1,5 @@
 // @ts-check
+import { readFileSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -48,11 +49,33 @@ function rehypeCopyCode() {
 	};
 }
 
+// 2026-09-15 改版後舊網址轉址（Charles 手機存的 /ledger/ 撞 404 → 回報「部落格打不開」）：
+// 驗證簿三頁拿掉、五類併成三類、節目頁拿掉。舊網址一律轉到最接近的新頁，不讓人撞錯誤頁。
+const oldTopic = { mindset: 'growth', 'ai-tools': 'learning', lab: 'learning', 'ai-supply-chain': 'markets', macro: 'markets' };
+const seriesIds = JSON.parse(readFileSync(new URL('./src/data/topics.json', import.meta.url), 'utf8')).series.map((s) => s.id);
+const redirects = {
+	'/ledger': '/',
+	'/propose': '/',
+	'/methodology': '/',
+	'/en/methodology': '/en/',
+	'/series': '/blog/',
+	'/en/series': '/en/blog/',
+};
+for (const [from, to] of Object.entries(oldTopic)) {
+	redirects[`/topics/${from}`] = `/topics/${to}/`;
+	redirects[`/en/topics/${from}`] = `/en/topics/${to}/`;
+}
+for (const id of seriesIds) {
+	redirects[`/series/${id}`] = '/blog/';
+	redirects[`/en/series/${id}`] = '/en/blog/';
+}
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://blog.getrealpha.com',
 	// 離線頁是 service worker 的備用頁，不給搜尋引擎（2026-09-15 PWA）
 	integrations: [mdx(), sitemap({ filter: (page) => !/\/offline\/$/.test(new URL(page).pathname) })],
+	redirects,
 	i18n: {
 		defaultLocale: 'zh-TW',
 		locales: ['zh-TW', 'en'],
