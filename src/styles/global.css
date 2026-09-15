@@ -777,6 +777,9 @@ select {
 }
 .ad-slot-inArticle { min-height: 250px; }
 .ad-slot-multiplex { min-height: 320px; }
+/* Google 回報沒填到廣告（審核中或沒庫存）就整格收起來，不留空白 */
+.ad-slot:has(ins.adsbygoogle[data-ad-status='unfilled']) { display: none; }
+ins.adsbygoogle[data-ad-status='unfilled'] { display: none !important; }
 .ad-slot .ad-label {
 	margin: 0 0 0.35rem;
 	font-size: 0.75rem;
