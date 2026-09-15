@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="A two-by-two grid where the top-left cell, human-directed and verifiable, is lit and marked achieved, the two right-hand cells are marked no evidence yet, and a research-taste wall runs down the middle with a strong RSI arrow about to cross it.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; }
+    .d { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<defs><marker id="f5a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--warn)"/></marker></defs>
+<text x="48" y="52" class="t">Where is AI?</text>
+<text x="370" y="104" class="g" text-anchor="middle">By human</text>
+<text x="710" y="104" class="g" text-anchor="middle">By AI</text>
+<text x="185" y="226" class="g" text-anchor="end">Testable</text>
+<text x="185" y="426" class="g" text-anchor="end">Fuzzy</text>
+<rect x="200" y="120" width="340" height="200" fill="var(--accent)" fill-opacity="0.15" stroke="var(--accent)" stroke-width="2"/>
+<text x="370" y="226" class="c" text-anchor="middle" style="fill:var(--accent)">Done</text>
+<text x="370" y="256" class="d" text-anchor="middle">Navier-Stokes</text>
+<rect x="200" y="320" width="340" height="200" fill="var(--page)" stroke="var(--line)" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="370" y="426" class="d" text-anchor="middle">Skipped</text>
+<rect x="540" y="120" width="340" height="200" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="710" y="278" class="c" text-anchor="middle" style="fill:var(--dim)">Unseen</text>
+<rect x="540" y="320" width="340" height="200" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="710" y="428" class="c" text-anchor="middle" style="fill:var(--dim)">Unseen</text>
+<line x1="540" y1="112" x2="540" y2="528" stroke="var(--warn)" stroke-width="6"/>
+<text x="540" y="562" class="g" text-anchor="middle" style="fill:var(--warn)">Taste</text>
+<line x1="470" y1="178" x2="620" y2="178" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#f5a)"/>
+<text x="632" y="184" class="b" style="fill:var(--warn)">Full RSI</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩個重疊的圓，左圓是我的版本、右圓是 AI 的版本，左邊只屬於我的那塊被圈起來，標註這塊空了就該多自己做">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; }
+    .d { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<defs><marker id="f8a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--warn)"/></marker></defs>
+<text x="48" y="52" class="t">兩份並排，各圈一處</text>
+<text x="330" y="106" class="g" text-anchor="middle">我的版本</text>
+<text x="630" y="106" class="g" text-anchor="middle">AI 的版本</text>
+<circle cx="390" cy="290" r="170" fill="var(--accent)" fill-opacity="0.08" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="570" cy="290" r="170" fill="var(--grey)" fill-opacity="0.15" stroke="var(--grey)" stroke-width="2"/>
+<ellipse cx="300" cy="292" rx="62" ry="40" fill="none" stroke="var(--warn)" stroke-width="2.5"/>
+<text x="300" y="286" class="b" text-anchor="middle">我有</text>
+<text x="300" y="309" class="b" text-anchor="middle">AI 漏掉</text>
+<ellipse cx="660" cy="292" rx="62" ry="40" fill="none" stroke="var(--dim)" stroke-width="2"/>
+<text x="660" y="286" class="b" text-anchor="middle">AI 有</text>
+<text x="660" y="309" class="b" text-anchor="middle">我沒想到</text>
+<text x="480" y="296" class="d" text-anchor="middle">都有</text>
+<line x1="300" y1="336" x2="300" y2="476" stroke="var(--warn)" stroke-width="2" marker-end="url(#f8a)"/>
+<text x="300" y="506" class="g" text-anchor="middle" style="fill:var(--warn)">這塊空了</text>
+<text x="300" y="534" class="b" text-anchor="middle">該多自己做</text>
+</svg>
