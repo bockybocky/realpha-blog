@@ -2,7 +2,7 @@
 	color-scheme: light;
 	/* 手帳（2026-09-15）：米灰點格紙、靛藍墨水、霞鶩文楷標題。元件只准用這裡的 token，不寫死顏色 */
 	--bg: #f6f5f1;
-	--dot: #d9dde3;
+	--dot: #e6e8ec; /* 穩重版：點格淡一半（原 #d9dde3） */
 	--paper: #fffefb;
 	--text: #2b2f3a;
 	--muted: #5d6474;
@@ -144,12 +144,12 @@ select {
 	color: var(--text);
 }
 
-/* 目前頁：靛藍墨水＋波浪底線 */
+/* 目前頁：靛藍墨水＋直線底線（穩重版，2026-09-15） */
 .nav-links a[aria-current='page'] {
 	color: var(--accent);
-	text-decoration: underline wavy;
+	text-decoration: underline;
 	text-decoration-thickness: 1px;
-	text-underline-offset: 4px;
+	text-underline-offset: 5px;
 }
 
 .lang-switch {
@@ -270,16 +270,10 @@ select {
 	box-shadow: var(--shadow-hover);
 }
 
-/* 桌機寬：卡片像貼在手帳上，交錯微旋轉；hover 回正並浮起。手機寬與「減少動態」不旋轉 */
-@media (min-width: 600px) and (prefers-reduced-motion: no-preference) {
-	.grid > .entry:nth-child(odd) {
-		transform: rotate(-0.4deg);
-	}
-	.grid > .entry:nth-child(even) {
-		transform: rotate(0.5deg);
-	}
-	.grid > .entry:nth-child(n):hover {
-		transform: translateY(-3px) rotate(0deg);
+/* 穩重版手帳（2026-09-15 Charles 選甲）：卡片擺正不旋轉，hover 只輕微浮起；「減少動態」時不動 */
+@media (prefers-reduced-motion: no-preference) {
+	.grid > .entry:hover {
+		transform: translateY(-2px);
 	}
 }
 
