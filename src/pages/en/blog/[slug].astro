@@ -1,4 +1,5 @@
 ---
+import AdPush from '../../../components/AdPush.astro';
 import AdSlot from '../../../components/AdSlot.astro';
 import ArticleToc from '../../../components/ArticleToc.astro';
 import AudioPlayer from '../../../components/AudioPlayer.astro';
@@ -126,16 +127,17 @@ const views = viewsOf('en', post.data.slug);
 					</aside>
 				)}
 				<ArticleToc headings={headings} locale={locale} />
-				{showAds && <AdSlot slot="top" locale={locale} />}
+				{showAds && <AdSlot slot="display" locale={locale} />}
 				<Content />
 				<p class="markdown-link" data-pagefind-ignore><a href={`/en/blog/${post.data.slug}.md`}>Raw Markdown</a></p>
 				{post.data.category === 'investing' && <p class="notice">This article is an educational discussion of investment method. It is not advice to buy or sell any individual security, offers no target prices, and does not analyze any current holding. Investing carries risk; make your own decisions or consult a qualified professional.</p>}
 			</div>
 		</article>
 		<SubstackLink slug={post.data.slug} />
-		{showAds && <AdSlot slot="bottom" locale={locale} />}
+		{showAds && <AdSlot slot="multiplex" locale={locale} />}
 		<RelatedPosts posts={related} locale={locale} />
 		<Giscus />
+		{showAds && <AdPush />}
 	</main>
 </SiteLayout>
 

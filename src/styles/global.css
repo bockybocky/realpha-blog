@@ -773,3 +773,21 @@ select {
 		}
 	}
 }
+
+/* 廣告位（AdSlot.astro 與 rehype-in-article-ads 共用，放全域才吃得到建置期插入的元素）。
+   保留最小高度，廣告晚到時版面不會往下跳；小字標籤＋虛線頂框，跟內文分開但不搶眼 */
+.ad-slot {
+	margin: 2rem 0;
+	padding-top: 0.5rem;
+	border-top: 1px dashed var(--line);
+	min-height: 280px;
+}
+.ad-slot-inArticle { min-height: 250px; }
+.ad-slot-multiplex { min-height: 320px; }
+.ad-slot .ad-label {
+	margin: 0 0 0.35rem;
+	font-size: 0.75rem;
+	line-height: 1.4;
+	letter-spacing: 0.04em;
+	color: var(--muted);
+}

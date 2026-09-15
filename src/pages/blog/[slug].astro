@@ -1,4 +1,5 @@
 ---
+import AdPush from '../../components/AdPush.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import ArticleToc from '../../components/ArticleToc.astro';
 import AudioPlayer from '../../components/AudioPlayer.astro';
@@ -131,16 +132,17 @@ const views = viewsOf('zh-TW', post.data.slug);
 					</aside>
 				)}
 				<ArticleToc headings={headings} locale={locale} />
-				{showAds && <AdSlot slot="top" locale={locale} />}
+				{showAds && <AdSlot slot="display" locale={locale} />}
 				<Content />
 				<p class="markdown-link" data-pagefind-ignore><a href={`/blog/${post.data.slug}.md`}>Markdown 原文</a></p>
 				{post.data.category === 'investing' && <p class="notice">本文為投資方法論的教育性分享，不構成任何個股買賣建議、不提供目標價、不針對當期標的。投資有風險，任何決策請自行判斷或諮詢合格的專業人士。</p>}
 			</div>
 		</article>
 		<VocusLink slug={post.data.slug} />
-		{showAds && <AdSlot slot="bottom" locale={locale} />}
+		{showAds && <AdSlot slot="multiplex" locale={locale} />}
 		<RelatedPosts posts={related} locale={locale} />
 		<Giscus />
+		{showAds && <AdPush />}
 	</main>
 </SiteLayout>
 

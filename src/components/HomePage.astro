@@ -2,6 +2,8 @@
 // 首頁（中英共用）：標語帶 → 分頁籤最新 12 篇 → 熱門 → 各主題 4 篇
 // 2026-09-15 Charles「節目系列不要列出來」「先不做 Podcast」「不要驗證簿了，超機械的，沒有人味」：節目、podcast、驗證簿窄帶全部拿掉
 import SiteLayout from '../layouts/SiteLayout.astro';
+import AdPush from './AdPush.astro';
+import AdSlot from './AdSlot.astro';
 import PostCard from './PostCard.astro';
 import { getCatalog, topicPath, type Post } from '../lib/catalog';
 import { resolveAudio } from '../lib/audio';
@@ -100,7 +102,9 @@ const popular = readPopular()
 			</section>
 		)}
 
-		{topicBlocks.map(({ topic, posts }) => (
+		{topicBlocks.map(({ topic, posts }, i) => (
+			<>
+			{i === 2 && <AdSlot slot="display" locale={locale} />}
 			<section class="home-topic" aria-labelledby={`topic-${topic.id}`}>
 				<div class="home-topic-head">
 					<div>
@@ -113,8 +117,11 @@ const popular = readPopular()
 					{posts.map((post) => <PostCard post={post} locale={locale} />)}
 				</div>
 			</section>
+			</>
 		))}
 
+		<AdSlot slot="multiplex" locale={locale} />
+		<AdPush />
 	</main>
 </SiteLayout>
 

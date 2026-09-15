@@ -1,0 +1,20 @@
+---
+// 整頁一段：把頁面上每個還沒處理的 <ins class="adsbygoogle"> 各 push 一次。放在頁面最後（所有廣告位之後）。
+// 任何一種 slot id 都沒填時什麼都不輸出。
+import ads from '../data/ads.json';
+
+const client = typeof ads.client === 'string' ? ads.client.trim() : '';
+const anySlot = Object.values((ads.slots ?? {}) as Record<string, string>).some((id) => String(id ?? '').trim() !== '');
+const on = ads.enabled === true && client !== '' && anySlot;
+---
+
+{on && (
+	<script is:inline>
+		(function () {
+			var q = (window.adsbygoogle = window.adsbygoogle || []);
+			document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])').forEach(function () {
+				q.push({});
+			});
+		})();
+	</script>
+)}

@@ -1,10 +1,12 @@
 ---
 // 單一廣告版位。ads.json 的 enabled 為 true、client 有值、且 slots[slot] 有值才輸出，否則什麼都不輸出。
-// 保留最小高度，廣告晚到時版面不會往下跳。
+// slot：display＝多媒體廣告（開場／首頁中段）、inArticle＝文章內嵌（通常由 rehype-in-article-ads 在 h2 前插）、multiplex＝多重廣告（文末／首頁底部）。
+// 這裡不 push；整頁的 <ins> 由頁尾一段 AdPush 統一 push。樣式在 global.css 的 .ad-slot（rehype 插的元素也要吃得到）。
 import ads from '../data/ads.json';
+import { adAttrs, adLabel } from '../lib/rehype-in-article-ads.mjs';
 
 interface Props {
-	slot: 'top' | 'bottom';
+	slot: 'display' | 'inArticle' | 'multiplex';
 	locale?: 'zh-TW' | 'en';
 }
 
@@ -12,34 +14,12 @@ const { slot, locale = 'zh-TW' } = Astro.props;
 const client = typeof ads.client === 'string' ? ads.client.trim() : '';
 const slotId = String((ads.slots as Record<string, string>)[slot] ?? '').trim();
 const on = ads.enabled === true && client !== '' && slotId !== '';
-const label = locale === 'en' ? 'Ad' : '廣告';
+const label = adLabel(locale);
 ---
 
 {on && (
 	<aside class={`ad-slot ad-slot-${slot}`} aria-label={label} data-pagefind-ignore>
 		<p class="ad-label">{label}</p>
-		<ins
-			class="adsbygoogle"
-			style="display:block"
-			data-ad-client={client}
-			data-ad-slot={slotId}
-			data-ad-format="auto"
-			data-full-width-responsive="true"
-		></ins>
-		<script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+		<ins class="adsbygoogle" data-ad-client={client} data-ad-slot={slotId} {...adAttrs(slot)}></ins>
 	</aside>
 )}
-
-<style>
-	.ad-slot {
-		margin: 2rem 0;
-		min-height: 280px;
-	}
-
-	.ad-label {
-		margin: 0 0 0.35rem;
-		font-size: 0.75rem;
-		letter-spacing: 0.04em;
-		color: var(--muted);
-	}
-</style>
