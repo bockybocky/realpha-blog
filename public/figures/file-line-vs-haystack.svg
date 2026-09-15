@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="41 個檔案方塊，沒有行號要拿放大鏡亂找，有行號直接點亮三格">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+    .cell { fill:var(--card); stroke:var(--grey); stroke-width:1.5; }
+    .hit { fill:var(--accent); stroke:var(--accent); stroke-width:1.5; }
+</style>
+<defs>
+  <g id="grid4">
+    <rect class="cell" x="0" y="0" width="34" height="26" rx="4"/><rect class="cell" x="40" y="0" width="34" height="26" rx="4"/><rect class="cell" x="80" y="0" width="34" height="26" rx="4"/><rect class="cell" x="120" y="0" width="34" height="26" rx="4"/><rect class="cell" x="160" y="0" width="34" height="26" rx="4"/><rect class="cell" x="200" y="0" width="34" height="26" rx="4"/><rect class="cell" x="240" y="0" width="34" height="26" rx="4"/>
+    <rect class="cell" x="0" y="32" width="34" height="26" rx="4"/><rect class="cell" x="40" y="32" width="34" height="26" rx="4"/><rect class="cell" x="80" y="32" width="34" height="26" rx="4"/><rect class="cell" x="120" y="32" width="34" height="26" rx="4"/><rect class="cell" x="160" y="32" width="34" height="26" rx="4"/><rect class="cell" x="200" y="32" width="34" height="26" rx="4"/><rect class="cell" x="240" y="32" width="34" height="26" rx="4"/>
+    <rect class="cell" x="0" y="64" width="34" height="26" rx="4"/><rect class="cell" x="40" y="64" width="34" height="26" rx="4"/><rect class="cell" x="80" y="64" width="34" height="26" rx="4"/><rect class="cell" x="120" y="64" width="34" height="26" rx="4"/><rect class="cell" x="160" y="64" width="34" height="26" rx="4"/><rect class="cell" x="200" y="64" width="34" height="26" rx="4"/><rect class="cell" x="240" y="64" width="34" height="26" rx="4"/>
+    <rect class="cell" x="0" y="96" width="34" height="26" rx="4"/><rect class="cell" x="40" y="96" width="34" height="26" rx="4"/><rect class="cell" x="80" y="96" width="34" height="26" rx="4"/><rect class="cell" x="120" y="96" width="34" height="26" rx="4"/><rect class="cell" x="160" y="96" width="34" height="26" rx="4"/><rect class="cell" x="200" y="96" width="34" height="26" rx="4"/><rect class="cell" x="240" y="96" width="34" height="26" rx="4"/>
+    <rect class="cell" x="0" y="128" width="34" height="26" rx="4"/><rect class="cell" x="40" y="128" width="34" height="26" rx="4"/><rect class="cell" x="80" y="128" width="34" height="26" rx="4"/><rect class="cell" x="120" y="128" width="34" height="26" rx="4"/><rect class="cell" x="160" y="128" width="34" height="26" rx="4"/><rect class="cell" x="200" y="128" width="34" height="26" rx="4"/><rect class="cell" x="240" y="128" width="34" height="26" rx="4"/>
+    <rect class="cell" x="0" y="160" width="34" height="26" rx="4"/><rect class="cell" x="40" y="160" width="34" height="26" rx="4"/><rect class="cell" x="80" y="160" width="34" height="26" rx="4"/><rect class="cell" x="120" y="160" width="34" height="26" rx="4"/><rect class="cell" x="160" y="160" width="34" height="26" rx="4"/><rect class="cell" x="200" y="160" width="34" height="26" rx="4"/>
+  </g>
+</defs>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text class="t" x="60" y="64">有檔名和行號，就不用翻整堆</text>
+
+<text class="g" x="90" y="130">只有結論</text>
+<use href="#grid4" x="90" y="155"/>
+<path d="M110 175 Q 200 330 290 205 T 350 320" fill="none" stroke="var(--dim)" stroke-width="2" stroke-dasharray="5 5"/>
+<circle cx="228" cy="252" r="26" fill="var(--page)" fill-opacity="0.6" stroke="var(--dim)" stroke-width="3"/>
+<line x1="247" y1="271" x2="266" y2="290" stroke="var(--dim)" stroke-width="5" stroke-linecap="round"/>
+<text class="b" x="90" y="390">41 個檔、280KB：自己翻</text>
+
+<line x1="480" y1="115" x2="480" y2="460" stroke="var(--line)" stroke-width="1"/>
+
+<text class="g" x="560" y="130">結論＋檔名＋行號</text>
+<use href="#grid4" x="560" y="155"/>
+<rect class="hit" x="600" y="155" width="34" height="26" rx="4"/>
+<text x="617" y="174" text-anchor="middle" style="font-size:15px;font-weight:700;fill:var(--page)">1</text>
+<rect class="hit" x="720" y="219" width="34" height="26" rx="4"/>
+<text x="737" y="238" text-anchor="middle" style="font-size:15px;font-weight:700;fill:var(--page)">2</text>
+<rect class="hit" x="640" y="283" width="34" height="26" rx="4"/>
+<text x="657" y="302" text-anchor="middle" style="font-size:15px;font-weight:700;fill:var(--page)">3</text>
+<text class="b" x="560" y="390"><tspan style="fill:var(--accent);font-weight:700">1</tspan>　main.go　Telemetry: true</text>
+<text class="b" x="560" y="418"><tspan style="fill:var(--accent);font-weight:700">2</tspan>　預設版號 dev</text>
+<text class="b" x="560" y="446"><tspan style="fill:var(--accent);font-weight:700">3</tspan>　只聽 127.0.0.1</text>
+
+<text class="c" x="90" y="525">每條不到 1 分鐘，3 條都對</text>
+</svg>

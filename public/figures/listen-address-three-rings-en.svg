@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" role="img" aria-label="Three sets of concentric circles compare how wide the door opens: the default opens only to this machine, the docs say it opens to the tailnet, and the code actually opens it to any network.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<defs>
+  <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--warn)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="620" fill="var(--page)"/>
+<text class="t" x="60" y="64">How open?</text>
+
+<text class="g" x="170" y="135" text-anchor="middle">Normal</text>
+<circle cx="170" cy="300" r="120" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="170" cy="300" r="80" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="170" cy="300" r="40" fill="var(--accent)" fill-opacity="0.22" stroke="var(--accent)" stroke-width="2"/>
+<text class="s" x="170" y="204" text-anchor="middle">Public</text>
+<text class="s" x="170" y="246" text-anchor="middle">tailnet</text>
+<text x="170" y="306" text-anchor="middle" style="font-size:16px;font-weight:600">PC</text>
+<text class="b" x="170" y="465" text-anchor="middle">127.0.0.1</text>
+
+<text class="g" x="480" y="135" text-anchor="middle">LAN mode: per docs</text>
+<circle cx="480" cy="300" r="120" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="480" cy="300" r="80" fill="var(--accent)" fill-opacity="0.15" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="480" cy="300" r="40" fill="var(--accent)" fill-opacity="0.22" stroke="var(--accent)" stroke-width="2"/>
+<text class="s" x="480" y="204" text-anchor="middle">Public</text>
+<text class="s" x="480" y="246" text-anchor="middle">tailnet</text>
+<text x="480" y="306" text-anchor="middle" style="font-size:16px;font-weight:600">PC</text>
+<text class="b" x="480" y="465" text-anchor="middle">tailnet only</text>
+
+<text class="g" x="790" y="135" text-anchor="middle">LAN mode: code</text>
+<circle cx="790" cy="300" r="120" fill="var(--warn)" fill-opacity="0.15" stroke="var(--warn)" stroke-width="2"/>
+<circle cx="790" cy="300" r="80" fill="var(--warn)" fill-opacity="0.15" stroke="var(--warn)" stroke-width="2"/>
+<circle cx="790" cy="300" r="40" fill="var(--warn)" fill-opacity="0.22" stroke="var(--warn)" stroke-width="2"/>
+<text class="s" x="790" y="204" text-anchor="middle">Public</text>
+<text class="s" x="790" y="246" text-anchor="middle">tailnet</text>
+<text x="790" y="306" text-anchor="middle" style="font-size:16px;font-weight:600">PC</text>
+<circle cx="870" cy="250" r="8" fill="var(--warn)"/>
+<text class="s" x="872" y="280" text-anchor="middle">Cafe</text>
+<line x1="863" y1="256" x2="826" y2="286" stroke="var(--warn)" stroke-width="2" marker-end="url(#ar2)"/>
+<text class="b" x="790" y="465" text-anchor="middle">0.0.0.0 (all NICs)</text>
+
+<line x1="60" y1="510" x2="900" y2="510" stroke="var(--line)" stroke-width="1"/>
+<text class="c" x="60" y="560">Docs ≠ code → keep mode off</text>
+</svg>
