@@ -6,15 +6,21 @@ import type { Locale } from '../lib/site';
 interface Props {
 	audio: AudioInfo;
 	locale: Locale;
+	/** 鎖定畫面顯示的標題與封面（Media Session）；沒封面就用 512 圖示 */
+	title?: string;
+	cover?: string;
 }
 
-const { audio, locale } = Astro.props;
+const { audio, locale, title = '', cover } = Astro.props;
+const artwork = cover
+	? { src: cover, type: /\.png$/i.test(cover) ? 'image/png' : /\.webp$/i.test(cover) ? 'image/webp' : 'image/jpeg', sizes: '1600x900' }
+	: { src: '/icons/icon-512.png', type: 'image/png', sizes: '512x512' };
 const zh = locale === 'zh-TW';
 const duration = formatDuration(audio.seconds);
 const speeds = [1, 1.25, 1.5];
 ---
 
-<section class="audio-player" aria-label={zh ? '收聽這篇' : 'Listen to this article'} data-audio-player data-pagefind-ignore>
+<section class="audio-player" aria-label={zh ? '收聽這篇' : 'Listen to this article'} data-audio-player data-pagefind-ignore data-title={title} data-artwork={JSON.stringify(artwork)}>
 	<p class="audio-label">
 		<span>🎧 {zh ? '收聽這篇（作者本人聲音，AI 合成）' : "Listen (author's voice, AI-generated)"}</span>
 		{duration && <span class="audio-duration">{duration}</span>}
@@ -42,6 +48,47 @@ const speeds = [1, 1.25, 1.5];
 			});
 		}
 		group.hidden = false;
+
+		// 鎖定畫面與耳機鍵控制（Media Session，2026-09-15 PWA）；瀏覽器不支援就略過
+		if ('mediaSession' in navigator) {
+			const session = navigator.mediaSession;
+			const setPosition = () => {
+				if (!Number.isFinite(audio.duration) || !('setPositionState' in session)) return;
+				try {
+					session.setPositionState({ duration: audio.duration, playbackRate: audio.playbackRate, position: Math.min(audio.currentTime, audio.duration) });
+				} catch {
+					// 部分瀏覽器在 metadata 未就緒時會丟錯，下一次事件再補
+				}
+			};
+			const bind = () => {
+				let art: MediaImage[] = [];
+				try {
+					const a = JSON.parse(root.dataset.artwork ?? 'null');
+					if (a?.src) art = [{ ...a, src: new URL(a.src, location.href).href }];
+				} catch {
+					// 封面資料壞掉就不給圖
+				}
+				session.metadata = new MediaMetadata({ title: root.dataset.title || document.title, artist: 'Realpha', artwork: art });
+				const handlers: [MediaSessionAction, MediaSessionActionHandler][] = [
+					['play', () => void audio.play()],
+					['pause', () => audio.pause()],
+					['seekbackward', (d) => { audio.currentTime = Math.max(0, audio.currentTime - (d.seekOffset || 10)); setPosition(); }],
+					['seekforward', (d) => { audio.currentTime = Math.min(audio.duration || Infinity, audio.currentTime + (d.seekOffset || 10)); setPosition(); }],
+					['seekto', (d) => { if (d.seekTime != null) audio.currentTime = d.seekTime; setPosition(); }],
+				];
+				for (const [action, handler] of handlers) {
+					try {
+						session.setActionHandler(action, handler);
+					} catch {
+						// 不支援的動作（例如舊版 Safari 的 seekto）略過
+					}
+				}
+			};
+			audio.addEventListener('play', () => { bind(); session.playbackState = 'playing'; setPosition(); });
+			audio.addEventListener('pause', () => { session.playbackState = 'paused'; });
+			audio.addEventListener('ratechange', setPosition);
+			audio.addEventListener('loadedmetadata', setPosition);
+		}
 	}
 </script>
 

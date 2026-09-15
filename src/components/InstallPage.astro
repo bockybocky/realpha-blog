@@ -1,0 +1,137 @@
+---
+// 安裝說明頁（2026-09-15 PWA）：教讀者把網站加到主畫面。
+// 支援 beforeinstallprompt 的瀏覽器（Android／電腦 Chrome、Edge）另外顯示一顆安裝鈕；
+// 已經從主畫面以 app 模式開啟時，改顯示「已經安裝好了」。
+import SiteLayout from '../layouts/SiteLayout.astro';
+import type { Locale } from '../lib/site';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const zh = locale === 'zh-TW';
+const path = zh ? '/app/' : '/en/app/';
+const t = zh
+	? {
+			title: '把 Realpha 裝到手機',
+			description: '把 Realpha 加到手機或電腦的主畫面，像 app 一樣全螢幕開啟，讀過的文章沒網路也能看。',
+			lead: '不用上架、不用下載，加到主畫面就能像 app 一樣開啟。讀過的文章會存在手機裡，搭捷運沒訊號也能看。',
+			button: '安裝 Realpha',
+			installed: '你已經安裝好了',
+			installedLead: '你現在就是用 app 模式在看。之後從主畫面的 Realpha 圖示打開就可以。',
+			iosTitle: 'iPhone、iPad',
+			ios: ['用 Safari 打開這個網站（其他瀏覽器在 iPhone 上也可以，但 Safari 最穩）。', '點畫面下方的「分享」按鈕（方框加向上箭頭）。', '往下滑，選「加入主畫面」，再按右上角的「加入」。'],
+			androidTitle: 'Android 手機、電腦的 Chrome 或 Edge',
+			android: ['上方如果出現「安裝 Realpha」按鈕，直接按它。', '沒看到按鈕：點網址列右邊的安裝圖示（螢幕加向下箭頭），或打開右上角選單，選「安裝應用程式」或「加到主畫面」。'],
+			afterTitle: '裝好之後',
+			after: ['從主畫面的 Realpha 圖示打開，沒有網址列，整個畫面都是文章。', '讀過的文章會自動存下來，最多保留最近 60 篇；沒網路時打開 app，會列出可以離線看的文章。', '有聲文章在鎖定畫面也能繼續播，可以用鎖定畫面或耳機的按鍵暫停。', '不想要了，像刪除一般 app 一樣長按圖示移除即可。'],
+		}
+	: {
+			title: 'Install Realpha on your phone',
+			description: 'Add Realpha to your home screen. It opens full screen like an app, and articles you have read work offline.',
+			lead: 'No app store and no download. Add it to your home screen and it opens like an app. Articles you have read stay on the device, so they work without a signal.',
+			button: 'Install Realpha',
+			installed: "You're all set",
+			installedLead: "You're already reading in app mode. Open Realpha from your home screen icon any time.",
+			iosTitle: 'iPhone and iPad',
+			ios: ['Open this site in Safari.', 'Tap the Share button (a square with an up arrow) at the bottom of the screen.', 'Scroll down, choose "Add to Home Screen", then tap "Add".'],
+			androidTitle: 'Android, or Chrome and Edge on a computer',
+			android: ['If an "Install Realpha" button appears above, tap it.', 'No button? Click the install icon at the right end of the address bar, or open the browser menu and choose "Install app" or "Add to Home screen".'],
+			afterTitle: 'After installing',
+			after: ['Open Realpha from the home screen icon. No address bar, just the article.', 'Articles you read are saved automatically, up to the latest 60. Offline, the app lists what you can still read.', 'Audio articles keep playing on the lock screen, with play and pause from the lock screen or your headphones.', 'To remove it, delete the icon like any other app.'],
+		};
+---
+
+<SiteLayout title={t.title} description={t.description} locale={locale} path={path} alternatePath={zh ? '/en/app/' : '/app/'} breadcrumbs={[{ name: t.title, path }]}>
+	<main class="page article-shell">
+		<header class="article-header">
+			<h1 class="article-title" data-install-title data-installed={t.installed}>{t.title}</h1>
+			<p class="lead" data-install-lead data-installed={t.installedLead}>{t.lead}</p>
+			<p class="install-action" data-install-action hidden>
+				<button type="button" class="install-button" data-install-button>
+					<img src="/icons/icon-192.png" alt="" width="28" height="28" />
+					<span>{t.button}</span>
+				</button>
+			</p>
+		</header>
+		<div class="prose install-steps" data-install-steps>
+			<h2>{t.iosTitle}</h2>
+			<ol>{t.ios.map((step) => <li>{step}</li>)}</ol>
+			<h2>{t.androidTitle}</h2>
+			<ol>{t.android.map((step) => <li>{step}</li>)}</ol>
+			<h2>{t.afterTitle}</h2>
+			<ul>{t.after.map((step) => <li>{step}</li>)}</ul>
+		</div>
+	</main>
+</SiteLayout>
+
+<script>
+	const title = document.querySelector<HTMLElement>('[data-install-title]');
+	const lead = document.querySelector<HTMLElement>('[data-install-lead]');
+	const action = document.querySelector<HTMLElement>('[data-install-action]');
+	const button = document.querySelector<HTMLButtonElement>('[data-install-button]');
+	const steps = document.querySelector<HTMLElement>('[data-install-steps]');
+
+	const standalone = () =>
+		window.matchMedia('(display-mode: standalone)').matches || (navigator as Navigator & { standalone?: boolean }).standalone === true;
+
+	function showInstalled() {
+		if (title?.dataset.installed) title.textContent = title.dataset.installed;
+		if (lead?.dataset.installed) lead.textContent = lead.dataset.installed;
+		if (action) action.hidden = true;
+		if (steps) steps.hidden = true;
+	}
+
+	if (standalone()) {
+		showInstalled();
+	} else {
+		let deferred: (Event & { prompt: () => Promise<void>; userChoice: Promise<{ outcome: string }> }) | null = null;
+		window.addEventListener('beforeinstallprompt', (event) => {
+			event.preventDefault();
+			deferred = event as typeof deferred;
+			if (action) action.hidden = false;
+		});
+		button?.addEventListener('click', async () => {
+			if (!deferred) return;
+			await deferred.prompt();
+			await deferred.userChoice.catch(() => undefined);
+			deferred = null;
+			if (action) action.hidden = true;
+		});
+		window.addEventListener('appinstalled', showInstalled);
+	}
+</script>
+
+<style>
+	.install-action[hidden],
+	.install-steps[hidden] {
+		display: none;
+	}
+	.install-button {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
+		border: 1px solid var(--accent);
+		border-radius: 2rem;
+		padding: 0.45rem 1.3rem 0.45rem 0.55rem;
+		background: var(--accent);
+		color: #fff;
+		font: inherit;
+		font-family: var(--font-display);
+		font-size: 1.05rem;
+		font-weight: 700;
+		cursor: pointer;
+	}
+	.install-button img {
+		border-radius: 6px;
+	}
+	.install-button:hover {
+		background: var(--accent-strong);
+	}
+	@media (prefers-color-scheme: dark) {
+		.install-button {
+			color: #1b1d24;
+		}
+	}
+</style>

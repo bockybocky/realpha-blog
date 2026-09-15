@@ -26,9 +26,11 @@ interface Props {
 	breadcrumbs?: Breadcrumb[];
 	article?: ArticleData;
 	image?: string;
+	/** 不給搜尋引擎收錄（離線頁用） */
+	noindex?: boolean;
 }
 
-const { title, description, locale, path, alternatePath, breadcrumbs = [], article, image = site.ogImage } = Astro.props;
+const { title, description, locale, path, alternatePath, breadcrumbs = [], article, image = site.ogImage, noindex = false } = Astro.props;
 const meta = localeMeta[locale];
 const titleText = title === site.name ? title : `${title} | ${site.name}`;
 const canonical = absoluteUrl(path);
@@ -94,6 +96,7 @@ const footerNav = [
 	{ href: withLocale(locale, '/projects/'), label: meta.projects },
 	{ href: withLocale(locale, '/blog/'), label: meta.blog },
 	{ href: '/privacy/', label: meta.privacy },
+	{ href: withLocale(locale, '/app/'), label: meta.app },
 ];
 ---
 
@@ -105,6 +108,7 @@ const footerNav = [
 		<meta name="generator" content={Astro.generator} />
 		<title>{titleText}</title>
 		<meta name="description" content={description} />
+		{noindex && <meta name="robots" content="noindex" />}
 		<link rel="canonical" href={canonical} />
 		{zhPath && <link rel="alternate" hreflang="zh-TW" href={absoluteUrl(zhPath)} />}
 		{enPath && <link rel="alternate" hreflang="en" href={absoluteUrl(enPath)} />}
@@ -114,6 +118,21 @@ const footerNav = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<!-- PWA：可安裝的網頁 app（2026-09-15） -->
+		<link rel="manifest" href="/manifest.webmanifest" />
+		<meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#1b1d24" media="(prefers-color-scheme: dark)" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<meta name="apple-mobile-web-app-title" content="Realpha" />
+		<script is:inline>
+			if ('serviceWorker' in navigator && window.isSecureContext) {
+				window.addEventListener('load', function () {
+					navigator.serviceWorker.register('/sw.js').catch(function () {});
+				});
+			}
+		</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap" />

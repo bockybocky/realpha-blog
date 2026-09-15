@@ -51,7 +51,8 @@ function rehypeCopyCode() {
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://blog.getrealpha.com',
-	integrations: [mdx(), sitemap()],
+	// 離線頁是 service worker 的備用頁，不給搜尋引擎（2026-09-15 PWA）
+	integrations: [mdx(), sitemap({ filter: (page) => !/\/offline\/$/.test(new URL(page).pathname) })],
 	i18n: {
 		defaultLocale: 'zh-TW',
 		locales: ['zh-TW', 'en'],

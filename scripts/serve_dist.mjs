@@ -61,7 +61,14 @@ const types = new Map([
 	['.woff', 'font/woff'],
 	['.woff2', 'font/woff2'],
 	['.mp3', 'audio/mpeg'],
+	['.webmanifest', 'application/manifest+json'],
 ]);
+
+// 2026-09-15 PWA：sw.js 一定要每次回原站確認，否則 Cloudflare／瀏覽器沿用舊版，新版網站永遠裝不上去。
+// 其他檔案照舊不送 cache-control（維持原本行為）。
+export function cacheControl(pathname) {
+	return pathname === '/sw.js' ? 'no-cache' : null;
+}
 
 // 2026-09-15 有聲文章：podcast App 與 iOS Safari 播音檔會送 Range，只回 200 整檔會拖不動或直接拒播。
 // 回傳 {start,end}（含 end）；沒送或看不懂 → null（照舊回整檔）；範圍超出 → 'invalid'（416）。
@@ -185,7 +192,10 @@ async function handle(req, res) {
 	}
 
 	logVisit(req, 200);
-	res.writeHead(200, { 'content-type': type, 'accept-ranges': 'bytes', 'content-length': entry.size });
+	const headers = { 'content-type': type, 'accept-ranges': 'bytes', 'content-length': entry.size };
+	const cc = cacheControl(url.pathname);
+	if (cc) headers['cache-control'] = cc;
+	res.writeHead(200, headers);
 	if (req.method === 'HEAD') res.end();
 	else createReadStream(entry.path).on('error', () => res.destroy()).pipe(res);
 }
@@ -211,6 +221,11 @@ function check() {
 	assert.equal(parseRange('bytes=-0', 1000), 'invalid');
 	assert.equal(parseRange('bytes=0-1,5-9', 1000), null);
 	assert.equal(parseRange('items=0-1', 1000), null);
+	assert.equal(contentType('/manifest.webmanifest'), 'application/manifest+json');
+	assert.equal(contentType('/sw.js'), 'text/javascript; charset=utf-8');
+	assert.equal(cacheControl('/sw.js'), 'no-cache');
+	assert.equal(cacheControl('/copy-code.js'), null);
+	assert.equal(cacheControl('/blog/x/'), null);
 	console.log('serve_dist self-check ok');
 }
 

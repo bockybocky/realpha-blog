@@ -87,7 +87,7 @@ const views = viewsOf('zh-TW', post.data.slug);
 					)}
 				</div>
 				<h1 class="article-title">{post.data.title}</h1>
-				{audio && <AudioPlayer audio={audio} locale={locale} />}
+				{audio && <AudioPlayer audio={audio} locale={locale} title={post.data.title} cover={cover} />}
 				{cover && (
 					<figure class="article-cover">
 						<img src={cover} alt={coverAlt(post.body ?? '', cover, post.data.title)} width="1600" height="900" decoding="async" fetchpriority="high" />

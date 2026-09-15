@@ -1,0 +1,126 @@
+---
+// 離線頁（2026-09-15 PWA）：service worker 在沒網路、又沒有該頁快取時回這一頁。
+// 列表由前端讀 Cache Storage 產生（快取名稱前綴 realpha-articles-，見 public/sw.js）。
+import SiteLayout from '../layouts/SiteLayout.astro';
+import type { Locale } from '../lib/site';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const zh = locale === 'zh-TW';
+const path = zh ? '/offline/' : '/en/offline/';
+const t = zh
+	? {
+			title: '目前沒有網路',
+			lead: '目前沒有網路，下面是你讀過、可以離線看的文章。',
+			empty: '這台裝置還沒有存下任何文章。有網路時打開文章，讀過的就會留在這裡。',
+			unsupported: '這個瀏覽器不支援離線閱讀。',
+			retry: '重新整理',
+		}
+	: {
+			title: "You're offline",
+			lead: "You're offline. These are the articles you've read, available without a connection.",
+			empty: 'Nothing saved on this device yet. Open articles while online and they will show up here.',
+			unsupported: 'This browser does not support offline reading.',
+			retry: 'Try again',
+		};
+---
+
+<SiteLayout title={t.title} description={t.lead} locale={locale} path={path} alternatePath={zh ? '/en/offline/' : '/offline/'} noindex>
+	<main class="page article-shell">
+		<header class="article-header">
+			<h1 class="article-title">{t.title}</h1>
+			<p class="lead">{t.lead}</p>
+		</header>
+		<div class="prose offline">
+			<ul class="offline-list" data-offline-list data-empty={t.empty} data-unsupported={t.unsupported} data-locale={locale}></ul>
+			<p><button type="button" class="offline-retry" onclick="location.reload()">{t.retry}</button></p>
+		</div>
+	</main>
+</SiteLayout>
+
+<script>
+	const list = document.querySelector<HTMLUListElement>('[data-offline-list]');
+	const note = (text: string) => {
+		const p = document.createElement('p');
+		p.className = 'muted';
+		p.textContent = text;
+		list?.replaceWith(p);
+	};
+
+	async function render() {
+		if (!list) return;
+		if (!('caches' in window)) return note(list.dataset.unsupported ?? '');
+		const names = (await caches.keys()).filter((n) => n.startsWith('realpha-articles-'));
+		const items: { href: string; title: string }[] = [];
+		const seen = new Set<string>();
+		for (const name of names) {
+			const cache = await caches.open(name);
+			// keys() 依放入順序，最後一個是最近讀的，反過來列
+			for (const req of (await cache.keys()).reverse()) {
+				const url = new URL(req.url);
+				if (seen.has(url.pathname)) continue;
+				seen.add(url.pathname);
+				let title = decodeURIComponent(url.pathname);
+				try {
+					const html = await (await cache.match(req))?.text();
+					const doc = html ? new DOMParser().parseFromString(html, 'text/html') : null;
+					const h1 = doc?.querySelector('h1')?.textContent?.trim();
+					if (h1) title = h1;
+				} catch {
+					// 讀不到標題就用網址
+				}
+				items.push({ href: url.pathname, title });
+			}
+		}
+		if (!items.length) return note(list.dataset.empty ?? '');
+		// 目前語言的文章排前面
+		const en = list.dataset.locale === 'en';
+		items.sort((a, b) => Number(a.href.startsWith('/en/') !== en) - Number(b.href.startsWith('/en/') !== en));
+		for (const item of items) {
+			const li = document.createElement('li');
+			const a = document.createElement('a');
+			a.href = item.href;
+			a.textContent = item.title;
+			li.append(a);
+			list.append(li);
+		}
+	}
+
+	render().catch(() => note(list?.dataset.empty ?? ''));
+</script>
+
+<style>
+	.offline-list {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1.5rem;
+		display: grid;
+		gap: 0.6rem;
+	}
+	/* li／a 由前端 JS 產生，沒有 Astro 的樣式範圍標記，要用 :global 才套得到 */
+	.offline-list :global(li) {
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		background: var(--paper);
+		padding: 0.7rem 1rem;
+		margin: 0;
+	}
+	.offline-list :global(a) {
+		font-family: var(--font-display);
+		font-size: 1.05rem;
+		text-decoration: none;
+	}
+	.offline-retry {
+		border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line));
+		border-radius: 2rem;
+		padding: 0.35rem 1.1rem;
+		background: var(--accent-tint);
+		color: var(--accent-strong);
+		font: inherit;
+		font-weight: 600;
+		cursor: pointer;
+	}
+</style>

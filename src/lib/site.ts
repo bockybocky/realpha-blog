@@ -23,6 +23,7 @@ export const localeMeta = {
 		aboutNav: '關於',
 		search: '搜尋',
 		privacy: '隱私權',
+		app: '安裝 App',
 		switchLabel: 'English',
 	},
 	en: {
@@ -37,6 +38,7 @@ export const localeMeta = {
 		aboutNav: 'About',
 		search: 'Search',
 		privacy: 'Privacy',
+		app: 'Install app',
 		switchLabel: '繁中',
 	},
 } satisfies Record<Locale, Record<string, string>>;
