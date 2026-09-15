@@ -5,6 +5,7 @@ import PostCard from './PostCard.astro';
 import SeriesGrid from './SeriesGrid.astro';
 import { getCatalog, topicPath, type Post } from '../lib/catalog';
 import { formatYmd, ledgerSummary } from '../lib/ledger';
+import { resolveAudio } from '../lib/audio';
 import { readPopular } from '../lib/popular';
 import { withLocale, type Locale } from '../lib/site';
 
@@ -25,6 +26,8 @@ const t = zh
 			sub: '半導體、總經、投資心法與 AI 工具的研究筆記；每則市場判讀發表時就上鎖，到期用數據對答案。',
 			latest: '最新文章',
 			all: '全部',
+			listen: '可收聽',
+			subscribe: '訂閱 Podcast →',
 			shows: '節目系列',
 			more: '看更多 →',
 			seeAll: '看全部 →',
@@ -39,6 +42,8 @@ const t = zh
 			sub: 'Research notes on semiconductors, macro, investing mindset and AI tools. Every market call is locked when published and scored when due.',
 			latest: 'Latest posts',
 			all: 'All',
+			listen: 'Listen',
+			subscribe: 'Podcast (in Chinese) →',
 			shows: 'Shows',
 			more: 'See more →',
 			seeAll: 'See all →',
@@ -47,8 +52,11 @@ const t = zh
 			seriesLead: 'Listening notes grouped by podcast.',
 		};
 
+// 「可收聽」只在有音檔時出現；沒有專屬列表頁，無 JS 時頁籤連到 podcast 訂閱源
+const audioPosts = cat.posts.filter((p) => resolveAudio(p.data) !== null);
 const tabs = [
 	{ id: 'all', label: t.all, posts: cat.posts.slice(0, 12), more: withLocale(locale, '/blog/') },
+	...(audioPosts.length > 0 ? [{ id: 'audio', label: `🎧 ${t.listen}`, posts: audioPosts.slice(0, 12), more: '/podcast.xml', moreLabel: t.subscribe }] : []),
 	...cat.topics
 		.filter((topic) => (cat.byTopic.get(topic.id) ?? []).length > 0)
 		.map((topic) => ({ id: topic.id, label: topic.nav[locale], posts: (cat.byTopic.get(topic.id) ?? []).slice(0, 12), more: topicPath(locale, topic.id) })),
@@ -88,7 +96,7 @@ const ledger = ledgerSummary();
 					<div class="grid home-grid">
 						{tab.posts.map((post) => <PostCard post={post} locale={locale} label={label(post)} />)}
 					</div>
-					<p class="home-more"><a href={tab.more}>{t.more}</a></p>
+					<p class="home-more"><a href={tab.more}>{'moreLabel' in tab ? tab.moreLabel : t.more}</a></p>
 				</div>
 			))}
 		</section>

@@ -1,6 +1,8 @@
 ---
 import AdSlot from '../../components/AdSlot.astro';
 import ArticleToc from '../../components/ArticleToc.astro';
+import AudioPlayer from '../../components/AudioPlayer.astro';
+import { resolveAudio } from '../../lib/audio';
 import Giscus from '../../components/Giscus.astro';
 import RelatedPosts from '../../components/RelatedPosts.astro';
 import VocusLink from '../../components/VocusLink.astro';
@@ -46,6 +48,7 @@ const hideBodyCover = Boolean(cover && post.body?.includes(cover));
 const hideCoverCss = hideBodyCover
 	? `<style>.prose img[src=${JSON.stringify(cover)}]{display:none}.prose p:has(> img[src=${JSON.stringify(cover)}]:only-child){display:none}</style>`
 	: '';
+const audio = resolveAudio(post.data);
 ---
 
 <SiteLayout
@@ -80,6 +83,7 @@ const hideCoverCss = hideBodyCover
 					)}
 				</div>
 				<h1 class="article-title">{post.data.title}</h1>
+				{audio && <AudioPlayer audio={audio} locale={locale} />}
 				{cover && (
 					<figure class="article-cover">
 						<img src={cover} alt={coverAlt(post.body ?? '', cover, post.data.title)} width="1600" height="900" decoding="async" fetchpriority="high" />

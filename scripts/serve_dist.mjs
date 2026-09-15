@@ -7,7 +7,8 @@ import { fileURLToPath } from 'node:url';
 import { collectStats, renderDash } from './dash.mjs';
 
 const HOST = '127.0.0.1';
-const PORT = 8377;
+// 線上固定 8377；SERVE_DIST_PORT 只給本機測試用別的埠（刻意不用通用的 PORT，免得環境變數意外改到線上服務）
+const PORT = Number(process.env.SERVE_DIST_PORT) || 8377;
 const ROOT = resolve(fileURLToPath(new URL('../', import.meta.url)), 'dist');
 const TEXT = 'text/plain; charset=utf-8';
 
@@ -59,7 +60,30 @@ const types = new Map([
 	['.ico', 'image/x-icon'],
 	['.woff', 'font/woff'],
 	['.woff2', 'font/woff2'],
+	['.mp3', 'audio/mpeg'],
 ]);
+
+// 2026-09-15 有聲文章：podcast App 與 iOS Safari 播音檔會送 Range，只回 200 整檔會拖不動或直接拒播。
+// 回傳 {start,end}（含 end）；沒送或看不懂 → null（照舊回整檔）；範圍超出 → 'invalid'（416）。
+// 只支援單一範圍；多段範圍（bytes=0-1,5-9）當作看不懂、回整檔，規格允許。
+export function parseRange(header, size) {
+	if (!header) return null;
+	const m = /^bytes=(\d*)-(\d*)$/.exec(String(header).trim());
+	if (!m || (m[1] === '' && m[2] === '')) return null;
+	let start;
+	let end;
+	if (m[1] === '') {
+		const suffix = Number(m[2]);
+		if (suffix === 0) return 'invalid';
+		start = Math.max(0, size - suffix);
+		end = size - 1;
+	} else {
+		start = Number(m[1]);
+		end = m[2] === '' ? size - 1 : Math.min(Number(m[2]), size - 1);
+	}
+	if (start >= size || start > end) return 'invalid';
+	return { start, end };
+}
 
 function contentType(pathname) {
 	if (/^\/llms.*\.txt$/i.test(pathname) || extname(pathname).toLowerCase() === '.md') {
@@ -88,12 +112,12 @@ async function fileEntry(pathname) {
 	if (!target) return null;
 
 	const info = await stat(target).catch(() => null);
-	if (info?.isFile()) return { path: target, typePath: pathname };
+	if (info?.isFile()) return { path: target, typePath: pathname, size: info.size };
 	if (!info?.isDirectory()) return null;
 
 	const index = join(target, 'index.html');
 	const indexInfo = await stat(index).catch(() => null);
-	return indexInfo?.isFile() ? { path: index, typePath: '/index.html' } : null;
+	return indexInfo?.isFile() ? { path: index, typePath: '/index.html', size: indexInfo.size } : null;
 }
 
 async function sendFallback(req, res) {
@@ -139,8 +163,29 @@ async function handle(req, res) {
 		return;
 	}
 
+	const type = contentType(entry.typePath);
+	const range = parseRange(req.headers.range, entry.size);
+	if (range === 'invalid') {
+		logVisit(req, 416);
+		res.writeHead(416, { 'content-range': `bytes */${entry.size}`, 'accept-ranges': 'bytes' });
+		res.end();
+		return;
+	}
+	if (range) {
+		logVisit(req, 206);
+		res.writeHead(206, {
+			'content-type': type,
+			'accept-ranges': 'bytes',
+			'content-range': `bytes ${range.start}-${range.end}/${entry.size}`,
+			'content-length': range.end - range.start + 1,
+		});
+		if (req.method === 'HEAD') res.end();
+		else createReadStream(entry.path, range).on('error', () => res.destroy()).pipe(res);
+		return;
+	}
+
 	logVisit(req, 200);
-	res.writeHead(200, { 'content-type': contentType(entry.typePath) });
+	res.writeHead(200, { 'content-type': type, 'accept-ranges': 'bytes', 'content-length': entry.size });
 	if (req.method === 'HEAD') res.end();
 	else createReadStream(entry.path).on('error', () => res.destroy()).pipe(res);
 }
@@ -153,6 +198,19 @@ function check() {
 	assert.equal(contentType('/asset.svg'), 'image/svg+xml');
 	assert.ok(localPath('/en/')?.startsWith(ROOT));
 	assert.equal(localPath('/..%2fpackage.json'), null);
+	assert.equal(contentType('/audio/a.mp3'), 'audio/mpeg');
+	assert.equal(parseRange(undefined, 100), null);
+	assert.deepEqual(parseRange('bytes=0-99', 1000), { start: 0, end: 99 });
+	assert.deepEqual(parseRange('bytes=0-1', 1000), { start: 0, end: 1 });
+	assert.deepEqual(parseRange('bytes=900-', 1000), { start: 900, end: 999 });
+	assert.deepEqual(parseRange('bytes=-100', 1000), { start: 900, end: 999 });
+	assert.deepEqual(parseRange('bytes=-5000', 1000), { start: 0, end: 999 });
+	assert.deepEqual(parseRange('bytes=990-5000', 1000), { start: 990, end: 999 });
+	assert.equal(parseRange('bytes=1000-', 1000), 'invalid');
+	assert.equal(parseRange('bytes=5-3', 1000), 'invalid');
+	assert.equal(parseRange('bytes=-0', 1000), 'invalid');
+	assert.equal(parseRange('bytes=0-1,5-9', 1000), null);
+	assert.equal(parseRange('items=0-1', 1000), null);
 	console.log('serve_dist self-check ok');
 }
 

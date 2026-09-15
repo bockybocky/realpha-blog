@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/sync-vocus-links.mjs && node scripts/sync-substack-links.mjs && node scripts/sync-github-projects.mjs && node scripts/build_popular.mjs && astro build && node scripts/gen_ads_txt.mjs && node scripts/postbuild.mjs && npx -y pagefind@1 --site dist",
+    "build": "node scripts/sync-vocus-links.mjs && node scripts/sync-substack-links.mjs && node scripts/sync-github-projects.mjs && node scripts/build_popular.mjs && node scripts/audio_manifest.mjs && astro build && node scripts/gen_ads_txt.mjs && node scripts/postbuild.mjs && npx -y pagefind@1 --site dist",
     "preview": "astro preview",
     "astro": "astro"
   },

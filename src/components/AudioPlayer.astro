@@ -1,0 +1,97 @@
+---
+// 有聲文章播放器：原生 <audio>，preload="none" 不先下載；語速鈕要 JS 才顯示
+import { formatDuration, type AudioInfo } from '../lib/audio';
+import type { Locale } from '../lib/site';
+
+interface Props {
+	audio: AudioInfo;
+	locale: Locale;
+}
+
+const { audio, locale } = Astro.props;
+const zh = locale === 'zh-TW';
+const duration = formatDuration(audio.seconds);
+const speeds = [1, 1.25, 1.5];
+---
+
+<section class="audio-player" aria-label={zh ? '收聽這篇' : 'Listen to this article'} data-audio-player data-pagefind-ignore>
+	<p class="audio-label">
+		<span>🎧 {zh ? '收聽這篇（作者本人聲音，AI 合成）' : "Listen (author's voice, AI-generated)"}</span>
+		{duration && <span class="audio-duration">{duration}</span>}
+	</p>
+	<audio controls preload="none" src={audio.src}>
+		<a href={audio.src}>{zh ? '下載音檔' : 'Download audio'}</a>
+	</audio>
+	<div class="audio-speeds" role="group" aria-label={zh ? '語速' : 'Playback speed'} hidden>
+		{speeds.map((s) => (
+			<button type="button" data-speed={s} aria-pressed={s === 1 ? 'true' : 'false'}>{s}x</button>
+		))}
+	</div>
+</section>
+
+<script>
+	for (const root of document.querySelectorAll<HTMLElement>('[data-audio-player]')) {
+		const audio = root.querySelector('audio');
+		const group = root.querySelector<HTMLElement>('.audio-speeds');
+		if (!audio || !group) continue;
+		const buttons = [...group.querySelectorAll<HTMLButtonElement>('[data-speed]')];
+		for (const button of buttons) {
+			button.addEventListener('click', () => {
+				audio.playbackRate = Number(button.dataset.speed) || 1;
+				for (const b of buttons) b.setAttribute('aria-pressed', String(b === button));
+			});
+		}
+		group.hidden = false;
+	}
+</script>
+
+<style>
+	.audio-player {
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		background: var(--paper);
+		padding: 0.75rem 1rem;
+		display: grid;
+		gap: 0.5rem;
+	}
+	.audio-label {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 0.25rem 1rem;
+		margin: 0;
+		font-size: 0.95rem;
+		font-weight: 600;
+	}
+	.audio-duration {
+		color: var(--muted);
+		font-variant-numeric: tabular-nums;
+		font-weight: 500;
+	}
+	.audio-player audio {
+		width: 100%;
+		display: block;
+	}
+	.audio-speeds {
+		display: flex;
+		gap: 0.4rem;
+	}
+	.audio-speeds[hidden] { display: none; }
+	.audio-speeds button {
+		border: 1px solid var(--line);
+		border-radius: 2rem;
+		padding: 0.2rem 0.75rem;
+		background: var(--paper);
+		color: var(--muted);
+		font: inherit;
+		font-size: 0.85rem;
+		font-weight: 600;
+		cursor: pointer;
+	}
+	.audio-speeds button:hover { color: var(--text); }
+	.audio-speeds button[aria-pressed='true'] {
+		color: var(--accent-strong);
+		background: var(--accent-tint);
+		border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+	}
+</style>

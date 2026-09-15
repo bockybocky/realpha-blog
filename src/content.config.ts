@@ -32,6 +32,10 @@ const blog = defineCollection({
 		ogImage: z.string().default('/og-default.svg'),
 		cover: z.string().optional(),
 		tldr: z.string().optional(),
+		// 有聲文章（2026-09-15）：平常由 src/data/audio.json 自動對應；這三欄是手動覆寫
+		audio: z.string().optional(),
+		audioDuration: z.number().int().nonnegative().optional(),
+		audioBytes: z.number().int().nonnegative().optional(),
 		...preregistration,
 	}),
 });

@@ -1,6 +1,7 @@
 ---
 // 文章卡：沿用全站 .entry 卡片樣式與 16:9 封面；label 是卡片左上的主題名（可省略）
 import type { Post } from '../lib/catalog';
+import { resolveAudio } from '../lib/audio';
 import { formatDate, withLocale, type Locale } from '../lib/site';
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
 
 const { post, locale, label } = Astro.props;
 const { data } = post;
+const hasAudio = resolveAudio(data) !== null;
 ---
 
 <a class={`entry post-card${data.cover ? ' has-cover' : ''}`} href={withLocale(locale, `/blog/${data.slug}/`)}>
@@ -21,6 +23,7 @@ const { data } = post;
 	)}
 	<div class="meta">
 		<time datetime={data.pubDate.toISOString()}>{formatDate(data.pubDate, locale)}</time>
+		{hasAudio && <span class="audio-badge" title={locale === 'zh-TW' ? '可收聽' : 'Audio available'}>🎧</span>}
 		{label && <span>{label}</span>}
 	</div>
 	<h3>{data.title}</h3>
