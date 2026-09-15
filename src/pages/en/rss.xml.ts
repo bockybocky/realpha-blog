@@ -7,7 +7,7 @@ export async function GET(context) {
 	const staticItems = [
 		{
 			title: 'About',
-			description: 'What Realpha writes about — growth, learning notes, and markets — and how the human and the AI share the work.',
+			description: 'What Realpha writes about — growth, research notes, and markets — and how the human and the AI share the work.',
 			pubDate: new Date('2026-07-08'),
 			link: '/en/about/',
 		},

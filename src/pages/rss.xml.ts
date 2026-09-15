@@ -7,7 +7,7 @@ export async function GET(context) {
 	const staticItems = [
 		{
 			title: '關於',
-			description: 'Realpha 寫什麼：心法與成長、學習筆記、投資與市場，以及人和 AI 怎麼分工。',
+			description: 'Realpha 寫什麼：心法與成長、研究筆記、投資與市場，以及人和 AI 怎麼分工。',
 			pubDate: new Date('2026-07-08'),
 			link: '/about/',
 		},

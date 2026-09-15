@@ -1,13 +1,12 @@
 ---
-// 首頁（中英共用）：標語帶 → 分頁籤最新 12 篇 → 廣告 → 熱門
-// 2026-09-15 Charles「首頁功能頁面重複了」：下方三個主題區塊與分頁籤前 4 篇重複，拿掉；三類入口留導覽列與分頁籤
+// 首頁（中英共用）：標語帶＋文章總數／今日瀏覽／總瀏覽 → 最新 12 篇 → 廣告 → 熱門
+// 2026-09-15 Charles「首頁功能頁面重複了」「首頁這不就重複了」：主題區塊與分類分頁籤都和導覽列重複，拿掉；三類入口只留導覽列
 // 2026-09-15 Charles「節目系列不要列出來」「先不做 Podcast」「不要驗證簿了，超機械的，沒有人味」：節目、podcast、驗證簿窄帶全部拿掉
 import SiteLayout from '../layouts/SiteLayout.astro';
 import AdPush from './AdPush.astro';
 import AdSlot from './AdSlot.astro';
 import PostCard from './PostCard.astro';
-import { getCatalog, topicPath, type Post } from '../lib/catalog';
-import { resolveAudio } from '../lib/audio';
+import { getCatalog, type Post } from '../lib/catalog';
 import { readPopular, viewsOf } from '../lib/popular';
 import { withLocale, type Locale } from '../lib/site';
 import { readFileSync } from 'node:fs';
@@ -25,27 +24,25 @@ const label = (post: Post) => cat.topicName(cat.topicOf(post));
 const t = zh
 	? {
 			title: 'Realpha Blog',
-			description: 'Realpha 的學習筆記：心法與成長、學習筆記、投資與市場。每篇最後留一件你今天就能帶走的小事。',
+			description: 'Realpha 的筆記：心法與成長、研究筆記、投資與市場。每篇最後留一件你今天就能帶走的小事。',
 			tagline: '慢慢想清楚一件事，比快快知道很多事重要。',
-			sub: '心法、學習與市場的筆記。每篇文章最後，都留一件你今天就能帶走的小事。',
+			sub: '心法、研究與市場的筆記。每篇文章最後，都留一件你今天就能帶走的小事。',
 			latest: '最新文章',
-			all: '全部',
-			listen: '可收聽',
 			more: '看更多 →',
 			popular: '熱門文章',
+			posts: '文章總數',
 			today: '今日瀏覽',
 			total: '總瀏覽',
 		}
 	: {
 			title: 'Realpha Blog',
-			description: 'Learning notes from Realpha: growth, learning, and markets. Every post ends with one small thing you can take with you today.',
+			description: 'Notes from Realpha: growth, research, and markets. Every post ends with one small thing you can take with you today.',
 			tagline: 'Thinking one thing through slowly matters more than knowing many things fast.',
-			sub: 'Notes on mindset, learning and markets. Every post ends with one small thing you can take with you today.',
+			sub: 'Notes on mindset, research and markets. Every post ends with one small thing you can take with you today.',
 			latest: 'Latest posts',
-			all: 'All',
-			listen: 'Listen',
 			more: 'See more →',
 			popular: 'Popular',
+			posts: 'Posts',
 			today: 'Today',
 			total: 'Total views',
 		};
@@ -61,15 +58,8 @@ try {
 }
 const numLocale = zh ? 'zh-TW' : 'en-US';
 
-// 「可收聽」只在有音檔時出現；沒有專屬列表頁，無 JS 時頁籤連到文章列表
-const audioPosts = cat.posts.filter((p) => resolveAudio(p.data) !== null);
-const tabs = [
-	{ id: 'all', label: t.all, posts: cat.posts.slice(0, 12), more: withLocale(locale, '/blog/') },
-	...(audioPosts.length > 0 ? [{ id: 'audio', label: `🎧 ${t.listen}`, posts: audioPosts.slice(0, 12), more: withLocale(locale, '/blog/') }] : []),
-	...cat.topics
-		.filter((topic) => (cat.byTopic.get(topic.id) ?? []).length > 0)
-		.map((topic) => ({ id: topic.id, label: topic.nav[locale], posts: (cat.byTopic.get(topic.id) ?? []).slice(0, 12), more: topicPath(locale, topic.id) })),
-];
+// 2026-09-15 Charles「首頁這不就重複了」：分類分頁籤與導覽列三類重複，拿掉；首頁只列最新 12 篇
+const latest = cat.posts.slice(0, 12);
 
 const bySlug = new Map(cat.posts.map((p) => [p.data.slug, p]));
 const popular = readPopular()
@@ -84,29 +74,21 @@ const popular = readPopular()
 		<section class="home-band" aria-labelledby="home-title">
 			<h1 id="home-title">{t.tagline}</h1>
 			<p>{t.sub}</p>
-			{stats && (
-				<p class="home-stats" data-site-stats data-locale={numLocale} data-date={stats.date}>
-					<span>{t.today} <b data-stat="today">{stats.today.toLocaleString(numLocale)}</b></span>
-					<span>{t.total} <b data-stat="total">{stats.total.toLocaleString(numLocale)}</b></span>
-				</p>
-			)}
+			<p class="home-stats" data-site-stats={stats ? '' : undefined} data-locale={numLocale} data-date={stats?.date}>
+				<span>{t.posts} <b>{cat.posts.length.toLocaleString(numLocale)}</b></span>
+				{stats && <span>{t.today} <b data-stat="today">{stats.today.toLocaleString(numLocale)}</b></span>}
+				{stats && <span>{t.total} <b data-stat="total">{stats.total.toLocaleString(numLocale)}</b></span>}
+			</p>
 		</section>
 
-		<section class="home-latest" aria-labelledby="latest-title" data-home-tabs>
-			<h2 id="latest-title" class="visually-hidden">{t.latest}</h2>
-			<div class="home-tabs" role="tablist" aria-label={t.latest}>
-				{tabs.map((tab, i) => (
-					<a class="home-tab" href={tab.more} role="tab" id={`tab-${tab.id}`} aria-controls={`panel-${tab.id}`} aria-selected={i === 0 ? 'true' : 'false'} data-tab={tab.id}>{tab.label}</a>
-				))}
+		<section class="home-latest" aria-labelledby="latest-title">
+			<div class="home-topic-head">
+				<h2 id="latest-title">{t.latest}</h2>
 			</div>
-			{tabs.map((tab, i) => (
-				<div class="home-panel" id={`panel-${tab.id}`} role="tabpanel" aria-labelledby={`tab-${tab.id}`} data-panel={tab.id} hidden={i !== 0}>
-					<div class="grid home-grid">
-						{tab.posts.map((post) => <PostCard post={post} locale={locale} label={label(post)} />)}
-					</div>
-					<p class="home-more"><a href={tab.more}>{'moreLabel' in tab ? tab.moreLabel : t.more}</a></p>
-				</div>
-			))}
+			<div class="grid home-grid">
+				{latest.map((post) => <PostCard post={post} locale={locale} label={label(post)} />)}
+			</div>
+			<p class="home-more"><a href={withLocale(locale, '/blog/')}>{t.more}</a></p>
 		</section>
 
 		<AdSlot slot="display" locale={locale} />
@@ -147,19 +129,6 @@ const popular = readPopular()
 			})
 			.catch(() => {});
 	}
-
-	// 分頁籤：前端切換、不重新載入；沒有 JS 時頁籤是一般連結，面板只顯示「全部」
-	for (const root of document.querySelectorAll<HTMLElement>('[data-home-tabs]')) {
-		const tabs = [...root.querySelectorAll<HTMLAnchorElement>('[data-tab]')];
-		const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
-		for (const tab of tabs) {
-			tab.addEventListener('click', (event) => {
-				event.preventDefault();
-				for (const other of tabs) other.setAttribute('aria-selected', String(other === tab));
-				for (const panel of panels) panel.hidden = panel.dataset.panel !== tab.dataset.tab;
-			});
-		}
-	}
 </script>
 
 <style>
@@ -186,46 +155,7 @@ const popular = readPopular()
 		text-wrap: pretty;
 	}
 
-	.visually-hidden {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-		clip: rect(0 0 0 0);
-		white-space: nowrap;
-	}
-
 	.home-latest { padding: 1.5rem 0 clamp(2rem, 5vw, 3rem); }
-	/* 分頁籤：手帳側邊的索引標籤——小圓角、淡底，站在一條線上 */
-	.home-tabs {
-		display: flex;
-		align-items: flex-end;
-		gap: 0.35rem;
-		overflow-x: auto;
-		margin-bottom: 1.5rem;
-		border-bottom: 1px solid var(--line);
-		scrollbar-width: thin;
-	}
-	.home-tab {
-		flex: none;
-		border: 1px solid var(--line);
-		border-bottom: none;
-		border-radius: 6px 6px 0 0;
-		padding: 0.35rem 0.95rem 0.3rem;
-		background: var(--soft);
-		color: var(--muted);
-		font-family: var(--font-hand);
-		font-size: 1rem;
-		text-decoration: none;
-		white-space: nowrap;
-		transition: color 0.2s ease, background 0.2s ease;
-	}
-	.home-tab:hover { color: var(--text); background: var(--paper); }
-	.home-tab[aria-selected='true'] {
-		color: var(--accent);
-		background: color-mix(in srgb, var(--accent-tint) 100%, var(--paper));
-		font-weight: 700;
-	}
 
 	.home-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
 	.home-more { margin: 1.25rem 0 0; text-align: right; }
