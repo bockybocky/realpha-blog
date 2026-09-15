@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="專案框內的結果分成有和沒有，框外的外部元件標為查不到">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="64">「沒有」和「查不到」分開放</text>
+
+<rect x="60" y="110" width="540" height="320" rx="14" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="90" y="148">專案原始碼：AI 讀過</text>
+<rect x="90" y="180" width="480" height="90" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="120" y="233">預設只聽本機</text>
+<rect x="468" y="205" width="80" height="40" rx="20" fill="var(--accent)"/>
+<text x="508" y="232" text-anchor="middle" style="font-size:18px;font-weight:700;fill:var(--page)">有</text>
+<rect x="90" y="300" width="480" height="90" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="120" y="353">下載後驗作者簽章</text>
+<rect x="468" y="325" width="80" height="40" rx="20" fill="var(--warn)"/>
+<text x="508" y="352" text-anchor="middle" style="font-size:18px;font-weight:700;fill:var(--page)">沒有</text>
+
+<rect x="660" y="170" width="250" height="220" rx="14" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 6"/>
+<text class="g" x="785" y="212" text-anchor="middle" style="fill:var(--dim)">外部更新元件</text>
+<text x="785" y="310" text-anchor="middle" style="font-size:64px;font-weight:700;fill:var(--grey)">？</text>
+<text class="g" x="785" y="362" text-anchor="middle" style="fill:var(--dim)">查不到</text>
+<text class="b" x="785" y="420" text-anchor="middle">不在這個專案裡</text>
+
+<text class="c" x="60" y="495">查不到 ≠ 沒有</text>
+</svg>

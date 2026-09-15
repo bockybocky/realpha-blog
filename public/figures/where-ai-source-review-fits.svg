@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="兩軸圖：左下小程式陌生作者適合讓 AI 先讀，右上大程式靠廠商信用">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+</style>
+<defs>
+  <marker id="ar7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--dim)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="t" x="60" y="60">這招最划算的位置</text>
+
+<line x1="150" y1="500" x2="890" y2="500" stroke="var(--dim)" stroke-width="2" marker-end="url(#ar7)"/>
+<line x1="150" y1="500" x2="150" y2="118" stroke="var(--dim)" stroke-width="2" marker-end="url(#ar7)"/>
+<text class="g" x="150" y="104">信用來源</text>
+<text class="b" x="138" y="140" text-anchor="end">廠商＋產業</text>
+<text class="b" x="138" y="496" text-anchor="end">陌生作者</text>
+<text class="b" x="160" y="530">小</text>
+<text class="b" x="880" y="530" text-anchor="end">幾百萬行</text>
+<text class="g" x="515" y="566" text-anchor="middle">程式大小</text>
+
+<rect x="162" y="320" width="300" height="168" rx="12" fill="var(--accent)" fill-opacity="0.15" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="182" y="356" style="fill:var(--accent)">讓 AI 先讀一遍</text>
+<text class="b" x="182" y="392">小・新・星星少・陌生作者</text>
+<circle cx="250" cy="444" r="9" fill="var(--accent)"/>
+<text x="268" y="450" style="font-size:16px;font-weight:600">owldrop</text>
+
+<rect x="560" y="130" width="310" height="170" rx="12" fill="var(--grey)" fill-opacity="0.25" stroke="var(--grey)" stroke-width="2"/>
+<text class="g" x="580" y="166">靠廠商信用</text>
+<circle cx="640" cy="230" r="9" fill="var(--dim)"/>
+<text class="b" x="656" y="236">瀏覽器</text>
+<circle cx="740" cy="265" r="9" fill="var(--dim)"/>
+<text class="b" x="756" y="271">作業系統</text>
+</svg>

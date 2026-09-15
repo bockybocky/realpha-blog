@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="兩條安裝路：別人編的安裝檔是黑盒子，自己編的每一環都看得見且兩台指紋一致">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<defs>
+  <marker id="ar6g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--grey)"/></marker>
+  <marker id="ar6a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--accent)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text class="t" x="60" y="64">兩條安裝路：看得見的只有一條</text>
+
+<text class="g" x="60" y="190">別人編</text>
+<rect x="170" y="145" width="190" height="74" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="265" y="180" text-anchor="middle">原始碼</text>
+<text class="s" x="265" y="204" text-anchor="middle">看過</text>
+<line x1="362" y1="182" x2="448" y2="182" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ar6g)"/>
+<text x="405" y="166" text-anchor="middle" style="font-size:16px;font-weight:600;fill:var(--warn)">同一份？</text>
+<rect x="455" y="145" width="190" height="74" rx="10" fill="var(--ink)"/>
+<text class="g" x="550" y="180" text-anchor="middle" style="fill:var(--page)">安裝檔</text>
+<text x="550" y="204" text-anchor="middle" style="font-size:15px;fill:var(--page)">看不到裡面</text>
+<line x1="647" y1="182" x2="728" y2="182" stroke="var(--grey)" stroke-width="2" marker-end="url(#ar6g)"/>
+<rect x="735" y="145" width="170" height="74" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="820" y="189" text-anchor="middle">你的電腦</text>
+
+<line x1="60" y1="275" x2="900" y2="275" stroke="var(--line)" stroke-width="1"/>
+
+<text class="g" x="60" y="408">自己編</text>
+<rect x="170" y="363" width="190" height="74" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="265" y="398" text-anchor="middle">原始碼</text>
+<text class="s" x="265" y="422" text-anchor="middle">看過</text>
+<line x1="362" y1="400" x2="448" y2="400" stroke="var(--accent)" stroke-width="2" marker-end="url(#ar6a)"/>
+<text x="405" y="386" text-anchor="middle" style="font-size:15px;font-weight:600;fill:var(--accent)">自己編譯</text>
+<rect x="455" y="363" width="190" height="74" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="550" y="398" text-anchor="middle">執行檔</text>
+<text class="s" x="550" y="422" text-anchor="middle">不填版號</text>
+<line x1="647" y1="392" x2="729" y2="356" stroke="var(--accent)" stroke-width="2" marker-end="url(#ar6a)"/>
+<line x1="647" y1="408" x2="729" y2="444" stroke="var(--accent)" stroke-width="2" marker-end="url(#ar6a)"/>
+<rect x="735" y="322" width="170" height="62" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="820" y="360" text-anchor="middle">電腦 A</text>
+<rect x="735" y="416" width="170" height="62" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="820" y="454" text-anchor="middle">電腦 B</text>
+<text x="820" y="508" text-anchor="middle" style="font-size:16px;font-weight:600;fill:var(--accent)">指紋一致 ✓</text>
+
+<text class="c" x="60" y="550">自己編：每一環都看過</text>
+</svg>

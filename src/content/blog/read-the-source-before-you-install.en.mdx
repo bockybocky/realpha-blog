@@ -1,0 +1,114 @@
+---
+title: "[AI in Practice] Before You Install a Stranger's Code, Let AI Read the Source First"
+description: "A 60-star file-transfer tool with no license. I had AI read all 280KB of its source in about five minutes, got four things to switch off or avoid, then checked three of its claims myself. Includes the questions you can ask AI before installing any small tool."
+slug: "read-the-source-before-you-install"
+lang: "en"
+pubDate: 2026-09-15
+category: tech
+tldr: "AI reads code fast, but every claim it makes should come with a file name and line number so you can check it."
+tags: ["AI in Practice", "Security", "Open Source", "Tailscale", "How-to"]
+ogImage: "/covers/read-the-source-before-you-install.png"
+cover: "/covers/read-the-source-before-you-install.png"
+---
+
+![A half-open wooden door at dusk with a small parcel on the threshold; light from the crack turns into glowing strokes above the parcel, as if someone behind the door is reading what is inside](/covers/read-the-source-before-you-install.png)
+
+> See what a man does. Mark his motives. Examine what he rests in. How can a man conceal his character?
+>
+> —— *The Analects*, Book II (Confucius, c. 5th century BC; translation mine)
+
+Confucius said that if you watch what a person does, how they do it, and where they settle afterward, they cannot hide from you. This week I used the same idea on a piece of software.
+
+A few days ago I needed to move a small file from my computer to my phone, and realized there was no easy path between the devices at home. Then I found a small tool on GitHub called owldrop ([github.com/Rastavich/owldrop](https://github.com/Rastavich/owldrop)). It wraps Tailscale's built-in file sending in a window with an inbox: save incoming files with one click, send to any device with another.
+
+I wanted it. A few things made me pause: 60 stars, an author I didn't know, no license in the repo, and a job description that amounts to handling every file I receive.
+
+In the past I had two choices in this situation: trust it or skip it. This time I tried a third one. I asked AI to read the source code first.
+
+## The four questions I asked
+
+"Is this safe?" is too broad. AI tends to answer it with something reassuring, and you have no way to check the answer. So I asked four specific questions, and required a file name and line number for every answer:
+
+1. Which external addresses does it connect to? What does it send? Is that on by default?
+2. Which ports does it open? Who can connect from outside?
+3. Does it update itself? When it downloads a new version, does it verify the author actually published it?
+4. What happens to files I receive? Could they land in an unexpected folder, or be run directly?
+
+The code is 41 Go files, about 280KB. I couldn't read that in an afternoon. The AI finished in a little over five minutes.
+
+![Two bars compare lengths: the gray "Me" bar runs to the right edge without ending and trails off in a dashed line, while the blue "AI" bar is only a short stub labeled as finished reading in five minutes.](/figures/reading-time-me-vs-ai-en.svg)
+
+## The prompt I actually used
+
+The four questions above are the short version. Here is what I pasted in that day, with my local paths and one question about build steps removed. Copy it and swap in the project you want to check:
+
+> Please review the source code of this open-source project: (paste the GitHub URL). I want to know whether I can safely install it on my own computer. Read only. Do not run anything from the project and do not install packages. Give a conclusion for each item, with file names and line numbers.
+>
+> 1. List every external address the program connects to. For each one: on or off by default? What data is sent? Can it be turned off?
+> 2. Does it send usage data? What is sent, where, is it on by default, and how do I turn it off?
+> 3. Does it update itself? Where does it download from? Does it verify a signature or checksum on the download? Does it install on its own?
+> 4. Which address and port does it listen on by default? Are any sharing modes on by default? How does it confirm who is connecting?
+> 5. Where are received files saved? Can someone use ../ to push a file into another folder? Can a received file be executed directly?
+> 6. Are there binaries I can't read, long encoded strings, or places that run external commands?
+> 7. Are any of its dependencies unusual?
+> 8. If I install it, which features should stay off?
+>
+> Finish with a one-line verdict: safe to install, safe after turning some features off, or not recommended, and why.
+
+Question six turned up a surprise. The repo carries two old Linux binaries, 21.6MB and 14.8MB, left over from before the project was renamed. Nothing uses them, and they don't affect the Windows build. But if I hadn't asked, I wouldn't have known there were two files in there whose contents I had no way to inspect. Question eight was the most useful: it told me exactly which switches to turn off after installing.
+
+## What it gets right
+
+Some fairness first. By default the program only listens on the local machine (`127.0.0.1`), so other devices on the network can't reach it. Any request that changes something needs a randomly generated token. Incoming file names are stripped of their path, so nobody can use `../` to drop a file into another folder. For a small project, the author clearly put thought into this.
+
+## Four things I switched off or avoid
+
+First, it sends usage data to the author by default: app version, operating system, event names (such as "saved a file"), timestamps, and a random install ID. No file names. The README has a whole section on this and explains how to opt out. I opted out.
+
+Second, when "LAN mode" is on, the program listens on every network. The README says LAN mode "exposes it to your tailnet only," but in the code that mode binds to `0.0.0.0`, meaning every network interface, and accepts any IP address in the Host header. Take a laptop to a café and join the public Wi-Fi, and someone on that network could reach it. The documentation and the code disagree here, so I don't use this mode.
+
+![Three sets of concentric circles each have an inner ring for this machine, a middle ring for the tailnet, and an outer ring for any network; the default mode lights only the inner ring, the LAN mode described in the docs lights up to the middle ring, and the 0.0.0.0 the code actually uses lights all three rings in orange, so a stranger at a cafe can connect from the outer ring.](/figures/listen-address-three-rings-en.svg)
+
+Third, in the auto-update path the AI couldn't find any step that verifies a download came from the author. The update manifest and the executable live under the same GitHub account; if that account were compromised, both could be swapped together.
+
+Fourth, pressing "Open" on a received `.exe` runs it. The interface shows a warning first, with a list of more than forty file extensions, so the author did think about it. My own rule: never press Open on an executable inside it.
+
+## How I checked what the AI told me
+
+AI reads code fast, and it can also be wrong. So I took the three most important claims from its report and opened the source myself.
+
+For telemetry being on by default, I opened `main.go`: the default config says `Telemetry: true`. For auto-update, the default version string is `dev`, and the updater only runs when the version looks like "number.number.number". For listening only on the local machine, the code says `127.0.0.1`.
+
+All three held up. Each took me under a minute, because the AI had given me the file and line, and I didn't have to search 280KB myself.
+
+![Two panels, each a grid of 41 small squares standing for source files; on the left there is only a conclusion, and a magnifying glass wanders a dashed path through gray squares; on the right, with file names and line numbers, three squares light up blue as 1, 2 and 3, matching telemetry on by default, the default version dev, and listening only on the local machine.](/figures/file-line-vs-haystack-en.svg)
+
+It also said "I don't know" once. Whether the external updater library compares file fingerprints under the hood can't be confirmed, because that code isn't in this project. I liked that answer. It kept "couldn't find it" separate from "it isn't there."
+
+![On the left, a blue box holds the project source code that the AI read, with two results inside, one marked yes and one marked no in orange; outside the box on the right, a gray dashed box stands for the external update component and contains only a large question mark, labeled cannot be checked.](/figures/none-vs-unknown-boundary-en.svg)
+
+## How I installed it
+
+I compiled it from source. That ties back to the third point: I had read the source, but I couldn't look inside the author's prebuilt installer, so I had no way to confirm the two were the same thing. Building it myself means I only trust the copy I've read.
+
+![Two install paths, one above the other: the top path, built by someone else, links the source code you read by a dashed line to a dark installer you cannot see inside, marked same one? in between; the bottom path, built yourself, turns the source code you read into an executable through your own compile, then sends it to computer A and computer B, with matching fingerprints noted below.](/figures/build-from-source-two-paths-en.svg)
+
+I left the version string empty on purpose, so the auto-updater never starts. To upgrade later, I'll read the source again and rebuild. Before the first launch I wrote the config file with telemetry off, so not even the first ping goes out.
+
+After installing I checked once: it opened one port, on the local machine only, and made zero outbound connections. Both of my computers run the same file, and the fingerprints on the two copies match exactly.
+
+## Where this stops working
+
+A read by AI doesn't make a program safe. It can miss things, and it read this project's code, not every library the project pulls in. What it gave me was a map: where to look, and which switches to flip.
+
+It's also not worth it for large software. Browsers and operating systems run to millions of lines, and there you rely on the vendor's reputation and a whole industry checking their work. This works best for tools like owldrop: small, new, few stars, an author you don't know, and access to your files or your network.
+
+![A two-axis chart plots code size on the horizontal axis and source of trust on the vertical axis; the blue region in the lower left, for small programs by unknown authors, is labeled let the AI read it first and holds owldrop, while the gray region in the upper right, for large programs backed by vendor reputation, holds browsers and operating systems and is labeled rely on vendor reputation.](/figures/where-ai-source-review-fits-en.svg)
+
+You don't need to be a programmer. The questions don't require reading code, only pasting a link into an AI. If you don't understand the answer, ask it to explain again in words a ten-year-old would follow.
+
+## One thing to take with you
+
+What I took from this: when AI tells me something, it should come with a source, and I only really know the parts I can check.
+
+Next time you're about to install a small tool you don't know, you could try what I did. Paste its link into an AI and ask one question: "Which external addresses does it connect to? Is each one on by default? Give the file name and line number for each." Copy the addresses it lists onto a sticky note, pick one, open the source and check it yourself, and write "right" or "wrong" next to it. Pasting the link counts as done; checking an answer is a bonus. The same question works on your phone: next time an app asks for a permission, ask what it wants that permission for.
