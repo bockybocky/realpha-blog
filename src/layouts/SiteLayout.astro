@@ -1,5 +1,4 @@
 ---
-import '@fontsource-variable/space-grotesk';
 import '../styles/global.css';
 import { absoluteUrl, localeMeta, site, withLocale, type Locale } from '../lib/site';
 import topicsData from '../data/topics.json';
@@ -115,6 +114,9 @@ const footerNav = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap" />
 		<meta property="og:type" content={article ? 'article' : 'website'} />
 		<meta property="og:site_name" content={site.name} />
 		<meta property="og:title" content={titleText} />
@@ -155,6 +157,5 @@ const footerNav = [
 			</div>
 		</footer>
 		<script src="/copy-code.js" defer></script>
-		<script src="/premium.js" defer></script>
 	</body>
 </html>

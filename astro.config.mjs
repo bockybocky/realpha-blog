@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
+import rehypeTakeawayNote from './src/lib/rehype-takeaway-note.mjs';
 
 function rehypeCopyCode() {
 	// 按鈕放在不捲動的 wrapper 上（不是 pre 內），程式碼再寬、內部怎麼捲，按鈕都固定右上
@@ -64,6 +65,6 @@ export default defineConfig({
 			theme: 'github-dark',
 			wrap: false,
 		},
-		processor: unified({ rehypePlugins: [rehypeCopyCode] }),
+		processor: unified({ rehypePlugins: [rehypeCopyCode, rehypeTakeawayNote] }),
 	},
 });

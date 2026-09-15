@@ -1,31 +1,28 @@
 :root {
 	color-scheme: light dark;
-	/* Light mode: clean cool-neutral surface, azure accent */
-	--bg: #f6f8fc;
-	--paper: #ffffff;
-	--text: #0d1524;
-	--muted: #57616f;
-	--line: #dde3ee;
-	--soft: #eef2f9;
-	--accent: #1f6feb;
-	--accent-strong: #1a5fd0;
-	--accent-tint: rgba(31, 111, 235, 0.1);
-	--glow: rgba(56, 139, 253, 0.16);
-	--glow-soft: rgba(56, 139, 253, 0.08);
-	--shadow-hover: 0 18px 40px -20px rgba(31, 111, 235, 0.42), 0 6px 16px -10px rgba(13, 21, 36, 0.16);
-	--shadow-rest: 0 1px 2px rgba(13, 21, 36, 0.04);
-	--code-bg: #0d1117;
+	/* 手帳（2026-09-15）：米灰點格紙、靛藍墨水、霞鶩文楷標題。元件只准用這裡的 token，不寫死顏色 */
+	--bg: #f6f5f1;
+	--dot: #d9dde3;
+	--paper: #fffefb;
+	--text: #2b2f3a;
+	--muted: #5d6474;
+	--faint: #7d8392;
+	--line: #e4e1d8;
+	--soft: #efede6;
+	--accent: #3a4f9a;
+	--accent-strong: #2e3f7d;
+	--accent-tint: rgba(58, 79, 154, 0.1);
+	--note-bg: #fbf3c9;
+	--note-text: #2b2f3a;
+	--note-shadow: 0 8px 16px -12px rgba(60, 50, 0, 0.55);
+	--shadow-hover: 0 14px 26px -16px rgba(60, 50, 20, 0.38), 0 3px 8px -6px rgba(60, 50, 20, 0.16);
+	--shadow-rest: 0 1px 2px rgba(60, 50, 20, 0.06);
+	--code-bg: #262a35;
 	--code-text: #e6edf3;
-	--radius: 10px;
-	--measure: 66ch;
-	--font-display:
-		"Space Grotesk Variable",
-		ui-sans-serif,
-		system-ui,
-		"Noto Sans TC",
-		"PingFang TC",
-		"Microsoft JhengHei",
-		sans-serif;
+	--radius: 4px;
+	--measure: 65ch;
+	--font-display: "LXGW WenKai TC", "Kaiti TC", "BiauKai", "DFKai-SB", serif;
+	--font-hand: var(--font-display);
 	font-family:
 		ui-sans-serif,
 		system-ui,
@@ -40,20 +37,23 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		/* Dark mode: #0d1117 deep-navy system (seller dashboard language) */
-		--bg: #0d1117;
-		--paper: #161b22;
-		--text: #e6edf3;
-		--muted: #8b949e;
-		--line: #272e39;
-		--soft: #1a212b;
-		--accent: #58a6ff;
-		--accent-strong: #79c0ff;
-		--accent-tint: rgba(88, 166, 255, 0.12);
-		--glow: rgba(88, 166, 255, 0.16);
-		--glow-soft: rgba(88, 166, 255, 0.08);
-		--shadow-hover: 0 20px 46px -22px rgba(88, 166, 255, 0.5), 0 6px 18px -12px rgba(1, 4, 9, 0.7);
-		--shadow-rest: 0 1px 2px rgba(1, 4, 9, 0.4);
+		/* 夜間手帳：深墨紙＋暗點格、米白字、淡靛藍墨水 */
+		--bg: #1b1d24;
+		--dot: #2c303a;
+		--paper: #23262f;
+		--text: #e7e4dc;
+		--muted: #a9adb8;
+		--faint: #8f94a0;
+		--line: #343845;
+		--soft: #20232b;
+		--accent: #9fb0ea;
+		--accent-strong: #bcc8f2;
+		--accent-tint: rgba(159, 176, 234, 0.12);
+		--note-bg: #3a3622;
+		--note-text: #f0e6b8;
+		--note-shadow: 0 8px 18px -12px rgba(0, 0, 0, 0.7);
+		--shadow-hover: 0 14px 28px -16px rgba(0, 0, 0, 0.75), 0 3px 8px -6px rgba(0, 0, 0, 0.5);
+		--shadow-rest: 0 1px 2px rgba(0, 0, 0, 0.35);
 		--code-bg: #0d1117;
 		--code-text: #e6edf3;
 	}
@@ -75,19 +75,10 @@ body {
 	position: relative;
 	margin: 0;
 	min-width: 320px;
-	background: transparent;
-}
-
-/* Azure radial glow — breaks the flat surface, sits behind content, inert */
-body::before {
-	content: "";
-	position: fixed;
-	inset: 0;
-	z-index: -1;
-	pointer-events: none;
-	background:
-		radial-gradient(58rem 40rem at 82% -12%, var(--glow), transparent 62%),
-		radial-gradient(46rem 34rem at 4% 2%, var(--glow-soft), transparent 58%);
+	/* 手帳點格紙 */
+	background-color: var(--bg);
+	background-image: radial-gradient(circle, var(--dot) 1px, transparent 1.2px);
+	background-size: 18px 18px;
 }
 
 a {
@@ -118,8 +109,8 @@ select {
 	top: 0;
 	z-index: 10;
 	border-bottom: 1px solid var(--line);
-	background: color-mix(in srgb, var(--bg) 82%, transparent);
-	backdrop-filter: blur(18px);
+	background: color-mix(in srgb, var(--bg) 94%, transparent);
+	backdrop-filter: blur(6px);
 }
 
 .nav {
@@ -138,7 +129,6 @@ select {
 	gap: 0.45rem;
 	font-family: var(--font-display);
 	font-weight: 700;
-	letter-spacing: -0.01em;
 	text-decoration: none;
 	white-space: nowrap;
 }
@@ -165,49 +155,36 @@ select {
 .brand-suffix {
 	color: var(--accent);
 	font-family: var(--font-display);
-	font-size: 1.05rem;
-	font-weight: 600;
-	letter-spacing: 0.01em;
+	font-size: 1.15rem;
+	font-weight: 700;
 }
 
 .nav-links {
 	display: flex;
 	align-items: center;
 	gap: clamp(0.65rem, 2vw, 1.2rem);
-	font-size: 0.94rem;
+	font-family: var(--font-hand);
+	font-size: 1rem;
 }
 
 .nav-links a {
-	position: relative;
 	color: var(--muted);
 	text-decoration: none;
 	white-space: nowrap;
-	padding-bottom: 2px;
+	padding-bottom: 4px;
 	transition: color 0.2s ease;
 }
 
-.nav-links a::after {
-	content: "";
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	height: 2px;
-	background: var(--accent);
-	border-radius: 2px;
-	transform: scaleX(0);
-	transform-origin: left;
-	transition: transform 0.22s ease;
-}
-
-.nav-links a:hover,
-.nav-links a[aria-current='page'] {
+.nav-links a:hover {
 	color: var(--text);
 }
 
-.nav-links a:hover::after,
-.nav-links a[aria-current='page']::after {
-	transform: scaleX(1);
+/* 目前頁：靛藍墨水＋波浪底線 */
+.nav-links a[aria-current='page'] {
+	color: var(--accent);
+	text-decoration: underline wavy;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 4px;
 }
 
 .lang-switch {
@@ -223,18 +200,10 @@ select {
 	background: var(--accent-tint);
 }
 
-.lang-switch::after {
-	display: none;
-}
-
 .nav-links .nav-search {
 	display: inline-flex;
 	align-items: center;
 	padding: 0.2rem;
-}
-
-.nav-links .nav-search::after {
-	display: none;
 }
 
 .page {
@@ -256,10 +225,9 @@ select {
 	max-width: 12ch;
 	margin: 0;
 	font-family: var(--font-display);
-	font-weight: 600;
-	font-size: clamp(2.6rem, 9vw, 5.8rem);
-	line-height: 0.94;
-	letter-spacing: -0.035em;
+	font-weight: 700;
+	font-size: clamp(2.2rem, 7vw, 4.2rem);
+	line-height: 1.25;
 	text-wrap: balance;
 }
 
@@ -288,10 +256,9 @@ select {
 .article-title {
 	margin: 0;
 	font-family: var(--font-display);
-	font-weight: 600;
-	font-size: clamp(1.8rem, 5vw, 3rem);
-	line-height: 1.04;
-	letter-spacing: -0.028em;
+	font-weight: 700;
+	font-size: clamp(1.8rem, 5vw, 2.8rem);
+	line-height: 1.3;
 	text-wrap: balance;
 }
 
@@ -304,6 +271,7 @@ select {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.4rem 0.75rem;
+	font-family: var(--font-hand);
 	font-size: 0.94rem;
 	font-variant-numeric: tabular-nums;
 }
@@ -326,31 +294,38 @@ select {
 	padding: 1.25rem;
 	border: 1px solid var(--line);
 	border-radius: var(--radius);
-	background: linear-gradient(180deg, color-mix(in srgb, var(--paper) 100%, transparent), color-mix(in srgb, var(--soft) 55%, var(--paper)));
+	background: var(--paper);
 	box-shadow: var(--shadow-rest);
 	text-decoration: none;
 	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-	will-change: transform;
 }
 
 .entry:hover {
-	border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+	border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
 	box-shadow: var(--shadow-hover);
-	transform: translateY(-3px);
 }
 
-.entry:active {
-	transform: translateY(-1px) scale(0.994);
+/* 桌機寬：卡片像貼在手帳上，交錯微旋轉；hover 回正並浮起。手機寬與「減少動態」不旋轉 */
+@media (min-width: 600px) and (prefers-reduced-motion: no-preference) {
+	.grid > .entry:nth-child(odd) {
+		transform: rotate(-0.4deg);
+	}
+	.grid > .entry:nth-child(even) {
+		transform: rotate(0.5deg);
+	}
+	.grid > .entry:nth-child(n):hover {
+		transform: translateY(-3px) rotate(0deg);
+	}
 }
 
 .entry h3 {
 	margin: 0;
 	font-family: var(--font-display);
-	font-weight: 600;
+	font-weight: 700;
 	font-size: 1.28rem;
-	line-height: 1.16;
-	letter-spacing: -0.018em;
-	text-wrap: balance;
+	line-height: 1.4;
+	/* balance 對中文會把一行切得太短（「裝陌／生人」），改 pretty */
+	text-wrap: pretty;
 }
 
 .entry p {
@@ -371,7 +346,8 @@ select {
 .tag-list li,
 .pill {
 	border: 1px solid var(--line);
-	border-radius: 2rem;
+	border-radius: 3px;
+	background: var(--paper);
 	padding: 0.16rem 0.6rem;
 	color: var(--muted);
 	font-size: 0.85rem;
@@ -404,6 +380,7 @@ select {
 	max-width: var(--measure);
 	padding-top: 2rem;
 	font-size: 1.06rem;
+	line-height: 1.8;
 }
 
 .prose > * {
@@ -415,25 +392,90 @@ select {
 .prose h3 {
 	margin-top: 2rem;
 	font-family: var(--font-display);
-	font-weight: 600;
-	line-height: 1.2;
-	letter-spacing: -0.02em;
+	font-weight: 700;
+	line-height: 1.35;
 	text-wrap: balance;
 }
 
 .prose p,
 .prose li {
-	color: color-mix(in srgb, var(--text) 86%, var(--muted));
+	color: var(--text);
 }
 
 .prose a {
-	color: var(--accent-strong);
+	color: var(--accent);
 	text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
-	transition: text-decoration-color 0.2s ease;
+	transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .prose a:hover {
-	text-decoration-color: var(--accent);
+	color: var(--accent-strong);
+	text-decoration-color: var(--accent-strong);
+}
+
+/* 開篇引言：貼在手帳上的一張小紙片，楷書 */
+.prose blockquote {
+	margin-inline: 0;
+	padding: 0.9rem 1.2rem;
+	border: 1px solid var(--line);
+	border-left: 3px solid var(--accent);
+	border-radius: var(--radius);
+	background: var(--paper);
+	box-shadow: var(--shadow-rest);
+	font-family: var(--font-hand);
+	font-size: 1.08rem;
+}
+
+.prose blockquote > * {
+	margin: 0 0 0.5rem;
+}
+
+.prose blockquote > :last-child {
+	margin-bottom: 0;
+}
+
+.prose blockquote p {
+	color: var(--text);
+}
+
+/* 帶得走的一件事：便利貼（rehype-takeaway-note 在建置時包出 section.takeaway-note） */
+.prose .takeaway-note {
+	margin: 2.75rem 0 1.5rem;
+	padding: 1.3rem 1.5rem 1.2rem;
+	border-radius: 2px;
+	background: var(--note-bg);
+	color: var(--note-text);
+	box-shadow: var(--note-shadow);
+	font-family: var(--font-hand);
+	font-size: 1.1rem;
+	transform: rotate(-0.8deg);
+}
+
+.takeaway-note > * {
+	margin: 0 0 1rem;
+}
+
+.takeaway-note > :last-child {
+	margin-bottom: 0;
+}
+
+.prose .takeaway-note h2 {
+	margin-top: 0;
+	color: var(--accent);
+	font-size: 1.2rem;
+	letter-spacing: 0.06em;
+}
+
+.prose .takeaway-note p,
+.prose .takeaway-note li {
+	color: var(--note-text);
+}
+
+@media (max-width: 599px) {
+	.prose .takeaway-note {
+		transform: none;
+		padding-inline: 1.1rem;
+	}
 }
 
 .code-block,
@@ -517,15 +559,18 @@ select {
 .tldr-panel,
 .preregistration-panel,
 .method-flow {
-	border-color: color-mix(in srgb, var(--accent) 22%, var(--line));
-	background: color-mix(in srgb, var(--paper) 78%, var(--accent-tint));
+	border-color: var(--line);
+	background: var(--paper);
+	box-shadow: var(--shadow-rest);
 }
 
 .tldr-panel h2,
 .preregistration-panel h2 {
 	margin-top: 0;
-	font-size: 1.05rem;
-	letter-spacing: 0;
+	color: var(--accent);
+	font-family: var(--font-hand);
+	font-size: 1.1rem;
+	letter-spacing: 0.04em;
 }
 
 .tldr-panel p:last-child,
@@ -645,8 +690,11 @@ select {
 
 .giscus-box {
 	margin-top: 3rem;
-	padding-top: 2rem;
-	border-top: 1px solid var(--line);
+	padding: 1.25rem;
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	background: var(--paper);
+	box-shadow: var(--shadow-rest);
 }
 
 .site-footer {
@@ -719,31 +767,15 @@ select {
 }
 
 
-/* ══ Premium polish (2026-07-09) ══ */
-/* Fine film grain — breaks the flat surface, tuned per theme, sits behind content */
-body::after {
-	content: "";
-	position: fixed;
-	inset: 0;
-	z-index: -1;
-	pointer-events: none;
-	opacity: 0.03;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-	background-size: 140px 140px;
-}
-@media (prefers-color-scheme: dark) {
-	body::after { opacity: 0.06; }
-}
-
-/* Editorial section headers — a short accent rule leads each section title */
+/* 段落標題前一小段墨水線 */
 .section-header h2::before {
 	content: "";
 	display: block;
 	width: 2.4rem;
-	height: 3px;
+	height: 2px;
 	margin-bottom: 0.9rem;
 	border-radius: 2px;
-	background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 12%, transparent));
+	background: var(--accent);
 }
 
 
@@ -754,43 +786,14 @@ body::after {
 .section-header { margin-bottom: clamp(1.6rem, 4vw, 2.6rem); }
 .grid { gap: clamp(1.1rem, 3vw, 1.9rem); }
 
-/* Hero 加戲：關鍵字 highlighter + 首屏專屬 ambient 背景 */
-.hero { position: relative; isolation: isolate; }
-.hero::before {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	inset: -8% -12% -20% -12%;
-	pointer-events: none;
-	background:
-		radial-gradient(38rem 26rem at 88% 6%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 60%),
-		radial-gradient(30rem 22rem at 6% 92%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 62%);
-	opacity: 0.7;
-	filter: blur(6px);
-}
+/* Hero 關鍵字：螢光筆畫一道 */
 .hero h1 .mark {
-	position: relative;
 	white-space: nowrap;
-	background: linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 26%, transparent) 0);
+	background: linear-gradient(transparent 60%, var(--note-bg) 0);
 	padding: 0 0.05em;
-	border-radius: 2px;
 }
 
-/* 卡片：滑鼠 spotlight（跟游標的柔光）＋ 捲動淡入 */
-.entry { --mx: 50%; --my: 0%; }
-.entry::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	z-index: 0;
-	pointer-events: none;
-	border-radius: inherit;
-	background: radial-gradient(18rem 18rem at var(--mx) var(--my), var(--glow), transparent 60%);
-	opacity: 0;
-	transition: opacity 0.3s ease;
-}
-.entry:hover::after { opacity: 1; }
-.entry > * { position: relative; z-index: 1; }
+/* 卡片捲動淡入 */
 
 @media (prefers-reduced-motion: no-preference) {
 	@supports (animation-timeline: view()) {
