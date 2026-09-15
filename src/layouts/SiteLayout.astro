@@ -3,6 +3,7 @@ import '@fontsource-variable/space-grotesk';
 import '../styles/global.css';
 import { absoluteUrl, localeMeta, site, withLocale, type Locale } from '../lib/site';
 import topicsData from '../data/topics.json';
+import AdSenseHead from '../components/AdSenseHead.astro';
 
 type Breadcrumb = { name: string; path: string };
 type ArticleData = {
@@ -127,7 +128,7 @@ const footerNav = [
 		<meta property="og:image" content={absoluteUrl(image)} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<script type="application/ld+json" set:html={jsonLd}></script>
-		<!-- ADSENSE_HEAD -->
+		<AdSenseHead />
 	</head>
 	<body>
 		<header class="site-header" data-pagefind-ignore="all">

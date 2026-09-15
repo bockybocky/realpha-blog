@@ -6,6 +6,7 @@ import RelatedPosts from '../../components/RelatedPosts.astro';
 import VocusLink from '../../components/VocusLink.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import { coverAlt, readingMinutes, relatedPosts } from '../../lib/article-extras';
+import topicsData from '../../data/topics.json';
 import { getBlogPosts } from '../../lib/content';
 import { formatDate } from '../../lib/site';
 import { render } from 'astro:content';
@@ -38,7 +39,7 @@ const minutes = readingMinutes(post.body ?? '', locale);
 const pubText = formatDate(post.data.pubDate, locale);
 const updatedText = post.data.updatedDate ? formatDate(post.data.updatedDate, locale) : null;
 const showAds = post.data.category !== 'lab';
-const related = relatedPosts(post, posts);
+const related = relatedPosts(post, posts, 6, new Set(topicsData.series.map((s) => s.id)));
 // 封面移到標題下方；內文開頭原本就嵌了同一張圖（2026-09-15 查：461 篇全是），把內文那張藏起來免得出現兩次。
 const cover = post.data.cover;
 const hideBodyCover = Boolean(cover && post.body?.includes(cover));

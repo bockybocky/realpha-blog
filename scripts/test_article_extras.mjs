@@ -35,6 +35,9 @@ const got = relatedPosts(cur, all).map((p) => p.data.slug);
 assert.deepEqual(got, ['show-2', 'show-1', 'x-two', 'x-one-new', 'x-one-old', 'x-cat']);
 assert.ok(!got.includes('show-3') && !got.includes('show-draft') && !got.includes('x-none'));
 assert.equal(relatedPosts(cur, [cur]).length, 0);
+// 給了節目清單但 show 不在裡面 → 不走同系列，直接從共同 tag 開始
+assert.equal(relatedPosts(cur, all, 6, new Set(['gooaye']))[0].data.slug, 'x-two');
+assert.equal(relatedPosts(cur, all, 6, new Set(['show']))[0].data.slug, 'show-2');
 
 // 封面 alt
 assert.equal(coverAlt('![長廊與畫桌](/covers/a.png)\n內文', '/covers/a.png', '標題'), '長廊與畫桌');

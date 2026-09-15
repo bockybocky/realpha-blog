@@ -6,6 +6,7 @@ import RelatedPosts from '../../../components/RelatedPosts.astro';
 import SiteLayout from '../../../layouts/SiteLayout.astro';
 import SubstackLink from '../../../components/SubstackLink.astro';
 import { coverAlt, readingMinutes, relatedPosts } from '../../../lib/article-extras';
+import topicsData from '../../../data/topics.json';
 import { getBlogPosts } from '../../../lib/content';
 import { formatDate } from '../../../lib/site';
 import { render } from 'astro:content';
@@ -32,7 +33,7 @@ const minutes = readingMinutes(post.body ?? '', locale);
 const pubText = formatDate(post.data.pubDate, locale);
 const updatedText = post.data.updatedDate ? formatDate(post.data.updatedDate, locale) : null;
 const showAds = post.data.category !== 'lab';
-const related = relatedPosts(post, posts);
+const related = relatedPosts(post, posts, 6, new Set(topicsData.series.map((s) => s.id)));
 // Cover moves under the title; the body already embeds the same image at the top, so hide that copy.
 const cover = post.data.cover;
 const hideBodyCover = Boolean(cover && post.body?.includes(cover));

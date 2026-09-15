@@ -10,6 +10,7 @@ const staticPaths = [
 	'/methodology/',
 	'/projects/',
 	'/about/',
+	'/privacy/',
 	'/en/',
 	'/en/blog/',
 	'/en/lab/',

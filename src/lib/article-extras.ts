@@ -44,14 +44,15 @@ const newestFirst = (a: RelatedCandidate, b: RelatedCandidate) => b.data.pubDate
  * 延伸閱讀：① 同節目系列（新到舊）→ ② 共同 tag 數多到少（同分新到舊）→ ③ 同分類最新。
  * 排除自己與 draft。呼叫端負責只傳同語言的文章。
  */
-export function relatedPosts<T extends RelatedCandidate>(current: T, all: T[], limit = 6): T[] {
+export function relatedPosts<T extends RelatedCandidate>(current: T, all: T[], limit = 6, knownSeries?: Set<string>): T[] {
 	const others = all.filter((p) => p.data.slug !== current.data.slug && !p.data.draft).sort(newestFirst);
 	const picked: T[] = [];
 	const add = (p: T) => {
 		if (picked.length < limit && !picked.includes(p)) picked.push(p);
 	};
 	const prefix = seriesPrefix(current.data.slug);
-	others.filter((p) => seriesPrefix(p.data.slug) === prefix).forEach(add);
+	// 有給節目清單時，只有清單內的前綴才算同系列（避免 ai-、my- 這種通用前綴把不相干的文章湊成一組）
+	if (!knownSeries || knownSeries.has(prefix)) others.filter((p) => seriesPrefix(p.data.slug) === prefix).forEach(add);
 	const tags = new Set(current.data.tags);
 	others
 		.map((p) => ({ p, shared: p.data.tags.filter((t) => tags.has(t)).length }))
