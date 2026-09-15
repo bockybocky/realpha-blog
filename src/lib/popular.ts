@@ -1,0 +1,17 @@
+// 熱門文章資料（src/data/popular.json 由另一條線產生）。
+// 用 fs 讀而不是 import：檔案不存在、空檔或壞 JSON 都只回空陣列，build 不會因此失敗。
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+export type PopularRow = { slug: string; lang: string; views: number };
+
+export function readPopular(): PopularRow[] {
+	try {
+		const raw = readFileSync(join(process.cwd(), 'src', 'data', 'popular.json'), 'utf8');
+		const rows = JSON.parse(raw);
+		if (!Array.isArray(rows)) return [];
+		return rows.filter((r) => r && typeof r.slug === 'string' && typeof r.lang === 'string' && Number.isFinite(Number(r.views)));
+	} catch {
+		return [];
+	}
+}

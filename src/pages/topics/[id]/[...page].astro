@@ -1,0 +1,24 @@
+---
+import type { GetStaticPaths } from 'astro';
+import ArchivePage from '../../../components/ArchivePage.astro';
+import { getCatalog, PAGE_SIZE, topicPath } from '../../../lib/catalog';
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const cat = await getCatalog('zh-TW');
+	return cat.topics.flatMap((topic) =>
+		paginate(cat.byTopic.get(topic.id) ?? [], { params: { id: topic.id }, props: { topic, total: cat.byTopic.get(topic.id)?.length ?? 0 }, pageSize: PAGE_SIZE }),
+	);
+}) satisfies GetStaticPaths;
+
+const { page, topic, total } = Astro.props;
+---
+
+<ArchivePage
+	locale="zh-TW"
+	title={topic.name['zh-TW']}
+	lead={`${topic.tagline['zh-TW']}共 ${total} 篇。`}
+	description={`${topic.name['zh-TW']}：${topic.tagline['zh-TW']}`}
+	base={topicPath('zh-TW', topic.id)}
+	alternateBase={topicPath('en', topic.id)}
+	page={page}
+/>

@@ -1,0 +1,64 @@
+---
+// 站內搜尋頁（pagefind 內建 UI）。索引由 build 最後一步 `pagefind --site dist` 產生。
+// 刻意用 JS 動態掛上 /pagefind/ 的 css 與 js，不寫成 <link href="..."> / <script src="...">：
+// postbuild 的斷連結閘在 pagefind 產生索引之前就跑，靜態寫死會被判成斷連結。
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { withLocale, type Locale } from '../lib/site';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const zh = locale === 'zh-TW';
+const path = withLocale(locale, '/search/');
+---
+
+<SiteLayout
+	title={zh ? '搜尋' : 'Search'}
+	description={zh ? '搜尋 Realpha Blog 的文章。' : 'Search Realpha Blog posts.'}
+	locale={locale}
+	path={path}
+	alternatePath={withLocale(zh ? 'en' : 'zh-TW', '/search/')}
+	breadcrumbs={[{ name: zh ? '搜尋' : 'Search', path }]}
+>
+	<main class="page" data-pagefind-ignore="all">
+		<header class="section-header">
+			<h1 class="page-title search-title">{zh ? '搜尋' : 'Search'}</h1>
+			<p class="lead">{zh ? '搜尋全站文章的標題與內文。' : 'Search titles and full text of every post.'}</p>
+		</header>
+		<div id="search" class="search-box"></div>
+		<noscript><p class="muted">{zh ? '搜尋需要啟用 JavaScript。' : 'Search needs JavaScript enabled.'}</p></noscript>
+	</main>
+</SiteLayout>
+
+<script is:inline>
+	(function () {
+		var css = document.createElement('link');
+		css.rel = 'stylesheet';
+		css.href = '/pagefind/pagefind-ui.css';
+		document.head.appendChild(css);
+		var js = document.createElement('script');
+		js.src = '/pagefind/pagefind-ui.js';
+		js.onload = function () {
+			var ui = new PagefindUI({ element: '#search', showSubResults: true, showImages: false });
+			var q = new URLSearchParams(location.search).get('q');
+			if (q) ui.triggerSearch(q);
+		};
+		document.head.appendChild(js);
+	})();
+</script>
+
+<style>
+	.search-title { max-width: none; font-size: clamp(2rem, 6vw, 3.4rem); }
+	.search-box {
+		--pagefind-ui-primary: var(--accent);
+		--pagefind-ui-text: var(--text);
+		--pagefind-ui-background: var(--paper);
+		--pagefind-ui-border: var(--line);
+		--pagefind-ui-tag: var(--soft);
+		--pagefind-ui-border-radius: 10px;
+		--pagefind-ui-font: inherit;
+		max-width: var(--measure);
+	}
+</style>

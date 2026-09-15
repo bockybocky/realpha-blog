@@ -1,0 +1,24 @@
+---
+import type { GetStaticPaths } from 'astro';
+import ArchivePage from '../../../components/ArchivePage.astro';
+import { getCatalog, PAGE_SIZE } from '../../../lib/catalog';
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const { posts } = await getCatalog('en');
+	return paginate(posts, { pageSize: PAGE_SIZE });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const { topicOf, topicName } = await getCatalog('en');
+---
+
+<ArchivePage
+	locale="en"
+	title="Blog"
+	lead="Written for people to read and for AI to cite, so every claim keeps its source, its test and the way it could be proven wrong."
+	description="English technical, systems, and investment research posts from Realpha Blog."
+	base="/en/blog/"
+	alternateBase="/blog/"
+	page={page}
+	labelFor={(post) => topicName(topicOf(post))}
+/>

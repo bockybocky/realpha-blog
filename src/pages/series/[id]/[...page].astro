@@ -1,0 +1,27 @@
+---
+import type { GetStaticPaths } from 'astro';
+import ArchivePage from '../../../components/ArchivePage.astro';
+import { getCatalog, PAGE_SIZE, seriesPath } from '../../../lib/catalog';
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const cat = await getCatalog('zh-TW');
+	const enIds = new Set((await getCatalog('en')).series.map((s) => s.id));
+	return cat.series.flatMap((series) =>
+		paginate(series.posts, { params: { id: series.id }, props: { series, hasEn: enIds.has(series.id) }, pageSize: PAGE_SIZE }),
+	);
+}) satisfies GetStaticPaths;
+
+const { page, series, hasEn } = Astro.props;
+const { topicOf, topicName } = await getCatalog('zh-TW');
+---
+
+<ArchivePage
+	locale="zh-TW"
+	title={series.name['zh-TW']}
+	lead={`${series.name['zh-TW']}｜共 ${series.posts.length} 篇收聽心得`}
+	description={`${series.name['zh-TW']} 的收聽心得，共 ${series.posts.length} 篇。`}
+	base={seriesPath('zh-TW', series.id)}
+	alternateBase={hasEn ? seriesPath('en', series.id) : null}
+	page={page}
+	labelFor={(post) => topicName(topicOf(post))}
+/>

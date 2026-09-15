@@ -1,0 +1,47 @@
+---
+// 文章卡：沿用全站 .entry 卡片樣式與 16:9 封面；label 是卡片左上的主題名（可省略）
+import type { Post } from '../lib/catalog';
+import { formatDate, withLocale, type Locale } from '../lib/site';
+
+interface Props {
+	post: Post;
+	locale: Locale;
+	label?: string;
+}
+
+const { post, locale, label } = Astro.props;
+const { data } = post;
+---
+
+<a class={`entry post-card${data.cover ? ' has-cover' : ''}`} href={withLocale(locale, `/blog/${data.slug}/`)}>
+	{data.cover && (
+		<div class="entry-cover">
+			<img src={data.cover} alt={data.title} loading="lazy" decoding="async" width="800" height="450" />
+		</div>
+	)}
+	<div class="meta">
+		<time datetime={data.pubDate.toISOString()}>{formatDate(data.pubDate, locale)}</time>
+		{label && <span>{label}</span>}
+	</div>
+	<h3>{data.title}</h3>
+	<p class="post-card-desc">{data.description}</p>
+</a>
+
+<style>
+	.entry.has-cover { padding-top: 0; }
+	.entry-cover {
+		margin: 0 -1.25rem 0.25rem;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		border-radius: var(--radius) var(--radius) 0 0;
+		background: color-mix(in srgb, var(--soft) 60%, var(--paper));
+	}
+	.entry-cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
+	.entry.has-cover:hover .entry-cover img { transform: scale(1.03); }
+	.post-card-desc {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+</style>

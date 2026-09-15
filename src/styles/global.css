@@ -227,6 +227,16 @@ select {
 	display: none;
 }
 
+.nav-links .nav-search {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.2rem;
+}
+
+.nav-links .nav-search::after {
+	display: none;
+}
+
 .page {
 	width: min(100% - 2rem, 1120px);
 	margin: 0 auto;
@@ -680,6 +690,8 @@ select {
 		width: 100%;
 		overflow-x: auto;
 		padding-bottom: 0.2rem;
+		scrollbar-width: thin;
+		-webkit-overflow-scrolling: touch;
 	}
 
 	.hero h1,
