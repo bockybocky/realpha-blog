@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩條橫條：稠密模型每字動全部參數速度 1.8，混合專家模型每字只動一小截速度 23">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+    .n { font-size:34px; font-weight:700; }
+</style>
+<text class="t" x="48" y="62">每吐一個字，要動多少參數</text>
+<rect x="48" y="92" width="18" height="18" rx="3" fill="var(--accent)"/>
+<text class="b" x="74" y="107">每字要動</text>
+<rect x="190" y="92" width="18" height="18" rx="3" fill="var(--grey)"/>
+<text class="b" x="216" y="107">留在書架</text>
+<text class="s" x="360" y="107">同一張 8GB 卡實測</text>
+<text class="g" x="48" y="206">27B 稠密</text>
+<rect x="220" y="176" width="340" height="44" rx="6" fill="var(--accent)"/>
+<text class="b" x="236" y="204" style="fill:var(--page)">270 億 全動</text>
+<text class="n" x="760" y="212">1.8</text>
+<text class="s" x="760" y="238">token／秒</text>
+<text class="g" x="48" y="336">35B-A3B</text>
+<rect x="220" y="306" width="440" height="44" rx="6" fill="var(--grey)"/>
+<rect x="220" y="306" width="38" height="44" rx="6" fill="var(--accent)"/>
+<text class="b" x="220" y="296">30 億</text>
+<text class="s" x="668" y="334">350 億</text>
+<text class="n" x="760" y="342" style="fill:var(--accent)">23</text>
+<text class="s" x="760" y="368">token／秒</text>
+<text class="c" x="48" y="460">動得越少，吐得越快</text>
+</svg>

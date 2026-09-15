@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="左邊一個打不出字分成四條岔路：沒裝輸入法、沒加進清單、沒切過去、只有某個軟體，每條各通到一個不同的設定入口">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<defs>
+<marker id="mkc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+</defs>
+<text x="60" y="68" font-size="27" font-weight="700" fill="var(--ink)">同一個「打不出字」，四個不同入口</text>
+<text x="460" y="110" font-size="16" text-anchor="middle" fill="var(--dim)">原因</text>
+<text x="790" y="110" font-size="16" text-anchor="middle" fill="var(--dim)">要去的入口</text>
+<g stroke="var(--dim)" stroke-width="2" fill="none">
+<path d="M260,285 C300,285 300,150 340,150"/>
+<path d="M260,285 C300,285 300,240 340,240"/>
+<path d="M260,285 C300,285 300,330 340,330"/>
+<path d="M260,285 C300,285 300,420 340,420"/>
+</g>
+<rect x="60" y="253" width="200" height="64" rx="10" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+<text x="160" y="292" font-size="20" font-weight="700" text-anchor="middle" fill="var(--ink)">打不出字</text>
+<text x="160" y="350" font-size="15" text-anchor="middle" fill="var(--dim)">看起來都一樣</text>
+<g fill="var(--card)" stroke="var(--line)">
+<rect x="340" y="125" width="240" height="50" rx="8"/>
+<rect x="340" y="215" width="240" height="50" rx="8"/>
+<rect x="340" y="305" width="240" height="50" rx="8"/>
+<rect x="340" y="395" width="240" height="50" rx="8"/>
+</g>
+<g font-size="16" text-anchor="middle" fill="var(--ink)">
+<text x="460" y="156">沒裝輸入法</text>
+<text x="460" y="246">裝了，沒加進清單</text>
+<text x="460" y="336">加了，沒切過去</text>
+<text x="460" y="426">只有某個軟體</text>
+</g>
+<g stroke="var(--accent)" stroke-width="2">
+<line x1="580" y1="150" x2="674" y2="150" marker-end="url(#mkc)"/>
+<line x1="580" y1="240" x2="674" y2="240" marker-end="url(#mkc)"/>
+<line x1="580" y1="330" x2="674" y2="330" marker-end="url(#mkc)"/>
+<line x1="580" y1="420" x2="674" y2="420" marker-end="url(#mkc)"/>
+</g>
+<g fill="none" stroke="var(--accent)" stroke-width="2">
+<rect x="680" y="125" width="220" height="50" rx="25"/>
+<rect x="680" y="215" width="220" height="50" rx="25"/>
+<rect x="680" y="305" width="220" height="50" rx="25"/>
+<rect x="680" y="395" width="220" height="50" rx="25"/>
+</g>
+<g font-size="16" text-anchor="middle" fill="var(--accent)">
+<text x="790" y="156">安裝輸入法</text>
+<text x="790" y="246">輸入法清單</text>
+<text x="790" y="336">切換輸入法</text>
+<text x="790" y="426">那個軟體</text>
+</g>
+<text x="60" y="530" font-size="22" font-weight="700" fill="var(--ink)">症狀一個，入口四個</text>
+</svg>

@@ -1,0 +1,110 @@
+---
+title: "What Stops People From Using AI Is Often a Broken Keyboard Setting: Xiaotian Takes Apart Marvis"
+description: "In a video from 2026-09-11, Xiaotian (xiaotianfotos) opened up Tencent's system-level AI assistant Marvis and argued that small computer problems stall ordinary users more than token limits do. Here is how Marvis hands you the right settings page, the reporting rules it sets for itself, and two times small problems tripped me up."
+slug: "xiaotian-2026-09-11-mavis-system-level-agent"
+lang: "en"
+pubDate: 2026-09-15
+category: tech
+tldr: "Marvis puts the settings entry point in front of you, so one click shows you where things live, and its rules forbid calling something normal when it couldn't check. Small problems caught me twice: once a script reported 'not found' for things that were there, once an AI handed me a button it could press itself."
+tags: ["xiaotianfotos", "AI assistants", "Marvis", "Computer settings", "Beginners"]
+ogImage: "/covers/xiaotian-2026-09-11-mavis-system-level-agent.png"
+cover: "/covers/xiaotian-2026-09-11-mavis-system-level-agent.png"
+---
+
+![A candlelit study: a man keeps one hand on his open manuscript and reaches up with the other to push a small loose gear back into the wall clock, so the clock keeps running and his work never has to stop](/covers/xiaotian-2026-09-11-mavis-system-level-agent.png)
+
+> A good questioner works like someone splitting hard wood: the easy parts first, the knots last. Given time, the whole piece comes apart.
+>
+> —— *Book of Rites*, "Record on Learning" (Western Han; translation mine)
+
+The *Book of Rites* compares good questioning to splitting a hard log: start where the wood gives, leave the knots for later, and eventually the whole thing opens up. The video I watched this week is about that first layer, the easy part that still stops a lot of people cold.
+
+## When you can't type one word
+
+Xiaotian, who runs the YouTube channel xiaotianfotos, opened his 2026-09-11 video with a bold claim: what keeps most ordinary people from getting more done with AI is usually some small problem on their computer. Whether they have enough tokens comes later.
+
+His example landed right away. Your input method breaks. You try to type a simple word and get a different character. You fiddle with it, give up, and ask someone for help. They click twice and it's fixed, and you feel a bit embarrassed about taking their time. He tinkers with computers every day and still gets stuck on things like this. Writing documents and code has gotten faster for him, but one small snag can eat the time he saved.
+
+![Two bars compared. Before, writing takes five blocks and being stuck takes five, ten in total. With AI, writing shrinks to one block but being stuck is still five, six in total, so the whole job is only a little faster.](/figures/xiaotian-mavis-stuck-segment-unchanged-en.svg)
+
+It was his wife who pointed him to Marvis. She rarely uses AI, and at work she's the person everyone goes to when their computer acts up. Lately, when someone comes to her with that kind of problem, she just sends them to Marvis and it gets sorted out.
+
+## What Marvis does
+
+Marvis is a system-level AI assistant Tencent launched in May 2026. "System-level" means this: a regular chat AI answers you with text, while Marvis can change your computer's settings, files, and apps directly.
+
+He first asked it to raise the frame rate in a game, without expecting much. It went through every setting that might affect performance, one by one. What changed his mind were the cards that popped up during the analysis. Each card named the Windows setting involved. Some let you adjust it right there in the card; others opened the matching settings page with one click.
+
+He calls this spoon-feeding. Tell someone who doesn't know computers to "change your power plan" and they still won't know where that page is. Click the card, the page opens, and they think, "Oh, so that's where it is." That kind of know-how used to come from hunting through tutorials. Now you pick it up by doing it once.
+
+![Two panels. On the left you only get one sentence, "change your power plan," and have to wander five steps through Settings, System, Control Panel and Search, with a dead end along the way. On the right, a button on a card runs straight to Power plan in one click.](/figures/xiaotian-mavis-card-shortcut-en.svg)
+
+He admits he can't stop at "it works well." He has to know why. So he had another AI, Codex, go through the entire install folder of the Mac version. Four things he found seem worth passing on.
+
+First, the cards are wired to real tools. He asked for a set of cards and got a volume slider plus a resolution dropdown for each of his three monitors. The AI works out what you're trying to do and pulls up the controls for it. He sees this as the Marvis team's take on "generative UI," meaning the interface gets assembled on the spot for your request.
+
+Second, most of the built-in skills handle everyday computer trouble: input methods, sound, Bluetooth, displays, networking, a slow machine. And they go into detail. Take "I can't type." The skill splits it into four cases: the input method was never installed; it's installed but not added to your list of input methods; it's added but you haven't switched to it; or only one app won't take input. Each case leads to a different place in the system settings, and the troubleshooting notes treat them separately. Sound works the same way: system volume, default playback device, headphone connection, or a single app with no audio each get checked on their own.
+
+![On the left, one "can't type" splits into four paths: no input method installed, not added to the list, not switched to, or only one app won't take input. Each path leads to a different settings page.](/figures/xiaotian-mavis-one-symptom-four-doors-en.svg)
+
+Third, it has rules for how it reports back. The notes say: if you couldn't check something, don't call it normal. If you only handed over a settings link, don't say it's fixed. After a tool reports success, check again.
+
+Fourth, it installs the tools for you. In the install folder he found Python, npm, browser automation components, and a search tool called ripgrep. Ripgrep pulls the few lines you need out of a pile of files, so the AI reads less irrelevant text and uses fewer tokens. His comparison was a knowledgeable, helpful person online who quietly packs a bunch of powerful tools into one bundle. You don't have to become an expert or learn those tools to benefit from them.
+
+![On the left, 100 small gray bars stand for the contents of a pile of files; three are blue, the lines you actually need. On the right, two bars: reading everything is 100 blocks long, while filtering with a search tool first leaves just 3. The shorter the bar, the less the AI has to read and pay for.](/figures/xiaotian-mavis-read-only-needed-lines-en.svg)
+
+A few other features, briefly. It can index your documents and images so you can find them by keyword. If your hardware is strong enough, you can switch to a local mode where the model runs on your own machine; it downloads a 35B Qwen model automatically. He says that's useful on a plane with no internet, or when data can't go to the cloud at all. It can set up WSL for Windows users (a small Linux room inside Windows, handy because a lot of open-source software runs better on Linux) and Docker (a tool that packages software together with the environment it needs), without you learning Linux commands first. If the built-in skills aren't enough, there's a skill marketplace, a way to import skills by hand, and hooks for MCP and command-line tools (MCP is, roughly, a standard plug that lets an AI connect to outside tools). The models behind it are Tencent's Hunyuan 3 and DeepSeek V4 Pro, and in the video he says it gives you 10 million tokens a day.
+
+Even if you're good with computers and don't need AI for small fixes, he says one feature is still very handy: remote management. He has a pile of machines, some Macs and some Windows PCs, some for daily use and some that only run a few services. The Marvis phone app sees all of them, lets him switch between systems, and when he sends a command from his phone, the remote machine carries it out.
+
+There's a small team behind it, too. A coordinator takes your request, hands out the work, and pulls the results together. Five helpers each cover one area:
+
+| Helper | Handles |
+|---|---|
+| computer | System settings |
+| file | Files |
+| app | Applications |
+| browser | Web pages |
+| search | Looking things up online |
+
+You don't pick who goes in. He thinks this setup fits one situation best: I'm stuck on something, so you take it from here. Find the cause, suggest a fix, do what you can, and when I have to do something myself, put the entry point in front of me.
+
+![A large box stands for the inside of Marvis: the coordinator hands work to five helpers system settings, files, apps, web, search and collects the results. You, outside the box, get only three lines: one request in, results out, and an entry point handed over only when you need to act.](/figures/xiaotian-mavis-inside-busy-edge-thin-en.svg)
+
+## He's missing a butler too
+
+Later in the video he gets reflective. People who follow his AI tutorials often complain that he skips the tedious setup and goes straight to the newest model or a one-sentence website build. But where viewers actually get stuck might be a file path with a space in it, a command that only runs in a different terminal, a dependency that won't download, or not knowing what git is. Everyone gets stuck somewhere different, and one video can't cover it all. He's come to think that basic knowledge of operating systems and development setups is a gap many people need to fill before AI can help them much.
+
+He pays for several coding AIs and has several machines running compute jobs, and what he lacks is a butler. The coding AIs can finish a project for him, but whether a machine is healthy, whether a service went down, how far a job has gotten, he still watches himself. He hopes Marvis goes one step further, connects to his NAS (a home network storage box), checks his services, and follows up on jobs. The way he sees it, this is the direction things are heading: closer and closer to Jarvis, the butler at Iron Man's side in the movies.
+
+![Side by side. On the left, three AIs and three machines, all six lines tied to him. On the right, the same six connect to a butler first, and the butler runs just one line to him.](/figures/xiaotian-mavis-who-is-watching-en.svg)
+
+At the very end, he answers a question friends keep asking him: where should an ordinary person start with AI? His advice is to skip the urge to build some big project right away. Start with the small computer chores that trip you up every time and that you never bother to figure out. Once that first step works, the more powerful stuff becomes something you can actually reach.
+
+## Two times small things stopped me
+
+My main tool is Claude Code, with a few other AIs splitting the work; I wrote about that setup in [A One-Person Engineering Department](/en/blog/my-ai-engineering-team/). On paper I use AI heavily. The things that stall me are just as small as the ones he describes.
+
+On 2026-09-04 I had a script look up ten items from a list. All ten came back "not found." Every line in the list ended with an invisible line-break character left over from saving the file on Windows, so none of the names matched. The script raised no error. It just quietly said there was nothing. That kind of mistake is the worst kind, because it doesn't warn you. You simply end up with less than you should have.
+
+So when I read Marvis's rule, "if you couldn't check it, don't call it normal," I nodded. Since August 2026 I've held myself to the same thing: a check has three possible results, pass, fail, or can't tell. If the tool won't run, the file won't open, or the screenshot fails, the answer is "can't tell," never "pass." The line they wrote into their product is one I learned by getting burned.
+
+![Five cases sorted into three bins. A match goes to "Pass," a mismatch to "Fail," and "won't run," "can't read file" and "screenshot failed" all go to "Can't tell." A dashed line from those three to "Pass" is crossed out.](/figures/xiaotian-mavis-three-bins-en.svg)
+
+The second time was 2026-09-10. I had an AI open a browser and log me into a stock-quote service. It stopped and asked me to press the "Sign in with Google" button on the page. I told it: you press it. It did, and the login went through. My rule since then: only passwords and verification codes come to me. Any button on the page, the AI presses.
+
+Putting these two side by side made me think harder about the Marvis design of handing you the entry point when your action is needed. Handing something to a person pays off in two cases: the step can only be done by a person, like typing a password, or the person learns something from it, like his wife's coworkers, who see the settings page once and know where it is from then on. Otherwise, handing it over just pushes the work back onto the person. That's my own view. I haven't installed Marvis, so I can't say how it strikes that balance in practice.
+
+![A two-by-two grid. Across: whether watching teaches you something. Down: whether only a person can do it. The three cells where only a person can act, or where watching teaches, say "hand over," with examples like typing a password and a coworker seeing where a setting lives. The bottom-left cell, neither, says "AI presses it," with a login button as the example.](/figures/xiaotian-mavis-when-to-hand-over-en.svg)
+
+## I don't have the butler part either
+
+The part about missing a butler applies to me. On 2026-09-07 I finished setting up a way to reach my home computer from my phone (the how-to is in [Take Over Your AI Agents from Anywhere](/en/blog/phone-to-pc-agent-tailscale-herdr-moshi/)). Being able to connect is one thing. Once I'm connected, what to look at and which job is waiting on whom is still up to me remembering to check. On 2026-09-10 one AI service's quota came back, and the work queued behind it sat for two hours with nobody picking it up. It only started moving after I asked, "Is it done yet?"
+
+So here's how I sort the question of whether Marvis is worth using. For someone like his wife, who gets pulled in to fix coworkers' computers, having the entry point handed over is useful every day. For someone like me, who already has a set of AIs doing work, the missing piece is the butler, and he's still waiting for that too. Whether your data can go to the cloud depends on what data you have; the local mode needs strong enough hardware to turn on.
+
+## One thing to take with you
+
+What stayed with me most was that card: a lot of small problems stop people because they don't know where the entry point is.
+
+Here's a small thing you could try if you like. The next time someone fixes a small problem on your computer or phone in a couple of clicks, ask them to do it again slowly, and type the path they clicked into a note on your phone. Title the note with the name of the problem, for example "Can't type Chinese: Settings → Time & language → Language & region." One note written down counts as done. When the same problem shows up again, open that note and try it yourself first, and if it works, add "fixed it myself" at the end.

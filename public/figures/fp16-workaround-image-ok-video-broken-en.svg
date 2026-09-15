@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two groups of shortened bars: image generation gets faster and stays correct, while video generation gets faster but saves a broken file.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text class="t" x="48" y="56">FP16 trick: 2 outcomes</text>
+<text class="s" x="48" y="88">Sec/step</text>
+<text class="g" x="48" y="146">Img</text>
+<text class="s" x="190" y="188" text-anchor="end">Def</text>
+<rect x="200" y="166" width="344" height="32" rx="4" fill="var(--grey)"/>
+<text class="b" x="554" y="188">43 s</text>
+<text class="s" x="190" y="232" text-anchor="end">FP16</text>
+<rect x="200" y="210" width="112" height="32" rx="4" fill="var(--accent)"/>
+<text class="b" x="322" y="232">14 s</text>
+<text class="g" x="740" y="233" style="fill:var(--accent)">OK</text>
+<text class="g" x="48" y="306">Video</text>
+<text class="s" x="190" y="348" text-anchor="end">Def</text>
+<rect x="200" y="326" width="464" height="32" rx="4" fill="var(--grey)"/>
+<text class="b" x="674" y="348">58 s</text>
+<text class="s" x="190" y="392" text-anchor="end">FP16</text>
+<rect x="200" y="370" width="264" height="32" rx="4" fill="var(--warn)"/>
+<text class="b" x="474" y="392">33 s</text>
+<text class="g" x="740" y="393" style="fill:var(--warn)">Bad 7.5KB</text>
+<text class="c" x="48" y="496">Fast ≠ correct</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="A staircase in which the 3090 step jumps highest and is labeled as the BF16 threshold, while the next two generations each rise only a small step.">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text class="t" x="48" y="56">GPU gens: 3090 = gate</text>
+<polygon points="80,450 80,390 400,390 400,450" fill="var(--grey)" opacity="0.5"/>
+<text class="s" x="240" y="428" text-anchor="middle">No BF16</text>
+<polygon points="400,450 400,260 590,260 590,235 770,235 770,210 900,210 900,450" fill="var(--accent)" opacity="0.15"/>
+<polyline points="80,390 400,390 400,260 590,260 590,235 770,235 770,210 900,210" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<line x1="400" y1="170" x2="400" y2="260" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+<text class="g" x="400" y="158" text-anchor="middle" style="fill:var(--accent)">Entry</text>
+<text class="c" x="495" y="246" text-anchor="middle" style="fill:var(--accent)">+BF16</text>
+<text class="b" x="680" y="224" text-anchor="middle">+FP8</text>
+<text class="b" x="835" y="199" text-anchor="middle">+4-bit</text>
+<line x1="80" y1="450" x2="900" y2="450" stroke="var(--dim)" stroke-width="2"/>
+<line x1="220" y1="444" x2="220" y2="456" stroke="var(--dim)" stroke-width="2"/>
+<line x1="400" y1="444" x2="400" y2="456" stroke="var(--dim)" stroke-width="2"/>
+<line x1="590" y1="444" x2="590" y2="456" stroke="var(--dim)" stroke-width="2"/>
+<line x1="770" y1="444" x2="770" y2="456" stroke="var(--dim)" stroke-width="2"/>
+<text class="b" x="150" y="480" text-anchor="middle">V100</text>
+<text class="b" x="310" y="480" text-anchor="middle">2080 Ti/RTX 8000</text>
+<text class="b" x="495" y="480" text-anchor="middle" style="font-weight:700">3090</text>
+<text class="b" x="680" y="480" text-anchor="middle">4090</text>
+<text class="b" x="835" y="480" text-anchor="middle">5090</text>
+<text class="s" x="495" y="504" text-anchor="middle">AMD: 7900 XTX</text>
+<text class="c" x="48" y="552">BF16 = big step</text>
+</svg>

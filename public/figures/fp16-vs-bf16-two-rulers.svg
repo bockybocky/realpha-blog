@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="短而細的 FP16 尺和長而粗的 BF16 尺，大數字在短尺外、在長尺上">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<defs>
+<pattern id="fine" x="160" y="0" width="12" height="28" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="12" stroke="var(--dim)" stroke-width="1.5"/></pattern>
+<pattern id="coarse" x="160" y="0" width="60" height="28" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="14" stroke="var(--dim)" stroke-width="2"/></pattern>
+</defs>
+<text class="t" x="48" y="62">一樣 16 格，兩種分法</text>
+<text class="b" x="640" y="150" text-anchor="middle">大數字</text>
+<text class="g" x="48" y="192">FP16</text>
+<rect x="160" y="170" width="300" height="28" rx="3" fill="var(--card)" stroke="var(--dim)" stroke-width="2"/>
+<rect x="160" y="170" width="300" height="28" fill="url(#fine)"/>
+<text class="s" x="160" y="224">刻度細・尺短</text>
+<circle cx="640" cy="184" r="11" fill="var(--warn)"/>
+<text class="g" x="662" y="191" style="fill:var(--warn)">超出</text>
+<text class="s" x="48" y="298">32 格</text>
+<rect x="160" y="286" width="720" height="12" rx="3" fill="var(--grey)"/>
+<text class="g" x="48" y="382">BF16</text>
+<rect x="160" y="360" width="720" height="28" rx="3" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<rect x="160" y="360" width="720" height="28" fill="url(#coarse)"/>
+<text class="s" x="160" y="414">刻度粗・尺長</text>
+<circle cx="640" cy="374" r="11" fill="var(--accent)"/>
+<text class="g" x="662" y="350" style="fill:var(--accent)">量得到</text>
+<text class="c" x="48" y="500">大數字只量得進 BF16 的尺</text>
+</svg>

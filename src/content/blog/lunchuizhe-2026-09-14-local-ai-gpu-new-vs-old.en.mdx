@@ -1,0 +1,124 @@
+---
+title: "Picking a GPU for Local AI: The New Cards Worth Buying, and the Old Ones to Skip"
+description: "Two back-to-back videos from the YouTube channel 掄錘者: one ranks the four cards he keeps recommending, the other talks people out of cheap 48GB veterans. My own Windows desktop runs an older AMD card, and this month I logged what worked and what needed a detour for image generation, video generation, and local language models. A plain-language look at the two specs that matter first: video memory and BF16. Personal notes and test logs, not buying advice."
+slug: "lunchuizhe-2026-09-14-local-ai-gpu-new-vs-old"
+lang: "en"
+pubDate: 2026-09-15
+category: tech
+tldr: "Check two things on a GPU first: video memory decides how big a model fits, and BF16 decides whether new tools run smoothly. An old card without BF16 still works, but every new tool means checking whether it trips over the missing piece. On my older AMD card a workaround took image generation from 43 seconds per step down to 14; the same trick on video produced a broken file. AI can help you work around software problems. It can't add what the card doesn't have."
+tags: ["Local AI", "GPU", "AMD", "BF16", "ComfyUI", "Decision-making"]
+ogImage: "/covers/lunchuizhe-2026-09-14-local-ai-gpu-new-vs-old.png"
+cover: "/covers/lunchuizhe-2026-09-14-local-ai-gpu-new-vs-old.png"
+---
+
+![A woodworking shop at dawn: a newly unwrapped tool gleams on the long bench by the window, a row of dusty old tools hangs on the high shelf behind it, and a slanting beam of light lands on the bench right between the new and the old](/covers/lunchuizhe-2026-09-14-local-ai-gpu-new-vs-old.png)
+
+> *Do not hanker after the old, do not cling to the present; change with the times, move with the customs.*<br/>
+> —— *Guanzi*, "Zheng Shi" (Spring and Autumn to Warring States period; translation mine)
+
+Don't pine for the old, and don't hold on to what you have just because you have it. I read that line several times this week, because the graphics card in my own machine sits on the old side.
+
+Lunchuizhe (掄錘者), a Chinese YouTube channel on local AI hardware, posted two videos on [September 13](https://youtu.be/EbbybCpCG3s) and [September 14](https://youtu.be/vLoU8LVLAVM). The first ranks the four cards he has been recommending for months. The second talks people out of a batch of 48GB older cards. Whether to buy a card at all, and whether renting is cheaper, I worked through earlier in [Is a local Qwen3.8 27B right for you?](/en/blog/local-ai-hardware-worth-it/) and [Rent or buy a GPU](/en/blog/runpod-vs-local-gpu-2026-09/). This post takes the next step: say you've already decided to buy. Which card?
+
+My Windows desktop at home has an 8GB AMD RX 6600 XT, from AMD's previous generation. This month I tried image generation, video generation, and local language models on it, and I kept notes every time something got stuck. Read next to his two videos, a lot of those notes suddenly made sense.
+
+## I now look at two specs first
+
+A spec sheet is full of numbers. For running AI at home, I start with two.
+
+The first is video memory, the memory that sits on the card itself. I picture it as the top of a workbench. The model has to be spread out on the bench to run fast. Whatever doesn't fit goes on the shelf behind you (the computer's regular memory), and every step you turn around to fetch it. Speed drops hard.
+
+I measured this on my 8GB card on 2026-09-12. A dense 27B model could be squeezed in, and it produced 1.8 tokens per second (a token is the unit a model writes in, roughly a piece of a word). Then I tried a 35B-A3B model: 35 billion parameters in total, but only 3 billion are used for each token, so most of it can stay on the shelf. It ran at 23 tokens per second and got all six questions right on a small quiz I wrote with known answers. One thing I only learned by measuring: an 8GB card doesn't give you 8GB. The desktop display, the image-generation software, and the browser took about 2.5GB between them. And the card can only do one big job at a time. While it's generating video, the language model has to wait.
+
+![Two bars compared: for the 27B dense model the entire bar is parameters used for every token, producing only 1.8 tokens per second; the 35B-A3B bar is longer overall, but each token uses only a small front segment, producing 23 tokens per second.](/figures/dense-vs-moe-active-params-en.svg)
+
+That's why every card he recommends has 24GB to 32GB.
+
+![Three bars at the same scale: my 8GB card is the shortest, with about 2.5GB already taken by the desktop and software; the 24GB card is three times as long, and the 32GB card is four times as long.](/figures/vram-desk-size-8-vs-24-vs-32-en.svg)
+
+The second spec is BF16, which is a way of storing numbers. When a computer runs AI, each number goes into a fixed number of slots. With 16 slots, there are two ways to divide them. FP16 has fine markings but a short ruler, so big numbers run off the end. BF16 has coarser markings, but the ruler is as long as the big 32-slot one. Many models today are released in BF16, and tools like ComfyUI (for images) and SGLang (for language models) are tuned around it.
+
+If a card doesn't support BF16, the software either falls back to FP16, which risks numbers running off the ruler, or emulates BF16 in software, which is slow.
+
+![Two rulers stacked for comparison: FP16 has fine markings but is short, so a large number from the model falls beyond its end; BF16 has coarse markings and is as long as the 32-bit ruler, so the same large number lands on it and can be measured.](/figures/fp16-vs-bf16-two-rulers-en.svg)
+
+## His four cards, and the argument that changed my mind
+
+Here are the four cards from the first video in one table:
+
+| Card | Video memory | New or used | His verdict |
+|---|---|---|---|
+| AMD 7900 XTX | 24GB | New | Best single card |
+| NVIDIA 3090 | 24GB | Mostly used or re-soldered blower cards | Best for two cards, thanks to NVLink |
+| AMD AI Pro R9700 | 32GB | New | Best at 32GB |
+| 4080S 32G | 32GB | Modified card | No longer recommended |
+
+He walked through how his own view changed. When he started the channel, AMD cards were painful on Windows. Back then his advice was: if you want to plug it in and start working, buy a 3090; if you have the skills and don't mind switching to Linux, buy a 7900 XTX. Over the past few months that changed. He says Windows now has bundled packages that install the drivers and environment for you and come with working workflows, and the common language-model apps all run.
+
+The problem he sees with the 3090 is the hardware. Most blower-style 3090s on the market are old mining-card chips pulled off and re-soldered onto new boards: older process, hot, loud. He quoted prices as they stood at the time: the 3090 went from about 6,000 yuan before the price rise to over 10,000 now; the 7900 XTX went from just over 5,000 yuan to around 8,000, with used ones still findable near 5,000. Some people point out that a 3090 generates images faster than a 7900 XTX. He thinks that gap doesn't matter: a 24GB card can only run one image job at a time, so being a bit faster saves little. He uses a 7900 XTX with llama.cpp at a 128K context (how much text the model can take in at once) for coding, and says it works very well.
+
+![A slope chart with a before-the-price-rise column and a now column: the 3090 climbs steeply from about 6,000 CNY to over 10,000, the 7900 XTX rises from just over 5,000 to about 8,000, and a used 7900 XTX now sits lowest at about 5,000.](/figures/rtx3090-vs-7900xtx-price-slope-en.svg)
+
+So why the 3090 for a two-card build? Two 3090s can be joined with NVLink, a dedicated bridge whose bandwidth is far higher than the motherboard slots. He says two 3090s running a language model together beat a single 48GB 4090. For image generation, though, two cards still lose to one card with more memory. Two 7900 XTXs can also work together, and people on his forum have it running, but the tooling is less mature than on the 3090.
+
+He corrected himself twice in this part. He used to say NVLink was picky about motherboards; it turned out people's problems came from bridges that didn't match the card thickness, or bridges that were simply broken. He had also said a dual 7900 XTX setup would work on an old X99 board, but the setups that worked were running llama.cpp, and SGLang turns out to be picky about the board. At the end of the video he adds that he hasn't bought every card he talks about; many of his calls come from test results people post on his forum, and he welcomes corrections. I like that. He puts "here's where I was wrong" right next to the recommendation.
+
+At 32GB he picks the R9700 and drops the 4080S 32G. He admits the R9700 is slower, but says it's now mature on both Windows and Linux, and it's a new card from a major brand. The 4080S 32G is a modified card, and he suggests reading the forum threads from people whose modified cards failed. With two R9700s, each card can run its own image job, or the two can pool 64GB for a language model.
+
+What changed my mind was the reason he gave. Before, if you were short on money, you had two options: fight with hardware (buy used and deal with sellers) or fight with software (buy AMD and tune the environment yourself). Now, when software breaks, you hand it to an AI agent. His example: a moderator on his forum had spent tens of thousands of yuan on a card but didn't want to tune the settings himself. He sent over his own settings, the moderator passed them to an AI agent, and it was fixed quickly, for about one yuan in total. When hardware breaks, you're chasing a seller on a second-hand marketplace. In the mild case, the product listing is gone. In the bad case, the phone number doesn't answer.
+
+Most of the software problems I hit on my desktop this month were also solved by trying one setting after another with AI helping. Those two kinds of trouble no longer cost the same.
+
+![Two paths climbing upward side by side: the left one runs from "software trouble" all the way to an AI agent at the top, labeled 1 CNY; the right one starts from "hardware trouble," but the road breaks halfway, leaving the used-card seller at the top as only a dashed outline.](/figures/software-vs-hardware-trouble-two-roads-en.svg)
+
+## What the old cards are missing
+
+The second video is about those 48GB and 64GB cards that look like bargains.
+
+He describes the RTX 8000 as a 48GB 2080, a little stronger. The price he quoted was 11,000 yuan. Two 32GB V100s paired with an old server sell for 15,000 yuan on second-hand sites. The memory is large, but he says 48GB still only gets you a language model like Qwen 27B, and image and video generation are too slow to be worth it.
+
+He pulled up a table of GPU generations to explain why. The V100 generation and the RTX 8000 / 2080 Ti generation don't support BF16. Support arrives with the 3090 generation (Ampere). The 4090 adds FP8, and the 5090 adds an even smaller 4-bit format. He says those help, but none of them matter as much as BF16, because today's tools treat the 3090 generation as the minimum they optimize for. He sees the 3090 and 7900 XTX as the entry ticket to this era.
+
+![A staircase chart of GPU generations: the V100 and the 2080 Ti/RTX 8000 sit low with no BF16; at the 3090 the staircase jumps sharply, labeled as the entry threshold with BF16; after that, the 4090 adds FP8 and the 5090 adds 4-bit formats, each only one small step higher.](/figures/gpu-generations-bf16-threshold-staircase-en.svg)
+
+He also untangled something that trips up buyers: the names of workstation cards. The RTX A6000 is from the 3090 generation: 48GB, NVLink, BF16, but no FP8. The RTX 6000 Ada is from the 4090 generation, and he says you can think of it as a 48GB 4090. The RTX Pro 6000 belongs with the 5090 and costs over 100,000 yuan. The names differ by a letter or a word, the generations by a full step. Before buying a used workstation card, I'd match the name to its generation first.
+
+![Three columns for the 3090, 4090 and 5090 generations, each with a workstation card whose name contains "6000": RTX A6000, RTX 6000 (Ada), RTX Pro 6000. The names are nearly identical, yet the cards span three generations.](/figures/pro-card-names-across-generations-en.svg)
+
+For people who already own one, he doesn't say throw it out. Run language models in FP16, and a quantized 27B is still usable for another year or two. You just paid a lot for half the features.
+
+## My card is the AMD version of an old card
+
+My RX 6600 XT is from AMD's RDNA 2 generation and has no native BF16. By his definition, it's outside the door.
+
+First, the part he got right. On 2026-09-12 I installed AMD's official PyTorch for Windows, no translation layer needed. ComfyUI found the card, and MiniMax H3, a video model, ran end to end. He says AMD has caught up, and on my machine that holds. Just set your expectations on speed: a 1.6-second clip at 608×352 took about 11 minutes, including loading the model.
+
+Then the detours. Here's what I measured:
+
+| What I wanted | What happened by default | How I got around it |
+|---|---|---|
+| Image generation (1024×1024, 8 steps) | Emulated BF16: 43 seconds per step, 6 min 10 s per image | Forced FP16: 14 seconds per step, 2 min 15 s per image, image looked fine |
+| Video generation | Same FP16 trick cut steps from 58 to 33 seconds, but the saved file was 7.5KB and broken | No FP16 for video; separate launch shortcuts for images and video |
+| Memory-saving int8 models | Crashed in 5 seconds; this generation has no int8 matrix math | GGUF versions only; 4-bit nvfp4 models don't work either |
+| Ollama for language models | The official support list leaves this card out, so it fell back to the CPU | Switched to the Vulkan build of llama.cpp |
+| Text-to-speech | Two common operations crashed the card | Sent those two parts to the CPU |
+
+For the broken video file, my guess is that FP16's short ruler let numbers run off the end and turn invalid, but I haven't verified that. There were also two memory switches: leave one off and the system reports it's out of resources; turn the other on and the whole server crashes. I found all of this one run at a time.
+
+That table is how I finally understood his phrase "a hard disability." The card isn't broken, and most tools end up with a path that works. But every time I install something new, I have to find out whether it steps on the missing piece, and I can't tell in advance. I only find out by running it. The image workaround made things faster. The same workaround on video gave me a broken file.
+
+![Two groups of bars: image generation drops from 43 seconds per step to 14 seconds, labeled "image OK"; video generation drops from 58 seconds per step to 33 seconds but is labeled "broken file 7.5KB." The same trick speeds up both, yet only one result is correct.](/figures/fp16-workaround-image-ok-video-broken-en.svg)
+
+Memory works the same way. One job that sharpens faces in a video needed 7.17GB at once. The card has 7.98GB in total, and it still ran out. AI helped me split the job into smaller pieces so it fit, and it ran, but a grid of square blocks appeared in the image. It took another round of tuning to get rid of them.
+
+## If I were buying today
+
+I haven't decided whether to replace my card. It's money, and I want to look at my own usage again. If I were choosing, though, my order has changed. First, does it support BF16? By his account, that means the 3090 generation onward for NVIDIA and the 7900 XTX onward for AMD. Next, video memory: for the dense 27B model I'd want to run, what I've read says 24GB is where it runs smoothly. Only then do I compare the price gap between new and used, and count "who can I call when the hardware fails" as part of the price.
+
+## The one thing to take with you
+
+What stayed with me: the cheap part of an old thing is often the one feature it lacks.
+
+![Two bars: the new one at $10 is taller and the used one at $6 is shorter; the space between the top of the used bar and the height of the new bar is drawn as a dashed box labeled "the missing item," showing that the cheaper portion is exactly the missing feature.](/figures/cheap-gap-is-missing-feature-en.svg)
+
+Here's what I plan to do next time, if you want to try it too. Next time you see something on a second-hand site going for far less than new, a phone, a camera, an appliance, before you hit buy, look up "what does it have less of than the new version" and write that on a sticky note. Next to it, write "I'll use this within a year" or "I won't." Writing down what it lacks is enough to count as done.
