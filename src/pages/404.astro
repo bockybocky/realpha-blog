@@ -1,0 +1,23 @@
+---
+// 找不到的網址：serve_dist.mjs 會回這一頁（狀態碼仍是 404）。2026-09-15 前網站沒有這頁，找不到時只回一行英文字，手機上看起來像網站壞了。
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="這一頁找不到了" description="你要找的頁面不在這裡，可能已經搬家或拿掉了。" locale="zh-TW" path="/404.html" alternatePath={null}>
+	<main class="page article-shell not-found">
+		<header class="article-header">
+			<h1 class="article-title">這一頁找不到了</h1>
+			<p class="lead">可能是網址打錯，也可能這一頁已經搬家或拿掉了。從下面這幾個地方重新開始吧。</p>
+		</header>
+		<div class="prose">
+			<ul>
+				<li><a href="/">回到首頁</a></li>
+				<li><a href="/topics/growth/">心法與成長</a></li>
+				<li><a href="/topics/learning/">學習筆記</a></li>
+				<li><a href="/topics/markets/">投資與市場</a></li>
+				<li><a href="/search/">搜尋文章</a></li>
+			</ul>
+			<p lang="en">This page could not be found. <a href="/en/">Go to the English home page</a>.</p>
+		</div>
+	</main>
+</SiteLayout>
