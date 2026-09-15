@@ -30,7 +30,7 @@ export function norm(value: string): string {
 
 /**
  * 一篇只歸一個主題：
- * 1. category 命中某主題的 categories（tech/systems→ai-tools、lab→lab）直接歸該主題
+ * 1. category 命中某主題的 categories（tech/systems/lab→learning）直接歸該主題
  * 2. 否則 tags（完全相等）與標題（包含）對各主題關鍵字計分，最高分者勝；同分取 topics 排前面的
  * 3. 零分歸 defaultTopic
  */

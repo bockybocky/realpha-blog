@@ -78,12 +78,13 @@ for (const p of posts) {
 
 // 規則自檢（陽性對照）：category 優先、關鍵字計分、零分歸預設
 const probe = (o) => buildTopicMap([{ slug: 'x', lang: 'zh-TW', title: '', category: 'investing', tags: [], ...o }], cfg.topics, cfg.defaultTopic).get('zh-TW:x');
-assert.equal(probe({ category: 'systems', tags: ['聯準會'] }), 'ai-tools');
-assert.equal(probe({ category: 'lab' }), 'lab');
-assert.equal(probe({ tags: ['AI 資本支出'] }), 'ai-supply-chain');
-assert.equal(probe({ title: '聯準會又升息' }), 'macro');
-assert.equal(probe({ tags: ['podcast-notes'] }), 'mindset');
+assert.equal(probe({ category: 'systems', tags: ['聯準會'] }), 'learning');
+assert.equal(probe({ category: 'lab' }), 'learning');
+assert.equal(probe({ tags: ['AI 資本支出'] }), 'markets');
+assert.equal(probe({ title: '聯準會又升息' }), 'markets');
+assert.equal(probe({ tags: ['投資心理'] }), 'growth');
+assert.equal(probe({ tags: ['podcast-notes'] }), 'markets');
 assert.equal(seriesIdOf('gooaye-2026-07-18-ep680', cfg.series), 'gooaye');
 assert.equal(seriesIdOf('herdr-guide', cfg.series), null);
 
-console.log(`\nOK：${posts.length} 篇全部有主題，五主題繁中皆 > 0，中英同 slug 主題一致，規則自檢 7/7 通過`);
+console.log(`\nOK：${posts.length} 篇全部有主題，各主題繁中皆 > 0，中英同 slug 主題一致，規則自檢 8/8 通過`);

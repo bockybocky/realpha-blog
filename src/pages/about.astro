@@ -2,39 +2,39 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 
 const locale = 'zh-TW';
+// 2026-09-15 改版：網站定位改為心法、成長與多方向學習；維持 Realpha 品牌、不寫作者故事（Charles 選丙）；驗證簿與「來反證我」拿掉
 ---
 
-<SiteLayout title="關於" description="Realpha 是一間公開實驗室：判讀在發表當下就公證、鎖死判準、標好開獎日，到期用數據對答案。不喊單、不給目標價。" locale={locale} path="/about/" alternatePath="/en/about/" breadcrumbs={[{ name: '關於', path: '/about/' }]}>
+<SiteLayout title="關於" description="Realpha 是一份慢慢寫的學習筆記：心法與成長、學習筆記、投資與市場。每篇文章最後留一件你今天就能帶走的小事。" locale={locale} path="/about/" alternatePath="/en/about/" breadcrumbs={[{ name: '關於', path: '/about/' }]}>
 	<main class="page article-shell">
 		<header class="article-header">
-			<h1 class="article-title">這間實驗室為什麼存在</h1>
-			<p class="lead">網路上不缺看法，缺的是有人願意事後回來對答案。這裡把每一個判讀寫下開獎日，時間到了就算分，錯的置頂。</p>
+			<h1 class="article-title">慢慢想清楚一件事</h1>
+			<p class="lead">Realpha 是一份學習筆記。讀書、聽節目、學新工具、看市場，把想通的地方寫下來，也把還沒想通的地方誠實留著。</p>
 		</header>
 		<div class="prose">
-			<h2>為什麼會有這個地方</h2>
-			<p>市場評論有一個結構性的問題：講對了會被記得，講錯了會被忘記，而沒有人負責記帳。同一個人可以年年喊對，因為喊錯的那些從來不會被翻出來。</p>
-			<p>這裡想做的事情很簡單——把判斷寫下來的當下就上鎖，同時標好什麼時候開獎、用什麼數據算輸贏。到期就對答案，通過的留著，被推翻的擺在最前面。不是因為我特別誠實，是因為<strong>不這樣做的話，我自己也分不出來哪些判斷是真的有用</strong>。</p>
+			<h2>這裡寫什麼</h2>
+			<p><a href="/topics/growth/">心法與成長</a>：怎麼想事情、怎麼做判斷、怎麼和不確定相處。</p>
+			<p><a href="/topics/learning/">學習筆記</a>：AI 工具、證照、讀過的書，還有一些動手做的小實驗。</p>
+			<p><a href="/topics/markets/">投資與市場</a>：半導體、AI 供應鏈、總經。寫的是怎麼看懂一件事，不報明牌，不給目標價。</p>
 
-			<h2>這裡有什麼</h2>
-			<p>研究筆記是主體，多數從一集節目或一份報告出發，接上自己的資料重算一次，看它站不站得住。<a href="/ledger/">驗證簿</a>放已經上鎖、等著開獎的判讀。<a href="/lab/">工具箱</a>是可以動手玩的小工具，把一個概念變成你自己輸入數字就看得到的東西。<a href="/projects/">作品集</a>放寫給自己用、後來覺得別人也用得上的程式。</p>
-			<p>沒有的東西也講清楚：<strong>不喊單、不給目標價、不做個股推薦</strong>。這裡談的是怎麼判斷，不是買什麼。</p>
+			<h2>每篇最後的那一件事</h2>
+			<p>讀完一篇文章，過兩天多半就忘了。所以每篇最後都有一段「帶得走的一件事」：一個觀念，加一個今天就能試的小練習。讀的時候不用記全部，帶走這一件就好。</p>
 
-			<h2>誰在寫</h2>
-			<p>我是 Bocky，工程背景的個人投資者。工程訓練留給我最有用的東西不是任何一項技術，是一個習慣——<strong>先問這件事怎樣才算錯</strong>。一個講不出自己怎樣會錯的說法，通常也講不出它為什麼對。</p>
-			<p>公開作品在 <a href="https://github.com/bockybocky" rel="me">github.com/bockybocky</a>，程式碼、原始檔與 issue 都在那裡，歡迎直接讀、直接抄、直接開 PR。整理過的清單在<a href="/projects/">作品集</a>。</p>
+			<h2>也可以用聽的</h2>
+			<p>文章會陸續加上有聲版，標著 🎧 的就可以直接按下播放。朗讀用的是作者聲音的 AI 合成，通勤、散步、做家事的時候都能聽。</p>
 
-			<h2>人跟 AI 各做什麼</h2>
-			<p>這個站是人機協作的產物，不假裝全是人手寫，也不假裝全是 AI 自動生成。</p>
-			<p>分工是：<strong>方向、判斷與最終取捨由人決定</strong>；AI 負責資料整理、程式草稿、雙語改寫、測試與初稿。每一篇上站前都經過人審——AI 不替人拍板，是幫人把粗活做完、把想法逼得更清楚。英文版是重新改寫而不是逐字翻譯，同樣經人校對。</p>
+			<h2>人和 AI 各做什麼</h2>
+			<p>這個網站是人和 AI 一起完成的。方向、判斷和最後的取捨由人決定；AI 幫忙整理資料、寫程式、改寫雙語版本、配圖和校對。每一篇上站前都經過人讀過一遍。英文版是重新改寫，也經過人校對。</p>
+			<p>寫網站用的程式放在 <a href="https://github.com/bockybocky" rel="me">github.com/bockybocky</a>，想看怎麼做的可以直接去翻。</p>
 
 			<h2>想聊兩句</h2>
-			<p>每篇文章下面都可以留言。如果你覺得某個判讀有問題，<a href="/propose/">來反證我</a>那一頁可以直接把反例丟過來——被推翻對這裡是好事，那正是這個地方存在的理由。</p>
+			<p>每篇文章下面都可以留言。讀到哪一段有感覺、有不同想法，或只是想打聲招呼，都歡迎。</p>
 
 			<h2>授權</h2>
-			<p>文章內容採 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a>：可自由分享與改作，需標示出處、不得商用、衍生作品需以相同條款釋出。程式碼採 <strong>MIT</strong> 授權，隨你拿去用。</p>
+			<p>文章內容採 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a>：可以分享與改作，請標示出處、不要商用、改作後用相同條款釋出。程式碼採 <strong>MIT</strong> 授權。</p>
 
 			<h2>免責聲明</h2>
-			<p>本站所有投資相關內容僅為教育與方法論分享，<strong>不構成任何個股買賣建議、不提供目標價、不針對當期標的</strong>。投資有風險，任何決策請自行判斷或諮詢合格的專業人士。</p>
+			<p>本站投資相關的內容是學習與方法的分享，<strong>不構成任何個股買賣建議、不提供目標價、不針對當期標的</strong>。投資有風險，做決定前請自己判斷，或詢問合格的專業人士。</p>
 		</div>
 	</main>
 </SiteLayout>

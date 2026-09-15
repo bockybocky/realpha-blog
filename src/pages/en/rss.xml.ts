@@ -6,20 +6,14 @@ export async function GET(context) {
 	const posts = await getBlogPosts('en');
 	const staticItems = [
 		{
-			title: 'Methodology',
-			description: "Realpha Blog's six-gate validation process: bias controls, baselines, trading costs, significance correction, and cross-model red-team review.",
-			pubDate: new Date('2026-07-08'),
-			link: '/en/methodology/',
-		},
-		{
 			title: 'About',
-			description: 'Author, public-lab positioning, collaboration, and licensing notes for Realpha Blog.',
+			description: 'What Realpha writes about — growth, learning notes, and markets — and how the human and the AI share the work.',
 			pubDate: new Date('2026-07-08'),
 			link: '/en/about/',
 		},
 		{
-			title: 'Public Lab',
-			description: 'Hypotheses, validation plans, and timestamps are published before experiments run, then results are published regardless of outcome.',
+			title: 'Lab',
+			description: 'Small tools that turn a concept into something you can try with your own numbers.',
 			pubDate: new Date('2026-07-08'),
 			link: '/en/lab/',
 		},

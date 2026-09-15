@@ -9,11 +9,11 @@ const labPosts = posts.filter((post) => post.data.category === 'lab');
 const labs = await getLabs(locale);
 ---
 
-<SiteLayout title="公開實驗室" description="Realpha Blog 在實驗前公開假設、驗證計畫與時間戳，並在結果出來後不論成敗照樣發表。" locale={locale} path="/lab/" alternatePath="/en/lab/" breadcrumbs={[{ name: 'Lab', path: '/lab/' }]}>
+<SiteLayout title="動手玩" description="把一個概念做成可以自己輸入數字玩玩看的小工具，還有幾篇動手試過的小實驗。" locale={locale} path="/lab/" alternatePath="/en/lab/" breadcrumbs={[{ name: '動手玩', path: '/lab/' }]}>
 	<main class="page">
 		<header class="section-header">
-			<h1 class="page-title">公開實驗室</h1>
-			<p class="lead">公開實驗室欄目會在實驗開始前先公開假設、驗證計畫與時間戳，把成功條件寫清楚再動手；結果出來後，不論支持、打臉或沒有訊號，都會照樣發表。讀者可以在結果公布前挑戰假設、提出反證或質疑設計，讓實驗先接受公開紅隊壓力。</p>
+			<h1 class="page-title">動手玩</h1>
+			<p class="lead">有些概念用讀的不容易懂，自己輸入幾個數字玩一玩就清楚了。這裡放這類小工具，還有幾篇動手試過的小實驗。</p>
 		</header>
 		{labPosts.length > 0 && (
 			<section class="section" aria-labelledby="lab-posts-title">

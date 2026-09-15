@@ -1,10 +1,9 @@
 ---
-// 首頁（中英共用）：標語帶 → 分頁籤最新 12 篇 → 各主題 4 篇 → 熱門 → 驗證簿窄帶
-// 2026-09-15 Charles「節目系列不要列出來」「先不做 Podcast」：節目頁籤／節目格／podcast 連結全部拿掉
+// 首頁（中英共用）：標語帶 → 分頁籤最新 12 篇 → 熱門 → 各主題 4 篇
+// 2026-09-15 Charles「節目系列不要列出來」「先不做 Podcast」「不要驗證簿了，超機械的，沒有人味」：節目、podcast、驗證簿窄帶全部拿掉
 import SiteLayout from '../layouts/SiteLayout.astro';
 import PostCard from './PostCard.astro';
 import { getCatalog, topicPath, type Post } from '../lib/catalog';
-import { formatYmd, ledgerSummary } from '../lib/ledger';
 import { resolveAudio } from '../lib/audio';
 import { readPopular, viewsOf } from '../lib/popular';
 import { withLocale, type Locale } from '../lib/site';
@@ -21,9 +20,9 @@ const label = (post: Post) => cat.topicName(cat.topicOf(post));
 const t = zh
 	? {
 			title: 'Realpha Blog',
-			description: 'Realpha、Bocky 與 AI 研究團隊的雙語技術與投資研究筆記。',
-			tagline: '在 AI 時代，觀點已經氾濫，但驗證還是稀缺。',
-			sub: '半導體、總經、投資心法與 AI 工具的研究筆記；每則市場判讀發表時就上鎖，到期用數據對答案。',
+			description: 'Realpha 的學習筆記：心法與成長、學習筆記、投資與市場。每篇最後留一件你今天就能帶走的小事。',
+			tagline: '慢慢想清楚一件事，比快快知道很多事重要。',
+			sub: '心法、學習與市場的筆記。每篇文章最後，都留一件你今天就能帶走的小事。',
 			latest: '最新文章',
 			all: '全部',
 			listen: '可收聽',
@@ -64,8 +63,6 @@ const popular = readPopular()
 	.sort((a, b) => Number(b.views) - Number(a.views))
 	.slice(0, 6)
 	.map((r) => bySlug.get(r.slug)!);
-
-const ledger = ledgerSummary();
 ---
 
 <SiteLayout title={t.title} description={t.description} locale={locale} path={withLocale(locale, '/')} alternatePath={withLocale(zh ? 'en' : 'zh-TW', '/')}>
@@ -118,21 +115,6 @@ const ledger = ledgerSummary();
 			</section>
 		))}
 
-		<aside class="home-ledger" aria-label={zh ? '驗證簿' : 'Ledger'}>
-			{zh ? (
-				<p>
-					<span>已上鎖 <strong>{ledger.committed}</strong> 則判讀</span>
-					{ledger.nextSettle && <span>下次開獎 <strong>{formatYmd(ledger.nextSettle, locale)}</strong>{ledger.nextSettleDays !== null && ledger.nextSettleDays >= 0 && `（還有 ${ledger.nextSettleDays} 天）`}</span>}
-					<a href="/ledger/">看驗證簿 →</a>
-				</p>
-			) : (
-				<p>
-					<span><strong>{ledger.committed}</strong> market calls locked</span>
-					{ledger.nextSettle && <span>Next scoring <strong>{formatYmd(ledger.nextSettle, locale)}</strong>{ledger.nextSettleDays !== null && ledger.nextSettleDays >= 0 && ` (in ${ledger.nextSettleDays} days)`}</span>}
-					<a href="/ledger/">View the ledger (in Chinese) →</a>
-				</p>
-			)}
-		</aside>
 	</main>
 </SiteLayout>
 
@@ -215,16 +197,14 @@ const ledger = ledgerSummary();
 	.home-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
 	.home-more { margin: 1.25rem 0 0; text-align: right; }
 	.home-more a,
-	.home-see-all,
-	.home-ledger a {
+	.home-see-all {
 		color: var(--accent-strong);
 		font-weight: 700;
 		text-decoration: none;
 		white-space: nowrap;
 	}
 	.home-more a:hover,
-	.home-see-all:hover,
-	.home-ledger a:hover { text-decoration: underline; }
+	.home-see-all:hover { text-decoration: underline; }
 
 	.home-topic {
 		padding: clamp(2rem, 5vw, 3rem) 0;
@@ -247,26 +227,7 @@ const ledger = ledgerSummary();
 	}
 	.home-topic-head p { margin: 0.3rem 0 0; }
 
-	.home-ledger {
-		margin-top: 1rem;
-		border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
-		border-radius: var(--radius);
-		background: var(--accent-tint);
-		padding: 0.75rem 1rem;
-	}
-	.home-ledger p {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem 1.25rem;
-		align-items: baseline;
-		margin: 0;
-		font-size: 0.95rem;
-		font-variant-numeric: tabular-nums;
-	}
-	.home-ledger a { margin-left: auto; }
-
 	@media (max-width: 560px) {
 		.home-topic-head { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-		.home-ledger a { margin-left: 0; }
 	}
 </style>

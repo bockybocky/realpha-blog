@@ -2,39 +2,39 @@
 import SiteLayout from '../../layouts/SiteLayout.astro';
 
 const locale = 'en';
+// 2026-09-15 redesign: the site is now about growth, learning and markets; Realpha brand kept, no author persona; ledger and challenge page removed
 ---
 
-<SiteLayout title="About" description="Realpha is a public lab: every market call is notarised when published, with its criteria locked and a settlement date attached. When the date arrives, the data decides." locale={locale} path="/en/about/" alternatePath="/about/" breadcrumbs={[{ name: 'About', path: '/en/about/' }]}>
+<SiteLayout title="About" description="Realpha is a slowly written set of learning notes: growth, learning, and markets. Every post ends with one small thing you can take with you today." locale={locale} path="/en/about/" alternatePath="/about/" breadcrumbs={[{ name: 'About', path: '/en/about/' }]}>
 	<main class="page article-shell">
 		<header class="article-header">
-			<h1 class="article-title">Why this lab exists</h1>
-			<p class="lead">There is no shortage of opinions online. What is scarce is someone coming back afterwards to check the answer. Every call here gets a settlement date, and when it arrives the data decides. The ones that fail go to the top.</p>
+			<h1 class="article-title">Thinking one thing through, slowly</h1>
+			<p class="lead">Realpha is a set of learning notes. Books, podcasts, new tools, markets: the parts that finally made sense get written down, and the parts that still don't are left open, honestly.</p>
 		</header>
 		<div class="prose">
-			<h2>The problem this is trying to fix</h2>
-			<p>Market commentary has a structural flaw: being right is remembered, being wrong is forgotten, and nobody keeps the books. The same person can look prescient year after year, because the misses are never dug up.</p>
-			<p>So the idea here is simple — lock a judgement the moment it is written, along with the date it settles and the data that decides it. When the date arrives, check the answer. The ones that hold stay; the ones that are overturned go to the very top. Not out of unusual honesty, but because <strong>without doing this I cannot tell which of my own judgements are actually worth anything</strong>.</p>
-
 			<h2>What is here</h2>
-			<p>Research notes are the bulk of it — usually starting from an episode or a report, then recomputing the claim against my own data to see whether it holds. The <a href="/ledger/">ledger</a> holds calls that are locked and awaiting settlement (Chinese only for now). The <a href="/en/lab/">lab</a> has small interactive tools that turn a concept into something you can put your own numbers into. <a href="/en/projects/">Projects</a> collects code written for my own use that turned out to be useful to others.</p>
-			<p>What is not here, stated plainly: <strong>no stock picks, no price targets, no individual recommendations</strong>. This is about how to judge, not what to buy.</p>
+			<p><a href="/en/topics/growth/">Mindset &amp; Growth</a>: how to think things through, how to make a call, how to live with uncertainty.</p>
+			<p><a href="/en/topics/learning/">Learning Notes</a>: AI tools, certifications, books, and a few small hands-on experiments.</p>
+			<p><a href="/en/topics/markets/">Investing &amp; Markets</a>: chips, the AI supply chain, macro. About understanding what is going on — no stock tips, no price targets.</p>
 
-			<h2>Who writes this</h2>
-			<p>I am Bocky, an individual investor with an engineering background. The most useful thing that training left me is not any particular technique — it is a habit: <strong>ask first what would make this wrong</strong>. A claim that cannot say how it would fail usually cannot say why it holds either.</p>
-			<p>Public work at <a href="https://github.com/bockybocky" rel="me">github.com/bockybocky</a> — code, sources and issues are all there. Read it, copy it, open a PR. A curated list lives in <a href="/en/projects/">Projects</a>.</p>
+			<h2>The one thing at the end</h2>
+			<p>A few days after reading a post, most of it is gone. So every post ends with "one thing to take with you": a single idea and a small exercise you can try today. You don't need to remember the whole post — just that one thing.</p>
+
+			<h2>You can listen, too</h2>
+			<p>Audio versions are being added over time. Anything marked 🎧 can be played right on the page. The narration is an AI-synthesised version of the author's own voice — good for a commute, a walk, or doing the dishes.</p>
 
 			<h2>What the human does, what the AI does</h2>
-			<p>This site is human-AI collaboration. It does not pretend to be entirely handwritten, nor entirely machine-generated.</p>
-			<p>The split: <strong>direction, judgement and final calls are made by the human</strong>. The AI handles research legwork, code drafts, bilingual rewriting, tests and first drafts. Everything is reviewed by a human before it ships — the AI does not decide, it clears the grunt work and forces the thinking to get sharper. The English edition is a rewrite rather than a literal translation, also human-reviewed.</p>
+			<p>This site is made by a human and an AI together. Direction, judgement and final choices are the human's; the AI helps gather material, write code, produce the bilingual versions, draw figures and proofread. Every post is read by a human before it goes up. The English edition is a rewrite, also checked by a human.</p>
+			<p>The code behind the site lives at <a href="https://github.com/bockybocky" rel="me">github.com/bockybocky</a> if you want to see how it is built.</p>
 
-			<h2>Say something</h2>
-			<p>Every post takes comments. If you think a call is wrong, send a counter-example — the <a href="/propose/">challenge page</a> (Chinese only for now) takes them directly. Being overturned is a good outcome here; it is the entire point of the place.</p>
+			<h2>Say hello</h2>
+			<p>Every post takes comments. A paragraph that stayed with you, a different view, or just a hello — all welcome.</p>
 
 			<h2>Licensing</h2>
-			<p>Written content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a>: share and adapt freely with attribution, non-commercially, and share alike. Code is <strong>MIT</strong> licensed — take it.</p>
+			<p>Written content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a>: share and adapt with attribution, non-commercially, and share alike. Code is <strong>MIT</strong> licensed.</p>
 
 			<h2>Disclaimer</h2>
-			<p>All investment-related content here is educational and methodological. <strong>It is not investment advice, contains no price targets, and does not address any current position</strong>. Investing carries risk; make your own decisions or consult a qualified professional.</p>
+			<p>Investment-related content here is shared for learning. <strong>It is not investment advice, contains no price targets, and does not address any current position.</strong> Investing carries risk; make your own decisions or consult a qualified professional.</p>
 		</div>
 	</main>
 </SiteLayout>
