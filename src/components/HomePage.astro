@@ -1,0 +1,284 @@
+---
+// 首頁（中英共用）：標語帶 → 分頁籤最新 12 篇 → 各主題 4 篇 → 熱門 → 節目系列 → 驗證簿窄帶
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PostCard from './PostCard.astro';
+import SeriesGrid from './SeriesGrid.astro';
+import { getCatalog, topicPath, type Post } from '../lib/catalog';
+import { formatYmd, ledgerSummary } from '../lib/ledger';
+import { readPopular } from '../lib/popular';
+import { withLocale, type Locale } from '../lib/site';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const zh = locale === 'zh-TW';
+const cat = await getCatalog(locale);
+const label = (post: Post) => cat.topicName(cat.topicOf(post));
+
+const t = zh
+	? {
+			title: 'Realpha Blog',
+			description: 'Realpha、Bocky 與 AI 研究團隊的雙語技術與投資研究筆記。',
+			tagline: '在 AI 時代，觀點已經氾濫，但驗證還是稀缺。',
+			sub: '半導體、總經、投資心法與 AI 工具的研究筆記；每則市場判讀發表時就上鎖，到期用數據對答案。',
+			latest: '最新文章',
+			all: '全部',
+			shows: '節目系列',
+			more: '看更多 →',
+			seeAll: '看全部 →',
+			popular: '熱門文章',
+			seriesTitle: '節目系列',
+			seriesLead: '依 Podcast 節目整理的收聽心得。',
+		}
+	: {
+			title: 'Realpha Blog',
+			description: 'Bilingual technical and investment research notes by Realpha, Bocky, and the AI research team.',
+			tagline: 'Opinions are everywhere in the AI era. Verification is still scarce.',
+			sub: 'Research notes on semiconductors, macro, investing mindset and AI tools. Every market call is locked when published and scored when due.',
+			latest: 'Latest posts',
+			all: 'All',
+			shows: 'Shows',
+			more: 'See more →',
+			seeAll: 'See all →',
+			popular: 'Popular',
+			seriesTitle: 'Shows',
+			seriesLead: 'Listening notes grouped by podcast.',
+		};
+
+const tabs = [
+	{ id: 'all', label: t.all, posts: cat.posts.slice(0, 12), more: withLocale(locale, '/blog/') },
+	...cat.topics
+		.filter((topic) => (cat.byTopic.get(topic.id) ?? []).length > 0)
+		.map((topic) => ({ id: topic.id, label: topic.nav[locale], posts: (cat.byTopic.get(topic.id) ?? []).slice(0, 12), more: topicPath(locale, topic.id) })),
+	{ id: 'series', label: t.shows, posts: cat.seriesPosts.slice(0, 12), more: withLocale(locale, '/series/') },
+];
+
+const topicBlocks = cat.topics
+	.map((topic) => ({ topic, posts: (cat.byTopic.get(topic.id) ?? []).slice(0, 4) }))
+	.filter((b) => b.posts.length > 0);
+
+const bySlug = new Map(cat.posts.map((p) => [p.data.slug, p]));
+const popular = readPopular()
+	.filter((r) => r.lang === locale && bySlug.has(r.slug))
+	.sort((a, b) => Number(b.views) - Number(a.views))
+	.slice(0, 6)
+	.map((r) => bySlug.get(r.slug)!);
+
+const ledger = ledgerSummary();
+---
+
+<SiteLayout title={t.title} description={t.description} locale={locale} path={withLocale(locale, '/')} alternatePath={withLocale(zh ? 'en' : 'zh-TW', '/')}>
+	<main class="page home" data-pagefind-ignore="all">
+		<section class="home-band" aria-labelledby="home-title">
+			<h1 id="home-title">{t.tagline}</h1>
+			<p>{t.sub}</p>
+		</section>
+
+		<section class="home-latest" aria-labelledby="latest-title" data-home-tabs>
+			<h2 id="latest-title" class="visually-hidden">{t.latest}</h2>
+			<div class="home-tabs" role="tablist" aria-label={t.latest}>
+				{tabs.map((tab, i) => (
+					<a class="home-tab" href={tab.more} role="tab" id={`tab-${tab.id}`} aria-controls={`panel-${tab.id}`} aria-selected={i === 0 ? 'true' : 'false'} data-tab={tab.id}>{tab.label}</a>
+				))}
+			</div>
+			{tabs.map((tab, i) => (
+				<div class="home-panel" id={`panel-${tab.id}`} role="tabpanel" aria-labelledby={`tab-${tab.id}`} data-panel={tab.id} hidden={i !== 0}>
+					<div class="grid home-grid">
+						{tab.posts.map((post) => <PostCard post={post} locale={locale} label={label(post)} />)}
+					</div>
+					<p class="home-more"><a href={tab.more}>{t.more}</a></p>
+				</div>
+			))}
+		</section>
+
+		{topicBlocks.map(({ topic, posts }) => (
+			<section class="home-topic" aria-labelledby={`topic-${topic.id}`}>
+				<div class="home-topic-head">
+					<div>
+						<h2 id={`topic-${topic.id}`}>{topic.name[locale]}</h2>
+						<p class="muted">{topic.tagline[locale]}</p>
+					</div>
+					<a class="home-see-all" href={topicPath(locale, topic.id)}>{t.seeAll}</a>
+				</div>
+				<div class="grid home-grid">
+					{posts.map((post) => <PostCard post={post} locale={locale} />)}
+				</div>
+			</section>
+		))}
+
+		{popular.length > 0 && (
+			<section class="home-topic" aria-labelledby="popular-title">
+				<div class="home-topic-head">
+					<h2 id="popular-title">{t.popular}</h2>
+				</div>
+				<div class="grid home-grid">
+					{popular.map((post) => <PostCard post={post} locale={locale} label={label(post)} />)}
+				</div>
+			</section>
+		)}
+
+		<section class="home-topic" aria-labelledby="series-title">
+			<div class="home-topic-head">
+				<div>
+					<h2 id="series-title">{t.seriesTitle}</h2>
+					<p class="muted">{t.seriesLead}</p>
+				</div>
+				<a class="home-see-all" href={withLocale(locale, '/series/')}>{t.seeAll}</a>
+			</div>
+			<SeriesGrid series={cat.series} locale={locale} />
+		</section>
+
+		<aside class="home-ledger" aria-label={zh ? '驗證簿' : 'Ledger'}>
+			{zh ? (
+				<p>
+					<span>已上鎖 <strong>{ledger.committed}</strong> 則判讀</span>
+					{ledger.nextSettle && <span>下次開獎 <strong>{formatYmd(ledger.nextSettle, locale)}</strong>{ledger.nextSettleDays !== null && ledger.nextSettleDays >= 0 && `（還有 ${ledger.nextSettleDays} 天）`}</span>}
+					<a href="/ledger/">看驗證簿 →</a>
+				</p>
+			) : (
+				<p>
+					<span><strong>{ledger.committed}</strong> market calls locked</span>
+					{ledger.nextSettle && <span>Next scoring <strong>{formatYmd(ledger.nextSettle, locale)}</strong>{ledger.nextSettleDays !== null && ledger.nextSettleDays >= 0 && ` (in ${ledger.nextSettleDays} days)`}</span>}
+					<a href="/ledger/">View the ledger (in Chinese) →</a>
+				</p>
+			)}
+		</aside>
+	</main>
+</SiteLayout>
+
+<script>
+	// 分頁籤：前端切換、不重新載入；沒有 JS 時頁籤是一般連結，面板只顯示「全部」
+	for (const root of document.querySelectorAll<HTMLElement>('[data-home-tabs]')) {
+		const tabs = [...root.querySelectorAll<HTMLAnchorElement>('[data-tab]')];
+		const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+		for (const tab of tabs) {
+			tab.addEventListener('click', (event) => {
+				event.preventDefault();
+				for (const other of tabs) other.setAttribute('aria-selected', String(other === tab));
+				for (const panel of panels) panel.hidden = panel.dataset.panel !== tab.dataset.tab;
+			});
+		}
+	}
+</script>
+
+<style>
+	.home { padding-top: clamp(1.25rem, 3vw, 2rem); }
+
+	.home-band {
+		padding: 0.25rem 0 1.25rem;
+		border-bottom: 1px solid var(--line);
+	}
+	.home-band h1 {
+		margin: 0;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: clamp(1.35rem, 3.2vw, 2rem);
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		text-wrap: balance;
+	}
+	.home-band p {
+		margin: 0.4rem 0 0;
+		color: var(--muted);
+		max-width: 70ch;
+		text-wrap: pretty;
+	}
+
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+
+	.home-latest { padding: 1.5rem 0 clamp(2rem, 5vw, 3rem); }
+	.home-tabs {
+		display: flex;
+		gap: 0.5rem;
+		overflow-x: auto;
+		padding-bottom: 0.35rem;
+		margin-bottom: 1.25rem;
+		scrollbar-width: thin;
+	}
+	.home-tab {
+		flex: none;
+		border: 1px solid var(--line);
+		border-radius: 2rem;
+		padding: 0.35rem 0.95rem;
+		background: var(--paper);
+		color: var(--muted);
+		font-size: 0.92rem;
+		font-weight: 600;
+		text-decoration: none;
+		white-space: nowrap;
+		transition: border-color 0.2s ease, color 0.2s ease;
+	}
+	.home-tab:hover { color: var(--text); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+	.home-tab[aria-selected='true'] {
+		color: var(--accent-strong);
+		background: var(--accent-tint);
+		border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+	}
+
+	.home-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
+	.home-more { margin: 1.25rem 0 0; text-align: right; }
+	.home-more a,
+	.home-see-all,
+	.home-ledger a {
+		color: var(--accent-strong);
+		font-weight: 700;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.home-more a:hover,
+	.home-see-all:hover,
+	.home-ledger a:hover { text-decoration: underline; }
+
+	.home-topic {
+		padding: clamp(2rem, 5vw, 3rem) 0;
+		border-top: 1px solid var(--line);
+	}
+	.home-topic-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: 1rem;
+		margin-bottom: 1.25rem;
+	}
+	.home-topic-head h2 {
+		margin: 0;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+	}
+	.home-topic-head p { margin: 0.3rem 0 0; }
+
+	.home-ledger {
+		margin-top: 1rem;
+		border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+		border-radius: var(--radius);
+		background: var(--accent-tint);
+		padding: 0.75rem 1rem;
+	}
+	.home-ledger p {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem 1.25rem;
+		align-items: baseline;
+		margin: 0;
+		font-size: 0.95rem;
+		font-variant-numeric: tabular-nums;
+	}
+	.home-ledger a { margin-left: auto; }
+
+	@media (max-width: 560px) {
+		.home-topic-head { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+		.home-ledger a { margin-left: 0; }
+	}
+</style>

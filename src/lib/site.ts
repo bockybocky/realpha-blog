@@ -23,6 +23,10 @@ export const localeMeta = {
 		methodology: '怎麼驗',
 		projects: '工具箱',
 		about: '為什麼',
+		aboutNav: '關於',
+		series: '節目',
+		search: '搜尋',
+		privacy: '隱私權',
 		switchLabel: 'English',
 	},
 	en: {
@@ -37,6 +41,10 @@ export const localeMeta = {
 		methodology: 'Methodology',
 		projects: 'Projects',
 		about: 'About',
+		aboutNav: 'About',
+		series: 'Shows',
+		search: 'Search',
+		privacy: 'Privacy',
 		switchLabel: '繁中',
 	},
 } satisfies Record<Locale, Record<string, string>>;

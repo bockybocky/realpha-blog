@@ -2,6 +2,7 @@
 import '@fontsource-variable/space-grotesk';
 import '../styles/global.css';
 import { absoluteUrl, localeMeta, site, withLocale, type Locale } from '../lib/site';
+import topicsData from '../data/topics.json';
 
 type Breadcrumb = { name: string; path: string };
 type ArticleData = {
@@ -76,14 +77,28 @@ if (article) {
 	});
 }
 const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+const homeHref = withLocale(locale, '/');
+// 主題導向導覽：首頁｜四個主題｜節目｜驗證簿｜關於（「驗證與實驗」篇數少，放首頁區塊不進導覽）
 const nav = [
-	{ href: withLocale(locale, '/blog/'), label: meta.blog },
+	{ href: homeHref, label: meta.home },
+	...topicsData.topics
+		.filter((topic) => topic.id !== 'lab')
+		.map((topic) => ({ href: withLocale(locale, `/topics/${topic.id}/`), label: topic.nav[locale] })),
+	{ href: withLocale(locale, '/series/'), label: meta.series },
 	// 驗證簿 / 提案 P0 目前只有 zh-TW 頁，故僅在繁中導覽顯示，避免英文頁連到中文頁
-	...(locale === 'zh-TW' ? [{ href: '/ledger/', label: meta.ledger }, { href: '/propose/', label: meta.propose }] : []),
+	...(locale === 'zh-TW' ? [{ href: '/ledger/', label: meta.ledger }] : []),
+	{ href: withLocale(locale, '/about/'), label: meta.aboutNav },
+];
+const isCurrent = (href: string) => path === href || (href !== homeHref && path.startsWith(href));
+const searchHref = withLocale(locale, '/search/');
+// 提案／Lab／方法論／作品移到頁尾
+const footerNav = [
+	...(locale === 'zh-TW' ? [{ href: '/propose/', label: meta.propose }] : []),
 	{ href: withLocale(locale, '/lab/'), label: meta.lab },
 	{ href: withLocale(locale, '/methodology/'), label: meta.methodology },
 	{ href: withLocale(locale, '/projects/'), label: meta.projects },
-	{ href: withLocale(locale, '/about/'), label: meta.about },
+	{ href: withLocale(locale, '/blog/'), label: meta.blog },
+	{ href: '/privacy/', label: meta.privacy },
 ];
 ---
 
@@ -112,9 +127,10 @@ const nav = [
 		<meta property="og:image" content={absoluteUrl(image)} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<script type="application/ld+json" set:html={jsonLd}></script>
+		<!-- ADSENSE_HEAD -->
 	</head>
 	<body>
-		<header class="site-header">
+		<header class="site-header" data-pagefind-ignore="all">
 			<nav class="nav" aria-label="Primary">
 				<a class="brand" href={withLocale(locale, '/')} aria-label="Realpha Blog">
 					<img src="/brand/logo-lockup-lighttheme.svg" alt="Realpha" width="640" height="150" class="brand-logo brand-logo-light" />
@@ -122,16 +138,20 @@ const nav = [
 					<span class="brand-suffix">Blog</span>
 				</a>
 				<div class="nav-links">
-					{nav.map((item) => <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>)}
+					{nav.map((item) => <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>)}
+					<a class="nav-search" href={searchHref} aria-label={meta.search} title={meta.search} aria-current={path === searchHref ? 'page' : undefined}>
+						<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg>
+					</a>
 					{hasAlternate && <a class="lang-switch" href={alternatePath}>{meta.switchLabel}</a>}
 				</div>
 			</nav>
 		</header>
 		<slot />
-		<footer class="site-footer">
+		<footer class="site-footer" data-pagefind-ignore="all">
 			<div class="footer-inner">
 				<p>Articles CC BY-NC-SA 4.0. Code MIT.</p>
 				<nav aria-label="Footer">
+					{footerNav.map((item) => <a href={item.href}>{item.label}</a>)}
 					<a href={withLocale(locale, '/rss.xml')}>RSS</a>
 					<a href={site.github}>GitHub</a>
 					<a href="/llms.txt">llms.txt</a>

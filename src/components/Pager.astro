@@ -1,0 +1,60 @@
+---
+// 分頁列：第 1 頁＝base，第 n 頁＝base + n/（對應 Astro paginate 的 [...page] 路由）
+import type { Locale } from '../lib/site';
+
+interface Props {
+	base: string;
+	current: number;
+	last: number;
+	locale: Locale;
+}
+
+const { base, current, last, locale } = Astro.props;
+const url = (n: number) => (n === 1 ? base : `${base}${n}/`);
+const zh = locale === 'zh-TW';
+
+// 顯示 1、最後一頁、目前頁前後各 2 頁，其餘用 … 省略
+const pages: (number | '…')[] = [];
+for (let n = 1; n <= last; n++) {
+	if (n === 1 || n === last || Math.abs(n - current) <= 2) pages.push(n);
+	else if (pages[pages.length - 1] !== '…') pages.push('…');
+}
+---
+
+{last > 1 && (
+	<nav class="pager" aria-label={zh ? '分頁' : 'Pagination'}>
+		{current > 1 ? <a href={url(current - 1)} rel="prev">{zh ? '← 上一頁' : '← Newer'}</a> : <span class="pager-off">{zh ? '← 上一頁' : '← Newer'}</span>}
+		<span class="pager-nums">
+			{pages.map((n) =>
+				n === '…' ? <span class="pager-gap">…</span> : n === current ? <span class="pager-cur" aria-current="page">{n}</span> : <a href={url(n)}>{n}</a>,
+			)}
+		</span>
+		{current < last ? <a href={url(current + 1)} rel="next">{zh ? '下一頁 →' : 'Older →'}</a> : <span class="pager-off">{zh ? '下一頁 →' : 'Older →'}</span>}
+	</nav>
+)}
+
+<style>
+	.pager {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 0.6rem 1rem;
+		margin-top: 2.5rem;
+		font-variant-numeric: tabular-nums;
+	}
+	.pager a,
+	.pager-cur,
+	.pager-off {
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		padding: 0.35rem 0.7rem;
+		text-decoration: none;
+		background: var(--paper);
+	}
+	.pager a:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+	.pager-cur { background: var(--accent-tint); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); color: var(--accent-strong); font-weight: 700; }
+	.pager-off { color: var(--muted); opacity: 0.55; }
+	.pager-nums { display: inline-flex; flex-wrap: wrap; gap: 0.4rem; }
+	.pager-gap { color: var(--muted); padding: 0.35rem 0.2rem; }
+</style>

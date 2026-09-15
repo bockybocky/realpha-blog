@@ -1,0 +1,27 @@
+---
+import type { GetStaticPaths } from 'astro';
+import ArchivePage from '../../../../components/ArchivePage.astro';
+import { getCatalog, PAGE_SIZE, seriesPath } from '../../../../lib/catalog';
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const cat = await getCatalog('en');
+	const zhIds = new Set((await getCatalog('zh-TW')).series.map((s) => s.id));
+	return cat.series.flatMap((series) =>
+		paginate(series.posts, { params: { id: series.id }, props: { series, hasZh: zhIds.has(series.id) }, pageSize: PAGE_SIZE }),
+	);
+}) satisfies GetStaticPaths;
+
+const { page, series, hasZh } = Astro.props;
+const { topicOf, topicName } = await getCatalog('en');
+---
+
+<ArchivePage
+	locale="en"
+	title={series.name.en}
+	lead={`${series.name.en} | ${series.posts.length} listening notes`}
+	description={`${series.posts.length} listening notes on ${series.name.en}.`}
+	base={seriesPath('en', series.id)}
+	alternateBase={hasZh ? seriesPath('zh-TW', series.id) : null}
+	page={page}
+	labelFor={(post) => topicName(topicOf(post))}
+/>

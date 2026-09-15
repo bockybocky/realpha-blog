@@ -1,0 +1,42 @@
+---
+// 分頁列表頁共用外框：/blog/、/topics/[id]/、/series/[id]/（中英）都用這個
+import type { Page } from 'astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PostCard from './PostCard.astro';
+import Pager from './Pager.astro';
+import type { Post } from '../lib/catalog';
+import type { Locale } from '../lib/site';
+
+interface Props {
+	locale: Locale;
+	title: string;
+	lead: string;
+	description: string;
+	base: string;
+	alternateBase: string | null;
+	page: Page<Post>;
+	labelFor?: (post: Post) => string;
+}
+
+const { locale, title, lead, description, base, alternateBase, page, labelFor } = Astro.props;
+const zh = locale === 'zh-TW';
+const path = page.currentPage === 1 ? base : `${base}${page.currentPage}/`;
+const pageTitle = page.currentPage === 1 ? title : `${title}（${zh ? `第 ${page.currentPage} 頁` : `page ${page.currentPage}`}）`;
+---
+
+<SiteLayout title={pageTitle} description={description} locale={locale} path={path} alternatePath={alternateBase} breadcrumbs={[{ name: title, path: base }]}>
+	<main class="page" data-pagefind-ignore="all">
+		<header class="section-header">
+			<h1 class="page-title archive-title">{title}</h1>
+			<p class="lead">{lead}</p>
+		</header>
+		<div class="grid">
+			{page.data.map((post) => <PostCard post={post} locale={locale} label={labelFor?.(post)} />)}
+		</div>
+		<Pager base={base} current={page.currentPage} last={page.lastPage} locale={locale} />
+	</main>
+</SiteLayout>
+
+<style>
+	.archive-title { max-width: none; font-size: clamp(2rem, 6vw, 3.4rem); }
+</style>

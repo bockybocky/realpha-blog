@@ -1,0 +1,24 @@
+---
+import type { GetStaticPaths } from 'astro';
+import ArchivePage from '../../../../components/ArchivePage.astro';
+import { getCatalog, PAGE_SIZE, topicPath } from '../../../../lib/catalog';
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const cat = await getCatalog('en');
+	return cat.topics.flatMap((topic) =>
+		paginate(cat.byTopic.get(topic.id) ?? [], { params: { id: topic.id }, props: { topic, total: cat.byTopic.get(topic.id)?.length ?? 0 }, pageSize: PAGE_SIZE }),
+	);
+}) satisfies GetStaticPaths;
+
+const { page, topic, total } = Astro.props;
+---
+
+<ArchivePage
+	locale="en"
+	title={topic.name.en}
+	lead={`${topic.tagline.en} ${total} posts.`}
+	description={`${topic.name.en}: ${topic.tagline.en}`}
+	base={topicPath('en', topic.id)}
+	alternateBase={topicPath('zh-TW', topic.id)}
+	page={page}
+/>
