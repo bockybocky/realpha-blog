@@ -1,6 +1,7 @@
 ---
 // 延伸閱讀：排序規則在 src/lib/article-extras.ts relatedPosts()。
 import { formatDate, type Locale } from '../lib/site';
+import { viewsOf } from '../lib/popular';
 
 interface Props {
 	posts: { data: { slug: string; title: string; description: string; category: string; pubDate: Date } }[];
@@ -10,6 +11,12 @@ interface Props {
 const { posts, locale } = Astro.props;
 const prefix = locale === 'en' ? '/en' : '';
 const title = locale === 'en' ? 'Keep reading' : '延伸閱讀';
+// 瀏覽數（2026-09-15 學楓羽每張卡都顯示；0 不顯示）
+const viewsText = (slug: string) => {
+	const n = viewsOf(locale, slug);
+	if (n <= 0) return null;
+	return locale === 'en' ? `${n.toLocaleString('en-US')} ${n === 1 ? 'view' : 'views'}` : `瀏覽 ${n.toLocaleString('zh-TW')} 次`;
+};
 ---
 
 {posts.length > 0 && (
@@ -18,7 +25,7 @@ const title = locale === 'en' ? 'Keep reading' : '延伸閱讀';
 		<div class="grid">
 			{posts.map((p) => (
 				<a class="entry" href={`${prefix}/blog/${p.data.slug}/`}>
-					<div class="meta"><time datetime={p.data.pubDate.toISOString()}>{formatDate(p.data.pubDate, locale)}</time><span>{p.data.category}</span></div>
+					<div class="meta"><time datetime={p.data.pubDate.toISOString()}>{formatDate(p.data.pubDate, locale)}</time><span>{p.data.category}</span>{viewsText(p.data.slug) && <span class="views">{viewsText(p.data.slug)}</span>}</div>
 					<h3>{p.data.title}</h3>
 					<p>{p.data.description}</p>
 				</a>

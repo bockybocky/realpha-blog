@@ -2,18 +2,20 @@
 // 文章卡：沿用全站 .entry 卡片樣式與 16:9 封面；label 是卡片左上的主題名（可省略）
 import type { Post } from '../lib/catalog';
 import { resolveAudio } from '../lib/audio';
+import { viewsOf } from '../lib/popular';
 import { formatDate, withLocale, type Locale } from '../lib/site';
 
 interface Props {
 	post: Post;
 	locale: Locale;
 	label?: string;
-	/** 累計瀏覽數；只有首頁熱門區會傳，其他卡片不顯示 */
+	/** 累計瀏覽數；沒傳就自己查 views.json（2026-09-15 Charles「計數器呢」：學楓羽每張卡片都顯示，0 不顯示） */
 	views?: number;
 }
 
-const { post, locale, label, views } = Astro.props;
+const { post, locale, label } = Astro.props;
 const { data } = post;
+const views = Astro.props.views ?? viewsOf(locale, data.slug);
 const hasAudio = resolveAudio(data) !== null;
 const viewsText = views && views > 0 ? (locale === 'zh-TW' ? `瀏覽 ${views.toLocaleString('zh-TW')} 次` : `${views.toLocaleString('en-US')} ${views === 1 ? 'view' : 'views'}`) : null;
 ---
