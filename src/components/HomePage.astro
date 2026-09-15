@@ -1,5 +1,6 @@
 ---
-// 首頁（中英共用）：標語帶 → 分頁籤最新 12 篇 → 熱門 → 各主題 4 篇
+// 首頁（中英共用）：標語帶 → 分頁籤最新 12 篇 → 廣告 → 熱門
+// 2026-09-15 Charles「首頁功能頁面重複了」：下方三個主題區塊與分頁籤前 4 篇重複，拿掉；三類入口留導覽列與分頁籤
 // 2026-09-15 Charles「節目系列不要列出來」「先不做 Podcast」「不要驗證簿了，超機械的，沒有人味」：節目、podcast、驗證簿窄帶全部拿掉
 import SiteLayout from '../layouts/SiteLayout.astro';
 import AdPush from './AdPush.astro';
@@ -29,7 +30,6 @@ const t = zh
 			all: '全部',
 			listen: '可收聽',
 			more: '看更多 →',
-			seeAll: '看全部 →',
 			popular: '熱門文章',
 		}
 	: {
@@ -41,7 +41,6 @@ const t = zh
 			all: 'All',
 			listen: 'Listen',
 			more: 'See more →',
-			seeAll: 'See all →',
 			popular: 'Popular',
 		};
 
@@ -54,10 +53,6 @@ const tabs = [
 		.filter((topic) => (cat.byTopic.get(topic.id) ?? []).length > 0)
 		.map((topic) => ({ id: topic.id, label: topic.nav[locale], posts: (cat.byTopic.get(topic.id) ?? []).slice(0, 12), more: topicPath(locale, topic.id) })),
 ];
-
-const topicBlocks = cat.topics
-	.map((topic) => ({ topic, posts: (cat.byTopic.get(topic.id) ?? []).slice(0, 4) }))
-	.filter((b) => b.posts.length > 0);
 
 const bySlug = new Map(cat.posts.map((p) => [p.data.slug, p]));
 const popular = readPopular()
@@ -91,6 +86,8 @@ const popular = readPopular()
 			))}
 		</section>
 
+		<AdSlot slot="display" locale={locale} />
+
 		{popular.length > 0 && (
 			<section class="home-topic" aria-labelledby="popular-title">
 				<div class="home-topic-head">
@@ -101,24 +98,6 @@ const popular = readPopular()
 				</div>
 			</section>
 		)}
-
-		{topicBlocks.map(({ topic, posts }, i) => (
-			<>
-			{i === 2 && <AdSlot slot="display" locale={locale} />}
-			<section class="home-topic" aria-labelledby={`topic-${topic.id}`}>
-				<div class="home-topic-head">
-					<div>
-						<h2 id={`topic-${topic.id}`}>{topic.name[locale]}</h2>
-						<p class="muted">{topic.tagline[locale]}</p>
-					</div>
-					<a class="home-see-all" href={topicPath(locale, topic.id)}>{t.seeAll}</a>
-				</div>
-				<div class="grid home-grid">
-					{posts.map((post) => <PostCard post={post} locale={locale} />)}
-				</div>
-			</section>
-			</>
-		))}
 
 		<AdSlot slot="multiplex" locale={locale} />
 		<AdPush />
@@ -207,16 +186,14 @@ const popular = readPopular()
 
 	.home-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
 	.home-more { margin: 1.25rem 0 0; text-align: right; }
-	.home-more a,
-	.home-see-all {
+	.home-more a {
 		color: var(--accent);
 		font-family: var(--font-hand);
 		font-weight: 700;
 		text-decoration: none;
 		white-space: nowrap;
 	}
-	.home-more a:hover,
-	.home-see-all:hover { text-decoration: underline; }
+	.home-more a:hover { text-decoration: underline; }
 
 	.home-topic {
 		padding: clamp(2rem, 5vw, 3rem) 0;
