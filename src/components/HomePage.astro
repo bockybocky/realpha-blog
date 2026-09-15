@@ -79,7 +79,7 @@ const popular = readPopular()
 			<div class="home-title-row">
 				<h1 id="home-title">{t.tagline}</h1>
 				{taglineAudio && (
-					<button class="tagline-play" type="button" data-tagline-audio={taglineAudio} aria-label={`播放：${t.tagline}`} title="播放標語（作者本人聲音，AI 合成）">
+					<button class="tagline-play" type="button" data-tagline-audio={taglineAudio} aria-label={`播放：${t.tagline}`} title="播放標語">
 						<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" /><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
 					</button>
 				)}

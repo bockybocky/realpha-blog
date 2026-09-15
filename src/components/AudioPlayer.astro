@@ -22,7 +22,7 @@ const speeds = [1, 1.25, 1.5];
 
 <section class="audio-player" aria-label={zh ? '收聽這篇' : 'Listen to this article'} data-audio-player data-pagefind-ignore data-title={title} data-artwork={JSON.stringify(artwork)}>
 	<p class="audio-label">
-		<span>🎧 {zh ? '收聽這篇（作者本人聲音，AI 合成）' : "Listen (author's voice, AI-generated)"}</span>
+		<span>🎧 {zh ? '收聽這篇' : 'Listen'}</span>
 		{duration && <span class="audio-duration">{duration}</span>}
 	</p>
 	<audio controls preload="none" src={audio.src}>
