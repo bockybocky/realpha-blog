@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Two four-node loops: left, outside pressure but the loop stays complete; right, the associates node is cut and the loop breaks">
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .v { font-size:19px; font-weight:700; }
+    .c { font-size:22px; font-weight:700; fill:var(--accent); }
+    .n { font-size:16px; font-weight:600; fill:var(--ink); }
+</style>
+<defs>
+<marker id="f9a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+<marker id="f9g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--grey)"/></marker>
+<marker id="f9w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--warn)"/></marker>
+</defs>
+<text x="60" y="50" class="t">Hit from outside, or from inside</text>
+<line x1="480" y1="90" x2="480" y2="570" stroke="var(--line)" stroke-width="1"/>
+<text x="250" y="105" class="g" text-anchor="middle">Cycle</text>
+<text x="250" y="150" class="b" text-anchor="middle">Housing downturn</text>
+<line x1="395" y1="205" x2="363" y2="237" stroke="var(--warn)" stroke-width="3" marker-end="url(#f9w)"/>
+<line x1="395" y1="495" x2="363" y2="463" stroke="var(--warn)" stroke-width="3" marker-end="url(#f9w)"/>
+<line x1="105" y1="495" x2="137" y2="463" stroke="var(--warn)" stroke-width="3" marker-end="url(#f9w)"/>
+<line x1="105" y1="205" x2="137" y2="237" stroke="var(--warn)" stroke-width="3" marker-end="url(#f9w)"/>
+<path d="M 291 237.2 A 120 120 0 0 1 362.8 309" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#f9a)"/>
+<path d="M 362.8 391 A 120 120 0 0 1 291 462.8" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#f9a)"/>
+<path d="M 209 462.8 A 120 120 0 0 1 137.2 391" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#f9a)"/>
+<path d="M 137.2 309 A 120 120 0 0 1 209 237.2" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#f9a)"/>
+<circle cx="250" cy="230" r="36" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="250" y="236" class="n" text-anchor="middle">Associates</text>
+<circle cx="370" cy="350" r="36" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="370" y="356" class="n" text-anchor="middle">Big projects</text>
+<circle cx="250" cy="470" r="36" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="250" y="476" class="n" text-anchor="middle">Volume</text>
+<circle cx="130" cy="350" r="36" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="130" y="356" class="n" text-anchor="middle">Low prices</text>
+<text x="250" y="560" class="c" text-anchor="middle">Keeps turning</text>
+<text x="710" y="105" class="g" text-anchor="middle">Structure</text>
+<line x1="710" y1="126" x2="710" y2="188" stroke="var(--warn)" stroke-width="3" marker-end="url(#f9w)"/>
+<text x="728" y="164" class="b">Cut associates</text>
+<path d="M 751 237.2 A 120 120 0 0 1 822.8 309" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="6 6"/>
+<path d="M 822.8 391 A 120 120 0 0 1 751 462.8" fill="none" stroke="var(--grey)" stroke-width="3" marker-end="url(#f9g)"/>
+<path d="M 669 462.8 A 120 120 0 0 1 597.2 391" fill="none" stroke="var(--grey)" stroke-width="3" marker-end="url(#f9g)"/>
+<path d="M 597.2 309 A 120 120 0 0 1 669 237.2" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="6 6"/>
+<circle cx="710" cy="230" r="36" fill="var(--page)" stroke="var(--warn)" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="710" y="236" class="n" text-anchor="middle">Associates</text>
+<circle cx="830" cy="350" r="36" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text x="830" y="356" class="n" text-anchor="middle">Big projects</text>
+<circle cx="710" cy="470" r="36" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text x="710" y="476" class="n" text-anchor="middle">Volume</text>
+<circle cx="590" cy="350" r="36" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text x="590" y="356" class="n" text-anchor="middle">Low prices</text>
+<text x="710" y="560" class="v" text-anchor="middle" style="fill:var(--warn)">Stops turning</text>
+</svg>

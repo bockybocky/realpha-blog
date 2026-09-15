@@ -26,6 +26,8 @@ Harry spends the whole episode on OpenAI's newly released GPT-6 Astra — the mo
 
 **1. OpenAI admitted it stumbled on pre-training, and this generation fixed it.** Since GPT-4.5, OpenAI hadn't scaled up again — it leaned on post-training to make a smaller model punch at the weight of much larger ones. Harry's metaphor made me laugh: fighting iron swords with a wooden one, so you polish your swordsmanship to a razor edge. Astra is the iron sword finally forged. The industry rumor puts it at a hundred thousand GPUs, several months, a billion dollars of pre-training — and that figure excludes post-training.
 
+![Three stacked bars: the first two are the same height but composed very differently -- one thick-bottomed and thin-topped, the other thin-bottomed and thick-topped; the third is thick on both bottom and top, clearly taller than the first two.](/figures/pretrain-vs-posttrain-stack-en.svg)
+
 **2. 3D modeling is the biggest jump, and it costs less than you'd guess.** He photographed a DGX Spark from six angles, said "rebuild this exactly in Blender," and sixteen minutes later had a model that looks like a photograph from any angle. He suspected it had grabbed existing assets — until he read the execution log: it decomposed the parts, planned the materials, drove Blender with Python, then opened the interface to compare against his photos and went back to fix the metallic sheen. The whole thing burned one to two percent of his weekly quota on a $200 plan. The previous generation rendered that foam-metal surface as sofa leather.
 
 **3. Computer use is the underrated capability.** He pointed it at his own learning platform, launched weeks ago and impossible for the model to have seen in training. Four minutes to play through an entire unit, clicking everything clickable, then poking the things that weren't — and reporting back that a dead button everyone would instinctively click shouldn't be dead. Elsewhere someone had it play a recognizable tune on a web piano, one key click at a time.
@@ -35,6 +37,8 @@ Harry spends the whole episode on OpenAI's newly released GPT-6 Astra — the mo
 **5. He names the places it didn't move.** The slide deck it produced was uglier than the previous generation's. Given free rein on interface design, its taste loses to the competition. But hand it an explicit reference and the style transfer is clean. That gap is itself information: it excels at *executing to a defined target*, not at *deciding what the target should be*.
 
 **6. On general reasoning, ask who measured.** ARC-AGI-3 drops a model into small games with no rulebook and watches whether it works out the rules. On OpenAI's own harness, Astra scores 99.9. On the official standard harness, 62. The standard harness wipes the reasoning context between levels — amnesia every round. Harry finds that unnatural, since humans carry what they learned into the next level. Worth noting though: under that same 62-point yardstick, second place scores 30. Both yardsticks point the same direction, at different magnitudes.
+
+![Top row of four levels connected continuously by arrows, bottom row of four levels cut apart by X marks; on the right, three descending bars correspond to scores of 99.9, 62, and 30.](/figures/arc-two-scoring-setups-en.svg)
 
 **7. The robotics camps are arguing about it.** A startup that benchmarks robots had it drive an arm to place a block into a cup: 95 out of 100, against 40 for the competing model, using 2.3 times fewer tokens. That result energized the camp betting that scaling language models alone gets you working robots, against the camp betting on world models. An arm is not a humanoid, and that gap is long. But spatial understanding emerging from a language model is genuinely new information.
 
@@ -46,6 +50,8 @@ This is the part I most wanted to talk over with a friend. An OpenAI engineer wr
 
 There's a line worth drawing here. What you write splits into two kinds. One is **what only you know** — where the data lives, how your company defines "done," what your taste looks like. The other is **instructions on how to do the work** — check this, then compute that, remember to verify. The first can't be deleted; it's context. The second gets absorbed, because it was patching a hole in the model's judgment, and the hole is closing on its own.
 
+![A two-layer container: the lower layer, "step instructions," is mostly submerged under a rising waterline, while the upper layer, "your context," is still above the surface.](/figures/capability-waterline-eats-steps-en.svg)
+
 I've been caught by this myself: a stack of process documents pinning down every step, and on review after a model upgrade, half of them were teaching the model things it already knew. So my approach now is to start something new with nothing installed, give it the context, let it run, and only patch where it goes wrong. Those few added lines are the part that's actually mine.
 
 Investing has the same shape. Your "procedure" advantages depreciate faster than your assumptions allow. Your context advantages — how long you've known this business, how long your capital can wait, the price at which you stop sleeping — no tool absorbs those.
@@ -55,6 +61,8 @@ Investing has the same shape. Your "procedure" advantages depreciate faster than
 One contrast in this episode is worth more to me than any score.
 
 On one side, the jaw-dropping demos flooding launch day: creators with early access, unlimited free usage for a week, one of them running the model non-stop for seven days to build all of Manhattan. Converted to money, that week's consumption runs into millions of Taiwan dollars. On the other side, Harry on a $200 plan, spending one to two percent of a week's quota, producing that photorealistic little machine.
+
+![Two equal-width resource bars stacked: the top one is completely filled and runs off the frame, the bottom one has only a small filled segment at the far left.](/figures/demo-budget-two-readings-en.svg)
 
 Same capability, two yardsticks, very different decision value. The first tells you where the ceiling is. Only the second tells you whether *you* can use it. Whenever I see a "blows away the competition" claim now, I ask three things: who measured, how much did the measurement consume, and can I reproduce a small version with what I already have. The two ARC-AGI numbers teach the same lesson — 99.9 and 62 are both honest; they answer different questions.
 
@@ -66,7 +74,11 @@ Harry raises an image that stopped me. A game in development for fifteen years i
 
 Translated into investing language: **the execution layer gets absorbed, and value migrates to both ends.** Upward, to deciding what to make — design, taste, understanding the user. Downward, to assets nobody can move — data, distribution, trust, scale. The middle layer, the craft of turning an idea into a finished thing, is repricing fast.
 
+![Three stacked blocks top to bottom, with the middle block compressed into a very thin strip marked in a warning color, two arrows pointing from the middle toward the top and bottom layers.](/figures/value-moves-to-both-ends-en.svg)
+
 That cut tells you more about a company than "does it use AI." Where does its margin come from? If from the middle layer, every tool improvement trims its profit. If from either end, every tool improvement cuts its costs. The same AI headline means opposite things to those two businesses.
+
+![Two three-layer structures side by side: on the left, the shaded layer is the middle one, paired with a downward arrow; on the right, the shaded layers are the top and bottom, paired with an upward arrow.](/figures/same-news-opposite-direction-en.svg)
 
 ## Worth a look
 
@@ -80,5 +92,7 @@ That cut tells you more about a company than "does it use AI." Where does its ma
 One idea: **your value is migrating from "how to do it" to "what to make, and how you'll know it's right."** Tools eat the steps. What they can't eat is the bamboo in your head — what the finished thing looks like, and what entitles you to call it finished.
 
 Here's something I tried that you can borrow, and it works outside investing too. This week, pick one thing you're handing to someone else — a colleague, a child, a contractor, a family member. When you write it down, write only two paragraphs. The first: what it looks like when it's done. The second: how I'll judge that it was done right. **Not one word of procedure.** Then hand it over.
+
+![A handoff note split into three blocks: the top and bottom blocks stay intact, while the middle block is boxed in a dashed line and crossed out with two lines.](/figures/handoff-two-blocks-only-en.svg)
 
 The first time I did this I couldn't write the second paragraph. Stuck there, I realized I only knew the process, not what I wanted. The tasks where I could write the acceptance criteria mostly came back better than I expected. The ones where I couldn't meant I hadn't thought it through, and the problem wasn't on the other person's side.
