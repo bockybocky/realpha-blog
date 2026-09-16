@@ -1,0 +1,83 @@
+---
+title: "Hot Chips and SEMICON Taiwan, Three Days Apart: One Room Talks AI, the Other Ships Orders"
+description: "Notes on the Supply Chained episode from 2026-09-15. Two semiconductor conferences ran three days apart: one focused on AI chip startups, the other on the engineering problems of panel-level packaging and memory. These are educational industry notes, not investment advice."
+slug: "supplychained-2026-09-15-hot-chips-and-semicon-taiwan"
+lang: "en"
+pubDate: 2026-09-16
+category: "investing"
+tags: ["Semiconductors", "AI Chips", "HBM", "Advanced Packaging", "Podcast Notes"]
+tldr: "Hot Chips was about AI chip startups; SEMICON Taiwan was about how to build and ship the hardware. To tell whether a technology is still talk or already happening, look at which tools the supply chain is changing and what it is spending money on."
+ogImage: "/covers/supplychained-2026-09-15-hot-chips-and-semicon-taiwan-cover.png"
+cover: "/covers/supplychained-2026-09-15-hot-chips-and-semicon-taiwan-cover.png"
+---
+![A crowded semiconductor exhibition hall with a square glass panel on an inspection machine in the foreground, cold white light stretching deep into the hall](/covers/supplychained-2026-09-15-hot-chips-and-semicon-taiwan-cover.png)
+
+> He who stands on tiptoe does not stand firm; he who takes the longest strides does not walk the farthest. He who shows himself off does not shine; he who is sure he is right is not recognized.
+> —— *Laozi*, Chapter 24 (Spring and Autumn period; my own translation)
+
+About halfway through this episode, the hosts got to memory being stacked ever higher while each layer gets less bandwidth. These lines were the first thing I thought of.
+
+## What this episode covers
+
+In this episode of Supply Chained (2026-09-15), Tim Culpan (Culpium) and Jon (Asianometry) talk about two conferences that ran back to back: Hot Chips in Silicon Valley, and SEMICON Taiwan in Taipei's Nangang district three days later. Plenty of people had to rush from San Francisco to Taipei to catch both. Jon went to both; Tim was in Taipei. They compare the mood in each room and the topics that came up, and Tim shares what he heard on the show floor about who is building what for whom.
+
+## Key points
+
+**1. Hot Chips was all AI, all the time, and the 8 a.m. Sunday memory session was packed.** Jon couldn't find a seat. A few years ago the back rows at Hot Chips were empty enough to nap in, and he did. He skipped the RISC-V session this year and doesn't think many others went.
+
+**2. A year and a half ago, Jon thought Nvidia had already won. Now a group of startups has working silicon.** Etched showed a chip and a full system. OpenAI's chip, codenamed Jalapeno, got the most attention, partly because AI helped speed up its design. Jon compares the approach to Google's TPU: strip the GPU down for inference, flow data in, do the multiplications, flow it out. He's impressed by how fast it shipped, but notes that it's a simple first-generation part and that real benchmarks will tell the story.
+
+**3. The chip design software (EDA) industry moved into AI faster than Jon expected.** EDA is a closed world full of NDAs; in his words, "nobody really knows how the silicon sausage is made." He assumed it would hold out for a few more years. Instead, the big vendors are going all in on AI.
+
+**4. Jon's favorite talk was Intel on a consumer CPU built around cost.** A veteran chip architect walked the audience through his team's tradeoffs. The focus was cost-performance, and the product is for regular consumers. Jon said he loves watching someone practice their craft well.
+
+**5. The two rooms had different energy.** Hot Chips skewed younger, with more startups and a software-flavored buzz. SEMICON Taiwan was hardware and equipment people, a bit older, and their energy came from "the orders are huge and we have to deliver." Tim called them the adults in the room: after all the vision talk, they're the ones asking "who's going to put it together? Us, and here's how." Silicon photonics was a talking point two years ago and again last year; this year the message was "it's happening, here are the problems we hit and how we got around them." Panel-level packaging went the same way. Lam Research and others laid out warpage and the different heat behavior of square panels versus round wafers, then listed three more problems to solve over the next few years. As for the Nangang exhibition halls, the conference has outgrown them again. Tim points out that Taiwan is a small island, and any spare land will go to fabs before it goes to exhibition halls.
+
+![A timeline where the points for two years ago and last year sit in the lower "still talking" zone, while this year's point jumps up into the "already doing" zone, labeled with three tags: warpage, heat, and fixes.](/figures/silicon-photonics-talk-to-doing-en.svg)
+
+**6. HBM keeps stacking higher, and someone asked the question everyone was thinking.** At the Hot Chips memory session, after Micron, Samsung, and SK hynix had all presented, an audience member who prefers to stay anonymous asked why the industry keeps adding layers when, at sixteen or twenty layers, each die's bandwidth has been cut so thin. The SK hynix speaker was caught flat-footed. At a separate event, Pat Gelsinger called HBM a lousy memory, and SK hynix answered: you're not wrong, but it's the best we've got. Tim's analogy: build a storage high-rise right next to the apartment block and you'll reach your things faster than driving to a warehouse across town. But the taller the building gets, the longer the elevator ride, until at some height it's no better than the warehouse down the road. The SEMICON Taiwan memory sessions were packed too. Tim sat in the third row, with Samsung and SK hynix people on opposite sides of the aisle. Photos were banned, and volunteers walked around holding signs to remind people. When Samsung put up a slide on a new version of HBM, an SK hynix executive quietly raised his phone and took a picture. Tim's only regret was not getting a shot of the executive taking his.
+
+**7. MediaTek stayed with older packaging for the business flexibility.** Tim learned that MediaTek is launching a chip on TSMC's 2 nm process this month. MediaTek ships more smartphone SoCs than anyone, including Qualcomm and Apple, yet it passed on WMCM, the packaging Apple uses (Tim calls it "CoWoS for mobile"), and stuck with its older approach. The new technology is better in many ways, but the old one lets MediaTek decide later how much memory to pair with each SoC. As Tim put it, buyers always want flexibility, and flexibility is value. On the same trip he heard that automated optical inspection companies are reworking their test tools to handle square panels, and that Powertech (PTI) is expanding panel-level packaging capacity for Broadcom customers such as Google.
+
+![Two memory stacks side by side: the left has four thick layers that each get 2, the right has sixteen paper-thin layers that each get only 0.5, and both share the same total bandwidth of 8 illustrative numbers.](/figures/hbm-layers-thinner-bandwidth-en.svg)
+
+## Further thoughts
+
+### The news keeps saying some technology is "almost here." How can you tell whether it's still talk or already happening?
+
+I get stuck on this too. Silicon photonics, panel-level packaging, glass substrates: these terms have been in the news for years, and every year volume production sounds like next year.
+
+After this episode I wrote down two checks for myself. First, has the way people talk about it changed? When "this has great potential" becomes "we hit warpage and uneven heat, here's how we fixed it, and here are three open problems," the speaker is working from real samples and yield numbers. You can't produce a list like that while you're still at the vision stage.
+
+Second, is the supply chain changing its tools? On the show floor, Tim cared most about who was buying which equipment, because equipment purchases are real money. An inspection company rebuilding its optical inspection line for square panels doesn't spend that R&D money on a topic that's only talk, and neither does Powertech when it adds capacity. In investing terms, capital spending and retooled equipment are structure; the adjectives in press releases are noise.
+
+![Three bars rising from low to high, labeled adjectives, a list of hurdles, and changing tools and spending money, with evidence strength increasing step by step; above the tallest bar a dashed ceiling notes that it still cannot show who profits or the timeline.](/figures/evidence-strength-ladder-en.svg)
+
+This check has limits. Retooling tells you customers are heading down that road. It doesn't tell you who will make money or when. And when many companies expand capacity at once, the result a few years later can be a glut. So I treat it as evidence that something is happening. Valuation and pricing power still have to be worked out separately by finding where the bottleneck is.
+
+### Why would anyone pass on the best technology?
+
+When I used to read industry news, I assumed the company adopting the better spec would win and the one that didn't follow would fall behind. The MediaTek example made me rethink that.
+
+Here's MediaTek's situation: memory prices and capacities shift quickly, and its customers make many different phone models. The older packaging lets it wait until close to shipment to decide how much memory goes in. WMCM binds memory and processor more tightly, which gives better performance but forces that decision earlier. In effect, MediaTek gives up a little performance to decide later. The same logic applies to managing a portfolio: the more uncertain things are, the more it's worth keeping room to adjust.
+
+![Two timelines run from design to shipment; the WMCM line decides memory very early and then stays locked for a long stretch, while the legacy-package line decides only near shipment and remains adjustable for most of the way.](/figures/mediatek-decision-timing-en.svg)
+
+The HBM layer count is another example. The industry keeps stacking because, among today's options, that packs in the most capacity. But each added layer means less bandwidth per die, so the payoff keeps shrinking. Put the audience member's question, Gelsinger's remark, and SK hynix's reply together, and my reading is that HBM holds its place because nothing better is available yet. The high bandwidth flash sessions were packed, but Jon said the more he heard, the less sure he was where it's heading, which suggests the alternatives are still being worked out.
+
+So the next time I read "Company A adopted the newest technology and Company B didn't," I'll first ask what B's customers need and what options B kept open, and only then decide whether B is behind or made a deliberate tradeoff. This idea is my own extension of the episode, and I'm still practicing it.
+
+## References
+
+- Supply Chained podcast, "Hot Chips and SEMICON Taiwan," 2026-09-15
+- Tim Culpan's newsletter, Culpium (he says he'll write more there about what he heard on the show floor)
+- Jon's YouTube channel, Asianometry (he mentioned he's working on a video about high bandwidth flash)
+- The session agenda pages on the Hot Chips and SEMICON Taiwan websites
+
+## One thing to take with you
+
+The idea I kept from this episode: **to see whether something is really happening, look at which tools people changed and what they spent money on. That tells you more than how they describe it.** At SEMICON Taiwan, inspection equipment makers retooling was exactly that kind of signal.
+
+Here's something I've tried: pick something you've said you'd "start soon" for over three months, like exercise, a language, or clearing out a room. On a sheet of paper, write down one thing you bought for it in those three months, one block of time you put on your calendar for it, or one thing you turned down to make room for it. If you can write one down, it's happening. If you can't write down any of them, I move it from the "doing" column to the "still talking" column.
+
+![On the left, something talked about for three months passes through three checks bought something, put it on the calendar, turned down something else; if any one is true it moves up into "doing," and if none are true it drops down into "still talking."](/figures/doing-or-talking-sort-en.svg)

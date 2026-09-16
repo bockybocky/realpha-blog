@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" width="960" height="570" role="img" aria-label="上升的電梯時間線與水平的對街倉庫線在中段交叉，交點左側樓內較快">
+<rect x="0" y="0" width="960" height="570" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--accent); }
+    .w { font-size:19px; font-weight:700; fill:var(--warn); }
+</style>
+<text x="40" y="58" class="t">倉儲大樓：蓋越高，電梯越慢</text>
+<rect x="120" y="130" width="484" height="320" fill="var(--card)"/>
+<text x="362" y="420" class="b" text-anchor="middle">樓內較快</text>
+<line x1="120" y1="130" x2="120" y2="450" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="450" x2="870" y2="450" stroke="var(--line)" stroke-width="2"/>
+<text x="120" y="116" class="b">取貨時間</text>
+<text x="870" y="480" class="b" text-anchor="end">樓層 →</text>
+<text x="130" y="480" class="b">低</text>
+<line x1="120" y1="260" x2="870" y2="260" stroke="var(--grey)" stroke-width="3" stroke-dasharray="10 8"/>
+<text x="870" y="250" class="g" text-anchor="end">對街倉庫</text>
+<line x1="120" y1="430" x2="860" y2="170" stroke="var(--accent)" stroke-width="5"/>
+<text x="740" y="180" class="g" text-anchor="end">大樓電梯</text>
+<circle cx="604" cy="260" r="12" fill="var(--warn)"/>
+<text x="604" y="300" class="w" text-anchor="middle">差不多了</text>
+<text x="40" y="536" class="c">過了交點，蓋高的好處歸零</text>
+</svg>
