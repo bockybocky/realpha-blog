@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="左右兩個面板下方各有三個困境格子，左邊藍色覆蓋條只蓋住第一格且上方有橘色虛線框代表新長出的困境，右邊藍色覆蓋條橫跨三格">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <defs>
+    <marker id="arw6" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L12 6 L0 12 z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+  <text x="60" y="62" font-size="27" font-weight="700">麻木與韌性</text>
+
+  <rect x="70" y="106" width="380" height="368" rx="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="102" y="152" font-size="20" font-weight="700">麻木</text>
+  <rect x="100" y="182" width="320" height="64" rx="10" fill="none" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="9 8"/>
+  <text x="124" y="208" font-size="16" fill="var(--warn)">長出新的困境</text>
+  <text x="124" y="232" font-size="15" fill="var(--warn)">環境沒了，隱形還在</text>
+  <path d="M260 250 L260 286" fill="none" stroke="var(--warn)" stroke-width="2.5" marker-end="url(#arw6)"/>
+  <rect x="100" y="306" width="100" height="22" rx="6" fill="var(--accent)"/>
+  <text x="212" y="324" font-size="15" fill="var(--dim)">學會的那一招</text>
+  <rect x="100" y="340" width="100" height="62" rx="10" fill="var(--grey)" fill-opacity="0.25" stroke="var(--line)" stroke-width="2"/>
+  <text x="150" y="377" font-size="16" text-anchor="middle">困境一</text>
+  <rect x="210" y="340" width="100" height="62" rx="10" fill="var(--grey)" fill-opacity="0.25" stroke="var(--line)" stroke-width="2"/>
+  <text x="260" y="377" font-size="16" fill="var(--dim)" text-anchor="middle">困境二</text>
+  <rect x="320" y="340" width="100" height="62" rx="10" fill="var(--grey)" fill-opacity="0.25" stroke="var(--line)" stroke-width="2"/>
+  <text x="370" y="377" font-size="16" fill="var(--dim)" text-anchor="middle">困境三</text>
+  <text x="102" y="440" font-size="15" fill="var(--dim)">只能用在那一個</text>
+
+  <rect x="510" y="106" width="380" height="368" rx="16" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="542" y="152" font-size="20" font-weight="700">韌性</text>
+  <text x="564" y="208" font-size="16">處理完這一個</text>
+  <text x="564" y="232" font-size="15" fill="var(--dim)">底盤一起變寬</text>
+  <rect x="540" y="306" width="320" height="22" rx="6" fill="var(--accent)"/>
+  <rect x="540" y="340" width="100" height="62" rx="10" fill="var(--grey)" fill-opacity="0.25" stroke="var(--line)" stroke-width="2"/>
+  <text x="590" y="377" font-size="16" text-anchor="middle">困境一</text>
+  <rect x="650" y="340" width="100" height="62" rx="10" fill="var(--grey)" fill-opacity="0.25" stroke="var(--line)" stroke-width="2"/>
+  <text x="700" y="377" font-size="16" text-anchor="middle">困境二</text>
+  <rect x="760" y="340" width="100" height="62" rx="10" fill="var(--grey)" fill-opacity="0.25" stroke="var(--line)" stroke-width="2"/>
+  <text x="810" y="377" font-size="16" text-anchor="middle">困境三</text>
+  <text x="542" y="440" font-size="15" fill="var(--dim)">同一套能力，換個困境還能用</text>
+
+  <text x="60" y="548" font-size="22" font-weight="700">分界在彈性</text>
+</svg>

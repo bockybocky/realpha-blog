@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="三條橫帶由下往上堆疊代表一場會談裡的三層關係，最上方一條橘色虛線帶代表雙重關係，兩支箭頭由它往下壓進堆疊">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <defs>
+    <marker id="arw3" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L12 6 L0 12 z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+  <text x="60" y="62" font-size="27" font-weight="700">一場會談，三層同時在跑</text>
+
+  <rect x="200" y="118" width="560" height="76" rx="12" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="9 8"/>
+  <text x="232" y="150" font-size="20" font-weight="700" fill="var(--warn)">再疊一層</text>
+  <text x="232" y="176" font-size="15" fill="var(--warn)">他是我的親人 · 他是我的理專</text>
+
+  <path d="M330 198 L330 226" fill="none" stroke="var(--warn)" stroke-width="2.5" marker-end="url(#arw3)"/>
+  <path d="M630 198 L630 226" fill="none" stroke="var(--warn)" stroke-width="2.5" marker-end="url(#arw3)"/>
+
+  <text x="180" y="272" font-size="16" fill="var(--dim)" text-anchor="end">第三層</text>
+  <rect x="200" y="234" width="560" height="76" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="232" y="266" font-size="20" font-weight="700">兩個人的自然反應</text>
+  <text x="232" y="292" font-size="15" fill="var(--dim)">作為人，本來就會有的</text>
+
+  <text x="180" y="364" font-size="16" fill="var(--dim)" text-anchor="end">第二層</text>
+  <rect x="200" y="326" width="560" height="76" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="232" y="358" font-size="20" font-weight="700">移情與反移情</text>
+  <text x="232" y="384" font-size="15" fill="var(--dim)">你看著他，看到的是你哥</text>
+
+  <text x="180" y="456" font-size="16" fill="var(--dim)" text-anchor="end">第一層</text>
+  <rect x="200" y="418" width="560" height="76" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="232" y="450" font-size="20" font-weight="700">治療同盟</text>
+  <text x="232" y="476" font-size="15" fill="var(--dim)">兩個人願意一起面對</text>
+
+  <text x="60" y="548" font-size="22" font-weight="700">三層已經夠重，第四層壓下去就轉不動</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="上方三根由矮到高的灰階梯代表常見印象，下方三張並排卡片標出輔導、諮商、治療各自的來源，諮商與治療之間有一條橘色虛線代表法規硬界線">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text x="60" y="62" font-size="27" font-weight="700">輔導 · 諮商 · 治療</text>
+
+  <text x="60" y="108" font-size="19" fill="var(--dim)">印象中的階梯</text>
+  <rect x="210" y="170" width="150" height="40" rx="8" fill="var(--grey)" opacity="0.35"/>
+  <rect x="390" y="140" width="150" height="70" rx="8" fill="var(--grey)" opacity="0.35"/>
+  <rect x="570" y="110" width="150" height="100" rx="8" fill="var(--grey)" opacity="0.35"/>
+  <text x="285" y="236" font-size="16" fill="var(--dim)" text-anchor="middle">輔導</text>
+  <text x="465" y="236" font-size="16" fill="var(--dim)" text-anchor="middle">諮商</text>
+  <text x="645" y="236" font-size="16" fill="var(--dim)" text-anchor="middle">治療</text>
+
+  <line x1="60" y1="268" x2="900" y2="268" stroke="var(--line)" stroke-width="2"/>
+  <text x="60" y="306" font-size="19" fill="var(--dim)">實際的樣子</text>
+
+  <rect x="60" y="330" width="260" height="170" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="86" y="372" font-size="20" font-weight="700">輔導</text>
+  <text x="86" y="404" font-size="15" fill="var(--dim)">來源：教育體系</text>
+  <text x="86" y="432" font-size="15">guidance · 引導</text>
+  <text x="86" y="460" font-size="15" fill="var(--dim)">預設沒有困難</text>
+
+  <rect x="350" y="330" width="260" height="170" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="376" y="372" font-size="20" font-weight="700">諮商</text>
+  <text x="376" y="404" font-size="15" fill="var(--dim)">來源：卡住</text>
+  <text x="376" y="432" font-size="15">生涯 · 伴侶 · 哀傷</text>
+  <text x="376" y="460" font-size="15" fill="var(--dim)">這些都不是病</text>
+
+  <rect x="640" y="330" width="260" height="170" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="666" y="372" font-size="20" font-weight="700">治療</text>
+  <text x="666" y="404" font-size="15" fill="var(--dim)">來源：名字裡有症</text>
+  <text x="666" y="432" font-size="15">disorder · disease</text>
+  <text x="666" y="460" font-size="15" fill="var(--dim)">醫療體系</text>
+
+  <line x1="625" y1="318" x2="625" y2="512" stroke="var(--warn)" stroke-width="3" stroke-dasharray="9 8"/>
+  <text x="625" y="540" font-size="17" fill="var(--warn)" text-anchor="middle">法規硬線 · 評估到症就轉介醫師</text>
+
+  <text x="60" y="580" font-size="22" font-weight="700">來源不同，門就不同</text>
+</svg>
