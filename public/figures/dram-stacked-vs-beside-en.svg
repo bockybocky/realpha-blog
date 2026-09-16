@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two cross sections: with memory stacked on the chip, the heat path runs through the memory; with memory moved beside it, the vapor chamber touches the chip directly, lanes increase, and the board grows wider.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .bi { font-size:16px; fill:var(--ink); }
+    .c { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="480" y="48" text-anchor="middle" class="h">RAM: top to side</text>
+<rect x="40" y="80" width="420" height="390" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<rect x="500" y="80" width="420" height="390" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<text x="250" y="118" text-anchor="middle" class="g">Before: top</text>
+<text x="710" y="118" text-anchor="middle" class="g">After: side</text>
+<rect x="140" y="248" width="220" height="18" rx="4" fill="var(--accent)"/>
+<text x="250" y="238" text-anchor="middle" class="b">VC</text>
+<rect x="170" y="272" width="160" height="56" rx="6" fill="var(--grey)"/>
+<text x="250" y="306" text-anchor="middle" class="bi">RAM</text>
+<rect x="170" y="332" width="160" height="62" rx="6" fill="var(--line)" stroke="var(--dim)"/>
+<text x="250" y="369" text-anchor="middle" class="bi">SoC</text>
+<rect x="110" y="398" width="280" height="22" rx="4" fill="var(--grey)"/>
+<text x="250" y="446" text-anchor="middle" class="b">PCB</text>
+<line x1="352" y1="380" x2="352" y2="272" stroke="var(--warn)" stroke-width="4" stroke-dasharray="8 6"/>
+<path d="M343 282 L352 266 L361 282 Z" fill="var(--warn)"/>
+<text x="372" y="322" class="b" style="fill:var(--warn)">Heat ↑</text>
+<text x="372" y="342" class="b" style="fill:var(--warn)">RAM</text>
+<rect x="555" y="304" width="170" height="18" rx="4" fill="var(--accent)"/>
+<text x="640" y="294" text-anchor="middle" class="b">VC</text>
+<rect x="565" y="326" width="150" height="68" rx="6" fill="var(--line)" stroke="var(--dim)"/>
+<text x="640" y="366" text-anchor="middle" class="bi">SoC</text>
+<rect x="760" y="326" width="110" height="68" rx="6" fill="var(--grey)"/>
+<text x="815" y="366" text-anchor="middle" class="bi">RAM</text>
+<line x1="715" y1="336" x2="760" y2="336" stroke="var(--accent)" stroke-width="3"/>
+<line x1="715" y1="350" x2="760" y2="350" stroke="var(--accent)" stroke-width="3"/>
+<line x1="715" y1="364" x2="760" y2="364" stroke="var(--accent)" stroke-width="3"/>
+<line x1="715" y1="378" x2="760" y2="378" stroke="var(--accent)" stroke-width="3"/>
+<text x="815" y="306" text-anchor="middle" class="b" style="fill:var(--accent)">+Lanes</text>
+<rect x="530" y="398" width="360" height="22" rx="4" fill="var(--grey)"/>
+<text x="710" y="446" text-anchor="middle" class="b">PCB (bigger)</text>
+<path d="M530 456 L545 450 L545 462 Z M890 456 L875 450 L875 462 Z" fill="var(--dim)"/>
+<text x="480" y="520" text-anchor="middle" class="c">Cooler, faster, larger</text>
+</svg>

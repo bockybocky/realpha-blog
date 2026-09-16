@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A device-versus-cloud bar: the dividing line is pushed toward the cloud but stopped by memory bandwidth and power, and the cloud segment still remains.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .bi { font-size:16px; fill:var(--ink); }
+    .c { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="480" y="48" text-anchor="middle" class="h">Moving the split</text>
+<rect x="60" y="200" width="420" height="90" rx="10" fill="var(--accent)"/>
+<rect x="480" y="200" width="420" height="90" rx="10" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text x="120" y="254" class="g" style="fill:var(--page)">Edge</text>
+<text x="840" y="254" text-anchor="end" class="g">Cloud</text>
+<line x1="480" y1="180" x2="480" y2="310" stroke="var(--ink)" stroke-width="4"/>
+<path d="M340 150 L590 150" stroke="var(--accent)" stroke-width="4"/>
+<path d="M578 140 L598 150 L578 160 Z" fill="var(--accent)"/>
+<text x="340" y="132" class="bi">Cheap·rep·pvt</text>
+<rect x="640" y="120" width="18" height="200" rx="3" fill="var(--warn)"/>
+<text x="670" y="146" class="bi" style="fill:var(--warn)">RAM bus</text>
+<text x="670" y="170" class="bi" style="fill:var(--warn)">Power</text>
+<text x="200" y="330" text-anchor="middle" class="b">Night</text>
+<text x="200" y="352" text-anchor="middle" class="b">Siri AI</text>
+<text x="780" y="330" text-anchor="middle" class="b">Big LLMs</text>
+<text x="780" y="352" text-anchor="middle" class="b">Private Cloud Compute</text>
+<text x="480" y="420" text-anchor="middle" class="b">The wall caps the edge</text>
+<text x="480" y="486" text-anchor="middle" class="c">Cloud stays</text>
+</svg>

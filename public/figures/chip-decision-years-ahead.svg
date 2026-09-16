@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="兩條時間軸：自研晶片提前三年決定、舊手機仍涵蓋新功能；挑現成晶片則選晶片與做產品同一年">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .bi { font-size:16px; fill:var(--ink); }
+    .c { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text x="480" y="48" text-anchor="middle" class="h">晶片先到，功能後到</text>
+<g class="b" text-anchor="middle">
+<text x="220" y="96">第0年</text><text x="330" y="96">第1年</text><text x="440" y="96">第2年</text>
+<text x="550" y="96">第3年</text><text x="660" y="96">第4年</text><text x="770" y="96">第5年</text><text x="880" y="96">第6年</text>
+</g>
+<g stroke="var(--line)" stroke-dasharray="4 6">
+<line x1="220" y1="106" x2="220" y2="470"/><line x1="330" y1="106" x2="330" y2="470"/><line x1="440" y1="106" x2="440" y2="470"/>
+<line x1="550" y1="106" x2="550" y2="470"/><line x1="660" y1="106" x2="660" y2="470"/><line x1="770" y1="106" x2="770" y2="470"/><line x1="880" y1="106" x2="880" y2="470"/>
+</g>
+<text x="40" y="178" class="g">自研晶片</text>
+<line x1="220" y1="170" x2="900" y2="170" stroke="var(--grey)" stroke-width="3"/>
+<circle cx="220" cy="170" r="11" fill="var(--accent)"/>
+<text x="220" y="148" text-anchor="middle" class="bi">多拉通道</text>
+<circle cx="550" cy="170" r="11" fill="var(--accent)"/>
+<text x="550" y="148" text-anchor="middle" class="bi">新功能上線</text>
+<path d="M232 196 L538 196" stroke="var(--accent)" stroke-width="3"/>
+<path d="M528 189 L542 196 L528 203 Z" fill="var(--accent)"/>
+<text x="385" y="222" text-anchor="middle" class="b" style="fill:var(--accent)">提前量</text>
+<rect x="330" y="252" width="440" height="30" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="340" y="273" class="bi">第1年買的手機</text>
+<text x="760" y="273" text-anchor="end" class="b" style="fill:var(--accent)">仍跑得動</text>
+<text x="40" y="398" class="g">挑現成晶片</text>
+<line x1="220" y1="390" x2="900" y2="390" stroke="var(--grey)" stroke-width="3"/>
+<circle cx="550" cy="390" r="11" fill="var(--warn)"/>
+<text x="550" y="368" text-anchor="middle" class="bi">選晶片＋做產品</text>
+<text x="550" y="428" text-anchor="middle" class="b" style="fill:var(--warn)">沒有提前量</text>
+<text x="480" y="530" text-anchor="middle" class="c">要用的東西，幾年前就得先放進去</text>
+</svg>

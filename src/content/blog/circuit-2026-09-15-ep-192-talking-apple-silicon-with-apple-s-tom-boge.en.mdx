@@ -1,0 +1,89 @@
+---
+title: "Apple Silicon's 2nm Year: Peaks Look Good, Sustained Performance Counts | The Circuit EP 192 Notes"
+description: "Notes on The Circuit episode 192 with Apple's silicon and product teams: process nodes are a tailwind, while thermals, packaging, memory bandwidth, software orchestration and security design decide what users get. Educational only, not investment advice, no stock recommendations."
+slug: "circuit-2026-09-15-ep-192-talking-apple-silicon-with-apple-s-tom-boge"
+lang: "en"
+pubDate: 2026-09-16
+category: "investing"
+tags: ["Apple", "Semiconductors", "Edge AI", "Chip Packaging", "Podcast Notes"]
+tldr: "Apple moved its whole lineup to 2nm this year, yet this episode spent most of its time on vapor chambers, where memory sits, and the compute cost of security. I now ask how long a spec can hold before I ask how big it is."
+ogImage: "/covers/circuit-2026-09-15-ep-192-talking-apple-silicon-with-apple-s-tom-boge-cover.png"
+cover: "/covers/circuit-2026-09-15-ep-192-talking-apple-silicon-with-apple-s-tom-boge-cover.png"
+---
+
+![A late-night hardware lab bench with a phone logic board and a copper vapor chamber side by side on an anti-static mat, a thermal camera screen glowing in the distance](/covers/circuit-2026-09-15-ep-192-talking-apple-silicon-with-apple-s-tom-boge-cover.png)
+
+> It is the pervading law of all things organic and inorganic… that form ever follows function. This is the law.
+>
+> — Louis Sullivan, "The Tall Office Building Artistically Considered" (1896)
+
+## What this episode covers
+
+The Circuit released episode 192 on September 15, 2026. With co-host Jay Goldberg on vacation in Italy, Ben Bajarin sat down at Apple Park with Tom Boger (product marketing, Mac and iPad), Kaiann Drance (product marketing, iPhone and Watch), and Sri Santhanam, who leads silicon engineering.
+
+This year the S11, A20 Pro and M6 all moved to 2nm. Ben's question: how does a node jump turn into something a user can feel?
+
+I expected an extended spec sheet. What stuck with me was vapor chambers, whether memory sits on top of the chip or beside it, and the compute cost of security.
+
+## Key points
+
+**1. The node is a tailwind; the system does the work.** Sri noted there are many years with no new node, and the team still pushes architecture, design, implementation and packaging. This year's added transistor density went into a doubled neural engine, an extra GPU core and more memory channels. CPU is 20% faster, GPU 40% faster, and he credited a large share of the efficiency to design work cutting power across compute blocks.
+
+**2. Memory moved from on top of the chip to beside it.** A20 Pro moves DRAM off the top of the SoC to its side, borrowing the multi-chip packaging used since M1. The chip can now sit directly on the vapor chamber, and memory bandwidth goes up. The cost is a larger board footprint that the systems team had to absorb. Kaiann added that the vapor chamber is larger, with graphite and nano-twin copper, giving 40% better sustained performance while the battery still grew. She called it a domino effect, and said ideally "a consumer never has to know."
+
+![Two side-by-side cross sections: on the left the memory is stacked on top of the chip, so heat must pass through the memory to reach the vapor chamber; on the right the memory moves beside the chip, the vapor chamber sits directly on the chip, there are more lanes between them, and the board gets wider.](/figures/dram-stacked-vs-beside-en.svg)
+
+**3. Thermals decide how long performance lasts.** Games shouldn't drop frames, the phone should stay comfortable in hand, and a phone has far less thermal room than a Mac. Sri said each chip aims to fill its platform's thermal envelope as efficiently as possible, which improves both bursts and long sessions.
+
+**4. Mac mini and Mac Studio found new jobs.** Tom described people running a Mac mini beside their main machine around the clock for agentic AI, and clustering four Mac Studios to run frontier models from an ordinary wall outlet. In both cases the number that matters is power draw.
+
+![Two performance curves over time: the old one spikes early and soon falls to a low plateau, while the new one spikes higher and holds steady all the way to thirty minutes, with the widening gap in the later stretch labeled as sustained performance.](/figures/peak-vs-sustained-performance-en.svg)
+
+**5. Why the dual neural engine arrived now.** Ben asked why Apple sat at 16 cores while the industry chased TOPS. The answer is two tightly coupled 16-core engines that can run two models in parallel or split one workload; deferred work can be split and run at lower voltage. Siri AI and one of the largest camera networks on the phone, used for low-light photography, run there. The Core AI framework decides placement, so developers don't have to. Neural accelerators in the GPU and CPU complement it: the engine for efficiency, the GPU for raw speed.
+
+**6. Silicon bets are placed years ahead.** Kaiann quoted Johny Srouji: "We're not a merchant silicon vendor." Whether to add extra lanes gets decided years before the camera or AI feature that needs them, with headroom so older phones keep running new features. Tom contrasted this with the industry norm of picking a chip from a menu and designing around it.
+
+![On the left, one engine is pushed to high voltage and high frequency with eight power cells below it; on the right, the same job is split across two engines that each run at low voltage and low frequency with six power cells in total, showing that splitting the work lowers total power.](/figures/dual-npu-split-lower-power-en.svg)
+
+**7. Security carries a compute tax.** The Secure Enclave began with Touch ID to protect biometric data. The Secure Exclave, a walled-off region the application processor and apps cannot reach, now protects microphone and audio data for new Watch features. Sri said last year's memory tagging required heavy plumbing inside the SoC and long debates about not slowing the CPU.
+
+## Further thoughts
+
+### Every launch event throws numbers at me. Which ones matter?
+
+I used to compare 2nm, TOPS and CPU percentages like scores. After this episode I ask: under what conditions was this measured, and how long does it hold?
+
+Layer one is peak versus sustained. Thirty seconds of gaming and thirty minutes are different tests. The number I care about most is the 40% sustained gain, because it came from the vapor chamber, packaging and memory placement changing together. A competitor can buy the same node; copying this means redesigning the board and the chassis too.
+
+Layer two is that the same metric means different things in different products. When Ben pressed on TOPS, Apple didn't answer with a bigger figure. They pointed to Siri AI and low-light photography already waiting for compute. Specs went up when there was work to consume them.
+
+Layer three brings it back to investing. When I read a company presentation, I sort growth drivers into one-off tailwinds, like node shrinks or currency, and capabilities that compound, like system integration. Sri said many years bring no new node. So my checkpoint is the next year without a node benefit: if performance and efficiency still move, integration is structural; if they stall, much of the earlier progress was tailwind. That's my own lens and it may be wrong, but it keeps a single number from steering me.
+
+![Two five-year bar charts split each year's gain into a gray process-node tailwind segment and a blue integration segment; in year 4 there is no new node, so the left group still moves forward on its blue segment while the right group's whole bar drops to zero, showing that structure only becomes visible in the year the tailwind is gone.](/figures/tailwind-vs-structure-test-year-en.svg)
+
+### Will on-device AI make cloud compute worthless?
+
+Whenever phones and laptops run models locally, someone asks me whether the cloud compute story is over.
+
+The picture here is hybrid. Run as much as possible on device; send complex models to Private Cloud Compute, extending on-device privacy protections to it. The cloud stays in Apple's own architecture.
+
+Tom gave two reasons customers want more on-device work: token consumption is exploding and they want lower spend, and they want data kept local. He added that models are specializing, so choosing which model handles which task is becoming its own decision.
+
+What follows is my inference; the episode said nothing about cloud demand. This looks like a redrawing of the division of labor: cheap, repetitive, private inference moves to devices, and large complex work stays in the cloud. When I see "edge replaces cloud," I ask three questions: which workloads, who pays for the tokens, and does the company making the claim still have a cloud box in its own diagram?
+
+![A horizontal bar with the device on the left and the cloud on the right, where arrows push the dividing line toward the cloud in the direction labeled cheap, repetitive, and private; a wall on the right of the line is marked memory bandwidth and power, showing that these two limits decide how much work the device can take on, while the cloud segment always remains.](/figures/device-cloud-split-boundary-en.svg)
+
+From a bottleneck view, all three guests listed the same needs for AI: efficient compute, unified memory, high bandwidth. On-device model size is capped by memory bandwidth and power, so those are the two things I'll track first, with TOPS further down the list.
+
+## References
+
+- The Circuit, EP 192, "Talking Apple Silicon with Apple's Tom Boger, Kaiann Drance, and Sri Santhanam" (2026-09-15)
+- Apple Platform Security guide (Secure Enclave section)
+- Apple Security Research, "Private Cloud Compute" technical overview (2024)
+- Louis Sullivan, "The Tall Office Building Artistically Considered" (1896)
+
+## One thing to take with you
+
+**Judge how well something works by how it holds up late, because the first burst misleads.**
+
+Something I've tried: pick one thing you repeat every week, like a run, a weekly report, or homework time with your kid. This week, record one number for the first and the last session, such as pace, minutes spent, or times you got distracted. The gap is that activity's sustained performance. For the one with the biggest gap, change a single condition next week, like sleep, location or start time, and measure again.
