@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The oil price stays flat for months while the buffer area shrinks each month, and the price jumps once the buffer runs out.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; } .g { font-size:19px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); } .c { font-size:22px; font-weight:700; }
+</style>
+<text x="40" y="48" class="t">Buffer drains first</text>
+<text x="40" y="185" class="g">Oil</text>
+<text x="40" y="400" class="g">Buffer</text>
+<line x1="620" y1="80" x2="620" y2="480" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="120" y1="260" x2="860" y2="260" stroke="var(--line)" stroke-width="2"/>
+<polyline points="120,215 620,210 860,110" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<text x="130" y="198" class="b">$70s</text>
+<text x="860" y="95" class="g" text-anchor="end" style="fill:var(--warn)">$107</text>
+<line x1="120" y1="470" x2="860" y2="470" stroke="var(--line)" stroke-width="2"/>
+<polygon points="120,470 120,310 620,410 800,470" fill="var(--accent)" fill-opacity="0.25" stroke="var(--accent)" stroke-width="2"/>
+<text x="140" y="445" class="b" style="fill:var(--ink)">Stocks·SPR·Cuts</text>
+<text x="800" y="452" class="g" text-anchor="middle" style="fill:var(--warn)">Low</text>
+<text x="120" y="505" class="b" text-anchor="start">Mar: war</text>
+<text x="620" y="505" class="b" text-anchor="middle">Jul: talks</text>
+<text x="860" y="505" class="b" text-anchor="end">Sep</text>
+<text x="480" y="545" class="c" text-anchor="middle">Buffer gone→price</text>
+</svg>
