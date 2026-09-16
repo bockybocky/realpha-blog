@@ -692,12 +692,12 @@ select {
 		padding: 0.85rem 0;
 	}
 
+	/* 手機放不下就換行，不做左右滑（滑動條會把搜尋與語言切換藏到畫面外） */
 	.nav-links {
 		width: 100%;
-		overflow-x: auto;
+		flex-wrap: wrap;
+		row-gap: 0.5rem;
 		padding-bottom: 0.2rem;
-		scrollbar-width: thin;
-		-webkit-overflow-scrolling: touch;
 	}
 
 	.hero h1,
