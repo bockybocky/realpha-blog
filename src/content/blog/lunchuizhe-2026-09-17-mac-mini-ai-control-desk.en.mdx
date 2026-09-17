@@ -1,0 +1,107 @@
+---
+title: "Mac mini or a GPU for AI at home? First figure out which machine you're missing"
+description: "A Chinese tech YouTuber explains why Mac minis are selling out: Macs can run language models but struggle with video, and he bought his for stability, low power and a complete software ecosystem, as a desk for directing AI agents. My own setup splits the same way: one machine directs, one old 8GB GPU does the heavy lifting, and training goes to rented cloud GPUs. A plain-language guide to what a control desk needs versus what compute needs. Personal notes, not buying advice."
+slug: "lunchuizhe-2026-09-17-mac-mini-ai-control-desk"
+lang: "en"
+pubDate: 2026-09-17
+category: tech
+tldr: "Doing AI at home takes two kinds of machine: a control desk that stays on all day and directs your AI helpers, and compute that does the crunching. The YouTuber uses a roughly 4,000-yuan M4 Mac mini as his desk and sends model work elsewhere. Before buying, ask which one you lack. A desk is judged on stability, power draw and software; compute on video memory and BF16 support, and occasional compute can be rented first."
+tags: ["local AI", "Mac mini", "control desk", "GPU", "decision making"]
+ogImage: "/covers/lunchuizhe-2026-09-17-mac-mini-ai-control-desk.png"
+cover: "/covers/lunchuizhe-2026-09-17-mac-mini-ai-control-desk.png"
+---
+
+![A quiet wooden desk with a small oil lamp and a compact metal box on it; through the window, far off, a large workshop glows and steams while the person at the desk writes a letter to it](/covers/lunchuizhe-2026-09-17-mac-mini-ai-control-desk.png)
+
+> *A gentleman cultivates himself through stillness and his virtue through frugality.*<br/>
+> *Without calm detachment there is no clear purpose; without tranquility, no reaching far.*<br/>
+> —— Zhuge Liang, *Admonition to His Son* (Three Kingdoms period); translation mine
+
+Quiet and thrift carry you far. Put those two words on a computer and I picture the little box in the corner of a desk that never gets switched off.
+
+Lunchuizhe (掄錘者), a Chinese YouTuber who reviews hardware for home AI, answered the question his comment section keeps asking in a [September 17 video](https://youtu.be/qRjmigKcSVI): Mac minis are sold out, so is everyone buying them to run AI? His answer made me look again at what each machine in my own home is doing.
+
+## Macs and AI: fine for chat models, don't bother with video
+
+He is blunt about it. A Mac runs language models of various sizes without trouble. Image generation is so-so. Video generation, in his words, is "basically suicide."
+
+There are two reasons. The first is how numbers get stored. The usual way to save memory today is to squeeze a model into small formats like FP4, INT4 or FP8, and Apple silicon supports none of them yet. The second is raw speed: doing BF16 math, Apple chips trail NVIDIA or Intel cards of the same class, and tools like ComfyUI for images and SGLang for serving models support Apple later than everyone else.
+
+Think of it as packing for a trip. FP4 and INT4 are vacuum bags that fit two or three times the clothes into one suitcase. Apple doesn't take vacuum bags yet, so everything goes in folded as is, and you need a bigger suitcase. That's why running big models on a Mac keeps pushing you toward more memory.
+
+![Three rows of cells from long to short: the same model stored in BF16 takes 16 cells, in FP8 takes 8, in FP4 or INT4 only 4. Apple can use only the longest BF16 row; the other two are marked unsupported, so you need more memory.](/figures/model-packing-bf16-fp8-fp4-en.svg)
+
+His advice follows: if you want big models to run comfortably on a Mac, budget 50,000 yuan or more and buy at the M5 Max tier.
+
+## Why he bought a Mac mini anyway, and it has nothing to do with compute
+
+His own machine is the cheapest one: an M4 Mac mini with 24GB of memory, about 4,000 yuan after subsidies and an education discount. Ask it to run a model around 20B parameters and, he says, it's hopeless.
+
+So what does it do? On his screen: three browsers, a video editor, a code editor, chat apps, and several AI agents running side by side. That day one of the agents opened an Android emulator on its own, tested his forum app and fixed the last few bugs.
+
+He values three things:
+
+- **Stability.** The mini stays on all year. Apart from restarts for system updates, it has never crashed on him.
+- **Memory that goes far.** The same workload needs at least 32GB on Windows for him; on the Mac, 24GB runs smoothly.
+- **Software.** Unix underneath, with its permission model and stable services; on top, full commercial software for editing and chat, plus the ability to build Apple apps.
+
+He also covered the other side. After two of his laptops moved to Windows 11, he couldn't switch updates off, every update brought new problems, and the machines would freeze while sitting idle. He wiped one and installed Ubuntu, and it became annoyingly stable. But he finds Ubuntu's desktop hard to use, and plenty of commercial software and chat apps have no Linux version.
+
+Apple sits in between: Linux-grade stability with a Windows-grade software catalog. None of that is about running models.
+
+![A two-axis chart, software coverage across and stability up: Ubuntu top left stable, few apps, Windows 11 bottom right full apps, frequent problems, Mac top right with both. Based on the YouTuber's own experience.](/figures/os-stability-vs-software-map-en.svg)
+
+If you already own a Windows machine, you're probably wondering whether to switch. The laptop I use to direct my own AI helpers runs Windows. My test is this: if everything you use daily lives on Windows and the machine doesn't fall over every few days, there's no reason to join the rush. What would make me switch is the laptop restarting itself at night and killing work in progress.
+
+## My home is split the same way: one machine directs, one does the work
+
+That's where his video hit home. I don't own a Mac, but my setup has the same division of labor. A laptop stays on all day and directs a few AI helpers. A Windows desktop with an old 8GB AMD card does the jobs that need compute: reading articles aloud, generating images, running local models.
+
+"Directing" sounds grand and is mostly chores: breaking work into tickets, handing them to different helpers, tracking who has finished, collecting results and checking them. None of that needs a GPU. It needs a machine that stays awake and doesn't choke with lots of things open. The workhorse is the opposite: idle most of the time, then maxing out the GPU the moment a heavy job lands.
+
+![Two daily load curves: the directing machine on top is a low flat band from morning to night that never switches off; the workhorse below sits near zero most of the day and jumps to full load only for heavy jobs, forming two blocks.](/figures/control-vs-worker-daily-load-en.svg)
+
+Today I saw both the upside and the limit. I wanted to test a voice model on the desktop and found only 0.71GB of its 8GB video memory free, because it was busy turning a blog post into audio. One card does one big job at a time, so the test waited. The laptop didn't care and kept working on other things.
+
+Even when the desktop can do a job, it can be slow. With one of the voice models, every minute of narration takes 13 to 15 minutes to generate, so a 13-minute article runs for about three hours. It grinds away while the laptop keeps handing out other work, and neither holds up the other.
+
+Heavier jobs are beyond it. Training a voice model doesn't fit on an 8GB card, so I rent an RTX 4090 in the cloud. The prices I logged on September 16 and 17 were $0.74 an hour, or $0.34 for a cheaper shared slot. For compute you need a few times a year, renting beats buying.
+
+![Cost against hours of use: buying is a flat line, renting starts at zero and slopes up, and the lines cross. Left of the crossing, light use, renting is cheaper; right of it, heavy use, buying is cheaper. 'A few times a year' sits on the left.](/figures/rent-vs-buy-gpu-crossover-en.svg)
+
+With the desk and the compute separated, one breaking doesn't take the other down. I only appreciated that after living with it.
+
+## Before buying for AI, ask which machine you're missing
+
+A lot of people get stuck on "Mac mini or graphics card." Those two options buy two different things.
+
+Picture a restaurant. The front counter is staffed from opening to closing and has to be steady, tidy, with an order system that never goes down. The big burners in the kitchen sit on low most of the day and roar only when the rush comes in. You wouldn't run the front counter off a burner, and you wouldn't expect the counter to cook a banquet.
+
+**If you're missing a control desk**, check four things:
+
+1. Can it stay on all year without crashing or restarting on its own?
+2. Does it have enough memory for a dozen windows and a few AI agents?
+3. Is it quiet and frugal with power, given it never turns off?
+4. Does the software you use every day exist on it?
+
+The Mac mini scores well on all four, which is why it's selling out.
+
+**If you're missing compute**, check two different things: video memory decides how large a model fits, and BF16 support decides whether new tools run smoothly. I broke both down in [How to pick a GPU for running AI at home](/en/blog/lunchuizhe-2026-09-14-local-ai-gpu-new-vs-old/). If you'll only need compute occasionally, rent for a month, see how much you use, then decide whether to buy.
+
+The expensive mistake is buying a desk when you need compute, or the reverse. Generate video on a 24GB Mac mini and it will go as badly as he says. Use a loud, power-hungry GPU tower as your always-on desk and the electricity bill and the noise charge you every day.
+
+## The kit he'd take to the countryside
+
+He ended on a fun idea. He'd like to move back to his family home in the countryside, fix up the courtyard, and live there on his own with plenty of space. He wants to see whether he can keep working while leaning less on outside power and internet.
+
+His equipment list follows the same split. Everyday work on an Apple laptop, because it sips power and makes no noise. Heavy jobs on a server that isn't on 24 hours a day, only when needed. For internet, a fixed line plus 5G from all three carriers combined in one router, so if one drops there are two more.
+
+What stays on all day should be frugal; what switches on occasionally can be a beast; what can fail needs a backup. He was talking about country living. I heard a solid plan for dividing work between machines.
+
+![Three timelines for one day: the laptop is a thin low band from morning to night; the server is absent most of the time and appears as one tall block midday; the network is three parallel lines, the middle one broken for a stretch while the other two stay connected.](/figures/countryside-setup-day-shape-en.svg)
+
+## One thing to take with you
+
+**Before buying a tool, decide whether you need something that's with you all day or something that delivers big bursts now and then.** The all-day kind should be stable, frugal and quiet. The burst kind should be powerful, and you can often rent it first. Buy one when you needed the other and you'll likely be unhappy on both counts.
+
+Something to try today: write down one tool you use every day. A computer, a car, a pan in your kitchen all count. Ask two questions. How many hours a day do you use it? At the moment you need it most, do you need steadiness or power? If the answer is all day and steady, don't let the biggest number on the spec sheet lure you next time you replace it. If it's now and then and powerful, check first whether you can borrow or rent one nearby.
