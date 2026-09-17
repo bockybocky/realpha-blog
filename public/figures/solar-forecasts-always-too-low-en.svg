@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A blue curve bends upward while four flatter gray forecast lines sit below it.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<defs><marker id="m5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--warn)"/></marker></defs>
+<text x="60" y="58" font-size="27" font-weight="700" fill="var(--ink)">Solar fcsts: too low</text>
+<line x1="120" y1="90" x2="120" y2="460" stroke="var(--dim)" stroke-width="2"/>
+<line x1="120" y1="460" x2="880" y2="460" stroke="var(--dim)" stroke-width="2"/>
+<text x="120" y="490" font-size="16" fill="var(--dim)">20y ago</text>
+<text x="860" y="490" font-size="16" fill="var(--ink)" text-anchor="end">Now</text>
+<g stroke="var(--grey)" stroke-width="3" stroke-dasharray="8 6" fill="none">
+<line x1="250" y1="420" x2="860" y2="398"/>
+<line x1="380" y1="385" x2="860" y2="348"/>
+<line x1="510" y1="330" x2="860" y2="288"/>
+<line x1="640" y1="250" x2="860" y2="218"/>
+</g>
+<polyline points="120,440 250,420 380,385 510,330 640,250 770,150 860,90" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text x="745" y="120" font-size="19" font-weight="700" fill="var(--accent)" text-anchor="end">Real</text>
+<text x="868" y="354" font-size="16" fill="var(--dim)">Past</text>
+<text x="868" y="376" font-size="16" fill="var(--dim)">Fcst</text>
+<line x1="880" y1="212" x2="880" y2="100" stroke="var(--warn)" stroke-width="3" marker-end="url(#m5)"/>
+<text x="892" y="166" font-size="16" fill="var(--warn)">Gap</text>
+<text x="480" y="536" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">Skews wrong</text>
+</svg>

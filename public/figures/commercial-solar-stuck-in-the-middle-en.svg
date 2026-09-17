@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="A two-axis chart with residential at upper left, utility-scale plants at lower right, commercial rooftops at lower left, and an arrow pointing to the upper right.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<defs><marker id="m6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker></defs>
+<text x="60" y="58" font-size="27" font-weight="700" fill="var(--ink)">C&amp;I roofs: stuck</text>
+<line x1="180" y1="110" x2="180" y2="500" stroke="var(--dim)" stroke-width="2"/>
+<line x1="180" y1="500" x2="870" y2="500" stroke="var(--dim)" stroke-width="2"/>
+<text x="870" y="534" font-size="16" fill="var(--dim)" text-anchor="end">Scale →</text>
+<text x="150" y="500" font-size="16" fill="var(--dim)" transform="rotate(-90 150 500)">Standard →</text>
+<rect x="620" y="120" width="230" height="120" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="735" y="187" font-size="19" fill="var(--accent)" text-anchor="middle">Both</text>
+<circle cx="300" cy="180" r="14" fill="var(--dim)"/>
+<text x="326" y="187" font-size="19" fill="var(--ink)">Home</text>
+<circle cx="740" cy="430" r="14" fill="var(--dim)"/>
+<text x="740" y="404" font-size="19" fill="var(--ink)" text-anchor="middle">Utility</text>
+<circle cx="310" cy="440" r="16" fill="var(--warn)"/>
+<text x="336" y="447" font-size="19" font-weight="700" fill="var(--warn)">C&amp;I roof</text>
+<line x1="330" y1="420" x2="612" y2="248" stroke="var(--accent)" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#m6)"/>
+<text x="480" y="300" font-size="15" fill="var(--dim)" text-anchor="end">Econ+AI cut soft</text>
+</svg>
