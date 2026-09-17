@@ -31,7 +31,8 @@ BLOG = 'https://blog.getrealpha.com'
 NON_INVESTMENT = {'herdr-complete-guide', 'herdr-codexbar-jianguo-quota-dispatch', 'xiaotian-2026-09-07-mac-ane-inference-1-8x', 'codexbar-quota-dispatch','lunchuizhe-2026-09-05-ten-dollars-one-request', 'lunchuizhe-2026-09-06-subscription-is-a-clock', 'caleb-2026-09-04-token-efficient-is-not-cost-efficient', 'tao-2026-08-28-six-math-essentials','local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
                   'lunchuizhe-2026-08-31-pick-your-model-and-agent', 'tao-2026-08-31-ai-math-drunk-genius', 'runpod-vs-local-gpu-2026-09', 'tao-2026-09-02-coin-game-human-ai-division', 'kelly-tsai-graph-engineering-2026-09', 'lunchuizhe-2026-08-23-no-best-agent-only-right-seat', 'my-creative-path-2026-09', 'fear-of-blowing-up-2026-09', 'xiaotian-2026-09-03-evox-swarm-social-rsi',
                   'dont-let-ai-say-no-problem', 'video-memory-without-the-cloud',
-                  'aice-ai-engineering-cert-prep', 'aice-must-know-concepts', 'read-the-source-before-you-install'}
+                  'aice-ai-engineering-cert-prep', 'aice-must-know-concepts', 'read-the-source-before-you-install',
+                  'lunchuizhe-2026-09-17-mac-mini-ai-control-desk'}
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
@@ -40,6 +41,7 @@ TAGS = {
     'read-the-source-before-you-install': ['AI應用落地', '資安', '開源軟體', 'AI工具', '教學'],
     'xiaotian-2026-09-11-mavis-system-level-agent': ['AI助手', '馬維斯', '電腦設定', 'AI應用落地', '新手'],
     'lunchuizhe-2026-09-14-local-ai-gpu-new-vs-old': ['本地AI', '顯卡', 'BF16', 'AMD', '硬體選購'],
+    'lunchuizhe-2026-09-17-mac-mini-ai-control-desk': ['本地AI', 'Mac mini', '顯卡', '硬體選購', 'AI agent'],
     'snow-2026-09-02-earnings-call-fy27q2': ['讀法說會', 'Snowflake', '財報', '軟體股', '投資教育'],
     'uncommon-sense-how-many-monkeys': ['新書讀書會', '讀書筆記', '機率', '倖存者偏差', '投資心理'],
     'crisis-engineering-no-one-is-coming': ['讀書筆記', '危機管理', '複雜系統', '風控', '持股檢查'],
@@ -91,6 +93,7 @@ COVERS = {
     'read-the-source-before-you-install': 'read-the-source-before-you-install.png',
     'xiaotian-2026-09-11-mavis-system-level-agent': 'xiaotian-2026-09-11-mavis-system-level-agent.png',
     'lunchuizhe-2026-09-14-local-ai-gpu-new-vs-old': 'lunchuizhe-2026-09-14-local-ai-gpu-new-vs-old.png',
+    'lunchuizhe-2026-09-17-mac-mini-ai-control-desk': 'lunchuizhe-2026-09-17-mac-mini-ai-control-desk.png',
     'snow-2026-09-02-earnings-call-fy27q2': 'snow-2026-09-02-earnings-call-fy27q2.png',
     'uncommon-sense-how-many-monkeys': 'uncommon-sense-how-many-monkeys.png',
     'crisis-engineering-no-one-is-coming': 'crisis-engineering-no-one-is-coming.png',
