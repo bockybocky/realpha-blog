@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="兩列對照：每個數字 8 格時速度條短，每秒 20 字；壓成 4 格後速度條長一倍多，每秒 48 字">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--dim)"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text x="48" y="62" font-size="27" font-weight="700" fill="var(--ink)">同一條路，貨少一半</text>
+  <text x="48" y="96" font-size="16" fill="var(--dim)">每吐一個字，權重都要搬一輪</text>
+
+  <rect x="40" y="125" width="880" height="175" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text x="70" y="182" font-size="20" font-weight="700" fill="var(--ink)">FP8</text>
+  <text x="70" y="208" font-size="15" fill="var(--dim)">一個數 8 格</text>
+  <rect x="220" y="160" width="26" height="26" rx="3" fill="var(--grey)"/>
+  <rect x="252" y="160" width="26" height="26" rx="3" fill="var(--grey)"/>
+  <rect x="284" y="160" width="26" height="26" rx="3" fill="var(--grey)"/>
+  <rect x="316" y="160" width="26" height="26" rx="3" fill="var(--grey)"/>
+  <rect x="348" y="160" width="26" height="26" rx="3" fill="var(--grey)"/>
+  <rect x="380" y="160" width="26" height="26" rx="3" fill="var(--grey)"/>
+  <rect x="412" y="160" width="26" height="26" rx="3" fill="var(--grey)"/>
+  <rect x="444" y="160" width="26" height="26" rx="3" fill="var(--grey)"/>
+  <line x1="486" y1="173" x2="690" y2="173" stroke="var(--dim)" stroke-width="3" marker-end="url(#ah)"/>
+  <rect x="705" y="143" width="110" height="60" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="760" y="180" font-size="19" text-anchor="middle" fill="var(--ink)">算力</text>
+  <text x="830" y="180" font-size="16" fill="var(--warn)">等貨</text>
+  <rect x="220" y="245" width="120" height="24" rx="4" fill="var(--grey)"/>
+  <text x="352" y="264" font-size="16" fill="var(--ink)">20 字/秒</text>
+
+  <rect x="40" y="325" width="880" height="175" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text x="70" y="382" font-size="20" font-weight="700" fill="var(--ink)">Q4</text>
+  <text x="70" y="408" font-size="15" fill="var(--dim)">一個數 4 格</text>
+  <rect x="220" y="360" width="26" height="26" rx="3" fill="var(--accent)"/>
+  <rect x="252" y="360" width="26" height="26" rx="3" fill="var(--accent)"/>
+  <rect x="284" y="360" width="26" height="26" rx="3" fill="var(--accent)"/>
+  <rect x="316" y="360" width="26" height="26" rx="3" fill="var(--accent)"/>
+  <line x1="358" y1="373" x2="690" y2="373" stroke="var(--dim)" stroke-width="3" marker-end="url(#ah)"/>
+  <rect x="705" y="343" width="110" height="60" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="760" y="380" font-size="19" text-anchor="middle" fill="var(--ink)">算力</text>
+  <rect x="220" y="445" width="288" height="24" rx="4" fill="var(--accent)"/>
+  <text x="520" y="464" font-size="16" fill="var(--ink)">48 字/秒</text>
+
+  <text x="480" y="548" font-size="22" font-weight="700" text-anchor="middle" fill="var(--ink)">卡在搬，不在算</text>
+</svg>

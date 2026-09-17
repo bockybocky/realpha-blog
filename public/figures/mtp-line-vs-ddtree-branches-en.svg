@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Left, the third dot in a line is wrong and the last two are discarded; right, many branches from one start, one reaching the end passes">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text x="48" y="62" font-size="27" font-weight="700" fill="var(--ink)">How much one wrong guess costs</text>
+
+  <rect x="40" y="110" width="430" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text x="70" y="152" font-size="20" font-weight="700" fill="var(--ink)">MTP: one line</text>
+  <line x1="95" y1="290" x2="415" y2="290" stroke="var(--line)" stroke-width="3"/>
+  <circle cx="95" cy="290" r="22" fill="var(--accent)"/>
+  <circle cx="175" cy="290" r="22" fill="var(--accent)"/>
+  <circle cx="255" cy="290" r="22" fill="var(--warn)"/>
+  <text x="255" y="297" font-size="20" font-weight="700" text-anchor="middle" fill="var(--page)">✕</text>
+  <circle cx="335" cy="290" r="22" fill="var(--page)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="415" cy="290" r="22" fill="var(--page)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="95" y="345" font-size="15" text-anchor="middle" fill="var(--dim)">OK</text>
+  <text x="175" y="345" font-size="15" text-anchor="middle" fill="var(--dim)">OK</text>
+  <text x="255" y="345" font-size="15" text-anchor="middle" fill="var(--warn)">Miss</text>
+  <text x="335" y="345" font-size="15" text-anchor="middle" fill="var(--dim)">Wasted</text>
+  <text x="415" y="345" font-size="15" text-anchor="middle" fill="var(--dim)">Wasted</text>
+
+  <rect x="490" y="110" width="430" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text x="520" y="152" font-size="20" font-weight="700" fill="var(--ink)">DFlash + DDTree: many paths</text>
+  <line x1="561" y1="290" x2="678" y2="190" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="561" y1="290" x2="678" y2="240" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="561" y1="290" x2="678" y2="290" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="561" y1="290" x2="678" y2="340" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="561" y1="290" x2="678" y2="390" stroke="var(--grey)" stroke-width="2"/>
+  <circle cx="545" cy="290" r="16" fill="var(--accent)"/>
+  <circle cx="690" cy="190" r="12" fill="var(--grey)"/>
+  <circle cx="690" cy="240" r="12" fill="var(--accent)"/>
+  <circle cx="690" cy="290" r="12" fill="var(--grey)"/>
+  <circle cx="690" cy="340" r="12" fill="var(--grey)"/>
+  <circle cx="690" cy="390" r="12" fill="var(--grey)"/>
+  <text x="718" y="196" font-size="17" fill="var(--warn)">✕</text>
+  <text x="718" y="296" font-size="17" fill="var(--warn)">✕</text>
+  <text x="718" y="346" font-size="17" fill="var(--warn)">✕</text>
+  <text x="718" y="396" font-size="17" fill="var(--warn)">✕</text>
+  <line x1="702" y1="240" x2="838" y2="240" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="852" cy="240" r="14" fill="var(--accent)"/>
+  <text x="852" y="276" font-size="15" text-anchor="middle" fill="var(--accent)">Pass</text>
+  <text x="690" y="436" font-size="20" text-anchor="middle" fill="var(--dim)">⋮</text>
+  <text x="790" y="436" font-size="15" fill="var(--dim)">22 paths</text>
+
+  <text x="255" y="530" font-size="22" font-weight="700" text-anchor="middle" fill="var(--warn)">One miss kills all</text>
+  <text x="705" y="530" font-size="22" font-weight="700" text-anchor="middle" fill="var(--accent)">One path is enough</text>
+</svg>

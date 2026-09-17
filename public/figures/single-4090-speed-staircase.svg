@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" width="960" height="570" role="img" aria-label="四根階梯長條：20、48、108、141，頂端虛線標峰值 184，每根標出救的卡點">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="570" fill="var(--page)"/>
+  <text x="48" y="62" font-size="27" font-weight="700" fill="var(--ink)">單卡 4090，一個請求的速度</text>
+  <text x="48" y="94" font-size="16" fill="var(--dim)">單位：字/秒</text>
+
+  <rect x="110" y="436" width="130" height="34" rx="4" fill="var(--grey)"/>
+  <rect x="310" y="388" width="130" height="82" rx="4" fill="var(--accent)"/>
+  <rect x="510" y="286" width="130" height="184" rx="4" fill="var(--accent)"/>
+  <rect x="710" y="230" width="130" height="240" rx="4" fill="var(--accent)"/>
+  <rect x="710" y="157" width="130" height="73" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 5"/>
+  <line x1="80" y1="470" x2="900" y2="470" stroke="var(--line)" stroke-width="2"/>
+
+  <text x="175" y="424" font-size="20" font-weight="700" text-anchor="middle" fill="var(--ink)">20</text>
+  <text x="375" y="376" font-size="20" font-weight="700" text-anchor="middle" fill="var(--ink)">48</text>
+  <text x="575" y="274" font-size="20" font-weight="700" text-anchor="middle" fill="var(--ink)">108</text>
+  <text x="775" y="264" font-size="20" font-weight="700" text-anchor="middle" fill="var(--page)">141</text>
+  <text x="775" y="145" font-size="16" text-anchor="middle" fill="var(--accent)">峰值 184</text>
+
+  <text x="175" y="504" font-size="19" font-weight="700" text-anchor="middle" fill="var(--ink)">起點</text>
+  <text x="375" y="504" font-size="19" font-weight="700" text-anchor="middle" fill="var(--ink)">量化</text>
+  <text x="575" y="504" font-size="19" font-weight="700" text-anchor="middle" fill="var(--ink)">猜好幾個字</text>
+  <text x="775" y="504" font-size="19" font-weight="700" text-anchor="middle" fill="var(--ink)">擴散猜字</text>
+  <text x="175" y="532" font-size="15" text-anchor="middle" fill="var(--dim)">FP8</text>
+  <text x="375" y="532" font-size="15" text-anchor="middle" fill="var(--dim)">救：搬資料</text>
+  <text x="575" y="532" font-size="15" text-anchor="middle" fill="var(--dim)">救：顯卡閒著</text>
+  <text x="775" y="532" font-size="15" text-anchor="middle" fill="var(--dim)">救：猜錯白費</text>
+</svg>

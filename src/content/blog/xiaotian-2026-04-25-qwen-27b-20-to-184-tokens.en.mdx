@@ -1,0 +1,139 @@
+---
+title: "One RTX 4090, from 20 to 184 tokens a second: when a local model is slow, find where it's stuck"
+description: "A Chinese AI YouTuber took Qwen3.6 27B on a single RTX 4090 from 20 tokens a second to a peak of 184 with three moves: quantization, predicting several tokens at once, and diffusion-style drafting. Each move clears a different bottleneck. My old 8GB AMD card needed a different fix entirely: a differently shaped model took it from 1.8 to 23. A plain-language breakdown of what each move rescues, and what to check before buying a GPU. Personal notes and measurements, not buying advice."
+slug: "xiaotian-2026-04-25-qwen-27b-20-to-184-tokens"
+lang: "en"
+pubDate: 2026-09-17
+category: tech
+tldr: "When a local model is slow, the bottleneck is often moving data, not compute. On a 4090, quantization took the YouTuber from 20 to 48 tokens a second, multi-token prediction to 108, and DFlash diffusion drafting to an average of 141 and a peak of 184. Each step rescued a different stage. My 8GB card couldn't even hold the model; switching to one that activates only a slice of its parameters per token took it from 1.8 to 23. Find the stuck stage first, then decide whether to tune, switch models or buy hardware."
+tags: ["local AI", "Qwen", "quantization", "inference speed", "decision making"]
+ogImage: "/covers/xiaotian-2026-04-25-qwen-27b-20-to-184-tokens.png"
+cover: "/covers/xiaotian-2026-04-25-qwen-27b-20-to-184-tokens.png"
+---
+
+![A mountain courier road at dusk: a fast horse races through a string of checkpoints, each piled with different cargo and guards, while beacon towers light up one after another in the distance](/covers/xiaotian-2026-04-25-qwen-27b-20-to-184-tokens.png)
+
+> *In war, what matters is victory; drag it out and the blades go dull.*<br/>
+> *So war values victory, not duration.*<br/>
+> —— *The Art of War*, "Waging War" (Spring and Autumn period); translation mine
+
+Win, and don't drag it out, or your blades go dull. Coding with a local model feels the same way. At 20 tokens a second you run out of patience and write the code yourself.
+
+In an [April 25 video](https://youtu.be/edHNTFt5jYk), Xiaotian (小天fotos), a Chinese YouTuber who builds with local AI, took the newly released Qwen3.6 27B and tuned it step by step on a single RTX 4090, from 20 tokens a second (a token is roughly a piece of a word) to a peak of 184. The video is five months old and the tools have kept moving. What still holds up is how he found one bottleneck after another. He compiled dozens of test runs into [a public report](https://github.com/xiaotianfotos/OPC/blob/main/07_Qwen3.6-27B/report.html); where the video and the report disagree, I use the report.
+
+## The starting point: what 20 tokens a second feels like
+
+A 27B dense model at FP8 precision on one 4090, untuned, produces 20 tokens a second. His description nails it: ask it to write a function, and by the time it has typed the function name you've given up and started writing it yourself.
+
+FP8 costs very little accuracy. The problem is speed, so the first job is finding where the time goes.
+
+Why go to all this trouble? He said that while using the model he kept suspecting he'd forgotten to switch, that he was still on a big cloud model like GLM or Kimi. The model is smart enough. What's left is making it fast enough.
+
+## Move one: quantization, which fixes "moving the data"
+
+He points out something counterintuitive. Today's GPUs compute fast; what's slow is hauling data out of video memory. The 4090's memory bandwidth isn't especially high, and every token means moving the model's weights one more round, so the compute spends most of its time waiting for deliveries.
+
+So the first move is quantization: shrink each number from 8 or 16 bits down to 4. Same road, half the cargo compared with FP8, roughly double the speed.
+
+![Two rows compared: on top each number takes 8 cells to move to the compute side, which sits waiting, and the speed bar is short at 20 tokens a second; below each number takes only 4 cells and the bar is more than twice as long, 48 tokens a second.](/figures/quantization-half-cargo-double-speed-en.svg)
+
+His measurements:
+
+- llama.cpp with the Q4 format: 45 tokens a second. Good for a single user, and it can spill part of the model into system memory when video memory runs short.
+- vLLM with the AWQ format: 48 tokens a second. Built for many requests at once.
+
+Going from 20 to 48 costs a sliver of accuracy. He ran 45 scenarios across three test sets (data extraction, instruction following, tool calling): FP8 scored 83.6, AWQ 81.1, llama.cpp's Q4 78.3. That's two to five points lost, and on tool calling AWQ scored 97% while the rest were perfect. He was upfront that the test only measures how much quantization costs, not overall ability.
+
+## Move two: guess several tokens at once, which fixes "the GPU is idling"
+
+After quantization, the remaining problem is that generating one token at a time leaves the GPU idle most of the time.
+
+MTP (multi-token prediction) gives the model extra prediction heads. It guesses several upcoming tokens, checks them in one pass, keeps the right ones and throws out the wrong ones. In effect it hands the GPU work during the gaps when it would otherwise sit around.
+
+His measurements (vLLM with AWQ):
+
+| Tokens guessed at once | Tokens per second | Faster than no guessing |
+|---|---|---|
+| None | 48 | — |
+| 1 | 71 | 49% |
+| 3 | 99 | 106% |
+| 5 | 108 | 124% |
+
+The FP8 version climbs the same way, from 20 up to 72.
+
+The report shows one more detail: going from 3 guesses to 5 made the AWQ version only 9% faster. The more you guess, the more wrong guesses you throw away, and the gains shrink. On one card, 20 became 108, more than five times faster, using nothing but quantization and guessing.
+
+## Move three: draft fuzzy, then sharpen, which fixes "one wrong guess wastes the rest"
+
+MTP guesses in a straight line, one token after another. Get one wrong in the middle and everything after it is discarded.
+
+DFlash borrows from AI image generation, which starts with a blurry picture and removes noise step by step. DFlash drafts a small block of fuzzy candidate text at once and refines it until it's clear. On top of that sits DDTree, which explores several paths at the same time. He set it to 22 paths; if any one works, it counts.
+
+![Left, five dots in a straight line: the first two guesses are right, the third is wrong, and the last two are discarded with it. Right, several branches fan out from one start; most are crossed out, and one reaching the end is enough to pass.](/figures/mtp-line-vs-ddtree-branches-en.svg)
+
+On the 4090 he averaged 141 tokens a second, with a peak of 184.
+
+Speed depends on the content, though:
+
+- Math problems, 150: formulas and numbers are rigid and easy to guess.
+- Code, 125: brackets and indentation are easy, custom variable names aren't. The small draft model guesses user ID, the big model wants user account, and one wrong token wastes everything after it.
+- Prose, worst of all: "the spring breeze blew across..." could continue in a thousand directions.
+
+The report adds two more reasons code is slower: coding prompts are longer, so preprocessing takes time, and code is full of very short tokens like indentation and brackets, so the same tokens per second produce fewer characters. He also tried raising the paths from 22 to 30. It got 2.5% slower and used 37% more video memory. More paths isn't automatically faster.
+
+![Three fans: math problems have a single path from the start, 150 tokens a second; code splits into three, 125 tokens a second; prose scatters into nine and is slowest. Fewer branches, faster guessing.](/figures/next-word-fan-predictability-en.svg)
+
+He also listed the limits. It doesn't handle multiple users yet, it isn't merged into mainline llama.cpp, and it often drops out when driven by Claude Code. So for real work he recommends FP8 on vLLM with MTP: best accuracy, and it handles many requests at once.
+
+## A second card and compressed memory: fixing "lots of users" and "doesn't fit"
+
+He borrowed a pair of 4090s. A single request reached 114.5 tokens a second, a small gain over the single-card AWQ setup. The bottleneck moved to communication between the cards: 4090s can't talk card to card directly, so data detours through the CPU and system memory.
+
+A second card pays off when many requests arrive at once. His analogy is a two-lane road becoming four lanes: one car doesn't notice, thirty or forty cars do. The report's numbers: with 10 requests at once, total output reached about 470 tokens a second, while each request slowed only from 114 to 93. At 20 requests it stopped growing.
+
+![A two-by-two road diagram: with one car, a two-lane road and a four-lane road look about the same; with thirty cars, the two-lane road is jammed while the four-lane road spreads cars across all lanes and flows.](/figures/two-cards-two-lanes-vs-four-lanes-en.svg)
+
+Why does he care about many requests? He calls it "maximum leverage." A smart large model plans and splits the work; a local model, a little less clever but able to run many copies at once, does the repetitive grunt work. Same machine, about the same power bill, from 20 tokens a second to 470: 23 times the output.
+
+My home runs the same split. Judgment calls go to the strongest cloud model. Short mechanical jobs, like pulling fields out of a passage, sorting items into categories or converting formats, go to a local model on my AMD desktop. It's slow, but it doesn't burn subscription quota and the data never leaves the house.
+
+He also mentioned a team that pushed Qwen3.5 27B on a single 3090 from 37 tokens a second to 207. In a separate experiment with a very small model, they lowered the 3090's power limit and fused 24 layers of computation into one block, and matched the energy efficiency of Apple's M5 Max. His conclusion: a lot of electricity is wasted on waiting and scheduling instead of actual computation.
+
+The last trick is TurboQuant. It compresses the conversation memory (the KV cache) from 16 bits to 3 or 4, roughly four times smaller, with accuracy loss too small to notice. His example: a 24GB 3090 running a Q4 model can still hold 200,000 tokens of context.
+
+Line the whole route up and each move clears the bottleneck the previous one exposed: data moves too slowly → the GPU idles → wrong guesses waste work → cards talk slowly → memory runs out.
+
+![Four rising bars: 20 tokens a second at the start, 48 after quantization, 108 after guessing several tokens at once, an average of 141 with diffusion drafting, and a dashed box at the top marking a peak of 184; under each bar is the bottleneck it fixes.](/figures/single-4090-speed-staircase-en.svg)
+
+## My 8GB card gets stuck even earlier
+
+All this made me think of my own old 8GB AMD card. Every one of his moves assumes the whole model fits in 24GB of video memory.
+
+My card fails that test. I measured it on 2026-09-12: the same kind of 27B dense model does run if you squeeze it, but at 1.8 tokens a second, because most of the weights live in system memory and every token means fetching them back.
+
+Then I switched to 35B-A3B. It has 35 billion parameters in total but uses only 3 billion for each token. Speed jumped to 23 tokens a second, and it got all six questions right on a small quiz with known answers. From 1.8 to 23, more than ten times faster, without buying anything. What changed was the shape of the model.
+
+There's a sequel. I later decided I still wanted a 27B, so I took Qwen3.8-27B compressed to about 3 bits and had an AI helper tune it. The first thing it found was the same family of problem Xiaotian describes: video memory was silently overcommitted by about 1.9GB, so those weights were fetched across the motherboard for every token. Moving more layers into system memory made it 21% to 40% faster. Adding MTP guessing and going from 8 to 16 CPU threads took it from 3.5 tokens a second to 5.14 on September 16, still passing all five coding tests. It also tried a smaller 2-bit version that ran above 8 tokens a second, but the same settings run twice got questions wrong the second time, so it was dropped.
+
+![Two grids side by side: on the left all 27 squares light up, meaning every token uses all parameters, 1.8 tokens a second; on the right only 3 of 35 squares light up, a small slice per token, 23 tokens a second.](/figures/dense-vs-moe-active-squares-en.svg)
+
+His card was stuck on "not moving data fast enough." Mine was stuck on "doesn't fit at all." Both are slow, but the problem sits in different places, and so does the fix.
+
+## When a local model is slow, check in this order
+
+Plenty of people who find local models slow jump straight to buying a bigger card. Based on these two cases, I'd ask in order:
+
+1. **Does it fit?** Can the whole model sit in video memory? If not, move to a smaller model or one that activates only part of its parameters per token. This step makes the biggest difference.
+2. **Is it quantized?** If it fits but it's slow, try a 4-bit format and trade a sliver of accuracy for double the speed.
+3. **Is your work easy to guess?** For code and math, MTP-style guessing helps a lot; for writing and creative work, not much.
+4. **How many jobs at once?** One person is fine on one card. Only when you're running several AI helpers in parallel does a second card or memory compression come in.
+
+If it's still not enough after those four questions, that's when to buy. If you only need heavy compute a few times a year, rent first. The cloud 4090 prices I logged on September 16 and 17 were $0.74 an hour, or $0.34 for a shared slot.
+
+Xiaotian says he treats his card as an asset, and that the 4090 he bought last year now costs more. That's his view; I have no GPU price records to check it, so I won't judge. My own take: what raised his card's value was software optimization, and a rented card benefits from the same optimizations.
+
+## One thing to take with you
+
+**When something is slow, find the stage where it's stuck before you spend money.** His card was slow at moving data, mine was slow because the model didn't fit. Both called "slow," with fixes more than ten times apart.
+
+Something to try today: pick one everyday thing that feels too slow, like getting out the door in the morning, cooking dinner or answering a hard email. Break it into three to five stages and estimate the minutes for each. Look at the longest one and ask whether you're doing something or waiting. If it's waiting, find a way to remove the wait before you think about buying a faster tool.
