@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The tall bar is the nominal multiple and the small slice at its base is the real multiple, with prices eating almost everything in between.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t{font-size:27px;font-weight:700}
+    .g{font-size:19px;font-weight:700}
+    .b{font-size:16px;fill:var(--dim)}
+    .k{font-size:22px;font-weight:700}
+</style>
+<text class="t" x="60" y="58">One century, two heights</text>
+<line x1="150" y1="470" x2="900" y2="470" stroke="var(--line)" stroke-width="2"/>
+<rect x="200" y="110" width="150" height="340" fill="var(--grey)" opacity="0.35"/>
+<rect x="200" y="110" width="150" height="360" fill="none" stroke="var(--line)" stroke-width="2"/>
+<rect x="200" y="450" width="150" height="20" fill="var(--accent)"/>
+<text class="g" x="380" y="150">Nominal 14,751x</text>
+<text class="b" x="380" y="178">The number on paper</text>
+<text class="g" x="380" y="440" fill="var(--accent)">Real 820x</text>
+<text class="b" x="380" y="466">What it actually buys</text>
+<line x1="356" y1="280" x2="600" y2="280" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 4"/>
+<text class="b" x="612" y="286">Prices x18</text>
+<text class="b" x="200" y="502">1926</text>
+<text class="b" x="350" y="502" text-anchor="end">Now</text>
+<text class="k" x="60" y="536">Read the slice below, not the number above</text>
+</svg>

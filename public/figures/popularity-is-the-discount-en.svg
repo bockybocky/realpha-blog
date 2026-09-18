@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two companies with the same cash flows: the pricier one offers a lower expected return and the cheaper one a higher expected return.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t{font-size:27px;font-weight:700}
+    .g{font-size:19px;font-weight:700}
+    .b{font-size:16px;fill:var(--dim)}
+    .k{font-size:22px;font-weight:700}
+</style>
+<text class="t" x="60" y="58">One cash flow, two prices</text>
+<line x1="480" y1="96" x2="480" y2="470" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 5"/>
+<text class="g" x="80" y="130">Well liked</text>
+<text class="g" x="520" y="130">Disliked</text>
+<rect x="80" y="152" width="44" height="44" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="134" y="152" width="44" height="44" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="188" y="152" width="44" height="44" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="102" y="181" text-anchor="middle">$2</text>
+<text class="b" x="156" y="181" text-anchor="middle">$2</text>
+<text class="b" x="210" y="181" text-anchor="middle">$2</text>
+<text class="b" x="248" y="181">Cash flow</text>
+<rect x="520" y="152" width="44" height="44" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="574" y="152" width="44" height="44" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="628" y="152" width="44" height="44" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="542" y="181" text-anchor="middle">$2</text>
+<text class="b" x="596" y="181" text-anchor="middle">$2</text>
+<text class="b" x="650" y="181" text-anchor="middle">$2</text>
+<text class="b" x="688" y="181">Cash flow</text>
+<line x1="60" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+<rect x="100" y="250" width="96" height="190" fill="var(--grey)" opacity="0.4"/>
+<text class="g" x="100" y="238">Price $40</text>
+<rect x="540" y="340" width="96" height="100" fill="var(--grey)" opacity="0.4"/>
+<text class="g" x="540" y="328">Price $20</text>
+<line x1="320" y1="440" x2="320" y2="370" stroke="var(--accent)" stroke-width="4"/>
+<path d="M320,354 L312,372 L328,372 Z" fill="var(--accent)"/>
+<text class="b" x="320" y="338" text-anchor="middle" fill="var(--accent)">Expected return 5%</text>
+<line x1="780" y1="440" x2="780" y2="250" stroke="var(--accent)" stroke-width="4"/>
+<path d="M780,234 L772,252 L788,252 Z" fill="var(--accent)"/>
+<text class="b" x="780" y="218" text-anchor="middle" fill="var(--accent)">Expected return 10%</text>
+<text class="k" x="60" y="512">The popular part is paid for out of future returns</text>
+</svg>

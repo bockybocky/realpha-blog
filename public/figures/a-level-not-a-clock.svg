@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左為報酬分布左移的兩條鐘形曲線，右為沒有指針的鐘面">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t{font-size:27px;font-weight:700}
+    .g{font-size:19px;font-weight:700}
+    .b{font-size:16px;fill:var(--dim)}
+    .k{font-size:22px;font-weight:700}
+</style>
+<text class="t" x="60" y="58">告訴你偏哪邊，不告訴你哪一天</text>
+<line x1="540" y1="96" x2="540" y2="450" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="80" y1="400" x2="500" y2="400" stroke="var(--line)" stroke-width="2"/>
+<path d="M240,400 C 317,400 331,225 380,225 C 429,225 443,400 520,400" fill="var(--accent)" opacity="0.18"/>
+<path d="M240,400 C 317,400 331,225 380,225 C 429,225 443,400 520,400" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<path d="M100,400 C 177,400 191,245 240,245 C 289,245 303,400 380,400" fill="var(--warn)" opacity="0.18"/>
+<path d="M100,400 C 177,400 191,245 240,245 C 289,245 303,400 380,400" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<text class="g" x="404" y="206" fill="var(--accent)">估值低</text>
+<text class="g" x="150" y="228" fill="var(--warn)">估值高</text>
+<text class="b" x="80" y="430">未來十年報酬</text>
+<text class="b" x="500" y="430" text-anchor="end">往右</text>
+<text class="g" x="80" y="130">水位</text>
+<text class="g" x="580" y="130">時鐘</text>
+<circle cx="740" cy="284" r="108" fill="var(--card)" stroke="var(--line)" stroke-width="3"/>
+<line x1="740" y1="188" x2="740" y2="204" stroke="var(--dim)" stroke-width="3"/>
+<line x1="740" y1="364" x2="740" y2="380" stroke="var(--dim)" stroke-width="3"/>
+<line x1="644" y1="284" x2="660" y2="284" stroke="var(--dim)" stroke-width="3"/>
+<line x1="820" y1="284" x2="836" y2="284" stroke="var(--dim)" stroke-width="3"/>
+<circle cx="740" cy="284" r="5" fill="var(--dim)"/>
+<text class="b" x="740" y="426" text-anchor="middle">沒有指針</text>
+<text class="k" x="60" y="500">要問的是持有期，不是時間點</text>
+</svg>

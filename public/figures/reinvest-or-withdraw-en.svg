@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two growth curves start together, but the one that takes money out mid-course drops to a lower track and ends far below at the right edge.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t{font-size:27px;font-weight:700}
+    .g{font-size:19px;font-weight:700}
+    .b{font-size:16px;fill:var(--dim)}
+    .k{font-size:22px;font-weight:700}
+</style>
+<text class="t" x="60" y="58">Reinvest, or take some out</text>
+<line x1="120" y1="462" x2="910" y2="462" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="120" y="488">Start: $1</text>
+<text class="b" x="910" y="488" text-anchor="end">100 years later</text>
+<path d="M120,458 C 430,446 660,384 890,116" fill="none" stroke="var(--accent)" stroke-width="3.5"/>
+<text class="g" x="660" y="128" fill="var(--accent)">All reinvested</text>
+<path d="M120,458 C 300,452 440,430 516,412" fill="none" stroke="var(--grey)" stroke-width="3.5"/>
+<path d="M516,448 C 640,436 780,402 890,300" fill="none" stroke="var(--grey)" stroke-width="3.5"/>
+<line x1="516" y1="412" x2="516" y2="448" stroke="var(--warn)" stroke-width="3" stroke-dasharray="5 4"/>
+<circle cx="516" cy="412" r="5.5" fill="var(--warn)"/>
+<text class="b" x="500" y="398" text-anchor="end" fill="var(--warn)">Some taken out</text>
+<text class="g" x="700" y="292" fill="var(--dim)">Lower track</text>
+<line x1="908" y1="116" x2="908" y2="300" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4 4"/>
+<text class="b" x="924" y="214" transform="rotate(90 924 214)">Gap</text>
+<text class="k" x="60" y="530">It costs you every year after, not just that sum</text>
+</svg>
