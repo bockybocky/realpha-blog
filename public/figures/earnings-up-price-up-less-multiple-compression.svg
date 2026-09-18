@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="盈餘柱高、股價柱矮，兩者高度差被標為倍數壓縮">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="58" font-size="27" fill="var(--ink)">兩個漲幅之間的那一段</text>
+<line x1="120" y1="462" x2="840" y2="462" stroke="var(--line)" stroke-width="2"/>
+<rect x="200" y="200" width="150" height="262" rx="4" fill="var(--accent)"/>
+<text class="t" x="200" y="188" font-size="19" fill="var(--ink)">盈餘</text>
+<text class="t" x="290" y="188" font-size="19" fill="var(--accent)">+25%</text>
+<rect x="500" y="352" width="150" height="110" rx="4" fill="var(--grey)"/>
+<text class="t" x="500" y="340" font-size="19" fill="var(--ink)">股價</text>
+<text class="t" x="580" y="340" font-size="19" fill="var(--dim)">+10%</text>
+<line x1="350" y1="200" x2="740" y2="200" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="650" y1="352" x2="740" y2="352" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="740" y1="200" x2="740" y2="352" stroke="var(--dim)" stroke-width="2"/>
+<line x1="734" y1="200" x2="746" y2="200" stroke="var(--dim)" stroke-width="2"/>
+<line x1="734" y1="352" x2="746" y2="352" stroke="var(--dim)" stroke-width="2"/>
+<text class="t" x="756" y="270" font-size="19" fill="var(--dim)">倍數壓縮</text>
+<text class="t" x="756" y="296" font-size="16" fill="var(--dim)">15%</text>
+<text class="t" x="60" y="520" font-size="22" fill="var(--ink)">中間那段，是市場願意付的價</text>
+</svg>
