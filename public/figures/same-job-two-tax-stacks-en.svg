@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" width="960" height="570" role="img" aria-label="The left bar is taller because it stacks four taxes, while the right bar is shorter with only one.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:600; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .s2 { font-size:16px; fill:var(--ink); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="570" fill="var(--page)"/>
+  <text class="t" x="60" y="70">Same job, two tax bills</text>
+  <text class="s" x="60" y="100">One anesthesiologist, two forms of income</text>
+
+  <text class="g" x="315" y="140" text-anchor="middle">On salary</text>
+  <rect x="250" y="160" width="130" height="30" fill="var(--warn)"/>
+  <rect x="250" y="190" width="130" height="50" fill="var(--grey)"/>
+  <rect x="250" y="240" width="130" height="70" fill="var(--grey)"/>
+  <rect x="250" y="310" width="130" height="150" fill="var(--grey)"/>
+  <text class="s2" x="234" y="182" text-anchor="end">SALT deduction cap</text>
+  <text class="s2" x="234" y="222" text-anchor="end">Medicare surtax (no cap)</text>
+  <text class="s2" x="234" y="282" text-anchor="end">Payroll tax</text>
+  <text class="s2" x="234" y="392" text-anchor="end">37% top rate</text>
+
+  <text class="g" x="645" y="140" text-anchor="middle">Own practice (S corp)</text>
+  <rect x="580" y="340" width="130" height="120" fill="var(--accent)"/>
+  <text class="s2" x="726" y="406">Pass-through rate under 30%</text>
+  <text class="s" x="726" y="432">No payroll tax · no surtax</text>
+
+  <line x1="180" y1="460" x2="820" y2="460" stroke="var(--line)" stroke-width="2"/>
+  <text class="c" x="60" y="530">The tax code reads the form of income</text>
+</svg>

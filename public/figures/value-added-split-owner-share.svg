@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="兩根長條，右邊比左邊高出一段，高出的那段大部分塗成老闆拿走的顏色">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:600; fill:var(--ink); }
+    .ga { font-size:19px; font-weight:600; fill:var(--accent); }
+    .gw { font-size:19px; font-weight:600; fill:var(--warn); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text class="t" x="60" y="70">餅變大，切走的那塊也變大</text>
+  <text class="s" x="60" y="100">美國企業部門，每位員工的增值</text>
+
+  <rect x="280" y="276" width="140" height="204" fill="var(--grey)"/>
+  <rect x="560" y="276" width="140" height="204" fill="var(--grey)"/>
+  <rect x="560" y="258" width="140" height="18" fill="var(--warn)"/>
+  <rect x="560" y="168" width="140" height="90" fill="var(--accent)"/>
+
+  <line x1="180" y1="480" x2="820" y2="480" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="350" y="512" text-anchor="middle">2001</text>
+  <text class="s" x="350" y="538" text-anchor="middle">3.4 萬美元</text>
+  <text class="g" x="630" y="512" text-anchor="middle">2021</text>
+  <text class="s" x="630" y="538" text-anchor="middle">5.2 萬美元</text>
+
+  <path d="M726 168 L740 168 L740 276 L726 276" fill="none" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="756" y="200">增加 1.8 萬</text>
+  <text class="ga" x="756" y="234">老闆拿 1.5 萬</text>
+  <text class="gw" x="756" y="262">其餘 0.3 萬</text>
+
+  <text class="c" x="60" y="576">做大一半，切走一半</text>
+</svg>

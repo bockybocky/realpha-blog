@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" width="960" height="570" role="img" aria-label="Two bars of equal height, the left cut twice and the right cut once, leaving the right bar with a taller take-home portion.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:600; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .s2 { font-size:16px; fill:var(--ink); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="570" fill="var(--page)"/>
+  <text class="t" x="60" y="70">One pool of profit, two tax paths</text>
+  <text class="s" x="60" y="100">Equal bars = the same corporate profit</text>
+
+  <text class="g" x="300" y="136" text-anchor="middle">C corporation</text>
+  <rect x="240" y="160" width="120" height="70" fill="var(--grey)" stroke="var(--line)"/>
+  <rect x="240" y="230" width="120" height="60" fill="var(--grey)" stroke="var(--line)"/>
+  <rect x="240" y="290" width="120" height="170" fill="var(--accent)"/>
+  <text class="s2" x="224" y="200" text-anchor="end">Corporate tax</text>
+  <text class="s2" x="224" y="266" text-anchor="end">Dividend tax</text>
+  <text class="s2" x="224" y="380" text-anchor="end">Take-home</text>
+
+  <text class="g" x="660" y="136" text-anchor="middle">Pass-through entity</text>
+  <rect x="600" y="160" width="120" height="90" fill="var(--grey)" stroke="var(--line)"/>
+  <rect x="600" y="250" width="120" height="210" fill="var(--accent)"/>
+  <text class="s2" x="736" y="210">Individual tax</text>
+  <text class="s2" x="736" y="360">Take-home</text>
+
+  <line x1="180" y1="460" x2="800" y2="460" stroke="var(--line)" stroke-width="2"/>
+  <text class="s" x="60" y="500">After 1986: individual rate &lt; corporate rate</text>
+  <text class="c" x="60" y="538">Two gates versus one</text>
+</svg>
