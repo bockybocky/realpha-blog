@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="A vertical line splits the frame in two: the left half is packed with dense horizontal lines representing everything already written down, and the right half is an empty dashed box representing what has not happened yet.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:600; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:600; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="58">Known read, unknown empty</text>
+
+  <rect x="60" y="130" width="460" height="230" fill="var(--card)"/>
+  <line x1="60" y1="152" x2="520" y2="152" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="60" y1="178" x2="520" y2="178" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="60" y1="204" x2="520" y2="204" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="60" y1="230" x2="520" y2="230" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="60" y1="256" x2="520" y2="256" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="60" y1="282" x2="520" y2="282" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="60" y1="308" x2="520" y2="308" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="60" y1="334" x2="520" y2="334" stroke="var(--accent)" stroke-width="3"/>
+
+  <rect x="520" y="130" width="380" height="230" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="8 8"/>
+
+  <line x1="520" y1="100" x2="520" y2="400" stroke="var(--ink)" stroke-width="3"/>
+  <text class="g" x="520" y="90" text-anchor="middle">Now</text>
+
+  <text class="g" x="60" y="394">Written</text>
+  <text class="b" x="60" y="420">Every page written</text>
+  <text class="b" x="60" y="446">Models win</text>
+
+  <text class="g" x="540" y="394">Not yet</text>
+  <text class="b" x="540" y="420">No edge here</text>
+  <text class="b" x="540" y="446">Humans</text>
+
+  <text class="c" x="60" y="500">React vs predict line</text>
+</svg>

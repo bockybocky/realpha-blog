@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A comparison of two stacked bars, four years ago and now: the lower segment representing inflation expectations is exactly the same height in both, while the upper segment representing other compensation is taller now, and the extra piece is labelled one hundred fifty basis points.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:600; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:600; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="58">Rise isn't inflation</text>
+
+  <line x1="60" y1="430" x2="900" y2="430" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="170" y="313" width="170" height="117" fill="var(--grey)"/>
+  <rect x="170" y="253" width="170" height="60" fill="var(--accent)"/>
+  <text class="g" x="255" y="462" text-anchor="middle">Then</text>
+
+  <rect x="560" y="313" width="170" height="117" fill="var(--grey)"/>
+  <rect x="560" y="178" width="170" height="135" fill="var(--accent)"/>
+  <text class="g" x="645" y="462" text-anchor="middle">Now</text>
+
+  <line x1="340" y1="313" x2="560" y2="313" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text class="b" x="450" y="340" text-anchor="middle">234 flat</text>
+
+  <line x1="760" y1="253" x2="760" y2="178" stroke="var(--warn)" stroke-width="2.5"/>
+  <line x1="752" y1="185" x2="760" y2="176" stroke="var(--warn)" stroke-width="2.5"/>
+  <line x1="768" y1="185" x2="760" y2="176" stroke="var(--warn)" stroke-width="2.5"/>
+  <text class="g" x="778" y="212">+150 bp</text>
+  <text class="b" x="778" y="238">USD rent</text>
+
+  <rect x="60" y="253" width="8" height="60" fill="var(--accent)"/>
+  <text class="b" x="80" y="278">Other</text>
+  <rect x="60" y="360" width="8" height="40" fill="var(--grey)"/>
+  <text class="b" x="80" y="385">CPI</text>
+
+  <text class="c" x="60" y="528">Bottom unchanged, top did it</text>
+</svg>

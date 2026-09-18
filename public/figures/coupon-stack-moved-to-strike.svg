@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="上下兩排的價格分布：三年前那團丘離右邊那條履約價垂直線很遠，現在那團丘已經緊貼著垂直線">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:600; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:600; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="58">三年換掉一整疊票面</text>
+
+  <line x1="800" y1="100" x2="800" y2="440" stroke="var(--warn)" stroke-width="2.5"/>
+  <text class="b" x="812" y="120">履約價 105</text>
+
+  <line x1="80" y1="250" x2="900" y2="250" stroke="var(--line)" stroke-width="2"/>
+  <line x1="80" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+
+  <path d="M140 250 Q250 130 360 250 Z" fill="var(--grey)"/>
+  <text class="g" x="110" y="160">三年前</text>
+  <text class="b" x="110" y="186">均價 78.94</text>
+  <line x1="370" y1="215" x2="790" y2="215" stroke="var(--dim)" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <text class="b" x="580" y="205" text-anchor="middle">離得很遠，那個選擇權幾乎不值錢</text>
+
+  <path d="M600 440 Q720 310 830 440 Z" fill="var(--accent)"/>
+  <text class="g" x="110" y="350">現在</text>
+  <text class="b" x="110" y="376">低票息還掉、轉貸掉、屋主搬家</text>
+  <text class="b" x="110" y="402">新發的都是高票息</text>
+
+  <text class="b" x="560" y="472" text-anchor="middle">貼著履約價，凸性最強</text>
+
+  <text class="c" x="60" y="524">整疊票面挪到履約價旁邊，利差從 95 走到 110</text>
+</svg>

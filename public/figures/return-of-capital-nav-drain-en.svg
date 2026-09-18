@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A height gap between two bars: on the left is the income the underlying assets earned, on the right is the larger amount paid out, with the excess piece shaded separately, and a NAV line on the right side stepping down month after month.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:600; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:600; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="58">Pays out more than it earns</text>
+
+  <line x1="60" y1="400" x2="560" y2="400" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="110" y="190" width="140" height="210" fill="var(--grey)"/>
+  <text class="g" x="180" y="432" text-anchor="middle">Earned</text>
+  <text class="b" x="180" y="458" text-anchor="middle">Junk 6–8%</text>
+
+  <rect x="350" y="190" width="140" height="210" fill="var(--grey)"/>
+  <rect x="350" y="100" width="140" height="90" fill="var(--warn)"/>
+  <text class="g" x="420" y="432" text-anchor="middle">Paid</text>
+  <text class="b" x="420" y="458" text-anchor="middle">Over 10%</text>
+
+  <text class="g" x="506" y="140">ROC</text>
+  <text class="b" x="506" y="166">Your money</text>
+
+  <line x1="620" y1="120" x2="620" y2="400" stroke="var(--line)" stroke-width="2"/>
+  <line x1="620" y1="400" x2="900" y2="400" stroke="var(--line)" stroke-width="2"/>
+  <path d="M650 170 L700 205 L750 238 L800 274 L860 310" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <text class="g" x="640" y="145">NAV</text>
+  <text class="b" x="860" y="348" text-anchor="end">Falls every month</text>
+
+  <text class="c" x="60" y="506">Payout lands, NAV pays</text>
+</svg>
