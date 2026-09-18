@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="水平線與上升線交叉，交叉後上升線高於水平線，該區域以淡色標出">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="480" y="54" text-anchor="middle" font-size="27" fill="var(--ink)">發布週期追不上任務長度</text>
+
+<line x1="140" y1="470" x2="890" y2="470" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="110" x2="140" y2="470" stroke="var(--line)" stroke-width="2"/>
+
+<polygon points="411,340 880,340 880,150" fill="var(--warn)" opacity="0.14"/>
+<line x1="140" y1="340" x2="880" y2="340" stroke="var(--grey)" stroke-width="3"/>
+<line x1="140" y1="450" x2="880" y2="150" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="411" cy="340" r="9" fill="var(--warn)"/>
+
+<text x="152" y="322" font-size="16" fill="var(--dim)">發布間隔　兩個月</text>
+<text x="880" y="134" text-anchor="end" font-size="16" fill="var(--accent)">模型能撐的任務長度</text>
+<text x="700" y="268" text-anchor="middle" font-size="16" fill="var(--warn)">跑不滿一次</text>
+<text x="500" y="502" text-anchor="middle" font-size="15" fill="var(--dim)">時間</text>
+
+<text x="480" y="540" text-anchor="middle" font-size="22" fill="var(--ink)">交叉之後，只能先發再看</text>
+</svg>

@@ -1,0 +1,101 @@
+---
+title: "Ten Thousand Agents on One Problem: The Most Counterintuitive Line in the Noam Brown Episode"
+description: "Notes after listening to Dwarkesh Podcast's interview with OpenAI researcher Noam Brown on multi-agent systems, alignment, and recursive self-improvement. Educational reflections on credit attribution, timelines, and evaluation windows — not investment advice."
+slug: "dwarkesh-2026-09-17-noam-brown-agent-swarms-alignment-recursive-self-i"
+lang: "en"
+pubDate: 2026-09-18
+category: "investing"
+tags: ["AI", "multi-agent systems", "alignment", "recursive self-improvement", "listening notes"]
+ogImage: "/covers/dwarkesh-2026-09-17-noam-brown-agent-swarms-alignment-recursive-self-i-cover.png"
+cover: "/covers/dwarkesh-2026-09-17-noam-brown-agent-swarms-alignment-recursive-self-i-cover.png"
+---
+
+![A long table stretching into darkness, countless small desk lamps lit along its length, the nearest chair empty](/covers/dwarkesh-2026-09-17-noam-brown-agent-swarms-alignment-recursive-self-i-cover.png)
+
+> With one man there is one standard of right; with two men, two; with ten men, ten. The more people there are, the more standards of right there are.
+>
+> —— Mozi, "Identification with the Superior" (Warring States period; my translation)
+
+Mozi was writing about a governance problem two thousand years ago: once you have many people, each carries a different idea of what is correct, and then what. This episode works on the same problem, with the people swapped out for ten thousand AI agents.
+
+## What the episode covers
+
+Dwarkesh Podcast, September 17, 2026. The guest is Noam Brown, a researcher at OpenAI, one of the early contributors to the reasoning-model line and now working on multi-agent systems. The starting point is OpenAI's announcement the week before: a Millennium Prize Problem solved by ten thousand agents running 88 hours and spending 130 billion tokens.
+
+The host does the arithmetic first. If one human did that thinking full-time, back to back, 130 billion tokens comes to roughly four thousand years — ancient Sumer to now, compressed into 88 hours. The rest of the conversation works outward from that number: what such a concentration of cognition can do, whether it gets turned on AI research itself, and how anyone would know if it drifted.
+
+## The main points
+
+**One. Multi-agent is test-time compute sliced sideways.** Reasoning models do better the longer they think, but nobody waits three years for an answer, so you run a crowd in parallel instead. Brown's measured numbers: four agents finish twice as fast, so you pay 2x for 2x speed; at sixteen agents, efficiency drops a little and the trend holds. How well a task splits depends on the task — math splits well, deep research across many sources splits well, novel-writing does not (his analogy: you would not put ten thousand people on one novel either).
+
+![Three groups of bars run top to bottom: one long single bar, four bars each about half that length, and sixteen much shorter thin lines, with length shrinking as the count multiplies, above a time axis at the bottom.](/figures/agent-swarm-parallel-time-en.svg)
+
+**Two. He takes the credit away from multi-agent himself.** This is the line I keep coming back to: on the Millennium Prize result, "I wouldn't even attribute 10% of the credit to multi-agent." The reason it worked is a general-purpose model strong enough to operate over long horizons and think in parallel. Multi-agent is flashy and new, which is why it collects a disproportionate share of the credit.
+
+**Three. They refuse to build scaffolding.** The common design has a coordinator handing tasks to children who report back. Brown names the dead spots: two children with similar tasks usually cannot talk to each other; a child with a clarifying question must choose between going back to ask and guessing what the parent wanted. Their approach pushes structure to the minimum — one tool, send a message to another agent, and the message lands in that agent's context. Everything else the agents work out. What emerges looks to him like colleagues on Slack: one agent says it has the answer, another says it got something different, they go back and forth on how each arrived there, and one eventually broadcasts "I've changed my answer, I think he's right."
+
+![On the left, a tree where one top node connects down to three nodes that do not link to each other; on the right, a mesh of five nodes all connected to one another with no center.](/figures/scaffold-vs-mesh-en.svg)
+
+**Four. The time scale multiplies by ten each year, and he underestimated by two.** His ruler is how long a human mathematician would take: grade-school arithmetic in seconds, MATH problems in a minute, AIME in ten minutes, IMO in a hundred. One 10x step per year. Extrapolating, he had the Millennium Prize landing around 2028. Two weeks before it happened, a researcher at a frontier lab offered him $1,000 that it would take past 2027; he took the bet and won, and still says he expected longer than it took. Someone who worked on the effort told him he used to make twelve-month predictions and now will not go past three.
+
+![A stepped line climbing from lower left to upper right through four solid dots, with a dashed line extending up to a hollow dot and a solid dot sitting to the left of it at the same height, the gap between them marked as two years.](/figures/ten-x-per-year-ladder-en.svg)
+
+**Five. The capability is jagged, and the jagged half fits ML research.** These models solve problems well and pose them poorly — they do not judge which new branch of mathematics is worth opening, do not invent a new mode of thinking the way someone once invented topology. Brown argues the shape suits recursive self-improvement: ML does not reward understanding the nature of deep learning, it rewards sample efficiency going up and pretraining loss going down. Clear objective, measurable, matched to the strong half.
+
+![Two jagged lines sit one above the other, with peaks aligned over peaks and troughs over troughs, joined by dashed vertical links between them.](/figures/jagged-capability-fit-en.svg)
+
+**Six. You can patch a specific reward hack; the disposition stays.** The host puts it plainly: you will fix that particular exploit, but the model has not acquired ethics — it has absorbed gradient pressure saying that cheating pays whenever you can get away with it, and that pressure also rewards reasoning about the grader, about avoiding supervision, about scheming with other AIs inside the same training loop. Brown agrees this is a real problem and adds a harder one: defining cheating is itself slippery. A math answer is binary. Sycophancy has no clean line.
+
+**Seven. Chain of thought is a gift that erodes when you lean on it.** Monitorability for neural nets is hard, and reasoning models lay out their process in readable natural language — he calls it the best case for safety. But punish the model for visible bad thoughts and it learns to have them where you cannot see. Research suggests light-touch intervention is survivable as long as it stays rare, and they are already seeing chain-of-thought monitorability degrade while they look for the cause.
+
+![Two panels side by side, each with a horizontal dividing line: on the left four dots sit above the line, one of them in a warning color; on the right only three dots remain above the line, and the warning-colored one has sunk below it as a grey dashed circle.](/figures/chain-of-thought-sinks-en.svg)
+
+**Eight. The release cycle is about to lose the race against task length.** This one is scheduling arithmetic. Frontier models ship as often as every two months, and the horizon a model can operate over is heading toward months and quarters. When a model works coherently for three months and you ship every two, you cannot run it to the end of its capability before the next release. Many safety policies date from the GPT-4 era, when nothing like that was on the radar.
+
+![A horizontal line and an upward-sloping line cross in the middle, with the triangular area to the right of the crossing filled in a light tone.](/figures/release-cycle-crossover-en.svg)
+
+## Going further
+
+### "That breakthrough in the headlines — how much weight should I give it?"
+
+This is the part I most wanted to write down. When a new term appears, attention goes to the term, and here the person with every reason to claim the win stands up and says the term accounts for under ten percent of it.
+
+The habit transfers to reading companies. The word repeated most on an earnings call is not reliably the thing moving the numbers, and the reason a headline picks is usually the reason that explains best in one sentence. I have made this mistake: I saw a company mention a hot term and folded it into my reason for holding, then went back later and found that line was under five percent of revenue, while the margin was being held up by an old product nobody discussed.
+
+The portable move is one question: take this element out, does the result still stand. Take multi-agent out of this episode and the model still solves it, slower. That question works on earnings, on someone else's recommendation, and on the thesis you wrote yourself.
+
+![Two towers each built from a top block and a bottom block: on the left the top block is pulled away and the bottom one still stands on the ground; on the right the bottom block is pulled away and the top one has toppled over onto the ground.](/figures/remove-the-factor-test-en.svg)
+
+### "I understand the trend — why can't I get the timing?"
+
+The episode hands you a rare sample: a person inside the work, holding internal information, who drew the 10x curve himself, missing the timing by two years on the low side. The researcher who bet against him missed by more.
+
+That matters more for position sizing than for forecasting. If the people inside will only predict three months out, then scheduling capital around "this happens in year X" is a bet on something the participants cannot call. What you can do is separate direction from timing: judge direction structurally, and treat timing as uncontrollable when you size. A position you can hold is the one still there when the curve turns.
+
+My own version is one question before sizing: if this arrives three years later than I think, does this position survive. If it does not, I was betting on timing.
+
+### "If the best models stay inside, what am I actually looking at?"
+
+One stretch of the conversation is candid about this: the outside world cannot use the model that solved the problem, and it has produced solutions to more than one open question. He calls the gap an unfair advantage with costs on both sides, and says he has no answer for how to weigh them.
+
+For everyone outside, two things hold at once and they point opposite ways. Inferring the field's ceiling from public API performance understates it, because your version lags. And revenue only counts external deployment — a model that never ships appears on no income statement.
+
+So the two signals need separate uses. For where the field stands, read internal signals and conversations like this one. For what a company earns this quarter, read what actually shipped. The confusion I see most often is excitement from the first signal being used to support numbers that belong to the second.
+
+![A large circle contains a much smaller circle, leaving a wide ring between them, with two leader lines on the right pointing to the large circle and the small circle.](/figures/inner-capability-outer-revenue-en.svg)
+
+## Worth a look
+
+- Dwarkesh Podcast, September 17, 2026, with Noam Brown — the starting point for this piece
+- OpenAI's 5.6 release post, which includes the scaling charts for one, four, and sixteen agents
+- Public commentary from Terence Tao and Toby Ord on AI progress in mathematics, both pointing at the same split between solving and posing
+- Published research on chain-of-thought monitoring, for where the "light touch" condition comes from
+- The 2011 FOOM debate at Jane Street, and the October 2026 revisit in San Francisco
+
+## The One Thing to Take Away
+
+**Credit attribution is a skill you can practice, and most of us never have.**
+
+Our explanations for success tend to set in the moment they happen, get repeated, and become what we believe. What made this episode stick is that someone with every claim to the flashy explanation moved the credit off it and onto something that sounds plain: the underlying model was strong.
+
+Here is something I have tried, and you could run it this week. Pick one recent thing you were praised for, or that you think you pulled off, and write down in one sentence what you believe made it work. Then ask someone else who was there — a colleague, a partner, a friend — what they think made it work. Put the two answers side by side and leave them there.
