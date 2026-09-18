@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="A bar chart in which the two bars on the left standing for talk are close to zero height, while the four bars on the right standing for action rise much higher.">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; font-weight:700; fill:var(--ink); }
+.g { font-size:19px; fill:var(--dim); }
+.n { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; font-weight:600; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text x="60" y="58" class="t">Talk is free, action costs money</text>
+<path d="M110 150 V470 H900" stroke="var(--line)" stroke-width="2" fill="none"/>
+<path d="M110 150 l-6 12 h12 z" fill="var(--line)"/>
+<text x="96" y="310" class="g" text-anchor="end">Cost</text>
+<path d="M372 170 V470" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="6 6"/>
+<text x="240" y="196" class="g" text-anchor="middle">Say</text>
+<text x="650" y="196" class="g" text-anchor="middle">Do</text>
+<rect x="150" y="462" width="80" height="8" fill="var(--grey)"/>
+<rect x="250" y="458" width="80" height="12" fill="var(--grey)"/>
+<text x="190" y="496" class="n" text-anchor="middle">Calls</text>
+<text x="290" y="496" class="n" text-anchor="middle">Pledges</text>
+<rect x="420" y="280" width="80" height="190" fill="var(--accent)"/>
+<rect x="540" y="320" width="80" height="150" fill="var(--accent)"/>
+<rect x="660" y="260" width="80" height="210" fill="var(--accent)"/>
+<rect x="780" y="360" width="80" height="110" fill="var(--accent)"/>
+<text x="460" y="496" class="n" text-anchor="middle">Capex</text>
+<text x="580" y="496" class="n" text-anchor="middle">Leases signed</text>
+<text x="700" y="496" class="n" text-anchor="middle">Wafer orders</text>
+<text x="820" y="496" class="n" text-anchor="middle">Key hires</text>
+<text x="60" y="548" class="c">Only the expensive bars carry information, the cheap two do not</text>
+</svg>
