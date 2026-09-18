@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩軸方格，橫軸補回時間縱軸剩餘存量，右下角標為最先見底的區域">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="480" y="56" text-anchor="middle" font-size="27" fill="var(--ink)">最先用完的是哪一樣</text>
+<rect x="560" y="290" width="300" height="140" fill="var(--warn)" opacity="0.12"/>
+<text x="710" y="336" text-anchor="middle" font-size="19" fill="var(--warn)">最先見底</text>
+<line x1="160" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="160" y1="430" x2="160" y2="130" stroke="var(--line)" stroke-width="2"/>
+<line x1="560" y1="130" x2="560" y2="430" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="6 6"/>
+<line x1="160" y1="290" x2="880" y2="290" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="6 6"/>
+<text x="160" y="466" font-size="16" fill="var(--dim)">幾個月補得回來</text>
+<text x="880" y="466" text-anchor="end" font-size="16" fill="var(--dim)">補不回來</text>
+<text x="520" y="500" text-anchor="middle" font-size="19" fill="var(--ink)">補回一份要多久</text>
+<text x="128" y="290" transform="rotate(-90 128 290)" text-anchor="middle" font-size="19" fill="var(--ink)">還剩多少</text>
+<circle cx="268" cy="200" r="9" fill="var(--accent)"/>
+<text x="286" y="206" font-size="16" fill="var(--ink)">錢</text>
+<circle cx="500" cy="248" r="9" fill="var(--accent)"/>
+<text x="518" y="254" font-size="16" fill="var(--ink)">時間</text>
+<circle cx="660" cy="206" r="9" fill="var(--accent)"/>
+<text x="678" y="212" font-size="16" fill="var(--ink)">體力</text>
+<circle cx="766" cy="360" r="9" fill="var(--warn)"/>
+<text x="784" y="366" font-size="16" fill="var(--ink)">某個人的耐心</text>
+<text x="880" y="152" text-anchor="end" font-size="15" fill="var(--dim)">位置由你自己估，示意而已</text>
+<text x="480" y="536" text-anchor="middle" font-size="22" fill="var(--ink)">先補上受詞，再看誰先見底</text>
+</svg>
