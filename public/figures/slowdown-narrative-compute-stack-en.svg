@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Two stacked bars: the right one has a shorter training segment but adds a verification and monitoring block, so its total height exceeds the left one.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text class="t" x="60" y="66">The story slows down, the machines work overtime</text>
+
+<line x1="60" y1="480" x2="900" y2="480" stroke="var(--line)" stroke-width="2"/>
+
+<rect x="180" y="360" width="180" height="120" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="200" y="428">Training</text>
+<rect x="180" y="190" width="180" height="170" fill="var(--grey)" opacity="0.45" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="200" y="282">Inference</text>
+<text class="g" x="180" y="512">Today</text>
+
+<line x1="360" y1="190" x2="600" y2="190" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 6"/>
+
+<rect x="600" y="385" width="180" height="95" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="620" y="440">Training</text>
+<rect x="600" y="215" width="180" height="170" fill="var(--grey)" opacity="0.45" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="620" y="308">Inference</text>
+<rect x="600" y="92" width="180" height="123" fill="var(--accent)" opacity="0.72"/>
+<text class="g" x="620" y="142" fill="var(--page)">Verification</text>
+<text class="g" x="620" y="172" fill="var(--page)">and monitoring</text>
+<text class="g" x="600" y="512">After the plan lands</text>
+
+<text class="s" x="800" y="120">Scrub</text>
+<text class="s" x="800" y="146">Retest</text>
+<text class="s" x="800" y="172">Long runs</text>
+<text class="s" x="800" y="198">Interpretability</text>
+
+<text class="c" x="60" y="556">Slogans down, usage up.</text>
+</svg>

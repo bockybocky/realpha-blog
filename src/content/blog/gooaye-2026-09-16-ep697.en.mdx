@@ -1,0 +1,108 @@
+---
+title: "Gooaye EP697: When Three People Who Can't Stand Each Other Suddenly Agree"
+description: "Notes on Gooaye EP697 — unpacking the motives behind Big AI's call for regulation, how regulatory capture works, and why 'slowing down' may consume more compute, not less. Educational; no stock picks or price targets."
+slug: "gooaye-2026-09-16-ep697"
+lang: "en"
+pubDate: 2026-09-18
+category: "investing"
+tags: ["Gooaye", "AI regulation", "regulatory capture", "compute", "investing mindset"]
+ogImage: "/covers/gooaye-2026-09-16-ep697-cover.png"
+cover: "/covers/gooaye-2026-09-16-ep697-cover.png"
+---
+
+![A speaker's podium with a server hall extending far behind a full glass wall](/covers/gooaye-2026-09-16-ep697-cover.png)
+
+> Now, the master who hires laborers to sow his fields spends his substance on good food and picks out fine coin to pay them — not because he loves the hired man, but because he says: this way the ploughing goes deep and the weeding goes thorough.
+>
+> —— Han Fei, *Han Feizi*, "Outer Congeries of Sayings, Upper Left" (Warring States; translation mine)
+
+Han Fei was writing about employers: the good food and the fair wage are there so the field gets ploughed deep. Twenty-three centuries later, it reads like commentary on this week in AI.
+
+## What this episode covers
+
+Gooaye EP697 (2026-09-16) spends most of its runtime on one event. Last Saturday, Anthropic's Dario Amodei published a 3,800-word essay. By Monday the Philadelphia Semiconductor Index was down 6%, cybersecurity names were up 13%, and Taiwan's market opened lower before clawing back. Then OpenAI's Sam Altman and Elon Musk — two people with no history of agreeing with Amodei about anything — publicly backed him.
+
+The host's method is to set the content aside and ask why each of them is saying this now. The payoff is a counterintuitive conclusion: if this regulatory package lands, compute consumption goes up, not down.
+
+The first half of the episode is family and gym talk. His first-ever business trip; he tells his four-year-old he'll be gone four days, and the kid — who spends his days showing off in front of his younger brother — breaks down completely and says he doesn't want the Pokémon toy or the candy, he wants you. The listener Q&A that closes the show is worth the time on its own.
+
+## The main points
+
+**One: three men with real bad blood, saying the same sentence.** The host flags a timestamp worth noting — Musk's tone on Anthropic flipped after Anthropic rented data center capacity from him. Scroll back through his posts and the dividing line is visible. Same person, same topic, one new customer relationship.
+
+**Two: the proposal itself is straightforward.** What gets throttled is the rate of capability gain, not training or inference as such. The mechanism: resident third-party evaluators inside each lab, coordinated capability checkpoints among labs in democratic countries, then a negotiation with China — whatever Beijing will match, the West brakes to. Anthropic has already brought in an evaluation body, which people have since found is staffed partly by ex-employees and traces its original funding back to Anthropic. Player and referee sit close together.
+
+**Three: regulatory capture is the operative phrase.** When the leader asks to be regulated, what it buys is a seat at the rule-drafting table. Compliance raises operating cost; for an incumbent that's a few points of margin, for a startup it's the reason it never gets off the ground. You helped write the rules, so you know where the give is.
+
+![A single horizontal compliance-cost threshold line runs across the frame; on the left a tall bar is trimmed only at the very top, on the right a short bar sits entirely below the line, and an uncrossable gap of blank space is left between them.](/figures/regulatory-capture-threshold-en.svg)
+
+**Four: Musk's calculation runs the other way.** He's the one chasing, and XAI's early direction is widely held to have been off. He isn't worried about who's behind him — he's worried about who's ahead. If everyone brakes while he builds out ground and orbital compute, there's a window. His edge is build speed: where others need three years to construct a cluster and another year to bring it up, he compresses it into weeks.
+
+![Two rising curves: the upper one flattens midway to show the leader slowing down, while the lower one keeps climbing steeply and crosses it on the right, with the crossing point marked as the overtaking window.](/figures/overtaking-window-en.svg)
+
+**Five: on alignment, internal budgets already told us the answer.** OpenAI's superalignment team was promised 20% of compute and reportedly received one to two percent, on the oldest chips, before the team dissolved. The host compares it to Taiwanese firms that won't fund internal controls or security software: management funds what shows up in revenue, and remembers security after the breach. That's an incentive structure, not a character flaw.
+
+![Two empty containers of equal height stand for the same pool of compute; the left one is filled to one fifth and labeled as the promise, while the right one holds only a thin line at the bottom, labeled as what actually arrived.](/figures/alignment-budget-promise-vs-actual-en.svg)
+
+**Six: the interesting inference comes last.** You can't police AI with humans; you police AI with AI. Lay out the steps: scrub the training corpus of poisoned items, have a third party re-examine each checkpoint on real compute, run dangerous-capability evaluations that take hours, re-test a thousand times because a model that cheats occasionally won't show up in one pass, run interpretability scans that open the model up to check its motives, monitor inference in production, then sandbox and re-run anything suspicious. Every one of those is new compute demand. Training may dip; inference is already the binding constraint; and now verification stacks on top. Which is why Monday's move — hardware down, security up — got a question mark from the host.
+
+![Two stacked bars side by side: the right one has a shorter training segment but adds a whole block of verification and monitoring, so its total height ends up above the left bar labeled today.](/figures/slowdown-narrative-compute-stack-en.svg)
+
+## Going further
+
+### A piece of bad news lands. What am I actually judging?
+
+Most people read the headline, watch the tape, and decide whether to act. This episode inverts the order: write down who is speaking and what they collect if you believe them, then read the content.
+
+The host offers a clean parallel — when a famous short seller appears on television describing some horror, you already know he's positioned. Same structure here. Two leaders want the door closed behind them; the challenger wants the leaders to brake. Three motives producing one sentence is not three pieces of evidence.
+
+![Three different motives on the left run through arrows that converge on a single sentence box on the right, with a note below saying this counts as only one vote.](/figures/three-motives-one-vote-en.svg)
+
+This matters for retail investors in a direct way. The market feeds you "multiple sources agree" constantly, and those sources are often one interest wearing three hats. When you see consensus, lay the sources side by side and ask whether they eat from the same plate. The ones that do collapse into a single vote.
+
+I've paid for this lesson. The four research notes that convinced me to add to my worst-performing position turned out, on review, to draw three of their forecasts from the same upstream supplier's guidance. I counted four votes where there was one.
+
+### The "slowdown" story and actual machine utilization are separate things
+
+The most portable piece of reasoning in this episode is turning a slogan into a process diagram.
+
+"Everyone slows down together" sounds bearish, and Monday's tape traded that instinct. But list the steps the proposal requires — scrubbing, re-examination, long-running capability tests, thousand-run repetitions, interpretability scans, continuous production monitoring — and all of them run on GPUs. Today those steps barely exist. Implementation conjures the demand out of nothing.
+
+So the narrative says deceleration and the mechanism says increment. When the two diverge, I go back to whatever a slogan can't move: are the machines running, is the power being drawn, are the orders landing. Multiples and sentiment can correct first; utilization shows up later. Watch the two lines separately.
+
+The inference has preconditions. Whether anyone actually reaches consensus is itself a game the host doubts anyone will play. Where it could be wrong: if the regime covers only a handful of labs at a scale far below expectations, the added compute is a rounding error and the whole argument evaporates. Test it by watching whether evaluators actually take up residence, and whether re-testing frequency gets written into any published standard.
+
+### Copying someone's returns is easy; copying their work isn't
+
+Two listener letters near the end stayed with me. One from a man whose friend copied his business and then blocked him; one about following other people's trades.
+
+The host relays a line from a friend of his: someone who follows another person's trades should have ears and no mouth. Follow quietly. If you get stuck in a position, you know you have to cut it. Don't come back complaining, because after the first complaint nobody tells you anything again. His own version is blunter — nobody thanks him on the way up, and on the way down everyone asks him what happened. How would he know. The company's number is one search away; ask investor relations.
+
+Underneath the venting is a point about learning. Most people want to copy the outcome and skip the process. They take the conclusion and hand the anxiety back to whoever gave it to them. The thing actually worth copying is how the person does the work, and that part is invisible and unglamorous.
+
+Turned around on yourself: money you made on someone else's judgment isn't skill you own. The day they go quiet, or get it wrong, you're holding nothing.
+
+## Sources worth checking
+
+- Gooaye EP697 (2026-09-16), on all major podcast platforms
+- Dario Amodei's essay, on Anthropic's website
+- The US Vice President's interview remarks calling the frontier labs' pilgrimage to Washington a Trojan horse
+- The literature on regulatory capture; Stigler (1971) is the starting point
+
+## The one thing to take with you
+
+**Before you act on advice, work out what the person giving it collects if you comply.**
+
+This isn't about assuming everyone lies. Motive and honesty coexist — someone can mean every word, and that sincere statement can happen to serve them. Both hold at once, and the second one governs which sincere statement they choose to make and which they leave out.
+
+Here's something I've tried, and this week is a fine time for it. Pick one piece of advice that recently moved you — it doesn't have to be about money. Changing jobs, moving cities, a second child, that car. Take a sheet of paper and write three lines:
+
+1. Who said it
+2. What they gain if I comply — time, face, a sales number, one less headache, one more person walking their road
+3. What they lose if I don't
+
+The third line is the hard one and the useful one. Often the answer is "nothing at all," which raises the advice a notch. Sometimes it's "a companion in the decision," or "a commission."
+
+![A question box splits downward into two branches: the left branch points to an upward arrow meaning credibility goes up, and the right branch points to a downward arrow meaning discount it.](/figures/third-line-fork-en.svg)
+
+I ran this on something a relative has been urging on me for months. Writing the third line changed the shape of the whole thing.

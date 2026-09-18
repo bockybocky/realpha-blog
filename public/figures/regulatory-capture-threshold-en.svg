@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="One threshold line crosses the frame: the tall bar on the left loses only a sliver off its top, while the short bar on the right stays entirely below the line.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="66">One cost threshold, two heights</text>
+
+<line x1="60" y1="470" x2="900" y2="470" stroke="var(--line)" stroke-width="2"/>
+
+<line x1="60" y1="330" x2="900" y2="330" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 7"/>
+<text class="s" x="60" y="318" fill="var(--warn)">Compliance cost threshold</text>
+
+<rect x="180" y="185" width="160" height="285" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="180" y="150" width="160" height="35" fill="var(--warn)" opacity="0.65"/>
+<text class="g" x="180" y="128">Leader</text>
+<text class="s" x="356" y="172">A few points off</text>
+<text class="s" x="356" y="196">Helps write rules</text>
+
+<rect x="620" y="405" width="160" height="65" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="620" y="385">Entrant</text>
+<line x1="700" y1="400" x2="700" y2="336" stroke="var(--accent)" stroke-width="2"/>
+<path d="M700 332 l-6 12 h12 z" fill="var(--accent)"/>
+<path d="M700 404 l-6 -12 h12 z" fill="var(--accent)"/>
+<text class="s" x="716" y="374" fill="var(--accent)">The gap</text>
+
+<text class="c" x="60" y="524">Same threshold rises; the pain lands on one side.</text>
+</svg>
