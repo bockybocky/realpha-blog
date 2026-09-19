@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="工作主軌中途被打斷，路徑繞到另外兩個領域再折回，繞路那一段被標成超過二十五分鐘，遠長於原本停留的五十秒。">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<defs>
+  <marker id="arrDim3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/>
+  </marker>
+  <marker id="arrWarn3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--warn)"/>
+  </marker>
+</defs>
+<text x="60" y="52" font-size="27" fill="var(--ink)">一次打斷要繞多遠</text>
+
+<line x1="340" y1="112" x2="780" y2="112" stroke="var(--warn)" stroke-width="2" marker-end="url(#arrWarn3)"/>
+<line x1="340" y1="104" x2="340" y2="120" stroke="var(--warn)" stroke-width="2"/>
+<text x="560" y="94" font-size="20" fill="var(--warn)" text-anchor="middle">超過二十五分鐘</text>
+
+<line x1="120" y1="330" x2="340" y2="330" stroke="var(--accent)" stroke-width="5"/>
+<text x="230" y="366" font-size="16" fill="var(--ink)" text-anchor="middle">手上這件事</text>
+<text x="230" y="392" font-size="15" fill="var(--dim)" text-anchor="middle">平均五十秒</text>
+
+<circle cx="340" cy="330" r="7" fill="var(--warn)"/>
+<text x="340" y="302" font-size="15" fill="var(--warn)" text-anchor="middle">打斷</text>
+
+<path d="M340 330 C 360 250, 380 196, 400 196" fill="none" stroke="var(--dim)" stroke-width="2" marker-end="url(#arrDim3)"/>
+<rect x="400" y="170" width="140" height="52" rx="6" fill="var(--card)" stroke="var(--line)"/>
+<text x="470" y="203" font-size="16" fill="var(--ink)" text-anchor="middle">另一個領域</text>
+<line x1="540" y1="196" x2="580" y2="196" stroke="var(--dim)" stroke-width="2" marker-end="url(#arrDim3)"/>
+<rect x="580" y="170" width="140" height="52" rx="6" fill="var(--card)" stroke="var(--line)"/>
+<text x="650" y="203" font-size="16" fill="var(--ink)" text-anchor="middle">又一個領域</text>
+<path d="M720 196 C 760 200, 790 280, 780 330" fill="none" stroke="var(--dim)" stroke-width="2" marker-end="url(#arrDim3)"/>
+
+<line x1="780" y1="330" x2="900" y2="330" stroke="var(--accent)" stroke-width="5"/>
+<text x="920" y="366" font-size="16" fill="var(--ink)" text-anchor="end">終於回來</text>
+
+<text x="480" y="492" font-size="22" fill="var(--ink)" text-anchor="middle">代價在回不去的那一段</text>
+</svg>

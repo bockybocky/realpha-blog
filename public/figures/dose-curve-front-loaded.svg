@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="效益對步數的曲線，從一千五百步到四千步之間陡升，四千步之後坡度明顯變平，一路延伸到一萬步。">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="60" y="52" font-size="27" fill="var(--ink)">效益大半在前面那一小段</text>
+
+<line x1="150" y1="110" x2="150" y2="400" stroke="var(--line)" stroke-width="2"/>
+<line x1="150" y1="400" x2="890" y2="400" stroke="var(--line)" stroke-width="2"/>
+<text x="150" y="98" font-size="16" fill="var(--dim)" text-anchor="middle">效益</text>
+
+<path d="M170 392 C 250 360, 330 272, 400 250 C 530 224, 700 210, 880 204" fill="none" stroke="var(--accent)" stroke-width="4"/>
+
+<line x1="400" y1="250" x2="400" y2="400" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5"/>
+<line x1="150" y1="250" x2="400" y2="250" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5"/>
+<circle cx="400" cy="250" r="7" fill="var(--accent)"/>
+<text x="168" y="236" font-size="16" fill="var(--accent)">風險低兩成五</text>
+
+<text x="700" y="178" font-size="15" fill="var(--dim)" text-anchor="middle">後面還有，坡度變平</text>
+
+<text x="170" y="432" font-size="15" fill="var(--dim)" text-anchor="middle">一千五百步</text>
+<text x="400" y="432" font-size="16" fill="var(--ink)" text-anchor="middle">四千步</text>
+<text x="880" y="432" font-size="15" fill="var(--dim)" text-anchor="end">一萬步</text>
+
+<text x="480" y="482" font-size="22" fill="var(--ink)" text-anchor="middle">不必走到一萬才開始有用</text>
+</svg>
