@@ -8,6 +8,7 @@ category: "tech"
 tags: ["hardware", "decision-making", "local-ai"]
 cover: "/covers/local-ai-hardware-worth-it.png"
 ogImage: "/covers/local-ai-hardware-worth-it.png"
+updatedDate: 2026-09-19
 ---
 
 ![A small brown wren resting on a single slender branch as dusk light pours through an immense ancient forest](/covers/local-ai-hardware-worth-it.png)
@@ -29,6 +30,26 @@ And the compression barely seems to matter to how it feels. He tried Q4, Q5 and 
 If that holds, it's genuinely appealing. A model close to a paid cloud service, running on your machine, no connection needed, no price rises, nothing leaving the house.
 
 His recommendation: two 7900 XTX graphics cards, one for text and one for video.
+
+## With that many compressed builds, your card picks the one you get
+
+"Q4, Q5 and FP8 all feel fine" skips a premise, and that premise is the thing to understand before buying anything.
+
+A model is a pile of parameters. Think of it as an enormously thick dictionary. To run it, the whole dictionary has to lie open inside the graphics card's own memory, which is separate from your computer's main memory. If it does not fit, nothing runs, and the speed of the card has nothing to do with it.
+
+So the first gate is capacity. A 24 GB card holds 24 GB worth of dictionary and no more.
+
+Then how does anyone run a 27-billion-parameter model on 8 GB? Compression, which the field calls quantisation. Each parameter was recorded in sixteen bits; squeeze it to four, three, even two. One model therefore ships as a whole row of builds — twenty-one of them officially, from nine gigabytes up past fifty.
+
+![Two crossing lines: file size falls from upper left to lower right while errors and lost context rise from lower left to upper right, so squeezing harder pulls the two apart.](/figures/quantization-tradeoff-en.svg)
+
+Compression has a price. The harder you squeeze, the more the model fumbles its answers and loses track of what was said earlier. The claim that Q4, Q5 and FP8 feel alike holds up, because all three are gentle squeezes; go down to two bits and the gap shows.
+
+![Three bars of very different heights represent three compressed builds of one model, with three dashed lines for graphics card capacity ceilings; the tallest bar passes through all of them.](/figures/vram-ceiling-vs-model-size-en.svg)
+
+Roughly: 8 to 12 GB cards get only the most aggressively squeezed builds; 16 GB opens up real choices; 24 GB reaches the 17–18 GB build, where quality per gigabyte peaks; 32 GB and above finally brings the lightly compressed builds into range.
+
+So the order is: settle on the model and the build you want, then go pick the card. Do it the other way round and you end up with a card that cannot run the thing you actually wanted.
 
 ## Then I did the arithmetic
 
