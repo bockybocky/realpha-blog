@@ -32,7 +32,8 @@ NON_INVESTMENT = {'herdr-complete-guide', 'herdr-codexbar-jianguo-quota-dispatch
                   'lunchuizhe-2026-08-31-pick-your-model-and-agent', 'tao-2026-08-31-ai-math-drunk-genius', 'runpod-vs-local-gpu-2026-09', 'tao-2026-09-02-coin-game-human-ai-division', 'kelly-tsai-graph-engineering-2026-09', 'lunchuizhe-2026-08-23-no-best-agent-only-right-seat', 'my-creative-path-2026-09', 'fear-of-blowing-up-2026-09', 'xiaotian-2026-09-03-evox-swarm-social-rsi',
                   'dont-let-ai-say-no-problem', 'video-memory-without-the-cloud',
                   'aice-ai-engineering-cert-prep', 'aice-must-know-concepts', 'read-the-source-before-you-install',
-                  'lunchuizhe-2026-09-17-mac-mini-ai-control-desk', 'xiaotian-2026-04-25-qwen-27b-20-to-184-tokens'}
+                  'lunchuizhe-2026-09-17-mac-mini-ai-control-desk', 'xiaotian-2026-04-25-qwen-27b-20-to-184-tokens',
+                  'the-stimulated-mind-cognitive-athlete'}
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
@@ -44,6 +45,7 @@ TAGS = {
     'lunchuizhe-2026-09-17-mac-mini-ai-control-desk': ['本地AI', 'Mac mini', '顯卡', '硬體選購', 'AI agent'],
     'xiaotian-2026-04-25-qwen-27b-20-to-184-tokens': ['本地AI', 'Qwen', '量化', '推理加速', '瓶頸'],
     'snow-2026-09-02-earnings-call-fy27q2': ['讀法說會', 'Snowflake', '財報', '軟體股', '投資教育'],
+    'the-stimulated-mind-cognitive-athlete': ['讀書筆記', '大腦健康', '專注力', '失智預防', '工作方法'],
     'uncommon-sense-how-many-monkeys': ['新書讀書會', '讀書筆記', '機率', '倖存者偏差', '投資心理'],
     'crisis-engineering-no-one-is-coming': ['讀書筆記', '危機管理', '複雜系統', '風控', '持股檢查'],
     'apple-first-50-years-toll-booth': ['讀書筆記', '蘋果', '商業模式', '庫藏股', '反壟斷'],
@@ -89,6 +91,7 @@ except (OSError, ValueError):
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
 COVERS = {
+    'the-stimulated-mind-cognitive-athlete': 'the-stimulated-mind-cognitive-athlete.png',
     'herdr-complete-guide': 'herdr-complete-guide.png',
     'herdr-codexbar-jianguo-quota-dispatch': 'herdr-codexbar-jianguo-quota-dispatch.png',
     'read-the-source-before-you-install': 'read-the-source-before-you-install.png',
