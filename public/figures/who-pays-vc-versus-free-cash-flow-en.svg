@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Two panels compare who pays: in 2000 it is a thin layer of venture money, in 2026 it is much thicker free cash flow with a block at the top taken by capital spending, and both flow down into infrastructure.">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+.t{font-size:27px;font-weight:700}
+.g{font-size:19px;font-weight:600}
+.b{font-size:16px}
+.d{font-size:15px;fill:var(--dim)}
+.c{font-size:22px;font-weight:600}
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="62">Who pays has changed</text>
+<text class="g" x="100" y="116">2000, fiber</text>
+<text class="g" x="560" y="116">2026, AI buildout</text>
+<rect x="100" y="230" width="280" height="60" rx="6" fill="var(--grey)"/>
+<text class="b" x="240" y="267" text-anchor="middle">Venture money</text>
+<rect x="560" y="150" width="280" height="140" rx="6" fill="var(--accent)"/>
+<rect x="560" y="150" width="280" height="56" rx="6" fill="var(--warn)"/>
+<text x="700" y="186" text-anchor="middle" style="font-size:16px;fill:var(--page)">Capex eating in</text>
+<text x="700" y="256" text-anchor="middle" style="font-size:16px;fill:var(--page)">Free cash flow</text>
+<line x1="240" y1="294" x2="240" y2="322" stroke="var(--grey)" stroke-width="3"/>
+<polygon points="232,322 248,322 240,336" fill="var(--grey)"/>
+<line x1="700" y1="294" x2="700" y2="322" stroke="var(--accent)" stroke-width="3"/>
+<polygon points="692,322 708,322 700,336" fill="var(--accent)"/>
+<rect x="100" y="344" width="280" height="54" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="240" y="378" text-anchor="middle">Fiber in the ground</text>
+<rect x="560" y="344" width="280" height="54" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="700" y="378" text-anchor="middle">Data centers built</text>
+<text class="c" x="60" y="470">Thicker money, but being eaten</text>
+</svg>
