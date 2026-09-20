@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條鋸齒線同時間走勢相反，指數往上、帳戶往下，右端差距越拉越開">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { fill:var(--ink); font-size:27px; font-weight:700; }
+.g { fill:var(--dim); font-size:19px; }
+.b { fill:var(--dim); font-size:16px; }
+.c { fill:var(--ink); font-size:22px; font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="56">指數越墊越高，帳戶曲線一路往下</text>
+<line x1="150" y1="96" x2="190" y2="96" stroke="var(--accent)" stroke-width="4"/>
+<text class="b" x="200" y="102" fill="var(--ink)">大盤指數</text>
+<line x1="380" y1="96" x2="420" y2="96" stroke="var(--warn)" stroke-width="4"/>
+<text class="b" x="430" y="102" fill="var(--ink)">你的帳戶</text>
+<polyline points="150,330 185,300 220,320 255,285 290,305 325,270 360,290 395,255 430,275 465,240 500,262 535,228 570,248 605,215 640,235 675,200 710,220 745,190 780,208 815,180 850,195" fill="none" stroke="var(--accent)" stroke-width="3.5"/>
+<polyline points="150,300 185,318 220,306 255,326 290,314 325,336 360,324 395,346 430,334 465,356 500,344 535,366 570,354 605,376 640,364 675,386 710,374 745,396 780,384 815,406 850,418" fill="none" stroke="var(--warn)" stroke-width="3.5"/>
+<line x1="875" y1="195" x2="875" y2="418" stroke="var(--grey)" stroke-width="2"/>
+<line x1="866" y1="195" x2="884" y2="195" stroke="var(--grey)" stroke-width="2"/>
+<line x1="866" y1="418" x2="884" y2="418" stroke="var(--grey)" stroke-width="2"/>
+<text class="b" x="908" y="306" text-anchor="middle" transform="rotate(-90,908,306)">越拉越開</text>
+<text class="b" x="150" y="452">每次都照紀律：突破買進、不續強就停損</text>
+<line x1="150" y1="430" x2="850" y2="430" stroke="var(--line)" stroke-width="2"/>
+<text class="c" x="480" y="506" text-anchor="middle">轉空的結論，是從下面那條線長出來的</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="五個環節的鏈，論述只覆蓋前兩段，後三段留白沒講到">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { fill:var(--ink); font-size:27px; font-weight:700; }
+.g { fill:var(--dim); font-size:19px; }
+.b { fill:var(--dim); font-size:16px; }
+.c { fill:var(--ink); font-size:22px; font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="56">一句話，涵蓋了鏈上的哪幾段</text>
+<text class="b" x="231" y="146" text-anchor="middle" fill="var(--accent)">這句話講到這裡</text>
+<text class="b" x="661" y="146" text-anchor="middle">後面沒講</text>
+<rect x="70" y="162" width="322" height="14" rx="7" fill="var(--accent)"/>
+<rect x="414" y="162" width="494" height="14" rx="7" fill="var(--grey)" opacity="0.5"/>
+<rect x="70" y="210" width="150" height="70" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<rect x="242" y="210" width="150" height="70" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<rect x="414" y="210" width="150" height="70" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="586" y="210" width="150" height="70" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="758" y="210" width="150" height="70" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="145" y="252" text-anchor="middle" fill="var(--ink)">晶片內部</text>
+<text class="g" x="317" y="252" text-anchor="middle" fill="var(--ink)">晶片旁轉光</text>
+<text class="g" x="489" y="252" text-anchor="middle" fill="var(--ink)">處理器互連</text>
+<text class="g" x="661" y="252" text-anchor="middle" fill="var(--ink)">擴充介面</text>
+<text class="g" x="833" y="252" text-anchor="middle" fill="var(--ink)">儲存互連</text>
+<text class="b" x="489" y="320" text-anchor="middle">C2C</text>
+<text class="b" x="661" y="320" text-anchor="middle">PCIe Gen6</text>
+<text class="b" x="833" y="320" text-anchor="middle">CXL</text>
+<text class="b" x="231" y="360" text-anchor="middle" fill="var(--accent)">這一段成立</text>
+<text class="b" x="661" y="360" text-anchor="middle">這幾段狀況未知</text>
+<text class="c" x="480" y="450" text-anchor="middle">缺口不代表結論錯，代表還沒被證明</text>
+</svg>

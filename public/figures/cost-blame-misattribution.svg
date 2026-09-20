@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="成本四格橫條，漲幅柱記憶體最高，新聞標題箭頭卻指向代工晶片">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { fill:var(--ink); font-size:27px; font-weight:700; }
+.g { fill:var(--dim); font-size:19px; }
+.b { fill:var(--dim); font-size:16px; }
+.c { fill:var(--ink); font-size:22px; font-weight:600; }
+</style>
+<defs>
+<marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--grey)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="56">標題指的那一格，不是動最大的那一格</text>
+<text class="g" x="60" y="120">這一輪的漲幅</text>
+<rect x="205" y="215" width="60" height="30" fill="var(--grey)"/>
+<rect x="400" y="140" width="60" height="105" fill="var(--warn)"/>
+<rect x="595" y="200" width="60" height="45" fill="var(--grey)"/>
+<rect x="750" y="225" width="60" height="20" fill="var(--grey)"/>
+<rect x="140" y="250" width="190" height="55" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="330" y="250" width="200" height="55" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="530" y="250" width="190" height="55" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="720" y="250" width="120" height="55" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="235" y="330" text-anchor="middle" fill="var(--ink)">代工晶片</text>
+<text class="b" x="430" y="330" text-anchor="middle" fill="var(--warn)">記憶體</text>
+<text class="b" x="625" y="330" text-anchor="middle" fill="var(--ink)">板子與被動元件</text>
+<text class="b" x="780" y="330" text-anchor="middle" fill="var(--ink)">插座、其他</text>
+<text class="b" x="140" y="232" fill="var(--dim)">一張卡的成本</text>
+<line x1="235" y1="410" x2="235" y2="348" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ar3)"/>
+<rect x="140" y="415" width="190" height="46" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="235" y="444" text-anchor="middle" fill="var(--ink)">新聞標題指這裡</text>
+<text class="c" x="480" y="518" text-anchor="middle">歸因被換掉，你就會去盯錯的報價</text>
+</svg>

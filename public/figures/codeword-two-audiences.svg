@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一則貼文分岔到兩群讀者，左邊訊息量長條很長，右邊只有一小截">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { fill:var(--ink); font-size:27px; font-weight:700; }
+.g { fill:var(--dim); font-size:19px; }
+.b { fill:var(--dim); font-size:16px; }
+.c { fill:var(--ink); font-size:22px; font-weight:600; }
+</style>
+<defs>
+<marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--grey)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="56">同一串字，兩種訊息量</text>
+<rect x="390" y="100" width="180" height="64" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="480" y="141" text-anchor="middle" fill="var(--ink)" font-size="22" font-weight="600">CCL 降規</text>
+<line x1="420" y1="170" x2="268" y2="232" stroke="var(--grey)" stroke-width="2" marker-end="url(#ar2)"/>
+<line x1="540" y1="170" x2="692" y2="232" stroke="var(--grey)" stroke-width="2" marker-end="url(#ar2)"/>
+<text class="g" x="250" y="278" text-anchor="middle" fill="var(--accent)">圈內人</text>
+<text class="g" x="710" y="278" text-anchor="middle">圈外人</text>
+<rect x="90" y="300" width="320" height="36" rx="6" fill="var(--accent)"/>
+<rect x="550" y="300" width="40" height="36" rx="6" fill="var(--grey)"/>
+<text class="b" x="90" y="366">哪個論壇、哪天跳水、後來誰反擊</text>
+<text class="b" x="550" y="366">四個字</text>
+<text class="b" x="480" y="420" text-anchor="middle">長度＝他接收到的訊息量</text>
+<text class="c" x="480" y="482" text-anchor="middle">看不懂，可能只是你不在他要的那群人裡</text>
+</svg>

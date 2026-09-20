@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="散佈圖：橫軸攤位聲勢、縱軸好玩程度，點散開沒有規律，左上角是破攤位、右下角是大陣仗">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { fill:var(--ink); font-size:27px; font-weight:700; }
+.g { fill:var(--dim); font-size:19px; }
+.b { fill:var(--dim); font-size:16px; }
+.c { fill:var(--ink); font-size:22px; font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="56">聲勢大小，跟東西好不好玩，是兩條線</text>
+<line x1="200" y1="110" x2="200" y2="410" stroke="var(--line)" stroke-width="2"/>
+<line x1="200" y1="410" x2="860" y2="410" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="190" y="416" text-anchor="end">低</text>
+<text class="b" x="190" y="122" text-anchor="end">高</text>
+<text class="b" x="200" y="440" text-anchor="middle">小</text>
+<text class="b" x="860" y="440" text-anchor="middle">大</text>
+<text class="g" x="530" y="470" text-anchor="middle">攤位聲勢 · 行銷預算</text>
+<text class="g" x="128" y="260" text-anchor="middle" transform="rotate(-90,128,260)">好玩程度</text>
+<circle cx="350" cy="300" r="9" fill="var(--grey)"/>
+<circle cx="430" cy="200" r="9" fill="var(--grey)"/>
+<circle cx="520" cy="330" r="9" fill="var(--grey)"/>
+<circle cx="600" cy="250" r="9" fill="var(--grey)"/>
+<circle cx="690" cy="285" r="9" fill="var(--grey)"/>
+<circle cx="280" cy="170" r="11" fill="var(--accent)"/>
+<circle cx="760" cy="355" r="11" fill="var(--accent)"/>
+<text class="b" x="300" y="152" fill="var(--ink)">三個人、一台螢幕</text>
+<text class="b" x="742" y="382" text-anchor="end" fill="var(--ink)">制服、傳單、一排五個</text>
+<text class="c" x="480" y="508" text-anchor="middle">橫軸一眼看得到，縱軸要玩過才知道</text>
+</svg>

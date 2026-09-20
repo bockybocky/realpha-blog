@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="折線從二衝到七再回落到四，虛線基準線在二，陰影區是市場自己加上去的期待">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { fill:var(--ink); font-size:27px; font-weight:700; }
+.g { fill:var(--dim); font-size:19px; }
+.b { fill:var(--dim); font-size:16px; }
+.c { fill:var(--ink); font-size:22px; font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="56">跌掉的那一段，是自己加上去的</text>
+<polygon points="170,348 300,311 430,239 560,166 690,239 820,275 820,348" fill="var(--accent)" opacity="0.14"/>
+<polyline points="170,348 300,311 430,239 560,166 690,239 820,275" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<line x1="140" y1="348" x2="870" y2="348" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+<circle cx="170" cy="348" r="7" fill="var(--accent)"/>
+<circle cx="300" cy="311" r="7" fill="var(--accent)"/>
+<circle cx="430" cy="239" r="7" fill="var(--accent)"/>
+<circle cx="560" cy="166" r="7" fill="var(--accent)"/>
+<circle cx="690" cy="239" r="7" fill="var(--accent)"/>
+<circle cx="820" cy="275" r="7" fill="var(--accent)"/>
+<text class="b" x="170" y="330" text-anchor="middle" fill="var(--ink)">2</text>
+<text class="b" x="300" y="293" text-anchor="middle" fill="var(--ink)">3</text>
+<text class="b" x="430" y="221" text-anchor="middle" fill="var(--ink)">5</text>
+<text class="b" x="560" y="148" text-anchor="middle" fill="var(--ink)">7</text>
+<text class="b" x="690" y="221" text-anchor="middle" fill="var(--ink)">5</text>
+<text class="b" x="820" y="257" text-anchor="middle" fill="var(--ink)">4</text>
+<text class="b" x="140" y="374">原本的數字</text>
+<text class="g" x="400" y="140">市場自己喊上去</text>
+<text class="g" x="760" y="200" text-anchor="middle">砍單、延期</text>
+<text class="b" x="870" y="420" text-anchor="end">單位：萬美元一櫃</text>
+<text class="c" x="480" y="500" text-anchor="middle">修正掉的是期待值，不是那台機器</text>
+</svg>
