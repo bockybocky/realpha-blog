@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左右兩張卡片各有十二個圓點，左邊四個空心代表分裂票，右邊十二個全部實心代表全票，下方各接兩行對照">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="60" y="52" font-size="27" font-weight="700" fill="var(--ink)">十二張票的形狀</text>
+
+  <rect x="60" y="90" width="390" height="350" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text x="84" y="138" font-size="20" font-weight="700" fill="var(--dim)">分裂</text>
+  <circle cx="110" cy="210" r="16" fill="var(--grey)"/>
+  <circle cx="166" cy="210" r="16" fill="var(--grey)"/>
+  <circle cx="222" cy="210" r="16" fill="var(--grey)"/>
+  <circle cx="278" cy="210" r="16" fill="var(--grey)"/>
+  <circle cx="334" cy="210" r="16" fill="var(--grey)"/>
+  <circle cx="390" cy="210" r="16" fill="var(--grey)"/>
+  <circle cx="110" cy="266" r="16" fill="var(--grey)"/>
+  <circle cx="166" cy="266" r="16" fill="var(--grey)"/>
+  <circle cx="222" cy="266" r="16" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <circle cx="278" cy="266" r="16" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <circle cx="334" cy="266" r="16" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <circle cx="390" cy="266" r="16" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="84" y1="312" x2="426" y2="312" stroke="var(--line)" stroke-width="2"/>
+  <text x="84" y="356" font-size="16" fill="var(--dim)">市場讀到</text>
+  <text x="240" y="356" font-size="16" fill="var(--ink)">猶豫</text>
+  <text x="84" y="398" font-size="16" fill="var(--dim)">通膨預期</text>
+  <text x="240" y="398" font-size="16" fill="var(--ink)">打折</text>
+
+  <rect x="510" y="90" width="390" height="350" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text x="534" y="138" font-size="20" font-weight="700" fill="var(--accent)">全票</text>
+  <circle cx="560" cy="210" r="16" fill="var(--accent)"/>
+  <circle cx="616" cy="210" r="16" fill="var(--accent)"/>
+  <circle cx="672" cy="210" r="16" fill="var(--accent)"/>
+  <circle cx="728" cy="210" r="16" fill="var(--accent)"/>
+  <circle cx="784" cy="210" r="16" fill="var(--accent)"/>
+  <circle cx="840" cy="210" r="16" fill="var(--accent)"/>
+  <circle cx="560" cy="266" r="16" fill="var(--accent)"/>
+  <circle cx="616" cy="266" r="16" fill="var(--accent)"/>
+  <circle cx="672" cy="266" r="16" fill="var(--accent)"/>
+  <circle cx="728" cy="266" r="16" fill="var(--accent)"/>
+  <circle cx="784" cy="266" r="16" fill="var(--accent)"/>
+  <circle cx="840" cy="266" r="16" fill="var(--accent)"/>
+  <line x1="534" y1="312" x2="876" y2="312" stroke="var(--line)" stroke-width="2"/>
+  <text x="534" y="356" font-size="16" fill="var(--dim)">市場讀到</text>
+  <text x="690" y="356" font-size="16" fill="var(--ink)">沒有猶豫</text>
+  <text x="534" y="398" font-size="16" fill="var(--dim)">通膨預期</text>
+  <text x="690" y="398" font-size="16" fill="var(--ink)">壓得住</text>
+
+  <text x="480" y="500" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">票數也是溝通的一部分</text>
+</svg>
