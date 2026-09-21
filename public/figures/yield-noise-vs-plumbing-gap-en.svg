@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Yields jump around every day on top, while the gap below stays gray and slowly widens until a stress day highlights it.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text class="t" x="400" y="52" text-anchor="middle">Rates hop, gap grows</text>
+<text class="g" x="40" y="160">Yield</text>
+<text class="b" x="40" y="186">Jumpy</text>
+<polyline points="160,170 200,150 240,180 280,140 320,165 360,190 400,150 440,160 480,135 520,175 560,155 600,185 640,145 680,170 720,130 760,160 800,180 840,150 880,165" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linejoin="round"/>
+<line x1="160" y1="250" x2="880" y2="250" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 6"/>
+<text class="g" x="40" y="365">Pipe gap</text>
+<text class="b" x="40" y="391">Unseen</text>
+<polygon points="160,400 880,300 880,420 160,420" fill="var(--grey)" opacity="0.35"/>
+<line x1="160" y1="400" x2="880" y2="300" stroke="var(--dim)" stroke-width="4" stroke-linecap="round"/>
+<line x1="160" y1="420" x2="880" y2="420" stroke="var(--grey)" stroke-width="4" stroke-linecap="round"/>
+<text class="b" x="875" y="288" text-anchor="end">Supply</text>
+<text class="b" x="875" y="446" text-anchor="end">Capacity</text>
+<line x1="760" y1="100" x2="760" y2="440" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 6"/>
+<text class="g" x="760" y="92" text-anchor="middle" style="fill:var(--warn)">Jolt</text>
+<line x1="760" y1="318" x2="760" y2="420" stroke="var(--warn)" stroke-width="6"/>
+<text class="g" x="772" y="378" style="fill:var(--warn)">Gap!</text>
+<text class="c" x="480" y="515" text-anchor="middle">Watch plumbing</text>
+</svg>

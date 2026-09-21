@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="等十五分鐘的配對率長條幾乎為零，等一整天的長條升到六到七成">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text class="t" x="480" y="52" text-anchor="middle">想賣一檔舊券，多久配得到買家</text>
+<line x1="170" y1="140" x2="640" y2="140" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<text class="b" x="160" y="146" text-anchor="end">100%</text>
+<line x1="170" y1="420" x2="640" y2="420" stroke="var(--line)" stroke-width="2"/>
+<rect x="220" y="406" width="140" height="14" fill="var(--grey)"/>
+<text class="g" x="290" y="394" text-anchor="middle">很小</text>
+<rect x="440" y="252" width="140" height="168" fill="var(--accent)"/>
+<rect x="440" y="224" width="140" height="28" fill="var(--accent)" opacity="0.45"/>
+<text class="g" x="510" y="212" text-anchor="middle" style="fill:var(--accent)">六到七成</text>
+<text class="g" x="290" y="452" text-anchor="middle">15 分鐘</text>
+<text class="g" x="510" y="452" text-anchor="middle">一整天</text>
+<line x1="590" y1="300" x2="684" y2="290" stroke="var(--dim)" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="690" y="230" width="230" height="110" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="805" y="264" text-anchor="middle">提案</text>
+<text class="g" x="805" y="296" text-anchor="middle">每日收盤</text>
+<text class="g" x="805" y="324" text-anchor="middle">集中競價</text>
+<text class="c" x="480" y="498" text-anchor="middle">等得越久，越配得上</text>
+</svg>

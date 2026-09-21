@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The left side of the seesaw is crowded with sellers and the right side is empty until the Fed finally steps in.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<defs>
+<marker id="fed-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+<path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+<text class="t" x="400" y="52" text-anchor="middle">March 2020: all one side</text>
+<line x1="380" y1="450" x2="580" y2="450" stroke="var(--line)" stroke-width="3"/>
+<polygon points="480,284 450,450 510,450" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<line x1="200" y1="320" x2="760" y2="240" stroke="var(--ink)" stroke-width="6" stroke-linecap="round"/>
+<line x1="200" y1="320" x2="120" y2="420" stroke="var(--dim)" stroke-width="2"/>
+<line x1="200" y1="320" x2="280" y2="420" stroke="var(--dim)" stroke-width="2"/>
+<line x1="105" y1="420" x2="295" y2="420" stroke="var(--ink)" stroke-width="5" stroke-linecap="round"/>
+<g fill="var(--warn)">
+<circle cx="140" cy="408" r="8"/><circle cx="160" cy="408" r="8"/><circle cx="180" cy="408" r="8"/><circle cx="200" cy="408" r="8"/><circle cx="220" cy="408" r="8"/><circle cx="240" cy="408" r="8"/><circle cx="260" cy="408" r="8"/>
+<circle cx="160" cy="390" r="8"/><circle cx="180" cy="390" r="8"/><circle cx="200" cy="390" r="8"/><circle cx="220" cy="390" r="8"/><circle cx="240" cy="390" r="8"/>
+<circle cx="180" cy="372" r="8"/><circle cx="200" cy="372" r="8"/><circle cx="220" cy="372" r="8"/>
+</g>
+<text class="g" x="200" y="456" text-anchor="middle" style="fill:var(--warn)">Sell</text>
+<line x1="760" y1="240" x2="690" y2="340" stroke="var(--dim)" stroke-width="2"/>
+<line x1="760" y1="240" x2="830" y2="340" stroke="var(--dim)" stroke-width="2"/>
+<line x1="675" y1="340" x2="845" y2="340" stroke="var(--ink)" stroke-width="5" stroke-linecap="round"/>
+<text class="g" x="760" y="372" text-anchor="middle">No buyer</text>
+<rect x="800" y="96" width="120" height="48" rx="8" fill="var(--accent)"/>
+<text class="g" x="860" y="127" text-anchor="middle" style="fill:var(--page)">Fed</text>
+<line x1="850" y1="148" x2="795" y2="326" stroke="var(--accent)" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#fed-arr)"/>
+<text class="b" x="620" y="420">Dealer full</text>
+<text class="b" x="620" y="448">HFTs: gone</text>
+<text class="c" x="480" y="525" text-anchor="middle">Only the Fed</text>
+</svg>

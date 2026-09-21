@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左圖五個參與者兩兩互連成十條線，右圖五個參與者都只連到中央一點，只剩五條線">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text class="t" x="480" y="52" text-anchor="middle">清算：各自談，還是交給中間</text>
+<text class="g" x="250" y="112" text-anchor="middle">各自清算</text>
+<text class="g" x="710" y="112" text-anchor="middle">集中清算</text>
+<line x1="480" y1="95" x2="480" y2="480" stroke="var(--line)" stroke-width="2"/>
+<g stroke="var(--warn)" stroke-width="2" opacity="0.75">
+<line x1="250" y1="180" x2="364" y2="263"/><line x1="250" y1="180" x2="320" y2="397"/><line x1="250" y1="180" x2="180" y2="397"/><line x1="250" y1="180" x2="136" y2="263"/>
+<line x1="364" y1="263" x2="320" y2="397"/><line x1="364" y1="263" x2="180" y2="397"/><line x1="364" y1="263" x2="136" y2="263"/>
+<line x1="320" y1="397" x2="180" y2="397"/><line x1="320" y1="397" x2="136" y2="263"/>
+<line x1="180" y1="397" x2="136" y2="263"/>
+</g>
+<g fill="var(--card)" stroke="var(--dim)" stroke-width="2">
+<circle cx="250" cy="180" r="22"/><circle cx="364" cy="263" r="22"/><circle cx="320" cy="397" r="22"/><circle cx="180" cy="397" r="22"/><circle cx="136" cy="263" r="22"/>
+</g>
+<g stroke="var(--accent)" stroke-width="3">
+<line x1="710" y1="300" x2="710" y2="180"/><line x1="710" y1="300" x2="824" y2="263"/><line x1="710" y1="300" x2="780" y2="397"/><line x1="710" y1="300" x2="640" y2="397"/><line x1="710" y1="300" x2="596" y2="263"/>
+</g>
+<g fill="var(--card)" stroke="var(--dim)" stroke-width="2">
+<circle cx="710" cy="180" r="22"/><circle cx="824" cy="263" r="22"/><circle cx="780" cy="397" r="22"/><circle cx="640" cy="397" r="22"/><circle cx="596" cy="263" r="22"/>
+</g>
+<circle cx="710" cy="300" r="52" fill="var(--accent)"/>
+<text x="710" y="297" text-anchor="middle" style="font-size:16px;font-weight:700;fill:var(--page)">中央</text>
+<text x="710" y="320" text-anchor="middle" style="font-size:16px;font-weight:700;fill:var(--page)">對手方</text>
+<text class="g" x="250" y="470" text-anchor="middle" style="fill:var(--warn)">10 條連線</text>
+<text class="g" x="710" y="470" text-anchor="middle" style="fill:var(--accent)">5 條連線</text>
+<text class="c" x="480" y="528" text-anchor="middle">跟誰成交不再重要</text>
+</svg>
