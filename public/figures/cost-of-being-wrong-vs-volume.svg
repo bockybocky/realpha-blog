@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="點由左上往右下排成斜線：越大聲的講錯代價越低，最右下的點幾乎沒有音量">
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text class="t" x="60" y="64">講錯的代價，和音量</text>
+<line x1="130" y1="500" x2="900" y2="500" stroke="var(--dim)" stroke-width="2"/>
+<polygon points="900,494 912,500 900,506" fill="var(--dim)"/>
+<line x1="130" y1="500" x2="130" y2="120" stroke="var(--dim)" stroke-width="2"/>
+<polygon points="124,120 130,108 136,120" fill="var(--dim)"/>
+<text class="b" x="900" y="530" text-anchor="end">講錯要付的代價</text>
+<text class="b" x="145" y="125">音量</text>
+<circle cx="190" cy="160" r="12" fill="var(--warn)"/>
+<text class="g" x="212" y="167">AI 轉貼</text>
+<text class="b" x="212" y="190">代價是零</text>
+<circle cx="360" cy="215" r="12" fill="var(--grey)"/>
+<text class="g" x="382" y="222">產品發表會</text>
+<text class="b" x="382" y="245">會吹</text>
+<circle cx="540" cy="290" r="12" fill="var(--grey)"/>
+<text class="g" x="562" y="297">產業寫手</text>
+<text class="b" x="562" y="320">偏正面</text>
+<circle cx="740" cy="345" r="12" fill="var(--accent)"/>
+<text class="g" x="762" y="352">技術論壇</text>
+<text class="b" x="762" y="375">數字造不了假</text>
+<circle cx="862" cy="470" r="12" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text class="g" x="840" y="455" text-anchor="end">在職工程師</text>
+<text class="b" x="840" y="478" text-anchor="end">不能開口</text>
+<text class="c" x="60" y="575">最準的開不了口，最大聲的離現場最遠</text>
+</svg>

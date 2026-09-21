@@ -1,0 +1,89 @@
+---
+title: "Silicon Photonics Is Still Waiting for a Common Track Width: A Materials Insider Turned Analyst on Advanced Packaging's Bottlenecks"
+description: "Notes from CMoney's Caibaogou podcast, episode 566. SemiVision founder Jett moved from the semiconductor materials business into industry research. He talks about the qualification barrier for permanent materials, hedged bets while silicon photonics lacks a standard, optical testing as a bottleneck, full capacity crowding out startups, and why the people who know the most have the least reason to speak. Educational industry observation only; not investment advice, and industry judgments can be wrong."
+slug: "caibaogou-2026-09-20-566-ai-ft-semivision-jett"
+lang: "en"
+pubDate: 2026-09-21
+category: "investing"
+tags: ["advanced packaging", "silicon photonics", "semiconductor materials", "industry research", "podcast notes"]
+tldr: "Silicon photonics is stuck without a standard, and the supply chain is waiting for the biggest buyer to ship volume. When reading industry news, first ask what the speaker loses if they are wrong."
+ogImage: "/covers/caibaogou-2026-09-20-566-ai-ft-semivision-jett-cover.png"
+cover: "/covers/caibaogou-2026-09-20-566-ai-ft-semivision-jett-cover.png"
+---
+
+![An advanced packaging lab at night: in the foreground an optical probe station glows cold white as an engineer leans in to align a fiber array with a chip, while rows of equipment stretch down a long corridor into darkness](/covers/caibaogou-2026-09-20-566-ai-ft-semivision-jett-cover.png)
+
+> He unified the laws and the measures of weight and length. Carts were given the same axle width. Writing was given the same script.
+>
+> —— Sima Qian, *Records of the Grand Historian*, "Annals of Qin Shi Huang" (Western Han; my translation)
+
+Among the first things the Qin emperor did after unifying China was to set one standard each for weights and measures, axle widths, and writing. When every region had its own track width, a cart could not leave home territory. This line kept coming back to me during the episode. The silicon photonics Jett describes lives in the era before track widths were unified: everyone can build a cart, and there is no road all of them can run on.
+
+## What this episode covers
+
+The September 20, 2026 episode (No. 566) of the Taiwanese podcast Caibaogou featured Jett, founder of SemiVision. The host had noticed an X account posting a steady stream of English-language semiconductor reports, messaged it, discovered the team was Taiwanese, and invited them on.
+
+SemiVision was founded at the end of 2024 by former semiconductor engineers. It has published more than 400 English articles, mostly read overseas; subscriber email domains show many readers work at companies like NVIDIA and TSMC. Jett studied in Australia. His family traded semiconductor materials and distributed American chemicals, later founding a materials company, so he knows the back end of the industry well. The team began writing to push for materials self-sufficiency in Taiwan; foreign readers kept reaching out, so they turned it into a company.
+
+The conversation runs from materials to advanced packaging, silicon photonics, testing, capacity, and sources of information, and ends on raising children in the age of AI.
+
+## Key points
+
+**1. The barrier for permanent materials is time, plus the customer's bill of materials.** Permanent materials stay on the chip after processing. Indirect materials, such as dicing tape, grinding tape, and temporary bonding adhesives, are consumed along the way. Permanent materials must pass reliability testing, often 3,000 hours for automotive or AI GPU applications, sometimes 10,000. Three thousand hours divided by 24 is 125 days: four months of qualification alone. The higher wall is the end customer. Taiwan's foundries and packaging houses buy exactly what the customer's bill of materials specifies. Follow the list and a failure is not on you; swap in a cheaper material and you own it. So localizing materials only counts once you get designed in at the American customer. Bulk chemicals such as sulfuric acid, hydrogen peroxide, and IPA were once imported; after TSMC pushed local sourcing they were localized. Gases are next.
+
+**2. The front end has settled; opportunity has moved to advanced packaging and silicon photonics.** Front-end processing is run by tools, with few variables, and below 2nm only TSMC does it. Jett's phrase: everyone else "just watches the show." Packaging combines chips, substrates, and PCB makers under harsh reliability requirements, so there are many variables and many participants. He relayed a warning from one forum: if the PCB underneath CoWoS is not done right, the chip on top does not matter. Add silicon photonics and complexity stacks again. His preferred packaging direction is 3D stacking, memory on logic, because substrates cannot grow forever. Heat is unsolved and the production timeline is unclear. New HBM technologies will slip for a plain reason: current products are sold out, so shipping them comes first.
+
+**3. Silicon photonics has no standard, so the chain is hedging.** At a testing forum in Hsinchu, the consensus was that the biggest bottleneck is the lack of a standard. Making one optical module in a lab in 20 minutes is fine; at a million units, 20 minutes each never finishes. Equipment makers have it hardest: every design differs, and aligning a tool with the wrong camp is fatal. Who sets the standard? Jett's answer: wait for NVIDIA's volume; once it ramps, everyone follows. The host's reply: "So all that intel-gathering we do every day is just waiting for NV." For now, companies put a little on Broadcom and a little on NVIDIA. Jett added the other side: if only one player remains and its platform is closed, everyone gets choked.
+
+**4. Optical testing is the new choke point.** Optical testing is slow, from testing photonic integrated circuits alone to testing optics and electronics together, and when test cannot keep up, the whole line stalls. It requires knowing both optical and electrical test, which one company cannot cover; often several equipment makers combine into one machine and must still align with design houses and end customers. Companies without enough stature cannot get partners.
+
+**5. Capacity is full, startups cannot get slots, and labor is short.** Wafer, packaging, and substrate capacity are all full; second-tier fabs and Singapore are full too. Around SEMICON Taiwan, the UK, Poland, Germany, the Netherlands, Canada and others brought startups to Taiwan looking for capacity and money. European startups with prototypes need Taiwan's supply chain to reach mass production, while Taiwanese firms see them as too small. Jett warns them before making introductions: he can connect them, with no guarantee. Europe is used to long research cycles; Taiwan wants mass production and revenue now. He noticed that companies holding a slice of a scarce resource, neither big nor small, are in the highest demand.
+Labor is another wall. One manufacturer's plant in southern Taiwan cannot hire locally and sends 40 to 50 tour buses a day to bring in operators. Someone connected to TSMC's US plant said in a news report that trucks carrying semiconductor consumables make three to five runs a day in Taiwan versus one run every two days in the US, at several times the cost. Jett thinks Taiwan's edge is safe for a year or two; the risks are geopolitics and labor, with technology further down the list.
+
+**6. The people who know the most have the least reason to speak.** Employees sign confidentiality agreements and cannot discuss their companies. Expert calls were recorded and several people lost their jobs, so current employees mostly stay silent. Industry writers face limits too: write the positive direction, because writing the negative cuts off your sources. The host mentioned criticism of an American short-seller whose headlines were sensational while the body's conclusion did not match. On credibility, Jett's rule: technical forums are full of experts and backed by papers, so numbers are hard to fake; product launches talking capacity and shipments tend to inflate. He also sees the gap between ECTC papers and mass production shrinking, fastest on thermal topics that everyone is racing to solve.
+
+**7. AI devalues reports; offline relationships remain.** Last year SemiVision produced a 100-plus-page report on materials and tools for each advanced packaging step. This year the client said they could ask AI for that and wanted what AI does not say. Jett told of a Japanese professor who, watching TV in a Taiwan hotel, saw a news anchor explain CoWoS, and said that would never happen in Japan. With technical explainers now common knowledge, SemiVision is shifting to offline networking. At the end he recommended *The Gardener and the Carpenter*: he has a four-year-old and wants to raise the child like a gardener, preparing the environment and letting the child grow, starting curiosity with questions about the food on the plate.
+
+## Further thoughts
+
+### "Silicon photonics is huge. Who should I even look at?"
+
+When I hear silicon photonics news, my first instinct is also to find a stock to research. This episode made me split that question into three layers.
+
+First, before a standard exists, a company's product is tied to one camp's design, so its revenue depends on which camp wins, and the wrong bet costs everything. Jett's "pick the wrong side and you're dead" is exactly this.
+
+Second, the instinct is to find the layer everyone needs regardless of who wins, the classic pick-and-shovel play. Testing is the counterexample here: it is a real choke point, yet test equipment makers still have to decide whose design to align with. Before the standard arrives, even the shovel sellers pick sides.
+
+Third, what signals the standard is near? Jett's answer is volume. The distance between 20 minutes per unit in the lab and a million units in production is where the bottleneck sits; demand itself is not what is stuck. So I now watch shipment volume and production yield news, and put launch-event spec sheets second. Once one camp ramps, the supplier list narrows, and that is when I look at who remains on it.
+
+The failure condition: if the standard ends up set by an open industry alliance instead of following a single buyer, the "wait for the biggest buyer" reading has to be redone. Jett raised this risk himself.
+
+### "News, forums, and reposts all say different things. Which do I believe?"
+
+Seeing three versions of the same story is where I get stuck most often. This episode offers a ruler: what does the speaker pay if they are wrong?
+
+At a technical forum, experts in the audience catch mistakes on the spot and the paper stays on record, so the cost is high and so is credibility. At a product launch, capacity claims that turn out wrong go unchecked, so I discount them. Industry writers live on their sources and lose them by writing bad news, so the whole pool of industry content tilts positive; when a report has no bad news at all, I first ask whether its author is able to write any. Last come AI-scraped reposts. Jett said people rewrite SemiVision's articles and still attach SemiVision's name, and the cost of being wrong there is zero.
+
+Lined up this way, one uncomfortable fact appears: the most accurate people, working engineers, cannot talk, and the loudest content is often furthest from the floor. My own habit: before a piece of news moves me to act, I trace it back to the original text and setting. If I cannot find it, I treat it as if it never happened.
+
+### "Capacity is maxed out. Is that good news or bad news?"
+
+Full-capacity headlines read as pure good news. This episode showed me they mean different things depending on where you stand: pricing power for incumbents who hold capacity, a barrier for startups, and a delay for technology upgrades, as with new HBM technologies pushed back because current products are sold out.
+
+One layer down, full capacity rests on people and logistics. The 40 to 50 buses and the gap in truck runs show that Taiwan's speed is built on dense labor and short distances, and neither is easy to move or to replace. Jett said robots cannot take over that work yet.
+
+Seen as portfolio risk, I check whether the things I follow all rest on the same assumption: that Taiwan's capacity stays full and labor keeps up. If they do, they are one risk under several names.
+
+## References
+
+- Caibaogou Podcast episode 566, "From semiconductor materials to frontline AI industry analysis ft. SemiVision founder Jett" (2026-09-20)
+- SemiVision's English industry reports on X, LinkedIn, and Substack
+- Alison Gopnik, *The Gardener and the Carpenter* (2016)
+- ECTC (IEEE Electronic Components and Technology Conference) papers
+- Forum programs from SEMICON Taiwan and OFC
+
+## One thing to take away
+
+**A piece of news is worth as much as its speaker would pay for being wrong.**
+
+One thing I have tried: today, pick a piece of news you want to share or that changed your mind, about investing, health, parenting, or office gossip, and write one line beside it: "If the person who said this is wrong, what do they lose?" For the ones where the answer is "nothing," I hold off on sharing and go find what someone who would pay for being wrong has to say.

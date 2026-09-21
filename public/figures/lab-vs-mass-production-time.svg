@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一條幾乎看不見的細線對比一條拉滿整張圖的長條">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<text class="t" x="60" y="64">實驗室做一個，量產做一百萬個</text>
+<text class="b" x="60" y="98">同一台機台，每個二十分鐘</text>
+<text class="g" x="120" y="170">實驗室：一個</text>
+<rect x="120" y="185" width="4" height="50" fill="var(--accent)"/>
+<text class="g" x="140" y="218">20 分鐘</text>
+<text class="g" x="120" y="290">量產：一百萬個</text>
+<rect x="120" y="305" width="760" height="50" rx="4" fill="var(--warn)"/>
+<text class="g" x="864" y="338" text-anchor="end" style="fill:var(--page)">約 38 年</text>
+<line x1="120" y1="390" x2="880" y2="390" stroke="var(--dim)" stroke-width="2"/>
+<g stroke="var(--dim)" stroke-width="2">
+<line x1="120" y1="384" x2="120" y2="396"/>
+<line x1="320" y1="384" x2="320" y2="396"/>
+<line x1="520" y1="384" x2="520" y2="396"/>
+<line x1="720" y1="384" x2="720" y2="396"/>
+</g>
+<text class="b" x="120" y="418" text-anchor="middle">0</text>
+<text class="b" x="320" y="418" text-anchor="middle">10 年</text>
+<text class="b" x="520" y="418" text-anchor="middle">20 年</text>
+<text class="b" x="720" y="418" text-anchor="middle">30 年</text>
+<text class="c" x="60" y="490">卡住的是量，不是需求</text>
+</svg>
