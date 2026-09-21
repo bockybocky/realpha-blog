@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" width="960" height="570" role="img" aria-label="兩個方框並排：左邊圓點排成整齊方陣、電阻低，右邊圓點散亂、電阻高；熔化急冷由左到右很快，排回整齊由右到左最慢。">
+<rect x="0" y="0" width="960" height="570" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t{font-size:27px;font-weight:700} .g{font-size:20px;font-weight:700}
+    .b{font-size:16px} .bb{font-size:16px;font-weight:700} .d{font-size:15px;fill:var(--dim)} .c{font-size:22px;font-weight:700}
+</style>
+<defs>
+  <marker id="f1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+  <marker id="f1w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--warn)"/></marker>
+</defs>
+<text x="480" y="50" class="t" text-anchor="middle">同一種材料，排列方式決定 0 或 1</text>
+<rect x="60" y="96" width="340" height="270" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<rect x="560" y="96" width="340" height="270" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="230" y="134" class="g" text-anchor="middle">整齊排列</text>
+<text x="730" y="134" class="g" text-anchor="middle">亂排列（像玻璃）</text>
+<g fill="var(--accent)">
+  <circle cx="130" cy="180" r="7"/><circle cx="175" cy="180" r="7"/><circle cx="220" cy="180" r="7"/><circle cx="265" cy="180" r="7"/><circle cx="310" cy="180" r="7"/><circle cx="355" cy="180" r="7"/>
+  <circle cx="130" cy="225" r="7"/><circle cx="175" cy="225" r="7"/><circle cx="220" cy="225" r="7"/><circle cx="265" cy="225" r="7"/><circle cx="310" cy="225" r="7"/><circle cx="355" cy="225" r="7"/>
+  <circle cx="130" cy="270" r="7"/><circle cx="175" cy="270" r="7"/><circle cx="220" cy="270" r="7"/><circle cx="265" cy="270" r="7"/><circle cx="310" cy="270" r="7"/><circle cx="355" cy="270" r="7"/>
+  <circle cx="130" cy="315" r="7"/><circle cx="175" cy="315" r="7"/><circle cx="220" cy="315" r="7"/><circle cx="265" cy="315" r="7"/><circle cx="310" cy="315" r="7"/><circle cx="355" cy="315" r="7"/>
+</g>
+<g fill="var(--dim)">
+  <circle cx="612" cy="178" r="7"/><circle cx="655" cy="200" r="7"/><circle cx="700" cy="170" r="7"/><circle cx="748" cy="192" r="7"/><circle cx="795" cy="175" r="7"/><circle cx="842" cy="205" r="7"/>
+  <circle cx="628" cy="232" r="7"/><circle cx="676" cy="251" r="7"/><circle cx="722" cy="226" r="7"/><circle cx="770" cy="258" r="7"/><circle cx="818" cy="238" r="7"/><circle cx="860" cy="262" r="7"/>
+  <circle cx="605" cy="290" r="7"/><circle cx="650" cy="305" r="7"/><circle cx="695" cy="280" r="7"/><circle cx="741" cy="312" r="7"/><circle cx="788" cy="288" r="7"/><circle cx="835" cy="318" r="7"/>
+  <circle cx="620" cy="342" r="7"/><circle cx="668" cy="350" r="7"/><circle cx="715" cy="340" r="7"/><circle cx="762" cy="345" r="7"/><circle cx="810" cy="350" r="7"/><circle cx="857" cy="338" r="7"/>
+</g>
+<line x1="408" y1="200" x2="550" y2="200" stroke="var(--accent)" stroke-width="3" marker-end="url(#f1a)"/>
+<text x="480" y="186" class="bb" text-anchor="middle">熔化＋急冷</text>
+<text x="480" y="226" class="d" text-anchor="middle">快</text>
+<line x1="552" y1="300" x2="410" y2="300" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#f1w)"/>
+<text x="480" y="286" class="bb" text-anchor="middle">排回整齊</text>
+<text x="480" y="328" class="bb" text-anchor="middle" style="fill:var(--warn)">最慢</text>
+<text x="60" y="412" class="b">電阻低</text>
+<rect x="60" y="424" width="14" height="30" fill="var(--accent)"/>
+<text x="560" y="412" class="b">電阻高</text>
+<rect x="560" y="424" width="340" height="30" fill="var(--dim)"/>
+<text x="316" y="445" class="d" text-anchor="middle">差 1,000～10,000 倍</text>
+<text x="480" y="530" class="c" text-anchor="middle">熔化快，排回整齊慢＝速度瓶頸</text>
+</svg>

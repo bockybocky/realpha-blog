@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 590" width="960" height="590" role="img" aria-label="Two panels side by side with price per GB on the vertical axis: in the left panel, on launch day, the three bars are widely spaced; in the right panel Optane stays put, NAND falls further away, and DRAM drops down close to Optane.">
+<rect x="0" y="0" width="960" height="590" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t{font-size:27px;font-weight:700} .g{font-size:20px;font-weight:700}
+    .b{font-size:16px} .bb{font-size:16px;font-weight:700} .d{font-size:15px;fill:var(--dim)} .c{font-size:22px;font-weight:700}
+</style>
+<defs>
+  <marker id="f3d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--dim)"/></marker>
+</defs>
+<text x="480" y="50" class="t" text-anchor="middle">Squeezed as rivals move</text>
+<line x1="50" y1="495" x2="50" y2="135" stroke="var(--dim)" stroke-width="2" marker-end="url(#f3d)"/>
+<text x="50" y="118" class="bb" text-anchor="middle">High</text>
+<text x="50" y="516" class="d" text-anchor="middle">Low</text>
+<text x="50" y="545" class="d" text-anchor="middle">$/GB</text>
+<rect x="90" y="90" width="370" height="430" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<rect x="500" y="90" width="400" height="430" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="275" y="124" class="g" text-anchor="middle">Launch</text>
+<text x="700" y="124" class="g" text-anchor="middle">Later</text>
+<text x="190" y="174" class="b" text-anchor="end">DRAM</text>
+<rect x="205" y="150" width="160" height="36" fill="var(--grey)"/>
+<text x="190" y="294" class="bb" text-anchor="end">Optane</text>
+<rect x="205" y="270" width="160" height="36" fill="var(--accent)"/>
+<text x="190" y="424" class="b" text-anchor="end">NAND</text>
+<rect x="205" y="400" width="160" height="36" fill="var(--grey)"/>
+<path d="M378,310 H388 V396 H378" fill="none" stroke="var(--dim)" stroke-width="2"/>
+<text x="396" y="358" class="d">4–5x</text>
+<rect x="625" y="150" width="160" height="36" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="705" y1="188" x2="705" y2="220" stroke="var(--dim)" stroke-width="2" marker-end="url(#f3d)"/>
+<text x="610" y="249" class="b" text-anchor="end">DRAM</text>
+<rect x="625" y="225" width="160" height="36" fill="var(--grey)"/>
+<text x="610" y="294" class="bb" text-anchor="end">Optane</text>
+<rect x="625" y="270" width="160" height="36" fill="var(--accent)"/>
+<rect x="625" y="400" width="160" height="36" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="705" y1="438" x2="705" y2="465" stroke="var(--dim)" stroke-width="2" marker-end="url(#f3d)"/>
+<text x="610" y="494" class="b" text-anchor="end">NAND</text>
+<rect x="625" y="470" width="160" height="36" fill="var(--grey)"/>
+<text x="800" y="252" class="bb" style="fill:var(--warn)">Weaker</text>
+<path d="M798,310 H808 V466 H798" fill="none" stroke="var(--warn)" stroke-width="2"/>
+<text x="816" y="380" class="bb" style="fill:var(--warn)">Gap</text>
+<text x="816" y="402" class="bb" style="fill:var(--warn)">Harder</text>
+<text x="480" y="572" class="c" text-anchor="middle">Neighbors move</text>
+</svg>

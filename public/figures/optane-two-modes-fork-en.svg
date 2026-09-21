@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="A column on the left forks into two streams: the thick upper stream, about 60%, goes to Memory Mode and ends in a small, uncertain benefit; the thin lower stream, about 40%, goes to App Direct, passes through a wall of code changes, and ends in a benefit shown as a long bar.">
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t{font-size:27px;font-weight:700} .g{font-size:20px;font-weight:700}
+    .b{font-size:16px} .bb{font-size:16px;font-weight:700} .d{font-size:15px;fill:var(--dim)} .c{font-size:22px;font-weight:700}
+</style>
+<text x="480" y="50" class="t" text-anchor="middle">Value needs code rewrites</text>
+<text x="640" y="96" class="d">Gain</text>
+<rect x="60" y="200" width="30" height="250" fill="var(--dim)"/>
+<text x="75" y="188" class="bb" text-anchor="middle">582</text>
+<text x="75" y="476" class="d" text-anchor="middle">PoCs</text>
+<path d="M90,200 C250,200 250,110 420,110 L600,110 L600,260 L420,260 C250,260 250,350 90,350 Z" fill="var(--grey)" fill-opacity="0.55"/>
+<path d="M90,350 C250,350 250,380 420,380 L600,380 L600,480 L420,480 C250,480 250,450 90,450 Z" fill="var(--accent)" fill-opacity="0.3"/>
+<text x="510" y="176" class="bb" text-anchor="middle">Memory Mode</text>
+<text x="510" y="200" class="d" text-anchor="middle">Drop-in</text>
+<text x="510" y="224" class="d" text-anchor="middle">~60%</text>
+<text x="450" y="424" class="bb" text-anchor="middle">App Direct</text>
+<text x="450" y="448" class="d" text-anchor="middle">~40%</text>
+<rect x="540" y="366" width="18" height="128" fill="var(--warn)"/>
+<text x="549" y="356" class="bb" text-anchor="middle" style="fill:var(--warn)">Recode</text>
+<rect x="640" y="165" width="50" height="40" fill="none" stroke="var(--dim)" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="702" y="191" class="d">DRAM-dependent</text>
+<rect x="640" y="410" width="260" height="40" fill="var(--accent)"/>
+<text x="770" y="436" class="bb" text-anchor="middle" style="fill:var(--page)">12.5x faster reboot</text>
+<text x="480" y="560" class="c" text-anchor="middle">Best path, few go</text>
+</svg>

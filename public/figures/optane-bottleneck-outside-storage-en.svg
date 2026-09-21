@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-label="Two bars: the top one shows the original wait time split into a storage segment and an external segment, and the bottom one, with Optane, shows the storage segment shrunk to a small sliver while the external segment is unchanged, so the bar is only slightly shorter.">
+<rect x="0" y="0" width="960" height="500" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t{font-size:27px;font-weight:700} .g{font-size:20px;font-weight:700}
+    .b{font-size:16px} .bb{font-size:16px;font-weight:700} .d{font-size:15px;fill:var(--dim)} .c{font-size:22px;font-weight:700}
+</style>
+<text x="480" y="50" class="t" text-anchor="middle">Small net saving</text>
+<text x="480" y="84" class="d" text-anchor="middle">Load wait time (schematic)</text>
+<text x="60" y="180" class="g">Old</text>
+<text x="320" y="140" class="b" text-anchor="middle">SSD</text>
+<text x="620" y="140" class="b" text-anchor="middle">NVMe/PCIe etc.</text>
+<rect x="200" y="152" width="240" height="44" fill="var(--accent)"/>
+<rect x="440" y="152" width="360" height="44" fill="var(--grey)"/>
+<text x="60" y="300" class="g">With Optane</text>
+<text x="212" y="260" class="bb" text-anchor="middle" style="fill:var(--accent)">Shrunk</text>
+<text x="404" y="260" class="d" text-anchor="middle">Same</text>
+<rect x="200" y="272" width="24" height="44" fill="var(--accent)"/>
+<rect x="224" y="272" width="360" height="44" fill="var(--grey)"/>
+<line x1="584" y1="140" x2="584" y2="350" stroke="var(--dim)" stroke-dasharray="5 5"/>
+<line x1="800" y1="140" x2="800" y2="350" stroke="var(--dim)" stroke-dasharray="5 5"/>
+<path d="M584,350 V360 H800 V350" fill="none" stroke="var(--warn)" stroke-width="2"/>
+<text x="692" y="386" class="bb" text-anchor="middle" style="fill:var(--warn)">Saved</text>
+<text x="480" y="450" class="c" text-anchor="middle">Capped by rest</text>
+</svg>
