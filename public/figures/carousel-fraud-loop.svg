@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 610" width="960" height="610" role="img" aria-label="貨物在愛爾蘭、A 公司、B 公司之間繞一圈；國庫退稅給 B，A 應繳的稅斷線失蹤">
+<rect x="0" y="0" width="960" height="610" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+    .w { fill:var(--warn); }
+</style>
+<defs>
+<marker id="cfD" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--dim)"/></marker>
+<marker id="cfW" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--warn)"/></marker>
+</defs>
+<text class="t" x="480" y="48" text-anchor="middle">旋轉木馬詐欺</text>
+<rect x="380" y="90" width="200" height="60" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="480" y="127" text-anchor="middle">愛爾蘭供應商</text>
+<rect x="120" y="300" width="200" height="60" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="220" y="337" text-anchor="middle">英國 B 公司</text>
+<rect x="640" y="300" width="200" height="60" rx="10" fill="var(--card)" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 5"/>
+<text class="g" x="740" y="326" text-anchor="middle">英國 A 公司</text>
+<text class="b w" x="740" y="350" text-anchor="middle">失蹤</text>
+<rect x="380" y="480" width="200" height="60" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="480" y="517" text-anchor="middle">國庫</text>
+<path d="M582,120 Q740,120 740,292" fill="none" stroke="var(--dim)" stroke-width="2.5" marker-end="url(#cfD)"/>
+<text class="b" x="756" y="200">進口，免稅</text>
+<line x1="638" y1="330" x2="328" y2="330" stroke="var(--dim)" stroke-width="2.5" marker-end="url(#cfD)"/>
+<text class="g" x="483" y="316" text-anchor="middle">賣 $100，收稅 $20</text>
+<path d="M220,298 Q220,120 372,120" fill="none" stroke="var(--dim)" stroke-width="2.5" marker-end="url(#cfD)"/>
+<text class="b" x="204" y="200" text-anchor="end">出口，免稅</text>
+<path d="M378,510 Q220,510 220,368" fill="none" stroke="var(--warn)" stroke-width="3" marker-end="url(#cfW)"/>
+<text class="g w" x="200" y="468" text-anchor="end">退稅 $20</text>
+<path d="M740,362 Q740,510 590,510" fill="none" stroke="var(--grey)" stroke-width="2.5" stroke-dasharray="7 6"/>
+<text class="g w" x="762" y="468">該繳 $20：沒繳</text>
+<text class="c" x="480" y="592" text-anchor="middle">貨繞一圈，國庫倒貼 $20</text>
+</svg>
