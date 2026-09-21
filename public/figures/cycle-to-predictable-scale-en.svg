@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="An axis from one-off to predictable, with a point moving one step right from the far left and the later steps marked with question marks as unknown.">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; }
+    .d { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--accent); }
+    .a { fill:var(--accent); }
+</style>
+<defs>
+<marker id="f10a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+<marker id="f10d" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--grey)"/></marker>
+</defs>
+<text x="60" y="52" class="t">LTAs shift it 1 notch</text>
+<line x1="120" y1="300" x2="840" y2="300" stroke="var(--line)" stroke-width="4"/>
+<line x1="120" y1="288" x2="120" y2="312" stroke="var(--dim)" stroke-width="2"/>
+<line x1="264" y1="288" x2="264" y2="312" stroke="var(--dim)" stroke-width="2"/>
+<line x1="408" y1="288" x2="408" y2="312" stroke="var(--dim)" stroke-width="2"/>
+<line x1="552" y1="288" x2="552" y2="312" stroke="var(--dim)" stroke-width="2"/>
+<line x1="696" y1="288" x2="696" y2="312" stroke="var(--dim)" stroke-width="2"/>
+<line x1="840" y1="288" x2="840" y2="312" stroke="var(--dim)" stroke-width="2"/>
+<text x="120" y="350" class="g" text-anchor="middle">Blip</text>
+<text x="840" y="350" class="g" text-anchor="middle">Steady</text>
+<circle cx="120" cy="300" r="14" fill="var(--grey)"/>
+<text x="120" y="250" class="d" text-anchor="middle">Peak EPS</text>
+<circle cx="264" cy="300" r="16" fill="var(--accent)"/>
+<path d="M130 285 C 160 205, 225 205, 255 280" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#f10a)"/>
+<text x="264" y="190" class="g a" text-anchor="middle">LTAs to 2031</text>
+<path d="M275 285 C 305 225, 370 225, 400 280" fill="none" stroke="var(--grey)" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#f10d)"/>
+<path d="M418 285 C 448 225, 513 225, 543 280" fill="none" stroke="var(--grey)" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#f10d)"/>
+<text x="408" y="258" class="g d" text-anchor="middle">?</text>
+<text x="552" y="258" class="g d" text-anchor="middle">?</text>
+<text x="480" y="450" class="c" text-anchor="middle">Steps: TBD</text>
+</svg>

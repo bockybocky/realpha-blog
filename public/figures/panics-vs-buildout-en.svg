@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A buildout curve rises steadily while a market-sentiment line shows three sharp troughs, and the buildout line does not dip with them.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; }
+    .d { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--accent); }
+    .a { fill:var(--accent); }
+    .w { fill:var(--warn); }
+</style>
+<text x="60" y="52" class="t">Panics ≠ build cuts</text>
+<line x1="560" y1="108" x2="600" y2="108" stroke="var(--accent)" stroke-width="5"/>
+<text x="610" y="114" class="b">Build</text>
+<line x1="700" y1="108" x2="740" y2="108" stroke="var(--grey)" stroke-width="3"/>
+<text x="750" y="114" class="b">Mood</text>
+<polyline points="100,380 200,340 270,340 285,430 310,330 430,300 510,290 525,410 550,280 680,250 750,240 765,380 790,230 880,210" fill="none" stroke="var(--grey)" stroke-width="3" stroke-linejoin="round"/>
+<path d="M100 420 C 350 360, 600 260, 880 170" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<circle cx="285" cy="430" r="7" fill="var(--warn)"/>
+<circle cx="525" cy="410" r="7" fill="var(--warn)"/>
+<circle cx="765" cy="380" r="7" fill="var(--warn)"/>
+<text x="285" y="458" class="b w" text-anchor="middle">DeepSeek</text>
+<text x="525" y="438" class="b w" text-anchor="middle">Inference</text>
+<text x="765" y="408" class="b w" text-anchor="middle">Slump</text>
+<line x1="100" y1="475" x2="880" y2="475" stroke="var(--line)" stroke-width="2"/>
+<text x="880" y="498" class="d" text-anchor="end">Time →</text>
+<text x="100" y="498" class="d">Watch: capex guide, LTA breaks</text>
+<text x="480" y="540" class="c" text-anchor="middle">News ≠ new terms</text>
+</svg>

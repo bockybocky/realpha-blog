@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="容量軸在128Mb處切開，右側價格箭頭往上，左側價格持平且有新產能湧入">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; }
+    .d { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--accent); }
+    .a { fill:var(--accent); }
+    .w { fill:var(--warn); }
+</style>
+<defs>
+<marker id="f4a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+<marker id="f4w" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--warn)"/></marker>
+<marker id="f4d" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/></marker>
+</defs>
+<text x="60" y="52" class="t">同一品類，分界在 128Mb</text>
+<line x1="480" y1="100" x2="480" y2="440" stroke="var(--dim)" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="280" y="128" class="g" text-anchor="middle">128Mb 以下</text>
+<text x="680" y="128" class="g" text-anchor="middle">128Mb 以上</text>
+<line x1="110" y1="300" x2="440" y2="300" stroke="var(--grey)" stroke-width="6"/>
+<text x="275" y="285" class="b" text-anchor="middle">價格漲不動</text>
+<line x1="110" y1="380" x2="400" y2="380" stroke="var(--warn)" stroke-width="10" marker-end="url(#f4w)"/>
+<text x="110" y="415" class="g w">中國新產能湧入</text>
+<line x1="640" y1="410" x2="640" y2="200" stroke="var(--accent)" stroke-width="16" marker-end="url(#f4a)"/>
+<text x="685" y="260" class="g a">價格上行</text>
+<text x="685" y="292" class="b a">有定價權</text>
+<line x1="80" y1="450" x2="870" y2="450" stroke="var(--dim)" stroke-width="2" marker-end="url(#f4d)"/>
+<text x="880" y="480" class="d" text-anchor="end">容量規格 →</text>
+<text x="480" y="520" class="c" text-anchor="middle">看規格，不看公司名</text>
+</svg>

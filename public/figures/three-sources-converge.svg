@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊一個來源指向小圓點，右邊三個獨立來源的箭頭匯聚到同一個大圓點">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:600; }
+    .b { font-size:16px; }
+    .d { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--accent); }
+    .a { fill:var(--accent); }
+    .p { fill:var(--page); }
+</style>
+<defs>
+<marker id="f13g" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--grey)"/></marker>
+<marker id="f13a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+</defs>
+<text x="60" y="52" class="t">獨立來源越多，權重越重</text>
+<line x1="400" y1="100" x2="400" y2="450" stroke="var(--line)" stroke-width="2"/>
+<text x="220" y="112" class="g d" text-anchor="middle">1 個來源</text>
+<text x="680" y="112" class="g a" text-anchor="middle">3 個獨立來源</text>
+<rect x="60" y="250" width="120" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+<text x="120" y="281" class="b" text-anchor="middle">單一說法</text>
+<line x1="185" y1="275" x2="275" y2="275" stroke="var(--grey)" stroke-width="3" marker-end="url(#f13g)"/>
+<circle cx="320" cy="275" r="26" fill="var(--grey)"/>
+<text x="320" y="330" class="d" text-anchor="middle">某瓶頸</text>
+<rect x="440" y="150" width="150" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+<text x="515" y="181" class="b" text-anchor="middle">研究者推論</text>
+<rect x="440" y="250" width="150" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+<text x="515" y="281" class="b" text-anchor="middle">鴻海高層</text>
+<rect x="440" y="350" width="150" height="50" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+<text x="515" y="381" class="b" text-anchor="middle">調研機構</text>
+<line x1="595" y1="180" x2="705" y2="250" stroke="var(--accent)" stroke-width="3" marker-end="url(#f13a)"/>
+<line x1="595" y1="275" x2="700" y2="275" stroke="var(--accent)" stroke-width="3" marker-end="url(#f13a)"/>
+<line x1="595" y1="370" x2="705" y2="300" stroke="var(--accent)" stroke-width="3" marker-end="url(#f13a)"/>
+<circle cx="790" cy="275" r="72" fill="var(--accent)"/>
+<text x="790" y="270" class="b p" text-anchor="middle">連續波雷射</text>
+<text x="790" y="294" class="b p" text-anchor="middle">・光纖</text>
+<text x="480" y="505" class="c" text-anchor="middle">一週三源點名 → 另開筆記追</text>
+</svg>
