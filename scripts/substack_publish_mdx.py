@@ -415,6 +415,46 @@ def load_article(slug):
 
 
 
+NOTES_KIND = 'podcast-notes'
+NOTES_TEASER_LINK = 'The full article and charts are on the blog: '
+_TEASER_DISCLAIMER = re.compile(r'investment advice|[Ee]ducational|not a recommendation|not advice')
+
+
+def is_podcast_notes(slug, fm=None):
+    """節目心得判定＝frontmatter kind（規則同 src/lib/indexing.mjs）：英文稿或中文稿任一標 podcast-notes 就算，中英同進退。"""
+    if str((fm or {}).get('kind', '')).strip() == NOTES_KIND:
+        return True
+    for lang in ('en', 'zh-TW'):
+        path = os.path.join(ROOT, 'src', 'content', 'blog', '%s.%s.mdx' % (slug, lang))
+        if os.path.isfile(path):
+            other, _ = parse_frontmatter(open(path, encoding='utf-8').read())
+            if str(other.get('kind', '')).strip() == NOTES_KIND:
+                return True
+    return False
+
+
+def opening_conclusion(fm, body):
+    """開頭結論段：第一個 ## 之前的正文段（答案先行段）→ tldr → description（去掉免責句）。"""
+    head = body.split('\n## ')[0] if '\n## ' in body else ''
+    for block in re.split(r'\n\s*\n', head):
+        b = block.strip()
+        if b and not re.match(r'^(!\[|>|#|<|\||```|---|import |export )', b):
+            return ' '.join(ln.strip() for ln in b.splitlines())
+    for key in ('tldr', 'description'):
+        text = str(fm.get(key, '')).strip()
+        if text:
+            sents = [s for s in re.split(r'(?<=[.!?])\s+', text) if not _TEASER_DISCLAIMER.search(s)]
+            if sents:
+                return ' '.join(sents)
+    return ''
+
+
+def notes_teaser_body(slug, fm, body):
+    """心得在 Substack 的正文：開頭結論段＋一句「全文與圖表在部落格」＋連結。"""
+    u = blog_url_en(slug)
+    return '%s\n\n%s[%s](%s)\n' % (opening_conclusion(fm, body), NOTES_TEASER_LINK, u, u)
+
+
 def paywall_k_for(fm, slug, body):
     """牆的位置（0-based H2 序號，牆插在該 H2 前）。
     優先序：frontmatter `substackPaywallAfter: N`（第 N 節之後免費結束；2026-09-03 Charles「只免費公開第一節」→ 1）
@@ -634,13 +674,21 @@ def build_post(api, slug):
     if clipped != (subtitle or '').strip():
         print('⚠️ 副標超過 %d 字，已截斷（原文 %d）' % (SUBTITLE_MAX, len(subtitle.strip())))
     subtitle = clipped
-    k, src = paywall_k_for(fm, slug, body)
-    if k is None:
+    notes = is_podcast_notes(slug, fm)
+    if notes:
+        # 2026-09-22 索引範圍（Fable 判決、Charles 拍板）：節目心得只發開頭結論段＋一句連回部落格，
+        # 全文留在部落格，免得同一篇全文散在兩站、Google 把功勞算給名氣大的那一站。原創文照舊發全文。
+        body = notes_teaser_body(slug, fm, body)
+        k, src = None, 'podcast-notes'
+        print('ℹ️ 節目心得：Substack 只發結論段＋部落格連結')
+    else:
+        k, src = paywall_k_for(fm, slug, body)
+    if k is None and not notes:
         print('⚠️ 找不到「延伸想法」／Where I took it，不插付費牆')
     # 2026-09-03 實測：Substack 規定「有付費牆的文 audience 必須是 only_paid」（設 everyone 發布時回 400）；
     # only_paid＋牆＝牆上免費預覽、牆下付費，正是乙案要的；沒牆的文才用 everyone。
     post = Post(title, subtitle, api.get_user_id(), audience='only_paid' if k is not None else 'everyone')
-    if os.environ.get('SUBSTACK_NO_CTA') != '1':  # 批次回填舊文時可關，省生成呼叫
+    if os.environ.get('SUBSTACK_NO_CTA') != '1' and not notes:  # 批次回填舊文時可關，省生成呼叫；心得摘要太短不插
         witty = cta_witty_en(title, subtitle, body[:800])
         body = insert_md_at_fraction(body, witty['heart'] or HEART_EN_FALLBACK, 2 / 3)
         if len(body.split('\n')) >= LONG_LINES:
@@ -652,7 +700,8 @@ def build_post(api, slug):
     if witty is not None:
         post.paragraph(parse_inline(witty['join'] or CTA_EN_FALLBACK))
         post.paragraph(parse_inline(CTA_EN_LINK))
-    post.paragraph(parse_inline(bloglink_en_text(slug)))
+    if not notes:  # 心得摘要本身已帶部落格連結，不重複
+        post.paragraph(parse_inline(bloglink_en_text(slug)))
     signature_paragraphs(post, slug)
     if fm.get('category') == 'investing':
         post.paragraph([{'content': DISCLAIMER, 'marks': [{'type': 'em'}]}])

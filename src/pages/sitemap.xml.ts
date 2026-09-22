@@ -1,6 +1,7 @@
 import { getBlogPosts, getLabs, getProjects } from '../lib/content';
 import { getCatalog, topicPath } from '../lib/catalog';
 import { absoluteUrl, type Locale } from '../lib/site';
+import { noindexSlugs } from '../lib/indexing.mjs';
 
 const locales: Locale[] = ['zh-TW', 'en'];
 const staticPaths = [
@@ -25,6 +26,9 @@ function item(path: string, lastmod = '2026-07-08') {
 
 export async function GET() {
 	const dynamicPaths: { path: string; lastmod: string }[] = [];
+	// 節目心得不列入 sitemap（2026-09-22）；原創與週報照列。判定規則在 src/lib/indexing.mjs
+	const everyPost = [...(await getBlogPosts('zh-TW')), ...(await getBlogPosts('en'))];
+	const skip = noindexSlugs(everyPost.map((p) => ({ slug: p.data.slug, lang: p.data.lang, kind: p.data.kind })));
 
 	for (const locale of locales) {
 		const prefix = locale === 'en' ? '/en' : '';
@@ -33,6 +37,7 @@ export async function GET() {
 		const projects = await getProjects(locale);
 
 		for (const post of posts) {
+			if (skip.has(post.data.slug)) continue;
 			dynamicPaths.push({
 				path: `${prefix}/blog/${post.data.slug}/`,
 				lastmod: (post.data.updatedDate ?? post.data.pubDate).toISOString().slice(0, 10),

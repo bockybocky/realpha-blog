@@ -11,6 +11,7 @@ import SubstackLink from '../../../components/SubstackLink.astro';
 import { coverAlt, readingMinutes, relatedPosts } from '../../../lib/article-extras';
 import topicsData from '../../../data/topics.json';
 import { getBlogPosts } from '../../../lib/content';
+import { noindexSlugs } from '../../../lib/indexing.mjs';
 import { viewsOf } from '../../../lib/popular';
 import { formatDate } from '../../../lib/site';
 import { render } from 'astro:content';
@@ -25,6 +26,9 @@ const { post, posts } = Astro.props;
 const { Content, headings } = await render(post);
 const path = `/en/blog/${post.data.slug}/`;
 const alternatePath = `/blog/${post.data.slug}/`;
+// Podcast notes: noindex for Google only (2026-09-22); zh and en versions share the same decision
+const zhPosts = await getBlogPosts('zh-TW');
+const googleNoindex = noindexSlugs([...posts, ...zhPosts].map((p) => ({ slug: p.data.slug, lang: p.data.lang, kind: p.data.kind }))).has(post.data.slug);
 const labLabels = {
 	hypothesis: 'Hypothesis',
 	plan: 'Validation plan',
@@ -56,6 +60,7 @@ const views = viewsOf('en', post.data.slug);
 	locale={locale}
 	path={path}
 	alternatePath={alternatePath}
+	googleNoindex={googleNoindex}
 	image={post.data.ogImage}
 	breadcrumbs={[{ name: 'Blog', path: '/en/blog/' }, { name: post.data.title, path }]}
 	article={{

@@ -29,6 +29,9 @@ const blog = defineCollection({
 	schema: base.extend({
 		category: z.enum(['tech', 'investing', 'systems', 'lab']).default('tech'),
 		tags: z.array(z.string()).default([]),
+		// 索引範圍（2026-09-22）：podcast-notes＝節目收聽心得（對 Google noindex、不進 sitemap）；
+		// weekly-digest＝每週節目整理；original＝原創。規則見 src/lib/indexing.mjs
+		kind: z.enum(['original', 'podcast-notes', 'weekly-digest']).default('original'),
 		ogImage: z.string().default('/og-default.svg'),
 		cover: z.string().optional(),
 		tldr: z.string().optional(),

@@ -28,9 +28,11 @@ interface Props {
 	image?: string;
 	/** 不給搜尋引擎收錄（離線頁用） */
 	noindex?: boolean;
+	/** 只對 Google 不收錄（節目心得頁，2026-09-22）；Bing 與其他爬蟲照收。中英兩版由呼叫端算好同進退 */
+	googleNoindex?: boolean;
 }
 
-const { title, description, locale, path, alternatePath, breadcrumbs = [], article, image = site.ogImage, noindex = false } = Astro.props;
+const { title, description, locale, path, alternatePath, breadcrumbs = [], article, image = site.ogImage, noindex = false, googleNoindex = false } = Astro.props;
 const meta = localeMeta[locale];
 const titleText = title === site.name ? title : `${title} | ${site.name}`;
 const canonical = absoluteUrl(path);
@@ -109,6 +111,7 @@ const footerNav = [
 		<title>{titleText}</title>
 		<meta name="description" content={description} />
 		{noindex && <meta name="robots" content="noindex" />}
+		{googleNoindex && !noindex && <meta name="googlebot" content="noindex" />}
 		<link rel="canonical" href={canonical} />
 		{zhPath && <link rel="alternate" hreflang="zh-TW" href={absoluteUrl(zhPath)} />}
 		{enPath && <link rel="alternate" hreflang="en" href={absoluteUrl(enPath)} />}

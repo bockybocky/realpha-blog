@@ -11,6 +11,7 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 import { coverAlt, readingMinutes, relatedPosts } from '../../lib/article-extras';
 import topicsData from '../../data/topics.json';
 import { getBlogPosts } from '../../lib/content';
+import { noindexSlugs } from '../../lib/indexing.mjs';
 import { viewsOf } from '../../lib/popular';
 import { formatDate } from '../../lib/site';
 import { render } from 'astro:content';
@@ -29,6 +30,8 @@ const enPosts = await getBlogPosts('en');
 const alternatePath = enPosts.some((p) => p.data.slug === post.data.slug)
 	? `/en/blog/${post.data.slug}/`
 	: null;
+// 節目心得只擋 Google（2026-09-22）；中英任一版是心得，兩版同進退
+const googleNoindex = noindexSlugs([...posts, ...enPosts].map((p) => ({ slug: p.data.slug, lang: p.data.lang, kind: p.data.kind }))).has(post.data.slug);
 const labLabels = {
 	hypothesis: '假設',
 	plan: '驗證計畫',
@@ -61,6 +64,7 @@ const views = viewsOf('zh-TW', post.data.slug);
 	locale={locale}
 	path={path}
 	alternatePath={alternatePath}
+	googleNoindex={googleNoindex}
 	image={post.data.ogImage}
 	breadcrumbs={[{ name: '文章', path: '/blog/' }, { name: post.data.title, path }]}
 	article={{

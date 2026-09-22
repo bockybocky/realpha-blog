@@ -6,6 +6,10 @@ import sitemap from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
 import rehypeTakeawayNote from './src/lib/rehype-takeaway-note.mjs';
 import rehypeInArticleAds from './src/lib/rehype-in-article-ads.mjs';
+import { blogSlugOfPath } from './src/lib/indexing.mjs';
+import { noindexSlugsFromDisk } from './scripts/notes_index.mjs';
+
+const notesSlugs = noindexSlugsFromDisk();
 
 function rehypeCopyCode() {
 	// 按鈕放在不捲動的 wrapper 上（不是 pre 內），程式碼再寬、內部怎麼捲，按鈕都固定右上
@@ -75,7 +79,18 @@ for (const id of seriesIds) {
 export default defineConfig({
 	site: 'https://blog.getrealpha.com',
 	// 離線頁是 service worker 的備用頁，不給搜尋引擎（2026-09-15 PWA）
-	integrations: [mdx(), sitemap({ filter: (page) => !/\/offline\/$/.test(new URL(page).pathname) })],
+	// 節目心得頁不進 sitemap-index／sitemap-0（2026-09-22 索引範圍）；判定讀 frontmatter kind，規則在 src/lib/indexing.mjs
+	integrations: [
+		mdx(),
+		sitemap({
+			filter: (page) => {
+				const pathname = new URL(page).pathname;
+				if (/\/offline\/$/.test(pathname)) return false;
+				const slug = blogSlugOfPath(pathname);
+				return !(slug && notesSlugs.has(slug));
+			},
+		}),
+	],
 	redirects,
 	i18n: {
 		defaultLocale: 'zh-TW',

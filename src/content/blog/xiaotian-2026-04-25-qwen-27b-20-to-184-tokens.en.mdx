@@ -5,6 +5,7 @@ slug: "xiaotian-2026-04-25-qwen-27b-20-to-184-tokens"
 lang: "en"
 pubDate: 2026-09-17
 category: tech
+kind: "podcast-notes"
 tldr: "When a local model is slow, the bottleneck is often moving data, not compute. On a 4090, quantization took the YouTuber from 20 to 48 tokens a second, multi-token prediction to 108, and DFlash diffusion drafting to an average of 141 and a peak of 184. Each step rescued a different stage. My 8GB card couldn't even hold the model; switching to one that activates only a slice of its parameters per token took it from 1.8 to 23. Find the stuck stage first, then decide whether to tune, switch models or buy hardware."
 tags: ["local AI", "Qwen", "quantization", "inference speed", "decision making"]
 ogImage: "/covers/xiaotian-2026-04-25-qwen-27b-20-to-184-tokens.png"
