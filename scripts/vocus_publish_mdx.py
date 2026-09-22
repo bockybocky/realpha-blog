@@ -37,6 +37,7 @@ NON_INVESTMENT = {'herdr-complete-guide', 'herdr-codexbar-jianguo-quota-dispatch
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
+    'coming-storm-fear-needs-a-decision': ['讀書筆記', '地緣政治', '大戰將至', '台海', '歷史'],
     'herdr-complete-guide': ['herdr', 'AI agent', '終端機', '工具教學', '工作流'],
     'herdr-codexbar-jianguo-quota-dispatch': ['AI agent', '額度', 'CodexBar', '監國協議', '自動化'],
     'read-the-source-before-you-install': ['AI應用落地', '資安', '開源軟體', 'AI工具', '教學'],
@@ -91,6 +92,7 @@ except (OSError, ValueError):
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
 COVERS = {
+    'coming-storm-fear-needs-a-decision': 'coming-storm-fear-needs-a-decision.png',
     'the-stimulated-mind-cognitive-athlete': 'the-stimulated-mind-cognitive-athlete.png',
     'herdr-complete-guide': 'herdr-complete-guide.png',
     'herdr-codexbar-jianguo-quota-dispatch': 'herdr-codexbar-jianguo-quota-dispatch.png',
