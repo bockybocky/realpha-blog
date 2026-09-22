@@ -243,6 +243,17 @@ SALON_URL = 'https://vocus.cc/salon/6a1e9e1a9da94e81ec5c81e6'
 # 同日追加：每篇照文章內容現寫一句幽默邀請（claude -p），寫失敗退回固定句，發文不因此卡住。
 CTA_FALLBACK = '如果這篇對你有幫助，加入沙龍免費會員，新文章和每月的判讀帳本會第一時間通知你。'
 CTA_LINK_BLOCK = ('p', f'👉 [加入沙龍免費會員]({SALON_URL})')
+# 原文連結（2026-09-22 Charles 核可）：每篇連回部落格同一篇，告訴 Google 部落格是原文、並替部落格拉外部連結。
+BLOGLINK_PREFIX = '📌 本文原文刊登於 Realpha 部落格：'
+
+
+def blog_url(slug):
+    return f'{BLOG}/blog/{slug}/'
+
+
+def bloglink_text(slug):
+    u = blog_url(slug)
+    return f'{BLOGLINK_PREFIX}[{u}]({u})'
 
 
 HEART_FALLBACK = '讀到這裡如果有收穫，點一下這篇文章下方的愛心，愛心數就會加一，也讓我知道這篇有幫上忙 💗'
@@ -349,7 +360,8 @@ def load_article(slug):
         blocks = insert_at_fraction(blocks, save, 1 / 3)
     return {'title': fm['title'], 'abstract': abstract,
             'tags': TAGS.get(slug, SUGGESTED_TAGS.get(slug, ['投資', '心得'])),
-            'blocks': (blocks + [('p', witty['join'] or CTA_FALLBACK), CTA_LINK_BLOCK]
+            'blocks': (blocks + [('p', witty['join'] or CTA_FALLBACK), CTA_LINK_BLOCK,
+                                 ('p', bloglink_text(slug))]
                        + signature_blocks(slug))}
 
 

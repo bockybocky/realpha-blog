@@ -36,6 +36,18 @@ PUB_URL = 'https://realphareads.substack.com'
 CTA_EN_FALLBACK = ('If this piece saved you an hour of reading, the next one is already '
                    'on its way — subscribing is free.')
 CTA_EN_LINK = f'👉 [Subscribe to Realpha Reads the World — free]({PUB_URL}/subscribe)'
+# 原文連結（2026-09-22 Charles 核可）：每篇連回部落格英文版同一篇，告訴 Google 部落格是原文、並替部落格拉外部連結。
+BLOG_URL = 'https://blog.getrealpha.com'
+BLOGLINK_EN_PREFIX = '📌 Originally published on the Realpha blog: '
+
+
+def blog_url_en(slug):
+    return f'{BLOG_URL}/en/blog/{slug}/'
+
+
+def bloglink_en_text(slug):
+    u = blog_url_en(slug)
+    return f'{BLOGLINK_EN_PREFIX}[{u}]({u})'
 HEART_EN_FALLBACK = 'If something here just clicked for you, tap the heart ❤️ so I know what to write more of.'
 SAVE_EN_FALLBACK = ('This is a long one — subscribe now and it will wait patiently '
                     'in your inbox for whenever you are ready.')
@@ -640,6 +652,7 @@ def build_post(api, slug):
     if witty is not None:
         post.paragraph(parse_inline(witty['join'] or CTA_EN_FALLBACK))
         post.paragraph(parse_inline(CTA_EN_LINK))
+    post.paragraph(parse_inline(bloglink_en_text(slug)))
     signature_paragraphs(post, slug)
     if fm.get('category') == 'investing':
         post.paragraph([{'content': DISCLAIMER, 'marks': [{'type': 'em'}]}])
