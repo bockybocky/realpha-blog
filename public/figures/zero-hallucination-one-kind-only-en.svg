@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="On the left, five options are enclosed and a new option and a typo outside are crossed out; on the right, the highest probability bar lands on a wrong option and the correct answer is short.">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+</style>
+<text x="40" y="58" font-size="27" font-weight="700">Zero hallucination stops one error</text>
+<rect x="40" y="100" width="420" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text x="64" y="140" font-size="20" font-weight="700" style="fill:var(--accent)">Blocked: type errors</text>
+<rect x="70" y="170" width="250" height="236" rx="10" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="7 5"/>
+<g font-size="16" text-anchor="middle">
+<rect x="90" y="182" width="210" height="34" rx="8" fill="var(--page)" stroke="var(--line)"/><text x="195" y="205">A</text>
+<rect x="90" y="226" width="210" height="34" rx="8" fill="var(--page)" stroke="var(--line)"/><text x="195" y="249">B</text>
+<rect x="90" y="270" width="210" height="34" rx="8" fill="var(--page)" stroke="var(--line)"/><text x="195" y="293">C</text>
+<rect x="90" y="314" width="210" height="34" rx="8" fill="var(--page)" stroke="var(--line)"/><text x="195" y="337">D</text>
+<rect x="90" y="358" width="210" height="34" rx="8" fill="var(--page)" stroke="var(--line)"/><text x="195" y="381">E</text>
+<rect x="340" y="220" width="96" height="34" rx="8" fill="none" stroke="var(--warn)" stroke-dasharray="4 4"/><text x="388" y="243" style="fill:var(--dim)">F</text>
+<rect x="340" y="314" width="96" height="34" rx="8" fill="none" stroke="var(--warn)" stroke-dasharray="4 4"/><text x="388" y="337" style="fill:var(--dim)">Shiping</text>
+</g>
+<path d="M352,224 L424,250 M424,224 L352,250" stroke="var(--warn)" stroke-width="3"/>
+<path d="M352,318 L424,344 M424,318 L352,344" stroke="var(--warn)" stroke-width="3"/>
+<text x="388" y="276" font-size="15" text-anchor="middle" style="fill:var(--dim)">New option</text>
+<text x="388" y="370" font-size="15" text-anchor="middle" style="fill:var(--dim)">Typo</text>
+<rect x="500" y="100" width="420" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text x="524" y="140" font-size="20" font-weight="700" style="fill:var(--warn)">Missed: sure but wrong</text>
+<g font-size="16">
+<text x="530" y="205">A</text><rect x="560" y="182" width="270" height="34" rx="6" fill="var(--warn)"/><text x="840" y="205" font-weight="700" style="fill:var(--warn)">90%</text>
+<text x="530" y="249">B</text><rect x="560" y="226" width="12" height="34" rx="4" fill="var(--grey)"/>
+<text x="530" y="293" font-weight="700" style="fill:var(--accent)">C</text><rect x="560" y="270" width="9" height="34" rx="4" fill="var(--accent)"/><text x="582" y="293" font-weight="700" style="fill:var(--accent)">Correct</text>
+<text x="530" y="337">D</text><rect x="560" y="314" width="6" height="34" rx="3" fill="var(--grey)"/>
+<text x="530" y="381">E</text><rect x="560" y="358" width="4" height="34" rx="2" fill="var(--grey)"/>
+</g>
+<text x="900" y="440" font-size="15" text-anchor="end" style="fill:var(--dim)">Odds illustrative</text>
+<text x="480" y="520" font-size="22" font-weight="700" text-anchor="middle">Narrow definition, broad promise</text>
+</svg>

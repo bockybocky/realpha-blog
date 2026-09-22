@@ -18,49 +18,85 @@ cover: "/covers/techwave-2026-09-21-ep155-ai-jev-ai-agent-cover.png"
 
 ## What this episode is about
 
-In TechWave EP155 (2026-09-21), host Harry takes apart the name that flooded AI feeds last week: Jev. It comes from TypeSafe AI, a company founded in 2024 that shipped nothing publicly for its first two years. The launch post made three claims: zero hallucinations, 200x faster, 400x cheaper.
+For the past week, one name has been all over AI feeds: Jev. In TechWave EP155 (2026-09-21), host Harry sits down to take it apart. Jev comes from TypeSafe AI, a company founded in 2024 that didn't ship a single product in its first two years, and when it finally did, the launch post led with three claims: zero hallucinations, 200x faster, and 400x cheaper.
 
-CEO Diogo Almeida was one of the lead authors on a paper about turning a text-completion model into a chatbot like ChatGPT. He likes to show up at events in a bright pink puffer coat, which Harry compares to Doflamingo from *One Piece*. Harry states his position at the start: there is no free lunch, so a model that delivers those three things must have given up some capability. The episode is about what it gave up and what it got in return.
+The CEO, Diogo Almeida, has quite a résumé. Back when people were turning models that could only complete text into chatbots like ChatGPT, he was one of the lead authors on that paper. He also likes to turn up at events in a bright pink puffer coat, which Harry says makes him look like Doflamingo from *One Piece*. But Harry puts his cards on the table right at the start: there's no free lunch, so to pull off those three things, the model has to give something up. The whole episode is a hunt for what it gave up and what it got in return.
 
 ## The main points
 
 ### 1. Jev does one thing: it spreads probability across the options you give it
 
-Jev is built on a large language model, but it does not write text, draw images, or write code. You give it a situation, a question, and some options; it returns a probability for each option. Harry's example is a support message, "I'd like to know where my package is," with options for billing, technical, and shipping. Jev returns shipping at 92%. TypeSafe calls it a "System 1 model," borrowing the fast, intuitive brain from *Thinking, Fast and Slow*: it sees the question and reacts, with no deliberation.
+Under the hood Jev is a large language model too, but it doesn't write text, draw pictures, or write code. You hand it a situation, a question, and a few options, and all it gives back is how likely each option is. Harry's example is a customer support message: someone writes in, "I'd like to know where my package is," the options are billing, technical, and shipping, and Jev comes back with shipping at 92%.
 
-Harry's more precise label is "an LLM-based general-purpose classification model." The word "general-purpose" carries weight. In older machine learning, a bank that wanted to predict loan defaults had to train a dedicated model on its own historical data, and that model could do nothing else. Jev handles a new question without retraining. The limit sits in the same place: a question like default risk needs a bank's internal data to build intuition, and Jev cannot learn that from the web.
+![On the left are a support message and three options; they pass through Jev in the middle, and on the right three bars of very different lengths appear, with shipping nearly full at 92% while billing and tech are only small stubs.](/figures/jev-options-to-probability-en.svg)
+
+TypeSafe calls it a "System 1 model," a name borrowed from the fast, intuitive brain in *Thinking, Fast and Slow*, the part that sees a question and just reacts without mulling it over.
+
+Harry thinks a more accurate label is "a general-purpose classification model built on an LLM," and to me "general-purpose" is the part that matters most. It used to be that a bank wanting to predict whether customers would default had to train a separate model on its own historical data, and that model could do exactly one thing. Jev can take a different question without being retrained. But that's also where its limit is: a question like default risk needs the bank's internal data before any intuition can form, and that's something Jev can't pick up from the web.
 
 ### 2. It is 200x faster because it runs once
 
-A normal model writing a 2,000-word answer runs its full set of weights about 2,000 times, producing one token each time. The compute Jev needs to answer one question is roughly what a normal model spends producing its first token. The CEO confirmed the core idea on Hacker News: a normal model computes the probability of which token comes next, and Jev computes the probability of which option this question should get.
+When a normal model writes a 2,000-word answer, it spits it out one word at a time, and every word means running the whole model again, so that's 2,000 passes in total. Jev answers a question in a single pass, which works out to about the same compute a normal model spends on its very first word.
 
-Harry then works backward from the API limits. Each question can have at most 255 options, which is 2 to the 8th power minus 1. A situation plus any single question cannot exceed 32K tokens, and he guesses that is the model's context length. The company says multiple questions are split apart and evaluated in parallel, so adding questions does not add much waiting time.
+![On the left is a large grid of 2,000 small dots, showing that a typical model must compute 2,000 times to write 2,000 words; on the right is a single circled dot, showing that Jev computes only once per answer, the same size as the first dot in the grid's top-left corner.](/figures/jev-one-pass-vs-two-thousand-en.svg)
+
+The CEO laid out the core trick on Hacker News, the tech forum: a model already calculates the odds of "which word comes next," and Jev simply switches that to "which option does this question get."
+
+Harry also works backward from the API limits. Each question can have at most 255 options, which happens to be 2 to the 8th power minus 1. A situation plus one question can't go over 32K tokens (tokens are the units a model uses to measure text length), and he guesses that's how much the model can read in one go. The company also says multiple questions get split up and run at the same time, so piling on more questions doesn't make you wait much longer.
 
 ### 3. Any language model can be turned into Jev; the moat is the training recipe
 
-This is the most counterintuitive point in the episode. Within days, people had built an open-source version on Qwen3.5-4B, a model small enough to run on a laptop. The method: label the options A and B in the prompt. When the model is about to produce its first token, read only the scores for "A" and "B" and pass them through softmax to get probabilities that add up to 100%. No extra training is needed. On easy and medium questions it comes close to Jev and matches it on speed and cost. It falls behind on hard questions, and on whether its probabilities are accurate.
+For me this was the most counterintuitive part of the episode. Within a few days, people in the community had built an open-source version on Qwen3.5-4B, a model small enough to run on a laptop. The method is simple: label the options A and B in the prompt, and when the model is about to produce its first word, look only at how much it scores "A" and "B," then run those through softmax (a formula that turns scores into probabilities) so they add up to 100%.
 
-The gap comes from TypeSafe's own post-training method, RLCD, short for Reinforcement Learning for Calibrated Decisions. The model has to pick the right answer, and the probabilities it gives also have to match reality. Harry's example is a Google review saying "this restaurant is insane." Most people who write that are complaining, and a few mean it as praise, as in "insane, how did they make a burger this good." The ideal output is about 80% negative. Jev's architecture has some changes, but the CEO himself says those are not what matters. The recipe and training data are private; outsiders only get the API.
+![On the left is a row of gray bars of varying heights, representing the model's score for every token in its vocabulary, with the A and B bars highlighted in blue; an arrow points right to a single bar summing to 100%, made of only A and B, with A at about 70% and B at about 30%.](/figures/softmax-read-only-a-b-en.svg)
+
+It needs no extra training, and on easy and medium questions it lands close to Jev, without losing on speed or cost either. Where it falls behind is on hard questions, and on how accurate its probabilities are.
+
+That gap comes from TypeSafe's own post-training method, RLCD, short for Reinforcement Learning for Calibrated Decisions, which means the model has to pick the right answer and also give probabilities that match reality. Harry's example makes it easy to picture: a Google review says "this restaurant is insane." Most people who write that are complaining, but a few mean it as praise, as in "insane, how did they make a burger this good." So the ideal answer is 80% negative and 20% positive.
+
+![On the left, ten circles stand for the ten people who wrote this sentence, eight complaining and two praising; on the right are two bars, where the model that picks just one is entirely negative and the calibrated model is 80% negative and 20% positive, matching the crowd's ratio on the left.](/figures/calibrated-decision-restaurant-en.svg)
+
+Jev's architecture does have a few tweaks, but the CEO himself says those aren't what matters. The valuable part, the recipe and the training data, is private, so outsiders only get to use it through the API.
 
 ### 4. "Zero hallucinations" rules out one kind of error
 
-Jev only spreads probability across the five options you give it. It cannot invent a sixth, and it cannot misspell an option's text. That kind of mistake is called a type error, and Harry guesses that is where the name TypeSafe comes from. Jev can still pick the wrong answer with high confidence. If wrong answers count as hallucinations, then Jev hallucinates. The marketing took a narrow definition and presented it as a broad promise.
+Jev only spreads probability across the options you give it, so if you give it five, it won't make up a sixth, and it won't misspell one of them either. That kind of mistake is called a type error, and Harry guesses that's where the name TypeSafe comes from. But it can still pick the wrong answer with total confidence, and if you count wrong answers as hallucinations, then Jev hallucinates too.
+
+![Two panels: on the left, five options are enclosed by a dashed loop, and a sixth option popping up outside it plus a misspelled option are both crossed out, showing this kind of error cannot happen; on the right, the probability bars for the same five options put the longest bar on the wrong answer A while the correct answer C gets only a small stub, showing that confidently picking wrong still happens.](/figures/zero-hallucination-one-kind-only-en.svg)
+
+Put plainly, the marketing took a very narrow definition and sold it as a very broad promise.
 
 ### 5. Computer use: over 100x cheaper, only about 3x faster
 
-Someone built a computer-use system out of Jev and compared it with Claude Opus. Both finished the task. Jev cost more than 100 times less but was only about three times faster. The reason is that Jev cannot see the screen. It has to read the page's underlying structure and the accessibility tags written for screen readers, plus an OCR model for text recognition. Sites with poor accessibility tags (Harry names Notion) leave it relying on OCR alone. It cannot click buttons that are only icons, and it cannot handle fine controls like sliders.
+Someone online used Jev to put together a system that operates a computer on its own, and pitted it against Claude Opus. Both got the task done, and Jev's cost was more than 100 times lower, yet it was only about three times faster.
 
-Adding vision to the next Jev would not fix this. A normal model can output screen coordinates and click any of millions of pixels. Jev is capped at 255 options per question, so the page has to be turned into a list of options first. Harry compares this with his own experience. He had GPT-6 Astra book a restaurant, and the site's CAPTCHA showed three cartoon characters jumping, asking which one jumped highest. Astra took one screenshot and got it wrong. It thought for a moment, switched to taking several screenshots in a row, and passed. Jev has no way into a task like that.
+![Two time bars: the top one is a full-length bar for Claude Opus, while the Jev system's bar below is only about a third as long, and most of it is taken up by reading the page structure and text recognition, leaving only a small slice at the end for Jev's actual decision.](/figures/computer-use-time-bottleneck-en.svg)
+
+Why only three times? Because Jev can't see the screen. It has to read the page's raw structure and the accessibility tags written for blind users' screen readers, then bolt on a separate OCR model (software that reads text from images), and that's where most of the time goes. On sites with poorly built tags (Harry names Notion), it's left leaning on OCR alone. If a button is just an icon, it can't click it, and fine movements like dragging a slider are out of reach too.
+
+Even if the next Jev gets vision, that won't solve it. A normal model can just name the screen coordinates it wants to click, so any of millions of pixels is fair game, while Jev tops out at 255 options per question, which means the page has to be boiled down to a list of options first.
+
+![Two screens side by side: the left one is covered in fine dots and the crosshair can land on any of them, even dragging a slider; the right one has been reduced to a single column list of options, up to 255 items, and the icon button and slider outside the list are crossed out as unclickable.](/figures/pixels-vs-option-list-en.svg)
+
+Harry holds this up against his own experience. He had GPT-6 Astra book a restaurant for him, and the site's CAPTCHA showed three cartoon characters bouncing around, asking you to pick the one that jumped highest. Astra took a single screenshot the first time and got it wrong, so it thought for a moment, switched to taking several screenshots in a row, and got through. A task like that is one Jev can't even get its hands on.
 
 ### 6. Harry's own test: a payment reminder one day past due
 
-Harry had Jev sort real work emails from his inbox, and it got most of them right. The one that stuck with him was a payment reminder for an event whose deadline had passed a day earlier. Some would say the deadline is gone, so it is no longer urgent. Harry would rank it most urgent: it was less than 24 hours late, and the organizer might make an exception. GPT-6 answered "cannot determine." Jev picked the highest urgency level, at 47%. Harry liked that 47%. The question is arguable, and the model did not pretend to be sure.
+Harry also gave Jev real work emails from his own inbox to sort, and it got most of them right. The one that stuck with him was a payment reminder for an event whose deadline had passed a day earlier. Some people would figure it's already missed, so there's no rush, but Harry would put it at the top, because it was less than 24 hours late and the organizer might still be willing to bend. In the end GPT-6 answered "cannot determine," while Jev picked the most urgent level, at 47%.
+
+![On the left, the GPT-6 box is empty and only says it cannot tell; on the right, Jev's four bars rise from low to most urgent, with the most urgent bar reaching 47%, and a dashed outline above marks the 100% height so you can see it is not full.](/figures/urgency-forty-seven-percent-en.svg)
+
+Harry loved that 47%. It's a question reasonable people could argue about, and the model didn't put on a show of being sure.
 
 ### 7. Jev speeds up an old road: model routing
 
-Harry's conclusion is that Jev speeds up a trend already underway, called model routing. The idea is that one system holds models of different strength and sends each task to one that fits its difficulty. Adoption has been slow because workflows keep changing: a process set in January gets replaced by midyear when models improve, so routing rules never settle. OpenAI once had its system pick models for users automatically, took heavy criticism, and rolled it back. Harry thinks people were angry because that router was bad. With a good enough router, nobody would want to choose models by hand.
+Harry's closing take is that Jev speeds up a trend that was already happening, called model routing: you put several models of different strength in one system and hand out work based on how hard each task is. That road has been slow going, because workflows change too fast. A process you set up at the start of the year gets swapped out by midyear once the models improve, so the routing rules never get a chance to settle. OpenAI also tried letting its system pick the model for users automatically, got a ton of flak, and pulled it back. Harry thinks what people were really mad about was how bad that router was, and that with a good enough router, nobody would want to pick by hand.
 
-Jev lowers the barrier. You can use it directly as the router, or let it take over simple judgments itself, such as narrowing 5,000 résumés down to 200 before a large model reads them closely. Ordinary users will never see Jev. They will notice their AI assistants getting faster and cheaper.
+Jev lowers the bar for all of this. You can use it as the router directly, or let it take over simple judgments itself, like narrowing 5,000 résumés down to 200 before handing them to a large model for a close read.
+
+![A funnel that narrows from wide to thin: the widest top layer holds 5,000 résumés that Jev screens quickly and cheaply; once narrowed to 200, they go to a large model that reads them slowly and at high cost; at the bottom only a small slot remains for interviews.](/figures/resume-funnel-jev-then-big-model-en.svg)
+
+So most people will never see Jev directly. They'll just notice the AI assistant in their hands getting faster and cheaper.
 
 ## Going further
 
@@ -68,7 +104,7 @@ Jev lowers the barrier. You can use it directly as the router, or let it take ov
 
 Every product launch and every new company brings a bigger number, and each one reads like a revolution. I often don't know how much to believe. After this episode I wrote down three questions.
 
-First: what did it give up? Jev's 200x has a physical reason, because it runs once. The price is easy to name: it only answers multiple choice. When a big number comes with no stated price, I mark it down.
+First: what did it give up? Jev's 200x has a physical reason behind it, since it only runs once, and the price is easy to name too: it can only answer multiple choice. When a big number comes with no stated price, I mark it down.
 
 Second: how much of the number survives inside the full system? Computer use was only about three times faster, because the time went into reading page structure and running OCR. The slowest step sets the speed of the whole line. It is the same question as finding the bottleneck layer in investing: if one part gets 100 times faster, how much faster the finished product gets depends on which step is now the slowest.
 
@@ -76,7 +112,7 @@ Third: how much can others reach with free tools? Qwen 4B already comes close to
 
 ### Every week something is "going to change the world." How do I tell a new road from an old road getting faster?
 
-I am afraid of missing out, and just as afraid of chasing the wrong thing. Harry's approach is to put Jev back on a road already being traveled. That gives you a known sticking point to measure against. Model routing has spread slowly because workflows are unstable. Jev does not fix that. What it lowers is the cost of building the router.
+I am afraid of missing out, and just as afraid of chasing the wrong thing. Harry's approach is to put Jev back on a road already being traveled. The nice thing about doing that is you get a known sticking point to measure the impact against. Model routing has spread slowly because workflows are unstable, and Jev doesn't fix that; what it lowers is the cost of building the router.
 
 Following that logic, the first to benefit are people whose workflows are already fixed and high-volume, like résumé screening or support ticket triage. Harry uses it to sort emails and saves a few seconds each time; he says it doesn't change much for him. Three days of hype is noise. Cheaper simple judgments are structure.
 
@@ -91,6 +127,8 @@ When I hear about something new, I ask three things. Which existing road does it
 
 ## One thing to take away
 
-A judgment needs a confidence level attached before you can check it later. Jev's 47% reminded me that I usually just say "yes" or "no." Looking back later, I can't tell whether I was lucky or right.
+A judgment needs a confidence level attached before you can check it later. Jev's 47% reminded me that when I make a call, I usually just say "yes" or "no," so looking back later, I can't tell whether I got lucky or read it right.
 
 One thing I tried: each day, pick three small things that will be settled soon, and write a percentage for each. For example, "this meeting ends on time, 60%," "it rains tonight, 30%," "they reply to that email today, 80%." Check the answers the next day. After two weeks, pull out every entry you marked 80% and see whether eight out of ten came true. The first time I counted, my 80% calls had come true only half the time. Now my hand pauses every time I'm about to write a number.
+
+![Two rows of ten dots each: the top row shows how many should come true when you write 80%, with eight filled and two hollow; the bottom row shows how many actually came true, with only five filled, three fewer than the top row.](/figures/eighty-percent-calibration-check-en.svg)
