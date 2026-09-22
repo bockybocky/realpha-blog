@@ -8,6 +8,7 @@ import rehypeTakeawayNote from './src/lib/rehype-takeaway-note.mjs';
 import rehypeInArticleAds from './src/lib/rehype-in-article-ads.mjs';
 import { blogSlugOfPath } from './src/lib/indexing.mjs';
 import { noindexSlugsFromDisk } from './scripts/notes_index.mjs';
+import { buildDistName } from './scripts/dist_dir.mjs';
 
 const notesSlugs = noindexSlugsFromDisk();
 
@@ -78,6 +79,9 @@ for (const id of seriesIds) {
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://blog.getrealpha.com',
+	// 2026-09-23 零停機建置：建到沒在服務的那個資料夾（由 scripts/build_swap.mjs 設 BLOG_BUILD_DIR）；
+	// 沒設就是 dist，維持單獨跑 astro build 的舊行為。
+	outDir: `./${buildDistName()}`,
 	// 離線頁是 service worker 的備用頁，不給搜尋引擎（2026-09-15 PWA）
 	// 節目心得頁不進 sitemap-index／sitemap-0（2026-09-22 索引範圍）；判定讀 frontmatter kind，規則在 src/lib/indexing.mjs
 	integrations: [

@@ -4,8 +4,10 @@
 // 3) dist 已建置時：抽查 noindex meta 與 sitemap 內容
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
+import { join, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { blogSlugOfPath, isNotesKind, noindexSlugs } from '../src/lib/indexing.mjs';
+import { REPO_ROOT, servingDistName } from './dist_dir.mjs';
 import { readBlogMeta, readFrontmatter } from './notes_index.mjs';
 
 const notesMdx = `---\ntitle: "Acquired｜家得寶"\nslug: "acquired-2026-09-13-home-depot"\nlang: "zh-TW"\ncategory: "investing"\nkind: "podcast-notes"\n---\n內文`;
@@ -44,7 +46,8 @@ const notes = [...bySlug.keys()].filter((s) => noindexSlugs(bySlug.get(s)).has(s
 console.log(`磁碟：${bySlug.size} 組文章，心得 ${notes.length} 組，其餘 ${bySlug.size - notes.length} 組照常收錄；中英 kind 一致`);
 if (suspicious.length) console.log(`提醒（不擋）：slug 前綴是節目但沒標 podcast-notes，請人工確認是否原創：${suspicious.join(', ')}`);
 
-const dist = fileURLToPath(new URL('../dist/', import.meta.url));
+// 2026-09-23 零停機建置：驗「正在服務的那個」資料夾（dist 或 dist-b）
+const dist = `${join(REPO_ROOT, servingDistName())}${sep}`;
 if (existsSync(dist + 'sitemap.xml')) {
 	const page = (p) => readFileSync(dist + p + 'index.html', 'utf8');
 	const gb = /<meta name="googlebot" content="noindex"/;

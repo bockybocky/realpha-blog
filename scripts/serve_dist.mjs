@@ -1,16 +1,45 @@
 import assert from 'node:assert/strict';
 import { createReadStream } from 'node:fs';
-import { appendFile, mkdir, stat } from 'node:fs/promises';
+import { appendFile, mkdir, readFile, stat } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import { extname, join, normalize, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { collectStats, renderDash } from './dash.mjs';
+import { DEFAULT_DIST, POINTER_FILE, REPO_ROOT, normalizeDistName } from './dist_dir.mjs';
 
 const HOST = '127.0.0.1';
 // 線上固定 8377；SERVE_DIST_PORT 只給本機測試用別的埠（刻意不用通用的 PORT，免得環境變數意外改到線上服務）
 const PORT = Number(process.env.SERVE_DIST_PORT) || 8377;
-const ROOT = resolve(fileURLToPath(new URL('../', import.meta.url)), 'dist');
 const TEXT = 'text/plain; charset=utf-8';
+
+// ---- 服務哪個資料夾（2026-09-23 零停機建置）----
+// 以前寫死 dist/，而 astro build 會先清空 dist/ 再寫 → 建置那幾分鐘全站 404
+// （2026-09-22 22:28～22:37 記到 219 筆，含真實讀者）。
+// 改成讀指標檔 dist-current.txt；建置寫另一個資料夾，最後才換指標，換的那一刻是一次改名，沒有空窗。
+// 指標檔不存在＝當 dist（向後相容）。每個請求都要知道目前值，所以只看 mtime，且最多每秒看一次。
+const POINTER_CHECK_MS = 1000;
+let pointer = { name: DEFAULT_DIST, root: resolve(REPO_ROOT, DEFAULT_DIST), mtimeMs: -1, checkedAt: 0 };
+
+async function currentRoot() {
+	const now = Date.now();
+	if (now - pointer.checkedAt < POINTER_CHECK_MS) return pointer.root;
+	pointer.checkedAt = now;
+	const info = await stat(POINTER_FILE).catch(() => null);
+	if (!info) {
+		if (pointer.name !== DEFAULT_DIST) setRoot(DEFAULT_DIST, -1);
+		return pointer.root;
+	}
+	if (info.mtimeMs === pointer.mtimeMs) return pointer.root;
+	const name = normalizeDistName(await readFile(POINTER_FILE, 'utf8').catch(() => ''));
+	setRoot(name, info.mtimeMs);
+	return pointer.root;
+}
+
+function setRoot(name, mtimeMs) {
+	const root = resolve(REPO_ROOT, name);
+	if (name !== pointer.name) console.log(`[serve_dist] 改服務 ${name}/`);
+	pointer = { name, root, mtimeMs, checkedAt: pointer.checkedAt };
+}
 
 // ---- 訪問記錄（2026-08-19）----
 // 為什麼記在自己這裡而不是掛外部分析：這台伺服器本來就在跑，
@@ -102,7 +131,7 @@ function contentType(pathname) {
 	return types.get(extname(pathname).toLowerCase()) ?? 'application/octet-stream';
 }
 
-function localPath(pathname) {
+export function localPath(pathname, root) {
 	let decoded;
 	try {
 		decoded = decodeURIComponent(pathname);
@@ -112,13 +141,13 @@ function localPath(pathname) {
 	if (decoded.includes('\0')) return null;
 
 	const relative = normalize(decoded.replace(/\\/g, '/').replace(/^\/+/, ''));
-	const target = resolve(ROOT, relative);
-	const rootPrefix = ROOT.endsWith(sep) ? ROOT : `${ROOT}${sep}`;
-	return target === ROOT || target.startsWith(rootPrefix) ? target : null;
+	const target = resolve(root, relative);
+	const rootPrefix = root.endsWith(sep) ? root : `${root}${sep}`;
+	return target === root || target.startsWith(rootPrefix) ? target : null;
 }
 
-async function fileEntry(pathname) {
-	const target = localPath(pathname);
+async function fileEntry(pathname, root) {
+	const target = localPath(pathname, root);
 	if (!target) return null;
 
 	const info = await stat(target).catch(() => null);
@@ -130,8 +159,8 @@ async function fileEntry(pathname) {
 	return indexInfo?.isFile() ? { path: index, typePath: '/index.html', size: indexInfo.size } : null;
 }
 
-async function sendFallback(req, res) {
-	const fallback = join(ROOT, '404.html');
+async function sendFallback(req, res, root = pointer.root) {
+	const fallback = join(root, '404.html');
 	const info = await stat(fallback).catch(() => null);
 	if (info?.isFile()) {
 		res.writeHead(404, { 'content-type': contentType('/404.html') });
@@ -152,6 +181,7 @@ async function handle(req, res) {
 	}
 
 	const url = new URL(req.url ?? '/', `http://${HOST}:${PORT}`);
+	const root = await currentRoot();
 
 	// 私人儀表板。不進 dist、不進網站地圖，外面只靠 Cloudflare Access 擋。
 	if (url.pathname === '/_dash' || url.pathname === '/_dash/') {
@@ -166,10 +196,10 @@ async function handle(req, res) {
 		return;
 	}
 
-	const entry = await fileEntry(url.pathname);
+	const entry = await fileEntry(url.pathname, root);
 	if (!entry) {
 		logVisit(req, 404);
-		await sendFallback(req, res);
+		await sendFallback(req, res, root);
 		return;
 	}
 
@@ -209,8 +239,15 @@ function check() {
 	assert.equal(contentType('/blog/research.md'), TEXT);
 	assert.equal(contentType('/sitemap-index.xml'), 'application/xml; charset=utf-8');
 	assert.equal(contentType('/asset.svg'), 'image/svg+xml');
-	assert.ok(localPath('/en/')?.startsWith(ROOT));
-	assert.equal(localPath('/..%2fpackage.json'), null);
+	const distRoot = resolve(REPO_ROOT, 'dist');
+	const altRoot = resolve(REPO_ROOT, 'dist-b');
+	assert.ok(localPath('/en/', distRoot)?.startsWith(distRoot));
+	assert.equal(localPath('/..%2fpackage.json', distRoot), null);
+	// 指標換到另一個資料夾時，同一個網址要落在那個資料夾裡（零停機建置 2026-09-23）
+	assert.ok(localPath('/en/', altRoot)?.startsWith(altRoot));
+	assert.equal(localPath('/../dist/index.html', altRoot), null);
+	assert.equal(normalizeDistName('dist-b'), 'dist-b');
+	assert.equal(normalizeDistName('/etc/passwd'), DEFAULT_DIST);
 	assert.equal(contentType('/audio/a.mp3'), 'audio/mpeg');
 	assert.equal(parseRange(undefined, 100), null);
 	assert.deepEqual(parseRange('bytes=0-99', 1000), { start: 0, end: 99 });
@@ -251,8 +288,10 @@ if (process.argv.includes('--check')) {
 	// 記錄目錄不存在的話，每一筆 appendFile 都會靜默失敗——開機時先建好
 	await mkdir(LOG_DIR, { recursive: true });
 
+	await currentRoot();
+
 	server.listen(PORT, HOST, () => {
-		console.log(`Serving ${ROOT} at http://${HOST}:${PORT}/`);
+		console.log(`Serving ${pointer.root} at http://${HOST}:${PORT}/ (pointer: ${POINTER_FILE})`);
 		console.log(`Visit log: ${LOG_DIR}`);
 	});
 }

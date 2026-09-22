@@ -10,6 +10,7 @@ import { mkdir, readdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isHuman } from './build_popular.mjs';
+import { servingDistName } from './dist_dir.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const TAIPEI_OFFSET_MS = 8 * 3600 * 1000;
@@ -96,7 +97,10 @@ if (isMain) {
 		const text = `${JSON.stringify(stats)}\n`;
 		await writeAtomic(join(ROOT, 'public', 'stats.json'), text);
 		// dist 被 astro build 清空的那一兩分鐘不存在，就只寫 public；下一輪再補
-		if (existsSync(join(ROOT, 'dist', 'index.html'))) await writeAtomic(join(ROOT, 'dist', 'stats.json'), text);
+		// 2026-09-23 零停機建置：寫「正在服務的那個」資料夾（dist 或 dist-b），線上立即生效。
+		// 新建的那一份由 astro build 從 public/stats.json 複製過去。
+		const serving = join(ROOT, servingDistName());
+		if (existsSync(join(serving, 'index.html'))) await writeAtomic(join(serving, 'stats.json'), text);
 		console.log(`[site_stats] 今日（${stats.date}）${stats.today}｜總 ${stats.total}`);
 	}
 }

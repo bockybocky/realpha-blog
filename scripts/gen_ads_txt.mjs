@@ -9,6 +9,7 @@ import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildDistName } from './dist_dir.mjs';
 
 const GOOGLE_CERT_ID = 'f08c47fec0942fa0';
 
@@ -22,24 +23,24 @@ export function adsTxtContent(cfg) {
 	return { content: `google.com, ${m[1]}, DIRECT, ${GOOGLE_CERT_ID}\n`, reason: 'enabled' };
 }
 
-export async function run(root) {
+export async function run(root, distName = buildDistName()) {
 	const cfg = JSON.parse(await readFile(join(root, 'src/data/ads.json'), 'utf8'));
-	const dist = join(root, 'dist');
+	const dist = join(root, distName);
 	const target = join(dist, 'ads.txt');
 	const { content, reason } = adsTxtContent(cfg);
 	if (content) {
 		if (!existsSync(dist)) {
-			console.warn('[gen_ads_txt] dist/ 不存在，略過（要在 astro build 之後跑）');
+			console.warn(`[gen_ads_txt] ${distName}/ 不存在，略過（要在 astro build 之後跑）`);
 			return 'skipped';
 		}
 		await writeFile(target, content, 'utf8');
-		console.log(`[gen_ads_txt] wrote dist/ads.txt: ${content.trim()}`);
+		console.log(`[gen_ads_txt] wrote ${distName}/ads.txt: ${content.trim()}`);
 		return 'written';
 	}
 	if (reason !== 'disabled') console.warn(`[gen_ads_txt] WARNING ${reason}；不產生 ads.txt`);
 	if (existsSync(target)) {
 		await rm(target);
-		console.log(`[gen_ads_txt] removed dist/ads.txt (${reason})`);
+		console.log(`[gen_ads_txt] removed ${distName}/ads.txt (${reason})`);
 		return 'removed';
 	}
 	console.log(`[gen_ads_txt] no ads.txt (${reason})`);
@@ -59,12 +60,18 @@ async function selfTest() {
 		await mkdir(join(root, 'dist'));
 		const write = (cfg) => writeFile(join(root, 'src/data/ads.json'), JSON.stringify(cfg));
 		await write({ enabled: true, client: 'ca-pub-0000000000000000', slots: {} });
-		assert.equal(await run(root), 'written');
+		assert.equal(await run(root, 'dist'), 'written');
 		assert.equal(await readFile(join(root, 'dist/ads.txt'), 'utf8'), 'google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0\n');
 		await write({ enabled: false, client: 'ca-pub-0000000000000000', slots: {} });
-		assert.equal(await run(root), 'removed');
+		assert.equal(await run(root, 'dist'), 'removed');
 		assert.ok(!existsSync(join(root, 'dist/ads.txt')));
-		assert.equal(await run(root), 'none');
+		assert.equal(await run(root, 'dist'), 'none');
+		// 輪流用的第二個資料夾也要能寫（零停機建置 2026-09-23）
+		await mkdir(join(root, 'dist-b'));
+		await write({ enabled: true, client: 'ca-pub-0000000000000000', slots: {} });
+		assert.equal(await run(root, 'dist-b'), 'written');
+		assert.ok(existsSync(join(root, 'dist-b/ads.txt')));
+		assert.ok(!existsSync(join(root, 'dist/ads.txt')), 'dist-b 的建置不該碰到 dist');
 	} finally {
 		await rm(root, { recursive: true, force: true });
 	}

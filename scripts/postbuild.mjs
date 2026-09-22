@@ -3,10 +3,12 @@ import { existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildDistName } from './dist_dir.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const contentRoot = join(root, 'src', 'content');
-const distRoot = join(root, 'dist');
+// 這次建置的輸出資料夾（零停機建置會是 dist 或 dist-b，見 scripts/dist_dir.mjs）
+const distRoot = join(root, buildDistName());
 const publicRoot = join(root, 'public');
 const siteUrl = 'https://blog.getrealpha.com';
 
