@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左側兩千個點組成的大方陣，右側只有一個被圈起的點，兩者的第一個點同樣被圈起">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+</style>
+<defs><pattern id="f2dots" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="4" height="4" fill="var(--grey)"/></pattern></defs>
+<text x="40" y="58" font-size="27" font-weight="700">寫 2,000 字 vs 答一題</text>
+<text x="228" y="124" font-size="20" font-weight="700" text-anchor="middle">一般模型</text>
+<rect x="78" y="144" width="300" height="240" fill="url(#f2dots)"/>
+<rect x="78" y="144" width="4" height="4" fill="var(--accent)"/>
+<circle cx="80" cy="146" r="12" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="228" y="418" font-size="16" text-anchor="middle" style="fill:var(--dim)">2,000 字＝算 2,000 遍</text>
+<text x="228" y="442" font-size="15" text-anchor="middle" style="fill:var(--dim)">一點＝一遍</text>
+<text x="690" y="124" font-size="20" font-weight="700" text-anchor="middle">Jev</text>
+<rect x="540" y="144" width="300" height="240" rx="10" fill="var(--card)" stroke="var(--line)" stroke-dasharray="6 6"/>
+<rect x="688" y="262" width="4" height="4" fill="var(--accent)"/>
+<circle cx="690" cy="264" r="12" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="690" y="418" font-size="16" text-anchor="middle" style="fill:var(--dim)">一題＝算 1 遍</text>
+<text x="480" y="505" font-size="22" font-weight="700" text-anchor="middle">一遍 ≈ 吐出第一個字</text>
+</svg>

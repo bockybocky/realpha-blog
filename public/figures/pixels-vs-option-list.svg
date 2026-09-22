@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左畫面布滿細點與準星可點任意位置，右畫面只剩一欄清單，清單外的圖示鈕與滑桿被打叉">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+</style>
+<defs><pattern id="f7px" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="2" height="2" fill="var(--grey)"/></pattern></defs>
+<text x="40" y="58" font-size="27" font-weight="700">點任何一點 vs 從清單裡挑</text>
+<text x="250" y="124" font-size="20" font-weight="700" text-anchor="middle">一般模型</text>
+<rect x="60" y="140" width="380" height="260" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<rect x="70" y="150" width="360" height="240" fill="url(#f7px)"/>
+<circle cx="310" cy="240" r="14" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<path d="M310,216 L310,228 M310,252 L310,264 M286,240 L298,240 M322,240 L334,240" stroke="var(--accent)" stroke-width="3"/>
+<line x1="110" y1="340" x2="270" y2="340" stroke="var(--dim)" stroke-width="4" stroke-linecap="round"/>
+<circle cx="205" cy="340" r="10" fill="var(--accent)"/>
+<text x="250" y="436" font-size="16" text-anchor="middle" style="fill:var(--dim)">任一座標</text>
+<text x="710" y="124" font-size="20" font-weight="700" text-anchor="middle">Jev</text>
+<rect x="520" y="140" width="380" height="260" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<g font-size="16">
+<rect x="545" y="162" width="160" height="32" rx="8" fill="var(--page)" stroke="var(--accent)"/><text x="562" y="184">訂位</text>
+<rect x="545" y="204" width="160" height="32" rx="8" fill="var(--page)" stroke="var(--accent)"/><text x="562" y="226">菜單</text>
+<rect x="545" y="246" width="160" height="32" rx="8" fill="var(--page)" stroke="var(--accent)"/><text x="562" y="268">日期</text>
+<rect x="545" y="288" width="160" height="32" rx="8" fill="none" stroke="var(--accent)" stroke-dasharray="4 4"/><text x="562" y="310" style="fill:var(--dim)">最多 255 項</text>
+</g>
+<circle cx="810" cy="200" r="18" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+<path d="M790,180 L830,220 M830,180 L790,220" stroke="var(--warn)" stroke-width="3"/>
+<text x="810" y="244" font-size="15" text-anchor="middle" style="fill:var(--dim)">圖示鈕</text>
+<line x1="750" y1="320" x2="870" y2="320" stroke="var(--grey)" stroke-width="4" stroke-linecap="round"/>
+<circle cx="800" cy="320" r="9" fill="var(--grey)"/>
+<path d="M790,300 L830,340 M830,300 L790,340" stroke="var(--warn)" stroke-width="3"/>
+<text x="810" y="364" font-size="15" text-anchor="middle" style="fill:var(--dim)">滑桿</text>
+<text x="710" y="436" font-size="16" text-anchor="middle" style="fill:var(--dim)">只剩清單</text>
+<text x="480" y="505" font-size="22" font-weight="700" text-anchor="middle">清單外的東西點不到</text>
+</svg>
