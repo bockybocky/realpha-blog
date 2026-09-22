@@ -88,6 +88,8 @@ const nav = [
 	...topicsData.topics
 		.filter((topic) => topic.id !== 'lab')
 		.map((topic) => ({ href: withLocale(locale, `/topics/${topic.id}/`), label: topic.nav[locale] })),
+	// 週報排在「投資與市場」後面（2026-09-23 Charles）
+	{ href: withLocale(locale, '/weekly/'), label: meta.weeklyNav },
 	{ href: withLocale(locale, '/about/'), label: meta.aboutNav },
 ];
 const isCurrent = (href: string) => path === href || (href !== homeHref && path.startsWith(href));

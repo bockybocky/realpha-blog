@@ -1,0 +1,25 @@
+---
+import type { GetStaticPaths } from 'astro';
+import ArchivePage from '../../../components/ArchivePage.astro';
+import { getCatalog, PAGE_SIZE } from '../../../lib/catalog';
+import { DIGEST_KIND } from '../../../lib/indexing.mjs';
+import { withLocale } from '../../../lib/site';
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const cat = await getCatalog('en');
+	const digests = cat.posts.filter((p) => p.data.kind === DIGEST_KIND);
+	return paginate(digests, { props: { total: digests.length }, pageSize: PAGE_SIZE });
+}) satisfies GetStaticPaths;
+
+const { page, total } = Astro.props;
+---
+
+<ArchivePage
+	locale="en"
+	title="Weekly"
+	lead={`Every Monday, last week's podcast notes in one post: a few key lines per episode, with links. ${total} posts.`}
+	description="Realpha Weekly: every Monday, last week's podcast notes in one post, a few key lines per episode with links."
+	base={withLocale('en', '/weekly/')}
+	alternateBase={withLocale('zh-TW', '/weekly/')}
+	page={page}
+/>

@@ -1,0 +1,26 @@
+---
+import type { GetStaticPaths } from 'astro';
+import ArchivePage from '../../components/ArchivePage.astro';
+import { getCatalog, PAGE_SIZE } from '../../lib/catalog';
+import { DIGEST_KIND } from '../../lib/indexing.mjs';
+import { withLocale } from '../../lib/site';
+
+// 週報列表（2026-09-23 Charles：導覽列放在「投資與市場」後面）
+export const getStaticPaths = (async ({ paginate }) => {
+	const cat = await getCatalog('zh-TW');
+	const digests = cat.posts.filter((p) => p.data.kind === DIGEST_KIND);
+	return paginate(digests, { props: { total: digests.length }, pageSize: PAGE_SIZE });
+}) satisfies GetStaticPaths;
+
+const { page, total } = Astro.props;
+---
+
+<ArchivePage
+	locale="zh-TW"
+	title="週報"
+	lead={`每週一把上一週聽過的節目整理成一篇，每集幾句重點加連結。共 ${total} 篇。`}
+	description="Realpha 週報：每週一整理上一週的節目收聽心得，每集幾句重點加連結。"
+	base={withLocale('zh-TW', '/weekly/')}
+	alternateBase={withLocale('en', '/weekly/')}
+	page={page}
+/>
