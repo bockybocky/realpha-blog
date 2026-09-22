@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Two groups of bars open in opposite directions: the left group shows tool price doubling, and the right group shows output cut in half.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="480" y="60" text-anchor="middle">2× price, half the output</text>
+<line x1="120" y1="420" x2="440" y2="420" stroke="var(--line)" stroke-width="2"/>
+<line x1="520" y1="420" x2="840" y2="420" stroke="var(--line)" stroke-width="2"/>
+<rect x="160" y="270" width="90" height="150" fill="var(--grey)"/>
+<rect x="290" y="120" width="90" height="300" fill="var(--accent)"/>
+<text class="g" x="335" y="108" text-anchor="middle" style="fill:var(--accent)">×2</text>
+<text class="b" x="205" y="446" text-anchor="middle">Low NA</text>
+<text class="b" x="335" y="446" text-anchor="middle">High NA</text>
+<text class="g" x="270" y="486" text-anchor="middle">Tool price</text>
+<rect x="580" y="270" width="90" height="150" fill="var(--grey)"/>
+<rect x="710" y="345" width="90" height="75" fill="var(--warn)"/>
+<text class="g" x="755" y="333" text-anchor="middle" style="fill:var(--warn)">×½</text>
+<text class="b" x="625" y="446" text-anchor="middle">Low NA</text>
+<text class="b" x="755" y="446" text-anchor="middle">High NA</text>
+<text class="g" x="690" y="486" text-anchor="middle">Output</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Four layers are stacked; the top two are solid and marked as part of the announcement, while the bottom layer, mask blanks, is dashed and marked as absent and the first to break.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="480" y="60" text-anchor="middle">The bottleneck is the unnamed layer</text>
+<rect x="240" y="110" width="440" height="66" rx="6" fill="var(--accent)" fill-opacity="0.15" stroke="var(--accent)" stroke-width="2.5"/>
+<text class="g" x="460" y="151" text-anchor="middle">Fab · TSMC</text>
+<rect x="240" y="192" width="440" height="66" rx="6" fill="var(--accent)" fill-opacity="0.15" stroke="var(--accent)" stroke-width="2.5"/>
+<text class="g" x="460" y="233" text-anchor="middle">Scanner · ASML</text>
+<rect x="240" y="274" width="440" height="66" rx="6" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text class="g" x="460" y="315" text-anchor="middle" style="fill:var(--dim)">Mask shop</text>
+<rect x="240" y="356" width="440" height="66" rx="6" fill="var(--warn)" fill-opacity="0.1" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="9 6"/>
+<text class="g" x="460" y="397" text-anchor="middle">Mask blanks · Japan</text>
+<path d="M700 110 L716 110 L716 258 L700 258" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="730" y="191" style="fill:var(--accent)">Announced</text>
+<text class="g" x="700" y="384" style="fill:var(--warn)">Not named</text>
+<text class="b" x="700" y="410" style="fill:var(--warn)">Breaks first · 0 defects</text>
+<text class="b" x="220" y="315" text-anchor="end">Must adapt</text>
+<text class="b" x="480" y="470" text-anchor="middle">Upstream below</text>
+</svg>
