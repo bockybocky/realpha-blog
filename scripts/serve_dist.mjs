@@ -20,6 +20,7 @@ const TEXT = 'text/plain; charset=utf-8';
 const LOG_DIR = resolve(fileURLToPath(new URL('../', import.meta.url)), 'logs');
 const SKIP_LOG = /\.(css|js|mjs|png|jpe?g|svg|webp|ico|woff2?|ttf|map|txt|xml|json)$/i;
 const BOT = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|headless|curl|wget|python-requests|node-fetch/i;
+const CRAWLER = /OAI-SearchBot|ChatGPT-User|GPTBot|Claude-SearchBot|Claude-User|ClaudeBot|Perplexity-User|PerplexityBot|Google-Extended|GoogleOther|Googlebot|bingbot|Applebot|Amazonbot|YandexBot|meta-externalagent|Bytespider|CCBot/i;
 
 function logVisit(req, status) {
 	try {
@@ -32,6 +33,8 @@ function logVisit(req, status) {
 			ref: req.headers.referer ?? '',
 			bot: BOT.test(ua) ? 1 : 0,
 			ua: ua.slice(0, 120),
+			// ua 只存前 120 字，Googlebot 手機版等名稱在截斷點之後；先從完整 ua 抽出爬蟲名
+			crawler: (ua.match(CRAWLER) ?? [''])[0],
 			// Cloudflare 隧道帶進來的訪客國別；本機直連時沒有這個標頭
 			cc: req.headers['cf-ipcountry'] ?? '',
 			s: status,
