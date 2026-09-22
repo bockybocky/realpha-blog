@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { absoluteUrl, localeMeta, site, withLocale, type Locale } from '../lib/site';
+import { absoluteUrl, localeBar, localeMeta, site, withLocale, type Locale } from '../lib/site';
 import topicsData from '../data/topics.json';
 import AdSenseHead from '../components/AdSenseHead.astro';
 
@@ -39,6 +39,11 @@ const canonical = absoluteUrl(path);
 const zhPath = locale === 'zh-TW' ? path : alternatePath;
 const enPath = locale === 'en' ? path : alternatePath;
 const hasAlternate = Boolean(alternatePath);
+// 頁面最上方的語言列：每個語系有這一頁才畫（2026-09-23 Charles）。加語系＝site.ts 的 localeBar 加一筆＋這裡給網址。
+const localePaths: Partial<Record<Locale, string | undefined>> = { 'zh-TW': zhPath, en: enPath };
+const langItems = localeBar
+	.map((item) => ({ ...item, href: localePaths[item.code], current: item.code === locale }))
+	.filter((item) => item.current || item.href);
 const graph = [
 	{
 		'@type': 'Organization',
@@ -152,6 +157,13 @@ const footerNav = [
 		<AdSenseHead />
 	</head>
 	<body>
+		<div class="lang-bar" data-pagefind-ignore="all">
+			<nav class="lang-bar-inner" aria-label={locale === 'zh-TW' ? '語言' : 'Language'}>
+				{langItems.map((item) => (item.current
+					? <span class="lang-pill is-current" aria-current="true">{item.short}</span>
+					: <a class="lang-pill" href={item.href} hreflang={item.code}>{item.short}</a>))}
+			</nav>
+		</div>
 		<header class="site-header" data-pagefind-ignore="all">
 			<nav class="nav" aria-label="Primary">
 				<a class="brand" href={withLocale(locale, '/')} aria-label="Realpha Blog">
@@ -163,7 +175,6 @@ const footerNav = [
 					<a class="nav-search" href={searchHref} aria-label={meta.search} title={meta.search} aria-current={path === searchHref ? 'page' : undefined}>
 						<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg>
 					</a>
-					{hasAlternate && <a class="lang-switch" href={alternatePath}>{meta.switchLabel}</a>}
 				</div>
 			</nav>
 		</header>

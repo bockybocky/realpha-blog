@@ -152,17 +152,44 @@ select {
 	text-underline-offset: 5px;
 }
 
-.lang-switch {
+/* 語言列：頁面最上方置中（2026-09-23 Charles）。語系會愈加愈多，故用可換行的置中列 */
+.lang-bar {
+	border-bottom: 1px solid var(--line);
+	background: var(--soft);
+}
+
+.lang-bar-inner {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.4rem;
+	width: min(100% - 2rem, 1120px);
+	margin: 0 auto;
+	padding: 0.35rem 0;
+	font-family: var(--font-hand);
+	font-size: 0.95rem;
+}
+
+.lang-pill {
 	border: 1px solid var(--line);
 	border-radius: var(--radius);
-	padding: 0.3rem 0.55rem;
+	padding: 0.2rem 0.6rem;
+	color: var(--accent-strong);
+	text-decoration: none;
 	transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 
-.lang-switch:hover {
+.lang-pill:hover {
 	border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
 	color: var(--text);
 	background: var(--accent-tint);
+}
+
+.lang-pill.is-current {
+	color: var(--muted);
+	background: var(--paper);
+	border-color: color-mix(in srgb, var(--accent) 30%, var(--line));
+	cursor: default;
 }
 
 .nav-links .nav-search {
