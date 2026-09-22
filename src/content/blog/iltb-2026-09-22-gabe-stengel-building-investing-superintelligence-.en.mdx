@@ -1,0 +1,125 @@
+---
+title: "The Red Queen's Treadmill: Gabe Stengel on Investing Superintelligence and Where It Gets Stuck"
+description: "Notes on Invest Like the Best EP.492 with Rogo co-founder Gabe Stengel: the first-mover disadvantage of years with a bad product, a managing director marking up decks on an iPad, the penny the AI labs won't stop to pick up, why auditability beats accuracy, and what edge humans keep. Personal listening notes for education only, not investment advice, and no stock recommendations."
+slug: "iltb-2026-09-22-gabe-stengel-building-investing-superintelligence-"
+lang: "en"
+pubDate: 2026-09-22
+category: "investing"
+tags: ["invest-like-the-best", "podcast-notes", "AI", "private-markets", "investment-banking", "english-finance-media"]
+ogImage: "/covers/iltb-2026-09-22-gabe-stengel-building-investing-superintelligence--cover.png"
+cover: "/covers/iltb-2026-09-22-gabe-stengel-building-investing-superintelligence--cover.png"
+---
+
+![Realistic oil-painting cover: a late-night investment bank office, a senior banker under a desk lamp marking up a slide deck on a tablet, a long row of empty trading desks behind him receding into blue darkness, monitors glowing faintly, city lights beyond the windows](/covers/iltb-2026-09-22-gabe-stengel-building-investing-superintelligence--cover.png)
+
+> *Now, here, you see, it takes all the running you can do, to keep in the same place.*<br/>
+> *If you want to get somewhere else, you must run at least twice as fast as that!*<br/>
+> —— Lewis Carroll, *Through the Looking-Glass* (1871)
+
+## What this episode is about
+
+In the September 22, 2026 episode of Invest Like the Best (EP.492), Patrick O'Shaughnessy talks with Gabe Stengel, co-founder of Rogo. Rogo builds AI tools for investment banks and investment firms. Think of it as an AI that does analyst work: revising decks, calculating financial metrics, preparing M&A data rooms, answering due diligence questionnaires. Patrick is an investor in Rogo, so that's worth saying up front.
+
+I picked this one because Gabe's situation is close to what many of us live with when we use AI to read filings and organize research. He runs a company where the models change every six months, so most of what he says lands on a specific work habit rather than a vision statement.
+
+## Key points
+
+### 1. The bad-product years were a bet on the end state
+
+Gabe failed twice before Rogo. In high school he built an app for an investment banker to track the exchange ratio between two merging public companies. In college he published a paper on AI assistance for econometrics and tried to commercialize it. Neither worked. Rogo started when GPT-3 came out, and in his words, demos were magical but "nothing worked at all."
+
+He splits the usable era into two steps. o1 Pro was the first time it was reliable enough to be a good search tool: ask for a financial metric over the last 12 quarters and it got it right often enough that you wouldn't just do it yourself. With Opus 4.5 at the end of 2025, given the right instructions and context, it could do anything a junior banker did. He described a "first mover's disadvantage" for applied AI companies: you see the end state before the models get there, customers try it once and call it garbage. If you keep building toward that end state, the day the models catch up, the product becomes magical overnight.
+
+![A model capability curve bends upward through GPT-3 and o1 Pro and crosses the dashed usable threshold at Opus 4.5, while the product line, which stayed flat near the bottom the whole time, jumps straight up at the exact moment the model crosses the line.](/figures/first-mover-threshold-jump-en.svg)
+
+### 2. A managing director on an iPad matters more than the model
+
+Bank managing directors mark up decks on an iPad and send them to an analyst, and the back-and-forth takes two days. Rogo lets them email the marked-up file straight to an AI analyst, which returns the revision in 20 minutes, while alerting the junior analyst on the deal and showing every markup so they can weigh in.
+
+![Two identical rows of iPad markup icons each lead into a wait-time bar: the old bar stretches almost across the whole figure and is labeled two days, while the new bar has shrunk to a thin line labeled twenty minutes, with bar lengths drawn to scale by actual time.](/figures/ipad-markup-wait-time-en.svg)
+
+Gabe says some of these people haven't logged into a computer in ten years, but they know how to mark up a deck on an iPad. Building for that takes a "spidey sense" for the job: learn how these people already work, then fit the AI into that motion instead of asking them to learn a new one.
+
+### 3. Private markets move first because the plumbing isn't built
+
+You'd guess public markets are the best fit for AI, since the data is all there and it comes down to who's smartest. Gabe says Rogo's core users are dealmakers: people buying companies, selling companies, coordinating transactions. In private markets, every step from preparing a data room to answering diligence questions to closing is done by humans and barely standardized. Public markets already have their exchanges and data infrastructure.
+
+![Two pipelines are stacked: the public market is one solid pipe labeled already built, while the private market is only a dashed outline in which a person stands at each of four segments, the data room, the due diligence questionnaire, coordination, and settlement, connecting them by hand, with a label beside it saying the opportunity is here.](/figures/private-market-missing-pipes-en.svg)
+
+So half of Rogo's surface area sits below the waterline: after a human does something, Rogo updates the CRM, the portfolio monitoring system, the reports to LPs. Patrick's summary struck me as right: in vertical AI, the opportunity is where the plumbing hasn't been built yet.
+
+### 4. The penny the labs won't stop to pick up
+
+Asked how to compete with Anthropic and OpenAI, Gabe says build things perpendicular to them. Compliance audit trails for handling material non-public information, a secure data room for two public companies exchanging data in a merger: the labs won't want to build those. Rogo can reach $5 billion in revenue on that work, which for a company going from $100 billion to a trillion is like stopping on the side of the road to pick up a penny.
+
+![A large circle represents a $1T revenue target, a small circle inscribed at its bottom represents today's $100B with an arrow pointing up, and a tiny coin in the lower left represents Rogo's $5B, with all areas drawn to scale.](/figures/coin-vs-model-company-scale-en.svg)
+
+He points to Claude Code: the underlying models were similar across labs at the time, but the harness, the layer that connects a model to tools, data and workflows, was better and let the model run long tasks, and usage pulled ahead. He thinks people underrate this. Humans get a lot done because of many small mechanisms for storing, retrieving and triggering memory, and raw IQ alone doesn't cover that.
+
+### 5. Being able to see the source beats being right
+
+Two years ago every AI conversation included "hallucinations." Gabe says he'd take auditable over accurate. An answer that's right most of the time and occasionally wrong is still usable, and still saves time, if you can see the assumptions and where the data came from. An answer that's right but can't be traced won't get used, because nobody trusts it.
+
+![A two-by-two grid has columns for untraceable sources and traceable sources and rows for always right and sometimes wrong; the entire right column is usable, the top left is too risky to use, and the bottom left is unusable, with a thick vertical line splitting usable from unusable while the horizontal line barely changes the outcome.](/figures/traceable-beats-correct-en.svg)
+
+This grows heavier as AI moves from retrieving information to sending emails and making investment decisions. When something goes wrong you need to debug it, the way you'd review a human investor's bad call: bad data, someone lied to them, or broken reasoning. In regulated markets, if you can't explain why a decision was made, it won't fly.
+
+### 6. Individuals got 100x faster; firms didn't
+
+Gabe says the bankers using Rogo tell him they're 100 times more efficient. One MD who hadn't opened Excel in 20 years built five pages for a client in ten minutes, work that used to take three days of back-and-forth with an analyst. At the firm level, though, it's stuck: are they winning more deals, closing more transactions?
+
+![Two bars stand side by side: on the left, individual productivity towers to the top and is labeled times one hundred, while on the right, company results are only a short dashed box containing a question mark, labeled as wins and closed deals not yet measured.](/figures/individual-vs-company-productivity-en.svg)
+
+He cites JP Morgan moving into SMB M&A: those deals used to be too small to fund a full team, and now one banker can be a deal team of one. Patrick's conclusion is that the next bottleneck is the customer's imagination. If a hundred great investors showed up tomorrow, you'd first have to figure out how to divide the work, how much capital each gets, and which markets to attack.
+
+### 7. What humans keep: inputs nobody else has
+
+Gabe notes he only worked in finance for two years and won't pronounce on what great investors do. His view: if public markets get their own version of AlphaGo's Move 37 against Lee Sedol in 2016, a move humans couldn't see, the most valuable skill becomes gathering inputs others can't get: fieldwork, expert conversations, a relationship graph, fed into your model.
+
+His question for established firms is blunter. Suppose 90% of your enterprise value lives in your people today, and in ten years the best firms hold 90% of theirs in software, data and systems. What would you start doing now? Then break every step of the deal lifecycle apart and ask whether your edge there is a relationship, context nobody else has, or just "I'm smarter and better read." AI will flatten the last one.
+
+![Two horizontal bars of equal length are shown: today's bar is ninety percent people and ten percent systems, while the bar ten years out flips the ratio to ten percent people and ninety percent systems, with an arrow connecting the two.](/figures/value-shift-people-to-systems-en.svg)
+
+## Further thoughts
+
+### If AI researches faster than I do, what's my research for?
+
+When I use AI to go through filings, a thought sometimes surfaces: it does all this faster than me, so what am I doing here? I put Gabe's "90% in people or in systems" question to myself, and the answer stung a bit.
+
+First layer: public-market information is available to everyone. Filings, news, industry reports. Reading all of it, crunching it, comparing it across companies is exactly the brute force AI is best at. If my edge comes from reading more than others, that edge is shrinking.
+
+Second layer: what's left is inputs. Gabe's fieldwork, experts and relationship graph translate, for an ordinary investor, into orders and schedules you see in your own industry, the complaints you hear from people who use a product, the foot traffic you notice after standing in a store for an afternoon. The model doesn't have those unless you feed them in.
+
+Third layer is a way to read your own reasoning. When I write down a reason to buy now, I try to tag it as either "I saw this myself" or "anyone could look this up." The second kind I can hand to AI to check. The first kind is where I need to go back later and grade myself. My guess is most people who do this find the first list uncomfortably short. I'm still working on mine.
+
+### So many AI application companies. Which ones get run over?
+
+Every time a lab ships a new feature, a batch of AI application companies gets marked down and the headlines say "replaced again." I keep getting stuck on which moves are noise and which are structural.
+
+Gabe listed three things he'd look for as an investor: an industry with enough complexity, meaning enough data types, systems and deployment models that wiring it up takes serious effort; a team with domain expertise; and a willingness to slash the core product to nothing and rebuild it every six months. His example is Max Levchin at Affirm, which rebuilds its core ledger every year, both to keep engineers engaged and to keep the system from ossifying. Read the list backwards and you get the conditions for being run over: a product that's a chat box plus prompts, which customers can replicate by opening a general tool, or a product tied to a terminal or interface it can't change fast enough when the models jump.
+
+There's a harder trap: the product is bad right now. Forty investors passed on Rogo's Series A, partly because many of them worked in finance, tried it once, found it wrong half the time, and concluded it would never work. Gabe's answer then was "we're on the exponential." Every failed founder has said that too. The test I use is whether the product jumped a step when the models did. Rogo jumped at o1 Pro and again at Opus 4.5. If the models upgrade and the product doesn't move, its value is probably stuck somewhere else. That turns "it'll get better" into a dated prediction you can check.
+
+![Two dashed vertical lines mark the o1 Pro and Opus 4.5 model upgrades, and the gray model capability line steps up at each one; the blue product line jumps along with it, while the orange product line stays flat from start to finish.](/figures/model-upgrade-step-test-en.svg)
+
+### A company says AI doubled employee productivity. Will it show up in the numbers?
+
+Companies say on earnings calls that AI has made their people far more productive, and the stock goes up. How much of that should I believe?
+
+This episode gave me a useful split: individual productivity versus firm productivity. Gabe's customers all say they're 100 times faster, and they're still trying to figure out whether they're winning more deals. I can think of three ways efficiency turns into money: cutting costs, which shows up as a lower expense ratio; doing business that didn't pay before, which shows up as revenue from new customer segments, like JP Morgan taking SMB deals; and the same people doing more work, which shows up as revenue per employee. If none of those three numbers move in the filings, the productivity gain is still sitting at the individual level.
+
+One detail stuck with me. Every month Gabe gets a report on how much each person uses the company's AI tools, and the bottom user in each division gets printed out wearing a dunce cap and posted around the office. He says it started as a joke, but as the company grew and fewer people knew him, employees got scared. If a company that builds AI has to push that hard, adoption at an ordinary company won't happen on its own. So when I hear "productivity gains," I ask one more question: how is management pushing it, and are they measuring it?
+
+## References
+
+- Invest Like the Best EP.492: Gabe Stengel - Building Investing Superintelligence (2026-09-22)
+- Rogo: rogo.ai
+- Clayton Christensen, *The Innovator's Dilemma*. Gabe says finance is facing one for the first time in decades
+- AlphaGo vs. Lee Sedol, Game 2, Move 37 (2016)
+- Lewis Carroll, *Through the Looking-Glass* (1871)
+
+## One thing to take away
+
+A judgment is worth as much as the inputs in it that nobody else has. The part that comes from reading more and calculating faster is turning into something everyone has.
+
+Here's something I've tried. Pick a recent decision, like a job change, a school for your kid, or which car to buy, and write down your reasons one per line. Next to each, mark "saw" if it's something you saw or heard firsthand that others couldn't get, or "searched" if anyone could find it online. Count the "saw" lines. If there are zero or one, then before your next decision of that kind, do one thing only you can do: call someone who has used it, or go stand at the place for half an hour.

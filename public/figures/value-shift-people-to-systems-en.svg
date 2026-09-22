@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Today's bar is ninety percent people and ten percent systems, and the bar ten years out flips to ten percent people and ninety percent systems.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t{font-size:27px;font-weight:700}
+    .g{font-size:20px;font-weight:600}
+    .b{font-size:16px;fill:var(--dim)}
+    .c{font-size:22px;font-weight:700}
+    .a{fill:var(--accent)}
+    .w{fill:var(--warn)}
+</style>
+<defs><marker id="ar7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--dim)"/></marker></defs>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="62">Value in?</text>
+<text class="g" x="60" y="200">Now</text>
+<rect x="200" y="170" width="630" height="46" fill="var(--accent)"/>
+<rect x="830" y="170" width="70" height="46" fill="var(--grey)"/>
+<text class="g" x="515" y="200" text-anchor="middle" style="fill:var(--page)">Ppl 90%</text>
+<text class="b" x="865" y="242" text-anchor="middle">Sys</text>
+<path d="M515,236 C515,290 585,290 585,326" fill="none" stroke="var(--dim)" stroke-width="2" marker-end="url(#ar7)"/>
+<text class="b" x="600" y="290">10y</text>
+<text class="g" x="60" y="370">In 10y</text>
+<rect x="200" y="340" width="70" height="46" fill="var(--accent)"/>
+<rect x="270" y="340" width="630" height="46" fill="var(--grey)"/>
+<text class="g" x="585" y="370" text-anchor="middle">Sys 90%</text>
+<text class="b" x="235" y="412" text-anchor="middle">P</text>
+<text class="c" x="480" y="480" text-anchor="middle">Shift today</text>
+</svg>

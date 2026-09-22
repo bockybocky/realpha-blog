@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="For the same iPad markup, the old wait bar spans the whole figure at two days, while the new one is a thin line at twenty minutes.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t{font-size:27px;font-weight:700}
+    .g{font-size:20px;font-weight:600}
+    .b{font-size:16px;fill:var(--dim)}
+    .c{font-size:22px;font-weight:700}
+    .a{fill:var(--accent)}
+    .w{fill:var(--warn)}
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="62">Same iPad step, how long</text>
+<rect x="70" y="150" width="110" height="80" rx="10" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<path d="M92,198 q14,-24 28,0 t28,0" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+<text class="b" x="125" y="252" text-anchor="middle">Mark</text>
+<text class="g" x="230" y="160">Old</text>
+<rect x="230" y="172" width="680" height="40" rx="6" fill="var(--grey)"/>
+<text class="c" x="910" y="244" text-anchor="end">2 d</text>
+<text class="b" x="910" y="296" text-anchor="end">Bars to time scale</text>
+<rect x="70" y="320" width="110" height="80" rx="10" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<path d="M92,368 q14,-24 28,0 t28,0" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+<text class="b" x="125" y="422" text-anchor="middle">Mark</text>
+<text class="g" x="230" y="330">Now</text>
+<rect x="230" y="342" width="6" height="40" rx="2" fill="var(--accent)"/>
+<text class="c a" x="250" y="370">20 min</text>
+<text class="c" x="480" y="490" text-anchor="middle">Wait vanishes</text>
+</svg>
