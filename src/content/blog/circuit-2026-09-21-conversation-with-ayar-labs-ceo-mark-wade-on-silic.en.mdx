@@ -1,0 +1,99 @@
+---
+title: "Where Copper Runs Out: Notes on Ayar Labs CEO Mark Wade and Co-Packaged Optics"
+description: "Listening notes on The Circuit's 2026-09-21 interview with Ayar Labs CEO Mark Wade: why AI data centers are gated by chip-to-chip links, which step of optical interconnect is hardest, and how to check the adoption timeline against reality. Personal educational notes; not investment advice and not a recommendation of any stock."
+slug: "circuit-2026-09-21-conversation-with-ayar-labs-ceo-mark-wade-on-silic"
+lang: "en"
+pubDate: 2026-09-22
+category: "investing"
+tags: ["silicon photonics", "co-packaged optics", "AI infrastructure", "semiconductors", "interconnect"]
+ogImage: "/covers/circuit-2026-09-21-conversation-with-ayar-labs-ceo-mark-wade-on-silic-cover.png"
+cover: "/covers/circuit-2026-09-21-conversation-with-ayar-labs-ceo-mark-wade-on-silic-cover.png"
+tldr: "AI data center revenue is gated by the links between chips, and Ayar Labs is betting optical links will come out of leading-edge foundries like any other advanced feature; the hard parts are fiber attach, lasers and test, on a 2028–2031 timeline."
+---
+
+![A silicon photonics test lab late at night, a thin blue beam running along an optical fiber into a wafer on a probe station, rows of test equipment receding into the dark](/covers/circuit-2026-09-21-conversation-with-ayar-labs-ceo-mark-wade-on-silic-cover.png)
+
+> The image is inverted because light passes through a point where the rays cross; the length of the image depends on that point.
+>
+> — *Mozi*, "Canon II" (Warring States period, China; my own translation)
+
+More than two thousand years ago, the Mohists cut a small hole in the wall of a dark room, watched the outside world appear upside down on the opposite wall, and wrote down that light travels in straight lines. That passage kept coming back to me during this episode, because the whole conversation is about bringing light in again to do a job electricity can no longer do.
+
+## What this episode covers
+
+The Circuit is a semiconductor show hosted by Ben Bajarin and Jay Goldberg. The 2026-09-21 episode featured Mark Wade, co-founder and CEO of Ayar Labs, and Jesse Leiter, VP of Capital Strategy and Investor Relations. Ayar Labs is still private, so an hour of its founder talking through technology, manufacturing and fundraising is rare.
+
+Ben opened by joking that the show is turning into a networking show. Networking used to be boring: more switches, better fiber. But GPUs and memory are now improving faster than the links between chips, and those links have become a wall. This episode is about taking that wall apart.
+
+## Key points
+
+**1. Revenue is gated by the links.** Mark opened big: how fast large AI data centers can grow revenue depends on the performance of the interconnect, the path data takes between chips. The pinch is in the scale-up fabric, the network that ties a group of GPUs into one large computer. Copper has a physical trade-off: the more data you push, the shorter the distance it can travel. They call it the bandwidth-distance trade-off, and Mark's view is that from first principles, the only fix is switching to light.
+
+![A line chart with distance on the horizontal axis and bandwidth on the vertical axis; the copper line falls steadily from the upper left to the lower right while the optical line stays high throughout, showing that as distance grows only light can sustain bandwidth.](/figures/copper-bandwidth-distance-en.svg)
+
+**2. Why optics hurts.** Jay said that after years covering optical networking, the first word that comes to mind is "pain." Mark laughed that you need to be a bit masochistic to work in this field. In the telecom era, separate companies made just the laser, just the signal-processing chip, or just the optical devices. Now materials, device design and back-end manufacturing all have to work as one product, which is why companies like his are full of physics and electrical engineering PhDs.
+
+**3. Why now.** He and his co-founders have been at this for fifteen years and started the company at MIT in 2015 while still students; he said all he has done in his adult life is try to get this technology to work. The wait was about volume. Telecom volumes were small and supported small, niche supply chains. AI scale-up needs 10 to 100 times the volume of traditional datacom, and its high-value revenue is gated by connectivity, a market that did not exist before. ChatGPT woke the big players up, but tier-one manufacturing cannot pivot on a dime.
+
+**4. Difficult on difficult.** Ayar Labs' optical engine stacks two chips: a TSMC 3-nanometer electrical chip with hundreds of millions of transistors and a silicon photonics chip, integrated in 3D in TSMC's COUPE process, and then the package needs an attached fiber connector. Mark's framing: a large multi-die AI accelerator is already hard to package, and adding a new capability makes it harder. People put up with it because the bandwidth and connection count you can pull out of these packages has hit physical limits.
+
+**5. The photonics chip is the easy part; fiber attach and test are hard.** Some people whisper that TSMC is behind other foundries in photonics. Mark's answer: a photonics chip is far from the final product, which is a full advanced package. On the wafer side, silicon photonics needs good silicon waveguides, silicon nitride and germanium detectors, none of which is that hard. The hardest part is getting fiber attached and light on and off the chip. In his words, photonics is necessary but nowhere near sufficient.
+
+![A cross-section of a package: on one substrate, an AI accelerator sits on the left and an optical engine on the right; the optical engine is an electronic chip stacked on top of a silicon photonics chip, which connects outward to an optical fiber, and that fiber attach point is labeled as the hardest step.](/figures/optical-engine-stack-en.svg)
+
+**6. Customers need near-zero risk.** Ayar Labs' cap table reads like its go-to-market map: TSMC and Wiwynn, plus multiple rounds from NVIDIA, AMD and Intel, alongside partnerships with ASIC design-service firms MediaTek, Alchip and GUC, which design custom chips for other companies. Mark expects leading GPU makers to adopt in 2028–2029, with the rest of the accelerator market following in 2029–2031. By then an optical engine has to be as routine and low-risk as integrating HBM.
+
+**7. The lobster went uneaten.** Jay asked what question he wished investors would ask. Mark said that at a Jefferies dinner that week, for the first time in the US, he was asked about test equipment, probers and test insertions. He enjoyed it so much he never touched the lobster in front of him. It made me laugh, and it also shows investor questions moving down toward the production line.
+
+![Six bars compare difficulty: silicon waveguides, silicon nitride, and germanium photodetectors, made with wafer processes, are short on the left, while fiber attach is tallest on the right, with lasers and wafer-level test also high, showing that the hard part is attaching fiber and back-end manufacturing.](/figures/photonics-difficulty-bars-en.svg)
+
+## Further thoughts
+
+### The headlines say this changes everything. Why is it taking so long?
+
+This is where I get stuck with tech themes myself. A story gets told for three years, the stock rises and falls, and the product still isn't in volume. Is it hype, or is it just early?
+
+Responding to the TSMC rumors, Mark said something I found precise: finance tracks progress weekly or monthly, while technology moves quarterly or yearly, so the two sides use mismatched language. A quiet month is normal to an engineer and alarming to a trader.
+
+That points to a method. First, write down the company's own timeline, which this episode gives in detail: stopgap solutions in 2027–2028, GPU leaders adopting in 2028–2029, broader spread in 2029–2031, and optics as a standard foundry feature after 2030. Then turn each date into an event you can check: does co-packaged optics show up in a major vendor's product launch, do ASIC design-service firms announce design wins, do test-equipment makers mention new demand. When it's on track, you watch it keep going. When it slips, you ask whether it's one quarter late or whether the whole route has changed.
+
+![A timeline from 2027 to 2031 and beyond, with four bars staggered from left to right representing, in order, bridge solutions, adoption by major GPU makers, spread to other accelerators, and a standard foundry feature; a row of diamonds below marks the events against which the forecast can be checked.](/figures/cpo-timeline-checkpoints-en.svg)
+
+I do this because I've been pushed around by headlines too often. Wanting to change a view because of one piece of news usually means measuring a yearly process with a weekly ruler.
+
+### When a bottleneck gets named, does the whole supply chain win?
+
+"Optical interconnect is AI's bottleneck" is everywhere now, and the next inference is usually that anything related to optics will benefit.
+
+This episode lets you split that apart. Mark himself said the photonics chip is not that hard on the wafer side. The sticking points are fiber attach, laser manufacturing, and fitting photonics into wafer-level test. He even spends nights and weekends using coding agents to build a digital twin of the manufacturing flow, working out the best test policy across five test insertions and which ones he should run versus his customer. When a CEO spends personal time on test strategy, I read that as a signal about where he sees the scarcest link.
+
+So I push "bottleneck" one level lower and ask three things. Which step is hardest to produce in volume right now? How many companies can do it? When demand arrives, can they raise prices, or can they only take more orders? A shortage and pricing power are two different things, and I've leaned on that distinction many times.
+
+![A four-quadrant chart with shortage on the horizontal axis and the ability to raise prices on the vertical axis; only the upper-right cell, where there is a shortage and prices can rise, is highlighted, while the lower-right cell, where a shortage only brings more orders, is marked in a warning color.](/figures/shortage-vs-pricing-power-en.svg)
+
+One more thing I'll keep in mind: Mark expects a chaotic stretch in which pluggables, board-mounted optics and other form factors serve as stopgaps. A company tied to one form factor could see demand rise and then get replaced by the next approach. Bottlenecks move, and that belongs in the list of ways a thesis can fail.
+
+### How much should you trust a company's market-size number?
+
+Mark put optics in scale-up at "tens of billions to approaching a hundred billion dollars." Ben, closing, cited outside estimates of $30–50 billion by 2030. That's nearly a 2x gap, and both come from spreadsheets.
+
+I don't try to guess which is right; I look at the formula. Market size equals units times price times adoption timing, and timing is the easiest one to get wrong. Two years of delay and the same spreadsheet's 2030 number drops sharply.
+
+![Two identically shaped S-curves of adoption, one on schedule and one shifted two years to the right; at the vertical line for 2030, the on-time curve is already high while the delayed curve is only halfway up, and the gap between them is labeled as a big drop.](/figures/market-size-two-year-delay-en.svg)
+
+One detail raised my trust in this company's financial discipline. Jesse said that in the Series D they deliberately set a sensible valuation because they didn't want to grow into a high one with execution risk ahead. Twelve months later, Jensen Huang laid out a co-packaged optics switch roadmap at GTC, sell-side analysts started writing about CPO, and the Series E was led by Neuberger Berman with GIC and QIA participating, bringing capital on the balance sheet to $650 million. Keep the valuation where you can deliver, then raise again after outside validation appears: I think that sequence is worth checking in any company pitching a huge market.
+
+## References
+
+- The Circuit, "Conversation with Ayar Labs CEO Mark Wade on Silicon Photonics, Co-Packaged Optics, and Next-Gen AI Infrastructure," 2026-09-21
+- The Ayar Labs team's 2015 *Nature* paper on the first processor-to-DRAM optical interface, mentioned by Mark
+- NVIDIA's co-packaged optics switch roadmap presented at GTC, the turning point Jesse described
+- TSMC's official technical material on the COUPE process
+
+## One thing to take away
+
+One idea: **judge a thing's progress on the clock it actually moves by.**
+
+Mark said technology moves in quarters and years while finance watches weeks and months, and a lot of anxiety and bad calls come from that gap. It isn't only about investing. A child learning an instrument, your own fitness, a team rolling out a new process: each has a natural rhythm, and measuring it with the wrong ruler makes you think it's failing when it isn't.
+
+Something I've tried: pick one thing you're waiting on right now, write down how long one natural cycle is, whether a quarter, six months or a year, and set a single check-in date at that interval with one concrete number or event to look at. When you feel the urge to check in between, look at the note first and see whether today is the date.
