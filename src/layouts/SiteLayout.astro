@@ -95,13 +95,14 @@ const nav = [
 		.map((topic) => ({ href: withLocale(locale, `/topics/${topic.id}/`), label: topic.nav[locale] })),
 	// 週報排在「投資與市場」後面（2026-09-23 Charles）
 	{ href: withLocale(locale, '/weekly/'), label: meta.weeklyNav },
+	// 動手玩從頁尾搬上來（2026-09-23 Charles 選甲）
+	{ href: withLocale(locale, '/lab/'), label: meta.lab },
 	{ href: withLocale(locale, '/about/'), label: meta.aboutNav },
 ];
 const isCurrent = (href: string) => path === href || (href !== homeHref && path.startsWith(href));
 const searchHref = withLocale(locale, '/search/');
-// 提案／Lab／方法論／作品移到頁尾
+// 提案／方法論／作品放頁尾（動手玩 2026-09-23 搬到上方導覽列）
 const footerNav = [
-	{ href: withLocale(locale, '/lab/'), label: meta.lab },
 	{ href: withLocale(locale, '/projects/'), label: meta.projects },
 	{ href: withLocale(locale, '/blog/'), label: meta.blog },
 	{ href: '/privacy/', label: meta.privacy },
