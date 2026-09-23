@@ -17,7 +17,7 @@ export const localeMeta = {
 		rssLabel: 'RSS',
 		home: '首頁',
 		blog: '全部文章',
-		lab: '動手玩',
+		lab: '實驗室',
 		projects: '工具箱',
 		about: '為什麼',
 		aboutNav: '關於',

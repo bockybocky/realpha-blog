@@ -12,7 +12,7 @@ export async function GET(context) {
 			link: '/about/',
 		},
 		{
-			title: '動手玩',
+			title: '實驗室',
 			description: '把一個概念做成可以自己輸入數字玩玩看的小工具。',
 			pubDate: new Date('2026-07-08'),
 			link: '/lab/',
