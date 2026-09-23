@@ -1,16 +1,21 @@
 ---
 interface Props {
-	demo: 'canvas-waves' | 'line-chart' | 'price-volume' | 'leverage-decay' | 'survivorship';
+	demo: 'canvas-waves' | 'line-chart' | 'price-volume' | 'leverage-decay' | 'survivorship' | 'sweetvox';
 	title: string;
 }
 
 import survivorship from '../data/survivorship.json';
 
 const { demo, title } = Astro.props;
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'zh-TW';
 ---
 
 {
-	demo === 'survivorship' ? (
+	demo === 'sweetvox' ? (
+		<div data-lab-demo="sweetvox" data-lang={lang} class="demo-frame tool" aria-label={title}>
+			<script src="/sweetvox.js" defer></script>
+		</div>
+	) : demo === 'survivorship' ? (
 		<div data-lab-demo="survivorship" class="demo-frame tool" aria-label={title}>
 			<script type="application/json" data-sv="data" set:html={JSON.stringify(survivorship)}></script>
 			<label class="sv-switch">
