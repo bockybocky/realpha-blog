@@ -7,6 +7,7 @@ import AdPush from './AdPush.astro';
 import AdSlot from './AdSlot.astro';
 import PostCard from './PostCard.astro';
 import { getCatalog, type Post } from '../lib/catalog';
+import { isNotesKind } from '../lib/indexing.mjs';
 import { readPopular, viewsOf } from '../lib/popular';
 import { withLocale, type Locale } from '../lib/site';
 import { existsSync, readFileSync } from 'node:fs';
@@ -63,9 +64,11 @@ const numLocale = zh ? 'zh-TW' : 'en-US';
 const taglineAudio = zh && existsSync(join(process.cwd(), 'public', 'brand', 'tagline-zh.mp3')) ? '/brand/tagline-zh.mp3' : null;
 
 // 2026-09-15 Charles「首頁這不就重複了」：分類分頁籤與導覽列三類重複，拿掉；首頁只列最新 12 篇
-const latest = cat.posts.slice(0, 12);
+// 2026-09-23 AdSense 審核：首頁只放原創文與週報，節目心得（kind: podcast-notes）不上首頁，仍在文章列表與分類頁
+const own = cat.posts.filter((p) => !isNotesKind(p.data.kind));
+const latest = own.slice(0, 12);
 
-const bySlug = new Map(cat.posts.map((p) => [p.data.slug, p]));
+const bySlug = new Map(own.map((p) => [p.data.slug, p]));
 const popular = readPopular()
 	.filter((r) => r.lang === locale && bySlug.has(r.slug))
 	.sort((a, b) => Number(b.views) - Number(a.views))
