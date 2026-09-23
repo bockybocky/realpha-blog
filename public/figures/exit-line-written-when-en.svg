@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A timeline with a box at each end; the right-hand box is tilted and dashed, and the condition written in it is different.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .sub { font-size:16px; fill:var(--dim); }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .dimtxt { font-size:15px; fill:var(--dim); }
+    .concl { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="ttl" x="60" y="62">Same sentence, written at a different moment</text>
+  <text class="sub" x="60" y="92">"I leave if I see X" — when did you write it down</text>
+
+  <line x1="120" y1="320" x2="840" y2="320" stroke="var(--line)" stroke-width="3"/>
+  <polygon points="840,310 866,320 840,330" fill="var(--line)"/>
+  <circle cx="200" cy="320" r="9" fill="var(--accent)"/>
+  <circle cx="740" cy="320" r="9" fill="var(--warn)"/>
+  <text class="dimtxt" x="200" y="356" text-anchor="middle">Day of purchase</text>
+  <text class="dimtxt" x="740" y="356" text-anchor="middle">Already underwater</text>
+  <text class="dimtxt" x="470" y="356" text-anchor="middle">Unrealized loss grows over time</text>
+
+  <rect x="90" y="160" width="230" height="110" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="grp" x="205" y="205" text-anchor="middle">Breaks X</text>
+  <text class="grp" x="205" y="240" text-anchor="middle" fill="var(--accent)">I leave</text>
+  <line x1="200" y1="270" x2="200" y2="308" stroke="var(--accent)" stroke-width="2"/>
+  <text class="dimtxt" x="205" y="140" text-anchor="middle">Neutral, nothing lost yet</text>
+
+  <g transform="rotate(-5 740 215)">
+    <rect x="620" y="160" width="240" height="110" rx="10" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="9 6"/>
+    <text class="grp" x="740" y="205" text-anchor="middle">Back to my cost</text>
+    <text class="grp" x="740" y="240" text-anchor="middle" fill="var(--warn)">I sell</text>
+  </g>
+  <line x1="740" y1="272" x2="740" y2="308" stroke="var(--warn)" stroke-width="2"/>
+  <text class="dimtxt" x="740" y="140" text-anchor="middle">Feelings tied to cost</text>
+
+  <text class="concl" x="60" y="466">Your cost is the one number the market does not care about</text>
+</svg>

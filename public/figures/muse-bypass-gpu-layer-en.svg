@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="An arrow runs from the top layer, skips the greyed-out middle layer, and connects straight to the bottom layer.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .sub { font-size:16px; fill:var(--dim); }
+    .grp { font-size:19px; fill:var(--ink); }
+    .accg { font-size:19px; fill:var(--accent); font-weight:700; }
+    .dimtxt { font-size:15px; fill:var(--dim); }
+    .concl { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="ttl" x="60" y="62">The money lands on the layer the market isn't watching</text>
+  <text class="sub" x="60" y="92">Muse keeps one virtual machine per user: sessions, tool calls, sandbox</text>
+
+  <rect x="300" y="140" width="440" height="62" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <text class="grp" x="520" y="178" text-anchor="middle">How Muse is built</text>
+  <text class="dimtxt" x="286" y="178" text-anchor="end">App layer</text>
+
+  <rect x="300" y="256" width="440" height="62" rx="8" fill="none" stroke="var(--grey)" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <text class="grp" x="520" y="294" text-anchor="middle" fill="var(--dim)">Where the market assumed it goes</text>
+  <text class="dimtxt" x="286" y="294" text-anchor="end">GPUs</text>
+
+  <rect x="300" y="372" width="440" height="62" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="accg" x="520" y="410" text-anchor="middle">Where the work really lands</text>
+  <text class="dimtxt" x="286" y="410" text-anchor="end">CPU · on-device</text>
+
+  <path d="M 300 171 C 190 171, 190 403, 292 403" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="292,395 308,403 292,411" fill="var(--accent)"/>
+  <text class="dimtxt" x="196" y="290" text-anchor="middle" transform="rotate(-90 196 290)">Skips</text>
+
+  <text class="grp" x="770" y="398">AMD $1T</text>
+  <text class="grp" x="770" y="424">ARM +17%</text>
+  <text class="grp" x="770" y="450">QCOM +9%</text>
+
+  <text class="concl" x="60" y="524">One app's design reset the whole chain</text>
+</svg>

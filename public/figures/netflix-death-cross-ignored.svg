@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="下降的股價線上有三個加碼點，中段兩條均線交叉，末端落在均價線下方">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .sub { font-size:16px; fill:var(--dim); }
+    .grp { font-size:19px; fill:var(--ink); }
+    .dimtxt { font-size:15px; fill:var(--dim); }
+    .concl { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="ttl" x="60" y="62">路標亮了，人沒走</text>
+  <text class="sub" x="60" y="92">2025 年夏天買在 100 附近，一路往下加碼</text>
+
+  <line x1="120" y1="460" x2="880" y2="460" stroke="var(--line)" stroke-width="2"/>
+
+  <line x1="140" y1="210" x2="820" y2="340" stroke="var(--grey)" stroke-width="2.5"/>
+  <text class="dimtxt" x="838" y="344" fill="var(--grey)">200 日</text>
+  <line x1="140" y1="185" x2="820" y2="400" stroke="var(--dim)" stroke-width="2.5"/>
+  <text class="dimtxt" x="838" y="404" fill="var(--dim)">50 日</text>
+
+  <polyline points="140,190 240,240 320,225 420,300 520,285 620,355 720,345 820,406" fill="none" stroke="var(--ink)" stroke-width="3.5"/>
+
+  <circle cx="340" cy="248" r="26" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <text class="dimtxt" x="340" y="168" text-anchor="middle" fill="var(--warn)">死亡交叉</text>
+  <text class="dimtxt" x="340" y="190" text-anchor="middle" fill="var(--warn)">該走的那一刻</text>
+  <line x1="340" y1="198" x2="340" y2="220" stroke="var(--warn)" stroke-width="2"/>
+
+  <polygon points="240,258 230,278 250,278" fill="var(--accent)"/>
+  <polygon points="420,318 410,338 430,338" fill="var(--accent)"/>
+  <polygon points="620,373 610,393 630,393" fill="var(--accent)"/>
+  <text class="dimtxt" x="430" y="418" fill="var(--accent)">往下加碼</text>
+
+  <line x1="120" y1="342" x2="880" y2="342" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="dimtxt" x="880" y="334" text-anchor="end" fill="var(--accent)">均價 81</text>
+  <circle cx="820" cy="406" r="6" fill="var(--ink)"/>
+  <text class="grp" x="880" y="440" text-anchor="end">73</text>
+
+  <text class="concl" x="60" y="524">規則在、他知道，他選擇不執行</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊下墜的線停在一條地板上，右邊下墜的線沒有地板一路到底">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .sub { font-size:16px; fill:var(--dim); }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .dimtxt { font-size:15px; fill:var(--dim); }
+    .concl { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="ttl" x="60" y="62">下面有沒有東西墊著</text>
+  <text class="sub" x="60" y="92">買進之後價格往下走，兩種資產的差別在底下</text>
+
+  <rect x="60" y="120" width="400" height="360" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="grp" x="90" y="158">十年期公債</text>
+  <text class="dimtxt" x="90" y="184">買在 5%，半年後殖利率 6%</text>
+  <polyline points="110,220 180,252 250,268 320,300 400,318" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <line x1="100" y1="360" x2="430" y2="360" stroke="var(--accent)" stroke-width="6"/>
+  <text class="dimtxt" x="100" y="388" fill="var(--accent)">5% 票息，年年收</text>
+  <text class="dimtxt" x="100" y="424">少賺，但傷得有限</text>
+  <text class="dimtxt" x="100" y="450">票息可以再買更高殖利率的債</text>
+
+  <rect x="500" y="120" width="400" height="360" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="grp" x="530" y="158">股權</text>
+  <text class="dimtxt" x="530" y="184">買在 10 塊，跌到 8 塊</text>
+  <polyline points="550,220 620,256 690,276 760,308 820,330" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <polyline points="820,330 860,392 880,452" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 6"/>
+  <text class="dimtxt" x="530" y="392" fill="var(--warn)">下面沒有這層東西</text>
+  <text class="grp" x="880" y="476" text-anchor="end" fill="var(--warn)">0</text>
+
+  <text class="concl" x="60" y="524">錯過價格的代價，兩邊不一樣</text>
+</svg>
