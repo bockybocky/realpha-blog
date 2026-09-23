@@ -29,6 +29,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 BLOG_DIR = ROOT / 'src' / 'content' / 'blog'
+COVERS = ROOT / 'public' / 'covers'
+BLOG_AUTO = Path(r'C:\Users\Charles\scripts\blog_auto')   # make_cover / cover_styles / compress_cover 都在這
 TOPICS = ROOT / 'src' / 'data' / 'topics.json'
 SHOWS_JSON = Path(r'C:\Users\Charles\scripts\iltb\shows.json')
 LOG = ROOT / 'scripts' / 'logs' / 'weekly_digest.log'
@@ -190,10 +192,66 @@ def digest_slug(monday: dt.date) -> str:
     return f'weekly-digest-{monday.isoformat()}'
 
 
-def build_digest(monday: dt.date, lang: str, posts: list[dict], names: dict) -> str | None:
+def week_posts(monday: dt.date, lang: str, posts: list[dict]) -> list[dict]:
     start, end = week_bounds(monday)
     week = [p for p in posts if p['lang'] == lang and p.get('kind') == NOTES_KIND and start <= p['_date'] <= end]
     week.sort(key=lambda p: (p['_date'], p['slug']))
+    return week
+
+
+# ---------- 封面 ----------
+def cover_prompt(monday: dt.date, posts: list[dict], names: dict) -> str:
+    """一句英文場景描述，主體只用「這週真的寫到的節目名」，不編造內容。
+
+    英文版的節目名優先（prompt 送英文模型），沒有英文版才退回中文版的名字。
+    """
+    week = week_posts(monday, 'en', posts) or week_posts(monday, 'zh-TW', posts)
+    shows: list[str] = []
+    for p in week:
+        n = show_of(p, names)
+        if n not in shows:
+            shows.append(n)
+    subject = ', '.join(shows[:5]) if shows else 'podcasts'
+    return ('A wide-angle still life of one week of podcast listening notes '
+            f'({subject}): over-ear headphones, an open notebook filled with handwriting, '
+            'a coffee mug and a small desk microphone on a wooden table beside a window, '
+            'soft morning light, no people')
+
+
+def cover_rel(slug: str) -> str:
+    return f'/covers/{slug}-cover.png'
+
+
+def ensure_cover(slug: str, prompt: str) -> bool:
+    """生封面。失敗不擋週報產出（fail-open），只在 log 寫明原因。"""
+    out = COVERS / f'{slug}-cover.png'
+    if out.is_file():
+        log(f'  封面已存在，沿用：{out.name}')
+        return True
+    if str(BLOG_AUTO) not in sys.path:
+        sys.path.insert(0, str(BLOG_AUTO))
+    try:
+        from podcast_auto_blog import make_cover      # 共用同一條生圖線，不另複製一份
+    except Exception as e:  # noqa: BLE001
+        log(f'  ⚠️ 載入 make_cover 失敗，本週不放封面：{type(e).__name__}: {e}')
+        return False
+    log(f'  生封面 prompt：{prompt[:160]}')
+    try:
+        ok = bool(make_cover(slug, prompt)) and out.is_file()
+    except Exception as e:  # noqa: BLE001
+        log(f'  ⚠️ 生封面例外，本週不放封面：{type(e).__name__}: {e}')
+        return False
+    if ok:
+        log(f'  ✅ 封面完成：{out.name}（{out.stat().st_size // 1024} KB）')
+    else:
+        log('  ⚠️ 生封面失敗，本週不放封面（細節見 blog_auto/auto_blog.log）')
+    return ok
+
+
+def build_digest(monday: dt.date, lang: str, posts: list[dict], names: dict,
+                 cover: str | None = None) -> str | None:
+    start, end = week_bounds(monday)
+    week = week_posts(monday, lang, posts)
     if not week:
         return None
     en = lang == 'en'
@@ -234,9 +292,10 @@ def build_digest(monday: dt.date, lang: str, posts: list[dict], names: dict) -> 
         'category: "investing"',
         'kind: "weekly-digest"',
         f'tags: {json.dumps(tags, ensure_ascii=False)}',
-        '---',
-        '',
     ]
+    if cover:
+        fm += [f'ogImage: "{cover}"', f'cover: "{cover}"']
+    fm += ['---', '']
     body = []
     if epi:
         body += [epi, '']
@@ -260,12 +319,17 @@ def digest_path(monday: dt.date, lang: str) -> Path:
 def write_week(monday: dt.date, force: bool) -> list[Path]:
     posts, names = load_posts(), show_names()
     written = []
+    slug = digest_slug(monday)
+    todo = [lang for lang in ('zh-TW', 'en')
+            if (force or not digest_path(monday, lang).exists()) and week_posts(monday, lang, posts)]
+    # 中英共用同一張封面（同一個 slug）；有要寫的語版才生圖
+    cover = cover_rel(slug) if todo and ensure_cover(slug, cover_prompt(monday, posts, names)) else None
     for lang in ('zh-TW', 'en'):
         path = digest_path(monday, lang)
         if path.exists() and not force:
             log(f'  已存在，跳過：{path.name}')
             continue
-        text = build_digest(monday, lang, posts, names)
+        text = build_digest(monday, lang, posts, names, cover)
         if text is None:
             log(f'  {monday} 這週沒有 {lang} 節目心得，不寫')
             continue
@@ -290,6 +354,12 @@ def publish(paths: list[Path]) -> bool:
     log('  ✅ build 通過')
     urls = []
     for slug in slugs:
+        if (COVERS / f'{slug}-cover.png').is_file():
+            cu = f'{SITE}/covers/{slug}-cover.png'
+            try:
+                log(f'  線上 {urllib.request.urlopen(urllib.request.Request(cu, headers={"User-Agent": "Mozilla/5.0"}), timeout=30).getcode()} {cu}')
+            except Exception as e:  # noqa: BLE001
+                log(f'  ⚠️ 封面線上取不到（不擋發布）{cu}：{type(e).__name__}')
         for prefix in ('', '/en'):
             if not (BLOG_DIR / f'{slug}.{"en" if prefix else "zh-TW"}.mdx').exists():
                 continue
@@ -344,6 +414,21 @@ def selftest() -> None:
     assert episode_label({'lang': 'zh-TW', 'slug': 'gooaye-2026-09-19-ep698', 'title': 'x'}) == 'EP698'
     assert episode_label({'lang': 'en', 'slug': 'acquired-2026-09-13-home-depot', 'title': 'x'}) == 'episode of 2026-09-13'
     assert mdx_escape('a<b{c}') == 'a\\<b\\{c\\}'
+    # 封面（2026-09-24）：frontmatter 要有 cover 欄，生圖失敗時要乾淨地不寫那兩行
+    fake = [{'lang': 'zh-TW', 'slug': 'gooaye-2026-09-14-ep700', 'title': 'x', 'kind': NOTES_KIND,
+             'tldr': '甲。乙。', 'tags': ['股癌'], '_body': '', '_date': dt.date(2026, 9, 14),
+             'description': ''}]
+    mon = dt.date(2026, 9, 14)
+    with_cover = build_digest(mon, 'zh-TW', fake, {}, cover_rel(digest_slug(mon)))
+    assert 'cover: "/covers/weekly-digest-2026-09-14-cover.png"' in with_cover, with_cover[:400]
+    assert 'ogImage: "/covers/weekly-digest-2026-09-14-cover.png"' in with_cover
+    without = build_digest(mon, 'zh-TW', fake, {}, None)
+    assert 'cover:' not in without and 'ogImage:' not in without
+    assert without.startswith('---\n') and without.count('\n---\n') == 1
+    assert cover_rel('weekly-digest-2026-09-14') == '/covers/weekly-digest-2026-09-14-cover.png'
+    pr = cover_prompt(mon, fake, {})
+    assert 'no people' in pr and '\n' not in pr and '股癌' in pr, pr
+    assert week_posts(mon, 'en', fake) == []
     print('selftest OK')
 
 
