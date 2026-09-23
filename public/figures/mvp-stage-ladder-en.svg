@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Three steps rising from low to high with requirements stacking up stage by stage, a safety line running along the bottom of all three, and a one-way door between the second and third steps.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:19px; font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="t" x="60" y="72">Each step asks for something different</text>
+<rect x="80" y="310" width="250" height="120" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="355" y="240" width="250" height="190" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="640" y="160" width="250" height="270" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="205" y="292" text-anchor="middle">First-in-human</text>
+<text class="g" x="480" y="222" text-anchor="middle">Pivotal trial</text>
+<text class="g" x="765" y="142" text-anchor="middle">Scale-up</text>
+<text class="b" x="205" y="352" text-anchor="middle" fill="var(--accent)">Differentiating features</text>
+<text class="b" x="205" y="384" text-anchor="middle">Can come later</text>
+<text class="b" x="480" y="282" text-anchor="middle">Differentiating features</text>
+<text class="b" x="480" y="314" text-anchor="middle" fill="var(--accent)">Ecosystem integration</text>
+<text class="b" x="480" y="346" text-anchor="middle" fill="var(--accent)">Clinical evidence spec</text>
+<text class="b" x="480" y="378" text-anchor="middle">Can come later</text>
+<text class="b" x="765" y="202" text-anchor="middle">Differentiation</text>
+<text class="b" x="765" y="234" text-anchor="middle">Ecosystem fit</text>
+<text class="b" x="765" y="266" text-anchor="middle" fill="var(--accent)">Manufacturability</text>
+<text class="b" x="765" y="298" text-anchor="middle" fill="var(--accent)">Serviceability</text>
+<text class="b" x="765" y="330" text-anchor="middle" fill="var(--accent)">Cost</text>
+<line x1="622" y1="140" x2="622" y2="450" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 6"/>
+<text class="b" x="622" y="126" text-anchor="middle" fill="var(--warn)">One-way door</text>
+<line x1="60" y1="470" x2="900" y2="470" stroke="var(--accent)" stroke-width="3"/>
+<text class="g" x="60" y="500" fill="var(--accent)">Safety: no discount at any stage</text>
+<text class="c" x="60" y="556">Skip early, but not through a one-way door</text>
+</svg>
