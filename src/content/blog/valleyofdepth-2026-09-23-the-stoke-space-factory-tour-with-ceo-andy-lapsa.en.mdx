@@ -1,0 +1,87 @@
+---
+title: "Cooling the Heat Shield With Liquid Hydrogen — Notes on Valley of Depth's Stoke Space Factory Tour"
+description: "On 2026-09-23, Valley of Depth toured Stoke Space's Seattle factory with CEO Andy Lapsa, covering the actively cooled metallic heat shield, the full-flow staged combustion engine, and the new Block 2 architecture. These are listening notes on how hardware companies retire their deadliest unknowns early — educational, not investment advice."
+slug: "valleyofdepth-2026-09-23-the-stoke-space-factory-tour-with-ceo-andy-lapsa"
+lang: "en"
+pubDate: 2026-09-24
+category: "investing"
+kind: "podcast-notes"
+tags: ["space industry", "reusable rockets", "engineering decisions", "capital efficiency", "investing mindset"]
+ogImage: "/covers/valleyofdepth-2026-09-23-the-stoke-space-factory-tour-with-ceo-andy-lapsa-cover.png"
+cover: "/covers/valleyofdepth-2026-09-23-the-stoke-space-factory-tour-with-ceo-andy-lapsa-cover.png"
+---
+
+![A silver rocket second stage standing between work platforms inside a factory bay, engineers dwarfed at its base, cold daylight falling from clerestory windows, another stage visible far down the hall](/covers/valleyofdepth-2026-09-23-the-stoke-space-factory-tour-with-ceo-andy-lapsa-cover.png)
+
+> When the swords Chunjun and Yuchang first left the mould, they could neither cut nor pierce. Once taken to the whetstone and ground along the edge, they severed boats on water and cleaved rhino hide on land.
+>
+> —— *Huainanzi, "On Cultivation"* (Western Han; translation mine)
+
+The 23 September 2026 episode of *Valley of Depth* walks through Stoke Space's Seattle factory with CEO Andy Lapsa, who used it to announce two things: a Block 2 vehicle larger than anything the company had shown publicly, and the Series E round funding it. The central technical bet is an actively cooled metallic heat shield fed by liquid hydrogen, meant to make a second stage genuinely reusable — Lapsa notes that the thermal environment inside a rocket engine runs roughly twenty times more intense than reentry, and liquid cooling handles that every day. All of this is engineering plan and test-stand history described on the show, with orbit still ahead, so keep what has flown separate from what has not.
+
+## What the episode covers
+
+The host carries a camera through the building, starting at Hopper, a full-scale second stage prototype. It flew once at the Moses Lake test site, went up about 30 feet, hovered, and came back down. That sounds trivial until Lapsa explains the reason: with the FAA you have to imagine the rogue robot doing the worst possible thing, so you limit propellant load, which draws a small circle around the keep-out zone.
+
+Further in are the additive manufacturing bays, the Zenith engine, a first stage, and a second stage flight vehicle in final checkouts before shipping out for wet dress rehearsals and static fire. The spine of the conversation is one question: second stages have never been meaningfully reused, so how do you land one, look at it, and fly it again tomorrow.
+
+## The points worth keeping
+
+**One: the liquid-cooled metallic heat shield is where the company began.** Lapsa says the first year was spent with co-founder Tom trying to solve it. The Shuttle showed reusable elements were possible, but its brittle ceramic tiles came back damaged after virtually every mission, forcing a long inspection and refurbishment cycle that set the turnaround time. The insight came from the engine itself: a combustion chamber sees a thermal load about twenty times harsher than reentry, and it is held back by propellant running through cooling channels. Move that strategy onto the vehicle skin and reentry stops being a hard thermal problem. The shield is a metallic alloy similar to stainless steel, ductile enough to shrink with cryogenic loading and expand under reentry heating, cycle after cycle.
+
+![Two bars of very different height: the right one shows that the heat load inside an engine combustion chamber is about twenty times that of atmospheric reentry on the left, and an arc carries the liquid cooling already in use on the right over to the left.](/figures/engine-vs-reentry-heat-en.svg)
+
+**Two: hydrogen was chosen for two reasons, and the second one matters more for reuse.** Its cooling capacity runs about seven times that of typical propellants. Its specific impulse — gas mileage, in Lapsa's phrasing — is the other half. He lays out the arithmetic: a second stage is roughly five times more mass-sensitive than a first stage, and every pound spent on landing gear, return propellant, or heat shield comes straight out of payload. Efficiency gets amplified once you commit to bringing the thing home.
+
+**Three: no gimbals, steering by differential thrust.** The flight second stage carries 24 thrusters around its perimeter (the display article has 30), and steering comes from throttling one side up and the other down. To Lapsa's knowledge this is the first vehicle flown exclusively on differential throttle. In the Hopper footage you can watch it take off and give itself a hard kick to the left, which was the response-rate demonstration; it also rolls gently the whole flight, proving the guidance system knows where it is in physical space while spinning.
+
+![Two horizontal bars on top differ fivefold in length, showing that every extra pound on the second stage costs five times what it costs on the first; below, a payload bar is cut into by landing legs, return fuel and a heat shield.](/figures/second-stage-weight-penalty-en.svg)
+
+**Four: the second full-flow staged combustion engine ever flown by anyone.** The architecture buys the highest fuel efficiency at the lowest component stress, and both feed directly into long life. The Russians ran a program in the sixties that left a documented trail of explosions before it ended; a US program got some distance but stopped short of an integrated engine. SpaceX's Raptor was the first done for real, and Stoke is second. Lapsa's line about the decision stuck with me: "This was the hardest decision I didn't get in the way of." He doesn't claim he made it — he consciously decided not to block it.
+
+![Twenty-four thrusters are laid out in a ring, the left half bright and the right half dark to show one side throttled up and the other throttled down, with a central arrow pointing the way the vehicle tilts.](/figures/differential-throttle-steering-en.svg)
+
+**Five: they moved the deadliest risk to the cheapest possible moment.** The scariest item on the list was start and shutdown transients. Before the real test stand existed, Stoke developed both power heads independently, bolted them to a thrust chamber, and fired the whole thing horizontally. Lapsa calls it the ugliest engine they ever built — ground fittings, ground valves, nothing close to flight weight — but the important flow paths were representative. That position could only run about 13 seconds per test, enough to take the engine up to power and back down. By the time the vertical stand was ready, they knew what the transient looked like. Two qualification engines now sit above 3,000 and 4,000 seconds, with well over 10,000 seconds across the Zenith program. The thrust-till-you-bust test has not happened yet; Lapsa says it's coming soon.
+
+**Six: Block 2 adds pumps rather than swapping engines.** Thrusters are paired into pods, currently fed by a shared set of turbopumps. Block 2 gives each pod its own pair, twelve in total. That buys three things at once: far higher thrust, a cleaner way to close the cycle for more performance, and engine-out capability on the first stage, which he notes most rockets can't afford. Asked how many can fail, his answer depends on mission phase — early, while still fighting gravity losses, very few; near orbital insertion, tolerance is high. "If only three out of twelve are working, it's not a good day anyway."
+
+**Seven: traceability is being treated as a software problem.** Everything starts as raw sheet metal in-house, with cutting, forming and joining done on site. Parts carry QR codes; nonconformances, acceptance tests and process data all hang off part and serial numbers. In the old world that was a mountain of paperwork, and Lapsa's conviction was that modern software should abstract it away as a by-product of doing business. The goal is concrete: know the second a vehicle touches down whether it can fly again, what needs scheduled maintenance, and how many flights remain before it comes in. They sell that software externally, and he says outside customers care about things the company hasn't started caring about yet — which lets them see around corners.
+
+## Going further
+
+### A company promises something ten times better. Get excited, or walk away?
+
+This is where I stay wary. Plenty of companies tell a beautiful technical story, and the way I try to separate them comes down to one question: are they betting on a miracle? Lapsa said something during the fundraising discussion I wrote down — they love this approach because the physics are sound and an executable development plan sits behind it, and he would not have raised outside money before he could say that sentence in good faith.
+
+That unpacks into three checks. Is there a physics blocker? Liquid cooling works here precisely because engines have done the harder version for decades, so the technique is borrowed rather than invented. Does the plan decompose into executable steps? The ugly horizontal engine was one of them. How many unknowns remain? Orbit, the burst test, and a real reentry of that shield are all still on the list.
+
+What I do with that third layer is write it out and ask which items, if they fail, zero the whole story. Those are the actual progress bar. Everything else is background noise.
+
+### Why some companies look slow and keep surviving
+
+Lapsa returns to capital efficiency repeatedly, describing it as buried in the fiber of the company. The episode gives numbers: by the end of next year the factory produces four vehicles on three-month centers, and without Block 2 occupying the same building it could run seven to eight a year. The Moses Lake footprint just went from 75 acres to 550. The team, relative to the scope, he calls small.
+
+What I take from this is a different clock. For hardware companies the contest isn't who launches first, it's whose mistakes cost less. The ugly horizontal engine, the 13-second stand, power heads modular enough to develop separately — all of it puts failure where failure is still affordable. Looking back, Lapsa names the moments it became real: closing the A meant Hopper could fly, the C meant they could probably do it, the D meant they were going to be an orbital company, and a D2 extension existed specifically to kickstart Block 2. Each round unlocked a piece of hardware rather than a slogan.
+
+### How thermal protection turned from a constraint into an asset
+
+The host asks a sharp question: if the shield doesn't fear heat, can the reentry profile get more aggressive? Lapsa says they're incentivized to do exactly that. Total heat load is intensity multiplied by duration. The Shuttle took a shallow swan dive to cap peak heating — it could take the exposure longer but not hotter. Stoke can take it hotter, so diving straight in shortens the exposure and lowers the integrated load.
+
+![A plot of heating rate against time, where a wide low grey area stands for the shuttle's shallow, long reentry and a narrow tall blue area stands for diving in, whose area is smaller even so.](/figures/reentry-heat-load-area-en.svg)
+
+He extends it further: coming home from low Earth orbit is one thing, and returning from the Moon or Mars means arriving far hotter, where other systems have to shed that speed somehow for the material to survive. "We're g-limited, not thermal-limited." What interests me is that a defensive design choice becomes margin for missions nobody else can quote yet. My habitual error when sizing up an industry is to line specs up and compare heights, and this episode reminds me the better question is which future scenarios turn a given choice into an option others don't have.
+
+## Worth looking at
+
+- The full 23 September 2026 *Valley of Depth* episode — the factory footage carries things narration can't
+- Introductory material on rocket engine cycles, to see what separates full-flow staged combustion from a gas generator
+- Shuttle thermal protection refurbishment records, the cleanest contrast between "reusable" and "rapidly reusable"
+- Stoke Space's own public material on Block 2 and the Series E
+
+## The one thing to take away
+
+The idea I'm keeping: **move the unknown most likely to kill you to the moment when testing it is cheapest.** Stoke didn't wait for a finished test stand before touching start transients. They cobbled an engine together out of ground valves and ground fittings, laid it on its side, and burned it 13 seconds at a time, just to learn what that instant does. Ugly didn't matter. Early did.
+
+![A curve of failure cost rising steeply to the right across development, with a cheap early test point marked as a thirteen-second horizontal hot fire and an expensive late point marked as first flight, the gap between them called out.](/figures/test-the-unknown-while-its-cheap-en.svg)
+
+Here's something I've tried. Take one thing you've been putting off for three months or more. Skip the plan; write one sentence instead — "if this fails, which link is it most likely to break at?" Then go touch that link today, in the crudest way available. Thinking about changing careers, and the real blocker is "nobody would take me"? Spend twenty minutes today talking to someone already doing it, and leave the résumé alone. Want to start training, and the blocker is week three? Get through week three first and buy gear later. When we procrastinate, the instinct is to polish the easy parts beautifully, and the easy parts were never the ones that could kill us.

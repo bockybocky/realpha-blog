@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="失敗代價隨開發時間急升的曲線，早期一個便宜測試點與晚期首飛的昂貴點形成落差">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">同一個未知，愈晚碰愈貴</text>
+<line x1="130" y1="450" x2="880" y2="450" stroke="var(--line)" stroke-width="2"/>
+<line x1="130" y1="110" x2="130" y2="450" stroke="var(--line)" stroke-width="2"/>
+<text x="122" y="104" font-size="16" fill="var(--dim)" text-anchor="end">一次失敗的代價</text>
+<text x="880" y="482" font-size="16" fill="var(--dim)" text-anchor="end">開發時間</text>
+<path d="M 140 438 C 380 428 600 380 790 140" fill="none" stroke="var(--dim)" stroke-width="3"/>
+<circle cx="270" cy="433" r="10" fill="var(--accent)"/>
+<text x="270" y="408" font-size="19" font-weight="700" fill="var(--accent)" text-anchor="middle">橫躺點火</text>
+<text x="270" y="384" font-size="15" fill="var(--dim)" text-anchor="middle">地面閥 · 一次 13 秒</text>
+<circle cx="782" cy="158" r="10" fill="var(--warn)"/>
+<text x="782" y="133" font-size="19" font-weight="700" fill="var(--warn)" text-anchor="middle">首飛才遇到</text>
+<line x1="782" y1="168" x2="782" y2="440" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="270" y1="433" x2="770" y2="433" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="820" y="310" font-size="16" fill="var(--warn)">落差</text>
+<text x="330" y="256" font-size="16" fill="var(--dim)">啟動與關機的暫態，同一題</text>
+<text x="60" y="524" font-size="22" font-weight="700" fill="var(--ink)">最可能殺死你的未知，搬到最便宜的那一刻測</text>
+</svg>
