@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-label="兩條長度不同的航程條，上面一條十到十二節走七天比較長，下面一條二十到二十五節走五天明顯較短">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="500" fill="var(--page)"/>
+  <text x="60" y="76" font-size="27" font-weight="700" fill="var(--ink)">同一趟貨，兩種到貨日</text>
+
+  <text x="60" y="162" font-size="19" fill="var(--dim)">現在的商船</text>
+  <text x="60" y="188" font-size="16" fill="var(--dim)">10 至 12 節</text>
+  <rect x="240" y="146" width="630" height="48" rx="6" fill="var(--grey)"/>
+  <text x="890" y="178" font-size="20" font-weight="700" fill="var(--ink)">7 天</text>
+
+  <text x="60" y="288" font-size="19" fill="var(--ink)">核動力</text>
+  <text x="60" y="314" font-size="16" fill="var(--dim)">20 至 25 節</text>
+  <rect x="240" y="272" width="450" height="48" rx="6" fill="var(--accent)"/>
+  <text x="710" y="304" font-size="20" font-weight="700" fill="var(--ink)">5 天</text>
+
+  <line x1="690" y1="256" x2="690" y2="356" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="8 7"/>
+  <line x1="870" y1="130" x2="870" y2="356" stroke="var(--warn)" stroke-width="2.5" stroke-dasharray="8 7"/>
+  <line x1="690" y1="356" x2="870" y2="356" stroke="var(--warn)" stroke-width="3"/>
+  <text x="780" y="386" font-size="16" text-anchor="middle" fill="var(--warn)">差兩天</text>
+
+  <text x="60" y="452" font-size="22" font-weight="700" fill="var(--ink)">賣的是兩天，還有不必補油的港口</text>
+</svg>
