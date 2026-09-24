@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="左邊短鏈與右邊長鏈並排，長鏈多出兩格被標記">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .n { font-size:16px; fill:var(--ink); }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text x="60" y="62" class="t">那個數字缺的不是乘法，是兩層</text>
+
+<text x="90" y="118" class="g">文章的算法</text>
+<rect x="90" y="140" width="290" height="58" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="112" y="177" class="n">一億用戶</text>
+<rect x="90" y="212" width="290" height="58" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="112" y="249" class="n">× 每人 2 vCPU</text>
+<rect x="90" y="284" width="290" height="58" rx="10" fill="var(--accent)" fill-opacity="0.18" stroke="var(--accent)" stroke-width="2"/>
+<text x="112" y="321" class="n">≈ 158 萬顆</text>
+<text x="90" y="384" class="b">隱含：一億人同時在線</text>
+
+<text x="560" y="118" class="g">完整的鏈</text>
+<rect x="560" y="140" width="330" height="58" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="582" y="177" class="n">用戶數</text>
+<rect x="560" y="212" width="330" height="58" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="582" y="243" class="n">× 同時上線比</text>
+<text x="582" y="263" class="b">作者事後補了一成</text>
+<rect x="560" y="284" width="330" height="58" rx="10" fill="var(--warn)" fill-opacity="0.18" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="582" y="321" class="n">× 每台虛擬機吃的實體核心</text>
+<rect x="560" y="356" width="330" height="58" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="582" y="393" class="n">÷ 單顆核心數</text>
+<rect x="560" y="428" width="330" height="58" rx="10" fill="var(--warn)" fill-opacity="0.18" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="582" y="465" class="n">÷ 目標利用率</text>
+<text x="560" y="510" class="b">虛線兩格＝原文沒有的</text>
+
+<text x="60" y="560" class="c">缺兩層，答案只是換個量級的猜測</text>
+</svg>

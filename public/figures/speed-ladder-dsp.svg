@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="三階上升的階梯，頂端岔出一條往下的支路">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<defs>
+<marker id="arw3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/>
+</marker>
+</defs>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="60" y="62" class="t">速率往上疊，它的活就變重</text>
+
+<rect x="100" y="370" width="180" height="70" fill="var(--accent)" fill-opacity="0.28" stroke="var(--accent)" stroke-width="2"/>
+<rect x="280" y="290" width="180" height="150" fill="var(--accent)" fill-opacity="0.45" stroke="var(--accent)" stroke-width="2"/>
+<rect x="460" y="200" width="180" height="240" fill="var(--accent)" fill-opacity="0.65" stroke="var(--accent)" stroke-width="2"/>
+
+<text x="118" y="348" class="g">400G</text>
+<text x="118" y="410" class="b">常見</text>
+<text x="298" y="268" class="g">800G</text>
+<text x="298" y="330" class="b">標配</text>
+<text x="478" y="178" class="g">1.6T</text>
+<text x="478" y="240" class="b">必須</text>
+
+<path d="M650 250 L740 250 L740 330" fill="none" stroke="var(--dim)" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arw3)"/>
+<rect x="660" y="340" width="220" height="100" rx="14" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+<text x="684" y="382" class="g">LPO ・ CPO</text>
+<text x="684" y="414" class="b">繞過它的那條路</text>
+
+<text x="60" y="502" class="c">訊號失真越多，就越需要有人算回來</text>
+</svg>

@@ -1,0 +1,88 @@
+---
+title: "Gooaye EP699: The Thing Everyone Says Is Dying Usually Outlives the Forecast"
+description: "Notes on Gooaye EP699 (23 Sep 2026): a rumored 40-to-1 CPU-to-GPU ratio with no traceable source, a 15–20% DSP price hike, and how to take apart a number before you trust it. Educational commentary, not investment advice — no tickers recommended, no price targets."
+slug: "gooaye-2026-09-23-ep699"
+lang: "en"
+pubDate: 2026-09-24
+category: "investing"
+kind: "podcast-notes"
+tags: ["Gooaye", "AI infrastructure", "CPU", "optical networking", "investing mindset"]
+ogImage: "/covers/gooaye-2026-09-23-ep699-cover.png"
+cover: "/covers/gooaye-2026-09-23-ep699-cover.png"
+---
+
+![A data center corridor: in the foreground an older copper patch panel still showing active link lights, far down the aisle a new optical rack glowing cool white, one engineer standing between them](/covers/gooaye-2026-09-23-ep699-cover.png)
+
+> Who says a man can never be young again? The stream before the gate still runs west.
+> — Su Shi, "Huanxisha: Visiting the Clear Spring Temple" (Northern Song, 1082; translation mine)
+
+In Gooaye EP699, released 23 September 2026, host Hsieh Meng-kung spent a long stretch on a figure circulating in the market — that agentic AI needs 40 CPUs for every GPU. He looked for the source and found none: no research house, no named analyst. His own read is that the consensus sits between 1:4 and 1:2, with AMD's 1:1 already the optimistic end. In the same episode he covered a reported 15–20% price increase on the DSP chips used in optical modules. Both calls come with a condition attached: they describe how data centers are configured today, and once architectures like CPO ship in volume the whole set of assumptions has to be recomputed.
+
+## What the episode covers
+
+The first half is small talk. He describes playing baseball with a group of friends against the first team of Dongyuan Elementary — a squad that has won a world title. The kids were visibly taking it easy on the adults; one of them caught behind the plate with a strike zone the size of a living room, so the middle-aged guys got called for strikes on anything they threw. He also says the change he's happiest about this year is getting his body in shape — friends at the field didn't recognize him and wondered who the stranger in their team jersey was.
+
+The market half has two subjects: why people were turning bearish with the index at a high, the CPU story revived by Meta's new AI agent app (and the 40:1 rumor that came with it), and the DSP price hike, with a plain-language detour into what a DSP actually does.
+
+## The main points
+
+**People are turning bearish with the index near a high.** He finds that odd. The impulse usually comes from trading going badly, not from the tape signaling anything. A single stock breaking down can be treated as broken. Calling the whole index bearish requires evidence you can see — a breakdown, a cohort of names rolling over together. He also names where the feeling comes from: get squeezed enough weeks in a row and you start wanting to call a top just to win one back.
+
+**He stays 80–90% invested at all times.** Going to cash feels great, but only during the few days of a sharp drop. If the money doesn't go back in promptly, the upside missed costs more than the drawdown avoided. He notes that the very large players he knows all operate this way.
+
+**Meta's agent app is a second catalyst, not a new story.** The case that CPUs carry serious weight in agentic workflows had its first run earlier this year, when the whole CPU complex shot up. In his experience a second catalyst still lifts prices, runs for a bit, then rests and hands the job back to revenue and earnings.
+
+**That 1.58 million CPU estimate has a denominator problem.** The article assumed two virtual CPUs, 8GB of RAM and 100GB of storage per user, scaled it to 100 million users, and arrived at roughly 1.58 million physical CPUs — which silently assumes all 100 million are running at once. The author did add "if only 10% are active," but the revised math still skips two steps: how many physical cores an average active VM actually consumes, and what target utilization you're sizing for. Follow that thread and the 40:1 claim looks weaker still. He couldn't find a source, and when commenters asked which scenario produced it, no one answered.
+
+**Extreme numbers plus prices that really do rip is what heat coming back smells like.** On the show's timescale it happens every two or three months: they say "it probably isn't that extreme," and the thing keeps running, because people would rather be early than right. A number pitched too high doesn't make the trend wrong — it makes the pullback hurt more.
+
+**The DSP price hike is driven by line rate.** As switch speeds climb, signal degradation in the optical module has to be computed back out, and that's the DSP's job. It shows up often at 400G, is standard at 800G, and becomes effectively mandatory at 1.6T — unless you go the LPO or CPO route. His analogy is a wine-production line: grapes stream past, people on both sides pull out the bad ones, continuously, on a tight power budget. An NPU can be read as a descendant of the DSP — rearrange the multiply-accumulate units into a matrix engine and point them at inference.
+
+**The zero-sum reflex is the part worth keeping.** Someone sees CPO coming and concludes DSPs are dead; sees CPO coming and concludes high-grade board material gets downgraded. His observation is that the thing declared dead tends to keep shipping in volume, earning for longer than anyone expected, and only then moving into the next phase — and the next phase doesn't retire the incumbents either. Several Taiwanese copper-interconnect makers turned around and partnered with optical vendors, becoming partly optical companies themselves.
+
+## Going further
+
+### "The index is at a high and I want to short" — where that gap comes from
+
+This is the part most readers will recognize. Your positions keep getting hit, you open the index and it's at a high, and a conclusion forms: this is the last leg, I'm getting out first.
+
+What's worth taking apart is where "I want to short" came from. It has two possible origins that look alike and mean opposite things. One is the tape: a breakdown, a cohort weakening together, leaders that stop bouncing. The other is your account: your method stopped working for a few weeks, the losses turned into a physical feeling, and your brain supplied a market-level explanation for it.
+
+The test in the episode separates exactly these two. A single name breaking down can be called bearish; the index needs visible evidence. The trap I've fallen into is that the second origin disguises itself well — it hands you a complete argument, macro and valuation and positioning, each piece defensible on its own. The check I kept is to rewrite "I think the market is turning" as "what has to appear on the tape before I'll call it turned." If you can describe the picture, that's a judgment. If all you have left is adjectives, that's your account talking.
+
+There's a second layer. If the honest conclusion is "my method doesn't work in this tape," the response is different from "the market is turning" — the first means trade smaller and less often until the environment returns; only the second means short. Misdiagnosing a stalled method as a turning market produces the most expensive action available near a high.
+
+### "Should I believe the number in the headline?" — find the denominator
+
+A hundred million users, 1.58 million CPUs, 40:1. Numbers like these are hard to resist because they arrive with units, arithmetic and a link.
+
+The method in the episode is worth copying. The problem with 1.58 million isn't the multiplication — it's the buried assumption that all 100 million users are live simultaneously. The author sensed this and added a 10% activity rate, but the corrected math still omits average physical cores per active VM and target utilization. Without those, it's a guess at a different order of magnitude.
+
+Three places I now check. First, the denominator — registrations, monthly actives, or concurrent users. Second, who said it — a research house, a named analyst, or a post whose author can't describe the scenario when asked. Third, how far the number can carry a conclusion — a ratio that holds for today's data center layouts has to be recomputed once CPO ships in volume.
+
+An honest caveat: being able to dismantle a number doesn't tell you the direction. His line about saying "it probably isn't that extreme" and watching it keep running is the most grounded self-assessment in the episode. The value of dismantling is knowing what you actually own, so your own reasoning doesn't turn on you during the pullback.
+
+### "What I own is about to be replaced" — ask for the timetable
+
+This anxiety usually arrives via one article, one sentence on an earnings call, or the name of a new architecture.
+
+The counterexample here is the group of Taiwanese copper-interconnect suppliers. Optical replacing copper has been the story for years; those companies went and partnered with optical vendors, grafting what they knew onto what came next. As he puts it, unless these companies are fools, they won't stand still waiting to be killed.
+
+What I take from it is that the first question in any substitution story is the timetable, not the direction. The direction can be right while the path from technically viable to shipping in volume with high share runs for years — and not every customer picks the highest spec available. During that stretch the layer everyone wrote off sometimes earns the most, because the transition raises spec requirements. That's the DSP situation today.
+
+So the useful move is to convert the anxiety into two questions you can actually look up: what share is the new technology shipping at now, and who talks about its progress next in public. The episode names Marvell and MaxLinear as companies whose commentary is worth reading — which is the same idea, phrased as a date to check your answer against rather than an endgame to simulate in your head.
+
+## Where to read more
+
+- Gooaye EP699, 23 September 2026.
+- Public statements from AMD, Arm and sell-side research on CPU share under agentic workloads (as cited in the episode: roughly 15% for traditional large-model workloads, up to 50% in agentic scenarios; Arm's figure of 30 million CPU cores for a traditional AI data center versus 120 million for agentic).
+- The WCCFTech piece and the X post it cites, along with the replies — good practice material for finding a denominator.
+- Public technical material on line rate versus DSP adoption in optical modules, and the difference between the LPO and CPO routes.
+
+## The One Thing to Take With You
+
+A listener asked whether never being able to ask a sharp question means you aren't good enough. The answer is the most useful thing in the episode: you don't prove yourself by producing a high-caliber question. You prove it by taking something complicated, wrapping it into something simple, and explaining it to a person who doesn't care about it. His own DSP explanation is exactly that — the people pulling bad grapes off the line. If you can wrap it, you understand it. If you can't, you've memorized someone else's phrasing.
+
+The idea is this: **it isn't yours until you can say the simple version.**
+
+Here's what I've tried. Pick one thing you learned this week that you can actually articulate — a process at work, a health idea, why a film worked. It doesn't have to touch investing. Find someone with no interest in the subject — family, a friend, a colleague — and explain it in three minutes. One rule: no word they haven't heard before, and the moment one slips out, swap it for plain language on the spot. Then watch what they do. Did they ask a follow-up, or did their eyes drift? If they drifted, the wrapping isn't done, and you go back and work out how to say it.

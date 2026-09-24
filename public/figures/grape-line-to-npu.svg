@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="輸送帶上被挑掉幾顆的流水線，右側接到一個方格矩陣">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<defs>
+<marker id="arw4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/>
+</marker>
+</defs>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="60" y="62" class="t">流水線上挑葡萄的人</text>
+
+<rect x="70" y="230" width="440" height="72" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="110" cy="266" r="14" fill="var(--accent)" fill-opacity="0.8"/>
+<circle cx="164" cy="266" r="14" fill="var(--accent)" fill-opacity="0.8"/>
+<circle cx="218" cy="266" r="14" fill="var(--accent)" fill-opacity="0.8"/>
+<circle cx="272" cy="266" r="14" fill="var(--accent)" fill-opacity="0.8"/>
+<circle cx="326" cy="266" r="14" fill="var(--accent)" fill-opacity="0.8"/>
+<circle cx="380" cy="266" r="14" fill="var(--accent)" fill-opacity="0.8"/>
+<circle cx="434" cy="266" r="14" fill="var(--accent)" fill-opacity="0.8"/>
+<circle cx="488" cy="266" r="14" fill="var(--accent)" fill-opacity="0.8"/>
+
+<rect x="150" y="168" width="60" height="34" rx="8" fill="var(--card)" stroke="var(--dim)" stroke-width="2"/>
+<rect x="330" y="168" width="60" height="34" rx="8" fill="var(--card)" stroke="var(--dim)" stroke-width="2"/>
+<text x="150" y="152" class="b">挑選器</text>
+
+<path d="M180 210 L192 236" stroke="var(--warn)" stroke-width="3" marker-end="url(#arw4)"/>
+<path d="M360 210 L344 236" stroke="var(--warn)" stroke-width="3" marker-end="url(#arw4)"/>
+<circle cx="200" cy="360" r="14" fill="var(--warn)"/>
+<circle cx="336" cy="360" r="14" fill="var(--warn)"/>
+<text x="176" y="400" class="b">挑掉的</text>
+<text x="70" y="212" class="g">葡萄一直流過來</text>
+<text x="70" y="336" class="b">而且要一直挑下去，不能太耗電</text>
+
+<path d="M530 266 L600 266" stroke="var(--dim)" stroke-width="3" marker-end="url(#arw4)"/>
+
+<g stroke="var(--accent)" stroke-width="2" fill="var(--accent)" fill-opacity="0.18">
+<rect x="630" y="200" width="46" height="46"/><rect x="686" y="200" width="46" height="46"/><rect x="742" y="200" width="46" height="46"/><rect x="798" y="200" width="46" height="46"/>
+<rect x="630" y="256" width="46" height="46"/><rect x="686" y="256" width="46" height="46"/><rect x="742" y="256" width="46" height="46"/><rect x="798" y="256" width="46" height="46"/>
+<rect x="630" y="312" width="46" height="46"/><rect x="686" y="312" width="46" height="46"/><rect x="742" y="312" width="46" height="46"/><rect x="798" y="312" width="46" height="46"/>
+</g>
+<text x="630" y="178" class="g">NPU</text>
+<text x="630" y="400" class="b">同一套乘加器・排成矩陣</text>
+
+<text x="60" y="490" class="c">後代做的還是挑，只是挑的東西換了</text>
+</svg>

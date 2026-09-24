@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="數線上左端一小片共識區間，右端一個離得極遠的孤立點">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text x="60" y="62" class="t">傳言站的位置，離共識有多遠</text>
+<text x="60" y="96" class="b">橫軸：每顆 GPU 配幾顆 CPU，越往右 CPU 越多</text>
+
+<line x1="90" y1="300" x2="470" y2="300" stroke="var(--grey)" stroke-width="3"/>
+<line x1="560" y1="300" x2="880" y2="300" stroke="var(--grey)" stroke-width="3"/>
+<line x1="480" y1="325" x2="510" y2="275" stroke="var(--grey)" stroke-width="3"/>
+<line x1="510" y1="325" x2="540" y2="275" stroke="var(--grey)" stroke-width="3"/>
+
+<rect x="118" y="278" width="110" height="44" rx="10" fill="var(--accent)" fill-opacity="0.16" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="128" cy="300" r="8" fill="var(--accent)"/>
+<circle cx="218" cy="300" r="8" fill="var(--accent)"/>
+<circle cx="330" cy="300" r="9" fill="var(--accent)"/>
+
+<text x="104" y="352" class="b">1 : 4</text>
+<text x="196" y="352" class="b">1 : 2</text>
+<text x="308" y="352" class="b">1 : 1</text>
+<text x="118" y="250" class="g">市場共識</text>
+<text x="290" y="250" class="g">AMD</text>
+<text x="290" y="222" class="b">最樂觀那一端</text>
+
+<circle cx="828" cy="300" r="16" fill="var(--warn)"/>
+<text x="770" y="250" class="g">傳言</text>
+<text x="770" y="222" class="b">40 : 1</text>
+<text x="742" y="356" class="b">查不到出處</text>
+
+<text x="60" y="450" class="c">同一把尺上，它遠到不像同一個問題</text>
+</svg>
