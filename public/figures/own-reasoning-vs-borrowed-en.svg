@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two overlapping lines on a timeline split after the dashed marker for the day it halves, with the upper line rising and the lower line falling.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .k { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="h" x="60" y="66">Same holding; the gap shows only on the bad day</text>
+
+<line x1="100" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="100" y="470">Buy</text>
+<text class="s" x="900" y="470" text-anchor="end">After</text>
+
+<line x1="500" y1="130" x2="500" y2="440" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 6"/>
+<text class="g" x="500" y="118" text-anchor="middle">The day it halves</text>
+
+<path d="M120 300 L500 300" stroke="var(--grey)" stroke-width="5" fill="none"/>
+<text class="s" x="300" y="278" text-anchor="middle">No visible difference</text>
+
+<path d="M500 300 C620 280 740 220 880 180" stroke="var(--accent)" stroke-width="5" fill="none"/>
+<path d="M500 300 C620 330 740 380 880 412" stroke="var(--grey)" stroke-width="5" fill="none"/>
+
+<text class="g" x="880" y="160" text-anchor="end">Reasoned it yourself</text>
+<text class="s" x="880" y="186" text-anchor="end">The reason still stands; hold or sell is your call</text>
+
+<text class="g" x="880" y="440" text-anchor="end">Borrowed</text>
+<text class="s" x="880" y="466" text-anchor="end">All you can do is ask that person again</text>
+
+<text class="k" x="60" y="512">The split is over who holds the reason, not the price</text>
+</svg>

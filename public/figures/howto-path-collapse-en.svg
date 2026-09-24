@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two panels side by side: on the left, a question passes through a row of videos before the answer, a long path; on the right, the question reaches the answer in one step, a short path.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .k { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="h" x="60" y="66">The how-to path just got shorter</text>
+
+<rect x="60" y="110" width="410" height="300" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="88" y="150">Before</text>
+<circle cx="110" cy="220" r="20" fill="var(--grey)"/>
+<text class="s" x="88" y="268">Dishwasher broken</text>
+<g fill="var(--page)" stroke="var(--grey)" stroke-width="2">
+  <rect x="160" y="200" width="44" height="40" rx="5"/>
+  <rect x="216" y="200" width="44" height="40" rx="5"/>
+  <rect x="272" y="200" width="44" height="40" rx="5"/>
+  <rect x="328" y="200" width="44" height="40" rx="5"/>
+</g>
+<text class="s" x="160" y="268">Scrub through videos</text>
+<circle cx="412" cy="220" r="20" fill="var(--grey)"/>
+<text class="s" x="412" y="318" text-anchor="middle">Slow</text>
+
+<rect x="500" y="110" width="400" height="300" rx="14" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="528" y="150">Now</text>
+<circle cx="550" cy="220" r="20" fill="var(--accent)"/>
+<text class="s" x="528" y="268">Dishwasher broken</text>
+<line x1="580" y1="220" x2="826" y2="220" stroke="var(--accent)" stroke-width="4"/>
+<polygon points="838,220 824,213 824,227" fill="var(--accent)"/>
+<text class="s" x="700" y="200" text-anchor="middle">Ask the model</text>
+<circle cx="858" cy="220" r="20" fill="var(--accent)"/>
+<text class="s" x="858" y="318" text-anchor="middle">Fast</text>
+
+<text class="k" x="60" y="472">The people in the middle made a living on that path</text>
+<text class="s" x="60" y="502">Joe's mom fixed her toilet with a model; that used to be a call to a plumber</text>
+</svg>

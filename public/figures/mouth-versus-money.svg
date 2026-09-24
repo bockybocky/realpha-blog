@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條線隨時間走，嘴上那條往下掉，手上那條幾乎持平，中間落差標為背離區。">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .k { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="h" x="60" y="66">嘴巴與鈔票，量的不是同一件事</text>
+
+<line x1="120" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="120" y="470">上個月</text>
+<text class="s" x="900" y="470" text-anchor="end">這週</text>
+
+<path d="M140 250 L400 250 L620 250 L880 250 L880 250 Z" fill="none"/>
+<path d="M140 240 C360 236 600 246 880 250" stroke="var(--accent)" stroke-width="5" fill="none"/>
+<path d="M140 250 C360 280 600 360 880 396" stroke="var(--warn)" stroke-width="5" fill="none"/>
+
+<line x1="820" y1="250" x2="820" y2="384" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 5"/>
+<text class="s" x="806" y="326" text-anchor="end">背離</text>
+
+<text class="g" x="880" y="228" text-anchor="end">手上：資金流、成交量、倉位</text>
+<text class="s" x="880" y="204" text-anchor="end">我現在怕什麼、貪什麼</text>
+
+<text class="g" x="880" y="428" text-anchor="end">嘴上：調查、聲量、留言</text>
+<text class="s" x="880" y="452" text-anchor="end">我希望自己是什麼樣的人</text>
+
+<text class="k" x="60" y="512">法說會是嘴，資本支出是手</text>
+</svg>

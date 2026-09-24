@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一條由左上往右下的斜線，橫軸是要付出的代價，縱軸是對 AI 的容忍度，迷因在左上最高，掏錢的產品在右下最低。">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .k { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="h" x="60" y="66">同一群人，容忍度隨代價往下掉</text>
+
+<line x1="150" y1="130" x2="150" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="150" y1="430" x2="900" y2="430" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="150" y="118" text-anchor="middle">高</text>
+<text class="s" x="112" y="290">容忍</text>
+<text class="s" x="150" y="458" text-anchor="middle">低</text>
+<text class="s" x="900" y="458" text-anchor="end">代價高</text>
+
+<path d="M200 175 C420 200 600 300 860 400" stroke="var(--accent)" stroke-width="5" fill="none"/>
+
+<circle cx="205" cy="176" r="9" fill="var(--accent)"/>
+<text class="g" x="228" y="170">迷因</text>
+<text class="s" x="228" y="196">隨手轉傳，不在乎工藝</text>
+
+<circle cx="505" cy="262" r="9" fill="var(--accent)"/>
+<text class="g" x="528" y="256">影片腳本</text>
+<text class="s" x="528" y="282">照樣被誇，沒人追問</text>
+
+<circle cx="855" cy="398" r="9" fill="var(--warn)"/>
+<text class="g" x="838" y="352" text-anchor="end">要掏錢的產品</text>
+<text class="s" x="838" y="378" text-anchor="end">抄捷徑會被算到別的環節</text>
+
+<text class="k" x="60" y="512">反感的是被騙，不是 AI</text>
+</svg>

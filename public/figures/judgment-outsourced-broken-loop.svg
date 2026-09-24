@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一條由左到右的鏈：你的提案送到主管、主管送進模型、模型回來一句評語；下方一條想往回走的虛線路徑在兩處被打叉，回不到起點。">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .k { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="h" x="60" y="66">判斷交出去之後，往回問的路斷了</text>
+
+<rect x="60" y="150" width="160" height="120" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="140" y="200" text-anchor="middle">你的提案</text>
+<text class="s" x="140" y="230" text-anchor="middle">三小時</text>
+
+<rect x="300" y="150" width="160" height="120" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="380" y="200" text-anchor="middle">主管</text>
+<text class="s" x="380" y="230" text-anchor="middle">三十秒</text>
+
+<rect x="540" y="150" width="160" height="120" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="620" y="200" text-anchor="middle">模型</text>
+<text class="s" x="620" y="230" text-anchor="middle">對話框</text>
+
+<rect x="780" y="150" width="160" height="120" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="860" y="200" text-anchor="middle">一句評語</text>
+<text class="s" x="860" y="230" text-anchor="middle">「普通」</text>
+
+<line x1="225" y1="210" x2="288" y2="210" stroke="var(--grey)" stroke-width="3"/>
+<polygon points="298,210 286,204 286,216" fill="var(--grey)"/>
+<line x1="465" y1="210" x2="528" y2="210" stroke="var(--grey)" stroke-width="3"/>
+<polygon points="538,210 526,204 526,216" fill="var(--grey)"/>
+<line x1="705" y1="210" x2="768" y2="210" stroke="var(--grey)" stroke-width="3"/>
+<polygon points="778,210 766,204 766,216" fill="var(--grey)"/>
+
+<path d="M860 275 L860 385 L140 385 L140 285" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 7"/>
+<polygon points="140,275 133,289 147,289" fill="var(--warn)"/>
+<text class="s" x="500" y="412" text-anchor="middle">往回辯論的路</text>
+
+<g stroke="var(--warn)" stroke-width="4" stroke-linecap="round">
+  <line x1="606" y1="371" x2="634" y2="399"/><line x1="634" y1="371" x2="606" y2="399"/>
+  <line x1="326" y1="371" x2="354" y2="399"/><line x1="354" y1="371" x2="326" y2="399"/>
+</g>
+<text class="s" x="620" y="352" text-anchor="middle">沒得辯</text>
+<text class="s" x="340" y="352" text-anchor="middle">已讓出</text>
+
+<text class="k" x="60" y="472">責任在這條線上消失了</text>
+</svg>
