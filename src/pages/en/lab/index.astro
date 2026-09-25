@@ -9,11 +9,11 @@ const labPosts = posts.filter((post) => post.data.category === 'lab');
 const labs = await getLabs(locale);
 ---
 
-<SiteLayout title="Lab" description="Small tools that turn a concept into something you can try with your own numbers, plus a few hands-on experiments." locale={locale} path="/en/lab/" alternatePath="/lab/" breadcrumbs={[{ name: 'Lab', path: '/en/lab/' }]}>
+<SiteLayout title="Lab" description="Small tools that turn a concept into something you can try with your own numbers, plus a few experiments I actually ran." locale={locale} path="/en/lab/" alternatePath="/lab/" breadcrumbs={[{ name: 'Lab', path: '/en/lab/' }]}>
 	<main class="page">
 		<header class="section-header">
 			<h1 class="page-title">Lab</h1>
-			<p class="lead">Some ideas are easier to understand by playing with a few numbers than by reading about them. This is where those small tools live, along with a few hands-on experiments.</p>
+			<p class="lead">Some ideas are easier to understand by running a few numbers than by reading about them. This is where those small tools live, along with a few experiments I actually ran.</p>
 		</header>
 		{labPosts.length > 0 && (
 			<section class="section" aria-labelledby="lab-posts-title">
