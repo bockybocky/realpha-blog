@@ -1,0 +1,80 @@
+---
+title: "High Bandwidth Flash Is Coming: 16x the Capacity, and What It Costs"
+description: "Notes after watching Asianometry's 2026-09-24 episode 'High Bandwidth Flash Is Coming': HBF lifts per-stack memory from about 36GB to 512GB, but runs two orders of magnitude slower and survives only a few thousand writes. The opportunity, the costs, and what Optane taught us. Educational, not investment advice — no tickers, no price targets."
+slug: "asianometry-2026-09-24-high-bandwidth-flash-is-coming"
+lang: "en"
+pubDate: 2026-09-25
+category: investing
+kind: "podcast-notes"
+tags: ["memory", "HBM", "HBF", "semiconductors", "AI inference"]
+ogImage: "/covers/asianometry-2026-09-24-high-bandwidth-flash-is-coming-cover.png"
+cover: "/covers/asianometry-2026-09-24-high-bandwidth-flash-is-coming-cover.png"
+tldr: "HBF stacks flash to reach 512GB per stack, but latency and endurance are hard walls; engineering samples late 2027, volume production 2029."
+---
+
+![A semiconductor test lab where a stacked memory module sits under a probe head, light falling from above, the aisle receding past a row of identical test stations](/covers/asianometry-2026-09-24-high-bandwidth-flash-is-coming-cover.png)
+
+> The great square has no corners. The great vessel is completed late. The great note sounds faint. The great image has no form.
+>
+> —— Laozi, *Tao Te Ching*, chapter 41 (Spring and Autumn period; translated by the author)
+
+Asianometry's episode of 2026-09-24, "High Bandwidth Flash Is Coming," is about HBF, a new memory type being pushed by Sandisk and SK hynix. It raises per-stack capacity from roughly 36GB on HBM4 to 512GB, with a headline bandwidth ceiling of 3 TB/s — while reading and writing two orders of magnitude slower than DRAM, and wearing out after a few thousand writes. The host cites the schedule Sandisk showed at SEMICON Taiwan: engineering samples late 2027, volume production in 2029. His read is that HBF lives or dies on whether software can pick the right data to put in it, and not on how good the capacity number looks.
+
+## What the Episode Covers
+
+The host opens by admitting that before going to Hot Chips last month, he had never heard the words prefill, decode, or KV cache. Now he sees them everywhere. Those three words are the way into the whole episode.
+
+One pass of inference on a large language model splits into two halves. The first is prefill: the model reads everything you handed it — your prompt, the system prompt, earlier replies, images, audio, tool calls, and its own chain of thought. That work happens in parallel, so it is bound by how much compute you have. What it leaves behind is a KV cache, which the host describes as the model's working notes for this conversation. The second half is decode: the model emits one token at a time, consulting those notes for each one and writing the new token back in. That part cannot be parallelized, so it is bound by memory — the logic sits idle waiting for data to arrive.
+
+Once that clicks, the problem states itself. The notebook keeps getting thicker, and the speed of fetching pages has not kept up. HBF is an answer to "make the notebook fit."
+
+## The Main Points
+
+**Two curves rising at once.** One is model weights: the host cites Kimi K3 at 2.8 trillion total parameters, about 2.8 terabytes at 8-bit; K2.7 was one terabyte, DeepSeek V3 was 671 gigabytes. The other is the KV cache, inflated by long-running agents that you unleash on a task for hours. Context windows now sit around a million tokens, which sounds enormous — 1,500 to 3,000 pages of text — until you convert it: eleven or twelve hours of audio, one hour of HD video.
+
+**The question that cut into HBM.** In the memory session at Hot Chips 2026, after SK hynix presented, an analyst from SemiAnalysis asked this: internal bandwidth on a single die at the cell level is around 20 terabytes per square centimeter; you talk about going 20 layers tall on HBM4, which puts a stack at maybe 4 terabytes per square centimeter, so each of those 20 layers gets 20% of one die's bandwidth. You have diluted the throughput enormously — why is going taller the right direction instead of going faster? The squeeze is physical: there are only so many through-silicon vias available in the central area, so added capacity comes out of bandwidth per gigabyte. Stack high enough and you reach an absurd place where each core die runs slower than plain commodity memory.
+
+**The grumbling got louder.** Former Intel CEO Pat Gelsinger said over the summer, standing in front of an SK hynix vice president, that HBM is "lousy memory." That VP, Kim Ho-sik, answered honestly: he partly agreed, HBM is not the final answer to the memory wall, but it is the best thing on the market today and SK hynix is working on other solutions.
+
+**What HBF actually is.** It stacks and connects flash dies inside a single package using the same advanced packaging tricks HBM uses on DRAM dies — a different thing from 3D NAND, which grows cell layers monolithically inside one die. The payoff is 8 to 16 times the per-stack capacity (512GB against roughly 36GB per HBM4 stack) while holding onto high bandwidth; because HBF opens more NAND cells to the GPU, the ceiling can in theory go higher. The host adds one caveat worth holding onto: adjusted for capacity, HBF's bandwidth per gigabyte is far smaller.
+
+**Three costs you cannot design away.** Speed first — NAND reads and writes are two orders of magnitude slower than HBM, writing is slower than reading, and the latency is structural. Sandisk can tune dies for lower latency, likely paying for it in data retention or cost per bit, and the gap remains. Second, endurance: NAND cells wear out after a few thousand cycles, where DRAM has essentially no such limit. Third, power and thermals: driving these large cubes takes more power, more power means more heat, heat means throttling, and throttling feeds back into the endurance problem.
+
+**Cheap capacity does not hand you cheap tokens.** A Hot Chips 2026 talk by A. Agrawal and R. Giduthuri made the point that stayed with me: systems are judged on how well they serve tokens, so if the data cannot come out of HBF fast enough and the accelerator waits, token output suffers no matter how cheap the gigabytes were. Five researchers from Peking University plus one from Fudan — who, the host jokes, must have gotten lost — wrote a paper titled "HBF Sucks?" making a related case: HBF is no drop-in replacement for SSDs, and software has to choose carefully what goes in, such as widely shared prompts. Model shape matters too. A mixture-of-experts model activates only a few experts per token, so it needs the capacity to hold all of them while reading only a slice — a demand shape that tolerates lower bandwidth per gigabyte.
+
+**Optane as a mirror.** In 2015 Intel and Micron announced 3D XPoint: non-volatile like NAND, read and write speeds near DRAM, price in between. The pitch was "warm data" — databases you want DRAM-like latency on but cannot fit in DRAM. Then 3D NAND drove flash cost per bit down and hollowed out Optane's economic justification. Micron dropped out, Intel was left as the sole vendor, and nobody wanted one company as the single source for both their CPUs and their memory. The host surfaces a detail that made me sit up: the Sandisk executive driving HBF today, EVP and CTO Alper Ilkbahar, spent five years at Intel as VP and GM of the Intel Optane Group. He also offers the counter-testimony — some argue HBF wins because it starts from flash, which everyone knows, so the market will take it more easily; yet Optane's phase-change cells worked brilliantly, and what failed was the controller and the go-to-market.
+
+## Going Further
+
+### "There's news about a new spec — should I act now?"
+
+That was my first reflex watching this, and it is where I have lost money before. The episode handed me a ruler: find the schedule first, then find the shipments. Sandisk's own SEMICON Taiwan slide puts proof-of-concept or engineering samples with potential customers around late 2027, and high volume manufacturing in 2029. Between here and there sit at least two annual capex cycles and two product generations. A published spec — Open Compute Project released version 0.7.0 in August 2026 — means people are willing to sit down and agree on an interface. It does not mean anyone has placed an order.
+
+Three things I now look for in this kind of news: a credible second source (Sandisk and SK hynix signed a memorandum of understanding in August 2025 to standardize the spec, which kills exactly the single-source fear that Optane died of), customer names surfacing (Google and Tenstorrent joining the consortium is a signal, and joining a consortium is not a purchase order), and whether software vendors are moving. Two of the three missing, and I file it as something to watch.
+
+### "Everyone big says it's good — how would I know?"
+
+What I took most from this episode is the shape of the analyst's question. He did not ask whether HBM is good. He asked why they chose to go taller rather than faster — laying the roadmap out as a trade and asking the other side to defend the half they gave up. A question in that shape cannot be absorbed by a press release.
+
+So when I read a technology pitch now, I go looking for voices that name the cost, rather than voices that disagree. Disagreement is cheap; locating the trade-off is expensive. Kim Ho-sik's line — HBM is not the final answer, and it is the best thing on the market right now — already describes the whole industry's position: everyone is making money on HBM while knowing the architecture runs out of road. When both halves are true at once, the dangerous move is reading "best today" as "best later."
+
+### "This is a hardware story — what does it have to do with me?"
+
+I sat with the Agrawal point for a while. The entire HBF narrative is about capacity, while the scoreboard measures tokens served per second; make gigabytes ten times cheaper and leave the data stuck inside, and the number that matters does not move. That shape shows up all over my own life. I bought a bigger fridge and still had no idea what to cook, because the step that jammed was deciding. I added a drive and still could not find the file.
+
+These days I split the complaint "not enough" into three: not enough total, not fast enough to retrieve, or too long waiting on someone else. Then I ask which of the three the resource I was about to add lands in. The mixture-of-experts example in this episode is the same idea from the happy side — it suits HBF because its demand shape happens to be "hold a lot, read a little each time." When the shape matches, slow is survivable.
+
+## Sources Worth Your Time
+
+- Asianometry, "High Bandwidth Flash Is Coming," 2026-09-24 (the source for this piece)
+- Open Compute Project's HBF spec, version 0.7.0, published August 2026
+- Koji Sakui and Takayuki Ohba, "High Bandwidth NAND," IEEE 2019 International 3D Systems Integrated Conference
+- "HBF Sucks?", by researchers at Peking University and Fudan University, on how HBF differs from SSDs and what software must choose
+- Sandisk's Future FWD investor day materials from February 2025, where HBF was introduced
+- For Optane background, Asianometry has an earlier episode on it
+
+## One Thing to Take Away
+
+**Adding capacity is not adding speed — a bottleneck only recognizes the slowest segment.** Every number in this episode lands on that sentence: per-stack capacity jumping from 36GB to 512GB is a fourteen-fold gain, and with latency two orders of magnitude worse and bandwidth per gigabyte falling, whether the system serves more tokens is decided by the slowest segment, not by the brightest number.
+
+Here is something I tried, in case it is useful. Take one thing you complained was "not enough" recently — time, storage at home, hands on a team — and write three lines on paper: not enough total, too slow to retrieve, too long waiting on someone else. Then take the thing you were about to add (a storage bin, a hire, one more hour in the calendar) and see which line it lands on. Last time I did this, I found I was complaining about time and planning to wake up earlier, while what actually jammed me was the twenty minutes each morning spent deciding what to start with. That is the second line, and waking earlier adds to the first.
