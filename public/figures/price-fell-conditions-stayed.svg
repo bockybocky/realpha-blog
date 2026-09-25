@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="上半一條先衝高再回落的價格線，下半三個仍然亮著的條件方格，價格回落而條件未熄">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.h{font-size:27px;fill:var(--ink);font-weight:700}
+.g{font-size:19px;fill:var(--dim)}
+.b{font-size:16px;fill:var(--ink)}
+.s{font-size:15px;fill:var(--dim)}
+.sa{font-size:15px;fill:var(--accent)}
+.sw{font-size:15px;fill:var(--warn)}
+.c{font-size:22px;fill:var(--ink);font-weight:700}
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="h" x="60" y="58">價格回來了，條件沒回來</text>
+<rect x="60" y="90" width="840" height="230" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="84" y="126">油價</text>
+<line x1="100" y1="300" x2="870" y2="300" stroke="var(--line)" stroke-width="1.5"/>
+<path d="M110,285 L190,262 L270,200 L330,152 L390,130 L450,172 L530,216 L620,246 L720,253 L850,249" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="390" cy="130" r="5" fill="var(--accent)"/>
+<text class="sa" x="352" y="116">高點</text>
+<circle cx="850" cy="249" r="5" fill="var(--accent)"/>
+<text class="s" x="812" y="278">現在</text>
+<text class="g" x="60" y="372">讓它漲上去的條件</text>
+<rect x="60" y="392" width="266" height="88" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+<circle cx="90" cy="424" r="7" fill="var(--warn)"/>
+<text class="b" x="110" y="430">設施仍在射程</text>
+<text class="s" x="110" y="458">仍成立</text>
+<rect x="357" y="392" width="266" height="88" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+<circle cx="387" cy="424" r="7" fill="var(--warn)"/>
+<text class="b" x="407" y="430">管線可再被打</text>
+<text class="s" x="407" y="458">仍成立</text>
+<rect x="654" y="392" width="246" height="88" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+<circle cx="684" cy="424" r="7" fill="var(--warn)"/>
+<text class="b" x="704" y="430">封鎖的動機不變</text>
+<text class="s" x="704" y="458">仍成立</text>
+<text class="c" x="60" y="524">回落的是溢價，不是條件</text>
+</svg>
