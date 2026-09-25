@@ -9,11 +9,11 @@ const labPosts = posts.filter((post) => post.data.category === 'lab');
 const labs = await getLabs(locale);
 ---
 
-<SiteLayout title="實驗室" description="把一個概念做成可以自己輸入數字玩玩看的小工具，還有幾篇動手試過的小實驗。" locale={locale} path="/lab/" alternatePath="/en/lab/" breadcrumbs={[{ name: '實驗室', path: '/lab/' }]}>
+<SiteLayout title="實驗室" description="把一個概念做成可以自己輸入數字試試看的小工具，還有幾篇實際做過的小實驗。" locale={locale} path="/lab/" alternatePath="/en/lab/" breadcrumbs={[{ name: '實驗室', path: '/lab/' }]}>
 	<main class="page">
 		<header class="section-header">
 			<h1 class="page-title">實驗室</h1>
-			<p class="lead">有些概念用讀的不容易懂，自己輸入幾個數字玩一玩就清楚了。這裡放這類小工具，還有幾篇動手試過的小實驗。</p>
+			<p class="lead">有些概念用讀的不容易懂，自己輸入幾個數字跑一次就清楚了。這裡放這類小工具，還有幾篇實際做過的小實驗。</p>
 		</header>
 		{labPosts.length > 0 && (
 			<section class="section" aria-labelledby="lab-posts-title">
