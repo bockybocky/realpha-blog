@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一條短航線與一條繞遠的長航線並列，長出來的那段被標為海上庫存">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; fill:var(--ink); font-weight:700 }
+.g { font-size:20px; fill:var(--ink); font-weight:600 }
+.b { font-size:16px; fill:var(--dim) }
+.n { font-size:22px; fill:var(--ink); font-weight:700 }
+.c { font-size:22px; fill:var(--ink); font-weight:600 }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="56">同一批油，多漂十九天</text>
+<text class="b" x="60" y="150">延布</text>
+<text class="b" x="900" y="150" text-anchor="end">亞洲</text>
+<line x1="120" y1="190" x2="340" y2="190" stroke="var(--accent)" stroke-width="5"/>
+<circle cx="230" cy="190" r="11" fill="var(--accent)"/>
+<text class="g" x="360" y="197">直航 10 天</text>
+<polyline points="120,300 260,390 480,425 700,400 880,320" fill="none" stroke="var(--grey)" stroke-width="5"/>
+<circle cx="480" cy="425" r="11" fill="var(--grey)"/>
+<text class="g" x="120" y="285">繞非洲 29 天</text>
+<path d="M340 480 L340 495 L880 495 L880 480" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<text class="g" x="610" y="527" text-anchor="middle" fill="var(--warn)">多出 19 天＝海上庫存</text>
+<text class="c" x="60" y="440">油沒少，位置變了</text>
+</svg>

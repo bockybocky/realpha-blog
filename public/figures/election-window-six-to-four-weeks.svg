@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="時間線上一個亮起的窗口，效果曲線在窗口內達到高點，副作用虛線在投票日之後才升起">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; fill:var(--ink); font-weight:700 }
+.g { font-size:20px; fill:var(--ink); font-weight:600 }
+.b { font-size:16px; fill:var(--dim) }
+.n { font-size:22px; fill:var(--ink); font-weight:700 }
+.c { font-size:22px; fill:var(--ink); font-weight:600 }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="56">效果趕得上，帳單趕不上</text>
+<rect x="520" y="140" width="140" height="240" fill="var(--accent)" opacity="0.15"/>
+<line x1="120" y1="380" x2="920" y2="380" stroke="var(--line)" stroke-width="2"/>
+<line x1="820" y1="130" x2="820" y2="392" stroke="var(--ink)" stroke-width="3"/>
+<path d="M180 366 C 340 358, 470 300, 580 250 C 660 218, 720 240, 800 300" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text class="g" x="300" y="330" fill="var(--accent)">油價效果</text>
+<path d="M660 372 C 760 366, 830 300, 910 210" fill="none" stroke="var(--warn)" stroke-width="4" stroke-dasharray="9 7"/>
+<text class="g" x="920" y="190" text-anchor="end" fill="var(--warn)">副作用</text>
+<polygon points="580,120 570,142 590,142" fill="var(--warn)"/>
+<text class="g" x="580" y="110" text-anchor="middle" fill="var(--warn)">現在</text>
+<text class="b" x="520" y="406" text-anchor="middle">六週前</text>
+<text class="b" x="660" y="406" text-anchor="middle">四週前</text>
+<text class="g" x="820" y="406" text-anchor="middle">投票日</text>
+<text class="c" x="60" y="480">最好的時間點，是副作用來不及回家的那幾週</text>
+</svg>
