@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊的線先平後突然墜落並有警示三角，右邊的線緩緩往下漂移，沒有警示，只用虛線與箭頭標出三個月後的落差">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<text class="t" x="60" y="66">兩種風險，只有一種會叫你</text>
+<rect x="60" y="120" width="400" height="300" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<rect x="500" y="120" width="400" height="300" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<polyline points="90,180 250,186 272,380 430,386" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="270,132 288,166 252,166" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<line x1="270" y1="143" x2="270" y2="155" stroke="var(--warn)" stroke-width="3"/>
+<circle cx="270" cy="161" r="2" fill="var(--warn)"/>
+<text class="g" x="302" y="162" style="fill:var(--warn)">警報</text>
+<line x1="530" y1="200" x2="870" y2="200" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<polyline points="530,200 870,300" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text class="g" x="700" y="156" text-anchor="middle">沒有警報</text>
+<line x1="870" y1="204" x2="870" y2="296" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="864,214 876,214 870,202" fill="var(--warn)"/>
+<polygon points="864,286 876,286 870,298" fill="var(--warn)"/>
+<text class="b" x="856" y="330" text-anchor="end" style="fill:var(--warn)">移動了</text>
+<text class="b" x="536" y="400">現在</text>
+<text class="b" x="864" y="400" text-anchor="end">三個月後</text>
+<text class="g" x="260" y="452" text-anchor="middle">有警報的風險</text>
+<text class="b" x="260" y="480" text-anchor="middle">爆雷、停損、法說</text>
+<text class="g" x="700" y="452" text-anchor="middle">慢動作的風險</text>
+<text class="b" x="700" y="480" text-anchor="middle">規則、身體、關係</text>
+<text class="c" x="60" y="524">沒有警報的，要自己設一個日期</text>
+</svg>
