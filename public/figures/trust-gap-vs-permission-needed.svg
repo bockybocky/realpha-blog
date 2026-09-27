@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩根柱子比較信任度，Google的柱子明顯高，Meta的柱子很矮，上方一條虛線門檻遠高於Meta那根">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .title { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:19px; fill:var(--ink); font-weight:600; }
+    .num { font-size:27px; fill:var(--ink); font-weight:700; }
+    .body { font-size:16px; fill:var(--dim); }
+    .concl { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t title" x="60" y="56">攔住它的不是零件</text>
+
+  <line x1="120" y1="420" x2="900" y2="420" stroke="var(--line)"/>
+  <text class="t body" x="120" y="448">願意交出密碼的人</text>
+
+  <rect x="200" y="182" width="150" height="238" rx="8" fill="var(--accent)" opacity="0.30"/>
+  <text class="t num" x="275" y="164" text-anchor="middle">34%</text>
+  <text class="t grp" x="275" y="480" text-anchor="middle">Google</text>
+
+  <rect x="500" y="364" width="150" height="56" rx="8" fill="var(--warn)" opacity="0.45"/>
+  <text class="t num" x="575" y="346" text-anchor="middle">8%</text>
+  <text class="t grp" x="575" y="480" text-anchor="middle">Meta</text>
+
+  <line x1="460" y1="246" x2="900" y2="246" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 6"/>
+  <text class="t grp" x="700" y="228" text-anchor="middle" fill="var(--warn)">要交出的權限</text>
+  <text class="t body" x="700" y="282" text-anchor="middle">購物　付款　帳號</text>
+  <path d="M 660 364 L 660 254" stroke="var(--grey)" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <text class="t concl" x="60" y="528">缺口在信任，沒有出貨排程可以追</text>
+</svg>

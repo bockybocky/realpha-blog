@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩格打擊區對照：左邊球點集中在好球框內，右邊球點散落框外">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .title { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:600; }
+    .body { font-size:16px; fill:var(--dim); }
+    .concl { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t title" x="60" y="56">同樣的揮棒，兩種球路</text>
+
+  <text class="t grp" x="60" y="104">打擊場</text>
+  <rect x="60" y="120" width="400" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="200" y="170" width="120" height="160" fill="none" stroke="var(--grey)" stroke-dasharray="6 6"/>
+  <g fill="var(--accent)">
+    <circle cx="228" cy="196" r="9"/><circle cx="262" cy="192" r="9"/><circle cx="296" cy="200" r="9"/>
+    <circle cx="224" cy="248" r="9"/><circle cx="260" cy="250" r="9"/><circle cx="298" cy="244" r="9"/>
+    <circle cx="230" cy="300" r="9"/><circle cx="264" cy="304" r="9"/><circle cx="296" cy="296" r="9"/>
+  </g>
+  <circle cx="356" cy="356" r="9" fill="var(--grey)"/>
+  <text class="t body" x="60" y="452">九成好球</text>
+  <text class="t body" x="60" y="478">螢幕先顯示投球方式</text>
+
+  <text class="t grp" x="500" y="104">正式比賽</text>
+  <rect x="500" y="120" width="400" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="640" y="170" width="120" height="160" fill="none" stroke="var(--grey)" stroke-dasharray="6 6"/>
+  <g fill="var(--warn)">
+    <circle cx="552" cy="168" r="9"/><circle cx="700" cy="146" r="9"/><circle cx="846" cy="204" r="9"/>
+    <circle cx="588" cy="286" r="9"/><circle cx="866" cy="322" r="9"/><circle cx="614" cy="382" r="9"/>
+    <circle cx="768" cy="392" r="9"/><circle cx="530" cy="356" r="9"/>
+  </g>
+  <g fill="var(--accent)"><circle cx="698" cy="252" r="9"/><circle cx="736" cy="312" r="9"/></g>
+  <text class="t body" x="500" y="452">不照 pattern</text>
+  <text class="t body" x="500" y="478">加上心理壓力</text>
+
+  <text class="t concl" x="60" y="528">熟練的是球路，不是打擊</text>
+</svg>

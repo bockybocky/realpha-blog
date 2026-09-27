@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一條長橫條代表交易生涯，右半段著色標為動能瘋狂盤，恰好佔一半">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .title { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:19px; fill:var(--ink); font-weight:600; }
+    .body { font-size:16px; fill:var(--dim); }
+    .concl { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t title" x="60" y="56">直覺是在哪一段樣本裡長出來的</text>
+
+  <text class="t body" x="60" y="118">交易生涯</text>
+  <rect x="60" y="136" width="840" height="96" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="480" y="136" width="420" height="96" rx="10" fill="var(--accent)" opacity="0.18"/>
+  <line x1="480" y1="136" x2="480" y2="232" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t grp" x="270" y="192" text-anchor="middle" fill="var(--dim)">其他環境</text>
+  <text class="t grp" x="690" y="192" text-anchor="middle">動能瘋狂盤</text>
+  <text class="t body" x="690" y="220" text-anchor="middle">過去五年</text>
+
+  <line x1="480" y1="252" x2="900" y2="252" stroke="var(--accent)"/>
+  <text class="t body" x="690" y="280" text-anchor="middle">一半</text>
+
+  <text class="t grp" x="60" y="352">肌肉記憶來源</text>
+  <rect x="60" y="370" width="380" height="70" rx="10" fill="var(--card)" stroke="var(--accent)"/>
+  <text class="t body" x="80" y="412">上車就賺錢的體感</text>
+  <path d="M 452 405 L 520 405" stroke="var(--warn)" stroke-width="3"/>
+  <rect x="530" y="370" width="370" height="70" rx="10" fill="var(--card)" stroke="var(--warn)"/>
+  <text class="t body" x="550" y="412">換環境＝負債</text>
+
+  <text class="t concl" x="60" y="494">特例當成常態，就會一直追</text>
+</svg>
