@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩欄對照：舊順序由標的往上找理由，新順序由循環位階往下走到標的">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  .t { font-size:27px; fill:var(--ink); }
+  .g { font-size:20px; fill:var(--dim); }
+  .b { font-size:16px; fill:var(--ink); }
+  .c { font-size:22px; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="62">檢查順序反過來</text>
+
+<rect x="60" y="100" width="380" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="84" y="136" fill="var(--grey)">以前</text>
+<rect x="104" y="300" width="292" height="56" rx="10" fill="var(--page)" stroke="var(--grey)"/>
+<text class="b" x="124" y="335">挑哪一檔</text>
+<rect x="104" y="220" width="292" height="56" rx="10" fill="var(--page)" stroke="var(--grey)"/>
+<text class="b" x="124" y="255">回頭找理由</text>
+<rect x="104" y="160" width="292" height="44" rx="10" fill="var(--page)" stroke="var(--grey)" stroke-dasharray="4 4"/>
+<text class="b" x="124" y="189" fill="var(--dim)">說服自己時機好</text>
+<path d="M78 350 L78 176" stroke="var(--grey)" stroke-width="3" fill="none"/>
+<path d="M78 166 l-7 14 h14 z" fill="var(--grey)"/>
+
+<rect x="520" y="100" width="380" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="544" y="136" fill="var(--accent)">現在</text>
+<rect x="564" y="152" width="292" height="56" rx="10" fill="var(--page)" stroke="var(--accent)"/>
+<text class="b" x="584" y="187">循環位階</text>
+<rect x="564" y="226" width="292" height="56" rx="10" fill="var(--page)" stroke="var(--accent)"/>
+<text class="b" x="584" y="261">工具結構</text>
+<rect x="564" y="300" width="292" height="56" rx="10" fill="var(--page)" stroke="var(--accent)"/>
+<text class="b" x="584" y="335">挑哪一檔</text>
+<path d="M538 158 L538 336" stroke="var(--accent)" stroke-width="3" fill="none"/>
+<path d="M538 346 l-7 -14 h14 z" fill="var(--accent)"/>
+
+<text class="c" x="60" y="460">方向決定在前，標的排在最後</text>
+</svg>
