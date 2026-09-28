@@ -1,0 +1,98 @@
+---
+title: "Where the Electrons Come From: A Debate About Building Your Own Power Plant"
+description: "Notes on the 2026-09-28 Frontier Forum conversation on Catalyst with Shayle Kann. Bloom Energy's chief commercial officer on why data centers and factories are generating their own power, how delivered cost actually stacks up, and why communities are pushing back. Educational notes only — not investment advice, no stock recommendations."
+slug: "catalyst-2026-09-28-the-rush-for-clean-on-site-power-partner-content"
+lang: "en"
+pubDate: 2026-09-28
+category: investing
+kind: "podcast-notes"
+tags: ["fuel cells", "data centers", "grid", "on-site power", "energy"]
+ogImage: "/covers/catalyst-2026-09-28-the-rush-for-clean-on-site-power-partner-content-cover.png"
+cover: "/covers/catalyst-2026-09-28-the-rush-for-clean-on-site-power-partner-content-cover.png"
+---
+
+![A long row of white fuel cell cabinets on a concrete pad receding into the distance at dusk, a low data center hall to the right, transmission towers fading into haze far behind](/covers/catalyst-2026-09-28-the-rush-for-clean-on-site-power-partner-content-cover.png)
+
+> They work when the sun rises, they rest when the sun sets. They dig wells for water, they till fields for food. What has the emperor's power to do with them?
+> —— "Song of the Earth-Beating Game" (pre-Qin China, recorded in Huangfu Mi's *Chronicle of Emperors and Kings*, Jin dynasty; translated by the author)
+
+On 2026-09-28, *Catalyst with Shayle Kann* aired a Frontier Forum conversation in which host Stephen interviewed Aman Joshi, chief commercial officer of Bloom Energy. Joshi said that when Bloom surveyed customers in 2024, about 13% expected to need on-site generation by 2030; by the April 2026 survey that number had reached 35%, and half said they expected to need it by 2035. His conclusion is that large power users are treating on-site generation as permanent infrastructure rather than a bridge to the grid. That conclusion rests on two premises: interconnection takes five to ten years, and delivered grid power will cost far more than it does today — and this episode is partner content sponsored by Bloom, so every number and every comparison comes from the seller.
+
+![Three bars rising left to right — 13%, 35%, 50% — labeled below to show this is a vendor survey of its own customers asking about intent, not a count of signed contracts.](/figures/bloom-survey-intent-climb-en.svg)
+
+## For the motion: why he says on-site power is permanent
+
+Before Bloom, Joshi spent more than two decades at GE, much of it on aeroderivative gas turbines — the machines peaker plants run on. He said he saw the constraint forming in that earlier job: first peakers were needed to firm renewables, then the data center rush arrived. As orders backed up he knew what was underneath, because he knew that the tier-two, tier-three and tier-four turbine suppliers all thread back to the same sources. Scaling that supply chain is a long, drawn-out process, slower than power demand is growing.
+
+I find the vantage point interesting: a man who sold turbines for twenty years, watching turbines fail to close the gap, then moving to sell fuel cells.
+
+His argument has three layers.
+
+**One: the delivered-cost arithmetic gets redone.** People talk about six-cent or eight-cent power, he said, but that is the cost at the point of generation. To reach a site you add step-up transformers ($5–10 per MWh), high-voltage transmission that still has to be built ($20–30 per MWh), substations with step-down transformers, distribution lines, and distribution-level transformers. Add it all up and even after the grid buildout happens, delivered power cannot land back at today's price. On-site generation converts a natural gas molecule into an electron at the site, with no transmission, no distribution and no retailer in the value chain, which is why Bloom is cheaper than the grid in some places. Customers build their own because energy is an input cost they want to control — and that is why they book it as permanent.
+
+![Two bars compared: the left one, grid-delivered power, stacks generation, step-up, transmission and distribution ever higher, while the right one, on-site generation, has only the generation segment.](/figures/delivered-power-price-stack-en.svg)
+
+**Two: the community gate.** In the opening innings of the data center boom, developers locked down electricity on any terms available. Once communities pushed back, pollution, water and noise moved to the front. Joshi ran the numbers: a gigawatt of combined-cycle turbines emits roughly 0.03 lb of NOx per MWh, which over twenty-four hours works out to about 720 lb a day — equivalent, he said, to putting 150,000 new cars on the road, from one site at one gigawatt. On water, a combined-cycle plant uses roughly 190 gallons per MWh; at the same scale that is about 4.5 million gallons a day, which he translated into 300,000 showers. Fuel cells do not combust, so NOx and SOx are near zero, the units generate their own water in operation, and noise is low. He publicly cited Oracle's New Mexico project: originally planned around combined-cycle and open-cycle turbines, switched earlier this year to a single roughly 2.5 GW Bloom deployment, with community feedback among the reasons.
+
+His bluntest line sits here: the question has moved past who has the cheapest electricity — he adds in passing that Bloom still does — and now also asks how to do it so communities do not expect their water and air to go through the roof in a few years.
+
+![Two horizontal bars, one twice as long as the other, translating one site's daily nitrogen oxides and water use into 150,000 cars and 300,000 people.](/figures/one-site-one-day-scale-en.svg)
+
+**Three: LCOE measures the wrong thing.** The energy industry compares projects using levelized cost of electricity, which spreads a plant's lifetime cost across every megawatt-hour it produces. Joshi argues that yardstick was built for grid-connected power and distorts on-site economics. To measure properly you have to adjust for the overbuild required to reach three or four nines of on-site reliability; for community attributes (what the lowest-emission source is worth, what skipping water saves); and for AI load-following, where Bloom says it needs no batteries. He gave one concrete example: with some generation sources you load firmware onto the rack to dampen the AI workload, burning 15 to 20% of the energy on dummy loads just to smooth things out. What matters, he said, is total dollars per watt delivered into the rack. Cost at the point of generation measures something else.
+
+He also flagged two corners that get overlooked. One is commercial and industrial customers, where Bloom is growing about 50% year over year — the deals are 5 to 100 MW rather than the 200–300 MW that makes headlines, and the customer list runs from Conagra to Quanta Computer to Ferrari. A food plant and a carmaker want much the same thing, he said: reliable and not expensive, because nobody wants a power trip to scrap a production batch. The other is architecture: Nvidia and several hyperscalers have announced that 800-volt DC architecture is coming. The grid delivers AC, which then has to be converted; on-site DC makes more sense and costs the customer less capex. As cooling demand grows, absorption chillers running on waste heat from on-site generation are coming too. He calls all of this the move from the second inning to the third.
+
+And the ninth? He used landlines. Twenty-five or thirty years ago nobody thought cell phones would be more reliable, yet once the telephone network decentralized, both adoption and overall network reliability climbed together. He kept his own landline for years, then one day realized he no longer needed it.
+
+![A wide flow runs from the generator toward the racks, and partway along a branch marked fake load draws off about a fifth, leaving a visibly narrower flow into the racks.](/figures/fake-load-smoothing-loss-en.svg)
+
+## Against the motion: where this argument is weakest
+
+**This episode is partner content.** Bloom bookends it, and the close points listeners to Bloom's 2026 midyear data center power report. So the three load-bearing numbers — the customer survey, the claim of being cheaper than the grid, the reason Oracle switched — all come with the seller's definitions attached. That does not make them false; it makes them unaudited. My habit with this kind of material is to ask which number might come out differently if someone with no stake in the answer ran it.
+
+**The survey measures intent.** The 13%→35%→50% line comes from Bloom asking the customers Bloom can reach whether they expect to need on-site power by 2030 or 2035. People Bloom can reach already skew toward considering it, and between "we expect to need this" and "we signed and broke ground" sit a board, a gas pipeline and a budget. Using an intent survey to support "permanent, not bridge" skips a large step.
+
+**The emissions ledger is half-complete.** He compares NOx, SOx, water and noise — local pollutants, the things argued over at a permitting hearing, and his advantage there is real. But a solid oxide fuel cell runs on natural gas, and reforming that gas still produces CO2. He gives no CO2 figure per MWh and no carbon comparison against combined cycle, whose thermal efficiency sits around 60%, the highest in gas-fired generation. "Clean on-site power" in this episode means the part of clean that a community can smell, see and drink. If a customer's decarbonization pledge is written in Scope 2 terms, this argument does not reach it.
+
+![A solid-line box holds four items — nitrogen oxides, sulfur oxides, water and noise — while outside it a dashed box holds carbon dioxide, marked as having no figure given.](/figures/clean-boundary-local-vs-carbon-en.svg)
+
+**"Cheaper than the grid" is missing two line items.** He unbundles the grid's delivered cost in detail, which is useful — but when the same yardstick turns back on his own product, stack degradation and replacement go unmentioned. Solid oxide stacks lose efficiency over time and eventually get swapped; that is a published cost of the technology. Gas price goes unmentioned too. He says customers want predictable energy cost, yet trading grid price volatility for gas price volatility changes which market you have to watch. More practically, there is the pipeline: on-site generation burns gas, gas needs a pipe to the site, and where the grid is congested the pipes are often queued as well.
+
+**The landline analogy has a seam.** Telecom decentralized on new radio spectrum plus the semiconductor cost curve; the signal never needed physical conduit. On-site generation still has to move fuel physically to the site. Decentralization that works for information does not automatically work for fuel logistics. The analogy makes the ending feel settled while skipping the grid's structural advantage: thousands of loads and thousands of sources sharing one pool of reserve capacity. Nobody in this episode adds up how much idle capacity the country ends up with when every site overbuilds to four nines on its own.
+
+**The demand section assumes what is in dispute.** He says the buildout is not speculation because underneath it are individuals consuming compute and tokens. But "people are using AI" and "the people using it can support capex at this scale" are two claims, and the second is the one skeptics are asking about. Answering the second with the first restates the question.
+
+![On the left many loads share a single pool of reserve capacity; on the right six sites each stack their own reserve on top, and the hatched blocks on the right add up to far more.](/figures/shared-reserve-vs-each-site-en.svg)
+
+The host did press on this: one camp in the market believes going fully off-grid will prove more costly and more complicated than expected, and that most customers will not do it. Joshi's answer was that combustion equipment is what makes things complicated, while a solid-state device is simpler than grid power — which routes around the cost half of the question.
+
+## My read: the condition that decides it
+
+Split the timeline and each side holds half.
+
+For the next three to seven years, the affirmative case stands. Interconnection queues are a physical fact, and so is the turbine supply chain backlog. Customers are buying schedule; cost per megawatt-hour ranks below it. Bringing a plant online two years earlier is worth more than the cents saved on electricity, in any industry racing a market window.
+
+The word "permanent" does not stand, because it is stated as an accomplished fact when it is a prediction that has not come due. Four things would tell me whether it holds: whether delivered grid cost in five to ten years really lands much higher; whether on-site gas supply and pipelines arrive faster than interconnection; whether stack replacement and carbon cost make it into the comparison table; and — cleanest of all — what those customers do once the grid finally shows up.
+
+That last one is directly testable. Around 2030, look at the customers who built on-site this year and check the annual run hours on their fuel cells after grid connection arrives. Declining run hours means it was a bridge. Flat run hours means it was permanent. The answer surfaces on its own; nobody has to admit anything.
+
+![A line of annual run hours reaches the point where grid power arrives and splits in two: the downward-sloping branch is labeled transitional, the flat one permanent.](/figures/post-grid-runhours-fork-en.svg)
+
+So what do I actually take away? If a headline like this has you wondering whether to go buy something adjacent, my sense is the episode describes where demand comes from and how procurement criteria are shifting, and it never answers who on the supply side captures the money. What does travel is Joshi's critique of LCOE, seller or not: when anyone quotes you X cents per kilowatt-hour, you can ask which items that number contains and which delivery point it stops at. That is a yardstick you get to keep.
+
+These days I treat sponsored material as intelligence rather than conclusion — it tells me what language an industry is currently arguing in. Joshi handed me a new phrase: total dollars per watt delivered into the rack. The next vendor deck I read, I will check whether that definition appears in it.
+
+## Worth a look
+
+- The 2026-09-28 *Catalyst with Shayle Kann* episode itself, plus the full Latitude Media Frontier Forum video — the show notes that live audience questions went deeper on economics and technology than the edit kept
+- Bloom Energy's 2026 midyear data center power report, named at the close of the episode (remembering it is a seller's document)
+- Lawrence Berkeley National Laboratory's *Queued Up* series on actual US interconnection timelines, useful for checking the "five to ten years" claim
+- EPA emission factors for gas-fired units, and state air permit filings, if you want to rerun the NOx arithmetic yourself
+
+## One Thing to Take With You
+
+A number is only usable once you know where it stops measuring. Six cents at the point of generation and dollars per watt into the rack differ by an entire delivery path between them; neither is lying, they just stop in different places. Every disagreement in this episode traces back to the same thing — the two prices being compared end at different points.
+
+Here is something I tried that you might enjoy: pick one thing you priced out recently — a moving quote, a gym membership, a renovation estimate, an online course — and write down everything that gets charged after the headline number. Stair fees on the move, joining fee and facility fee at the gym, demolition and haul-away on the renovation, materials and platform cut on the course. Add it up, then divide by the number of times you will genuinely use the thing. Last time I did this, the cheapest-looking option dropped to third. The process was more interesting than the result, because that was when I noticed I had been making decisions using somebody else's delivery point.
+
+![On the left three quotes run from low to high; after adding the extras you also pay and dividing by how often it gets used, the lowest quote becomes the highest on the right.](/figures/quote-plus-extras-per-use-en.svg)
