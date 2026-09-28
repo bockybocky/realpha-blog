@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Four bars of increasing length stand for the timescale of each of four queues.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="66" font-size="27" font-weight="700">Which queue you are stuck in sets the order of magnitude</text>
+
+<text x="60" y="150" font-size="20" font-weight="700">Money</text>
+<rect x="160" y="126" width="130" height="34" rx="6" fill="var(--accent)"/>
+<text x="304" y="150" font-size="16" fill="var(--dim)">Within a year</text>
+
+<text x="60" y="226" font-size="20" font-weight="700">Permits</text>
+<rect x="160" y="202" width="330" height="34" rx="6" fill="var(--accent)"/>
+<text x="504" y="226" font-size="16" fill="var(--dim)">Years</text>
+
+<text x="60" y="302" font-size="20" font-weight="700">Parts</text>
+<rect x="160" y="278" width="480" height="34" rx="6" fill="var(--accent)"/>
+<text x="654" y="302" font-size="16" fill="var(--dim)">Waiting on capacity</text>
+
+<text x="60" y="378" font-size="20" font-weight="700">People</text>
+<rect x="160" y="354" width="660" height="34" rx="6" fill="var(--warn)"/>
+<line x1="820" y1="371" x2="890" y2="371" stroke="var(--warn)" stroke-width="6" stroke-dasharray="10 10"/>
+<path d="M890 359 L912 371 L890 383 Z" fill="var(--warn)"/>
+<text x="160" y="418" font-size="16" fill="var(--dim)">Longer still</text>
+
+<text x="60" y="490" font-size="22" font-weight="700">Each queue needs its own fix; loosening one is not enough</text>
+</svg>

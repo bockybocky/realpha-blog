@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The cost bar has an endpoint, while the schedule bar turns dashed at its end and extends outward with no upper bound.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text x="60" y="66" font-size="27" font-weight="700">Two numbers on one approval letter</text>
+
+<rect x="60" y="110" width="400" height="150" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="84" y="148" font-size="20" font-weight="700">Cost</text>
+<rect x="84" y="170" width="300" height="34" rx="6" fill="var(--accent)"/>
+<line x1="384" y1="160" x2="384" y2="214" stroke="var(--ink)" stroke-width="3"/>
+<text x="84" y="236" font-size="16" fill="var(--dim)">About $1 million</text>
+<text x="330" y="236" font-size="16" fill="var(--dim)">Has an end</text>
+
+<rect x="500" y="110" width="400" height="150" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="524" y="148" font-size="20" font-weight="700">Schedule</text>
+<rect x="524" y="170" width="200" height="34" rx="6" fill="var(--warn)"/>
+<line x1="724" y1="187" x2="884" y2="187" stroke="var(--warn)" stroke-width="6" stroke-dasharray="10 10"/>
+<path d="M884 175 L906 187 L884 199 Z" fill="var(--warn)"/>
+<text x="524" y="236" font-size="16" fill="var(--dim)">Years and up</text>
+<text x="800" y="236" font-size="16" fill="var(--dim)">No cap</text>
+
+<rect x="60" y="300" width="840" height="86" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="84" y="340" font-size="19" font-weight="700">You can raise</text>
+<text x="84" y="368" font-size="16" fill="var(--dim)">Money</text>
+<text x="500" y="340" font-size="19" font-weight="700">You cannot</text>
+<text x="500" y="368" font-size="16" fill="var(--dim)">Queue time</text>
+
+<text x="60" y="450" font-size="22" font-weight="700">A floor-style schedule is the part no money can buy</text>
+</svg>
