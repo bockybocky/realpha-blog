@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左右對比：壓低長端在浮動利率結構下傳導中斷，在固定利率結構下傳導連通">
+<defs><style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.t{font-size:27px;fill:var(--ink)}
+.g{font-size:20px;fill:var(--ink)}
+.b{font-size:16px;fill:var(--dim)}
+.c{font-size:22px;fill:var(--ink)}
+</style>
+<marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--warn)"/></marker>
+<marker id="aa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+</defs>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="58">壓低長端，傳不傳得到借款人</text>
+
+<rect x="60" y="96" width="390" height="376" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="84" y="134">瑞典</text>
+<text class="b" x="84" y="162">浮動利率為主</text>
+<rect x="104" y="184" width="300" height="46" rx="8" fill="var(--page)" stroke="var(--line)"/>
+<text class="b" x="124" y="214">央行壓低長天期殖利率</text>
+<path d="M254 236 L254 268" stroke="var(--warn)" stroke-width="4"/>
+<path d="M254 296 L254 336" stroke="var(--warn)" stroke-width="4" stroke-dasharray="7 9" marker-end="url(#aw)"/>
+<rect x="150" y="266" width="208" height="32" rx="6" fill="var(--page)" stroke="var(--warn)" stroke-width="2"/>
+<text class="b" x="170" y="289">利率結構：浮動</text>
+<rect x="104" y="352" width="300" height="86" rx="8" fill="var(--page)" stroke="var(--line)"/>
+<text class="g" x="124" y="386">實際借款成本</text>
+<text class="b" x="124" y="416">幾乎沒動</text>
+
+<rect x="510" y="96" width="390" height="376" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="534" y="134">美國</text>
+<text class="b" x="534" y="162">三十年固定為主</text>
+<rect x="554" y="184" width="300" height="46" rx="8" fill="var(--page)" stroke="var(--line)"/>
+<text class="b" x="574" y="214">央行壓低長天期殖利率</text>
+<path d="M704 236 L704 268" stroke="var(--accent)" stroke-width="4"/>
+<path d="M704 296 L704 344" stroke="var(--accent)" stroke-width="4" marker-end="url(#aa)"/>
+<rect x="600" y="266" width="208" height="32" rx="6" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<text class="b" x="620" y="289">利率結構：固定</text>
+<rect x="554" y="352" width="300" height="86" rx="8" fill="var(--page)" stroke="var(--line)"/>
+<text class="g" x="574" y="386">實際借款成本</text>
+<text class="b" x="574" y="416">再融資、新購屋一起降</text>
+
+<text class="c" x="60" y="518">同一個動作，落在不同的利率結構上</text>
+</svg>
