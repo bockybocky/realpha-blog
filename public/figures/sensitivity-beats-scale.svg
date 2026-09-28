@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="長條長度代表營收規模，塗色段代表會漲價的產品，短條整段塗色因此漲幅放大">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text x="60" y="52" font-size="27" fill="var(--ink)">同樣漲三成，落到誰身上看得見</text>
+<text x="60" y="92" font-size="15" fill="var(--dim)">示意用的小數字，不是真實財報</text>
+
+<text x="60" y="152" font-size="19" fill="var(--dim)">大廠</text>
+<rect x="200" y="128" width="500" height="56" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<rect x="200" y="128" width="50" height="56" rx="8" fill="var(--accent)"/>
+<text x="225" y="164" font-size="15" fill="var(--page)" text-anchor="middle">$1</text>
+<text x="470" y="164" font-size="16" fill="var(--dim)" text-anchor="middle">其餘產品線 $9</text>
+<text x="720" y="164" font-size="19" fill="var(--dim)">整體 +3%</text>
+
+<text x="60" y="296" font-size="19" fill="var(--accent)">小廠</text>
+<rect x="200" y="272" width="100" height="56" rx="8" fill="var(--accent)"/>
+<text x="250" y="308" font-size="15" fill="var(--page)" text-anchor="middle">$2</text>
+<text x="720" y="308" font-size="19" fill="var(--accent)">整體 +30%</text>
+
+<rect x="200" y="380" width="500" height="1" fill="var(--line)"/>
+<text x="200" y="418" font-size="16" fill="var(--dim)">長度＝營收規模　塗色＝會漲價的那幾顆</text>
+<text x="480" y="470" font-size="22" fill="var(--ink)" text-anchor="middle">找彈性，不是找規模</text>
+</svg>
