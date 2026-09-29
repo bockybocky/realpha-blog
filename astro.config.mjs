@@ -83,7 +83,7 @@ export default defineConfig({
 	// 沒設就是 dist，維持單獨跑 astro build 的舊行為。
 	outDir: `./${buildDistName()}`,
 	// 離線頁是 service worker 的備用頁，不給搜尋引擎（2026-09-15 PWA）
-	// 節目心得頁不進 sitemap-index／sitemap-0（2026-09-22 索引範圍）；判定讀 frontmatter kind，規則在 src/lib/indexing.mjs
+	// 節目心得頁不進 sitemap-index／sitemap-0（2026-09-22 索引範圍）；判定讀 frontmatter kind／tags，規則在 src/lib/indexing.mjs
 	integrations: [
 		mdx(),
 		sitemap({

@@ -1,4 +1,4 @@
-// 從磁碟讀 src/content/blog/*.mdx 的 frontmatter（slug／lang／kind），給拿不到 astro:content 的地方用：
+// 從磁碟讀 src/content/blog/*.mdx 的 frontmatter（slug／lang／kind／tags），給拿不到 astro:content 的地方用：
 // astro.config.mjs 的 sitemap 過濾、自檢腳本。判定規則本身在 src/lib/indexing.mjs。
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -15,7 +15,9 @@ function field(fm, key) {
 export function readFrontmatter(raw) {
 	const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
 	if (!m) return null;
-	return { slug: field(m[1], 'slug'), lang: field(m[1], 'lang'), kind: field(m[1], 'kind'), draft: field(m[1], 'draft') };
+	const tagsRaw = field(m[1], 'tags') ?? '';
+	const tags = [...tagsRaw.matchAll(/["']([^"']+)["']/g)].map((match) => match[1]);
+	return { slug: field(m[1], 'slug'), lang: field(m[1], 'lang'), kind: field(m[1], 'kind'), tags, draft: field(m[1], 'draft') };
 }
 
 export function readBlogMeta(dir = blogDir) {
