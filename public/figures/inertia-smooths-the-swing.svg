@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="同一串用電起伏，有慣性時被抹平成小波，慣性消失後幅度張大">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .k { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="60">同一串抖動，兩種電網</text>
+
+<text class="g" x="60" y="130">有慣性</text>
+<text class="b" x="60" y="156">旋轉機組抹平</text>
+<line x1="280" y1="170" x2="900" y2="170" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<polyline points="280,170 320,156 360,184 400,158 440,182 480,156 520,184 560,160 600,180 640,158 680,182 720,160 760,180 800,158 840,180 880,170"
+  fill="none" stroke="var(--accent)" stroke-width="4"/>
+
+<text class="g" x="60" y="336">慣性消失</text>
+<text class="b" x="60" y="362">太陽能與風力</text>
+<line x1="280" y1="376" x2="900" y2="376" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<polyline points="280,376 320,290 360,462 400,296 440,458 480,288 520,464 560,300 600,452 640,292 680,460 720,298 760,454 800,290 840,458 880,376"
+  fill="none" stroke="var(--warn)" stroke-width="4"/>
+
+<text class="k" x="60" y="506">同步運算讓整齊的衝高衝低更難吃</text>
+</svg>

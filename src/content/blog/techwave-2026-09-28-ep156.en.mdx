@@ -1,0 +1,108 @@
+---
+title: "From Printed Interconnects to Spinning Flywheels: Four Dutch Companies on Where AI Silicon Actually Jams"
+description: "TechWave EP156 recorded four interviews at SEMICON, covering printed interconnects in advanced packaging, fiber alignment for silicon photonics, quantum chip testing, and flywheel power protection for data centers. These are my notes and extended reading — educational industry commentary, not investment advice, and no stock recommendations."
+slug: "techwave-2026-09-28-ep156"
+lang: "en"
+pubDate: 2026-09-29
+category: "investing"
+kind: "podcast-notes"
+tags: ["semiconductors", "advanced packaging", "silicon photonics", "quantum computing", "data centers"]
+ogImage: "/covers/techwave-2026-09-28-ep156-cover.png"
+cover: "/covers/techwave-2026-09-28-ep156-cover.png"
+---
+
+![An exhibition hall corridor after closing, a glass case of stacked wafers and fiber bundles catching cold light, the silhouette of a rotating machine far down the hall](/covers/techwave-2026-09-28-ep156-cover.png)
+
+> A man of Ying had a speck of plaster on the tip of his nose, no thicker than a fly's wing, and sent for the carpenter Shi to slice it off. Shi swung his axe like the wind, took it off at a sound, and the plaster was gone with the nose unharmed.
+>
+> —— *Zhuangzi, "Xu Wugui"* (Warring States period, translated by the author)
+
+TechWave EP156, published on 28 September 2026, packs four interviews recorded at the Dutch national pavilion of SEMICON, with founders and CEOs from FononTech, MicroAlign, Orange Quantum Systems, and HITEC Power Protection. The four businesses look unrelated — printing chip interconnects, aligning optical fibers, testing quantum chips, riding out blackouts with a flywheel — yet the bottleneck they each describe has the same shape: the jam sits at the joint, and the joint gets harder as the count goes up. Three numbers stayed with me: the fastest wire bonder makes 100,000 bonds an hour while some products need 8 million; a single fiber attaches correctly 90% of the time, and at 40 fibers the yield collapses toward zero; cooling and rewarming a thousand-qubit chip alone eats four days. All four are early — factories still going up, customers still being signed — so this is about direction, not about who wins.
+
+## 2019: a printing technique leaves the lab
+
+Fabien, co-founder of FononTech, describes their technology as Impulse Printing, invented at the Dutch research institute TNO in 2019 and spun into a company three years ago. The pitch fits in one line: print the electrical connections between chips instead of attaching them.
+
+To see why that matters, look at how it is done today. Once dies are stacked, the layers need wiring, and one mainstream method is wire bonding — pulling gold wires one at a time, like a sewing machine. Fabien says the fastest bonder does 100,000 bonds per hour, which sounds fast; his phrase was that a connection is made in the time it takes to blink. Then came the next sentence: some products need 8 million bonds, and that is hours upon hours.
+
+Their approach coats material onto a transfer plate holding 256 elements that heat almost instantly. The heat vaporizes a sliver of material, the resulting gas pushes the pattern off the plate, and the whole pattern lands on the target at once. No dot-by-dot inkjet — 100,000 bonds land together.
+
+My favourite detail sits here. Fabien says the print head has over 50 megawatts of installed power while its continuous draw is less than a light bulb. Enormous peak, vanishing duration, and the hard part is controlling voltage and current inside that sliver of time while keeping the plate alive across repeated use. He calls that their deepest moat, because the custom electronics driving those heaters were developed in-house, wafer and equipment together.
+
+The factory is being built now, with first silicon out in December. They target features above 50 micrometers today, with a roadmap down to 2 micrometers. High-end memory packaging runs at about 5 micrometers and logic sits below that, so they are entering from the easier end. Fabien's stated ambition — Impulse Printing in every electronic product — I file as ambition.
+
+## Around the same years, the fiber count got out of hand
+
+Marco, CTO of MicroAlign, talks silicon photonics. Optical fiber inside data centers is old news; what moves is the location. Data used to be converted to light once it left the rack. With co-packaged optics, the optical engine sits on the same substrate as the electronics, so data leaves the chip already as light.
+
+Move the conversion and the count explodes. Marco says a module today carries somewhere between 4 and 16 fibers. Under CPO, a single engine faces thousands, with fiber arrays of 40 to 80 per side.
+
+Then comes the cleanest piece of reasoning in the episode. Light does not behave like electrons: fibers need positioning accurate to hundreds of nanometers, and a small offset bleeds optical power. The conventional method pre-positions fibers with mechanical guides, so accuracy comes from stacked manufacturing tolerances — fine while counts stay low. But yield multiplies. At 90% per fiber, stack 40 or 80 of them and the probability drops exponentially, in his words "really quickly down to zero." Every lost photon becomes heat and power budget the data center cannot afford.
+
+MicroAlign built a MEMS device that manipulates each fiber in space during the manufacture of the array, hunts for the best coupling position, then freezes it in epoxy. The active alignment that used to happen when attaching an array to a chip moves inside the array itself. Marco reports accuracy within 100 nanometers per fiber, and — this is the part that counts — accuracy that holds as the array grows. What they broke is the old three-way trade-off between channel count, manufacturability, and accuracy.
+
+He is candid about the boundary: most of their shipped work is in quantum photonics, a market even more sensitive to coupling loss, while CPO is still at the exploration stage. Technology proven, market not yet.
+
+## Today: quantum chips jammed on a test rig that needs a quantum computer
+
+Kelvin, co-founder of Orange Quantum Systems, opens with honesty: being honest, there are no useful applications yet. Quantum computers exist; they are small and noisy.
+
+So where is the jam? Everyone points at qubit count and error correction. Kelvin's answer is testing. Classical semiconductors get end-of-line testing that predicts packaged performance from room-temperature electrical measurements — put a probe on it, read the resistance. Quantum chips have no such shortcut. Room-temperature optical and electrical pre-screening shows no correlation with the metrics that matter, because coherence times and gate fidelities only appear at cryogenic conditions, and none of them can be read with a multimeter. Push a meter into the fridge and it still will not work; these numbers are inferred, not measured.
+
+How does the industry test today? Kelvin: buy a quantum computer to test your quantum chip. He adds that it is a bit insane when you think about it — the capex of a twin system. The clock is worse. Fully testing a thousand-qubit chip may take a month, and the thermal cycle alone is four days, two down and two back up.
+
+Their move is to stop insisting the tester be a fully performant quantum computer. Instead: non-destructive testing of unpackaged chiplets in a socket, with cryogenic switching so many parts get measured in parallel. IQM is the first announced customer, on their MAX system.
+
+The layer under that interests me more. Kelvin treats the semiconductor industry's lights-out fabs as the blueprint for quantum. Yield only climbs on its own once the feedback loop closes and end-of-line data flows back into production. What it comes down to, he says, is data management infrastructure; the test equipment is one tool for making that data exist. Harry called it recursive self-improvement and Kelvin agreed.
+
+## Meanwhile the power per rack went from 7 kilowatts to 100
+
+The last interview is Leo, CEO of HITEC Power Protection, a company tracing back to Dutch electrical machine building around 1895, contemporaries of the Philips founders.
+
+Leo says a rack used to draw 7 kilowatts, now it is 100, and people talk about 500. The volume is only half of it. AI power draw fluctuates: GPUs synchronize during training, especially in all-reduce phases where every card talks to every other card, and the load spikes and sags together. Old grids carried a lot of rotating inertia that smoothed those steps; swap in solar and wind and that damping disappears, which amplifies the swing.
+
+HITEC sells what they call a dynamic rotary UPS. The world uses batteries; they use a flywheel — a fast-spinning mass that takes little energy to keep spinning once up. When utility power fails, the flywheel's inertia pushes energy into the rotating shaft, the generator keeps producing AC, and the load never notices the disruption. The flywheel covers 5 to 6 seconds; within that window a diesel takes over and can run for hours or days. Units come in 1, 2 and 3 megawatts and can be combined.
+
+Leo's analogy is the laptop: unplug it and it keeps working because of the battery inside. Without that battery every calculation stops, and even a millisecond means a restart. He mentions a Dutch data center fire that forced hospitals and universities in the country to close their locations that day.
+
+On the question I had — does keeping a mass spinning pay for itself — his answer is total cost of ownership. Battery lifetime gets eaten by constant cycling, while a rotary solution cycles indefinitely, and their footprint is smaller. At gigawatt scale he concedes flywheels alone will not do it: the combination is rotary plus batteries, with the flywheel absorbing pulses and sags to protect the batteries behind it. In Taiwan he names Micron, Nanya, TSMC and Winbond as users.
+
+One more line I wrote down: price still matters, lead time matters more, and the whole world is screaming for the components these systems need.
+
+## Which of those headline terms is an actual bottleneck?
+
+I suspect plenty of readers share my problem: CPO, advanced packaging, HBM keep appearing in the same headline, and the real question is which one jams the whole chain and which is a different way of doing the same job.
+
+This episode handed me a test: does the difficulty get worse on its own as scale grows?
+
+MicroAlign is the clearest case. A 90% success rate is not the problem. Requiring all 40 to succeed is, because that is 0.9 multiplied by itself forty times, and the arithmetic pushes it toward zero whether or not anyone slacks off. Quantum testing has the same shape: four days of thermal cycling is physics, and more qubits will not shorten it through effort. Bottlenecks like these need a different method, not more diligence.
+
+Bond counts in advanced packaging are gentler. One-at-a-time scales linearly, and 8 million bonds taking hours is annoying but buyable — more machines fixes it. So FononTech competes on cost and throughput, a different value path from the other two.
+
+Running that test over themes I have followed in the past, I noticed how often I let "this technology is new" carry me. New and load-bearing are separate properties.
+
+## So who captures the money?
+
+The more practical question: a step being essential and a step having pricing power are separated by a layer.
+
+This episode offers three different answers worth putting side by side. Fabien says their process replaces several steps with one transfer, so their cost sits below existing technology — a good reason to get designed in, and also a cap on premium, which means earning through volume displaced. Marco competes on yield: he makes what customers cannot, a position that should command price, though he says the CPO market is still at the approach stage. Leo's "lead time matters more than price" is the strongest signal of the three, because it means customers are chasing supply.
+
+Lining those up is what made it click for me: tight supply and pricing power are separate things. Constrained links are everywhere; the ones that convert scarcity into higher prices and long-term contracts are rare. The question I now ask is whether a customer waits for this supplier or goes shopping for an alternative. The answer usually hides in gross margin and contract length, not in the headline.
+
+The other thing I keep reminding myself: none of the four has proven volume production. First silicon lands in December, the CPO market is still being approached, quantum has one announced customer, and flywheels alone do not cover a gigawatt site. Between a convincing technology story and a business sit several years.
+
+## Sources worth checking
+
+- TechWave EP156, "SEMICON deep-dive interviews: advanced packaging, silicon photonics, quantum chip testing, flywheel energy storage," 28 September 2026
+- The four companies interviewed — FononTech, MicroAlign, Orange Quantum Systems, HITEC Power Protection — each publish technical pages worth reading directly
+- For background, "co-packaged optics" and "heterogeneous integration" are the two terms that recur through the episode and open up most of the surrounding literature
+
+## One thing to take with you
+
+**Success rates multiply.**
+
+When something only works if a chain of steps all succeed, the total is every step's probability multiplied together. Ninety percent per step sounds excellent; ten steps leaves 35%, forty steps leaves under 2%. Marco's fiber reasoning landed for me because it turned something I normally eyeball into arithmetic — and notice that he did not make the fibers more accurate, he dismantled the one-at-a-time structure.
+
+Here is something I tried, offered in case it helps. Pick something you attempted recently and did not land — nothing to do with investing is fine, changing jobs, building a habit, having an overdue conversation with someone. Break it into the steps that all had to work, give each one the probability you honestly believe, and multiply. The first time I did this it startled me: I had been blaming my own effort, and the arithmetic showed a seven-step path at 80% each, leaving 21%.
+
+The interesting move comes after the multiplication. Rather than pushing each step toward 99%, look at whether you can delete a step. Removing one beats trying harder on all of them.

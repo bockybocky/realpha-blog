@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="對準的位置從整排對晶片那一刻，往前搬到陣列製造的每一條上">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .k { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="60">對準搬到上游</text>
+
+<text class="g" x="60" y="118">之前</text>
+<rect x="150" y="96" width="200" height="66" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="b" x="172" y="136">做陣列</text>
+<line x1="350" y1="129" x2="430" y2="129" stroke="var(--grey)" stroke-width="3"/>
+<polygon points="430,129 418,123 418,135" fill="var(--grey)"/>
+<rect x="430" y="96" width="220" height="66" rx="10" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+<text class="g" x="452" y="128" fill="var(--warn)">整排一起對準</text>
+<text class="b" x="452" y="152">成功率相乘</text>
+<line x1="650" y1="129" x2="730" y2="129" stroke="var(--grey)" stroke-width="3"/>
+<polygon points="730,129 718,123 718,135" fill="var(--grey)"/>
+<rect x="730" y="96" width="170" height="66" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="b" x="752" y="136">接晶片</text>
+
+<text class="g" x="60" y="300">之後</text>
+<rect x="150" y="256" width="280" height="110" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="g" x="172" y="292" fill="var(--accent)">做陣列時逐條對準</text>
+<text class="b" x="172" y="320">邊移邊找</text>
+<text class="b" x="172" y="346">樹脂原地凍住</text>
+<line x1="430" y1="311" x2="510" y2="311" stroke="var(--grey)" stroke-width="3"/>
+<polygon points="510,311 498,305 498,317" fill="var(--grey)"/>
+<rect x="510" y="278" width="200" height="66" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="b" x="532" y="318">接晶片</text>
+
+<text class="k" x="60" y="450">每條一百奈米以內，且不隨條數變差</text>
+<text class="b" x="60" y="482">條數、良率、可製造性不再綁在一起</text>
+</svg>
