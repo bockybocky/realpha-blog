@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Bigger capacity is not always pricier: the third tier costs the most and the fourth is cheaper, yet hardware makers stay on the priciest third tier.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .a { font-size:16px; fill:var(--accent); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62">Price does not rise with capacity</text>
+  <text class="b" x="60" y="94">Y: unit price (illustrative)  X: capacity tier</text>
+
+  <line x1="120" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="160" y="300" width="110" height="140" fill="var(--grey)" rx="4"/>
+  <rect x="330" y="250" width="110" height="190" fill="var(--grey)" rx="4"/>
+  <rect x="500" y="180" width="110" height="260" fill="var(--accent)" rx="4"/>
+  <rect x="670" y="270" width="110" height="170" fill="var(--grey)" rx="4"/>
+
+  <text class="g" x="215" y="472" text-anchor="middle">S</text>
+  <text class="g" x="385" y="472" text-anchor="middle">M</text>
+  <text class="g" x="555" y="472" text-anchor="middle">L</text>
+  <text class="g" x="725" y="472" text-anchor="middle">XL</text>
+
+  <text class="a" x="555" y="162" text-anchor="middle">Where makers sit</text>
+  <text class="b" x="725" y="252" text-anchor="middle">Bigger yet cheaper</text>
+  <text class="b" x="725" y="228" text-anchor="middle">Nobody moves up</text>
+
+  <line x1="640" y1="215" x2="700" y2="245" stroke="var(--dim)" stroke-width="2"/>
+  <text class="b" x="60" y="512">The price spike hits the tier everyone avoids</text>
+</svg>

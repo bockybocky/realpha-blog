@@ -1,0 +1,104 @@
+---
+title: "Memory Prices Froze Device Specs, and Agents Are Eating the CPUs"
+description: "Notes from The Circuit, 2026-09-28: what memory pricing is doing to consumer hardware, how Meta's Muse gives the assistant product a shape, and the CPU shortage sitting behind the Anthropic–Akamai deal. Educational commentary, not investment advice."
+slug: "circuit-2026-09-28-memory-pricing-pressures-meta-s-muse-ai-and-the-ag"
+lang: "en"
+pubDate: 2026-09-29
+category: "investing"
+kind: "podcast-notes"
+tags: ["memory", "supply chain", "AI agents", "CPU", "industry notes"]
+ogImage: "/covers/circuit-2026-09-28-memory-pricing-pressures-meta-s-muse-ai-and-the-ag-cover.png"
+cover: "/covers/circuit-2026-09-28-memory-pricing-pressures-meta-s-muse-ai-and-the-ag-cover.png"
+---
+
+![A cleanroom corridor receding into depth, wafer boxes stacked in the foreground, the far light shifting from warm white to cold blue](/covers/circuit-2026-09-28-memory-pricing-pressures-meta-s-muse-ai-and-the-ag-cover.png)
+
+> Exhaust the pond to catch the fish — will you not get them? But next year there will be no fish.
+>
+> —— *Lüshi Chunqiu, "On Rewards"* (Warring States period, translation mine)
+
+On the 2026-09-28 episode of The Circuit, Ben Bajarin and Jay Goldberg spent most of the hour on memory. Jay said CXMT, the Chinese DRAM maker, is on track to add another hundred thousand wafers per month of capacity by the end of next year — roughly a 33% year-on-year increase — while YMTC has pulled forward part of its NAND expansion. In the same week, two separate forecasts cut consumer device volumes across the board, PCs and phones alike, because of memory prices. Their read: data center memory keeps climbing, consumer memory may at best stop climbing, and if Samsung, SK Hynix and Micron squeeze their long-standing customers now, they hand the door to Chinese suppliers. All of this is industry chatter and the hosts' inference as of the recording date, not reported results.
+
+## The room stopped being polite
+
+Start three weeks earlier, at Hot Chips. It's a technical conference; people are usually courteous. Jay heard the same story from several attendees: the memory presenters faced a hostile crowd. The pushback was pointed — why move to hybrid bonded memory, why go higher, because every extra stack eats more wafers and wafers are already short. Try a different path forward.
+
+That image stuck with me. Technical rooms argue, sure, but for people to describe the room as angry, the audience has to be squeezed hard enough to drop the polite register. It tells you more than any shipment forecast does.
+
+## They found the expensive tier was cheaper
+
+Then Ben shared a detail he'd picked up, and it's my favorite part of the episode.
+
+Certain memory capacity tiers are currently priced below the tier beneath them. By intuition, OEMs should jump straight up — more capacity, less money. They don't. Because once you raise a spec, there's no walking it back. Give customers X GB this generation and you can't cut it next generation. So they'd rather sit on the pricier lower tier than lock themselves into a position they'll be paying for forever.
+
+![Four bars show cost per GB from smaller to larger capacity; the third bar is the tallest and the fourth drops back down, and the tallest one is marked as where hardware makers sit.](/figures/memory-price-tier-inversion-en.svg)
+
+The result is that price increases land in odd pockets — specifically the tiers OEMs are steering around. Ben noted that in China, phone memory and storage specs have flatlined for a year, and some vendors actually cut both on a lot of SKUs. Same reason: don't get stuck. The new iPhones kept memory tiers the same as the last generation while storage went up — the same logic, resolved the other way.
+
+![A staircase that only goes up, with the downward arrow crossed out, showing that once specs move up they cannot come back down.](/figures/spec-ratchet-one-way-en.svg)
+
+## Wuhan became an option
+
+Two or three weeks ago came reports that Apple had tested CXMT memory and was pushing hard for a US government waiver to buy it. Jay said that got a lot of attention in Korea. What Korea and Idaho can't supply, Wuhan can.
+
+Ben's addition was sharper: the barn door is open. Even after supply loosens, Apple isn't going to suddenly stop using a qualified alternate. That supplier is on the list now.
+
+Then came the line that carries the most weight in the episode. Roughly: if you think the memory makers hold a grudge against Apple, wait until you see the grudge Apple holds. Apple is their largest-scale customer, and staying somewhat customer-friendly through this is non-negotiable.
+
+Jay framed it as market segmentation. Memory makers serve two customer groups with opposite properties: consumers who are price sensitive down to the bone, and data centers that will take every bit they can get and barely look at the price. It's an old problem with known answers — manage them separately, and don't let the windfall side burn the relationship on the other side. He added that companies deep in the Taiwanese and European supply chain are sensitive to pressing margins in a way that looks opportunistic, because customers remember who looked after them in a tight year.
+
+![A memory maker sits in the middle, with two lines branching left and right to two opposite kinds of customers, one highly price sensitive and one buying whatever is available.](/figures/two-customer-groups-split-en.svg)
+
+## Meanwhile, someone opened Muse
+
+New topic. Meta announced a pile of AI products at its annual conference that week. Jay said the most interesting was a little Tamagotchi-style AI toy you have to keep alive; the second most interesting was the agent, Muse.
+
+Ben has used it. What Muse does best, he said, is anticipate — it stitches together what it knows and offers something: it sees your calendar, figures you'll be hungry around then, asks whether it should find you a restaurant. That requires being genuinely wired into your life.
+
+Jay took a small victory lap, having called the shape of this product two months ago. His real point came after: the hard part of AI now is the product, not the technology. The capability is sitting there; turning it into something people open every day is the unsolved piece.
+
+Ben Thompson's counter-argument came up too: consumers don't want to be productive, consumers like shopping. Bajarin agreed halfway. He admitted he enjoys Costco for some obscene reason — he likes wandering around in there. So what actually gets handed off is the stuff nobody enjoys: comparison shopping, hunting cheaper flights, the tedious middle of trip planning. You do the parts you care about; you delegate the rest.
+
+Push it into the enterprise and it gets more interesting. Ben said their research found a gigantic skill gap inside companies: one group deep in the weeds automating everything, another group staring at a prompt with no idea what to type. His hunch is that this little agent — Muse, Copilot, Gemini, whichever — is the bridge, because it opens with "I can make that document for you" and "I see you're struggling with this."
+
+One human detail worth keeping. Jay started using Instinct, and the second it asked for all his passwords he backed off — still has privacy concerns. Ben's answer: I don't, I'm ready to hand over my entire life. Two people in the same industry, opposite reactions to the same product. That gap explains more about where these products stand than any adoption number.
+
+## Then the bill arrives, and it's for CPUs
+
+The last segment covers the Anthropic–Akamai partnership, around $11 billion paid over several years, with Akamai granting warrants in exchange.
+
+Akamai is a name many people had filed away. It's a CDN with edge servers worldwide, and it bought Linode a few years back to run a cloud business. Neither side released details, so Jay spent a morning digging and came out with two theories. One: it's a pure compute deal — Anthropic needs CPUs for inference, probably didn't get many in the deals it has signed, and Akamai has a large pool of likely underutilized CPUs. Two: it's about network topology — a request to Claude today might land on a server in Seattle or Utah, and agents benefit from something closer to the user, which also handles part of the security layer. Following that thread, he expects Cloudflare to show up in a similar headline, minus the big pool of cloud CPUs.
+
+Why CPUs? Because Muse will tell you it has its own computer and can browse the web, and that computer runs in a VM. The CPU isn't only doing orchestration — it sits inside the loop from reasoning to action to review and back to reasoning, every lap.
+
+![A closed loop of four stops, each marked with a small tag showing that every lap consumes CPU.](/figures/agent-loop-cpu-every-turn-en.svg)
+
+Then the counterintuitive bit I enjoyed most. Twitter spent last week arguing about CPU demand, with people claiming a 30:1 ratio of CPUs to GPUs. Jay's reaction: hold on, a year ago the same guy was saying 16 GPUs to one CPU. The ratio flipped direction entirely and nobody explained the middle. His conclusion was to take a breath — while conceding the world is going to need a lot of CPUs. Ben added that Meta holds a very large CPU pool, which may make running these personal-assistant workloads easier for them than for others.
+
+![Two rows of squares: the top row has one colored square beside sixteen gray ones, and the bottom row flips it into many colored squares beside a single gray one.](/figures/cpu-gpu-ratio-flip-en.svg)
+
+## The news is good, so why is my position down
+
+Here's the spot where a lot of people get stuck. The headlines are all memory supercycle, price increases, shortages — and whatever you hold with consumer hardware exposure is falling. You start wondering whether you misread it.
+
+You didn't. The same event points in opposite directions at different layers of the chain. Rising memory prices are revenue to whoever sells memory and cost to whoever puts it in a box. Those two forecasts cutting consumer device volumes are that sentence made concrete: demand didn't vanish, the boxes got expensive, so fewer of them sell.
+
+![Two layers of a supply chain, where the same price increase is an upward revenue arrow on the top layer and a downward profit arrow on the bottom one.](/figures/same-price-opposite-meaning-en.svg)
+
+One layer down sits the old question of pricing power, and shortage is not the same thing as pricing power. Three places to look: whether gross margin actually moves up with price, whether the increase passes through downstream, and whether there are long-term contracts that hold. Memory makers hold all three right now, which is what a landlord looks like. The OEMs? They won't even raise a spec, because raising it is permanent. That's what the absence of pricing power looks like, stated more plainly than any filing footnote.
+
+## Noise or structure — how I sort it
+
+That 30:1 example works as a ruler.
+
+The same person inverted the same ratio inside a year with no derivation shown. I file that under noise — not because he's wrong, but because he handed me nothing I can check. Compare it to Ben's spec inversion: I can go look at a year of Chinese phone spec sheets and see whether it holds. Apple testing CXMT: I can watch for whether a waiver shows up. What I can grade later is structure; what I can't, I set aside.
+
+When a forgotten name like Akamai lands in a big headline, my first move isn't the stock chart either — it's one question: what does it hold that somebody else needs right now? That question gets you to the CPU pool and the global edge network. Understand what's being traded, then think about what it's worth. Reversing that order is how I've ended up owning stories I couldn't explain, so now I make myself write the "what does it hold" sentence first.
+
+## One thing worth taking away
+
+What I'll remember from this episode is Ben's line about the grudge.
+
+How you treat people when business is good decides how many options you have when it isn't. The memory makers hold every card today, and every time they price to the limit, every time a long-term customer feels dropped during a hard year, they push that customer to try a supplier they'd never have considered. By the time the cycle turns, that door doesn't close again.
+
+Something I've tried: think of one relationship where you currently hold the upper hand — someone waiting on your reply, a colleague who needs something from you, a partner you could say no to at any time. This week, pick one thing that costs you little and saves them a lot, and just do it before they ask, without making sure they notice.

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The spec staircase only goes up, and the downward arrow is crossed out.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .a { font-size:16px; fill:var(--accent); font-weight:700; }
+    .w { font-size:16px; fill:var(--warn); font-weight:700; }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62">Specs go up, never back down</text>
+
+  <rect x="140" y="360" width="200" height="70" fill="var(--card)" stroke="var(--line)" rx="6"/>
+  <rect x="380" y="290" width="200" height="140" fill="var(--card)" stroke="var(--line)" rx="6"/>
+  <rect x="620" y="220" width="200" height="210" fill="var(--card)" stroke="var(--line)" rx="6"/>
+
+  <text class="g" x="240" y="402" text-anchor="middle">Last gen</text>
+  <text class="g" x="480" y="332" text-anchor="middle">This gen</text>
+  <text class="g" x="720" y="262" text-anchor="middle">Next gen</text>
+
+  <path d="M345 375 L375 305" stroke="var(--accent)" stroke-width="3" fill="none"/>
+  <path d="M585 305 L615 235" stroke="var(--accent)" stroke-width="3" fill="none"/>
+  <text class="a" x="480" y="200">Up: buyers accept it</text>
+
+  <path d="M660 450 L420 450" stroke="var(--warn)" stroke-width="3" fill="none"/>
+  <line x1="520" y1="430" x2="560" y2="470" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="560" y1="430" x2="520" y2="470" stroke="var(--warn)" stroke-width="3"/>
+  <text class="w" x="700" y="456">Down: backlash</text>
+
+  <text class="c" x="60" y="500">So they skip the bump</text>
+</svg>
