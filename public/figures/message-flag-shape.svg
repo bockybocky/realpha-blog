@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="橫條由上而下逐行變短，形成旗子形狀，上方三成標示為該放重點的位置">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="70" font-size="27" font-weight="700" fill="var(--ink)">讀者掃一段文字的形狀</text>
+  <text class="t" x="60" y="104" font-size="16" fill="var(--dim)">一面旗子，不是一個方塊</text>
+
+  <rect x="60" y="150" width="520" height="44" rx="6" fill="var(--accent)" opacity="0.85"/>
+  <rect x="60" y="206" width="325" height="44" rx="6" fill="var(--accent)" opacity="0.6"/>
+  <rect x="60" y="262" width="200" height="44" rx="6" fill="var(--grey)" opacity="0.8"/>
+  <rect x="60" y="318" width="120" height="44" rx="6" fill="var(--grey)" opacity="0.6"/>
+  <rect x="60" y="374" width="70" height="44" rx="6" fill="var(--grey)" opacity="0.45"/>
+
+  <text class="t" x="600" y="179" font-size="19" fill="var(--ink)">第一行　八成</text>
+  <text class="t" x="600" y="235" font-size="19" fill="var(--ink)">第二行　五成</text>
+  <text class="t" x="600" y="291" font-size="19" fill="var(--dim)">往下遞減</text>
+  <text class="t" x="600" y="347" font-size="19" fill="var(--dim)">⋯</text>
+  <text class="t" x="600" y="403" font-size="19" fill="var(--dim)">幾乎沒人到</text>
+
+  <rect x="44" y="136" width="560" height="128" rx="10" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 5"/>
+  <text class="t" x="44" y="472" font-size="22" font-weight="700" fill="var(--warn)">重要的東西壓在前三成</text>
+  <text class="t" x="44" y="502" font-size="16" fill="var(--dim)">其餘讓人自己選要不要讀</text>
+</svg>
