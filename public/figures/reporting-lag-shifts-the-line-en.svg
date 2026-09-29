@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two lines of identical shape, one shifted right by a quarter so it looks out of step, overlapping completely once pushed back.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">Same line, shifted one step</text>
+
+<rect x="60" y="92" width="840" height="190" rx="10" fill="var(--card)"/>
+<text class="t" x="80" y="124" font-size="19" font-weight="700" fill="var(--dim)">What it looks like</text>
+<polyline points="180,250 260,180 340,215 420,140 500,190 580,130 660,175 740,120 820,160" fill="none" stroke="var(--grey)" stroke-width="4"/>
+<polyline points="260,250 340,180 420,215 500,140 580,190 660,130 740,175 820,120 880,160" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text class="t" x="118" y="256" font-size="16" fill="var(--dim)">Public markets</text>
+<text class="t" x="118" y="196" font-size="16" fill="var(--accent)">Private reports</text>
+<line x1="180" y1="272" x2="260" y2="272" stroke="var(--warn)" stroke-width="3"/>
+<text class="t" x="270" y="277" font-size="16" fill="var(--warn)">One quarter late</text>
+
+<rect x="60" y="316" width="840" height="190" rx="10" fill="var(--card)"/>
+<text class="t" x="80" y="348" font-size="19" font-weight="700" fill="var(--dim)">Pushed back</text>
+<polyline points="180,474 260,404 340,439 420,364 500,414 580,354 660,399 740,344 820,384" fill="none" stroke="var(--grey)" stroke-width="9"/>
+<polyline points="180,474 260,404 340,439 420,364 500,414 580,354 660,399 740,344 820,384" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="10 8"/>
+<text class="t" x="640" y="486" font-size="16" fill="var(--dim)">They overlap</text>
+
+<text class="t" x="60" y="542" font-size="22" font-weight="700" fill="var(--ink)">The dates differ, not the assets</text>
+</svg>

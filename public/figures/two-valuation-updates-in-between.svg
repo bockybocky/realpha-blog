@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一條時間線，定價所用的估值在最左端，入帳時已經跨過兩次估值更新">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">定價看的那份報表，早就過期了</text>
+
+<rect x="60" y="96" width="840" height="300" rx="10" fill="var(--card)"/>
+<line x1="130" y1="260" x2="860" y2="260" stroke="var(--line)" stroke-width="4"/>
+
+<circle cx="170" cy="260" r="12" fill="var(--accent)"/>
+<text class="t" x="132" y="230" font-size="19" font-weight="700" fill="var(--accent)">三月</text>
+<text class="t" x="132" y="306" font-size="16" fill="var(--dim)">最後一份季報</text>
+
+<circle cx="420" cy="260" r="12" fill="var(--warn)"/>
+<text class="t" x="386" y="230" font-size="19" font-weight="700" fill="var(--warn)">九月</text>
+<text class="t" x="386" y="306" font-size="16" fill="var(--dim)">談定價格</text>
+
+<circle cx="640" cy="260" r="9" fill="var(--grey)"/>
+<text class="t" x="606" y="230" font-size="16" fill="var(--dim)">十二月</text>
+<text class="t" x="606" y="306" font-size="16" fill="var(--dim)">估值更新</text>
+
+<circle cx="830" cy="260" r="12" fill="var(--ink)"/>
+<text class="t" x="792" y="230" font-size="19" font-weight="700" fill="var(--ink)">一月</text>
+<text class="t" x="770" y="306" font-size="16" fill="var(--dim)">進到帳上</text>
+
+<line x1="170" y1="352" x2="420" y2="352" stroke="var(--accent)" stroke-width="3"/>
+<text class="t" x="178" y="378" font-size="16" fill="var(--accent)">定價用的是這一端</text>
+<line x1="420" y1="196" x2="830" y2="196" stroke="var(--warn)" stroke-width="3"/>
+<text class="t" x="430" y="184" font-size="16" fill="var(--warn)">中間跳了兩次</text>
+
+<text class="t" x="60" y="466" font-size="22" font-weight="700" fill="var(--ink)">帳面會跳，是日期在跳</text>
+</svg>
