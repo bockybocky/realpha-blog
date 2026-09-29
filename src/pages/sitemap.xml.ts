@@ -28,7 +28,7 @@ export async function GET() {
 	const dynamicPaths: { path: string; lastmod: string }[] = [];
 	// 節目心得不列入 sitemap（2026-09-22）；原創與週報照列。判定規則在 src/lib/indexing.mjs
 	const everyPost = [...(await getBlogPosts('zh-TW')), ...(await getBlogPosts('en'))];
-	const skip = noindexSlugs(everyPost.map((p) => ({ slug: p.data.slug, lang: p.data.lang, kind: p.data.kind })));
+	const skip = noindexSlugs(everyPost.map((p) => ({ slug: p.data.slug, lang: p.data.lang, kind: p.data.kind, tags: p.data.tags })));
 
 	for (const locale of locales) {
 		const prefix = locale === 'en' ? '/en' : '';

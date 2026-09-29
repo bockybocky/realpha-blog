@@ -31,7 +31,7 @@ const alternatePath = enPosts.some((p) => p.data.slug === post.data.slug)
 	? `/en/blog/${post.data.slug}/`
 	: null;
 // 節目心得只擋 Google（2026-09-22）；中英任一版是心得，兩版同進退
-const googleNoindex = noindexSlugs([...posts, ...enPosts].map((p) => ({ slug: p.data.slug, lang: p.data.lang, kind: p.data.kind }))).has(post.data.slug);
+const googleNoindex = noindexSlugs([...posts, ...enPosts].map((p) => ({ slug: p.data.slug, lang: p.data.lang, kind: p.data.kind, tags: p.data.tags }))).has(post.data.slug);
 const labLabels = {
 	hypothesis: '假設',
 	plan: '驗證計畫',

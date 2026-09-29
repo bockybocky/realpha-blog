@@ -28,7 +28,7 @@ const path = `/en/blog/${post.data.slug}/`;
 const alternatePath = `/blog/${post.data.slug}/`;
 // Podcast notes: noindex for Google only (2026-09-22); zh and en versions share the same decision
 const zhPosts = await getBlogPosts('zh-TW');
-const googleNoindex = noindexSlugs([...posts, ...zhPosts].map((p) => ({ slug: p.data.slug, lang: p.data.lang, kind: p.data.kind }))).has(post.data.slug);
+const googleNoindex = noindexSlugs([...posts, ...zhPosts].map((p) => ({ slug: p.data.slug, lang: p.data.lang, kind: p.data.kind, tags: p.data.tags }))).has(post.data.slug);
 const labLabels = {
 	hypothesis: 'Hypothesis',
 	plan: 'Validation plan',

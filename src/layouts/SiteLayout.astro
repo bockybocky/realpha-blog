@@ -121,7 +121,7 @@ const footerNav = [
 		<title>{titleText}</title>
 		<meta name="description" content={description} />
 		{noindex && <meta name="robots" content="noindex" />}
-		{googleNoindex && !noindex && <meta name="googlebot" content="noindex" />}
+		{googleNoindex && !noindex && <meta name="robots" content="noindex, follow" />}
 		<link rel="canonical" href={canonical} />
 		{zhPath && <link rel="alternate" hreflang="zh-TW" href={absoluteUrl(zhPath)} />}
 		{enPath && <link rel="alternate" hreflang="en" href={absoluteUrl(enPath)} />}
