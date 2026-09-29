@@ -40,7 +40,8 @@ const hasPreregistration = post.data.category === 'lab' && (post.data.hypothesis
 const minutes = readingMinutes(post.body ?? '', locale);
 const pubText = formatDate(post.data.pubDate, locale);
 const updatedText = post.data.updatedDate ? formatDate(post.data.updatedDate, locale) : null;
-const showAds = post.data.category !== 'lab';
+// Podcast notes carry no ads at all (AdSense rejected the site for copied content, 2026-09-29)
+const showAds = post.data.category !== 'lab' && !googleNoindex;
 const related = relatedPosts(post, posts, 6, new Set(topicsData.series.map((s) => s.id)));
 // Cover moves under the title; the body already embeds the same image at the top, so hide that copy.
 const cover = post.data.cover;
@@ -61,6 +62,7 @@ const views = viewsOf('en', post.data.slug);
 	path={path}
 	alternatePath={alternatePath}
 	googleNoindex={googleNoindex}
+	noAds={!showAds}
 	image={post.data.ogImage}
 	breadcrumbs={[{ name: 'Blog', path: '/en/blog/' }, { name: post.data.title, path }]}
 	article={{

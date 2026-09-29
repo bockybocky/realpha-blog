@@ -30,9 +30,11 @@ interface Props {
 	noindex?: boolean;
 	/** 只對 Google 不收錄（節目心得頁，2026-09-22）；Bing 與其他爬蟲照收。中英兩版由呼叫端算好同進退 */
 	googleNoindex?: boolean;
+	/** 整頁不載入 AdSense（節目心得頁，2026-09-29 AdSense 以「複製內容」退件）；連自動錨定廣告也不會出現 */
+	noAds?: boolean;
 }
 
-const { title, description, locale, path, alternatePath, breadcrumbs = [], article, image = site.ogImage, noindex = false, googleNoindex = false } = Astro.props;
+const { title, description, locale, path, alternatePath, breadcrumbs = [], article, image = site.ogImage, noindex = false, googleNoindex = false, noAds = false } = Astro.props;
 const meta = localeMeta[locale];
 const titleText = title === site.name ? title : `${title} | ${site.name}`;
 const canonical = absoluteUrl(path);
@@ -155,7 +157,7 @@ const footerNav = [
 		<meta property="og:image" content={absoluteUrl(image)} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<script type="application/ld+json" set:html={jsonLd}></script>
-		<AdSenseHead />
+		{!noAds && <AdSenseHead />}
 	</head>
 	<body>
 		<div class="lang-bar" data-pagefind-ignore="all">

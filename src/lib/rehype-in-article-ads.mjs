@@ -71,6 +71,8 @@ export default function rehypeInArticleAds(options = {}) {
 	return (tree, file) => {
 		if (!on || !Array.isArray(tree?.children)) return;
 		if (file?.data?.astro?.frontmatter?.category === 'lab') return;
+		// 節目心得不插文章內廣告（2026-09-29 AdSense 以「複製內容」退件）；中英兩版 kind 已查一致
+		if (file?.data?.astro?.frontmatter?.kind === 'podcast-notes') return;
 		const kids = tree.children;
 		const heads = kids.filter((n) => isEl(n, 'h2') && !isTakeawayHeading(textOf(n)));
 		const picked = (skipFirst ? heads.slice(1) : heads).filter((_, i) => i % every === 0);
