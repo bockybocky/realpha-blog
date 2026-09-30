@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two bars on the left drop from 73% to 51%, while a line on the right still hugs the dashed high.">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:600; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="58">Internals fell, price did not</text>
+
+<rect x="60" y="92" width="400" height="352" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="84" y="124">Members above the 200-day average</text>
+<line x1="84" y1="404" x2="436" y2="404" stroke="var(--line)" stroke-width="2"/>
+<rect x="128" y="200" width="78" height="204" rx="4" fill="var(--grey)"/>
+<text class="g" x="132" y="188">73%</text>
+<text class="n" x="138" y="428">Late July</text>
+<rect x="290" y="261" width="78" height="143" rx="4" fill="var(--warn)"/>
+<text class="g" x="294" y="249">51%</text>
+<text class="n" x="306" y="428">Now</text>
+<path d="M 222 206 L 272 258" stroke="var(--warn)" stroke-width="3" fill="none"/>
+<polygon points="272,258 258,252 264,244" fill="var(--warn)"/>
+
+<rect x="500" y="92" width="400" height="352" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="524" y="124">The index itself</text>
+<line x1="524" y1="176" x2="876" y2="176" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<text class="n" x="524" y="166">High</text>
+<path d="M 524 372 L 588 340 L 640 356 L 700 288 L 756 246 L 812 196 L 876 190" stroke="var(--accent)" stroke-width="3" fill="none"/>
+<circle cx="876" cy="190" r="6" fill="var(--accent)"/>
+<text class="n" x="742" y="428">A point or two off the high</text>
+
+<text class="c" x="60" y="496">Same stretch, two charts going opposite ways</text>
+</svg>
