@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Bars ordered from long to short, topic weight in past questions on the left and study-note length on the right, both sides equal">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="70" font-size="27" font-weight="700" fill="var(--ink)">More questions on a topic, thicker notes</text>
+
+  <text class="t" x="60" y="130" font-size="19" fill="var(--dim)">Topic weight in past questions</text>
+  <text class="t" x="560" y="130" font-size="19" fill="var(--dim)">Notes</text>
+
+  <g>
+    <text class="t" x="60" y="190" font-size="16" fill="var(--ink)">Training</text>
+    <rect x="150" y="172" width="330" height="26" rx="4" fill="var(--accent)"/>
+    <rect x="560" y="172" width="330" height="26" rx="4" fill="var(--accent)" opacity="0.45"/>
+  </g>
+  <g>
+    <text class="t" x="60" y="252" font-size="16" fill="var(--ink)">Inference cost</text>
+    <rect x="150" y="234" width="205" height="26" rx="4" fill="var(--accent)"/>
+    <rect x="560" y="234" width="205" height="26" rx="4" fill="var(--accent)" opacity="0.45"/>
+  </g>
+  <g>
+    <text class="t" x="60" y="314" font-size="16" fill="var(--ink)">Data processing</text>
+    <rect x="150" y="296" width="180" height="26" rx="4" fill="var(--accent)"/>
+    <rect x="560" y="296" width="180" height="26" rx="4" fill="var(--accent)" opacity="0.45"/>
+  </g>
+  <g>
+    <text class="t" x="60" y="376" font-size="16" fill="var(--dim)">Other</text>
+    <rect x="150" y="358" width="85" height="26" rx="4" fill="var(--grey)"/>
+    <rect x="560" y="358" width="85" height="26" rx="4" fill="var(--grey)" opacity="0.5"/>
+  </g>
+
+  <line x1="520" y1="150" x2="520" y2="400" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="60" y="460" font-size="22" font-weight="600" fill="var(--ink)">Same ratio, same length on both sides</text>
+</svg>

@@ -1,0 +1,90 @@
+---
+title: "Passing AWS MLA-C01 in Four Weeks: My Route, and the Deadline I Almost Missed"
+description: "Notes from passing the AWS Certified Machine Learning Engineer – Associate (MLA-C01) exam on September 26, 2026: the exam specs, the English version's September 28 retirement and how I registered in Simplified Chinese instead, a four-week plan, and how I drilled questions. A personal study log."
+slug: "mla-c01-four-week-route"
+lang: "en"
+pubDate: 2026-10-01
+category: "tech"
+tags: ["AWS", "MLA-C01", "certification", "machine learning", "study methods"]
+ogImage: "/covers/mla-c01-four-week-route.png"
+cover: "/covers/mla-c01-four-week-route.png"
+---
+
+![A student studying by lamplight at night, a red circle on the wall calendar, a swirling sky over the city outside](/covers/mla-c01-four-week-route.png)
+
+> *If you know the enemy and know yourself, you need not fear the result of a hundred battles.*
+>
+> —— Sun Tzu, *The Art of War* (Spring and Autumn period); translation mine
+
+On September 26, 2026, I passed the AWS Certified Machine Learning Engineer – Associate exam (MLA-C01) after four weeks of prep. The exam has 65 questions, 50 of them scored, a passing mark of 720 out of 1000, and a $150 fee. What mattered most was checking the exam specs on day one: the English version was retiring on September 28, 2026, so I registered for the Simplified Chinese version and switched to English during the exam when I needed to. That only works while the localized versions stay open, and AWS hasn't said when they close.
+
+## What this post covers
+
+This is my own study log: how I laid out the four weeks and the few choices that shaped them. I'm not an AWS veteran. I'd passed a different AI certification before, but I had barely touched AWS services, so most of this was learning from scratch. If you're preparing for the same exam, or any exam with a clock running, maybe some of this saves you a bit of fumbling.
+
+## Point one: find out what the exam actually looks like
+
+Before opening any study material, I wrote down the specs, and I only used the official exam guide and the AWS certification page. Secondhand summaries are often out of date. Besides single and multiple choice, the exam has ordering and matching questions. The four domains are weighted like this:
+
+| Domain | Weight |
+|---|---|
+| Data preparation | 28% |
+| Model development | 26% |
+| Deployment and orchestration | 22% |
+| Monitoring, maintenance, and security | 24% |
+
+Scoring is compensatory, so you don't have to pass every domain, just the total. That matters when time runs short: you can let some obscure details go and protect the big blocks of points.
+
+## Point two: the English version was retiring, so I took another road
+
+The specs gave me a jolt. The last day to take MLA-C01 in English was September 28, 2026, after which it's replaced by MLA-C02. I had less than two months, and honestly I panicked a little.
+
+Two other lines on the official page saved me. One said the Japanese, Korean, and Simplified Chinese versions stay available during the new exam's beta period. The other said candidates who register in a localized language can switch to English during the exam. Put those together and the answer was obvious: register in Simplified Chinese, and flip to English whenever the translation confused me.
+
+![Two parallel timelines: the English version is cut off on September 28, while the Simplified Chinese version runs through the same date and fades out; the exam date falls before the cutoff](/figures/mla-c01-english-deadline-detour-en.svg)
+
+To be straight about it: AWS doesn't say when the Simplified Chinese version ends. There is a deadline. Nobody has published it. If you want to take this route, I wouldn't wait. Also, my registration confirmation listed 140 minutes for the Simplified Chinese version, which differs from what the English page says, so plan your pacing around your own confirmation email.
+
+## Point three: know where you're starting from
+
+On my earlier AI certification I did 1,250 practice questions and got 170 wrong. Python caused the most misses, machine learning concepts came second. Held up against MLA-C01, the picture was clear. Model development is 26% and lands right on my old weak spot. The other three domains add up to 74% and are all AWS services I'd never used.
+
+![A horizontal percentage bar split into four parts; model development at 26% is marked as an old weak spot, and the other three parts, 74% combined, are marked as brand-new ground](/figures/mla-c01-old-wound-vs-new-ground-en.svg)
+
+So I treated it as new material, and that shaped the plan: find the weakest domain first and put the hours there.
+
+## Point four: the four-week plan
+
+| Week | What I did |
+|---|---|
+| Week 0 | Baseline: 20 questions to see where I break |
+| Week 1 | Drill the weakest domain with a service cheat sheet |
+| Week 2 | Drill the second and third weakest; practice ordering and matching |
+| Week 3 | Finish the remaining questions; first pass redoing mistakes |
+| Week 4 | Timed full mocks; second pass on mistakes; a pre-exam trap list |
+
+The baseline comes before studying because you need to know where you're weak to know which chapter to read. I kept it to 20 questions, though. Good questions are capital. Burn through all of them on day one and you have nothing left to test yourself with later.
+
+![Two panels compare the same question set: the top one uses everything at the start and has nothing left to test with, the bottom one spends a small baseline first and saves most for late mocks](/figures/mla-c01-save-questions-as-capital-en.svg)
+
+## Point five: five questions at a time, and understand every miss
+
+I settled into a fixed rhythm: five questions, check answers, understand the wrong ones, then the next five. Five is short enough that I still remember what I was thinking when I got one wrong, which makes the correction stick.
+
+I didn't move on from a miss until I understood it, especially on ML concepts. Memorizing the answer is useless, because a reworded question gets you again. In weeks three and four I redid all my mistakes once each. The ones I still missed days later were the ones I truly didn't know.
+
+## Point six: which resources, and how I used them
+
+The official exam guide was my reference for scope and weights. My main material was a set of 271 past exam questions, and I often learned more from other people's discussion than from the answers, because you see why people pick the wrong option. Ordering and matching questions are newer to this exam and the answers often rely on images, so they deserve separate practice. There's also plenty of free material around, including practice questions and exam prep courses on AWS's own learning platform.
+
+I used Chinese translations only for cross-checking when the English wording tripped me up. Translations can be wrong too.
+
+## If you're stuck on "how much time do I have left"
+
+A lot of certification anxiety comes from not knowing how much time you really have. If I'd checked the specs a month later, I'd have missed the English version outright and might never have learned the localized route existed.
+
+Now checking the specs is my first study session, before I open any material. It takes under an hour and decides how the next four weeks go.
+
+## One thing to take away
+
+Before opening a textbook for any certification, spend day one on the official page and answer three questions: what's tested, how much each part weighs, and the last day you can sit it. That hour is how I found out the English exam was retiring and found the language workaround. Today, pick one thing you've been putting off, whether an exam, an application, or a renewal, and spend ten minutes confirming its real deadline.

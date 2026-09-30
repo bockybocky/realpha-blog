@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="百分比長條分四段，模型開發那一段被單獨標為舊傷，其餘三段合併括為全新領域，佔比七成四">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t h" x="60" y="72">考試的四塊，落在我身上是兩塊</text>
+
+  <rect x="60" y="200" width="235" height="86" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="295" y="200" width="218" height="86" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+  <rect x="513" y="200" width="185" height="86" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="698" y="200" width="202" height="86" fill="var(--card)" stroke="var(--line)"/>
+
+  <text class="t g" x="177" y="240" text-anchor="middle">資料準備</text>
+  <text class="t b" x="177" y="266" text-anchor="middle">28%</text>
+  <text class="t g" x="404" y="240" text-anchor="middle" fill="var(--warn)">模型開發</text>
+  <text class="t b" x="404" y="266" text-anchor="middle">26%</text>
+  <text class="t g" x="605" y="240" text-anchor="middle">部署自動化</text>
+  <text class="t b" x="605" y="266" text-anchor="middle">22%</text>
+  <text class="t g" x="799" y="240" text-anchor="middle">維運資安</text>
+  <text class="t b" x="799" y="266" text-anchor="middle">24%</text>
+
+  <path d="M295 172 L295 152 L513 152 L513 172" fill="none" stroke="var(--warn)" stroke-width="2"/>
+  <text class="t g" x="404" y="138" text-anchor="middle" fill="var(--warn)">舊傷</text>
+
+  <path d="M60 314 L60 340 L295 340" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <path d="M513 314 L513 340 L900 340" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="295" y1="340" x2="513" y2="340" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+  <text class="t g" x="480" y="374" text-anchor="middle" fill="var(--accent)">全新領域　74%</text>
+
+  <text class="t c" x="60" y="472">時間往最弱的那塊壓</text>
+</svg>

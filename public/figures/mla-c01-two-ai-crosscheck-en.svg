@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two lines merge at a central comparison point, then split into agree and disagree paths; the disagree path points back to the original source">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="66" font-size="27" font-weight="700" fill="var(--ink)">Trust it only when both agree</text>
+
+  <rect x="110" y="110" width="250" height="78" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="235" y="145" font-size="20" font-weight="600" fill="var(--ink)" text-anchor="middle">AI one</text>
+  <text class="t" x="235" y="171" font-size="15" fill="var(--dim)" text-anchor="middle">Quote source only</text>
+
+  <rect x="600" y="110" width="250" height="78" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="725" y="145" font-size="20" font-weight="600" fill="var(--ink)" text-anchor="middle">AI two</text>
+  <text class="t" x="725" y="171" font-size="15" fill="var(--dim)" text-anchor="middle">Find holes</text>
+
+  <path d="M235 188 L460 255" stroke="var(--accent)" stroke-width="3" fill="none"/>
+  <path d="M725 188 L500 255" stroke="var(--accent)" stroke-width="3" fill="none"/>
+
+  <rect x="400" y="258" width="160" height="60" rx="10" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t" x="480" y="296" font-size="19" font-weight="600" fill="var(--accent)" text-anchor="middle">Compare</text>
+
+  <path d="M430 318 L270 400" stroke="var(--accent)" stroke-width="3" fill="none"/>
+  <path d="M530 318 L690 400" stroke="var(--warn)" stroke-width="3" fill="none"/>
+
+  <rect x="140" y="402" width="260" height="80" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="270" y="437" font-size="19" font-weight="600" fill="var(--ink)" text-anchor="middle">They agree</text>
+  <text class="t" x="270" y="464" font-size="15" fill="var(--dim)" text-anchor="middle">Keep for now</text>
+
+  <rect x="560" y="402" width="260" height="80" rx="10" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text class="t" x="690" y="437" font-size="19" font-weight="600" fill="var(--warn)" text-anchor="middle">They clash</text>
+  <text class="t" x="690" y="464" font-size="15" fill="var(--dim)" text-anchor="middle">Read the source</text>
+
+  <text class="t" x="480" y="524" font-size="22" font-weight="600" fill="var(--ink)" text-anchor="middle">Where they clash is where you go read it yourself</text>
+</svg>

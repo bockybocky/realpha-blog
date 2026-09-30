@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two panels compare one question set: the top uses it all up front and the final stretch is empty; the bottom uses a small slice first and saves the rest for later mocks">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t h" x="60" y="66">Good questions are capital. Spend slowly</text>
+
+  <text class="t g" x="60" y="132" fill="var(--warn)">Do them all at once</text>
+  <rect x="60" y="150" width="620" height="70" fill="var(--warn)" opacity="0.28"/>
+  <rect x="60" y="150" width="620" height="70" fill="none" stroke="var(--warn)" stroke-width="2"/>
+  <text class="t b" x="370" y="192" text-anchor="middle">271 questions, all used</text>
+  <rect x="680" y="150" width="220" height="70" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="t b" x="790" y="192" text-anchor="middle">Exam eve: nothing left</text>
+
+  <text class="t g" x="60" y="304" fill="var(--accent)">20-question baseline first</text>
+  <rect x="60" y="322" width="72" height="70" fill="var(--accent)" opacity="0.30"/>
+  <rect x="60" y="322" width="72" height="70" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t b" x="96" y="416" text-anchor="middle">20</text>
+  <rect x="132" y="322" width="548" height="70" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t b" x="406" y="364" text-anchor="middle">Saved: drill by domain, redo misses twice</text>
+  <rect x="680" y="322" width="220" height="70" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t b" x="790" y="364" text-anchor="middle">Exam eve: timed mocks</text>
+
+  <text class="t c" x="60" y="496">Spend it early and it is gone later</text>
+</svg>
