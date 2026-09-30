@@ -28,7 +28,7 @@ CATEGORY = {'_id': '5a978e00fd897800016874cc', 'title': '投資理財', 'score':
 BLOG = 'https://blog.getrealpha.com'
 
 # 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
-NON_INVESTMENT = {'herdr-complete-guide', 'herdr-codexbar-jianguo-quota-dispatch', 'xiaotian-2026-09-07-mac-ane-inference-1-8x', 'codexbar-quota-dispatch','lunchuizhe-2026-09-05-ten-dollars-one-request', 'lunchuizhe-2026-09-06-subscription-is-a-clock', 'caleb-2026-09-04-token-efficient-is-not-cost-efficient', 'tao-2026-08-28-six-math-essentials','local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
+NON_INVESTMENT = {'mla-c01-four-week-route', 'mla-c01-ai-tutor', 'herdr-complete-guide', 'herdr-codexbar-jianguo-quota-dispatch', 'xiaotian-2026-09-07-mac-ane-inference-1-8x', 'codexbar-quota-dispatch','lunchuizhe-2026-09-05-ten-dollars-one-request', 'lunchuizhe-2026-09-06-subscription-is-a-clock', 'caleb-2026-09-04-token-efficient-is-not-cost-efficient', 'tao-2026-08-28-six-math-essentials','local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
                   'lunchuizhe-2026-08-31-pick-your-model-and-agent', 'tao-2026-08-31-ai-math-drunk-genius', 'runpod-vs-local-gpu-2026-09', 'tao-2026-09-02-coin-game-human-ai-division', 'kelly-tsai-graph-engineering-2026-09', 'lunchuizhe-2026-08-23-no-best-agent-only-right-seat', 'my-creative-path-2026-09', 'fear-of-blowing-up-2026-09', 'xiaotian-2026-09-03-evox-swarm-social-rsi',
                   'dont-let-ai-say-no-problem', 'video-memory-without-the-cloud',
                   'aice-ai-engineering-cert-prep', 'aice-must-know-concepts', 'read-the-source-before-you-install',
@@ -80,6 +80,8 @@ TAGS = {
     'hardware-is-hard': ['硬體', '供應鏈', '新創', '護城河'],
     'supply-chained-midyear-2026': ['AI', '半導體', '供應鏈', '通膨', '美股'],
     'video-memory-without-the-cloud': ['AI工具', '開源', '本地AI', '向量搜尋', '資料隱私'],
+    'mla-c01-four-week-route': ['AWS', 'MLA-C01', 'AI證照', '學習方法', '考試準備'],
+    'mla-c01-ai-tutor': ['AWS', 'MLA-C01', 'AI證照', 'AI學習', '學習方法'],
     'aice-ai-engineering-cert-prep': ['AI證照', '資策會', 'AICE', '學習方法', '考試準備'],
     'aice-must-know-concepts': ['AI證照', 'AICE', '機器學習', 'AI入門', '學習筆記'],
 }
@@ -119,6 +121,8 @@ COVERS = {
     # mdx 指向的檔案是 404，已一併改指這張）
     'invsunday-2026-08-02-rehacq-interfm': 'invsunday-rehacq-takahashi-media-cover.png',
     'video-memory-without-the-cloud': 'video-memory-without-the-cloud.png',
+    'mla-c01-four-week-route': 'mla-c01-four-week-route.png',
+    'mla-c01-ai-tutor': 'mla-c01-ai-tutor.png',
     'aice-ai-engineering-cert-prep': 'aice-ai-engineering-cert-prep.png',
     'aice-must-know-concepts': 'aice-must-know-concepts.png',
     'free-us-stock-data-dividend-trap': 'free-us-stock-data-dividend-trap.png',
