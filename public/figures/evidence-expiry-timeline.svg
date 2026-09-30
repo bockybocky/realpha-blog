@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="時間線上鎖定設計的時點與今天相距一年半，試過不行這句話掛在左邊那個時點">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<defs><style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style></defs>
+
+<text x="70" y="62" font-size="27" font-weight="700" fill="var(--ink)">「我們試過，不行」是哪一年的事</text>
+
+<line x1="90" y1="300" x2="880" y2="300" stroke="var(--line)" stroke-width="4"/>
+<polygon points="880,292 902,300 880,308" fill="var(--line)"/>
+
+<circle cx="200" cy="300" r="11" fill="var(--warn)"/>
+<text x="200" y="272" font-size="20" font-weight="700" fill="var(--warn)" text-anchor="middle">鎖定設計</text>
+<text x="200" y="344" font-size="16" fill="var(--dim)" text-anchor="middle">當時那批模型</text>
+
+<circle cx="760" cy="300" r="11" fill="var(--accent)"/>
+<text x="760" y="272" font-size="20" font-weight="700" fill="var(--accent)" text-anchor="middle">今天</text>
+<text x="760" y="344" font-size="16" fill="var(--dim)" text-anchor="middle">現在那批模型</text>
+
+<line x1="200" y1="392" x2="760" y2="392" stroke="var(--grey)" stroke-width="2"/>
+<line x1="200" y1="384" x2="200" y2="400" stroke="var(--grey)" stroke-width="2"/>
+<line x1="760" y1="384" x2="760" y2="400" stroke="var(--grey)" stroke-width="2"/>
+<text x="480" y="424" font-size="19" fill="var(--dim)" text-anchor="middle">一到兩年</text>
+
+<rect x="96" y="176" width="208" height="54" rx="10" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+<text x="200" y="210" font-size="19" fill="var(--ink)" text-anchor="middle">試過，不行</text>
+<line x1="200" y1="230" x2="200" y2="286" stroke="var(--warn)" stroke-width="2" stroke-dasharray="5 5"/>
+
+<text x="70" y="478" font-size="22" font-weight="700" fill="var(--ink)">這種證據會過期</text>
+</svg>

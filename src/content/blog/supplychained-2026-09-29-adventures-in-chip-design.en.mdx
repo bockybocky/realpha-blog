@@ -1,0 +1,87 @@
+---
+title: "It Can Write the Code, It Just Doesn't Know Where Things Break: Notes on an Episode About AI in Chip Design"
+description: "Supply Chained's September 29, 2026 episode 'Adventures in Chip Design' has John of Asianometry and Tim Culpan of Culpium on the current state of AI inside the chip design flow. These are my listening notes and extended reading — educational industry commentary, not investment advice, and no stock recommendations."
+slug: "supplychained-2026-09-29-adventures-in-chip-design"
+lang: "en"
+pubDate: 2026-09-30
+category: "investing"
+kind: "podcast-notes"
+tags: ["semiconductors", "chip design", "EDA", "AI", "TSMC"]
+tldr: "Models can already write the language chips are designed in; what stops them is verification, which requires knowing where a chip might break."
+ogImage: "/covers/supplychained-2026-09-29-adventures-in-chip-design-cover.png"
+cover: "/covers/supplychained-2026-09-29-adventures-in-chip-design-cover.png"
+---
+
+![A verification lab corridor late at night, a row of monitors showing waveforms receding into depth, a senior engineer in the near pool of light pointing at a screen](/covers/supplychained-2026-09-29-adventures-in-chip-design-cover.png)
+
+> Nothing is without its strength, and nothing without its shortcoming; people are the same. So the good learner borrows the strengths of others to make up for his own lack.
+>
+> —— *Lüshi Chunqiu*, "Relying on the Many" (Warring States; translation mine)
+
+The September 29, 2026 episode of *Supply Chained*, "Adventures in Chip Design," has John of Asianometry talking with Tim Culpan of Culpium about where AI actually sits in the chip design flow today. John's read: large language models have gotten good enough at writing RTL — the language that describes how data moves inside a chip — to one-shot small blocks of a design, but verification is the wall, because writing a verification test means knowing in advance where the chip might go wrong, and in his words the model "doesn't know what might go wrong." He also flags that this judgment has a shelf life: a design has to be locked one to two years before tape-out, so a team saying "we tried it, it didn't work" may be describing models from eighteen months ago. And he argues the variables that decide whether an AI chip startup lives are HBM and wafer allocation plus having a big lab willing to use your compute — all of which matter more than whether you used AI tools.
+
+## Which part of the flow this is about
+
+EDA, in plain words, is the software you design chips with. The field has been two and a half companies for years: Cadence, Synopsys, plus the old Mentor now inside Siemens. RTL is the language you write a design in first — you describe how the data flows, and that later gets turned into gates and eventually arranged into the physical chip.
+
+John says he heard about this before he went to Hot Chips. Some people who had come to Taiwan told him language models were getting good enough at writing RTL to one-shot small pieces of a design, and that the models were never trained for it in the first place. Then he got to Hot Chips and found a whole crowd of startups doing this, each trying to stand out. The number surprised him, because everyone knows EDA is a duopoly.
+
+## Why that was unexpected
+
+His first instinct was to doubt the training data. Friends in the open source design community will tell him a different story, but the impression he gets from people using closed source tools is that there isn't much of this floating around the open web — he and Tim riff on it, joking that Reddit and Craigslist aren't exactly full of RTL. You can scrape GitHub, but the quality sits at student level, and the two open source EDA tools are a long way from the closed source ones.
+
+So a model doing this without being trained for it points to a capability that didn't come from memorizing a corpus. John thinks it adds up, since Anthropic and OpenAI are both designing their own AI chips, and OpenAI's Jalapeño is already out.
+
+## The wall: knowing where it breaks
+
+He starts with PPA — power, performance, area. He had said in a video that this was solvable; after it went out, people wrote in to tell him it isn't that easy. The three numbers pull against each other, so you touch one and the other two go off, and it's a mess.
+
+The harder wall is further back, in verification. John's framing: writing the verification test means you have to know where the chip might go wrong, and the model hasn't mastered that instinct.
+
+Unpack that and verification turns out to need a kind of negative knowledge — it doesn't ask how to do it right, it asks how it will fail. That knowledge lives in a person, and it comes from having taped out chips over and over. John's comparison is a designer who's done this for thirty years and has a pile of tape-outs behind him: he looks at something and knows this part might blow up and that part might blow up. He has the intuition, the model doesn't, and John thinks the model won't have it for a long time.
+
+## Could another explanation work: hallucination, a small corpus
+
+Tim offers a different route. Conversations already produce hallucinations, he says, and the usable RTL corpus is smaller than the complete works of Shakespeare, so an AI model's depth of knowledge there would be thinner; from his own experience coding with Claude and ChatGPT, the output is often rubbish and you have to handhold it. He asks John whether anyone admits hallucination is the problem.
+
+John doesn't take the frame. What the people in the field told him was subtler, he says — they weren't talking about hallucinations, they were saying it doesn't know what might go wrong. He uses a spectrum: at one end, tasks that are just execute-on-this; at the other, tasks that need creativity and experience. Models are weak at the far end.
+
+The two explanations differ in what they predict. The hallucination route predicts that more data and stronger models clear the wall. The experience route predicts that even with more data and zero hallucination, the missing piece is still what sits in a thirty-year veteran's head. John picks the second, which is why the picture he describes looks like this: somebody with a lot of tape-outs behind them — OpenAI's Richard Ho is his example — guides a team, and AI tools underneath token-max their way to a great chip.
+
+## When this judgment stops holding
+
+This is the part I care about, because he leaves two openings himself.
+
+The first is shelf life. A design is locked one to two years before tape-out, so when a team tells him "we tried these ideas and they didn't work for our case," they're describing the models of eighteen months ago. John says it out loud: maybe the model wasn't ready then, maybe it's ready now, we'll see. Which means "someone tried it and failed" is evidence that expires in this field, and when you cite it you have to ask what year it's from.
+
+The second is going around the wall. If Cadence, Synopsys and Siemens open their EDA tools up to models — the episode mentions MCP or skills as the plumbing, and John's analogy is a model driving Blender to make something — then the model never has to grow that intuition. It probes for it with the tools instead. That's the wall being bypassed rather than crossed, and for an investor the two mean different things. He adds one line: it won't be free, it'll cost a lot of money.
+
+## How I now read a "designed with AI" headline
+
+A company says it used AI to accelerate chip design and you don't know how much to believe. Neither do I. This episode gave me three cuts.
+
+First, separate which part the AI did. Producing RTL is output; judging whether it will break is judgment, and the difficulty gap between them is a level. If the sentence doesn't say which one, discount it. John's label for Jalapeño is "AI accelerated," and then he asks the follow-up: how much of that is really in there, and how much did it end up helping the design.
+
+Second, count the speaker's tape-outs. The same sentence from someone who has shipped ten chips and from a company that has never shipped one describes two different realities.
+
+Third, the one I use most. This episode puts the weight of success somewhere else entirely: how much HBM SK Hynix allocated you, how much capacity TSMC allocated you, whether a big lab will run its workload on your compute. John's line is that this stuff matters way more than using AI EDA to speed up your flow. Tim puts it harder — you can design the best chip in the world, and without capacity at a leading foundry you sit there twiddling your thumbs, and by the time you finally get a few thousand hot lots it's too late. So I look for the allocation sentence and the customer sentence first; if they aren't there, everything above them about AI is a story about process efficiency.
+
+## A few other things worth keeping
+
+- The system carries more weight than the chip. What you ship is a whole machine — rack, cooling, networking — and a large share of the final performance comes from the system. John says he's been told a chip on an older node can still be competitive if it's integrated well, and his example is Huawei: no leading edge node, yet a system that works. You don't need to get to 4 nanometer.
+- The differentiator keeps moving. Tim recalls clock speed twenty years ago, when AMD beat the world to 1 GHz by about three days on the strength of a press release; then it was core counts; in the AI era even core count steps aside for bandwidth and speed to the various kinds of memory.
+- The incumbents aren't sitting still. Besides opening their tools to models, they're training their own; John says he knows this will annoy people, but he doesn't rate them highly, since neither the data nor the talent looks like it's there in volume.
+- Relationships are a gate. The episode names design service firms — Broadcom, Taiwan's Global Unichip, and Alchip, now closely backed by Amazon — and what they share is knowing TSMC and UMC well enough to skip the introductions.
+- TSMC is trying to stand where the puck is going. Tim says they send people out to ask customers what problem they can't solve, then take it back to R&D; the items on the table now are thermal and silicon photonics.
+
+## Sources and further reading
+
+- *Supply Chained*, "Adventures in Chip Design," September 29, 2026, hosted by John (Asianometry) and Tim Culpan (Culpium)
+- The listener mail mentioned in the episode was a response to John's own chip design video on the Asianometry channel; that's where the fuller context sits
+- For background, five terms cover most of the episode: RTL, EDA, PPA, verification, tape-out
+
+## 帶得走的一件事
+
+Whether a person or a tool is actually ready shows up in whether they can tell you where the thing will break — not in how fast they produce.
+
+Something I've tried: before you hand off a task you know well — to a colleague, to a family member, to an AI — write down three places it's most likely to go wrong, fold the paper, and don't show them. When they're done, take it out and compare. The ones they avoided on their own are where you can let go; the ones they never saw coming are the part of you that can't be swapped out yet.

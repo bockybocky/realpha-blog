@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="左邊只有一條通往終點的路線，右邊同一條路旁散布許多叉號">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<defs><style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style></defs>
+
+<text x="70" y="62" font-size="27" font-weight="700" fill="var(--ink)">兩種知識，長的形狀不一樣</text>
+
+<rect x="70" y="110" width="390" height="300" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="96" y="148" font-size="20" font-weight="700" fill="var(--accent)">怎麼做才對</text>
+<path d="M110 340 L200 300 L300 250 L420 210" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<circle cx="110" cy="340" r="7" fill="var(--accent)"/>
+<circle cx="420" cy="210" r="9" fill="var(--accent)"/>
+<text x="118" y="378" font-size="16" fill="var(--dim)">一條路</text>
+
+<rect x="500" y="110" width="390" height="300" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="526" y="148" font-size="20" font-weight="700" fill="var(--warn)">會怎麼壞</text>
+<path d="M540 340 L630 300 L730 250 L850 210" fill="none" stroke="var(--grey)" stroke-width="4"/>
+<g stroke="var(--warn)" stroke-width="3">
+  <path d="M566 296 l16 16 M582 296 l-16 16"/>
+  <path d="M614 246 l16 16 M630 246 l-16 16"/>
+  <path d="M672 330 l16 16 M688 330 l-16 16"/>
+  <path d="M708 196 l16 16 M724 196 l-16 16"/>
+  <path d="M760 300 l16 16 M776 300 l-16 16"/>
+  <path d="M812 168 l16 16 M828 168 l-16 16"/>
+  <path d="M836 268 l16 16 M852 268 l-16 16"/>
+</g>
+<text x="548" y="378" font-size="16" fill="var(--dim)">四面八方</text>
+
+<text x="70" y="468" font-size="22" font-weight="700" fill="var(--ink)">右邊那張地圖，要流過很多次片才畫得出來</text>
+</svg>
