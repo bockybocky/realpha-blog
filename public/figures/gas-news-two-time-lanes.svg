@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩條時間帶，短期帶裡是庫存與天氣與不可抗力，長期帶裡是北溪與新投資決定，兩帶被虛線隔開">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .u { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="56">同一則新聞，先問它落在哪一條帶上</text>
+<rect x="140" y="110" width="760" height="130" fill="var(--card)" stroke="var(--accent)" stroke-width="2" rx="8"/>
+<text class="g" x="164" y="146" fill="var(--accent)">接下來三個月</text>
+<rect x="360" y="160" width="150" height="56" fill="var(--accent)" rx="4"/>
+<text class="u" x="435" y="194" fill="var(--page)" text-anchor="middle">庫存水位</text>
+<rect x="530" y="160" width="150" height="56" fill="var(--accent)" rx="4"/>
+<text class="u" x="605" y="194" fill="var(--page)" text-anchor="middle">不可抗力</text>
+<rect x="700" y="160" width="150" height="56" fill="var(--accent)" rx="4"/>
+<text class="u" x="775" y="194" fill="var(--page)" text-anchor="middle">天氣</text>
+<line x1="140" y1="272" x2="900" y2="272" stroke="var(--line)" stroke-width="3" stroke-dasharray="8 6"/>
+<rect x="140" y="300" width="760" height="130" fill="var(--card)" stroke="var(--grey)" stroke-width="2" rx="8"/>
+<text class="g" x="164" y="336" fill="var(--dim)">2030 年之後</text>
+<rect x="360" y="350" width="150" height="56" fill="var(--grey)" rx="4"/>
+<text class="u" x="435" y="384" fill="var(--page)" text-anchor="middle">北溪</text>
+<rect x="530" y="350" width="150" height="56" fill="var(--grey)" rx="4"/>
+<text class="u" x="605" y="384" fill="var(--page)" text-anchor="middle">投資決定</text>
+<rect x="700" y="350" width="150" height="56" fill="var(--grey)" rx="4"/>
+<text class="u" x="775" y="384" fill="var(--page)" text-anchor="middle">新產能</text>
+<text class="c" x="140" y="484">解釋眼前的價格，只能用上面那一條</text>
+</svg>
