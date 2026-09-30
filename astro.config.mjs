@@ -66,6 +66,11 @@ const redirects = {
 	'/en/methodology': '/en/',
 	'/series': '/blog/',
 	'/en/series': '/en/blog/',
+	// 2026-09-30 重複心得合併（AdSense 相似度）：併掉篇下架，舊網址導到主稿
+	'/blog/caibaogou-2026-08-25-547-bmw-neue-klasse-ft-bmw-alexander': '/blog/caibaogou-2026-08-25-546-bmw-neue-klasse-ft-bmw-alexander/',
+	'/en/blog/caibaogou-2026-08-25-547-bmw-neue-klasse-ft-bmw-alexander': '/en/blog/caibaogou-2026-08-25-546-bmw-neue-klasse-ft-bmw-alexander/',
+	'/blog/caibaogou-ep541-panel-level-packaging': '/blog/caibaogou-2026-07-26-541-plp/',
+	'/en/blog/caibaogou-ep541-panel-level-packaging': '/en/blog/caibaogou-2026-07-26-541-plp/',
 };
 for (const [from, to] of Object.entries(oldTopic)) {
 	redirects[`/topics/${from}`] = `/topics/${to}/`;
