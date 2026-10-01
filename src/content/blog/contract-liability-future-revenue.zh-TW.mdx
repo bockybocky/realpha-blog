@@ -4,6 +4,7 @@ description: "合約負債是客戶先付錢、公司還沒交貨的那筆錢。
 slug: "contract-liability-future-revenue"
 lang: "zh-TW"
 pubDate: 2026-07-06
+updatedDate: 2026-10-01
 category: "investing"
 tags: ["accounting", "saas", "fundamental-analysis", "education"]
 ogImage: "/covers/contract-liability-future-revenue-cover.png"
@@ -20,7 +21,7 @@ cover: "/covers/contract-liability-future-revenue-cover.png"
 
 這篇用最白話的方式講清楚它是什麼、為什麼重要，以及怎麼真的從財報裡把它找出來。
 
-合約負債是客戶已經付錢、公司還沒交貨或還沒做完服務的那筆錢，記在資產負債表的流動負債（Realpha 部落格方法論文，2026 年 7 月 6 日）。它持續變大、後續又一筆筆轉成營收，代表需求紮實；對按月認列營收的 SaaS 軟體公司，它比每月營收更早透露接單動能。限制是它還不是已經賺到的獲利，也可能因大量退款縮水。美股在資產負債表找 Deferred revenue、Contract liabilities 或 Unearned revenue，current 和 non-current 兩塊要相加；台股採用 IFRS 15 後直接有「合約負債」科目。
+合約負債是客戶已經付錢、公司還沒交貨或還沒做完服務的那筆錢，記在資產負債表的流動負債（Realpha 部落格方法論文，2026 年 7 月 6 日）。它持續變大、後續又一筆筆轉成營收，代表需求紮實；對按月認列營收的 SaaS 軟體公司，它比每月營收更早透露接單動能。限制是它還不是已經賺到的獲利，也可能因大量退款縮水。美股在資產負債表找 Deferred revenue、Contract liabilities 或 Unearned revenue，current 和 non-current 兩塊要相加；台股採用 IFRS 15 後直接有「合約負債」科目。它能預測未來營收，是因為這筆錢在交貨或服務完成時就會認列為營收；除了退款或合約取消，它不會變成別的東西。
 
 ## 一句話：客戶先付錢、公司還沒交貨
 
@@ -35,6 +36,11 @@ cover: "/covers/contract-liability-future-revenue-cover.png"
 - 預售屋訂金、遊戲儲值
 
 錢都已經進到公司口袋了，但東西還沒給。
+
+會計準則的正式寫法是這樣：
+
+> 合約負債係企業因已自客戶收取對價（或已可自客戶收取對價），而須移轉商品或勞務予客戶之義務。<br/>
+> —— 國際財務報導準則第 15 號（IFRS 15）第 106 段，會計研究發展基金會正體中文版（2015 年草案）
 
 ## 為什麼收了錢反而記「負債」
 
@@ -59,6 +65,23 @@ cover: "/covers/contract-liability-future-revenue-cover.png"
 SaaS 圈還有一個升級版指標叫 RPO（Remaining Performance Obligations，剩餘履約義務），把已簽約但還沒認列的合約量全算進去，能見度看得更遠。
 
 ![一條時間軸，中央豎線標「今天」；營收的橫條只往左延伸到今天為止，合約負債的橫條往右延伸一段，RPO 的橫條往右延伸更長——三條長度不同，表示看得多遠不同。](/figures/contract-liability-visibility-horizon.svg)
+
+#### 實例：Salesforce 2026 年 7 月底
+
+Salesforce（CRM）是訂閱制軟體公司，資產負債表上這個科目叫 Unearned revenue，只列一行在流動負債。以下數字取自它的季報（2026 年 8 月 27 日申報）與去年同期季報（2025 年 9 月 4 日申報），單位億美元：
+
+| 項目 | 2025 年 7 月底 | 2026 年 7 月底 | 一年變化 |
+|---|---|---|---|
+| 合約負債（Unearned revenue） | 165.55 | 187.87 | +13.5% |
+| 剩餘履約義務（RPO） | 599 | 663 | 約 +11%（公司原文） |
+| 當季營收（5～7 月） | 102.36 | 113.45 | +10.8% |
+
+兩個看法：
+
+- 這一季，合約負債和剩餘履約義務的成長都略高於營收成長。單一季的數字不能證明它一定準，要連看幾季。
+- 要跟**去年同一季**比，不能跟上一季比。Salesforce 多半向客戶一年開一次帳單（季報原文：annual installments），餘額會隨季節大起大落：2026 年 1 月底是 243.17 億，7 月底是 187.87 億。直接比這兩個數字，會誤以為接單少了兩成。
+
+⚠️ 本例只用來示範怎麼讀數字，不是對 Salesforce 的投資意見。
 
 ### 二、等於客戶「無息借錢」給公司
 

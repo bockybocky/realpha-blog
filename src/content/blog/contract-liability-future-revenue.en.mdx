@@ -4,6 +4,7 @@ description: "A contract liability is money a customer has paid before the compa
 slug: "contract-liability-future-revenue"
 lang: "en"
 pubDate: 2026-07-06
+updatedDate: 2026-10-01
 category: "investing"
 tags: ["accounting", "saas", "fundamental-analysis", "education"]
 ogImage: "/covers/contract-liability-future-revenue-cover.png"
@@ -20,7 +21,7 @@ An income statement tells you how much a company earned in the past. But there's
 
 This post explains, in plain language, what it is, why it matters, and how to actually dig it out of the filings.
 
-A contract liability is cash a customer has already paid for goods or services the company has not yet delivered, recorded under current liabilities on the balance sheet (Realpha Blog methodology note, 6 July 2026). When the balance keeps growing and later converts into revenue, demand is solid, and for SaaS companies that must recognize revenue month by month it shows order momentum earlier than monthly revenue does. The limit: it is not profit already earned, and it can shrink from a wave of refunds. In US filings look for Deferred revenue, Contract liabilities or Unearned revenue and add the current and non-current portions; under IFRS 15 the balance sheet carries an explicit contract liabilities line.
+A contract liability is cash a customer has already paid for goods or services the company has not yet delivered, recorded under current liabilities on the balance sheet (Realpha Blog methodology note, 6 July 2026). When the balance keeps growing and later converts into revenue, demand is solid, and for SaaS companies that must recognize revenue month by month it shows order momentum earlier than monthly revenue does. The limit: it is not profit already earned, and it can shrink from a wave of refunds. In US filings look for Deferred revenue, Contract liabilities or Unearned revenue and add the current and non-current portions; under IFRS 15 the balance sheet carries an explicit contract liabilities line. It predicts future revenue because this money is recognized as revenue once the goods are delivered or the service is performed; apart from refunds or cancelled contracts, it has nowhere else to go.
 
 ## In one sentence: the customer has paid, the company hasn't delivered
 
@@ -35,6 +36,11 @@ It's everywhere in daily life:
 - A pre-sale deposit on a home, or in-game top-ups
 
 The cash is in the company's pocket — but nothing has been handed back yet.
+
+Here is how Salesforce describes the line in its own quarterly filing:
+
+> Unearned revenue represents amounts that have been invoiced in advance of revenue recognition and is recognized as revenue when transfer of control to customers has occurred or services have been provided.<br/>
+> —— Salesforce Form 10-Q for the quarter ended 31 July 2026, filed 27 August 2026
 
 ## Why does cash received get booked as a *liability*?
 
@@ -59,6 +65,23 @@ When contract liabilities keep growing, customers are willing to pay up front to
 The SaaS world has an upgraded version of this metric called RPO (Remaining Performance Obligations), which folds in all the signed-but-not-yet-recognized contract value, extending your line of sight even further.
 
 ![A timeline with a vertical line marked today: the revenue bar extends only to the left, the contract-liability bar extends a little to the right, and the RPO bar extends further still, so the three differ in how far ahead they let you see.](/figures/contract-liability-visibility-horizon-en.svg)
+
+#### Example: Salesforce at the end of July 2026
+
+Salesforce (CRM) is a subscription software company. On its balance sheet the line is called Unearned revenue, shown as a single current liability. Figures below come from its 10-Q filed 27 August 2026 and the prior-year 10-Q filed 4 September 2025, in US$ billions:
+
+| Item | 31 Jul 2025 | 31 Jul 2026 | Change |
+|---|---|---|---|
+| Unearned revenue (contract liability) | 16.56 | 18.79 | +13.5% |
+| Remaining performance obligation (RPO) | 59.9 | 66.3 | about +11% (company's figure) |
+| Quarterly revenue (May–Jul) | 10.24 | 11.35 | +10.8% |
+
+Two readings:
+
+- This quarter, unearned revenue and RPO both grew a little faster than revenue. One quarter proves nothing on its own; track several.
+- Compare with the **same quarter last year**, not the previous quarter. Salesforce mostly bills customers in annual installments (its own wording), so the balance swings with the calendar: US$24.32 billion at 31 January 2026 versus US$18.79 billion at 31 July 2026. Comparing those two would wrongly suggest bookings fell by a fifth.
+
+This example only shows how to read the numbers. It is not an investment view on Salesforce.
 
 ### 2. It's an interest-free loan from customers
 
