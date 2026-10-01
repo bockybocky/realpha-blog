@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="電池少時價格曲線起伏大、價差寬；電池多時曲線被壓平，價差只剩一小段">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="60" font-size="27" font-weight="700" fill="var(--ink)">價差被自己人壓平</text>
+  <text class="t" x="60" y="92" font-size="16" fill="var(--dim)">一天之內的電價</text>
+
+  <line x1="110" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <line x1="110" y1="150" x2="110" y2="440" stroke="var(--line)" stroke-width="2"/>
+
+  <polyline points="110,390 200,400 290,200 380,170 470,380 560,395 650,185 740,210 830,385"
+            fill="none" stroke="var(--grey)" stroke-width="4"/>
+  <polyline points="110,340 200,345 290,290 380,280 470,335 560,342 650,285 740,292 830,338"
+            fill="none" stroke="var(--accent)" stroke-width="4"/>
+
+  <line x1="900" y1="170" x2="900" y2="400" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="893" y1="170" x2="907" y2="170" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="893" y1="400" x2="907" y2="400" stroke="var(--grey)" stroke-width="3"/>
+
+  <line x1="866" y1="282" x2="866" y2="342" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="859" y1="282" x2="873" y2="282" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="859" y1="342" x2="873" y2="342" stroke="var(--accent)" stroke-width="3"/>
+
+  <text class="t" x="300" y="152" font-size="19" font-weight="700" fill="var(--dim)">電池少</text>
+  <text class="t" x="300" y="262" font-size="19" font-weight="700" fill="var(--accent)">電池多</text>
+  <text class="t" x="60" y="500" font-size="22" font-weight="700" fill="var(--ink)">報價互相往下壓，可賺的那段就縮短</text>
+</svg>

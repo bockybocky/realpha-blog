@@ -1,0 +1,100 @@
+---
+title: "The ERCOT Battery Paradox: Revenue Down 84%, and We Still Need More"
+description: "The October 1, 2026 episode of Catalyst with Shayle Kann on grid-scale batteries in Texas. Per-kilowatt revenue fell from $200 to $30 while the financing bar sits near $100 — and the market says it needs far more storage. A breakdown of the mechanism, the recovery thesis, and where it breaks. Educational, not investment advice."
+slug: "catalyst-2026-10-01-ercot-batteries-boom-bust-or-rebound"
+lang: "en"
+pubDate: 2026-10-01
+category: "investing"
+kind: "podcast-notes"
+tags: ["ERCOT", "energy storage", "power markets", "data centers", "podcast notes"]
+tldr: "ERCOT's battery revenue collapse came from batteries flattening the very spreads they chase; the recovery date hinges on how much new data center load actually draws from the grid."
+ogImage: "/covers/catalyst-2026-10-01-ercot-batteries-boom-bust-or-rebound-cover.png"
+cover: "/covers/catalyst-2026-10-01-ercot-batteries-boom-bust-or-rebound-cover.png"
+---
+
+![Rows of grid-scale battery enclosures stretching across a Texas plain at dusk, with transmission towers and a lit data center far off on the horizon](/covers/catalyst-2026-10-01-ercot-batteries-boom-bust-or-rebound-cover.png)
+
+> Misfortune is what fortune leans upon; fortune is where misfortune hides.
+>
+> —— Laozi, *Tao Te Ching*, Chapter 58 (Spring and Autumn period; translated by the author)
+
+On the October 1, 2026 episode of *Catalyst with Shayle Kann*, host Shayle Kann sat down with Modo Energy's US market lead to talk about grid-scale batteries in ERCOT. The contradiction on the table: the fleet grew from a couple hundred megawatts at the start of the decade to roughly 17–18 GW approved for commercial operation today, while revenue fell from about $200 per installed kilowatt in 2023 to around $30 over the last twelve months — against a financing bar near $100 for a two-hour system. His model doesn't see volatility return in a big way until 2029 or 2030. Whether that date holds rests on one number: how much of the incoming data center load actually draws from the grid.
+
+## A market losing money and short of supply at the same time
+
+One side first. ERCOT batteries earned roughly 84% less in 2025 than in 2023. In 2023 there were 58 days when the average battery cleared at least 50 cents per kilowatt; last year there were three. Developers noticed. New capacity entering the queue has halved from its peak, and 13.7 GW of battery projects withdrew in the first half of this year — several of them after signing an interconnection agreement, which a few years ago was close to a guarantee a project would get built.
+
+The other side. ERCOT peaks at 91 GW today. Data center projects with stated interest in connecting add up to four or five hundred gigawatts. That headline is wildly inflated, but even a tenth of it rewrites a 91 GW system. Meanwhile more than 20 GW of aging coal and gas is losing money and some of it will close, gas turbines are sold out for years, and batteries are the resource that can show up on time.
+
+So the question narrows: how long is the gap between the loss-making present and the short-of-supply future, and who is still standing when it closes?
+
+## How the revenue ate itself
+
+Texas sells energy. Other markets pay a capacity charge — you sit there available and get paid whether you run or not. ERCOT has no such payment, so a battery has to earn from prices themselves.
+
+The first way to earn was ancillary services: frequency response, contingency reserve, getting paid to sit on capacity. In 2022 and 2023, most batteries drew more than 90% of revenue from there. But ancillary services is a shallow pool — the grid operator procures a fixed amount hour by hour. Once installed capacity passed that line, the surplus had nowhere to go but the energy market, buying low and selling high.
+
+The energy market is far deeper, serving 60 to 80 GW at peak. So the revenue mix flipped: today roughly 80% of ERCOT battery revenue comes from arbitrage.
+
+Then comes the step that matters. To earn on arbitrage you have to get dispatched; to get dispatched you have to offer below the competition. And the competition is other batteries. The whole fleet crowded into the same discharge windows, bid each other down, and flattened the spread. The fleet chased spreads and erased them in the chasing.
+
+![On the left, a shallow pool filled to the brim stands for ancillary services; on the right, a much deeper pool stands for the energy market, and an arrow carries revenue from the shallow pool into the deep one.](/figures/ercot-shallow-pool-to-deep-market-en.svg)
+
+The numbers line up: close to $200 per installed kilowatt in that hot 2023 summer when ancillaries hadn't saturated, about $30 or less over the last twelve months, against a roughly $100 bar for financing. A large share of the operating fleet sits underwater.
+
+![The same price curve in two shapes: with few batteries it swings widely and the spread is wide open; with many batteries the curve is pressed nearly flat and only a small spread is left.](/figures/ercot-batteries-flatten-the-spread-en.svg)
+
+**Couldn't this just be mild weather?** That was my first objection, and the host raised it too. The answer: the majority of the shift comes from how much capacity got built; weather is a layer on top. 2024, 2025 and this summer were average to above average, not cool. The 2023 numbers came from an extreme heat event landing while ancillaries were still unsaturated. Weather doesn't explain the revenue mix migrating wholesale from ancillaries to arbitrage — that is a quantity effect.
+
+![Two bars compared by height: the 2023 bar at $200 per kW stands well above a dashed line marked at $100, while the trailing-twelve-month bar at $30 is only a stub sitting below the dashed line.](/figures/ercot-battery-revenue-vs-financing-line-en.svg)
+
+**Then why hasn't ownership turned over?** There has been some M&A, less than a surface read suggests. Projects built a few years ago caught the printing years in ancillaries, and 2024 was passable enough to cover debt service. And many ERCOT developers are large balance-sheet IPPs or utility-adjacent players, some self-financed, able to ride out a couple of thin years.
+
+## The thing that brings volatility back can also keep it away
+
+The most interesting stretch of the episode was the post-mortem on winter Storm Fern, which also explains why durations are lengthening.
+
+On day one, everyone was waiting for a forecast winter peak record. Actual load came in well below forecast, batteries were full, day-ahead cleared far above real-time, and little volatility materialized. A day or two later it reversed: load above forecast, wind below forecast, batteries discharging into an evening spike. Then real-time stayed above day-ahead all night — something like $150 against $50 — and many operators were reluctant to charge at that price, unsure the morning bump would come. By the next morning only about a third of the fleet's capacity was charged. Real-time prices went four figures.
+
+That volatility came from batteries being empty.
+
+![Across four points in time the battery charge blocks empty out step by step, from full down to just one third, and the real-time price line below spikes upward at the exact moment the charge is lowest.](/figures/storm-fern-state-of-charge-spike-en.svg)
+
+State of charge became the variable, and duration followed. With no capacity market and, early on, no duration rules, ERCOT built almost exclusively one-hour batteries; California, with a capacity construct that rewards it, standardized on four hours. ERCOT's average is now near two hours, with two-and-a-half and three-hour projects arriving and a few four-hour ones. Summer evenings are the hard part — 30 to 40 GW of solar rolling off into a load shape flattened by 24/7 consumers — and a longer battery catches both the first peak and the secondary one an hour or two later when forecasts miss.
+
+And then the condition that can break the whole thesis: **behind-the-meter generation.**
+
+If a data center has its own generation inside the fence, the hours when grid prices spike are precisely the hours it fires that up. A 1 GW nameplate data center is not 1 GW of coincident peak. The working estimate on the show is that 50% to 70% of nameplate turns into actual grid draw over the long run — and that ratio drifts down with time. Projects landing in the next one to three years often already hold grid connections and the system still has slack, so they lean less on self-generation. Later this decade, when planning studies start telling a 1 GW project it can have 200 MW in year one, building a combined cycle plant starts to pencil.
+
+![One full-length bar stands for a 1 GW nameplate, and the two shorter bars below it stand for what is actually drawn from the grid: about half to seven tenths in the near term, and shorter still later on.](/figures/datacenter-nameplate-vs-grid-draw-en.svg)
+
+So the link between load growth and returning volatility loosens as time passes. That is what I keep turning over. The bull case fits on one slide — "Texas demand is exploding" — while the number that decides it is what share of that demand shows up on the grid.
+
+Supply hasn't stopped either. ERCOT adds another five or six gigawatts of batteries this year. Every gigawatt pushes recovery out; every grid-connected data center pulls it in.
+
+Bridging the gap decides who survives. Third-party financing in ERCOT today wants an offtake — a toll, a revenue share, a revenue floor, a swap with a trading house — something that keeps debt service covered through the thin years. But offtakers want long and cheap while developers want short with upside preserved, and the bid-ask between them is wide enough that many deals never close. Tolling is a useful tool and never became the dominant one, for that reason.
+
+![A timeline runs from today toward 2029–2030, with an arrow above pushing the recovery point to the right and an arrow below pulling it to the left.](/figures/ercot-recovery-tug-of-war-en.svg)
+
+## A few other things worth keeping
+
+- The same play is running in PJM. Last year's regulation market redesign sent prices to levels where a battery could pay back in a single year — in a market only 600 to 700 MW deep, with about 500 MW of batteries installed. At one or two gigawatts it compresses. The sequence repeats everywhere: ancillaries first, saturation, then arbitrage or capacity, then self-cannibalization again.
+- Infrastructure responds with a lag. You see high prices, spend years in the queue, and arrive into different prices. Supply and demand overshoot each other by construction.
+- "Low prices cure low prices" needs an asterisk here. A ten-year asset losing money doesn't shut down; it keeps bidding. What exits is the unbuilt pipeline, not the operating fleet.
+- Battery capacity in the queue has stalled at 150 to 160 GW after years of adding dozens of gigawatts annually. That's the first cooling signal.
+
+## Where to look next
+
+- The October 1, 2026 episode of *Catalyst with Shayle Kann*, produced by Latitude Media, available in audio and on YouTube.
+- ERCOT's own interconnection queue data and monthly capacity reports — the primary source behind every number above.
+- For cross-market comparison, PJM's regulation market redesign filings and CAISO's capacity construct explain why Texas batteries are shorter than California's.
+
+## One Thing to Take With You
+
+The idea this episode left me with: **when you price an opportunity, put everyone who sees what you see into the denominator.**
+
+The ERCOT batteries weren't wrong. Ancillaries did pay well, the arbitrage was real, Texas demand is growing. Every individual judgment was sound, and together they pushed returns below the waterline. The clearer the signal, the more people build on it, and the faster the return disappears.
+
+![One circle of the same size appears twice: on the left the whole thing belongs to a single person, on the right it is cut into six slices, each one much smaller.](/figures/put-the-crowd-in-the-denominator-en.svg)
+
+Here's something I've tried, and it's not about investing: the next time an option attracts you because everyone says it's good — a career switch, a certification, a move to a certain city, a skill that's having its moment — before you tally the upside, write one number on paper. How many people will have made the same choice three years from now? Then ask whether the upside thins out as that number grows. If it does, ask the second question: what do I have that the newcomers can't take? Maybe you've been at it five years already. Maybe you can survive three lean years. The ERCOT developers still standing have the same answer — self-funding, a thick balance sheet, or the one contract that bridges the gap.

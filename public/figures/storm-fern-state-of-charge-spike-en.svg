@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Battery charge across four points in time falls from full to just one third, while the real-time price line below spikes at the moment charge is lowest.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="60" font-size="27" font-weight="700" fill="var(--ink)">The morning the batteries ran empty</text>
+  <text class="t" x="60" y="92" font-size="16" fill="var(--dim)">Top: fleet charge. Bottom: real-time price</text>
+
+  <rect x="100" y="150" width="130" height="120" rx="5" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="100" y="150" width="130" height="120" rx="5" fill="var(--accent)" opacity="0.8"/>
+  <text class="t" x="165" y="300" font-size="19" text-anchor="middle" fill="var(--dim)">Day 1 · full</text>
+
+  <rect x="320" y="150" width="130" height="120" rx="5" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="320" y="198" width="130" height="72" rx="5" fill="var(--accent)" opacity="0.8"/>
+  <text class="t" x="385" y="300" font-size="19" text-anchor="middle" fill="var(--dim)">Evening · discharging</text>
+
+  <rect x="540" y="150" width="130" height="120" rx="5" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="540" y="222" width="130" height="48" rx="5" fill="var(--accent)" opacity="0.8"/>
+  <text class="t" x="605" y="300" font-size="19" text-anchor="middle" fill="var(--dim)">Overnight · no refill</text>
+  <text class="t" x="605" y="326" font-size="16" text-anchor="middle" fill="var(--warn)">Real-time 150 | Day-ahead 50</text>
+
+  <rect x="760" y="150" width="130" height="120" rx="5" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="760" y="230" width="130" height="40" rx="5" fill="var(--accent)" opacity="0.8"/>
+  <text class="t" x="825" y="300" font-size="19" text-anchor="middle" fill="var(--dim)">Next AM · 1/3 left</text>
+
+  <line x1="100" y1="500" x2="890" y2="500" stroke="var(--line)" stroke-width="2"/>
+  <polyline points="165,486 385,480 605,440 825,380" fill="none" stroke="var(--warn)" stroke-width="4"/>
+  <circle cx="825" cy="380" r="7" fill="var(--warn)"/>
+  <text class="t" x="890" y="368" font-size="19" font-weight="700" text-anchor="end" fill="var(--warn)">Spikes into four digits</text>
+</svg>
