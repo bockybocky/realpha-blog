@@ -28,7 +28,7 @@ const alternatePath = `/lab/${lab.data.slug}/`;
 		<div class="prose">
 			<Content />
 		</div>
-		<LabDemo demo={lab.data.demo} title={lab.data.title} />
-		<SourceDisclosure demo={lab.data.demo} locale={locale} />
+		<LabDemo demo={lab.data.demo} title={lab.data.title} space={lab.data.space} />
+		{lab.data.demo !== 'hf-space' && <SourceDisclosure demo={lab.data.demo} locale={locale} />}
 	</main>
 </SiteLayout>

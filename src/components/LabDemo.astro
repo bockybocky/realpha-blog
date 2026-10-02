@@ -1,17 +1,23 @@
 ---
 interface Props {
-	demo: 'canvas-waves' | 'line-chart' | 'price-volume' | 'leverage-decay' | 'survivorship' | 'sweetvox';
+	demo: 'canvas-waves' | 'line-chart' | 'price-volume' | 'leverage-decay' | 'survivorship' | 'sweetvox' | 'hf-space';
 	title: string;
+	space?: string;
 }
 
 import survivorship from '../data/survivorship.json';
 
-const { demo, title } = Astro.props;
+const { demo, title, space } = Astro.props;
 const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'zh-TW';
 ---
 
 {
-	demo === 'sweetvox' ? (
+	demo === 'hf-space' ? (
+		<div data-lab-demo="hf-space" class="demo-frame tool hf-space" aria-label={title}>
+			<iframe src={space} title={title} loading="lazy" sandbox="allow-scripts allow-forms allow-same-origin" referrerpolicy="no-referrer" style="width:100%;height:900px;border:0;display:block;"></iframe>
+			<p class="tool-note">{lang === 'en' ? 'Runs on Hugging Face, entirely in your browser.' : '程式放在 Hugging Face，全程在你的瀏覽器裡算。'} <a href={space} target="_blank" rel="noopener">{lang === 'en' ? 'Open in a new tab →' : '開新分頁使用 →'}</a></p>
+		</div>
+	) : demo === 'sweetvox' ? (
 		<div data-lab-demo="sweetvox" data-lang={lang} class="demo-frame tool" aria-label={title}>
 			<script src="/sweetvox.js" defer></script>
 		</div>
