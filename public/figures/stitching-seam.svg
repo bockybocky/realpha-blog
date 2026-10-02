@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="完整方塊拆成兩半再拼回，中間多一條接縫線">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="60" y="58" font-size="27" fill="var(--ink)">拼接：接得起來，但中間多一條邊界</text>
+
+<rect x="70" y="150" width="200" height="220" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="170" y="128" font-size="19" fill="var(--dim)" text-anchor="middle">大晶片設計</text>
+
+<path d="M300 260 L345 260" stroke="var(--grey)" stroke-width="2"/>
+<path d="M338 253 L348 260 L338 267 Z" fill="var(--grey)"/>
+
+<rect x="375" y="150" width="95" height="220" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<rect x="485" y="150" width="95" height="220" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="422" y="270" font-size="19" fill="var(--ink)" text-anchor="middle">A</text>
+<text x="532" y="270" font-size="19" fill="var(--ink)" text-anchor="middle">B</text>
+<text x="477" y="128" font-size="19" fill="var(--dim)" text-anchor="middle">兩次曝光</text>
+
+<path d="M610 260 L655 260" stroke="var(--grey)" stroke-width="2"/>
+<path d="M648 253 L658 260 L648 267 Z" fill="var(--grey)"/>
+
+<rect x="685" y="150" width="200" height="220" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<line x1="785" y1="150" x2="785" y2="370" stroke="var(--warn)" stroke-width="5"/>
+<text x="785" y="128" font-size="19" fill="var(--dim)" text-anchor="middle">拼回一塊</text>
+<text x="785" y="400" font-size="16" fill="var(--warn)" text-anchor="middle">接縫</text>
+
+<text x="60" y="470" font-size="22" fill="var(--ink)">對準誤差、設計禁區，都長在那條線上</text>
+</svg>
