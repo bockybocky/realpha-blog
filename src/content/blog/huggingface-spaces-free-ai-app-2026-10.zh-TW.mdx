@@ -45,12 +45,12 @@ from rembg import remove
 import spaces
 
 @spaces.GPU
-def process_images(input_image):
+def process_image(input_image):
     return remove(input_image)
 
 with gr.Blocks() as demo:
     gr.Interface(
-        fn=process_images,
+        fn=process_image,
         inputs=[gr.Image(label="Input Image", interactive=True)],
         outputs=[gr.Image(label="Processed Image")],
         title="Image Background Remover",
@@ -67,6 +67,8 @@ if __name__ == "__main__":
 推上去之前，他先到倉庫設定裡把硬體從「基本 CPU」改成「ZeroGPU」。這個選擇很關鍵，後面會講為什麼。
 
 ZeroGPU 的意思是：平台有一群共用的顯示卡，你的程式平常不佔卡，只有被呼叫的那幾秒才借一張，用完馬上還。
+
+⚠️ 有一點要留意：影片裝的推論引擎 onnxruntime 是只用 CPU 的版本，能用顯示卡的是另一個套件 onnxruntime-gpu。所以這個例子的去背很可能是在主機的 CPU 上算的，借來的顯示卡未必派上用場。我還沒實測；想讓顯示卡真的出力，套件清單要換成 GPU 版。
 
 ![兩條代表一整天的長條。上面一條「租一張卡」整條被填滿，表示全天都佔著；下面一條「ZeroGPU」只有三小格被填色，其餘留空，表示只有被呼叫的那幾秒才佔卡。](/figures/zerogpu-borrow-vs-occupy.svg)
 
@@ -94,9 +96,9 @@ ZeroGPU 的意思是：平台有一群共用的顯示卡，你的程式平常不
 
 ![三條長度差很多的橫條，由短到長分別是沒登入 2 分鐘、免費帳號 5 分鐘、PRO 帳號 40 分鐘，顯示額度隨帳號等級大幅拉長。](/figures/zerogpu-daily-quota-by-account.svg)
 
-每次呼叫預設最多佔 60 秒。PRO 用完額度可以繼續用，價格是每 10 分鐘 1 美元。另外，免費的 Space 一段時間沒人用會自己睡著，下次有人來要等它醒。
+每次呼叫預設最多佔 60 秒。PRO 用完當天額度，可以拿預先儲值的點數繼續用，價格是每 10 分鐘 1 美元。另外，免費的 Space 一段時間沒人用會自己睡著，下次有人來要等它醒。
 
-還有一個影片沒提、但我覺得最容易踩的地方：Space 預設是公開的，任何人都看得到你的程式碼，也能整份複製走。如果你的程式要用到某個服務的金鑰，千萬別直接寫在程式裡，要放進設定頁的「祕密」欄位，平台會把它藏起來，別人複製你的 Space 也不會帶走。
+還有一個影片沒提、但我覺得最容易踩的地方：像影片那樣用指令建立的 Space 預設是公開的；公開的 Space 任何人都看得到你的程式碼，也能整份複製走。如果你的程式要用到某個服務的金鑰，千萬別直接寫在程式裡，要放進設定頁的「祕密」欄位，平台會把它藏起來，別人複製你的 Space 也不會帶走。
 
 ![兩格對比。上格金鑰畫在程式碼方塊裡，被複製的那一份也帶著金鑰；下格金鑰放在程式碼外的祕密欄位，被複製的那一份金鑰位置是空的。](/figures/secret-field-vs-hardcoded-key.svg)
 
@@ -126,7 +128,7 @@ ZeroGPU 的意思是：平台有一群共用的顯示卡，你的程式平常不
 
 ⚠️ 兩邊的卡不一樣，ZeroGPU 的卡大得多，所以只能當粗估。
 
-但 ZeroGPU 有一個我那次沒有的好處：模型在程式啟動時就載好了。我那 49.5 分鐘裡，光下載 30GB 的模型就佔了 21 分鐘，真正畫圖的時間不到一半。
+但 ZeroGPU 有一個我那次沒有的好處：官方要你在程式啟動時就把模型載好，Space 醒著的時候，之後每次呼叫都不用再等下載。我那 49.5 分鐘裡，光下載 30GB 的模型就佔了 21 分鐘，真正畫圖的時間不到一半。
 
 ![兩條時間條對比。上條租卡的 49.5 分鐘裡前段 21 分鐘是下載模型，後段才是畫圖；下條 ZeroGPU 沒有下載段，整條都是畫圖。](/figures/wait-before-work-time-split.svg)
 

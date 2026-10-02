@@ -45,12 +45,12 @@ from rembg import remove
 import spaces
 
 @spaces.GPU
-def process_images(input_image):
+def process_image(input_image):
     return remove(input_image)
 
 with gr.Blocks() as demo:
     gr.Interface(
-        fn=process_images,
+        fn=process_image,
         inputs=[gr.Image(label="Input Image", interactive=True)],
         outputs=[gr.Image(label="Processed Image")],
         title="Image Background Remover",
@@ -67,6 +67,8 @@ One function takes an image and returns it without the background; the lines bel
 Before pushing, he goes into the repo settings and changes the hardware from "CPU basic" to "ZeroGPU." That choice turns out to matter a lot, and I'll come back to why.
 
 ZeroGPU means the platform keeps a pool of shared GPUs. Your app doesn't hold one while idle; it borrows a card only for the few seconds it's called, then hands it back. The `@spaces.GPU` decorator in the code is how you say "this function needs a card." According to the official docs, the default is half of an RTX Pro 6000 with 48 GB of VRAM, far bigger than a typical gamer's card.
+
+⚠️ One catch: the inference runtime installed in the video, onnxruntime, is the CPU-only build; the GPU build is a separate package, onnxruntime-gpu. So in this example the background removal most likely runs on the host's CPU, and the borrowed card may sit idle. I haven't tested it; if you want the GPU to do the work, swap in the GPU package.
 
 ![Two bars, each showing one full day. The top bar, "Rent a GPU," is filled end to end, meaning the card is held all day. The bottom bar, "ZeroGPU," has only three small filled slots with the rest left empty, meaning the card is held only for the seconds when it is actually called.](/figures/zerogpu-borrow-vs-occupy-en.svg)
 
@@ -88,11 +90,11 @@ Condition one: who can host. A Gradio Space that runs on compute now generally r
 
 Condition two: how many. A free account can host up to two ZeroGPU Spaces; a PRO account can host ten.
 
-Condition three: how long per day. The quota is charged to whoever calls the app: two minutes a day if not logged in, five minutes for a free account, forty for PRO, resetting 24 hours after first use. Each call holds the GPU for up to 60 seconds by default. PRO users can keep going past the quota at $1 per 10 minutes. Also, free Spaces fall asleep after a stretch without visitors, and the next visitor has to wait for them to wake up.
+Condition three: how long per day. The quota is charged to whoever calls the app: two minutes a day if not logged in, five minutes for a free account, forty for PRO, resetting 24 hours after first use. Each call holds the GPU for up to 60 seconds by default. PRO users can keep going past the daily quota with pre-paid credits, at $1 per 10 minutes. Also, free Spaces fall asleep after a stretch without visitors, and the next visitor has to wait for them to wake up.
 
 ![Three horizontal bars of very different lengths: not signed in at 2 minutes, a free account at 5 minutes, and a PRO account at 40 minutes, showing how the quota grows sharply with account tier.](/figures/zerogpu-daily-quota-by-account-en.svg)
 
-One more thing the video skips, and the one I think people trip on most: Spaces are public by default. Anyone can read your code and clone the whole thing. If your app needs an API key for some service, never hard-code it; put it in the "Secrets" field on the settings page, where the platform hides it and clones of your Space won't carry it. The docs say the platform also scans for hard-coded keys and warns the owner, but that's cleanup after the fact.
+One more thing the video skips, and the one I think people trip on most: a Space created from the command line, as in the video, is public by default, and anyone can read a public Space's code and clone the whole thing. If your app needs an API key for some service, never hard-code it; put it in the "Secrets" field on the settings page, where the platform hides it and clones of your Space won't carry it. The docs say the platform also scans for hard-coded keys and warns the owner, but that's cleanup after the fact.
 
 So "$0" is real. It's just a cup that only fills for five minutes a day.
 
@@ -118,7 +120,7 @@ Hold that up against ZeroGPU. If each image also takes about half a minute, a fr
 
 ![Two bars of very different heights: on the left, ZeroGPU paid usage works out to $6 per hour and stands tall; on the right, renting a 3090 at $0.22 per hour is only a thin line.](/figures/per-hour-cost-height-gap-en.svg)
 
-ZeroGPU does have one advantage my run didn't: the model is loaded when the app starts. Of my 49.5 minutes, downloading a 30 GB model took 21; less than half the time went to actual drawing. For a small, occasional job, ZeroGPU saves you exactly that wait.
+ZeroGPU does have one advantage my run didn't: the docs tell you to load the model when the app starts, so while the Space is awake, later calls don't wait on a download. Of my 49.5 minutes, downloading a 30 GB model took 21; less than half the time went to actual drawing. For a small, occasional job, ZeroGPU saves you exactly that wait.
 
 So here's how I split it now. Demos for other people and my own occasional use go on ZeroGPU's free quota. A big one-off batch means renting a card and shutting it down when done. Running for hours every day is when buying a card starts to make sense. I compared those last two paths earlier in "[Local LLMs: Buy a GPU or Rent One?](/en/blog/runpod-vs-local-gpu-2026-09/)".
 
