@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="價格線走出一個往下又回來的 V 形，而基本面線整段幾乎是平的，利率線則比起點更高">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  .t { font-size:27px; fill:var(--ink); font-weight:700; }
+  .g { font-size:20px; fill:var(--ink); font-weight:700; }
+  .b { font-size:16px; fill:var(--dim); }
+  .c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="70" y="56">價格轉了一圈，基本面沒動</text>
+<line x1="110" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="150" y="468">六月前</text>
+<text class="b" x="430" y="468">第三季</text>
+<text class="b" x="740" y="468">第四季</text>
+<line x1="300" y1="110" x2="300" y2="440" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 5"/>
+<line x1="620" y1="110" x2="620" y2="440" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 5"/>
+<polyline points="130,170 300,160 460,340 600,300 780,170" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<polyline points="130,268 300,270 460,272 620,270 780,272" fill="none" stroke="var(--grey)" stroke-width="5"/>
+<polyline points="130,392 300,386 460,374 620,362 780,352" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 6"/>
+<text class="g" x="796" y="176" fill="var(--accent)">價格</text>
+<text class="g" x="796" y="278" fill="var(--dim)">基本面</text>
+<text class="g" x="796" y="356" fill="var(--warn)">利率</text>
+<text class="b" x="796" y="380">比六月更高</text>
+<text class="b" x="330" y="352">同一批條件撐不住</text>
+<text class="b" x="648" y="212">同一批條件又撐住了</text>
+<text class="c" x="70" y="512">撐住第四季的，不會是撐不住第三季的那批</text>
+</svg>
