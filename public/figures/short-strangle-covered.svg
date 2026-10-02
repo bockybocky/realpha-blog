@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="中間平台在零線上方、兩端下斜的損益線，兩端各有虛線把虧損接回來" style="font-family:&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text x="80" y="72" font-size="27" fill="var(--ink)">兩邊都賣掉，中間收權利金</text>
+
+<line x1="140" y1="340" x2="860" y2="340" stroke="var(--line)" stroke-width="2"/>
+<text x="118" y="346" font-size="15" fill="var(--dim)" text-anchor="end">零</text>
+
+<line x1="300" y1="150" x2="300" y2="470" stroke="var(--line)" stroke-width="1" stroke-dasharray="5 6"/>
+<line x1="660" y1="150" x2="660" y2="470" stroke="var(--line)" stroke-width="1" stroke-dasharray="5 6"/>
+<text x="300" y="505" font-size="19" fill="var(--dim)" text-anchor="middle">80 美元</text>
+<text x="660" y="505" font-size="19" fill="var(--dim)" text-anchor="middle">120 美元</text>
+<text x="480" y="505" font-size="19" fill="var(--accent)" text-anchor="middle">停在 100 附近</text>
+
+<polyline points="180,430 300,300 660,300 790,430" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<text x="480" y="276" font-size="20" fill="var(--accent)" text-anchor="middle">收權利金</text>
+
+<line x1="190" y1="420" x2="190" y2="310" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+<polygon points="190,296 181,316 199,316" fill="var(--warn)"/>
+<text x="150" y="190" font-size="19" fill="var(--warn)">實體油變便宜</text>
+<text x="150" y="216" font-size="16" fill="var(--dim)">接住賣權那端</text>
+
+<line x1="780" y1="420" x2="780" y2="310" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+<polygon points="780,296 771,316 789,316" fill="var(--warn)"/>
+<text x="700" y="190" font-size="19" fill="var(--warn)">附加費收更多</text>
+<text x="700" y="216" font-size="16" fill="var(--dim)">接住買權那端</text>
+
+<text x="80" y="552" font-size="22" fill="var(--ink)">沒有一塊是赤裸的，但也只賭了均值回歸</text>
+</svg>
