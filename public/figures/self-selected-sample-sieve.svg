@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一大群點被中間的篩網擋下，只有少數幾點通過，右邊的眼睛只看得到通過的那幾點">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="80" y="66">你看到的那一群，是被篩過的</text>
+
+  <g fill="var(--grey)">
+    <circle cx="110" cy="150" r="9"/><circle cx="150" cy="196" r="9"/><circle cx="104" cy="240" r="9"/>
+    <circle cx="160" cy="276" r="9"/><circle cx="112" cy="316" r="9"/><circle cx="156" cy="356" r="9"/>
+    <circle cx="106" cy="400" r="9"/><circle cx="162" cy="438" r="9"/><circle cx="118" cy="474" r="9"/>
+    <circle cx="206" cy="160" r="9"/><circle cx="250" cy="214" r="9"/><circle cx="212" cy="262" r="9"/>
+    <circle cx="256" cy="306" r="9"/><circle cx="206" cy="350" r="9"/><circle cx="252" cy="396" r="9"/>
+    <circle cx="214" cy="440" r="9"/><circle cx="258" cy="482" r="9"/><circle cx="300" cy="180" r="9"/>
+    <circle cx="308" cy="290" r="9"/><circle cx="302" cy="396" r="9"/><circle cx="312" cy="460" r="9"/>
+  </g>
+  <text class="g" x="104" y="116">全部的人</text>
+
+  <line x1="470" y1="112" x2="520" y2="498" stroke="var(--ink)" stroke-width="6"/>
+  <line x1="481" y1="196" x2="487" y2="238" stroke="var(--page)" stroke-width="8"/>
+  <line x1="495" y1="316" x2="501" y2="358" stroke="var(--page)" stroke-width="8"/>
+  <text class="g" x="430" y="534" text-anchor="middle">篩網</text>
+  <text class="b" x="560" y="534">出不出門、演算法、同一個圈子</text>
+
+  <g fill="var(--accent)">
+    <circle cx="610" cy="218" r="9"/><circle cx="668" cy="250" r="9"/><circle cx="628" cy="336" r="9"/>
+    <circle cx="690" cy="360" r="9"/>
+  </g>
+  <text class="g" x="610" y="178" fill="var(--accent)">你看到的</text>
+
+  <path d="M760 290 q46 -40 92 0 q-46 40 -92 0 z" fill="none" stroke="var(--ink)" stroke-width="4"/>
+  <circle cx="806" cy="290" r="13" fill="var(--ink)"/>
+  <text class="b" x="806" y="352" text-anchor="middle">你的眼睛</text>
+</svg>

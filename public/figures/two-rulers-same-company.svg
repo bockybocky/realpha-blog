@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="同一個方塊被左右兩把刻度不同的尺測量，左尺的指針落在低處，右尺的指針落在高處">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="80" y="62">同一家公司，兩把尺</text>
+
+  <rect x="400" y="180" width="170" height="240" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="3"/>
+  <text class="g" x="485" y="306" text-anchor="middle">同一家公司</text>
+
+  <rect x="180" y="150" width="52" height="300" rx="5" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <g stroke="var(--warn)" stroke-width="2">
+    <line x1="180" y1="180" x2="210" y2="180"/><line x1="180" y1="210" x2="210" y2="210"/>
+    <line x1="180" y1="240" x2="210" y2="240"/><line x1="180" y1="270" x2="210" y2="270"/>
+    <line x1="180" y1="300" x2="210" y2="300"/><line x1="180" y1="330" x2="210" y2="330"/>
+    <line x1="180" y1="360" x2="210" y2="360"/><line x1="180" y1="390" x2="210" y2="390"/>
+    <line x1="180" y1="420" x2="210" y2="420"/>
+  </g>
+  <polygon points="240,420 268,406 268,434" fill="var(--warn)"/>
+  <text class="g" x="206" y="130" text-anchor="middle" fill="var(--warn)">獲利尺</text>
+  <text class="b" x="206" y="492" text-anchor="middle">讀數：不合格</text>
+
+  <rect x="738" y="150" width="52" height="300" rx="5" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <g stroke="var(--accent)" stroke-width="2">
+    <line x1="760" y1="210" x2="790" y2="210"/><line x1="760" y1="290" x2="790" y2="290"/>
+    <line x1="760" y1="370" x2="790" y2="370"/>
+  </g>
+  <polygon points="730,196 702,182 702,210" fill="var(--accent)"/>
+  <text class="g" x="764" y="130" text-anchor="middle" fill="var(--accent)">規模尺</text>
+  <text class="b" x="764" y="492" text-anchor="middle">讀數：領先</text>
+
+  <text class="c" x="80" y="534">要問的不是哪把尺對，是量錯了會先在哪裡看到</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="One line splits from a single starting point into an upward branch and a downward branch, with two people each standing beside one branch and watching it.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="80" y="68">One generation, two legs</text>
+
+  <line x1="150" y1="300" x2="420" y2="300" stroke="var(--grey)" stroke-width="7"/>
+  <circle cx="150" cy="300" r="9" fill="var(--grey)"/>
+  <text class="g" x="150" y="272" text-anchor="start">One generation</text>
+
+  <line x1="420" y1="300" x2="800" y2="152" stroke="var(--accent)" stroke-width="7"/>
+  <line x1="420" y1="300" x2="800" y2="448" stroke="var(--warn)" stroke-width="7"/>
+
+  <text class="g" x="812" y="148" fill="var(--accent)">Top rising</text>
+  <text class="b" x="812" y="176">Workload, entry bar</text>
+  <text class="g" x="812" y="446" fill="var(--warn)">Bottom falling</text>
+  <text class="b" x="812" y="474">Grades, friends, screens</text>
+
+  <circle cx="470" cy="150" r="22" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="470" cy="150" r="6" fill="var(--accent)"/>
+  <text class="b" x="500" y="156">Josh watches this leg</text>
+
+  <circle cx="470" cy="452" r="22" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <circle cx="470" cy="452" r="6" fill="var(--warn)"/>
+  <text class="b" x="500" y="458">Ed watches this leg</text>
+
+  <text class="c" x="80" y="524">Neither is wrong; they watch different legs</text>
+</svg>
