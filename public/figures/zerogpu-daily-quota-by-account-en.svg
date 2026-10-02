@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Three bars from short to long: not signed in 2 minutes, free 5 minutes, PRO 40 minutes.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .ti { font:700 27px "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .lb { font:600 20px "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .sm { font:400 16px "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--dim); }
+    .cc { font:700 22px "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--accent); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="ti" x="80" y="70">GPU time per day</text>
+
+  <text class="lb" x="80" y="150">Not signed in</text>
+  <rect x="240" y="128" width="40" height="42" rx="5" fill="var(--grey)"/>
+  <text class="sm" x="296" y="157">2 min</text>
+
+  <text class="lb" x="80" y="240">Free account</text>
+  <rect x="240" y="218" width="100" height="42" rx="5" fill="var(--accent)"/>
+  <text class="sm" x="356" y="247">5 min</text>
+
+  <text class="lb" x="80" y="330">PRO</text>
+  <rect x="240" y="308" width="640" height="42" rx="5" fill="var(--grey)"/>
+  <text class="sm" x="248" y="392">40 min</text>
+
+  <line x1="80" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <text class="cc" x="80" y="478">Quota counts against the user</text>
+</svg>

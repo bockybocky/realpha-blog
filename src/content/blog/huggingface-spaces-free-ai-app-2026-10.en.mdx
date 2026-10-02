@@ -1,0 +1,129 @@
+---
+title: "A $0 AI App? Walking Through Hugging Face Spaces, Then Finding the Three Conditions Behind \"Free\""
+description: "In a September 11, 2026 video, Joe Maddalone built a background-remover app on Hugging Face Spaces in under ten minutes, called it from his own machine through an API, and paid nothing. This post walks through what he did in order, checks the official docs for the three conditions that make \"free\" work, and compares it with my own cloud GPU rental numbers: when the free quota is enough and when renting a card is the better deal. A technical learning note, not business advice."
+slug: "huggingface-spaces-free-ai-app-2026-10"
+lang: "en"
+pubDate: 2026-10-02
+category: "tech"
+kind: "podcast-notes"
+tags: ["Hugging Face", "Gradio", "ZeroGPU", "Cloud GPU", "AI apps", "Decision making"]
+ogImage: "/covers/huggingface-spaces-free-ai-app-2026-10.png"
+cover: "/covers/huggingface-spaces-free-ai-app-2026-10.png"
+tldr: "Hugging Face's ZeroGPU really does let you host an AI app for $0, with three conditions: an account older than 30 days, two Spaces at most, and five minutes of GPU time a day. Great for demos and occasional use; for a big batch, renting a card is far cheaper."
+---
+
+![Renaissance oil painting cover: inside a stone workshop, a craftsman carves at a wooden table with a single small chisel; through the window a huge public water wheel turns in the distance, and a thin stream from it reaches a small clay cup on the table, which catches only a few drops](/covers/huggingface-spaces-free-ai-app-2026-10.png)
+
+> *With little, one gains; with much, one is confused.*<br/>
+> —— Laozi, *Tao Te Ching*, Chapter 22 (Spring and Autumn period); translation mine
+
+On September 11, 2026, Joe Maddalone posted an eight-minute video on his YouTube channel showing how to build a background-remover app on Hugging Face Spaces: about twenty lines of Python, one push, an automatic build, and then an API call from his own laptop, all for $0. I checked it against the official docs (as of 2026-10-02). The "$0" holds, with three conditions: the account must be at least 30 days old with a verified email, a free account can host at most two of these Spaces, and you get five minutes of GPU time per day. That is plenty for demos and occasional personal use. For a large batch, renting a card is much cheaper.
+
+## The opening: one image, a few seconds
+
+The video opens with a nice trick. He drops in a photo of Doc Brown from *Back to the Future*, clicks "Remove BG," and a few seconds later the background is gone. He clicks "Pixar 3D," waits a few more seconds, and Doc Brown turns into an animated-movie character.
+
+Then he says the line that made me pause: his fans aren't spinning and his RAM is barely used, because none of this runs on his machine.
+
+That hit home. The PC we use for image generation sounds like a hair dryer the moment it starts working, and last month I rented a cloud GPU just to get through one batch of images. If there's a way to run AI without buying or renting a card, I want to know exactly where its edges are.
+
+## Step 1: create a repo
+
+Hugging Face is a big platform for AI models, and Spaces is where it lets people host small apps. Each Space is really a Git repository; think of it as a folder that runs itself.
+
+He creates the repo with one terminal command and picks Gradio as the framework (he admits he isn't sure how to pronounce it). Gradio's appeal is that you don't write a web page; it generates an interface with an upload box and a button for you. He clones the repo, then adds two files: one listing the packages to install, one holding the app.
+
+## Step 2: twenty lines of code
+
+There are only three packages: rembg, a small background-removal tool; the inference runtime it needs; and `spaces`, which lets the app borrow a GPU.
+
+The app itself is even shorter. The skeleton looks roughly like this:
+
+```python
+import gradio as gr
+from rembg import remove
+import spaces
+
+@spaces.GPU
+def process_images(input_image):
+    return remove(input_image)
+
+with gr.Blocks() as demo:
+    gr.Interface(
+        fn=process_images,
+        inputs=[gr.Image(label="Input Image", interactive=True)],
+        outputs=[gr.Image(label="Processed Image")],
+        title="Image Background Remover",
+    )
+
+if __name__ == "__main__":
+    demo.launch()
+```
+
+One function takes an image and returns it without the background; the lines below tell Gradio that the input is an image and so is the output. He says he isn't great at Python, but anyone can follow this. To me, that's the most convincing part of the video: turning an AI feature into something other people can use has become this easy.
+
+## Step 3: switch to ZeroGPU and push
+
+Before pushing, he goes into the repo settings and changes the hardware from "CPU basic" to "ZeroGPU." That choice turns out to matter a lot, and I'll come back to why.
+
+ZeroGPU means the platform keeps a pool of shared GPUs. Your app doesn't hold one while idle; it borrows a card only for the few seconds it's called, then hands it back. The `@spaces.GPU` decorator in the code is how you say "this function needs a card." According to the official docs, the default is half of an RTX Pro 6000 with 48 GB of VRAM, far bigger than a typical gamer's card.
+
+![Two bars, each showing one full day. The top bar, "Rent a GPU," is filled end to end, meaning the card is held all day. The bottom bar, "ZeroGPU," has only three small filled slots with the rest left empty, meaning the card is held only for the seconds when it is actually called.](/figures/zerogpu-borrow-vs-occupy-en.svg)
+
+After the push, the platform builds and starts the app on its own. The first start throws an error: he typed `space` instead of `spaces`. He fixes the one letter, pushes again, the platform rebuilds, and this time it runs. He feeds it a movie still with fine, wispy hair, and the background comes off cleanly.
+
+I like that he left this in. Building things really goes like this: one wrong letter, fix it, push again, and every push triggers a fresh build.
+
+## Step 4: call it from your own machine
+
+The app's footer has a "Use via API" link with ready-made sample code. On his laptop he starts a tiny project, installs only Gradio's official client, and writes a few lines: connect to his Space, send the Doc Brown photo to the remove function, and save the returned image to a file. He runs it, and a few seconds later there's a background-free Doc Brown in the folder.
+
+His conclusion: in under ten minutes, an idea became a working AI app, with no GPU, no Docker, no expensive infrastructure, and no cost.
+
+## Afterward: the three conditions behind "$0"
+
+What the video doesn't cover is the fine print. I went through Hugging Face's official docs (as of 2026-10-02) and laid it out.
+
+Condition one: who can host. A Gradio Space that runs on compute now generally requires a paid plan to create. The one exception for free accounts is ZeroGPU, and only for accounts at least 30 days old with a verified email. That may also explain why he switched from CPU basic to ZeroGPU: under the current rules, CPU basic is the route that doesn't work for a free account. ⚠️ The video doesn't say whether his account is paid, and I checked the docs on October 2, which may not match the rules on the day he recorded. This part is my inference.
+
+Condition two: how many. A free account can host up to two ZeroGPU Spaces; a PRO account can host ten.
+
+Condition three: how long per day. The quota is charged to whoever calls the app: two minutes a day if not logged in, five minutes for a free account, forty for PRO, resetting 24 hours after first use. Each call holds the GPU for up to 60 seconds by default. PRO users can keep going past the quota at $1 per 10 minutes. Also, free Spaces fall asleep after a stretch without visitors, and the next visitor has to wait for them to wake up.
+
+![Three horizontal bars of very different lengths: not signed in at 2 minutes, a free account at 5 minutes, and a PRO account at 40 minutes, showing how the quota grows sharply with account tier.](/figures/zerogpu-daily-quota-by-account-en.svg)
+
+One more thing the video skips, and the one I think people trip on most: Spaces are public by default. Anyone can read your code and clone the whole thing. If your app needs an API key for some service, never hard-code it; put it in the "Secrets" field on the settings page, where the platform hides it and clones of your Space won't carry it. The docs say the platform also scans for hard-coded keys and warns the owner, but that's cleanup after the fact.
+
+So "$0" is real. It's just a cup that only fills for five minutes a day.
+
+![Two panels compared. In the top panel the key is drawn inside the code block, and the copy made from it carries the key too. In the bottom panel the key sits in a secret field outside the code, and the key slot in the copy is empty.](/figures/secret-field-vs-hardcoded-key-en.svg)
+
+## Further thoughts: I don't code. Does this matter to me?
+
+It does, and the bar is lower than you might think.
+
+The simplest use involves no code at all. The docs say anyone can use existing ZeroGPU Spaces for free, and there are ready-made ones for background removal, photo touch-ups, and speech-to-text. Log in and you get five minutes of GPU time a day, more than enough to fix a few photos now and then.
+
+Building your own isn't hard either. Any AI assistant can write those twenty lines today. Your part is opening an account, pasting the code, and clicking a few buttons. The hardest step in the video was a typo.
+
+What I'd build is small. Older relatives keep sending blurry old photos, so a little page where you drop one in and get a sharper version back, with a link family can open without installing anything. Or a tool where you drop in a meeting recording and get text out. Jobs used a few times a day for a few seconds each fit neatly inside the free quota. The risk runs the other way: build something genuinely useful, share it widely, and many people show up. The quota is charged to each user, and anyone not logged in gets only two minutes a day, so they'll hit "used up for today" fast. It suits you and the people around you; a business built on it would hit that wall fast.
+
+## Further thoughts: when does free stop being enough?
+
+This is the question I most wanted to settle, and I happen to have my own numbers to compare.
+
+On September 23, 2026, I rented a cloud RTX 3090 to run a batch of images: $0.22 an hour, 31.8 seconds per image, 49.5 minutes from boot to all 50 images saved, $0.18 in total.
+
+Hold that up against ZeroGPU. If each image also takes about half a minute, a free account's five minutes a day covers roughly ten images. Past the quota, at $1 per 10 minutes, that's $6 an hour, more than twenty times what I paid for the 3090. ⚠️ The cards differ, and ZeroGPU's is much larger, so treat this as a rough estimate.
+
+![Two bars of very different heights: on the left, ZeroGPU paid usage works out to $6 per hour and stands tall; on the right, renting a 3090 at $0.22 per hour is only a thin line.](/figures/per-hour-cost-height-gap-en.svg)
+
+ZeroGPU does have one advantage my run didn't: the model is loaded when the app starts. Of my 49.5 minutes, downloading a 30 GB model took 21; less than half the time went to actual drawing. For a small, occasional job, ZeroGPU saves you exactly that wait.
+
+So here's how I split it now. Demos for other people and my own occasional use go on ZeroGPU's free quota. A big one-off batch means renting a card and shutting it down when done. Running for hours every day is when buying a card starts to make sense. I compared those last two paths earlier in "[Local LLMs: Buy a GPU or Rent One?](/en/blog/runpod-vs-local-gpu-2026-09/)".
+
+![A left-to-right axis of daily usage split into three zones: a few minutes on the free quota, one big batch on a rented card, and hours every day where buying a card starts to make sense](/figures/how-long-per-day-three-zones-en.svg)
+
+![Two time bars compared. The top bar covers the 49.5 minutes of that rental, with the first 21 minutes spent downloading the model and only the rest spent generating images. The bottom bar for ZeroGPU has no download segment at all, so the whole bar is generation.](/figures/wait-before-work-time-split-en.svg)
+
+What actually made me stop and think was his closing line: if you think building AI apps means buying a $5,000 GPU, think twice. He's right. The next thing to think about, once you've thought twice, is how many minutes a day you'll use it.

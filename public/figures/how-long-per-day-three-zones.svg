@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-label="一條每天使用時間的軸切成三段：免費額度、租卡、買卡">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .ti { font:700 27px "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .lb { font:600 20px "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .sm { font:400 16px "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--dim); }
+    .cc { font:700 22px "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--accent); }
+  </style>
+  <rect x="0" y="0" width="960" height="500" fill="var(--page)"/>
+  <text class="ti" x="80" y="66">一天要用多久</text>
+
+  <rect x="80" y="180" width="240" height="70" rx="6" fill="var(--accent)"/>
+  <rect x="320" y="180" width="280" height="70" rx="0" fill="var(--grey)"/>
+  <rect x="600" y="180" width="280" height="70" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="sm" x="104" y="222" fill="var(--page)">幾分鐘</text>
+  <text class="sm" x="344" y="222" fill="var(--page)">一次一大批</text>
+  <text class="sm" x="624" y="222">每天好幾小時</text>
+
+  <line x1="80" y1="290" x2="880" y2="290" stroke="var(--line)" stroke-width="2"/>
+  <path d="M880 290 l-14 -7 v14 z" fill="var(--line)"/>
+
+  <text class="lb" x="104" y="336">免費額度</text>
+  <text class="lb" x="344" y="336">租卡</text>
+  <text class="lb" x="624" y="336">才考慮買卡</text>
+
+  <text class="cc" x="80" y="440">分界看的是一天用多久</text>
+</svg>
