@@ -28,7 +28,7 @@ CATEGORY = {'_id': '5a978e00fd897800016874cc', 'title': '投資理財', 'score':
 BLOG = 'https://blog.getrealpha.com'
 
 # 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
-NON_INVESTMENT = {'mla-c01-four-week-route', 'mla-c01-ai-tutor', 'herdr-complete-guide', 'herdr-codexbar-jianguo-quota-dispatch', 'xiaotian-2026-09-07-mac-ane-inference-1-8x', 'codexbar-quota-dispatch','lunchuizhe-2026-09-05-ten-dollars-one-request', 'lunchuizhe-2026-09-06-subscription-is-a-clock', 'caleb-2026-09-04-token-efficient-is-not-cost-efficient', 'tao-2026-08-28-six-math-essentials','local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
+NON_INVESTMENT = {'huggingface-spaces-free-ai-app-2026-10', 'mla-c01-four-week-route', 'mla-c01-ai-tutor', 'herdr-complete-guide', 'herdr-codexbar-jianguo-quota-dispatch', 'xiaotian-2026-09-07-mac-ane-inference-1-8x', 'codexbar-quota-dispatch','lunchuizhe-2026-09-05-ten-dollars-one-request', 'lunchuizhe-2026-09-06-subscription-is-a-clock', 'caleb-2026-09-04-token-efficient-is-not-cost-efficient', 'tao-2026-08-28-six-math-essentials','local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
                   'lunchuizhe-2026-08-31-pick-your-model-and-agent', 'tao-2026-08-31-ai-math-drunk-genius', 'runpod-vs-local-gpu-2026-09', 'tao-2026-09-02-coin-game-human-ai-division', 'kelly-tsai-graph-engineering-2026-09', 'lunchuizhe-2026-08-23-no-best-agent-only-right-seat', 'my-creative-path-2026-09', 'fear-of-blowing-up-2026-09', 'xiaotian-2026-09-03-evox-swarm-social-rsi',
                   'dont-let-ai-say-no-problem', 'video-memory-without-the-cloud',
                   'aice-ai-engineering-cert-prep', 'aice-must-know-concepts', 'read-the-source-before-you-install',
@@ -37,6 +37,7 @@ NON_INVESTMENT = {'mla-c01-four-week-route', 'mla-c01-ai-tutor', 'herdr-complete
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
+    'huggingface-spaces-free-ai-app-2026-10': ['Hugging Face', 'AI 小程式', '顯示卡', '工具教學', 'vast'],
     'coming-storm-fear-needs-a-decision': ['讀書筆記', '地緣政治', '大戰將至', '台海', '歷史'],
     'herdr-complete-guide': ['herdr', 'AI agent', '終端機', '工具教學', '工作流'],
     'herdr-codexbar-jianguo-quota-dispatch': ['AI agent', '額度', 'CodexBar', '監國協議', '自動化'],
@@ -94,6 +95,7 @@ except (OSError, ValueError):
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
 COVERS = {
+    'huggingface-spaces-free-ai-app-2026-10': 'huggingface-spaces-free-ai-app-2026-10.png',
     'coming-storm-fear-needs-a-decision': 'coming-storm-fear-needs-a-decision.png',
     'the-stimulated-mind-cognitive-athlete': 'the-stimulated-mind-cognitive-athlete.png',
     'herdr-complete-guide': 'herdr-complete-guide.png',
