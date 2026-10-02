@@ -4,6 +4,7 @@ description: "In a September 11, 2026 video, Joe Maddalone built a background-re
 slug: "huggingface-spaces-free-ai-app-2026-10"
 lang: "en"
 pubDate: 2026-10-02
+updatedDate: 2026-10-02
 category: "tech"
 kind: "podcast-notes"
 tags: ["Hugging Face", "Gradio", "ZeroGPU", "Cloud GPU", "AI apps", "Decision making"]
@@ -74,9 +75,11 @@ The app's footer has a "Use via API" link with ready-made sample code. He writes
 
 What the video doesn't cover is the fine print. I went through Hugging Face's official docs (as of 2026-10-02) and laid it out.
 
-Condition one: who can host. A Gradio Space that runs on compute now generally requires a paid plan to create. The one exception for free accounts is ZeroGPU, and only for accounts at least 30 days old with a verified email. That may also explain why he switched from CPU basic to ZeroGPU: under the current rules, CPU basic is the route that doesn't work for a free account. ⚠️ The video doesn't say whether his account is paid, and I checked the docs on October 2, which may not match the rules on the day he recorded. This part is my inference.
+Condition one: who can host. A Gradio Space that runs on compute now generally requires a paid plan to create. The one exception for free accounts is ZeroGPU, and only for accounts at least 30 days old with a verified email. That may also explain why he switched from CPU basic to ZeroGPU: under the current rules, CPU basic is the route that doesn't work for a free account. I tested that part myself (see the next paragraph). The video doesn't say whether his account is paid, though, and the rules on the day he recorded may differ from today's, so "that's why he switched" is still my inference.
 
 I ran into this one myself. On October 2, 2026, I signed up following the steps in this post and verified my email the same day, but I can't host my own ZeroGPU app until November 1. In the meantime I can use ZeroGPU Spaces other people have built, and host my own once the 30 days are up.
+
+The same day I also tried CPU basic: creating a Gradio app on a free account got an immediate "Payment Required" (error 402). The only route that worked was a static Space, which just serves web pages and runs nothing on the platform, and a free account can create one right away. I rewrote two small tools as plain web pages and put them up; you can try them in the [lab](/en/lab/reverse-dcf/).
 
 Condition two: how many. A free account can host up to two ZeroGPU Spaces; a PRO account can host ten.
 
