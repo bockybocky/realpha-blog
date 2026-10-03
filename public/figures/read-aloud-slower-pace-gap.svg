@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩條時間軸對照：慢速那條的句子塊更長、句間空白更寬，整體延伸更遠">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:19px; font-weight:700; fill:var(--ink); }
+    .lbl { font-size:15px; fill:var(--dim); }
+    .end { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="ttl" x="60" y="60">放慢三成，多出來的是跟讀的空隙</text>
+
+  <text class="grp" x="60" y="150">原速</text>
+  <text class="lbl" x="60" y="178">1.0</text>
+  <rect x="150" y="128" width="90" height="46" rx="6" fill="var(--grey)"/>
+  <rect x="250" y="128" width="90" height="46" rx="6" fill="var(--grey)"/>
+  <rect x="350" y="128" width="90" height="46" rx="6" fill="var(--grey)"/>
+  <line x1="150" y1="200" x2="440" y2="200" stroke="var(--line)" stroke-width="3"/>
+  <circle cx="440" cy="200" r="5" fill="var(--grey)"/>
+
+  <text class="grp" x="60" y="300">放慢</text>
+  <text class="lbl" x="60" y="328">1.35</text>
+  <rect x="150" y="278" width="122" height="46" rx="6" fill="var(--accent)"/>
+  <rect x="348" y="278" width="122" height="46" rx="6" fill="var(--accent)"/>
+  <rect x="546" y="278" width="122" height="46" rx="6" fill="var(--accent)"/>
+  <rect x="272" y="289" width="76" height="24" rx="4" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="470" y="289" width="76" height="24" rx="4" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <line x1="150" y1="350" x2="668" y2="350" stroke="var(--line)" stroke-width="3"/>
+  <circle cx="668" cy="350" r="5" fill="var(--accent)"/>
+
+  <text class="lbl" x="276" y="258">停頓</text>
+  <text class="lbl" x="152" y="258">一句</text>
+  <text class="lbl" x="700" y="356">念完</text>
+  <text class="lbl" x="700" y="206">念完</text>
+
+  <text class="end" x="60" y="440">空白處＝小朋友在心裡跟一遍的時間</text>
+  <text class="lbl" x="60" y="472">同樣三句，塊變長、縫變寬，整段就慢了下來</text>
+</svg>

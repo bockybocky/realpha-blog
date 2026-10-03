@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩張紙輪廓對照：摺角與文字行的參差邊整組左右翻轉">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:19px; font-weight:700; fill:var(--ink); }
+    .lbl { font-size:15px; fill:var(--dim); }
+    .end { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">鏡頭預設照鏡子，整張紙被翻了過來</text>
+
+  <text class="grp" x="110" y="112">紙上的樣子</text>
+  <polygon points="110,130 310,130 350,170 350,400 110,400" fill="var(--card)" stroke="var(--line)" stroke-width="3"/>
+  <polyline points="310,130 310,170 350,170" fill="none" stroke="var(--line)" stroke-width="3"/>
+  <rect x="140" y="200" width="180" height="12" rx="6" fill="var(--grey)"/>
+  <rect x="140" y="232" width="130" height="12" rx="6" fill="var(--grey)"/>
+  <rect x="140" y="264" width="166" height="12" rx="6" fill="var(--grey)"/>
+  <rect x="140" y="296" width="96" height="12" rx="6" fill="var(--grey)"/>
+  <rect x="140" y="328" width="146" height="12" rx="6" fill="var(--grey)"/>
+
+  <line x1="480" y1="150" x2="480" y2="400" stroke="var(--line)" stroke-width="3" stroke-dasharray="8 8"/>
+  <text class="lbl" x="452" y="428">鏡面</text>
+
+  <text class="grp" x="610" y="112">鏡頭拍回來</text>
+  <polygon points="850,130 650,130 610,170 610,400 850,400" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+  <polyline points="650,130 650,170 610,170" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <rect x="640" y="200" width="180" height="12" rx="6" fill="var(--grey)"/>
+  <rect x="690" y="232" width="130" height="12" rx="6" fill="var(--grey)"/>
+  <rect x="654" y="264" width="166" height="12" rx="6" fill="var(--grey)"/>
+  <rect x="724" y="296" width="96" height="12" rx="6" fill="var(--grey)"/>
+  <rect x="674" y="328" width="146" height="12" rx="6" fill="var(--grey)"/>
+
+  <text class="end" x="60" y="478">摺角跳到另一邊，就知道該把畫面翻回來</text>
+</svg>

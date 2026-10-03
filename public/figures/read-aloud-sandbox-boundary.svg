@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="虛線框代表隔離環境，框內指令伸向框外攝影機與暫存檔的兩條線都被截斷">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:19px; font-weight:700; fill:var(--ink); }
+    .lbl { font-size:15px; fill:var(--dim); }
+    .end { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">牆在哪裡：聲音出得去，鏡頭進不來</text>
+
+  <rect x="60" y="100" width="470" height="320" rx="14" fill="var(--card)" stroke="var(--accent)" stroke-width="3" stroke-dasharray="10 8"/>
+  <text class="grp" x="88" y="140">隔離環境</text>
+  <rect x="110" y="176" width="300" height="56" rx="8" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text class="lbl" x="134" y="210">念出文字的指令</text>
+  <rect x="110" y="258" width="300" height="56" rx="8" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+  <text class="lbl" x="134" y="292">直接送到喇叭</text>
+  <text class="lbl" x="88" y="392">能做的事</text>
+
+  <line x1="410" y1="204" x2="700" y2="204" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="410" y1="340" x2="700" y2="340" stroke="var(--grey)" stroke-width="3"/>
+  <g stroke="var(--warn)" stroke-width="5">
+    <line x1="536" y1="188" x2="568" y2="220"/>
+    <line x1="568" y1="188" x2="536" y2="220"/>
+    <line x1="536" y1="324" x2="568" y2="356"/>
+    <line x1="568" y1="324" x2="536" y2="356"/>
+  </g>
+
+  <rect x="700" y="166" width="200" height="76" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="3"/>
+  <circle cx="750" cy="204" r="18" fill="var(--grey)"/>
+  <text class="lbl" x="782" y="210">攝影機</text>
+  <rect x="700" y="302" width="200" height="76" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="3"/>
+  <rect x="730" y="326" width="40" height="30" rx="4" fill="var(--grey)"/>
+  <text class="lbl" x="786" y="347">暫存檔</text>
+  <text class="lbl" x="700" y="420">牆外面</text>
+
+  <text class="end" x="60" y="486">要用鏡頭，就得讓它在牆的外面執行</text>
+</svg>
