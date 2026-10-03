@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="留機待命與關機重開兩條時間線對照，錢差不多，重開那條多出十分鐘空白等待">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+    .w { font-size:19px; fill:var(--page); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="68">錢差不多，人多等十分鐘</text>
+
+<text class="g" x="60" y="130">留著待命</text>
+<rect x="60" y="150" width="420" height="64" rx="5" fill="var(--grey)" opacity="0.5"/>
+<text class="g" x="84" y="190">空轉 30 分</text>
+<rect x="480" y="150" width="200" height="64" rx="5" fill="var(--accent)"/>
+<text class="w" x="504" y="190">新工作立刻開畫</text>
+<text class="n" x="700" y="190">約 0.10 美元</text>
+
+<text class="g" x="60" y="282">關掉再開</text>
+<rect x="60" y="302" width="420" height="64" rx="5" fill="var(--page)" stroke="var(--line)" stroke-dasharray="7 6"/>
+<text class="n" x="84" y="342">機器不在，不計費</text>
+<rect x="480" y="302" width="150" height="64" rx="5" fill="var(--warn)"/>
+<text class="w" x="498" y="342">開機＋下載</text>
+<rect x="630" y="302" width="200" height="64" rx="5" fill="var(--accent)"/>
+<text class="w" x="654" y="342">這時才開畫</text>
+<text class="n" x="850" y="342">約 0.08 美元</text>
+
+<line x1="480" y1="398" x2="630" y2="398" stroke="var(--warn)" stroke-width="3"/>
+<text class="g" x="480" y="430" fill="var(--warn)">多出來的十分鐘，是人在乾等</text>
+
+<text class="c" x="60" y="492">跑完先別關，留 30 分鐘待命</text>
+</svg>

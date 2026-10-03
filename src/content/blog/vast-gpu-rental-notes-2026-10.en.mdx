@@ -1,0 +1,111 @@
+---
+title: "Renting GPUs on vast, and How It Stacks Up Against RunPod: Booting Up Costs More Than the Rent"
+description: "Notes from renting cloud GPUs on vast.ai and RunPod in September 2026: an RTX 3090 on vast at $0.22 an hour, 50 images for $0.18; how to choose between the two and where each one bites. A personal write-up, not an endorsement of any service."
+slug: "vast-gpu-rental-notes-2026-10"
+lang: "en"
+pubDate: "2026-10-03"
+category: "tech"
+tags: ["GPU", "Cloud", "vast", "RunPod", "AI tools"]
+tldr: "vast is cheap and lets you pick the exact machine, but you have to babysit it; RunPod's Secure Cloud costs more than twice as much and saves you the worry. On both, the minutes spent booting up cost more than the hourly rate."
+ogImage: "/covers/vast-gpu-rental-notes-2026-10.png"
+cover: "/covers/vast-gpu-rental-notes-2026-10.png"
+---
+
+![A riverside dock in morning mist, where a small rental boat with its lamp lit waits quietly for the next customer](/covers/vast-gpu-rental-notes-2026-10.png)
+
+> *In all things, preparation brings success; without it, failure.*<br/>
+> *Settle your words beforehand and you will not stumble; settle your affairs beforehand and you will not be troubled.*<br/>
+> —— *Book of Rites*, "The Doctrine of the Mean" (compiled in the Western Han); translation mine
+
+I started renting cloud GPUs on vast.ai in late September 2026, after a few earlier rounds on RunPod. My best run on vast was September 23: one RTX 3090 at $0.22 an hour, 50 images from boot to the last download in 49.5 minutes, $0.18 in total. The same batch would have taken 12.5 hours on the 8GB card at home. RunPod's comparable 3090 cost $0.50 an hour on Secure Cloud at the time and $0.22 on Community Cloud, the same as vast. I've had whole nights with zero output on both, and when I added up the bills, the minutes spent booting up cost more than the rent every time.
+
+## What vast is
+
+vast is a marketplace where people rent out their graphics cards. Most hosts are individuals or small server rooms who list their machines with an hourly price. You pick the one you want, and billing starts when it boots. Once you stop it, the GPU charge stops but storage keeps billing; only destroying the instance makes the charges go away completely. Uploads and downloads are billed separately too.
+
+The big difference from a normal cloud is that you choose the machine yourself. Every listing comes with a pile of columns: GPU model, memory, hourly price, network speed up and down, disk speed, whether it has a static IP, and a "reliability" score that tells you how stable that host's machines have been. Over time I came to think that reliability column is what vast is really selling.
+
+Our filter today is roughly: reliability 0.98 or higher, a recent driver, a fast network, and a static IP. Adding the static-IP condition alone cut the choices from 343 machines to 39, and the cheapest price went from $0.163 to $0.201 an hour. ⚠️ "A static IP connects more reliably" is a lesson from other people's experience; the broken machine we hit has since been delisted, so we can't go back and confirm it ourselves. Also, at that moment only 25 machines on the whole market, about 7%, were in proper datacenters. The rest were individual or small-scale hosts.
+
+![Two horizontal bars of very different lengths: the long one covers all 343 machines with a floor price of $0.163, the short one leaves only 39 machines at a floor of $0.201, and a small block beside them marks the mere 25 machines in the whole market that sit in a real data center.](/figures/vast-filter-funnel-en.svg)
+
+It's cheap because it isn't a big datacenter, and it's a handful for the same reason.
+
+A quick word on who did what: renting cards, setting up the environment and watching progress were handed to my AI assistant. My job was to check the results, pay, and scold it when it got things wrong. About half the mistakes below are its, and the other half are mine for not thinking things through.
+
+## September 20: nine boots, zero output
+
+My first real job on vast was voicing an exam question bank in Chinese, a little over two hundred questions. That day we booted nine machines on vast and didn't get a single question done.
+
+The costliest trap went like this. The machine came up, the status said "running," the connection port was there, but every attempt to connect came back "key rejected." The error pointed at the key, so the assistant went to fix the key: generated a new one, registered it again, added waits. That trap alone burned six rentals. In the end we read the source code of vast's official command-line tool and compared the request it builds against ours, field by field. It turned out the create call has a "connection mode" field, and we had filled in the flag name shown in the tool, which the server didn't recognize. The machine still got created; it just never had connections turned on. The key had been fine the whole time.
+
+The same day we also ran into problems with the machines themselves. One host could never be reached, and we rented it twice. Some machines were taken by someone else before our rental went through. On others the GPU was already occupied by another renter. Since then, broken hosts go on a blocklist that filters them out the next time we pick a machine. The list records the host, not the single rental, and entries expire after 30 days, because hosts change their network and hardware and one failure doesn't mean forever.
+
+Most of that voice job ended up finishing on RunPod, with the computer at home filling in the rest.
+
+## September 23: 49.5 minutes, $0.18
+
+Three days later I tried again, this time for a batch of 50 portrait edits, on an RTX 3090 in Taiwan with 24GB of memory at $0.22 an hour.
+
+24GB means the model doesn't have to be squeezed very small. A medium-compression version at 22.6GB fit entirely on the card, and the images came out noticeably better than on the card at home. Each image took 31.8 seconds. From getting the machine to having all 50 downloaded took 49.5 minutes, and the bill said $0.182958. My reaction was: this cloud box is good, let's start with a 3090 from now on.
+
+Break those 49.5 minutes down, though, and just downloading the 30GB model took 21 of them. Only a little over half went to actually drawing. In the cloud, the waiting ran almost as long as the work.
+
+![A single horizontal bar representing 49.5 minutes is split into three segments: about 2 minutes to boot up and transfer results back, 21 minutes to download the model, and 26.5 minutes of actual image generation, so the first two segments of waiting add up to almost as much time as the drawing itself.](/figures/vast-49min-breakdown-en.svg)
+
+## September 24: boot one, kill one
+
+When the first round finished, the assistant's job settings said "destroy the machine when done," so it shut the machine down on the spot. Four minutes later the images reached me and I wanted the eyes changed, so it had to rent another machine, wait for another boot, and download the model again, while I sat there waiting. The same night it also split one kind of job into two tickets and booted two machines. I said two things that night: "Why not just run it on the same one? Why swap it out?" and "Renting, booting and shutting down over and over burns money. I'm telling you off here."
+
+That 3090 actually billed at $0.2052 an hour. Here's the math:
+
+| Item | Time | Cost |
+|---|---|---|
+| From getting the card to drawing the first image | about 4–5 minutes | about $0.08 extra per machine in download traffic |
+| One image | 31.8 seconds | under $0.002 |
+| Leaving it idle for 30 minutes | 30 minutes | about $0.10 |
+
+Keeping it on for half an hour costs about the same as shutting down and booting again, except the reboot also makes someone wait ten more minutes. So the rule now is: when a job finishes, don't shut down yet. Keep the machine on standby for 30 minutes, and if new work comes in, run it on the same box. Jobs that use the same model and the same kind of task, differing only in input, all get queued onto one machine. In "[A $0 AI App? Walking Through Hugging Face Spaces](/en/blog/huggingface-spaces-free-ai-app-2026-10/)" I wrote "rent a card and shut it down when done." I'm correcting that here to "when done, stay on standby."
+
+![Two timelines compared: the top one keeps the machine on standby for thirty minutes and then starts drawing images immediately, while the bottom one shuts the machine down and restarts it, adding a ten-minute gap for boot-up and model downloads — yet both cost about the same.](/figures/vast-standby-vs-restart-en.svg)
+
+## September 27: the finished model, killed in front of me
+
+That day we were training a model in the cloud, and the assistant wrote a watcher script: when training finishes, download the result to my machine, then shut down. The download had a ten-minute timeout. The 640MB file got cut off at 480MB, the watcher never checked whether the file was complete, and it shut the machine down anyway, taking the only copy in the cloud with it. Now we always work out the size the file should be, compare it with what arrived, and only allow a shutdown when they match.
+
+![A 640MB progress bar is cut off by the time limit at 480MB, and the cloud original on the right is crossed out and gone; below, the same bar gains a size-match gate, and shutdown is allowed only once the sizes match.](/figures/vast-truncated-download-en.svg)
+
+## vast versus RunPod
+
+RunPod is another cloud for renting GPUs, and I used it before vast. My first time was August 31, a small job: four runs, 567 seconds of GPU time in total, a bill of about NT$3.4 (roughly ten US cents). For that voice job on September 20, a single RTX 4090 on RunPod's Secure Cloud took 23.3 seconds per question and produced 242 questions over three runs for $1.35. But the night before, the same job ran thirteen times on RunPod, cost $2.25, and produced nothing.
+
+Here are the two side by side (RunPod prices are live quotes from September 24, unchanged when I checked again on October 3; vast is the quote from September 23):
+
+| | vast | RunPod Community Cloud | RunPod Secure Cloud |
+|---|---|---|---|
+| RTX 3090 per hour | $0.22 | $0.22 | $0.50 |
+| Who picks the machine | You, from the listings | You pick model and region; the platform picks the box | Same |
+| Whose machine it is | Mostly individuals or small server rooms | Community hosts | Proper datacenters |
+| When you hit a bad machine | Filter it out with a blocklist before renting | You find out after it boots; all you can do is kill it and try another | Same |
+| Re-download the model every time? | Yes, in my case (21 minutes) | Yes, Community Cloud can't attach persistent storage | You can buy persistent storage, but only some datacenters support it, and it ties your machine to that datacenter |
+| What I'd use it for | Big one-off batches with nothing private in them | Same | Private data (my own voice, my own photos) |
+
+In one sentence: vast hands you the choice, RunPod makes it for you. On vast, a blocklist and filters keep bad machines out before you pay. RunPod only lets you pick a model and region, never a specific box, so all you can do is test it right after it boots and kill it if something's off; finding out thirty seconds sooner saves you one more wasted trip. On price, if you want stability you pay for RunPod Secure Cloud at more than twice the rate. If you were going to use RunPod Community Cloud anyway, it's about the same as vast on both price and reliability.
+
+On the night of September 24 I asked the obvious question: would switching to RunPod mean fewer problems? We sorted the incidents from that stretch one by one. The first kind was bugs in our own code, like treating a success message as an error. The second was bad scheduling and bad calls, like booting and killing one machine after another, or a waiting script with no timeout that sat idle for five hours. Only the third kind was vast's own platform: a broken relay that forced us to connect directly, getting rate-limited, a GPU model being out of stock.
+
+The third kind was about a third of the total, and none of it cost us anything real. The thirteen empty runs on RunPod had the same shape: every failure came from the home computer and the cloud being set up differently, such as different package versions, or an archive path that one system couldn't unpack. You'd hit those on any provider. What burned money and time was the first two kinds, and switching platforms would carry them right along. ⚠️ That one-third figure comes from a single day's log, a small sample. We now record the cause of every failed rental, and I'll compare again after ten more. In the end I said, "Fine, we'll stick with vast."
+
+![A stacked bar splits the incidents into three parts: my own code bugs, bad scheduling and judgment, and the platform itself, which is about a third; the first two are boxed as the parts that burn money, and they follow you to any other platform.](/figures/vast-incident-split-en.svg)
+
+## What I'd tell a friend after this round
+
+If you only run AI now and then, use free quotas first; no need to rent a card. If you have a batch that would keep the card at home busy all night, renting is worth it. For anything involving private data, like your own voice or photos, pay for RunPod Secure Cloud. For everything else, vast and RunPod Community Cloud are both fine; pick whichever you find easier.
+
+Whichever you choose, the effort goes into the same three places: picking the right machine, queuing the same kind of work onto the same box and keeping it on standby when done, and confirming you actually got your files back before shutting down.
+
+I've written about buying versus renting a card before, in "[Local LLMs: Buy a GPU or Rent One?](/en/blog/runpod-vs-local-gpu-2026-09/)".
+
+## One thing to take with you
+
+The cost of a task often isn't in the doing. It's in starting and wrapping up. Next time you plan something you do over and over, like the weekly grocery run, the monthly bill check, or a day of errands, first count how long the setup and cleanup take. Then ask yourself whether you can bunch the same kind of task into one go, and when you finish, hold off on packing up for a moment to see if the next thing can ride along.
