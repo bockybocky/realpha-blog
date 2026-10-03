@@ -502,6 +502,14 @@ def figure_png(name):
     svg = os.path.join(ROOT, 'public', 'figures', name + '.svg')
     if os.path.isfile(png):
         return png
+    # 實拍照片（jpg/png）不是 SVG：直接轉成 PNG（上傳寫死 image/png）。2026-10-04 首例 read-aloud-desk-photo
+    for ext in ('.jpg', '.jpeg', '.png'):
+        photo = os.path.join(ROOT, 'public', 'figures', name + ext)
+        if os.path.isfile(photo):
+            from PIL import Image
+            os.makedirs(FIG_PNG_DIR, exist_ok=True)
+            Image.open(photo).convert('RGB').save(png, 'PNG')
+            return png
     if not os.path.isfile(svg):
         raise FileNotFoundError('找不到內文圖 ' + svg)
     m = re.search(r'viewBox="0 0 (\d+) (\d+)"', open(svg, encoding='utf-8').read())
