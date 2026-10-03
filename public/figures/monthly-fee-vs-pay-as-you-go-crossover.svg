@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="水平的月費線與斜上的按量線交叉，交叉點左邊按量划算、右邊月費划算">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="80" y="72" font-size="27" font-weight="700" fill="var(--ink)">用多少，才決定哪種付法便宜</text>
+
+<rect x="140" y="120" width="92" height="330" fill="var(--card)"/>
+<line x1="140" y1="450" x2="880" y2="450" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="120" x2="140" y2="450" stroke="var(--line)" stroke-width="2"/>
+
+<line x1="140" y1="400" x2="880" y2="400" stroke="var(--grey)" stroke-width="3"/>
+<text x="888" y="396" font-size="19" fill="var(--dim)">月費</text>
+
+<line x1="140" y1="450" x2="860" y2="140" stroke="var(--accent)" stroke-width="3"/>
+<text x="828" y="128" font-size="19" fill="var(--accent)">按量</text>
+
+<circle cx="232" cy="400" r="7" fill="var(--warn)"/>
+<line x1="232" y1="400" x2="232" y2="470" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="232" y="494" font-size="19" font-weight="700" fill="var(--warn)" text-anchor="middle">分界</text>
+
+<text x="186" y="168" font-size="19" fill="var(--dim)" text-anchor="middle">按量</text>
+<text x="186" y="192" font-size="19" fill="var(--dim)" text-anchor="middle">划算</text>
+<text x="560" y="192" font-size="19" fill="var(--dim)" text-anchor="middle">月費划算</text>
+
+<text x="880" y="480" font-size="16" fill="var(--dim)" text-anchor="end">往右＝一個月用得越多</text>
+<text x="128" y="134" font-size="16" fill="var(--dim)" text-anchor="end">花費</text>
+
+<text x="80" y="534" font-size="22" font-weight="700" fill="var(--ink)">帳單本來就低於月費，就別繳月費</text>
+</svg>

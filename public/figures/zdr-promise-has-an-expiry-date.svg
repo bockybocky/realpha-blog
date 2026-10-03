@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="時間軸：十月三日到十月三十一日是實線的保留 0 天，十一月一日之後是虛線與問號">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text x="80" y="76" font-size="27" font-weight="700" fill="var(--ink)">承諾只寫到那一天</text>
+
+<rect x="100" y="230" width="460" height="64" fill="var(--accent)"/>
+<text x="330" y="270" font-size="20" font-weight="700" fill="var(--page)" text-anchor="middle">保留 0 天</text>
+
+<rect x="560" y="230" width="300" height="64" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 8"/>
+<text x="710" y="262" font-size="27" font-weight="700" fill="var(--warn)" text-anchor="middle">?</text>
+<text x="710" y="285" font-size="15" fill="var(--dim)" text-anchor="middle">文件沒寫</text>
+
+<line x1="100" y1="330" x2="860" y2="330" stroke="var(--line)" stroke-width="2"/>
+<line x1="100" y1="322" x2="100" y2="338" stroke="var(--grey)" stroke-width="2"/>
+<line x1="560" y1="322" x2="560" y2="338" stroke="var(--warn)" stroke-width="3"/>
+<line x1="860" y1="322" x2="860" y2="338" stroke="var(--grey)" stroke-width="2"/>
+
+<text x="100" y="366" font-size="19" fill="var(--ink)">10/3 今天</text>
+<text x="560" y="366" font-size="19" font-weight="700" fill="var(--warn)" text-anchor="middle">10/31 協議到期</text>
+<text x="860" y="366" font-size="19" fill="var(--dim)" text-anchor="end">11 月以後</text>
+
+<text x="330" y="206" font-size="16" fill="var(--dim)" text-anchor="middle">剩 28 天</text>
+
+<text x="80" y="460" font-size="22" font-weight="700" fill="var(--ink)">「0 天」有到期日，星號後面那一句才是重點</text>
+</svg>

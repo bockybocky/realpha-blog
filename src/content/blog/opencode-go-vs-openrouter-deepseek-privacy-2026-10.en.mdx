@@ -1,0 +1,155 @@
+---
+title: "Is My AI Assistant's Data Safe on DeepSeek? I Read the Privacy Fine Print at OpenCode Go and OpenRouter"
+description: "In October 2026 I wanted to move my home AI assistant off DeepSeek's official API, mostly for data sensitivity. This is what I found, in order: OpenCode Go costs $10 a month and lists DeepSeek as '0-day retention', but that agreement only runs to October 31; on OpenRouter, 31 providers serve the same DeepSeek V4.1 Flash, 25 of them are on its zero-data-retention list, and DeepSeek's own endpoint is not. Then the math on when a subscription beats pay-as-you-go. Personal notes, not a recommendation for any service."
+slug: "opencode-go-vs-openrouter-deepseek-privacy-2026-10"
+lang: "en"
+pubDate: 2026-10-03
+category: "tech"
+tags: ["DeepSeek", "OpenCode Go", "OpenRouter", "AI assistant", "privacy", "zero data retention"]
+ogImage: "/covers/opencode-go-vs-openrouter-deepseek-privacy-2026-10.png"
+cover: "/covers/opencode-go-vs-openrouter-deepseek-privacy-2026-10.png"
+tldr: "A cloud provider's '0-day retention' is a promise, and it can come with an expiry date. Light users save money paying per token through OpenRouter's zero-retention providers; truly confidential data shouldn't go to any cloud."
+---
+
+![Fauvist oil painting cover: a small study in loud color blocks, a locked chest and a stack of sealed letters on the desk, the last day of the month circled in red on a wall calendar, and outside the window boats flying different-colored flags carry sealed parcels down a bright river toward a distant city](/covers/opencode-go-vs-openrouter-deepseek-privacy-2026-10.png)
+
+> *When the ruler is not discreet, he loses his ministers; when a minister is not discreet, he loses his life;*<br/>
+> *when delicate matters are not kept secret, they come to harm. So the wise keep close counsel and let nothing slip out.*<br/>
+> —— *I Ching*, Great Commentary, Part I (pre-Qin); translation mine
+
+On October 3, 2026 I went through two services. OpenCode Go costs $10 a month and gives you $60 of monthly allowance for DeepSeek V4.1 Flash, which its own docs estimate at about 130,000 requests. Its privacy table says DeepSeek is "not used for training, retained 0 days," and the same page adds that this zero-retention agreement is renewed monthly and currently runs only until October 31, 2026. On OpenRouter, the same model is served by 31 providers; 25 of them are on its zero-data-retention list, and DeepSeek's own endpoint is not one of them. My conclusion comes with two conditions: if your monthly DeepSeek bill is under $10, pay per token and route only to zero-retention providers; and keep truly confidential data off every cloud, whatever the provider promises.
+
+## Where it started: three runs for under 20 cents
+
+I have a home-built PC we call "Black Apple." It runs an AI assistant built on the open-source Hermes Agent, and its brain is wired to DeepSeek's official API (an API is the doorway a program uses to call a model), using deepseek-v4-flash.
+
+It has always been cheap. One job of three rounds cost me less than $0.20, a bill small enough that I'd mostly forgotten it was there.
+
+Data sensitivity is what made me want to switch. The assistant handles more and more of my material, and one question kept bothering me: once that text leaves my machine, whose computer is it sitting on, and for how long? I had no answer.
+
+## First stop: OpenCode Go at $10 a month
+
+The first option I found was OpenCode Go. OpenCode is an AI coding tool, and Go is its subscription. Here is what its official docs said, as updated on October 3, 2026.
+
+There are two plans: Go at $10 a month and Go Plus at $40. Both get the same models; Plus just has higher limits. You get an API key when you subscribe, and you can use it outside OpenCode. DeepSeek and similar models sit behind an OpenAI-compatible endpoint, so in theory my assistant only needs a new URL and key.
+
+I counted the model list: 30 models right now, four of them DeepSeek, plus Kimi, GLM, Qwen, MiMo, MiniMax, Grok, GPT's Luna line and others.
+
+The limits work in dollars per month, split into three windows: within any 5 hours you can burn 20% of the monthly limit, 50% in a week, 100% in a month. On the Go plan, DeepSeek V4.1 Flash gets $60 a month, V4 Pro $15, Kimi K3 $15. The docs convert that into requests too: about 130,000 a month for V4.1 Flash, only 490 for Kimi K3.
+
+![Three horizontal bars grow from short to long, filling one-fifth, one-half and all of the monthly allowance from top to bottom, showing how the 5-hour, 1-week and 1-month caps loosen at each tier.](/figures/opencode-go-three-tier-quota-en.svg)
+
+At this point I was tempted. Ten dollars for sixty dollars of usage sounded like a good deal.
+
+## The privacy table: 0 days, signed through October 31
+
+Then I got to the privacy section, the part I actually cared about.
+
+The table has two columns per model: used for training or not, and how long data is kept. DeepSeek's four models, Kimi, GLM, Qwen, MiMo and MiniMax all say "no, 0 days." Grok and GPT Luna say 30 days. The two Muse Spark models are upfront about it: yes, your data trains future models, no zero retention, and in exchange the tokens are cheaper.
+
+The "0 days" on the four DeepSeek rows carries an asterisk. The footnote is one line: "ZDR agreement is renewed monthly. The current agreement is valid through October 31, 2026."
+
+ZDR stands for zero data retention. I read the line twice. That "0 days" comes from a contract between OpenCode and the provider, re-signed every month. Today is October 3, so the promise has 28 days left. Whether it gets renewed on November 1, changes terms, or the footnote says something else, the docs don't say.
+
+![A timeline runs as a solid "0-day retention" segment from today to the end of October, then turns into a dashed blank stretch after November 1, marked with a question mark and "not in the docs".](/figures/zdr-promise-has-an-expiry-date-en.svg)
+
+I suspect most people choosing a service look at the "0" and never scroll down to the asterisk.
+
+## One more page: it only wants coding agents
+
+The second thing that stopped me was in the "where can I use it" section.
+
+It says Go "is designed for OpenCode and other coding agents that produce similar types of requests," and that "traffic is monitored for abuse that degrades the experience for other users." Clients are expected to send typical coding-agent traffic, identify themselves with their own user agent, and put a stable session ID in an `x-opencode-session` header.
+
+My reading: if I used it for batch summaries, fiction writing, or a pile of work that has nothing to do with code, I could get flagged as traffic that "degrades the experience for other users" even with allowance left. That's my interpretation. The docs don't list what counts as abuse.
+
+Funny enough, Hermes is on the official list of verified clients: "Builds containing PR #101864 send the header on main and auxiliary OpenCode requests. The fix was merged after v0.21.0; that release alone does not include it." So Hermes needs a build newer than v0.21.0 with that fix. That list is about sending the header correctly, though. It says nothing about what kind of work you push through. Half of what my assistant does is sorting data and writing summaries, which doesn't look much like a coding agent.
+
+## Second stop: OpenRouter, 31 sellers of the same model
+
+Next I looked at OpenRouter. It doesn't build models. Think of it as a switchboard: many cloud companies host the same model, OpenRouter routes you to one of them, charges each provider's list price, and adds a 5.5% fee when you buy credits.
+
+I opened the DeepSeek V4.1 Flash model page (October 3, 2026). Context length is about 1.04 million tokens, with 31 provider endpoints. DeepSeek's own price is $0.15 per million input tokens and $0.60 per million output. DeepInfra charges $0.14 and $0.42. Together, Fireworks and SiliconFlow charge $0.30 and $1.20.
+
+Then I checked its zero-data-retention list. Of the 31 endpoints for V4.1 Flash, 25 are on it, including DeepInfra, Together, Fireworks, CoreWeave, BaseTen, Novita and DigitalOcean. DeepSeek's official endpoint isn't there.
+
+![Thirty-one small squares stand for thirty-one provider endpoints serving the same model; twenty-five filled squares are zero-retention, six grey ones are not on the list, and one outlined square marks DeepSeek's own official endpoint.](/figures/v41-flash-31-endpoints-25-zdr-en.svg)
+
+To be precise: being off the list only means it doesn't carry the zero-retention tag. It doesn't tell me how long DeepSeek keeps anything. I also read DeepSeek's privacy policy (version dated February 10, 2026). It says personal data is stored in China, and it doesn't say how long API inputs are retained.
+
+OpenRouter lets you add a setting to each request that only allows zero-retention providers and refuses providers that collect data:
+
+```json
+{
+  "provider": {
+    "zdr": true,
+    "data_collection": "deny"
+  }
+}
+```
+
+One more thing turned up while I was reading the list. Every provider calls its model DeepSeek V4.1 Flash, yet they run it differently: some are tagged fp8, some fp4, some carry no tag at all. fp8 and fp4 mean the model's numbers are stored more compactly to save memory, and the more compact, the more it can affect answer quality. Among zero-retention providers, the three cheapest on input price are one untagged, one fp8 and one fp4. Whether the cheap one runs the model at original precision, the price list won't tell you.
+
+## The three routes side by side
+
+Here they are together (OpenCode Go from its docs, OpenRouter from the model page and zero-retention list, both October 3, 2026; prices are DeepSeek V4.1 Flash per million tokens):
+
+| | DeepSeek official API | OpenCode Go | OpenRouter (zero-retention only) |
+|---|---|---|---|
+| Data retention | Not on OpenRouter's zero-retention list; its own policy doesn't say how long API inputs are kept | Not used for training, 0 days | All 25 listed providers tagged zero retention |
+| How firm the promise is | Docs don't say | Renewed monthly, currently through Oct 31 | Each provider's own policy; the list changes |
+| Price | Input 0.15 / output 0.60 | Same list price deducted from allowance, doubled at peak hours | Varies by provider, input 0.02 to 0.45 |
+| Billing | Pay per token | $10 or $40 a month | Pay per token, plus 5.5% on credit purchases |
+| Works with your own assistant | Yes | Yes, but should send coding-agent traffic | Yes |
+| Usage limits | Not checked for this article | 5-hour, weekly and monthly windows; abuse monitoring | No monthly cap |
+
+If you're wondering which OpenCode Go models are safer, its privacy table sorts into four tiers:
+
+| Privacy tier | Models | Notes |
+|---|---|---|
+| No training, 0 days | Kimi, GLM, Qwen, MiMo, MiniMax, LongCat, Hy | No expiry noted |
+| No training, 0 days, with an expiry | The four DeepSeek models | Renewed monthly, currently through Oct 31 |
+| No training, 30 days | Grok 4.7 / 4.6, GPT 6 Luna / 5.6 Luna | For GPT Luna, abuse-monitoring logs kept up to 30 days |
+| Used for training | Muse Spark 1.3 / 1.2 | Data traded for a discount; some regions only |
+
+## Where I've landed: secrets stay home
+
+After both stops I realized I'd started with the wrong question. I kept asking which service was safest. Whatever "0 days" says, it's still the other side's promise, and the moment I hit send, the data has already left my house.
+
+So I now split the work into two piles. Truly confidential material, like company documents, goes to no cloud at all. It goes to Qwen, an open-source model running on the computer at home; slower is fine, and the data never leaves that machine. Less sensitive everyday work goes to the cloud, and only to providers on the zero-retention list.
+
+![A vertical line splits the picture into home and cloud: the arrow from the confidential pile turns back inside the line to a local model, while the arrow from the everyday pile crosses the line to a zero-retention provider.](/figures/confidential-stays-home-rest-goes-cloud-en.svg)
+
+A side note: I'd half hoped OpenCode Go could also cover image, video and voice generation. The model list has none of that. The only image-related entry, Vision Exp, just explains how images are converted into tokens for billing. I already do those jobs on my home machine or on rented GPUs, so it doesn't matter to me, but don't expect a one-stop shop.
+
+## Should I pay $10 a month, or pay as I go?
+
+This is the question I spent the longest on, and the answer depends on how much you use.
+
+OpenCode Go estimates request counts with a "typical request": 410 input tokens, 71,300 cached tokens read, 310 output tokens. Cached tokens are content you already sent in an earlier turn, so the provider doesn't recompute them and charges far less. A coding agent resends the whole conversation every turn, which makes about 99% of each request cache.
+
+![One long horizontal bar is almost entirely cache reads, with only two very thin slivers of input and output left at either end.](/figures/typical-request-is-almost-all-cache-en.svg)
+
+Run that typical request through the numbers. Via DeepInfra on OpenRouter it costs about $0.0005, so 130,000 of them come to about $63. At DeepSeek's own list price, 130,000 requests cost about $60, which happens to be exactly the Go plan's $60 allowance.
+
+Flip it around, and $10 of pay-as-you-go buys roughly 20,000 of these requests. So the line is simple: under about 20,000 a month, or a DeepSeek bill that's already below $10, pay per token. If an agent writes code for you all day, every day, the subscription earns its keep. At under 20 cents for three rounds, I'm clearly in the first group.
+
+![Two lines cross on the chart: a flat monthly-fee line and a pay-as-you-go line climbing to the right, with pay-as-you-go cheaper left of the crossing and the monthly fee cheaper to the right.](/figures/monthly-fee-vs-pay-as-you-go-crossover-en.svg)
+
+Two details are easy to miss. First, DeepInfra's input and output prices are lower than DeepSeek's, but its cached-read price is $0.0042 per million against DeepSeek's $0.003. Since these requests are 99% cache, each one actually costs a hair more on DeepInfra. Check which line on your bill does the spending before you compare price lists. Second, OpenCode Go has DeepSeek peak hours: weekdays 01:00 to 04:00 and 06:00 to 10:00 UTC. In Taiwan that's 9 a.m. to noon and 2 p.m. to 6 p.m., exactly when office workers use it most, and during those hours prices double and your allowance drains twice as fast.
+
+![On a bar covering all twenty-four hours of a day, two blocks rise to double height between 9 am and noon and between 2 pm and 6 pm, while the rest of the day stays at the normal low height.](/figures/peak-hours-double-burn-taipei-time-en.svg)
+
+## How far can I trust "0-day retention"?
+
+My answer: trust it up to the date it's written for.
+
+A cloud privacy promise is like a landlord saying he won't raise the rent. You can believe him, but it helps to know when the lease ends. OpenCode Go at least printed the end date. Plenty of services don't, so you can't even tell when to check again.
+
+These days, before I hook up any new cloud model, I ask three things: does it train on my data, how many days does it keep it, and until when is that promise signed. If I can't answer one of the three, that model only gets work I wouldn't mind someone seeing.
+
+## One thing to take with you
+
+The biggest thing I took away from all this: a cloud provider's "0-day retention" is a promise, and promises have expiry dates.
+
+Here's what I do. Tonight, open your AI assistant's config file and, next to the model line, write down three things: the provider, how many days it keeps your data, and the date that promise runs until. If you can't find one, write "docs don't say." On the 1st of next month, open it again and compare; if a date has changed, look it up again. If you want to try it, the first pass takes about five minutes.
