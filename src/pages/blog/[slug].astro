@@ -4,7 +4,7 @@ import AdSlot from '../../components/AdSlot.astro';
 import ArticleToc from '../../components/ArticleToc.astro';
 import AudioPlayer from '../../components/AudioPlayer.astro';
 import { resolveAudio } from '../../lib/audio';
-import Giscus from '../../components/Giscus.astro';
+import Comments from '../../components/Comments.astro';
 import RelatedPosts from '../../components/RelatedPosts.astro';
 import VocusLink from '../../components/VocusLink.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
@@ -147,7 +147,7 @@ const views = viewsOf('zh-TW', post.data.slug);
 		<VocusLink slug={post.data.slug} />
 		{showAds && <AdSlot slot="multiplex" locale={locale} />}
 		<RelatedPosts posts={related} locale={locale} />
-		<Giscus />
+		<Comments path={path} locale={locale} />
 		{showAds && <AdPush />}
 	</main>
 </SiteLayout>

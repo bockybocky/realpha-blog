@@ -4,7 +4,7 @@ import AdSlot from '../../../components/AdSlot.astro';
 import ArticleToc from '../../../components/ArticleToc.astro';
 import AudioPlayer from '../../../components/AudioPlayer.astro';
 import { resolveAudio } from '../../../lib/audio';
-import Giscus from '../../../components/Giscus.astro';
+import Comments from '../../../components/Comments.astro';
 import RelatedPosts from '../../../components/RelatedPosts.astro';
 import SiteLayout from '../../../layouts/SiteLayout.astro';
 import SubstackLink from '../../../components/SubstackLink.astro';
@@ -143,7 +143,7 @@ const views = viewsOf('en', post.data.slug);
 		<SubstackLink slug={post.data.slug} />
 		{showAds && <AdSlot slot="multiplex" locale={locale} />}
 		<RelatedPosts posts={related} locale={locale} />
-		<Giscus />
+		<Comments path={path} locale={locale} />
 		{showAds && <AdPush />}
 	</main>
 </SiteLayout>

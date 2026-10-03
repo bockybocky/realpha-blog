@@ -6,6 +6,7 @@ import { extname, join, normalize, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { collectStats, renderDash } from './dash.mjs';
 import { DEFAULT_DIST, POINTER_FILE, REPO_ROOT, normalizeDistName } from './dist_dir.mjs';
+import { handleComments } from './comments.mjs';
 
 const HOST = '127.0.0.1';
 // 線上固定 8377；SERVE_DIST_PORT 只給本機測試用別的埠（刻意不用通用的 PORT，免得環境變數意外改到線上服務）
@@ -174,13 +175,18 @@ async function sendFallback(req, res, root = pointer.root) {
 }
 
 async function handle(req, res) {
+	const url = new URL(req.url ?? '/', `http://${HOST}:${PORT}`);
+	if (url.pathname.startsWith('/api/comments')) {
+		await handleComments(req, res, await currentRoot());
+		return;
+	}
+
 	if (req.method !== 'GET' && req.method !== 'HEAD') {
 		res.writeHead(405, { allow: 'GET, HEAD', 'content-type': TEXT });
 		res.end('Method Not Allowed\n');
 		return;
 	}
 
-	const url = new URL(req.url ?? '/', `http://${HOST}:${PORT}`);
 	const root = await currentRoot();
 
 	// 私人儀表板。不進 dist、不進網站地圖，外面只靠 Cloudflare Access 擋。

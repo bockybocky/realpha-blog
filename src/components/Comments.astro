@@ -1,0 +1,84 @@
+---
+interface Props { path: string; locale: 'zh-TW' | 'en' }
+const { path, locale } = Astro.props;
+const en = locale === 'en';
+---
+
+<section class="comments" data-comments data-path={path} data-locale={locale} aria-labelledby="comments-title">
+	<h2 id="comments-title">{en ? 'Comments' : '留言'}</h2>
+	<p class="comments-status" role="status">{en ? 'Loading comments…' : '載入留言中…'}</p>
+	<div class="comments-list"></div>
+	<div class="comments-login"></div>
+	<form class="comments-form" hidden>
+		<label>{en ? 'Your comment' : '你的留言'}<textarea name="body" minlength="1" maxlength="2000" required></textarea></label>
+		<div class="comments-actions">
+			<span class="comments-user"></span>
+			<button type="submit">{en ? 'Post comment' : '送出留言'}</button>
+		</div>
+	</form>
+</section>
+
+<script is:inline>
+(() => {
+	const root = document.currentScript.previousElementSibling;
+	const path = root.dataset.path;
+	const en = root.dataset.locale === 'en';
+	const status = root.querySelector('.comments-status');
+	const list = root.querySelector('.comments-list');
+	const login = root.querySelector('.comments-login');
+	const form = root.querySelector('.comments-form');
+	let credential = '';
+	const say = (zh, english) => { status.textContent = en ? english : zh; };
+	const render = (rows) => {
+		list.replaceChildren();
+		for (const item of rows) {
+			const article = document.createElement('article');
+			article.className = 'comment';
+			const header = document.createElement('header');
+			if (item.avatar) { const img = document.createElement('img'); img.src = item.avatar; img.alt = ''; img.width = 32; img.height = 32; img.referrerPolicy = 'no-referrer'; header.append(img); }
+			const name = document.createElement('strong'); name.textContent = item.name;
+			const time = document.createElement('time'); time.dateTime = item.createdAt; time.textContent = new Date(item.createdAt).toLocaleString(en ? 'en' : 'zh-TW');
+			header.append(name, time);
+			const body = document.createElement('p'); body.textContent = item.body;
+			article.append(header, body); list.append(article);
+		}
+		say(rows.length ? '' : '目前還沒有留言。' , rows.length ? '' : 'No comments yet.');
+	};
+	const refresh = () => fetch(`/api/comments?path=${encodeURIComponent(path)}`).then((r) => r.json()).then(render).catch(() => say('留言載入失敗。', 'Could not load comments.'));
+	Promise.all([fetch('/api/comments/config').then((r) => r.json()), refresh()]).then(([config]) => {
+		if (!config.clientId) { say('留言功能準備中', 'Comments are coming soon'); return; }
+		const script = document.createElement('script');
+		script.src = 'https://accounts.google.com/gsi/client'; script.async = true;
+		script.onload = () => {
+			google.accounts.id.initialize({ client_id: config.clientId, callback: (result) => {
+				credential = result.credential; form.hidden = false; login.hidden = true;
+				root.querySelector('.comments-user').textContent = en ? 'Signed in with Google' : '已使用 Google 登入';
+			} });
+			google.accounts.id.renderButton(login, { theme: 'outline', size: 'large', text: 'signin_with' });
+		};
+		document.head.append(script);
+	});
+	form.addEventListener('submit', async (event) => {
+		event.preventDefault(); const button = form.querySelector('button'); button.disabled = true;
+		try {
+			const response = await fetch('/api/comments', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ path, body: form.elements.body.value, credential }) });
+			const result = await response.json();
+			if (!response.ok) throw new Error(result.error || 'error');
+			form.reset(); await refresh(); say('留言已送出。', 'Comment posted.');
+		} catch (error) { status.textContent = error.message; } finally { button.disabled = false; }
+	});
+})();
+</script>
+
+<style>
+	.comments { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+	.comments-list { display: grid; gap: 1rem; margin: 1rem 0; }
+	.comment { padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius); }
+	.comment header { display: flex; align-items: center; gap: .6rem; }
+	.comment img { border-radius: 50%; }
+	.comment time { margin-left: auto; color: var(--muted); font-size: .85rem; }
+	.comment p { white-space: pre-wrap; overflow-wrap: anywhere; margin-bottom: 0; }
+	.comments-form label, .comments-form textarea { display: block; width: 100%; }
+	.comments-form textarea { min-height: 8rem; margin-top: .5rem; padding: .75rem; font: inherit; }
+	.comments-actions { display: flex; align-items: center; justify-content: space-between; margin-top: .75rem; }
+</style>
