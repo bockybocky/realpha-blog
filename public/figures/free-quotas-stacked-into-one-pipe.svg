@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊五根高低不一的短柱全部低於一條虛線，右邊疊成一根高柱後超過那條線">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t h" x="48" y="54">一家都不夠，疊起來才夠</text>
+
+  <line x1="80" y1="180" x2="900" y2="180" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="t s" x="80" y="170" fill="var(--warn)">一天要用的量</text>
+
+  <line x1="80" y1="420" x2="900" y2="420" stroke="var(--line)" stroke-width="2"/>
+
+  <g>
+    <rect x="100" y="340" width="64" height="80" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+    <text class="t s" x="132" y="444" text-anchor="middle">Groq</text>
+    <text class="t s" x="132" y="464" text-anchor="middle">1,000</text>
+
+    <rect x="196" y="396" width="64" height="24" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+    <text class="t s" x="228" y="444" text-anchor="middle">OpenRouter</text>
+    <text class="t s" x="228" y="464" text-anchor="middle">50</text>
+
+    <rect x="292" y="368" width="64" height="52" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+    <text class="t s" x="324" y="444" text-anchor="middle">Kilo</text>
+    <text class="t s" x="324" y="464" text-anchor="middle">200</text>
+
+    <rect x="388" y="382" width="64" height="38" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+    <text class="t s" x="420" y="444" text-anchor="middle">Gemini</text>
+    <text class="t s" x="420" y="464" text-anchor="middle">免費層</text>
+
+    <rect x="484" y="326" width="64" height="94" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+    <text class="t s" x="516" y="444" text-anchor="middle">Cloudflare</text>
+    <text class="t s" x="516" y="464" text-anchor="middle">10,000</text>
+  </g>
+  <text class="t g" x="100" y="300">單獨看</text>
+
+  <path d="M 600 374 L 672 374" stroke="var(--accent)" stroke-width="3" fill="none"/>
+  <path d="M 672 374 l -12 -7 l 0 14 z" fill="var(--accent)"/>
+  <text class="t s" x="636" y="356" text-anchor="middle" fill="var(--accent)">串起來</text>
+
+  <g>
+    <rect x="740" y="330" width="120" height="90" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <rect x="740" y="268" width="120" height="62" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <rect x="740" y="218" width="120" height="50" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <rect x="740" y="178" width="120" height="40" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <rect x="740" y="146" width="120" height="32" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <text class="t s" x="800" y="444" text-anchor="middle">34 家</text>
+    <text class="t s" x="800" y="464" text-anchor="middle">635 個端點</text>
+  </g>
+  <text class="t g" x="740" y="124">疊起來</text>
+
+  <text class="t c" x="48" y="514">不太會斷的水管，是拼出來的</text>
+</svg>

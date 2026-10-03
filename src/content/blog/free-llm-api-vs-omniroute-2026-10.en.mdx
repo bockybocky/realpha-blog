@@ -1,0 +1,107 @@
+---
+title: "Is a Free AI Gateway Really Free? Free LLM API vs. OmniRoute, Argued Both Ways: It Depends on What You Send"
+description: "In a September 4, 2026 video, Joe Maddalone shows Free LLM API stitching the free tiers of thirty-plus AI services into one endpoint, so a coding agent picks its own model and costs nothing, and compares it with OmniRoute. This post makes the strongest case for it, then argues the other side by checking each provider's official terms for the hidden price of 'free', and ends with my own experience routing work across several AI services. A personal technical write-up, not commercial advice."
+slug: "free-llm-api-vs-omniroute-2026-10"
+lang: "en"
+pubDate: 2026-10-03
+category: "tech"
+kind: "podcast-notes"
+tags: ["Free LLM API", "OmniRoute", "AI gateway", "Free tiers", "Data privacy", "Decision making"]
+ogImage: "/covers/free-llm-api-vs-omniroute-2026-10.png"
+cover: "/covers/free-llm-api-vs-omniroute-2026-10.png"
+tldr: "Free LLM API really can let you code with AI for nothing, but when it picks a provider for you, it may pick one that trains on your content. Public material is fine; for company code or personal data, switch those providers off first."
+---
+
+![Post-impressionist oil painting: a busy night market with thirty-odd stalls, each hung with a lantern marked "free"; a glowing path winds between the stalls on its own, and behind a few stalls at the end stand figures copying things into notebooks](/covers/free-llm-api-vs-omniroute-2026-10.png)
+
+> *To know what you know, and to know what you do not know: that is knowledge.*<br/>
+> —— Confucius, *Analects*, "Wei Zheng" (Spring and Autumn period); translation mine
+
+On September 4, 2026, Joe Maddalone demonstrated Free LLM API on YouTube: an open-source program you install on your own machine that stitches the free tiers of thirty-plus AI services into a single endpoint, so a coding agent like Claude Code can choose its own model without spending a cent. I checked it against the official docs and each provider's terms (as of 2026-10-03). The "free" part is real. But among the providers it may route you to, at least three, Kilo, Google and NVIDIA, use what you send on their free plans to improve or train models, and the tool currently has no switch to exclude providers like that. You have to turn them off one by one. So sending public material is fine; sending company code or personal data means doing that work first.
+
+## What the video shows
+
+He installs the desktop app and pastes free keys for a few services into the Keys page; some services don't need a key at all. Then, on the test page, he asks "What is the capital of Germany?" The answer comes back fast, and the screen shows it was handled by NVIDIA's Nemotron 3 Ultra through a service called Kilo. He didn't choose that. The program did.
+
+Next he copies one command, hooks Claude Code up to it, and asks it to pick an easy feature from the to-do list and build it. While it works, he says the line that matters most in the whole video: none of this is running on my machine, I'm not paying anything, I don't even know which provider is running right now, and I don't care, and that's the point.
+
+In the second half he compares it with OmniRoute, a similar tool he has used for longer.
+
+## For: not caring which provider runs it is the whole value
+
+Let me make the best case first, because the upside is real.
+
+One, scale. The official docs list 34 providers and 635 free endpoints (as of 2026-10-03). When one free quota runs out, it moves to the next; when one provider is having a bad day, it moves to another. Each tier is stingy on its own: Groq's free tier allows 1,000 requests a day, OpenRouter's free models 50 a day. Chained together they become a pipe that rarely runs dry.
+
+![Five short bars of differing heights on the left all fall below a dashed line, while on the right they are stacked into one tall bar that finally rises above that line.](/figures/free-quotas-stacked-into-one-pipe-en.svg)
+
+Two, it keeps score. Every call's success or failure and its latency get logged into a reliability table, so the bad providers stand out at a glance. That beats keeping your own mental list of who went down today.
+
+Three, it's easy to start. The code is MIT-licensed, free to modify and use, sits at roughly 30,000 GitHub stars, and ships installers for Mac and Windows. Connecting Claude Code takes one command, `npx freellmapi setup-claude`. Your prompts go straight from your machine to each provider and never pass through the author's servers.
+
+Four, it doesn't have to replace anything. The video says the two tools can be chained, so I looked: on July 28, 2026, Free LLM API merged a set of endpoints meant for other gateways to connect to. OmniRoute hasn't made this a built-in option yet, so you'd have to configure it yourself, and I haven't tested that.
+
+Seen from this side, "I don't care which provider" is exactly what the tool sells. You do the work and let it do the choosing.
+
+## Against: if you don't know the provider, you don't know whose terms you're under
+
+The case against starts from the very same sentence. If you don't know which provider is running, you also don't know whose terms of service your prompts and code just landed in.
+
+I started with Kilo, the one that answered the video's first question. Free LLM API's own provider table says Kilo's keyless free route has "prompts and outputs logged for training", and a note in the source code adds: don't send sensitive data. So the first answer in the demo came from a service that records what you send.
+
+Here are a few others side by side (each provider's official terms, as of 2026-10-03):
+
+| Service | Free quota | Is free-plan content used? |
+|---|---|---|
+| Kilo (keyless route) | 200 requests per hour per IP address | Logged and used for training |
+| Google Gemini API free tier | Docs only say to check the console | Used to improve products, possibly with human review |
+| NVIDIA NIM trial | No number in the terms | Used to improve products, including AI models; evaluation use only |
+| OpenRouter free models | 20 per minute, 50 per day | Depends on your settings: providers that log only get your traffic if you turn on the training toggle |
+| Groq | 1,000 per day | Not retained by default; debug logs kept up to 30 days |
+| Cloudflare Workers AI | 10,000 units per day | Explicitly not used for training |
+
+In Free LLM API's docs and source, the only mentions of training are notes like the one above. There's no option to exclude providers that train (as of 2026-10-03). What you can do is switch those providers off on the Keys page, provided you know which ones to switch off.
+
+![A left-to-right spectrum runs from services that train on your content at one end to those that state in writing they do not at the other, and the routing arrows land at random on the services at the training end.](/figures/who-trains-on-your-prompt-spectrum-en.svg)
+
+Three more things worth knowing. GitHub Models shut down on July 30, 2026, yet the terms-review table Free LLM API wrote in May still lists it. Cerebras is now a $5 trial that expires in 30 days, which is different from the long-term free tier people often mention online. Free LLM API syncs its model list from its website twice a day, and the free version's list updates 30 days later than the paid one ($19 a year); the project says the sync can't see your prompts or keys. And the author writes in the README that this is meant for personal experiments, not production.
+
+I also found two places where the video doesn't match the docs. He says you have to disable broken providers in OmniRoute yourself, but OmniRoute's docs describe an automatic circuit breaker: after repeated timeouts or server errors it pauses that provider and retries later, and only cases like a banned account or an exhausted quota need a person. And although the title says Mac, there's a Windows installer too.
+
+![Top: the line breaks right after "flag it" and stops there waiting for a person. Bottom: the line pauses, loops around on its own, and retries.](/figures/broken-provider-stub-vs-loop-en.svg)
+
+## My take: it comes down to whether anyone may see what you send
+
+I think both sides are right, and one condition separates them: would it matter if someone else saw what you sent?
+
+I run something similar at home. I pay for several AI services at once, check how much quota each has left before I hand out a job, and give it to whoever has the most. On August 24, 2026, I gave the same task to three of them. The fastest took 18 seconds, the slowest 48, and all three got it right. That convinced me the choice of provider matters less than I'd assumed, so the case for has a point.
+
+The same day I also found I had misjudged one of them. Earlier, when it printed nothing, I'd marked it as failing over and over and stopped sending it work for a whole day. When I went back and checked, it had finished all 13 jobs, with every output sitting on disk; it just hadn't printed anything. A reliability table can be wrong in the same way, because what it measures is whether something replied, which isn't always whether the work got done. This morning my own quota dashboard couldn't read two of the services, so I fell back to the default routing.
+
+![On the left a flat, signal-free line on a gauge leads to a verdict of stop dispatching, while on the right thirteen finished blocks sit on a hard drive.](/figures/answered-is-not-delivered-en.svg)
+
+The rule I finally settled on has nothing to do with scores. Since September 12, 2026, anything that must not leak goes only to a local model on a machine at home and never leaves the house, even if it's slower. Only public material gets handed to a router to choose.
+
+So if you're asking whether free AI is good enough for writing code, here is how I'd split it:
+
+![One body of material reaches a single test and splits into two routes: the public part is sent out to several free services, while the part that must not leave stays on a local machine behind a wall.](/figures/one-question-two-routes-en.svg)
+
+- For open-source projects, practice exercises and your own small tools, where the code is going public anyway, Free LLM API is a great deal. Set it up and forget about it.
+- For company code, or anything touching customer data or keys, first go to the Keys page and switch off Kilo, the Google free tier and the NVIDIA trial, or skip the free router altogether.
+- If you want to fine-tune the flow or run long multi-step jobs, OmniRoute fits better. Here's where the two differ:
+
+| | Free LLM API | OmniRoute |
+|---|---|---|
+| How it picks a provider | Ranks by past success rate and speed | Tries providers in the order you set, with 19 strategies |
+| Broken providers | Flagged in the reliability table; you decide whether to switch them off | Automatic circuit breaker, retried later |
+| Saving tokens | Not a focus in the docs | Several built-in compression modes, such as trimming tool output and compacting tables |
+| Getting started | Mac and Windows installers or Docker; set it and forget it | Many features; the video says setup takes longer |
+| License and size | MIT, about 30,000 stars | MIT, about 70,000 stars |
+
+The video's author says he plans to run both for a while and decide based on which one annoys him more. I think that's an honest conclusion. I'd just add five minutes to look over your provider list before you "set it and forget it".
+
+## The one thing to take with you
+
+The price of "free" is often written in the terms, not on the bill.
+
+What I've tried is simple. Pick a free tool you use every day, an AI assistant, a cloud photo album or a translation site, open its privacy policy, and search the page for "train". Find the sentence that says whether your content gets used. Five minutes is enough, and not finding it is an answer too: it means they didn't plan to say. The next time you're about to drop something you don't want leaked into it, you'll know whether to.

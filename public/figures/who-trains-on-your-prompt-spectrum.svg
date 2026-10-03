@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一條左右光譜，左端是會拿內容去訓練的服務、右端明寫不訓練，路由的箭頭隨機落在左端">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t h" x="48" y="54">路由替你挑，挑到的可能在光譜左邊</text>
+
+  <rect x="360" y="92" width="240" height="52" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t g" x="480" y="125" text-anchor="middle" fill="var(--accent)">路由自己挑</text>
+
+  <path d="M 420 144 L 160 300" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 5" fill="none"/>
+  <path d="M 160 300 l 14 -3 l -7 -12 z" fill="var(--warn)"/>
+  <path d="M 470 144 L 300 300" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 5" fill="none"/>
+  <path d="M 300 300 l 14 -2 l -8 -12 z" fill="var(--warn)"/>
+  <path d="M 520 144 L 440 300" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 5" fill="none"/>
+  <path d="M 440 300 l 13 -5 l -10 -11 z" fill="var(--warn)"/>
+
+  <line x1="80" y1="380" x2="900" y2="380" stroke="var(--line)" stroke-width="3"/>
+  <text class="t g" x="80" y="430" fill="var(--warn)">會拿去用</text>
+  <text class="t g" x="900" y="430" text-anchor="end">明寫不拿</text>
+
+  <g>
+    <rect x="104" y="300" width="112" height="46" rx="6" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+    <text class="t s" x="160" y="328" text-anchor="middle" fill="var(--ink)">Kilo</text>
+    <line x1="160" y1="346" x2="160" y2="380" stroke="var(--warn)" stroke-width="2"/>
+
+    <rect x="244" y="300" width="112" height="46" rx="6" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+    <text class="t s" x="300" y="328" text-anchor="middle" fill="var(--ink)">NVIDIA</text>
+    <line x1="300" y1="346" x2="300" y2="380" stroke="var(--warn)" stroke-width="2"/>
+
+    <rect x="384" y="300" width="112" height="46" rx="6" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+    <text class="t s" x="440" y="328" text-anchor="middle" fill="var(--ink)">Google</text>
+    <line x1="440" y1="346" x2="440" y2="380" stroke="var(--warn)" stroke-width="2"/>
+
+    <rect x="524" y="414" width="128" height="46" rx="6" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+    <text class="t s" x="588" y="442" text-anchor="middle" fill="var(--ink)">OpenRouter</text>
+    <line x1="588" y1="380" x2="588" y2="414" stroke="var(--grey)" stroke-width="2"/>
+    <text class="t s" x="588" y="482" text-anchor="middle">看你的設定</text>
+
+    <rect x="690" y="300" width="100" height="46" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <text class="t s" x="740" y="328" text-anchor="middle" fill="var(--ink)">Groq</text>
+    <line x1="740" y1="346" x2="740" y2="380" stroke="var(--accent)" stroke-width="2"/>
+
+    <rect x="812" y="300" width="112" height="46" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+    <text class="t s" x="868" y="328" text-anchor="middle" fill="var(--ink)">Cloudflare</text>
+    <line x1="868" y1="346" x2="868" y2="380" stroke="var(--accent)" stroke-width="2"/>
+  </g>
+
+  <text class="t c" x="48" y="534">沒有「排除左邊」的開關，只能一家一家關</text>
+</svg>

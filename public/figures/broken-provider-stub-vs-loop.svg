@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="上排的線在標紅之後斷掉停在那裡等人，下排的線在暫停後繞一圈自己回來再試">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t h" x="48" y="54">一家壞掉之後，線怎麼走</text>
+
+  <text class="t g" x="48" y="118">Free LLM API</text>
+  <rect x="48" y="140" width="150" height="56" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t g" x="123" y="175" text-anchor="middle">壞掉</text>
+  <path d="M 198 168 L 268 168" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M 268 168 l -12 -7 l 0 14 z" fill="var(--grey)"/>
+  <rect x="272" y="140" width="170" height="56" rx="6" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text class="t g" x="357" y="175" text-anchor="middle" fill="var(--warn)">表上標紅</text>
+  <path d="M 442 168 L 512 168" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M 512 168 l -12 -7 l 0 14 z" fill="var(--grey)"/>
+  <rect x="516" y="140" width="150" height="56" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t g" x="591" y="175" text-anchor="middle">停在這裡</text>
+  <line x1="700" y1="140" x2="700" y2="196" stroke="var(--warn)" stroke-width="4"/>
+  <text class="t s" x="716" y="175" fill="var(--warn)">等你</text>
+
+  <line x1="48" y1="256" x2="912" y2="256" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="t g" x="48" y="318">OmniRoute</text>
+  <rect x="48" y="340" width="150" height="56" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t g" x="123" y="375" text-anchor="middle">壞掉</text>
+  <path d="M 198 368 L 268 368" stroke="var(--accent)" stroke-width="3"/>
+  <path d="M 268 368 l -12 -7 l 0 14 z" fill="var(--accent)"/>
+  <rect x="272" y="340" width="150" height="56" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t g" x="347" y="375" text-anchor="middle" fill="var(--accent)">暫停</text>
+  <path d="M 422 368 L 492 368" stroke="var(--accent)" stroke-width="3"/>
+  <path d="M 492 368 l -12 -7 l 0 14 z" fill="var(--accent)"/>
+  <rect x="496" y="340" width="150" height="56" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t g" x="571" y="375" text-anchor="middle" fill="var(--accent)">再試</text>
+  <path d="M 571 396 L 571 452 L 123 452 L 123 396" stroke="var(--accent)" stroke-width="3" fill="none" stroke-dasharray="8 6"/>
+  <path d="M 123 396 l -7 12 l 14 0 z" fill="var(--accent)"/>
+  <text class="t s" x="347" y="478" text-anchor="middle" fill="var(--accent)">自己繞回來</text>
+
+  <text class="t c" x="700" y="375">要人處理的只剩兩種</text>
+</svg>
