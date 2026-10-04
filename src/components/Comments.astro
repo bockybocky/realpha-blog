@@ -8,9 +8,12 @@ const en = locale === 'en';
 	<h2 id="comments-title">{en ? 'Comments' : '留言'}</h2>
 	<p class="comments-status" role="status">{en ? 'Loading comments…' : '載入留言中…'}</p>
 	<div class="comments-list"></div>
-	<div class="comments-login"></div>
-	<form class="comments-form" hidden>
+	<form class="comments-form">
 		<label>{en ? 'Your comment' : '你的留言'}<textarea name="body" minlength="1" maxlength="2000" required></textarea></label>
+		<div class="comments-auth">
+			<div class="comments-login"></div>
+			<small>{en ? 'Sign in with Google before posting. Only your name and profile picture are shown.' : '送出前需用 Google 登入，只顯示你的名字與頭像'}</small>
+		</div>
 		<div class="comments-actions">
 			<span class="comments-user"></span>
 			<button type="submit">{en ? 'Post comment' : '送出留言'}</button>
@@ -27,7 +30,13 @@ const en = locale === 'en';
 	const list = root.querySelector('.comments-list');
 	const login = root.querySelector('.comments-login');
 	const form = root.querySelector('.comments-form');
+	const textarea = form.elements.body;
+	const storageKey = `comments-draft:${path}`;
 	let credential = '';
+	try { textarea.value = localStorage.getItem(storageKey) || ''; } catch {}
+	textarea.addEventListener('input', () => {
+		try { localStorage.setItem(storageKey, textarea.value); } catch {}
+	});
 	const say = (zh, english) => { status.textContent = en ? english : zh; };
 	const render = (rows) => {
 		list.replaceChildren();
@@ -51,20 +60,30 @@ const en = locale === 'en';
 		script.src = 'https://accounts.google.com/gsi/client'; script.async = true;
 		script.onload = () => {
 			google.accounts.id.initialize({ client_id: config.clientId, callback: (result) => {
-				credential = result.credential; form.hidden = false; login.hidden = true;
+				credential = result.credential; login.hidden = true;
 				root.querySelector('.comments-user').textContent = en ? 'Signed in with Google' : '已使用 Google 登入';
+				if (textarea.value.trim()) form.requestSubmit();
 			} });
 			google.accounts.id.renderButton(login, { theme: 'outline', size: 'large', text: 'signin_with' });
 		};
 		document.head.append(script);
 	});
 	form.addEventListener('submit', async (event) => {
-		event.preventDefault(); const button = form.querySelector('button'); button.disabled = true;
+		event.preventDefault();
+		if (!credential) {
+			google.accounts.id.prompt();
+			login.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			say('請先用 Google 登入，登入後會自動送出', 'Please sign in with Google first. Your comment will be posted automatically after sign-in.');
+			return;
+		}
+		const button = form.querySelector('button'); button.disabled = true;
 		try {
 			const response = await fetch('/api/comments', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ path, body: form.elements.body.value, credential }) });
 			const result = await response.json();
 			if (!response.ok) throw new Error(result.error || 'error');
-			form.reset(); await refresh(); say('留言已送出。', 'Comment posted.');
+			form.reset();
+			try { localStorage.removeItem(storageKey); } catch {}
+			await refresh(); say('留言已送出。', 'Comment posted.');
 		} catch (error) { status.textContent = error.message; } finally { button.disabled = false; }
 	});
 })();
@@ -80,5 +99,7 @@ const en = locale === 'en';
 	.comment p { white-space: pre-wrap; overflow-wrap: anywhere; margin-bottom: 0; }
 	.comments-form label, .comments-form textarea { display: block; width: 100%; }
 	.comments-form textarea { min-height: 8rem; margin-top: .5rem; padding: .75rem; font: inherit; }
+	.comments-auth { display: flex; align-items: center; gap: .75rem; margin-top: .75rem; }
+	.comments-auth small { color: var(--muted); }
 	.comments-actions { display: flex; align-items: center; justify-content: space-between; margin-top: .75rem; }
 </style>
