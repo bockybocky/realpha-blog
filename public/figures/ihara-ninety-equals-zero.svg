@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="橫軸準守率、縱軸客戶價值，線貼著零一路走到九成仍在地板，到一百分之百才垂直跳起">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="70" font-size="27" font-weight="700" fill="var(--ink)">客戶拿到的不是分數</text>
+
+  <line x1="140" y1="150" x2="140" y2="400" stroke="var(--line)" stroke-width="2"/>
+  <line x1="140" y1="400" x2="880" y2="400" stroke="var(--line)" stroke-width="2"/>
+
+  <polyline points="140,400 800,400 800,170 870,170" fill="none" stroke="var(--accent)" stroke-width="5"/>
+
+  <line x1="720" y1="400" x2="720" y2="300" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+  <circle cx="720" cy="400" r="7" fill="var(--warn)"/>
+  <text class="t" x="720" y="285" font-size="20" font-weight="700" fill="var(--warn)" text-anchor="middle">90%</text>
+  <text class="t" x="720" y="262" font-size="16" fill="var(--warn)" text-anchor="middle">仍在地板</text>
+
+  <text class="t" x="800" y="440" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">100%</text>
+  <text class="t" x="126" y="406" font-size="16" fill="var(--dim)" text-anchor="end">0</text>
+  <text class="t" x="126" y="176" font-size="16" fill="var(--dim)" text-anchor="end">有用</text>
+  <text class="t" x="140" y="470" font-size="16" fill="var(--dim)">準守率</text>
+  <text class="t" x="60" y="125" font-size="16" fill="var(--dim)">客戶價值</text>
+</svg>
