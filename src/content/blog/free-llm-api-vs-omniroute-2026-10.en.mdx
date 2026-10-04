@@ -4,6 +4,7 @@ description: "In a September 4, 2026 video, Joe Maddalone shows Free LLM API sti
 slug: "free-llm-api-vs-omniroute-2026-10"
 lang: "en"
 pubDate: 2026-10-03
+updatedDate: 2026-10-04
 category: "tech"
 kind: "podcast-notes"
 tags: ["Free LLM API", "OmniRoute", "AI gateway", "Free tiers", "Data privacy", "Decision making"]
@@ -35,7 +36,7 @@ One, scale. The official docs list 34 providers and 635 free endpoints (as of 20
 
 ![Five short bars of differing heights on the left all fall below a dashed line, while on the right they are stacked into one tall bar that finally rises above that line.](/figures/free-quotas-stacked-into-one-pipe-en.svg)
 
-Two, it keeps score. Every call's success or failure and its latency get logged into a reliability table, so the bad providers stand out at a glance. That beats keeping your own mental list of who went down today.
+Two, it keeps score. Every call's success or failure and its latency get logged into a reliability table, so the bad providers stand out at a glance. That beats keeping your own mental list of who went down today. The video calls this picking "Fusion," but in the official docs Fusion is a different feature: it sends the same prompt to several free models at once and has a judge model merge the drafts into one answer (checked 2026-10-04). You may get a steadier answer, but one question eats into several providers' quotas.
 
 Three, it's easy to start. The code is MIT-licensed, free to modify and use, sits at roughly 30,000 GitHub stars, and ships installers for Mac and Windows. Connecting Claude Code takes one command, `npx freellmapi setup-claude`. Your prompts go straight from your machine to each provider and never pass through the author's servers.
 
@@ -64,9 +65,9 @@ In Free LLM API's docs and source, the only mentions of training are notes like 
 
 ![A left-to-right spectrum runs from services that train on your content at one end to those that state in writing they do not at the other, and the routing arrows land at random on the services at the training end.](/figures/who-trains-on-your-prompt-spectrum-en.svg)
 
-Three more things worth knowing. GitHub Models shut down on July 30, 2026, yet the terms-review table Free LLM API wrote in May still lists it. Cerebras is now a $5 trial that expires in 30 days, which is different from the long-term free tier people often mention online. Free LLM API syncs its model list from its website twice a day, and the free version's list updates 30 days later than the paid one ($19 a year); the project says the sync can't see your prompts or keys. And the author writes in the README that this is meant for personal experiments, not production.
+Three more things worth knowing. GitHub Models shut down on July 30, 2026, yet the terms-review table Free LLM API wrote in May still lists it. Cerebras is now a $5 trial that expires in 30 days, which is different from the long-term free tier people often mention online. Free LLM API syncs its model list from its website twice a day, and the free version's list updates 30 days later than the paid one ($19 a year, or $49 once for life), which the README says leaves it about 303 models behind right now; the project says the sync can't see your prompts or keys. And the author writes in the README that this is meant for personal experiments, not production.
 
-I also found two places where the video doesn't match the docs. He says you have to disable broken providers in OmniRoute yourself, but OmniRoute's docs describe an automatic circuit breaker: after repeated timeouts or server errors it pauses that provider and retries later, and only cases like a banned account or an exhausted quota need a person. And although the title says Mac, there's a Windows installer too.
+I also found a few places where the video doesn't match the docs. He describes OmniRoute as just working down a combo one provider at a time, but its docs now list 19 routing strategies, including an auto mode that scores candidates on 16 factors and its own Fusion, the same several-models-plus-a-judge idea (checked 2026-10-04). The video was recorded September 4, so some of this may have shipped later. He also says you have to disable broken providers in OmniRoute yourself, but OmniRoute's docs describe an automatic circuit breaker: after repeated timeouts or server errors it pauses that provider and retries later, and only cases like a banned account or an exhausted quota need a person. And although the title says Mac, there's a Windows installer too.
 
 ![Top: the line breaks right after "flag it" and stops there waiting for a person. Bottom: the line pauses, loops around on its own, and retries.](/figures/broken-provider-stub-vs-loop-en.svg)
 
@@ -92,10 +93,11 @@ So if you're asking whether free AI is good enough for writing code, here is how
 
 | | Free LLM API | OmniRoute |
 |---|---|---|
-| How it picks a provider | Ranks by past success rate and speed | Tries providers in the order you set, with 19 strategies |
+| How it picks a provider | Ranks by past success rate and speed | Tries providers in the order you set, with 19 strategies, plus auto scoring and Fusion |
 | Broken providers | Flagged in the reliability table; you decide whether to switch them off | Automatic circuit breaker, retried later |
 | Saving tokens | Not a focus in the docs | Several built-in compression modes, such as trimming tool output and compacting tables |
 | Getting started | Mac and Windows installers or Docker; set it and forget it | Many features; the video says setup takes longer |
+| Official estimate of free tokens per month | About 7.4 billion | About 1.62 billion, counting each shared quota pool once; the two use different math, so don't compare them directly |
 | License and size | MIT, about 30,000 stars | MIT, about 70,000 stars |
 
 The video's author says he plans to run both for a while and decide based on which one annoys him more. I think that's an honest conclusion. I'd just add five minutes to look over your provider list before you "set it and forget it".
