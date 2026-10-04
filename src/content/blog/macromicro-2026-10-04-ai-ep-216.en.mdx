@@ -1,0 +1,117 @@
+---
+title: "Where Does the AI Supply Chain Go Next? Power Became the Thing That Jams Everything｜Notes on MacroMicro EP.216"
+description: "Notes from the MacroMicro After Meeting Podcast EP.216, recorded 1 October 2026: how the power bottleneck pushes money into chip efficiency instead, how to tell restocking from passive pile-up when inventory value explodes, and why a shortage does not mean pricing power. Educational commentary, not investment advice — no tickers, no price targets."
+slug: "macromicro-2026-10-04-ai-ep-216"
+lang: "en"
+pubDate: 2026-10-04
+category: "investing"
+kind: "podcast-notes"
+tags: ["AI supply chain", "power bottleneck", "inventory cycle", "gross margin", "semiconductors"]
+tldr: "Power is the scarcest and cheapest line item in AI spending, so the money reroutes into chip efficiency and the bottleneck moves from the grid to packaging and substrates. Read inventory days and the direction of gross margin, not the inventory dollar figure."
+ogImage: "/covers/macromicro-2026-10-04-ai-ep-216-cover.png"
+cover: "/covers/macromicro-2026-10-04-ai-ep-216-cover.png"
+---
+
+![A high-voltage substation at night, towers and busbars receding deep into the frame, with a row of lit data-center halls on the far horizon](/covers/macromicro-2026-10-04-ai-ep-216-cover.png)
+
+> Flowing water does not go foul; a door hinge in use does not get worm-eaten. Motion does it.
+> —— *Lüshi Chunqiu, "Jin Shu"* (Warring States period; translation mine)
+
+Episode 216 of the *MacroMicro After Meeting Podcast*, recorded on the afternoon of 1 October 2026, has host Roger talking with two analysts, Vivianna and JC, about what comes next in the AI supply chain. Vivianna puts her answer on electricity: citing a tally presented at a September forum, energy accounts for under 5% of total spending on frontier models, with the money going to research staff and AI chips instead; meanwhile the market's estimates for cumulative power deployment by 2030 run anywhere from 200GW to 300GW, while the projects actually under construction add up to a little over 100GW — and that assumes they finish on schedule. Her inference is that scarce power forces chip efficiency, which is why dies keep getting larger and the bottleneck migrates from the grid to packaging and substrates. The premise is that demand does not flinch. If data-center orders get cut first, the whole reading has to be rewritten.
+
+## His friend bought a riot shield
+
+Halfway through the recording, Vivianna told a story that had nothing to do with earnings. A friend of hers works at Micron in Japan, and with strike news in the air he went and bought himself a riot shield, worried the confrontation would turn physical. He forwarded her the receipt.
+
+I laughed, then felt a chill. This is a company that just printed record profits — in the same episode they mention one or two of its four business lines ran gross margins as high as 90% this quarter (Vivianna flagged that as the number she remembered), and the report beat the guidance the company itself had given a quarter earlier. And its employees are buying shields.
+
+That those two things coexist tells you what kind of cycle this is. The money is enormous, enormous enough that compensation has to be renegotiated. Capacity is tight, tight enough that everyone can price a day of downtime. None of that tension appears in any line of the financial statements, yet it is the same phenomenon as the gross margin. The episode notes that Micron's own explanation for guiding margins lower next quarter points partly at bonus payouts.
+
+## "Proving last quarter with next quarter"
+
+Roger has a line in this episode I liked: memory makers keep using the next quarter to prove the last one, and once they have, everyone doubts them again, so they prove it one more time.
+
+That is the uncomfortable part. Nobody argues about whether the numbers are good. The market asks one question from start to finish: how long can profits this high last. Vivianna says nobody can answer it, so the makers have to settle it one quarter at a time.
+
+So the price action stalls. The report was strong and the stock did not jump, because the doubt sits on the forward guidance. My own experience is that when good news gets no reaction, it is worth resisting the urge to call the market irrational and instead finding out which question it is asking. This episode made that question explicit for me, and the rest of the work is finding which numbers answer it first.
+
+## The scarcest thing cost under 5% of the money
+
+Here is the part of the episode that stayed with me.
+
+Vivianna lays out the forum's tally: break down frontier-model spending and energy is under 5%, possibly less. My first reaction was that this cannot be right — isn't power the binding constraint? How is it the cheapest line?
+
+![One long horizontal bar is split in two: a very wide left block for R&D staff and AI chips, and a narrow sliver on the right for energy, labeled "the scarcest piece."](/figures/energy-share-under-five-percent-en.svg)
+
+Her reading: for the model shops, not getting power has graduated from a risk into a fact. Since you cannot win the auction, you stop bidding it up and move the money to research staff and chips. She adds the political layer in the US: midterms are coming, data centers have become a local issue, and with both chambers looking flippable and Democrats more attentive to sustainability, the supply uncertainty will not clear up quickly.
+
+The spread in deployment estimates is startling on its own: 200GW to 300GW cumulative by 2030, against a little over 100GW from projects actually breaking ground. That gap is itself the answer — everyone knows it falls short, and nobody plans to wait.
+
+![Three bars of very different heights: two tall bars are the 2030 power forecasts the market talks about, while the far-right bar stands only a third as high and shows what is actually under construction.](/figures/gw-gap-planned-vs-building-en.svg)
+
+So what do you do instead of waiting? Squeeze more value out of each gigawatt. Which loops back to why the spending split is so lopsided: the money goes into chip efficiency because that is the one variable still under your own control.
+
+## Chips cannot get smaller, so they get bigger
+
+This is the reasoning chain I think is most worth keeping.
+
+With Moore's Law hitting a wall, chips cannot shrink further, so more compute means bolting more silicon together, and die area keeps growing. Larger area makes packaging harder; larger substrates push yields down. Those, Vivianna says, are the structural reasons supply cannot be conjured.
+
+![On the left an arrow hits a wall, in the middle three chips each larger than the last, and on the right a falling yield line showing that bigger area means lower yield.](/figures/chip-area-grows-yield-falls-en.svg)
+
+It dissolved a dumb question I had asked myself: can't you just expand capacity, isn't it only money? The answer is that these chokepoints sit with a handful of companies — some oligopoly, leading-edge foundry effectively a monopoly. And those companies hold capex discipline. Roger offered "maybe not on purpose," and Vivianna replied "they genuinely cannot make it." The gap between those two sentences is wide: one is a choice, the other is a ceiling.
+
+Which is why the old loop — strong demand, expansion, oversupply, destocking — has gone blurry this time. Technology iterates fast, the technical bar keeps rising, and the industry concentrates further into the few who can actually build the thing.
+
+She ends by calling the power bottleneck double-edged. Most people worry that without data centers the chain gets order cuts and has nowhere to deploy. But the demand is sitting right there, so flip the angle and the constraint becomes the main engine of the next technical breakthrough: better efficiency per chip.
+
+## In August, exports finally picked up
+
+Answering listener questions at the end, JC notes NVIDIA's VR200 had been stuck on its thermal architecture, which kept it out of smooth mass production. Preparation now looks close to done, and the first batch has likely shipped.
+
+Vivianna's addition is what grounded the story for me. NVIDIA said in August that production had started, and they wanted to check whether that was true, so they looked at export data. Export growth was flat through May, June and July while export orders kept setting highs — orders booked, nothing shipped. Then in August exports lifted, and the lift came from electronic components, exactly the part that had been jammed.
+
+![Two lines: the orders line climbs throughout, while the export line stays flat from May to July and then turns up sharply in August to catch up.](/figures/orders-high-exports-flat-then-jump-en.svg)
+
+I like that check. You do not have to believe or disbelieve a company's statement on the spot. Find a number it cannot influence and see whether the two agree.
+
+## Inventory value is exploding — should I be scared?
+
+If you own anything in the AI chain, the next few quarters will hand you an irritating picture: inventory value climbing hard on the balance sheet, looking exactly like the run-up to every past bust.
+
+Vivianna says plainly why the old reading fails here: with upstream prices rising this much, part of the jump in inventory value comes from unit price, which is a different thing from how much stock you are sitting on. So she pairs it with inventory days, or compares the strength of revenue growth against the strength of inventory growth, to judge whether the build is active or passive. You will find, she says, that the dollar figure looks frightening while the days stay manageable, and that some industries simply carry high costs while revenue runs very strong.
+
+![Two lines overlaid: inventory value climbs steeply while days of inventory stays nearly flat, and the gap between them is price.](/figures/inventory-value-up-days-flat-en.svg)
+
+One more detail worth copying. The episode shows the infrastructure layer's revenue-to-inventory ratio heading down, and Vivianna's explanation is restocking: goods not yet shipped, inventory recognized, revenue not yet booked. Her test follows from that — if this is genuine restocking, it should clear at some point and convert into revenue. That gives you a window to check your answer against, instead of stopping at "feels okay to me."
+
+She is honest that visibility here is poor: the more candid companies will tell you why inventory rose, the slipperier ones will not go into detail. I have been fooled by this myself. Years ago I read a components maker's restocking as strong demand, and only learned the following quarter that it was a passive pile-up after customers slowed their pulls. The difference was that I had looked only at the dollar figure.
+
+## Why a company in shortage does not always make money
+
+Another confusing picture: the news says a component is short and prices are up, yet the related stocks barely move, or pop and fade.
+
+The second chart Vivianna picks for tracking offers a path: gross margin. The movement in gross margin, she says, shows directly where value and pricing power sit along the chain, and right now that value is piling upstream. More nodes may hit bottlenecks from here, no longer just memory and foundry, so tracking margins tells you which segment has more room. The episode points to thermal management, CCL and ABF substrates all setting margin highs, with assembly the one line heading down.
+
+![The supply chain runs left to right in three segments: the upstream boxes sit high with arrows pointing up, while the assembler on the far right sits low with its arrow pointing down.](/figures/margin-flows-upstream-en.svg)
+
+Put those together and the gap between shortage and profit has an explanation: shortage is a supply state, and the ability to raise prices is pricing power. A node can be desperately tight and still miss the spread, because customers can switch suppliers, or because its own input costs rose alongside. JC adds the sequencing: the chain has to start building stock before the story actually happens, so the financials should show traces early — revenue and net income setting highs, margins climbing, inventory days staying low. His example is optical communications, where revenue started making highs back in 2025.
+
+JC is blunt that the point of building this data section is to let the numbers talk, so a sudden scare story or an anonymous post does not knock your decisions off step. What I thought about was the other half: waiting for the numbers means you will not buy the low, but you are less likely to buy something that is only a story. That trade-off is yours to pick; there is no standard answer.
+
+Vivianna's third chart is capex coverage. Watching capex itself has stopped meaning much, she says, because it only gets revised up — two months ago the debate was whether it reaches a trillion, now the figure quoted is 1.3 or 1.4 trillion. So the question becomes whether RPO rises with capex. If those two lines cross the wrong way, she starts to worry. That is the cleanest failure condition in the episode: it has a direction, a comparison, and a point in time.
+
+![Two panels side by side: on the left capex and RPO rise together, on the right RPO flattens and bends down while rising capex crosses it, and the crossing point is marked as the warning.](/figures/capex-vs-rpo-cross-en.svg)
+
+## Worth a look
+
+- *MacroMicro After Meeting Podcast* EP.216, "Where does the AI supply chain go next? Chips, cooling, or power," recorded 1 October 2026
+- TSMC's Q3 earnings call, two weeks after this recording: check it against the three items raised in the episode — any change in the language on full-year USD revenue growth (last time, slightly above 40%), capex plans (raised to US$60–64 billion in Q2), and the 3-to-4-point margin dilution from N2 ramp-up
+- US Department of Energy and state utility interconnection queue data, to compare "under construction" against "announced"
+- The inventory-days and gross-margin lines in your own holdings' quarterly reports — this episode's method lands hardest when you practice it on names you actually own
+
+## One thing to take away
+
+The idea this episode taught me: **the scarcest thing is often not the most expensive thing. It cannot get expensive, because everyone has given up buying it and is buying the detour instead.** Energy at under 5% of frontier-model spending does not mean power is unimportant; it means that road is blocked and the money went around. To see where a system's constraint lies, watch where the money detours, not who is shouting about shortage.
+
+A practice you can do today, one I have tried myself: pick something in your life that feels stuck — a job change, a move, a relationship with someone, a skill that will not stick — and write two columns. On the left, the time and money you have spent on the thing itself. On the right, the time and money you have spent going around it. The first time I did this, my detour costs ran several times the cost of dealing with it directly, and I had never added them up. After I did, I kept some detours and went back to fix others.

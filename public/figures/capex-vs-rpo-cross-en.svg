@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two-panel chart: in the left panel both lines rise together, in the right panel capex keeps rising while RPO turns down, and the two lines cross in the middle.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="70" y="72">Watch capex against RPO, not alone</text>
+
+<rect x="70" y="110" width="390" height="290" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="94" y="146">Fine</text>
+<polyline points="110,350 230,300 430,228" fill="none" stroke="var(--accent)" stroke-width="6"/>
+<polyline points="110,374 230,326 430,258" fill="none" stroke="var(--grey)" stroke-width="6"/>
+<text class="b" x="430" y="216" text-anchor="end" fill="var(--accent)">Capex</text>
+<text class="b" x="430" y="286" text-anchor="end">RPO</text>
+
+<rect x="500" y="110" width="390" height="290" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="524" y="146" fill="var(--warn)">Warning</text>
+<polyline points="540,356 650,306 860,226" fill="none" stroke="var(--accent)" stroke-width="6"/>
+<polyline points="540,300 660,282 860,344" fill="none" stroke="var(--warn)" stroke-width="6"/>
+<circle cx="707" cy="288" r="11" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<text class="b" x="860" y="214" text-anchor="end" fill="var(--accent)">Capex</text>
+<text class="b" x="860" y="372" text-anchor="end" fill="var(--warn)">RPO</text>
+
+<text class="c" x="70" y="462">A direction, a contrast, a date</text>
+<text class="b" x="70" y="496">That's a falsifiable condition, not a feeling</text>
+</svg>
