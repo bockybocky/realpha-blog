@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="時間線左端兩個近距離的世代標記，右端遠處一個世代標記，中間是一大段空距">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="58">市場在賭的那一代，還沒到</text>
+
+<rect x="60" y="88" width="840" height="300" fill="var(--card)" rx="10"/>
+<line x1="110" y1="248" x2="880" y2="248" stroke="var(--line)" stroke-width="4"/>
+
+<circle cx="170" cy="248" r="13" fill="var(--accent)"/>
+<text class="g" x="146" y="212">800G</text>
+<circle cx="258" cy="248" r="13" fill="var(--accent)"/>
+<text class="g" x="236" y="212">1.6T</text>
+<text class="b" x="146" y="296">現在出貨主力</text>
+
+<circle cx="820" cy="248" r="13" fill="var(--warn)"/>
+<text class="g" x="794" y="212" fill="var(--warn)">3.2T</text>
+<text class="b" x="736" y="296">限制處理的那一代</text>
+
+<line x1="300" y1="248" x2="776" y2="248" stroke="var(--warn)" stroke-width="3" stroke-dasharray="10 10"/>
+<text class="b" x="470" y="230">很久</text>
+
+<text class="c" x="60" y="444">股價今天就反應完了，</text>
+<text class="c" x="60" y="474">貨要走到虛線的那一端才算數。</text>
+</svg>

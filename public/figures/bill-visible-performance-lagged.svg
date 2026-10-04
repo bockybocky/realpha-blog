@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="帳單曲線立刻陡升，績效曲線延後幾季才緩升，兩者之間有一段只看得到成本的落差區">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="58">同一筆支出，兩種速度</text>
+
+<rect x="60" y="92" width="840" height="330" fill="var(--card)" rx="10"/>
+<line x1="120" y1="390" x2="880" y2="390" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="120" x2="120" y2="390" stroke="var(--line)" stroke-width="2"/>
+
+<path d="M120 380 L230 300 L340 230 L460 176 L600 146 L760 128 L870 120" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<circle cx="230" cy="300" r="7" fill="var(--accent)"/>
+<text class="g" x="246" y="296" fill="var(--accent)" font-weight="700">帳單</text>
+<text class="b" x="246" y="320">第一個月就看得到</text>
+
+<path d="M120 388 L300 386 L430 382 L540 360 L660 318 L780 268 L870 226" fill="none" stroke="var(--dim)" stroke-width="5" stroke-dasharray="11 9"/>
+<text class="g" x="690" y="246" fill="var(--dim)" font-weight="700">績效</text>
+<text class="b" x="690" y="270">幾季以後才分得出來</text>
+
+<rect x="120" y="120" width="310" height="270" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 7"/>
+<text class="g" x="138" y="150" fill="var(--warn)" font-weight="700">只有成本的那一段</text>
+
+<text class="b" x="120" y="418">時間</text>
+<text class="c" x="60" y="478">剎車踩在這一段，不是因為小氣，是因為</text>
+<text class="c" x="60" y="508">這一段只有一邊看得見。</text>
+</svg>
