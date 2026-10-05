@@ -6,7 +6,7 @@
 // 時長用 ffprobe 量；量不到只填大小、seconds=null 並警告。任何狀況都不讓 build 失敗：最壞輸出 {}。
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { existsSync, realpathSync } from 'node:fs';
 import { mkdir, mkdtemp, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
@@ -125,7 +125,11 @@ async function selfTest() {
 	console.log('audio_manifest self-test: all passed');
 }
 
-const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+// repo 可能經 Windows junction 進入（C:\Users\...\Projects\realpha-blog → D:\c_offload\realpha-blog）。
+// Node 會把 import.meta.url 正規化成真實路徑，但 process.argv[1] 保留 junction 路徑；只比字串會
+// 把直接執行誤判成 import，整支程式靜默不跑卻 exit 0。兩邊都取 realpath 後再比較。
+const isMain = process.argv[1]
+	&& realpathSync.native(resolve(process.argv[1])) === realpathSync.native(fileURLToPath(import.meta.url));
 if (isMain) {
 	if (process.argv.includes('--self-test')) {
 		await selfTest();
