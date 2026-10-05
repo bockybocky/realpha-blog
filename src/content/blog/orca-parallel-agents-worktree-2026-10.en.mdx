@@ -1,0 +1,89 @@
+---
+title: "Running Three AI Coding Agents at Once: What Actually Gets Stuck? Orca's Demo vs. My Own Day Running Three Seats on Windows"
+description: "In an August 21, 2026 video, Joe Maddalone used the open-source tool Orca to run three AI coding agents in parallel, each in its own git worktree. This post digs into one argument: worktrees fix agents overwriting each other, but not quota and not review, so adding seats moves the bottleneck onto you. Includes a comparison of Orca, herdr and Claude Code's built-in worktree flag, plus the snags I hit running three seats on Windows on September 22. Technical learning notes, not business advice."
+slug: "orca-parallel-agents-worktree-2026-10"
+lang: "en"
+pubDate: 2026-10-04
+updatedDate: 2026-10-04
+category: "tech"
+kind: "podcast-notes"
+tags: ["Orca", "AI agent", "git worktree", "Claude Code", "Codex", "tool comparison"]
+ogImage: "/covers/orca-parallel-agents-worktree-2026-10.png"
+cover: "/covers/orca-parallel-agents-worktree-2026-10.png"
+substackPaywallAfter: "A few other things worth noting"
+tldr: "Orca gives each AI agent its own git worktree, and agents stop stepping on each other's files. But every extra seat burns another subscription's quota and adds another diff you have to read yourself. How many seats to run depends on how much you can review in a day, not on how many the tool can open."
+---
+
+![Renaissance oil painting cover: a general on a stone platform watches three crews of craftsmen, each fenced into its own yard, building different parts of the same arch; his single oil lamp lights only one crew](/covers/orca-parallel-agents-worktree-2026-10.png)
+
+> *Your Majesty can lead no more than a hundred thousand... As for me, the more the better.*<br/>
+> —— Sima Qian, *Records of the Grand Historian*, Biography of Han Xin (Western Han); translation mine
+
+Han Xin told the emperor that he could command any number of troops, while the emperor topped out at a hundred thousand. People usually quote this to praise Han Xin. After watching a video about AI agents, I kept thinking about the other half of it: how many troops you can lead has less to do with the size of the barracks than with how much one commander can keep track of.
+
+On August 21, 2026, Joe Maddalone published "Parallel Agent Orchestration with Orca," in which he had three AI coding agents (OpenCode, Antigravity and Pi) each work in their own git worktree, fixing three small issues in one project at the same time. One of the three, Antigravity, ran out of its free tier halfway and never finished. Orca is built by Stably AI (Y Combinator, Winter 2022), is MIT-licensed, and had 84,769 GitHub stars as of October 4, 2026. My take: worktrees solve agents overwriting each other, but they don't solve quota or review. The more seats you open, the more the bottleneck shifts onto you.
+
+## What the video shows
+
+The video runs six and a half minutes in two parts. The first is Design Mode. You open your running site in a browser tab inside Orca and click a card on the page. That chunk of markup gets copied, you paste it to the agent with "make the description span the card's width," and once it's done you generate a commit message and open a PR with one click. The second part is the main event. Three worktrees, one agent each, one issue each. You flip to a board to see who's finished, then read each diff and open the PRs.
+
+A quick plain-English note on worktrees: git worktree lets one project exist as several folders on disk, each sitting on its own branch. Put each agent in its own folder and nobody overwrites anybody halfway through. Orca handles this cleanly, and the three PRs in the video never collide.
+
+![On the left, one project branches out to the right into three separated pens, each pen holding one agent and one branch, with no overlap between them.](/figures/one-repo-three-worktrees-en.svg)
+
+## The main argument: worktrees solve one of three problems
+
+Run several agents at once and you hit three kinds of conflict.
+
+![Three gaps sit side by side, and only the leftmost one is sealed by a solid cover; the other two stay open because the cover does not reach them.](/figures/three-conflicts-one-covered-en.svg)
+
+The first is **file conflict**, two agents editing the same file. That's what worktrees fix, and they fix it thoroughly.
+
+The second is **quota conflict**. Orca says plainly that it runs "any coding agent with your own subscription." Orca doesn't pay for the models. Three seats means burning three quotas at once. Sending one prompt to five agents and picking the winner, which is an example straight from Orca's README, means paying five times for one answer. The Antigravity seat running dry in the video demonstrates this live. The tool was fine; that seat's wallet had run dry.
+
+![On the left, five equally sized money bags sit in a row; on the right there is only one small block standing for the answer finally adopted, and the difference in volume between the two sides is obvious.](/figures/five-wallets-one-answer-en.svg)
+
+The third is **attention conflict**, which is to say review. When three seats finish, someone has to read three diffs, one at a time. Maddalone is honest about this: he waits on the board, then reads each diff, adds notes, and only then opens the PRs. The agents work in parallel. The person reading the changes doesn't.
+
+Why do people mostly notice the first kind? Because it's the loudest. Two agents clobber a file and things break right in front of you. The other two are quiet. You find out the quota is gone at the end of the month, and three PRs sitting there feel finished when all you really know is that the agents *said* they were finished.
+
+![Three thick parallel lines run to the right into a neck that narrows sharply, and past the outlet only one thin line is left.](/figures/parallel-agents-single-reviewer-en.svg)
+
+When does this argument not hold? If the tasks are small and the diffs can be checked at a glance, like "make the description full width" in the video, review costs almost nothing and more seats pay off. If your subscription is more than you can ever use, the second conflict goes away too. Flip it around: the bigger the task, and the more you need to understand it before you'd dare merge, the fewer seats you should run.
+
+![A line splits into two forks: the upper fork has small changes and many seats in a row, the lower fork has large changes and only one seat left.](/figures/task-size-decides-seats-en.svg)
+
+## My own day running three seats
+
+On September 22, 2026, I installed Orca 1.4.206 on a Windows laptop and set up three seats the way it's meant to be used. Claude was the lead, Codex wrote the code, and a different model looked for problems. The job was fixing an install script that reported success even when the install had failed.
+
+Three things came up that the video never mentions. First, Orca won't let an agent launch its own agents. When the lead tried to hand work further down, it was refused with `nested_worker_depth_exceeded`, so it fell back to sending commands straight into the terminal. Second, the first time Claude enters a new project it asks whether you trust the folder, and the default choice is exit. The task command Orca sent got eaten as "press Enter to exit." Third, on Windows, closing Orca's main window shuts down the whole app, including whatever was running in the background.
+
+The three seats went three rounds, and the reviewing seat caught four disagreements. It looked thorough. I still measured everything myself from scratch. I built a fake command that pretends to succeed. Under it, the old script printed three successes and the new one printed three errors, and only with that control in place did the result count. That step also caught me measuring wrong twice: once I wrote the path in the wrong format and was actually testing the real command, and once the shell swallowed my quotes. Three seats saved typing time. They didn't save a single minute of review.
+
+## Three ways to run it, side by side
+
+| | Orca | herdr | Claude Code built-in `--worktree` |
+|---|---|---|---|
+| What it is | Desktop app with editor, browser tabs, board | Split panes inside a terminal | A command-line flag |
+| One worktree per agent | Yes, created for you | You create them | Yes, one per session |
+| See all agents' status | Board | Marks each seat as working, waiting on you, or done | No |
+| Check progress from a phone | iOS / Android app | Wire up remote access yourself | No |
+| Platforms | macOS / Windows / Linux | Anywhere a terminal runs | Wherever Claude Code runs |
+| License | MIT | Apache-2.0 | Follows Claude Code |
+| GitHub stars (2026-10-04) | 84,769 | 42,192 | N/A |
+
+None of the three pays your quota, and none of them reviews for you. What differs is how much you can *see*. For two seats, terminal splits are plenty. Once you're at four or more and want to check from your phone who's stuck, Orca's board and mobile app start to justify the hassle of installing it.
+
+## A few other things worth noting
+
+- Design Mode is good for UI changes. Clicking an element and handing its markup to the agent beats describing "the second card on the left."
+- The AI-written commit message in the video was usable, but the PR it opened had no description. Maddalone shrugs it off. On a real project you'd want to fill that in.
+- Plenty of write-ups describe Stably as a "four-person team," but the YC company page listed 25 people on October 4, 2026. Same with stars: the often-quoted "43,000+" is an old snapshot, and the real count that day was 84,769. Write-ups go stale, so it's worth checking the original page before you repeat them.
+- Orca ships fast. I installed 1.4.206 on September 22, and by October 4 it was at 1.4.220, so button locations in tutorial videos may not match what you see.
+
+## The one thing to take away
+
+**How many things you can run at once depends on how many you can close out, not how many you can start.**
+
+A small exercise for today: list everything you have running in parallel right now, whether it's work, chores, or messages waiting on someone's reply. Next to each, write how many minutes you'll need to check it once it's done. If the total is more than the free time you actually have in a day, drop one before starting anything new.
