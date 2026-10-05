@@ -5,7 +5,7 @@
 // 排程 RealphaBlogStats 每 10 分鐘再跑一次，首頁打開時抓最新的。
 // 只算真人（濾法同 build_popular.isHuman）且只算網頁（路徑以 / 結尾），圖片、.md、API 不算。
 import assert from 'node:assert/strict';
-import { existsSync } from 'node:fs';
+import { existsSync, realpathSync } from 'node:fs';
 import { mkdir, readdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -83,7 +83,9 @@ async function selfTest() {
 	console.log('site_stats self-test: all passed');
 }
 
-const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+// 經 Windows 捷徑進入時 argv[1] 與 import.meta.url 字串不同，取真實路徑再比（同 audio_manifest.mjs）。
+const isMain = process.argv[1]
+	&& realpathSync.native(resolve(process.argv[1])) === realpathSync.native(fileURLToPath(import.meta.url));
 if (isMain) {
 	if (process.argv.includes('--self-test')) {
 		await selfTest();

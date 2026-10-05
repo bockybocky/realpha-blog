@@ -10,7 +10,7 @@
 //
 //   node scripts/dist_dir.mjs --check   自檢
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, realpathSync } from 'node:fs';
 import { rename, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -90,5 +90,7 @@ function check() {
 }
 
 // 只有直接跑這支才自檢——被 import 時 argv 是別人的，不能拿來當開關
-const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+// 經 Windows 捷徑進入時 argv[1] 與 import.meta.url 字串不同，取真實路徑再比（同 audio_manifest.mjs）。
+const isMain = process.argv[1]
+	&& realpathSync.native(resolve(process.argv[1])) === realpathSync.native(fileURLToPath(import.meta.url));
 if (isMain && process.argv.includes('--check')) check();

@@ -5,7 +5,7 @@
 // 只算 /blog/<slug>/ 與 /en/blog/<slug>/，且 slug 要在 src/content/blog 存在、非 draft。
 // 任何狀況（logs 不存在、壞行）都不讓 build 失敗：最壞輸出 []。
 import assert from 'node:assert/strict';
-import { existsSync } from 'node:fs';
+import { existsSync, realpathSync } from 'node:fs';
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
@@ -195,7 +195,9 @@ async function selfTest() {
 	console.log('build_popular self-test: all passed');
 }
 
-const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+// 經 Windows 捷徑進入時 argv[1] 與 import.meta.url 字串不同，取真實路徑再比（同 audio_manifest.mjs）。
+const isMain = process.argv[1]
+	&& realpathSync.native(resolve(process.argv[1])) === realpathSync.native(fileURLToPath(import.meta.url));
 if (isMain) {
 	if (process.argv.includes('--self-test')) {
 		await selfTest();

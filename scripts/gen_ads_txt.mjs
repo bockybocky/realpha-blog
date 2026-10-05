@@ -4,7 +4,7 @@
 // 規則：enabled 且 client 是合法的 ca-pub-數字 → 寫 ads.txt；其餘情況 → 若 dist/ads.txt 存在就刪掉。
 // client 格式錯誤只警告不讓 build 失敗（每天兩次自動發文要能過），但也不產生錯的 ads.txt。
 import assert from 'node:assert/strict';
-import { existsSync } from 'node:fs';
+import { existsSync, realpathSync } from 'node:fs';
 import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
@@ -78,7 +78,9 @@ async function selfTest() {
 	console.log('gen_ads_txt self-test: all passed');
 }
 
-const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+// 經 Windows 捷徑進入時 argv[1] 與 import.meta.url 字串不同，取真實路徑再比（同 audio_manifest.mjs）。
+const isMain = process.argv[1]
+	&& realpathSync.native(resolve(process.argv[1])) === realpathSync.native(fileURLToPath(import.meta.url));
 if (isMain) {
 	if (process.argv.includes('--self-test')) await selfTest();
 	else await run(resolve(dirname(fileURLToPath(import.meta.url)), '..'));
