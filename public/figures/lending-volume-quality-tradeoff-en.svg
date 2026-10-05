@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="A downward-sloping curve where more lending volume means lower credit quality, with both end points marked.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="58">The seesaw inside any lending program</text>
+<line x1="150" y1="420" x2="880" y2="420" stroke="var(--line)" stroke-width="2"/>
+<line x1="150" y1="110" x2="150" y2="420" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="790" y="448">Volume</text>
+<text class="b" x="60" y="124">Credit quality</text>
+<path d="M210 150 Q470 190 800 390" fill="none" stroke="var(--grey)" stroke-width="3"/>
+<circle cx="230" cy="157" r="9" fill="var(--accent)"/>
+<text class="g" x="252" y="152">Tight standards</text>
+<text class="b" x="252" y="178">Volume too small to show</text>
+<circle cx="780" cy="378" r="9" fill="var(--warn)"/>
+<text class="g" x="520" y="340" fill="var(--warn)">Looser terms, longer repayment</text>
+<text class="b" x="520" y="366">Volume rises, so do losses</text>
+<text class="c" x="60" y="480">Two spots on one curve, not two approaches</text>
+</svg>

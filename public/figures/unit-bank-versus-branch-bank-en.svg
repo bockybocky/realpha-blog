@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A unit bank sits one-to-one on a single crop district, while a branch bank spans many districts one-to-many.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="58">One-to-one, or one-to-many</text>
+<text class="g" x="60" y="110">Unit bank</text>
+<text class="g" x="540" y="110">Branch bank</text>
+<rect x="60" y="150" width="110" height="70" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<rect x="195" y="150" width="110" height="70" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<rect x="330" y="150" width="110" height="70" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="b" x="78" y="192">Bank</text>
+<text class="b" x="213" y="192" fill="var(--warn)">Fails</text>
+<text class="b" x="348" y="192">Bank</text>
+<line x1="115" y1="220" x2="115" y2="300" stroke="var(--grey)" stroke-width="2"/>
+<line x1="250" y1="220" x2="250" y2="300" stroke="var(--warn)" stroke-width="3"/>
+<line x1="385" y1="220" x2="385" y2="300" stroke="var(--grey)" stroke-width="2"/>
+<rect x="60" y="300" width="110" height="70" rx="8" fill="var(--page)" stroke="var(--grey)"/>
+<rect x="195" y="300" width="110" height="70" rx="8" fill="var(--warn)" opacity="0.8"/>
+<rect x="330" y="300" width="110" height="70" rx="8" fill="var(--page)" stroke="var(--grey)"/>
+<text class="b" x="78" y="342">Crop district</text>
+<text class="b" x="348" y="342">Crop district</text>
+<text class="b" x="195" y="398" fill="var(--warn)">Prices fall</text>
+<rect x="590" y="150" width="200" height="70" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="b" x="612" y="192" fill="var(--accent)">One bank, still standing</text>
+<line x1="690" y1="220" x2="560" y2="300" stroke="var(--grey)" stroke-width="2"/>
+<line x1="690" y1="220" x2="660" y2="300" stroke="var(--warn)" stroke-width="2.5"/>
+<line x1="690" y1="220" x2="760" y2="300" stroke="var(--grey)" stroke-width="2"/>
+<line x1="690" y1="220" x2="860" y2="300" stroke="var(--grey)" stroke-width="2"/>
+<rect x="510" y="300" width="90" height="70" rx="8" fill="var(--page)" stroke="var(--grey)"/>
+<rect x="615" y="300" width="90" height="70" rx="8" fill="var(--warn)" opacity="0.8"/>
+<rect x="720" y="300" width="90" height="70" rx="8" fill="var(--page)" stroke="var(--grey)"/>
+<rect x="825" y="300" width="75" height="70" rx="8" fill="var(--page)" stroke="var(--grey)"/>
+<text class="b" x="615" y="398" fill="var(--warn)">Prices fall</text>
+<text class="c" x="60" y="500">What failed was diversification, not nerve</text>
+</svg>
