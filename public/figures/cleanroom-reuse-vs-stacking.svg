@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊固定方框裡的世代被替換掉，右邊世代一層層往上累加，兩種形狀對比">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="66" font-size="27" font-weight="700" fill="var(--ink)">替換，還是累加</text>
+
+<rect x="50" y="100" width="420" height="350" rx="14" fill="var(--card)"/>
+<text x="70" y="140" font-size="20" font-weight="700" fill="var(--dim)">記憶體：無塵室重用</text>
+
+<rect x="80" y="170" width="140" height="180" rx="6" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+<rect x="100" y="230" width="100" height="100" rx="4" fill="var(--grey)"/>
+<text x="150" y="288" font-size="16" fill="var(--page)" text-anchor="middle">舊世代</text>
+<text x="150" y="162" font-size="15" fill="var(--dim)" text-anchor="middle">固定面積</text>
+
+<path d="M235 270 L285 270" stroke="var(--dim)" stroke-width="3"/>
+<path d="M285 270 l-12 -7 v14 z" fill="var(--dim)"/>
+<text x="260" y="252" font-size="15" fill="var(--dim)" text-anchor="middle">搬走</text>
+
+<rect x="300" y="170" width="140" height="180" rx="6" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+<rect x="320" y="230" width="100" height="100" rx="4" fill="var(--accent)"/>
+<text x="370" y="288" font-size="16" fill="var(--page)" text-anchor="middle">新世代</text>
+<text x="370" y="162" font-size="15" fill="var(--dim)" text-anchor="middle">固定面積</text>
+
+<text x="80" y="398" font-size="16" fill="var(--dim)">舊世代退出市場</text>
+<text x="80" y="424" font-size="16" fill="var(--dim)">一個世代只賣一次</text>
+
+<rect x="500" y="100" width="410" height="350" rx="14" fill="var(--card)"/>
+<text x="520" y="140" font-size="20" font-weight="700" fill="var(--dim)">代工：老節點續租</text>
+
+<rect x="560" y="300" width="290" height="46" rx="4" fill="var(--grey)"/>
+<text x="705" y="331" font-size="16" fill="var(--page)" text-anchor="middle">老節點</text>
+<rect x="560" y="248" width="290" height="46" rx="4" fill="var(--grey)"/>
+<text x="705" y="279" font-size="16" fill="var(--page)" text-anchor="middle">上一代</text>
+<rect x="560" y="196" width="290" height="46" rx="4" fill="var(--accent)"/>
+<text x="705" y="227" font-size="16" fill="var(--page)" text-anchor="middle">先進節點</text>
+
+<text x="560" y="398" font-size="16" fill="var(--dim)">全部還在收租</text>
+<text x="560" y="424" font-size="16" fill="var(--dim)">一個世代變現多年</text>
+
+<text x="60" y="508" font-size="22" font-weight="700" fill="var(--ink)">面積變大，才有留下舊產線這個選項</text>
+</svg>

@@ -1,0 +1,95 @@
+---
+title: "The Circuit: Has the Memory Cycle Broken? It Comes Down to Whether the Old Lines Stay"
+description: "Notes on The Circuit (5 October 2026): Ben Bajarin and Jay Goldberg on Micron, a memory floor that has been lifted, bit growth running only in the low twenties, the allocation maths where four consumer parts' worth of capacity buys one top-end HBM stack, and Broadcom committing up to $42bn of credit to Anthropic. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "circuit-2026-10-05-has-the-memory-cycle-broken-plus-nvidia-broadcom-s"
+lang: "en"
+pubDate: 2026-10-06
+category: "investing"
+kind: "podcast-notes"
+tags: ["The Circuit", "podcast-notes", "memory", "HBM", "AI infrastructure"]
+ogImage: "/covers/circuit-2026-10-05-has-the-memory-cycle-broken-plus-nvidia-broadcom-s-cover.png"
+cover: "/covers/circuit-2026-10-05-has-the-memory-cycle-broken-plus-nvidia-broadcom-s-cover.png"
+---
+
+![A long memory fab cleanroom aisle running into the distance, the near end lit white around advanced stacking tools, the far end of the same aisle dim with older machines still running](/covers/circuit-2026-10-05-has-the-memory-cycle-broken-plus-nvidia-broadcom-s-cover.png)
+
+> Pearls, jade, gold and silver cannot be eaten when you are hungry, nor worn when you are cold... Grain and cloth grow out of the soil, ripen with the seasons, and are gathered by labour; they cannot be made in a day.
+>
+> —— Chao Cuo, "On Valuing Grain" (Western Han, c. 178 BC; my own translation)
+
+In The Circuit released 5 October 2026, Ben Bajarin and Jay Goldberg start from Micron's quarter and end up arguing about whether the memory cycle has broken. Ben's case is that the floor has been lifted: a business whose old peak was around $100bn now models out, on their numbers, somewhere between $600bn and $800bn depending on where you put the ASP floor — while DRAM bit growth runs in the low twenties and NAND in the mid twenties, with prices roughly doubling this year and contracts already pointing to another rise next year. Jay does not dispute the size; he questions the incentive, because four consumer parts' worth of capacity buys one top-end HBM stack that sells for a hundred times more. Everything here is the two of them reading results and news, and neither claims to know what happens after 2028.
+
+## What they agree on, and the one line they fight over
+
+The agreement is about the floor. Memory used to be the textbook cyclical: eighty percent gross margins at the top, thirty at the bottom, an industry whose peak revenue was about $100bn. Ben's argument is that the whole band has moved up, with his model's peak landing between $600bn and $800bn. Jay says nobody really argues with that part.
+
+![Two vertical bars compared by height: the old cycle's peak on the left is short, while this round's peak on the right is about seven times taller, showing the entire range has been lifted.](/figures/memory-floor-lifted-en.svg)
+
+The fight is over how the market prices it. Ben's read of current valuations is that they assume demand destruction plus margin compression arriving in 2029 — the wheels coming off the train. He does not accept that default, because bit demand is still climbing.
+
+## Why the old cycle looked the way it did
+
+One thing outsiders tend to miss, and Ben leans the whole argument on it: memory used to run on cleanroom reuse.
+
+A fab's cleanroom space is fixed. When an old generation stopped selling, the maker pulled the old tools out and converted the same floor to the next node. Every upgrade therefore deleted a generation from the market. Foundry works the other way round — TSMC's trailing nodes still collect rent years later.
+
+![On the left, inside a fixed-size box an old generation is swapped out for a new one and the old disappears; on the right, legacy nodes keep stacking up, contrasting replacement with accumulation as two ways of handling capacity.](/figures/cleanroom-reuse-vs-stacking-en.svg)
+
+Ben's chain goes like this. If the appetite of AI accelerators keeps bit demand rising, and every maker is expanding cleanroom footprint at the same time, then nobody has a reason to tear out the old lines. DDR4 still has customers — he names memory pooling and disaggregated CPU designs — so keep building it and keep selling it. Once trailing capacity gets monetised for years, memory turns from "run hot then crash" into a tiered market that behaves more like foundry. The note he published this week was titled "bet on bits, not history."
+
+## What the argument depends on
+
+It hangs on whether cleanroom footprint actually grows. Ben states the premise plainly: if you double your footprint or more, you can make different allocation decisions than you did in the past. Take the premise away and the chain inverts — with flat footprint, keeping an old generation means giving up a new one.
+
+Jay's pushback lands on incentives, and he puts a number on it: the capacity consumed by one top-end HBM stack is roughly four consumer parts, and that stack sells for a hundred times more. The observation he throws in alongside it is the one I enjoyed most. Under ordinary Moore's Law, the leading edge means more bits per wafer; with HBM it runs backwards, because the yield and wafer consumption of a sixteen-high stack make each wafer less productive. He half-jokingly calls it a reverse node shrink. So the maths in front of a memory maker speaks for itself: the pull toward HBM needs no explaining.
+
+![The top half shows two squares of equal area, the left cut into four consumer-grade cells and the right a single whole HBM die; the bottom half shows two unit-price bars, with the HBM bar about a hundred times taller.](/figures/same-area-two-outputs-en.svg)
+
+Jay says the Micron call gave him nothing reassuring. What he wanted to hear was "we will look after the consumer side." What he heard was capacity and R&D going to the fancy stuff. He mentions reports that consumer memory pricing has plateaued, which he reads as a deliberate choice by the makers — and then flags that Micron gave him no confidence in that reading, so he holds it as his own interpretation.
+
+## Demand is being damaged at the same time
+
+This is the part that stayed with me, because it loosens the premise that bit demand keeps climbing.
+
+Two concrete signs came up. Tesla is de-speccing memory in its robots, using less than the design called for, because it cannot get enough. And Jay spoke this week with someone who forecasts handset shipments and now expects a decade of no growth in phones: demand is down this year, phones cost more and are less good, so people hold on; next year the five-year-old handset finally dies and gets replaced, and that replacement buys another five years of waiting. Expensive memory pushes the replacement cycle out, and the pushed-out years do not come back.
+
+![Two timelines stacked: on the top one the replacement points are evenly spaced, while on the bottom one the first gap is stretched into a delay before the spacing returns to the same interval.](/figures/replacement-cycle-pushed-out-en.svg)
+
+Holding this against your own positions makes it concrete. If you own consumer electronics or the handset chain, a memory price rise is a cost increase. If you own a memory maker, you are betting that cost does not get large enough to cut end-market volume. The same headline poses opposite questions — and the demand that quietly disappears downstream never shows up on Micron's income statement.
+
+## Why this isn't simply one more upcycle
+
+There is a lazier reading available: prices double, long-term agreements get signed, management declares the business structurally changed. Every cycle top has sounded like that. File it under the old script.
+
+The episode gives two reasons not to. First, the bit growth numbers don't fit the old script. DRAM in the low twenties, NAND in the mid twenties, prices doubled — at an old-fashioned top, volume and price run together until supply catches up and breaks it. Supply is catching up slowly here, and Ben's explanation for slower bit growth is that they can't make enough, not that nobody wants it.
+
+![Two horizontal bars compared by length: the bit-growth bar is short while the price bar runs about four to five times longer, showing volume lagging while price has already doubled.](/figures/bit-growth-vs-price-en.svg)
+
+Second, China. CXMT has pulled all its capacity targets forward and will have much more capacity next year. Jay's comparison: building a memory fab takes two and a half to three years in the US, Korea or Japan, and eighteen months in China. That, he says, is what people most often miss about Chinese memory — they are as constrained as everyone else on inputs, but they bring capacity online far faster. His conclusion in one line: there will be a lot of memory in 2028, and he does not know how pricing responds.
+
+![Two horizontal bars compared by fab build time: the US, Korea and Japan bar runs about thirty months while China's eighteen-month bar is clearly shorter, with an arrow on the right pointing to the new capacity arriving in 2028.](/figures/fab-build-time-gap-en.svg)
+
+So the episode doesn't resolve anything. It converts the argument into a question you can track: do the makers keep the old-generation lines running, and do they hand any of the new capacity to the consumer side? That is the one checkable point in Ben's chain, and every quarterly call leaves traces of it.
+
+## A few other things worth keeping
+
+- **Balance sheet as a service.** Reuters got hold of a preliminary Anthropic IPO filing, and in it Broadcom commits to lend Anthropic up to roughly $42bn, tied to Google TPUs licensed and produced through Broadcom. Jay's reminder: semis avoided debt for good reasons — high fixed costs, cyclicality, and the fact that missing a product cycle is hard enough without debt service eating the R&D budget for the next one.
+- **That Nvidia slide.** Nvidia ran a non-deal roadshow this week, and one slide is simply the commitments footnote from its 10-K, used to show how it funds the ecosystem off its balance sheet. Jay has seen the same image used to make the bearish case, then quoted the Big Short meme — why are they confessing? — and answered himself: they're bragging. His proposed title for an episode on data centre finance is "running into the street screaming with my hair on fire in sheer abject terror."
+- **Why the fabless players are the ones writing cheques.** Ben's question is a good one: the demand lands at TSMC anyway, so why doesn't the foundry share the risk? Jay's answer is that TSMC sits too far up the chain to know true end demand — it buys handset forecasts from outsiders — while Nvidia and Broadcom talk to end customers daily and monetise AI demand at higher margins.
+- **Tokenomics.** Jay wants the AI conversation moved from adjectives to dollars. His example: a year ago the labs charged a premium for reasoning models, and that premium is gone — it became a feature bundled into the frontier model. Input and output tokens price very differently because the underlying compute differs. He thinks everyone will be running this analysis within months.
+- **The 250-tokens-per-second tier.** OpenAI's dev day high-speed option was initially guessed to be specialised inference silicon; it turned out to be low-batch-optimised Nvidia GPUs. Jay stays sceptical of "premium tokens" as a frame — he expects price discrimination by segment and end user, something more nuanced than expensive tokens and cheap tokens.
+
+## Worth reading alongside
+
+- The Circuit, episode of 5 October 2026, hosted by Ben Bajarin and Jay Goldberg — every quote here comes from it.
+- Micron's latest quarterly results and call transcript, where you can check for yourself how they talk about trailing capacity and the consumer side.
+- Anthropic's preliminary IPO filing, cited in this week's Reuters reporting, which contains the Broadcom loan commitment.
+- The commitments and contingencies footnote in Nvidia's 10-K — the source of that roadshow slide.
+
+## The one thing to take away
+
+The line this episode taught me: with anything scarce, what matters is how it gets allocated, not how much of it there is. The memory argument looks like a fight about totals — will bit demand keep growing — but both of them end up standing in front of the same cleanroom asking who gets the floor space. Totals tell you whether the business gets bigger. Allocation decides who actually receives any of it.
+
+![Two bars of equal height side by side: on the left, following the stated order, most of it goes to what matters most; on the right, the actual flow fills the whole bar with what is most urgent and leaves the most-important cell empty.](/figures/stated-priority-vs-actual-flow-en.svg)
+
+Here's something I tried that works outside investing too. Pick a resource you recently gained — a raise, the energy left over after a long holiday, the two hours that opened up once the kids started school — and write down where it actually went. What already happened, not the plan. Then hold that against the priority order you say out loud. When I did it, those two spare hours had all gone to whatever was most urgent, and the thing I keep calling most important had received none of them.
