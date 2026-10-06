@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="直線路徑在中途斷裂，一條弧線從上游繞過斷點抵達終點">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="68" font-size="27" font-weight="700" fill="var(--ink)">繞路：不走斷掉的那一段</text>
+<rect x="60" y="100" width="840" height="340" rx="14" fill="var(--card)"/>
+<rect x="120" y="150" width="200" height="72" rx="10" fill="var(--accent)"/>
+<text class="t" x="220" y="194" font-size="20" font-weight="700" fill="var(--page)" text-anchor="middle">說話計畫區</text>
+<line x1="220" y1="222" x2="220" y2="290" stroke="var(--grey)" stroke-width="4" stroke-dasharray="8 8"/>
+<line x1="198" y1="276" x2="242" y2="304" stroke="var(--warn)" stroke-width="5"/>
+<line x1="242" y1="276" x2="198" y2="304" stroke="var(--warn)" stroke-width="5"/>
+<rect x="120" y="330" width="200" height="72" rx="10" fill="none" stroke="var(--grey)" stroke-width="2"/>
+<text class="t" x="220" y="374" font-size="19" fill="var(--dim)" text-anchor="middle">咽喉與喉部</text>
+<text class="t" x="258" y="296" font-size="16" fill="var(--warn)">訊號到不了</text>
+<path d="M320 186 C470 186 470 250 560 250" stroke="var(--accent)" stroke-width="4" fill="none"/>
+<rect x="560" y="214" width="180" height="72" rx="10" fill="var(--accent)" opacity="0.75"/>
+<text class="t" x="650" y="258" font-size="20" font-weight="700" fill="var(--page)" text-anchor="middle">訊號解碼</text>
+<path d="M740 250 C800 250 790 366 740 366" stroke="var(--accent)" stroke-width="4" fill="none"/>
+<rect x="500" y="330" width="240" height="72" rx="10" fill="var(--accent)"/>
+<text class="t" x="620" y="374" font-size="20" font-weight="700" fill="var(--page)" text-anchor="middle">電腦語音：說出話</text>
+<text class="t" x="60" y="486" font-size="22" font-weight="700" fill="var(--ink)">模型有洞，照樣能到終點</text>
+</svg>

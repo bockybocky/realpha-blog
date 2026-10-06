@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="An object and its shadow on the ground: the ruler reaches only the shadow, and an arrow runs from the shadow to a score read off it.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="68" font-size="27" font-weight="700" fill="var(--ink)">What gets measured is the shadow</text>
+<rect x="60" y="100" width="840" height="340" rx="14" fill="var(--card)"/>
+<circle cx="300" cy="200" r="54" fill="var(--accent)"/>
+<text class="t" x="300" y="130" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">What we want</text>
+<text class="t" x="390" y="206" font-size="16" fill="var(--dim)">Alertness, stress itself</text>
+<line x1="300" y1="254" x2="300" y2="330" stroke="var(--grey)" stroke-width="3" stroke-dasharray="7 7"/>
+<ellipse cx="300" cy="350" rx="110" ry="26" fill="var(--grey)"/>
+<text class="t" x="300" y="358" font-size="19" font-weight="700" fill="var(--page)" text-anchor="middle">Heart rate variability</text>
+<rect x="170" y="390" width="260" height="26" rx="4" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<line x1="222" y1="390" x2="222" y2="416" stroke="var(--warn)" stroke-width="2"/>
+<line x1="274" y1="390" x2="274" y2="416" stroke="var(--warn)" stroke-width="2"/>
+<line x1="326" y1="390" x2="326" y2="416" stroke="var(--warn)" stroke-width="2"/>
+<line x1="378" y1="390" x2="378" y2="416" stroke="var(--warn)" stroke-width="2"/>
+<text class="t" x="450" y="410" font-size="16" fill="var(--warn)">Ruler stops here</text>
+<path d="M430 350 L620 350" stroke="var(--line)" stroke-width="4"/>
+<text class="t" x="525" y="332" font-size="16" fill="var(--dim)" text-anchor="middle">Inferred</text>
+<rect x="620" y="310" width="220" height="80" rx="12" fill="none" stroke="var(--line)" stroke-width="3"/>
+<text class="t" x="730" y="358" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">Stress score</text>
+<text class="t" x="60" y="486" font-size="22" font-weight="700" fill="var(--ink)">Measured all along, just not that thing</text>
+</svg>
