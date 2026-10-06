@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊一整塊單向的長文字，右邊左右交錯的泡泡與一個由它主動發起、往上的箭頭">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; fill:var(--ink); font-weight:700; }
+.g { font-size:20px; fill:var(--ink); font-weight:600; }
+.b { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<defs>
+<marker id="b1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--grey)"/></marker>
+<marker id="b2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+</defs>
+<text class="t" x="48" y="58">一整篇，換成可以插話的一來一往</text>
+<rect x="48" y="96" width="396" height="376" rx="14" fill="var(--card)"/>
+<text class="g" x="76" y="140">一整篇</text>
+<rect x="76" y="166" width="300" height="10" rx="5" fill="var(--grey)"/>
+<rect x="76" y="192" width="316" height="10" rx="5" fill="var(--grey)"/>
+<rect x="76" y="218" width="286" height="10" rx="5" fill="var(--grey)"/>
+<rect x="76" y="244" width="320" height="10" rx="5" fill="var(--grey)"/>
+<rect x="76" y="270" width="262" height="10" rx="5" fill="var(--grey)"/>
+<rect x="76" y="296" width="306" height="10" rx="5" fill="var(--grey)"/>
+<line x1="226" y1="340" x2="226" y2="420" stroke="var(--grey)" stroke-width="4" marker-end="url(#b1)"/>
+<text class="b" x="248" y="392">單向</text>
+<text class="b" x="76" y="448">讀完才輪到你</text>
+<rect x="516" y="96" width="396" height="376" rx="14" fill="var(--card)"/>
+<text class="g" x="544" y="140">泡泡</text>
+<rect x="544" y="162" width="196" height="46" rx="20" fill="var(--grey)"/>
+<rect x="700" y="222" width="186" height="46" rx="20" fill="var(--accent)"/>
+<text class="b" x="664" y="300">已讀</text>
+<rect x="544" y="276" width="110" height="40" rx="18" fill="var(--grey)"/>
+<rect x="544" y="330" width="166" height="46" rx="20" fill="var(--grey)"/>
+<line x1="876" y1="430" x2="876" y2="300" stroke="var(--accent)" stroke-width="4" marker-end="url(#b2)"/>
+<text class="b" x="736" y="420">它主動找你</text>
+<text class="c" x="48" y="520">能插話，也能被它插話</text>
+</svg>

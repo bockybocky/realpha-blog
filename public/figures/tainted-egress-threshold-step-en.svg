@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A step line for the safety threshold jumps up after private data is touched and stays high from then on.">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; fill:var(--ink); font-weight:700; }
+.g { font-size:20px; fill:var(--ink); font-weight:600; }
+.b { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; fill:var(--ink); font-weight:600; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="48" y="58">Touch private data and every later step gets stricter</text>
+<line x1="110" y1="140" x2="110" y2="420" stroke="var(--line)" stroke-width="3"/>
+<line x1="110" y1="420" x2="900" y2="420" stroke="var(--line)" stroke-width="3"/>
+<text class="b" x="48" y="150">Threshold</text>
+<text class="b" x="820" y="452">Later in the flow</text>
+<path d="M110 376 H 400 V 272 H 640 V 180 H 886" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<line x1="400" y1="150" x2="400" y2="420" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 7"/>
+<circle cx="400" cy="376" r="10" fill="var(--warn)"/>
+<text class="b" x="340" y="140">Private data</text>
+<text class="b" x="146" y="356">Schedule</text>
+<text class="b" x="436" y="252">Card number</text>
+<text class="b" x="676" y="160">Every later step</text>
+<text class="c" x="48" y="500">The threshold is not fixed; tainted data raises it</text>
+</svg>

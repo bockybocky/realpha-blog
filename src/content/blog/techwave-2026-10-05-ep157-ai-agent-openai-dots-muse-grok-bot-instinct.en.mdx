@@ -1,0 +1,123 @@
+---
+title: "From Chat Box to Colleague: What the Four Cloud AI Agents of the Past Month Actually Changed"
+description: "TechWave EP157 lines up Instinct, Grok Bot, Muse and OpenAI's Dots, covering product positioning, security mechanisms, two business models, and a CPU demand estimate. These are my notes and extended reading — educational industry commentary, not investment advice, and no stock recommendations."
+slug: "techwave-2026-10-05-ep157-ai-agent-openai-dots-muse-grok-bot-instinct"
+lang: "en"
+pubDate: 2026-10-06
+category: "investing"
+kind: "podcast-notes"
+tags: ["AI agents", "OpenAI", "Meta", "business models", "data centers"]
+ogImage: "/covers/techwave-2026-10-05-ep157-ai-agent-openai-dots-muse-grok-bot-instinct-cover.png"
+cover: "/covers/techwave-2026-10-05-ep157-ai-agent-openai-dots-muse-grok-bot-instinct-cover.png"
+---
+
+![A home study late at night, one lamp and a laptop on the desk, and behind it a corridor receding into the distance lined with identical empty desks, each with its own small lamp lit](/covers/techwave-2026-10-05-ep157-ai-agent-openai-dots-muse-grok-bot-instinct-cover.png)
+
+> The ruler is one who upholds the law and holds others to results. A ruler who inspects every official in person will run short of days and short of strength.
+>
+> —— *Han Feizi, "Nan San"* (Warring States period, translated by the author)
+
+TechWave EP157, published on 5 October 2026, puts the four cloud personal AI agents that appeared over the past month side by side: Instinct from a Silicon Valley startup, xAI's Grok Bot, Meta's Muse, and Dots, which OpenAI launched at last week's DevDay. Host Harry calls this possibly the most important AI trend of 2026, on the grounds that the positioning shifts from "a conversation" to "a colleague." A few numbers stuck with me: Instinct has a team of 14, a $10 billion valuation, and a 23-year-old founder; citing analyst Freda's estimate, Harry puts the CPU hardware bill for serving Muse to 100 million daily active users at roughly $800 million. All four are in their first month and still giving capacity away, so what follows is about direction and arithmetic, not about who wins, and it touches no individual stock.
+
+## How is this different from the ChatGPT and Codex I already use?
+
+One is a conversation, the other is a role. Harry draws it cleanly: a ChatGPT session is you handing over a well-defined job, it finishes, and it ends. These new products have their own name, their own memory, and you can hand them a responsibility and a goal.
+
+The abstraction clears up with an example. A session takes "write this email." A role takes "keep the correspondence going with this vendor until you've negotiated the best terms we can get," or "watch for new models, and when one ships, swap out the core model in my app, run the test suite, and come back to me." Jobs like that have no endpoint, only acceptance conditions.
+
+![On the left, a straight line with an endpoint runs from handing over a job to finishing and stopping; on the right, a closed loop cycles through goal, do, report and revise back to the start, with a dashed line outside the loop labeled as the acceptance condition.](/figures/dialogue-ends-role-loops-en.svg)
+
+I had assumed the difference was whether it can act on your behalf, and Harry removes that misreading directly — Codex can open a browser and book a restaurant too. What he points at is another layer: the interface moved as well. ChatGPT hands you back a block of unframed prose, while these agents hand you back chat bubbles, with read receipts, emoji reactions, the ability to interrupt mid-task, and the ability to message you first. He argues this goes past wanting a human feel: a bubble interface lets you run several jobs in parallel and change direction partway, and it lets the agent reach you when reaching you is warranted.
+
+![On the left is one unbroken block of long text with no border and a single arrow pointing down; on the right are chat bubbles alternating left and right, with room to break in between and an arrow rising from below that it starts on its own.](/figures/one-way-text-vs-two-way-bubbles-en.svg)
+
+His own example: Dots watches his inbox all day and skips most of it, but one morning a vendor wrote asking for a deliverable, and with three hours left before the end of the day and no reply sent, Dots messaged him a reminder. Instinct goes further and phones you when something is urgent. What I cared about most here is frequency — it has to know when not to bother you, and Harry says in practice he isn't being flooded.
+
+## Beyond being in the cloud, how does this differ from the open-source agents people ran at home earlier this year?
+
+Harry says the capability ceiling is the same, and the difference is friction. These products hand you a cloud virtual machine; the open-source route asks you to find a box and run it yourself.
+
+That claim carries weight coming from him, because he kept one running for six months. He bought a Mac mini for the job, unwilling to use his main computer in case it wiped his files one day. Maintenance kept eating his time: a credential for some external tool expiring and needing reauthorization, a service hitting its quota with no fallback configured, a stronger model shipping every few weeks so the underlying model had to be swapped. And swapping is rarely one sentence — sometimes it garbled the provider's model identifier, one missing hyphen, the API call failed, the whole service went down, and he had to sit in front of that Mac mini and dig for it.
+
+The cloud version hands all of that to the vendor, which is why he spent the past month migrating responsibilities onto Dots and hasn't touched the home agent in three days. His read on why ordinary users never adopted the open-source stack: the barrier is buying a machine, then a round of terminal and GitHub setup, then wiring external services one at a time. The cloud version is an account, a name, and a few authorization taps.
+
+![A tall four-step staircase on the left climbing from buying hardware all the way up to ongoing maintenance, beside a short three-step one on the right that tops out at authorization, with a large gap between the two summits.](/figures/friction-ladder-self-host-vs-cloud-en.svg)
+
+He goes deeper on security than I expected. He has connected the Gmail and GitHub interfaces and has not logged into his personal accounts inside that cloud machine's browser — connecting an interface grants a defined set of operations, while logging in grants the whole screen. That's where he draws his line.
+
+![Two boxes of the same size stand for the whole screen; on the left only a small patch is filled in and labeled as a defined set of actions, while on the right the entire box is filled and labeled as clicking anywhere.](/figures/scoped-permission-vs-whole-screen-en.svg)
+
+The interesting part is that the reverse also holds: the cloud version is safer in some respects. The common attack is a malicious instruction buried in a web page for the agent to read and execute, and these vendors filter instructions with fixed rules as they enter context, then run a separate supervising agent as a final check before execution. Muse goes further: passwords and API keys live in a separate vault, the agent only ever holds a stand-in token, and the real value is substituted by another system at the moment it goes into the website. The open-source route can do all of this, and Harry's question is the practical one: will you have time to build all those systems and test each one?
+
+## What makes each of the four distinct, and which deserves a look?
+
+The differences concentrate in one design choice per company, and each bet is plain to see.
+
+Instinct's commitment is called "No New Interface" — no app for you to download; it lives in WhatsApp and iMessage, with its own phone number and email address. Harry's analogy: when a new colleague joins, nobody hands you a "my colleague" app, you just add their messaging contact. It also has a feature nobody else has, Trusted Person Network: you can send your Instinct to talk to someone else's Instinct directly, with how much each side can see set by your relationship. To schedule a meeting with a coworker, the two agents compare work calendars, settle a time, and write it into both, with neither human saying a word.
+
+Muse sells security, to the point that Harry says Zuckerberg steers every interview back to it and talks for twenty minutes unprompted. They have a gatekeeper role, the Sentinel Agent, screening higher-risk actions, plus a mechanism called tainted egress: once a running process touches your private data, that process is flagged and every subsequent step faces a higher safety bar. Checking movie times stays cheap and fast; after you hand over a card number, every step tightens. They've also hired a Signal co-founder to build a next-generation confidential VM, aimed at making user data unavailable even to Meta. Harry notes that being technically secure is one thing and convincing the public is another — he posted about it on Facebook and got hundreds of comments making the same point: the people who built Facebook and Instagram want me to trust their security.
+
+![A step line running rightward stands for the safety threshold: it is low and flat for the first half, then jumps up two steps right after the point where private data is touched, and every step after that stays high.](/figures/tainted-egress-threshold-step-en.svg)
+
+Grok Bot is the only one of the four that lets you build a whole squad of agents from day one, while the other three are single-agent. Harry thinks that's the right direction, because over time you'll want separate agents for daily life, media work and startup work, each with its own memory and role. Everything of his is currently crammed into one Dots.
+
+Dots has no distinguishing feature — his words — and then he adds the more useful line: its distinguishing feature is that OpenAI built it. He's a long-time Codex user, with memory, skills and tool authorizations already there, and Dots plugged straight in. On product design alone he says Grok Bot is better and he could see it when he tried it, but he didn't want to move his skills and context again and rewire every tool, so he stayed. Hearing that, I thought the deciding factor in this round of competition may not sit on the feature list at all.
+
+## The business models split two and two. Why is nobody doing advertising?
+
+Instinct and Meta take a cut of transactions, while OpenAI and xAI charge subscriptions plus usage. The choice maps directly onto who they're chasing.
+
+![Two arrow groups show where the money comes from: on the left, money flows from merchants into the Agent while the user path is a free dashed line; on the right, money flows straight from users into the Agent, labeled below as targeting consumers and targeting heavy users.](/figures/two-business-models-money-flow-en.svg)
+
+A transaction take rate means the agent completes a purchase for you and keeps one or two percent of the amount. Instinct is all-in: the product is free, they've promised never to run ads, and the cut is the whole business. Meta currently has a generous free tier plus paid plans, but says the take rate becomes the main model long term. That road targets ordinary consumers, who expect things free and who, in the ideal case, never see the cut because the merchant absorbs it. The other road targets heavy users like Harry plus enterprises, where volume is large, work has output, and subscription-plus-overage is the arithmetic that works. He notes Codex lead Tibo has signalled a move toward usage pricing, because what a subscription grants today, priced at interface rates, runs far past the subscription fee — his own $200 plan just had its allowance halved from 20x to 10x, and after complaining, he's renewing.
+
+On advertising he quotes Instinct's CEO, in what I think is the most worthwhile piece of reasoning in the episode: these agents will be smarter than you and will know you without limit, past anything social media managed. Give a role that smart and that familiar with you an incentive to raise ad revenue, and getting you to buy a pile of things you don't need is easy. Harry lands on that side, and so do I.
+
+He also sizes the ceiling: Visa and Mastercard move roughly $23 trillion a year worldwide, take 60% as online and reachable by an agent for $14 trillion, and a 1% cut gives $140 billion a year. Large, though not beyond imagining. The layer he adds next is the point: those couple of payment percentage points get split among thirty or forty vendors, because payments are one thin layer; an agent sits closer to an aggregator like Skyscanner, and airlines pay Skyscanner a commission because that booking came from Skyscanner. So the take rate isn't bounded by the one or two points finance lives on — it depends on how much business in a given industry the agent brings that wouldn't otherwise happen.
+
+![Three horizontal bars run from long to short: the longest is global card transaction volume, it shortens once only the online six tenths are taken, and multiplying by one percent leaves just a hair-thin line, with a leader line marking that as the ceiling on a year of take rate.](/figures/take-rate-ceiling-funnel-en.svg)
+
+## What about compute? Is CPU demand as big as the story suggests?
+
+Smaller than most people think, early on. Harry cites analyst Freda's estimate: 100 million daily active users implies about $800 million of CPU purchases.
+
+The arithmetic is worth walking, because every assumption is visible. A hundred million users at two hours a day gives 200 million agent-hours daily; divided by 24, an average of 8.33 million agents running per hour; peak at 2.5x average gives 20 million active virtual machines at once; add 20% hardware headroom and you need to carry 25 million. Then the key conversion: VMs and physical cores aren't one-to-one. DeepSeek published figures showing 30,000 cores serving 380,000 sandboxes at once, and Freda, assuming Meta won't reach that level of optimization, takes half a physical core per VM, giving 12.5 million cores, or 50,000 server processors at 256 cores each, about $800 million at market prices.
+
+![A staircase narrowing down to the right runs from the work hours of a hundred million users through dividing by day and night, a peak multiplier, redundancy, the cores each virtual machine eats and the cores per processor, finally converging on a dollar figure.](/figures/cpu-estimate-cascade-en.svg)
+
+Next to GPU spending that's a modest sum, and Harry admits his own CPU holdings are small and he sat out both rallies because he couldn't see a revenue opportunity large enough to move the stocks. He adds honestly that he may simply have missed it.
+
+What matters is which parameter flips the conclusion. The most sensitive one is hours per day, since the whole peak figure derives from it. Two hours describes an ordinary user, while his own Dots is active 24 hours a day — it was running jobs in the background while he recorded the episode. Once agents keep working for ordinary people while they sleep, the average won't stay at two hours. The second parameter is total daily actives, and 100 million looks low for a product category that could end up being used by everyone who uses the internet. His read: the estimate is close for the early period and gets pulled apart later by those two inputs.
+
+![Two bars differ hugely in height: the left one is the number running at once implied by two hours of use a day, and the right one is that same number if they run around the clock, twelve times as tall.](/figures/hours-per-day-sensitivity-en.svg)
+
+## So what can I do with this myself?
+
+Start with the trap readers fall into: news like this makes you ask which companies get replaced, and then you list the apps you use and start guessing which die. This episode offers a test that beats guessing, and I ran my own familiar services through it.
+
+His question: does this service earn from the time a consumer spends in its interface, from the consumer's friction, or from the service itself? The ones earning from the service itself are least affected and may benefit. Uber Eats earns from the dispatch network between couriers and restaurants — scrolling its screen makes it nothing, and when an agent places your order it still takes its cut. The dangerous ones earn from interface traffic and commissions without owning exclusive data; he names Skyscanner, because airline fares are public to begin with, so an agent gathers them, compares them and books the ticket, and the ad traffic and the commission disappear together.
+
+The third category is the interesting one, and the one I found most worth applying to myself: businesses that earn from friction. Subscriptions that are hard to cancel, insurance you never switched because switching is a hassle, services you left alone because the billing flow is tedious. Part of the profit in those businesses comes from your reluctance to move, and an agent that will move on your behalf scrapes that part off.
+
+![Three bars run from tall to short, showing the profit left after being scraped: the service itself loses almost nothing, the one living on interface traffic loses half, and the one living on friction is left as a thin sliver, with a dashed box above marking the part scraped away.](/figures/three-kinds-of-business-scraped-en.svg)
+
+Running those three categories, my unexpected takeaway sat outside investing. I found I keep my own friction list — not one designed to trap me, one I simply never acted on: a service I don't use and renew every year, a policy I haven't checked in two years, a process I know I should replace and haven't. Their hold on my life is as fragile as Skyscanner's commission, with nobody around to scrape it off for me.
+
+As for adopting one now: Harry says go try it, that it resembles nothing you've used before. My reservation is the line he drew — connecting interface permissions and logging into accounts inside its browser differ enough to think about separately. Six months in, he hasn't crossed it either, and I'm in no rush.
+
+## Sources worth checking
+
+- TechWave EP157, "The AI Agent War Breaks Open: OpenAI Dots, Muse, Grok Bot, Instinct," 5 October 2026
+- The four product pages — Instinct, xAI Grok Bot, Meta Muse, OpenAI Dots — each documenting its own business model and security mechanisms
+- The CPU estimate comes from analyst Freda's public calculation; the parameters for redoing it are all listed in the section above
+- For background on Cerebras and inference speed, Harry points to TechWave EP146 and XEP27
+
+## One thing to take with you
+
+**What gets automated away is whatever exists only because you couldn't be bothered.**
+
+The hardest piece of reasoning in this episode is that three-way split: services with value of their own survive, services living on interface traffic are exposed, and the friction businesses get scraped cleanest — because a role willing to act on your behalf costs seconds. Running the test on myself is how I noticed I keep a friction list too, and that I'm the one maintaining it.
+
+Something I tried, if you want it: pick three things you know you should handle but put down every time you picture the process — cancelling an unused subscription, pulling out a policy you haven't read in two years, saying something to someone you've been putting off all count — and write down both how long you think each takes and how long it actually takes once you start. The first time I did this, my estimate for three items was two afternoons; the real total was 40 minutes, one of them four.
+
+![Two horizontal bars differ greatly in length: the upper one is the two afternoons that were estimated, the lower one is the forty minutes it actually took, only a twelfth as long, and at the very bottom a tiny line shows one of the jobs taking just four minutes.](/figures/estimated-vs-actual-time-en.svg)
