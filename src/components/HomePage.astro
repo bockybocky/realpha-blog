@@ -5,6 +5,7 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import AdPush from './AdPush.astro';
 import AdSlot from './AdSlot.astro';
+import HomeVideos from './HomeVideos.astro';
 import PostCard from './PostCard.astro';
 import { getCatalog, type Post } from '../lib/catalog';
 import { isNotesKind } from '../lib/indexing.mjs';
@@ -94,6 +95,8 @@ const popular = readPopular()
 				{stats && <span>{t.total} <b data-stat="total">{stats.total.toLocaleString(numLocale)}</b></span>}
 			</p>
 		</section>
+
+		<HomeVideos locale={locale} />
 
 		<section class="home-latest" aria-labelledby="latest-title">
 			<div class="home-topic-head">

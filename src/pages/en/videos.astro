@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
+import VideoFeature from '../../components/VideoFeature.astro';
 import videos from '../../data/videos.json';
 
 const locale = 'en';
@@ -19,11 +20,8 @@ const items = videos
 		) : (
 			<ul class="video-list">
 				{items.map((video) => (
-					<li class="video-card">
-						<video controls playsinline preload="metadata" src={video.src} poster={video.poster || undefined}></video>
-						<h2>{video.title}</h2>
-						<p>{video.summary}</p>
-						<p><a href={video.article}>Read the article</a></p>
+					<li>
+						<VideoFeature video={video} locale={locale} headingLevel="h2" />
 					</li>
 				))}
 			</ul>
@@ -38,19 +36,5 @@ const items = videos
 		padding: 0;
 		display: grid;
 		gap: 2.5rem;
-	}
-	.video-card video {
-		width: min(100%, 420px);
-		aspect-ratio: 9 / 16;
-		height: auto;
-		display: block;
-		background: #111;
-	}
-	.video-card h2 {
-		margin: 0.8rem 0 0.3rem;
-		font-size: 1.25rem;
-	}
-	.video-card p {
-		margin: 0.3rem 0;
 	}
 </style>
