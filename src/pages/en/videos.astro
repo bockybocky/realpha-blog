@@ -1,0 +1,56 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import videos from '../../data/videos.json';
+
+const locale = 'en';
+const items = videos
+	.filter((video) => video.lang === 'en')
+	.sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<SiteLayout title="Videos" description="Short Realpha videos: one idea per clip, with a link back to the full article." locale={locale} path="/en/videos/" alternatePath="/videos/" breadcrumbs={[{ name: 'Videos', path: '/en/videos/' }]}>
+	<main class="page article-shell">
+		<header class="article-header">
+			<h1 class="article-title">Videos</h1>
+			<p class="lead">One clip, one idea. The card below each video links to the full article.</p>
+		</header>
+		{items.length === 0 ? (
+			<p>Videos are on the way.</p>
+		) : (
+			<ul class="video-list">
+				{items.map((video) => (
+					<li class="video-card">
+						<video controls playsinline preload="metadata" src={video.src} poster={video.poster || undefined}></video>
+						<h2>{video.title}</h2>
+						<p>{video.summary}</p>
+						<p><a href={video.article}>Read the article</a></p>
+					</li>
+				))}
+			</ul>
+		)}
+	</main>
+</SiteLayout>
+
+<style>
+	.video-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 2.5rem;
+	}
+	.video-card video {
+		width: min(100%, 420px);
+		aspect-ratio: 9 / 16;
+		height: auto;
+		display: block;
+		background: #111;
+	}
+	.video-card h2 {
+		margin: 0.8rem 0 0.3rem;
+		font-size: 1.25rem;
+	}
+	.video-card p {
+		margin: 0.3rem 0;
+	}
+</style>

@@ -1,0 +1,56 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import videos from '../data/videos.json';
+
+const locale = 'zh-TW';
+const items = videos
+	.filter((video) => video.lang === 'zh-TW')
+	.sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<SiteLayout title="短影片" description="Realpha 的短影片：一支片子講清楚一件事，再連回完整文章。" locale={locale} path="/videos/" alternatePath="/en/videos/" breadcrumbs={[{ name: '短影片', path: '/videos/' }]}>
+	<main class="page article-shell">
+		<header class="article-header">
+			<h1 class="article-title">短影片</h1>
+			<p class="lead">一支片子講一件事。看完想再往下讀，卡片下面有文章連結。</p>
+		</header>
+		{items.length === 0 ? (
+			<p>影片準備中</p>
+		) : (
+			<ul class="video-list">
+				{items.map((video) => (
+					<li class="video-card">
+						<video controls playsinline preload="metadata" src={video.src} poster={video.poster || undefined}></video>
+						<h2>{video.title}</h2>
+						<p>{video.summary}</p>
+						<p><a href={video.article}>讀這篇文章</a></p>
+					</li>
+				))}
+			</ul>
+		)}
+	</main>
+</SiteLayout>
+
+<style>
+	.video-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 2.5rem;
+	}
+	.video-card video {
+		width: min(100%, 420px);
+		aspect-ratio: 9 / 16;
+		height: auto;
+		display: block;
+		background: #111;
+	}
+	.video-card h2 {
+		margin: 0.8rem 0 0.3rem;
+		font-size: 1.25rem;
+	}
+	.video-card p {
+		margin: 0.3rem 0;
+	}
+</style>
