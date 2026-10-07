@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="假設的事件稀疏分布與實際的密集分布對比">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="56">算式裡的分母，跟真實的分母</text>
+
+  <text class="g" x="60" y="150">算式假設</text>
+  <line x1="60" y1="200" x2="900" y2="200" stroke="var(--grey)" stroke-width="3"/>
+  <circle cx="480" cy="200" r="11" fill="var(--grey)"/>
+  <text class="b" x="60" y="238">一百年裡一次</text>
+
+  <text class="g" x="60" y="330">真實紀錄</text>
+  <line x1="60" y1="380" x2="900" y2="380" stroke="var(--line)" stroke-width="3"/>
+  <line x1="700" y1="380" x2="900" y2="380" stroke="var(--warn)" stroke-width="5"/>
+  <circle cx="712" cy="380" r="13" fill="var(--warn)"/>
+  <circle cx="884" cy="380" r="13" fill="var(--warn)"/>
+  <text class="b" x="676" y="424">2011</text>
+  <text class="b" x="848" y="424">2026</text>
+  <text class="b" x="60" y="424">十五年裡兩次</text>
+
+  <text class="c" x="60" y="486">分母差一個數量級，水泥不能重倒</text>
+</svg>

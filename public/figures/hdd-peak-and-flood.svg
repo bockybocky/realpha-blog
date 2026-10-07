@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="產量曲線在高點後轉為下坡，洪水發生在下坡段，末段另有一條回升的虛線">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="56">洪水來的時候，曲線已經轉頭</text>
+
+  <line x1="90" y1="430" x2="900" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <polyline points="100,400 220,330 340,230 430,180 520,178 620,232 740,296 880,350"
+            fill="none" stroke="var(--accent)" stroke-width="5"/>
+  <polyline points="740,296 820,250 880,196" fill="none" stroke="var(--warn)"
+            stroke-width="4" stroke-dasharray="9 8"/>
+
+  <circle cx="475" cy="178" r="8" fill="var(--accent)"/>
+  <text class="g" x="400" y="150">高點</text>
+  <text class="b" x="400" y="128">2009–2010</text>
+
+  <circle cx="586" cy="212" r="10" fill="var(--warn)"/>
+  <text class="g" x="606" y="196">2011 洪水</text>
+  <text class="b" x="606" y="222">沒人想要新產能</text>
+
+  <text class="b" x="792" y="178">2026</text>
+  <text class="b" x="760" y="400">資料中心</text>
+  <text class="b" x="100" y="466">消費端</text>
+
+  <text class="c" x="60" y="512">省下分散成本，靠的是一個錯的預測</text>
+</svg>
