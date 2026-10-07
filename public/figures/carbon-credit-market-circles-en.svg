@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A big circle holds a smaller one: the project-based carbon credit market contains the voluntary carbon market; the separate box on the right is emissions trading allowances, which are not part of the same system.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t h" x="60" y="70">Two things, two tracks</text>
+
+  <circle cx="330" cy="310" r="190" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="330" cy="365" r="105" fill="var(--page)" stroke="var(--accent)" stroke-width="2" stroke-dasharray="7 6"/>
+  <text class="t g" x="330" y="175" text-anchor="middle" fill="var(--accent)">Project-based credits</text>
+  <text class="t b" x="330" y="205" text-anchor="middle">One project, one tonne per unit</text>
+  <text class="t g" x="330" y="360" text-anchor="middle">Voluntary market</text>
+  <text class="t b" x="330" y="390" text-anchor="middle">Defined by use</text>
+
+  <rect x="620" y="195" width="280" height="230" rx="14" fill="var(--card)" stroke="var(--grey)" stroke-width="3"/>
+  <text class="t g" x="760" y="290" text-anchor="middle">Allowances</text>
+  <text class="t b" x="760" y="325" text-anchor="middle">Issued or auctioned</text>
+  <text class="t b" x="760" y="355" text-anchor="middle">1 unit = 1 tonne allowed</text>
+
+  <text class="t b" x="560" y="470" text-anchor="middle">No overlap</text>
+  <line x1="520" y1="310" x2="610" y2="310" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+</svg>

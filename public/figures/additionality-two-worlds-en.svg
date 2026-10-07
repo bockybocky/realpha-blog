@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two panels compared: if the world with the money and the world without it look the same, then the money bought no change at all.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t h" x="60" y="70">The world without that money</text>
+
+  <rect x="60" y="120" width="390" height="290" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t g" x="255" y="165" text-anchor="middle">Money paid</text>
+  <polygon points="150,330 185,235 220,330" fill="var(--accent)" opacity="0.8"/>
+  <polygon points="235,330 275,215 315,330" fill="var(--accent)" opacity="0.8"/>
+  <polygon points="320,330 350,250 380,330" fill="var(--accent)" opacity="0.8"/>
+  <line x1="110" y1="330" x2="400" y2="330" stroke="var(--line)" stroke-width="3"/>
+  <text class="t b" x="255" y="375" text-anchor="middle">Forest stands</text>
+
+  <rect x="510" y="120" width="390" height="290" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t g" x="705" y="165" text-anchor="middle">No money paid</text>
+  <polygon points="600,330 635,235 670,330" fill="var(--grey)"/>
+  <polygon points="685,330 725,215 765,330" fill="var(--grey)"/>
+  <polygon points="770,330 800,250 830,330" fill="var(--grey)"/>
+  <line x1="560" y1="330" x2="850" y2="330" stroke="var(--line)" stroke-width="3"/>
+  <text class="t b" x="705" y="375" text-anchor="middle">Forest stands too</text>
+
+  <text class="t c" x="480" y="470" text-anchor="middle" fill="var(--warn)">Same both sides → the money bought a piece of paper</text>
+</svg>

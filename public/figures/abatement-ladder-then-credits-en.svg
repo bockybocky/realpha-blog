@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A three-step ladder climbs to a threshold line, and only above that line does the carbon credit block come into play.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t h" x="60" y="70">Climb the ladder before you buy</text>
+
+  <rect x="110" y="400" width="200" height="90" rx="6" fill="var(--accent)" opacity="0.4"/>
+  <rect x="310" y="330" width="200" height="160" rx="6" fill="var(--accent)" opacity="0.6"/>
+  <rect x="510" y="260" width="200" height="230" rx="6" fill="var(--accent)" opacity="0.8"/>
+  <text class="t g" x="210" y="450" text-anchor="middle">Scope 1</text>
+  <text class="t b" x="210" y="520" text-anchor="middle">What you burn</text>
+  <text class="t g" x="410" y="415" text-anchor="middle">Scope 2</text>
+  <text class="t b" x="410" y="520" text-anchor="middle">Power you buy</text>
+  <text class="t g" x="610" y="380" text-anchor="middle">Scope 3</text>
+  <text class="t b" x="610" y="520" text-anchor="middle">Up and down the chain</text>
+
+  <line x1="90" y1="230" x2="900" y2="230" stroke="var(--warn)" stroke-width="3" stroke-dasharray="10 7"/>
+  <text class="t b" x="90" y="212" fill="var(--warn)">Cutting more costs too much</text>
+
+  <rect x="710" y="120" width="190" height="90" rx="8" fill="var(--warn)" opacity="0.85"/>
+  <text class="t g" x="805" y="175" text-anchor="middle" fill="var(--page)">Credits</text>
+</svg>
