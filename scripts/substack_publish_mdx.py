@@ -674,7 +674,8 @@ def build_post(api, slug):
     if clipped != (subtitle or '').strip():
         print('⚠️ 副標超過 %d 字，已截斷（原文 %d）' % (SUBTITLE_MAX, len(subtitle.strip())))
     subtitle = clipped
-    notes = is_podcast_notes(slug, fm)
+    # 2026-10-08 Charles: Substack 一律全文，撤銷 09-22 心得只發摘要
+    notes = False
     if notes:
         # 2026-09-22 索引範圍（Fable 判決、Charles 拍板）：節目心得只發開頭結論段＋一句連回部落格，
         # 全文留在部落格，免得同一篇全文散在兩站、Google 把功勞算給名氣大的那一站。原創文照舊發全文。
