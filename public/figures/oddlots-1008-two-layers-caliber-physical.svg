@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="上下兩層時間軸，上層口徑訊號早到但是虛線可被推翻，下層實物訊號晚到但是實線推不動">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="60">一個「衰退」要分兩層看</text>
+<line x1="150" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="150" y="460">早</text>
+<text class="b" x="846" y="460">晚</text>
+<text class="g" x="60" y="152">口徑</text>
+<text class="b" x="60" y="178">誰算的</text>
+<text class="b" x="60" y="200">哪一年物價</text>
+<rect x="150" y="124" width="250" height="68" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2" stroke-dasharray="7 5"/>
+<text class="g" x="178" y="166" fill="var(--accent)">趨勢線</text>
+<path d="M410 158 L560 158" stroke="var(--accent)" stroke-width="3" stroke-dasharray="7 5"/>
+<path d="M566 158 l-14 -7 l0 14 z" fill="var(--accent)"/>
+<text class="b" x="586" y="152">換一把尺</text>
+<text class="b" x="586" y="176">就可能被推翻</text>
+<text class="g" x="60" y="312">實物</text>
+<text class="b" x="60" y="338">工作少了沒</text>
+<text class="b" x="60" y="360">產線搬了沒</text>
+<rect x="520" y="284" width="310" height="68" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="3"/>
+<text class="g" x="548" y="326">德國製造業少一百萬個工作</text>
+<path d="M150 318 L508 318" stroke="var(--grey)" stroke-width="3"/>
+<path d="M514 318 l-14 -7 l0 14 z" fill="var(--grey)"/>
+<text class="b" x="196" y="300">慢</text>
+<line x1="400" y1="104" x2="400" y2="430" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 6"/>
+<line x1="520" y1="104" x2="520" y2="430" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 6"/>
+<text class="c" x="60" y="498">第二層慢</text>
+<text class="b" x="230" y="498">但它改不了口徑，口徑也改不掉它</text>
+</svg>

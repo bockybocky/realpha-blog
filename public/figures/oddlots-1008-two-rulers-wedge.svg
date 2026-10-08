@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條線從同一點出發逐年分開，中間楔形缺口愈來愈寬，說明每年 0.2 到 0.3 個百分點的算法差異累積成一道楔子">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="62">楔子不是量出來的，是每年累積出來的</text>
+<line x1="110" y1="400" x2="820" y2="400" stroke="var(--line)" stroke-width="2"/>
+<line x1="110" y1="130" x2="110" y2="400" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="110" y="430">2000</text>
+<text class="b" x="760" y="430">2024</text>
+<text class="b" x="60" y="130" >高</text>
+<polygon points="130,330 740,180 740,312" fill="var(--accent)" opacity="0.14"/>
+<path d="M130 330 L740 180" stroke="var(--accent)" stroke-width="4" fill="none"/>
+<path d="M130 330 L740 312" stroke="var(--grey)" stroke-width="4" fill="none"/>
+<circle cx="130" cy="330" r="7" fill="var(--ink)"/>
+<text class="g" x="596" y="166" fill="var(--accent)">美國</text>
+<text class="b" x="470" y="296">品質調整做得更積極</text>
+<text class="g" x="596" y="342">歐洲</text>
+<text class="b" x="152" y="358">同一筆名目支出</text>
+<line x1="770" y1="180" x2="770" y2="312" stroke="var(--ink)" stroke-width="2"/>
+<path d="M770 180 l-6 12 l12 0 z" fill="var(--ink)"/>
+<path d="M770 312 l-6 -12 l12 0 z" fill="var(--ink)"/>
+<text class="g" x="792" y="236">楔子</text>
+<text class="b" x="792" y="262">每年 0.2–0.3</text>
+<text class="b" x="792" y="284">個百分點</text>
+<text class="c" x="60" y="492">尺不同，線就不同</text>
+<text class="b" x="330" y="492">換成相對通膨率推算，這道楔子看不到</text>
+</svg>
