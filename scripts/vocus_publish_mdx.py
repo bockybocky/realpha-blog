@@ -100,6 +100,7 @@ except (OSError, ValueError):
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
 COVERS = {
+    'burry-microsoft-lease-accounting-2026-10': 'burry-microsoft-lease-accounting-2026-10.png',
     'keep-learning-in-the-age-of-llms-2026-10': 'keep-learning-in-the-age-of-llms-2026-10.png',
     'old-laptop-ai-server-2026-10': 'old-laptop-ai-server-2026-10.png',
     'opencode-go-vs-openrouter-deepseek-privacy-2026-10': 'opencode-go-vs-openrouter-deepseek-privacy-2026-10.png',
