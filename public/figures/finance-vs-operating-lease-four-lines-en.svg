@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A four-row, two-column dot matrix shows solid dots in all four finance-lease cells, while the operating-lease column has an open circle only for capital expenditures and solid dots in the other three cells.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="48" y="58" font-size="27" font-weight="700" fill="var(--ink)">Two lease types, one difference</text>
+
+  <text class="t" x="560" y="128" font-size="19" fill="var(--dim)" text-anchor="middle">Fin Lse</text>
+  <text class="t" x="800" y="128" font-size="19" fill="var(--dim)" text-anchor="middle">Op Lse</text>
+
+  <rect x="48" y="150" width="864" height="76" fill="var(--card)"/>
+  <text class="t" x="72" y="196" font-size="19" fill="var(--ink)">CapEx</text>
+  <circle cx="560" cy="188" r="15" fill="var(--accent)"/>
+  <circle cx="800" cy="188" r="15" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="5 4"/>
+  <text class="t" x="840" y="194" font-size="16" fill="var(--warn)">Excluded</text>
+
+  <text class="t" x="72" y="276" font-size="19" fill="var(--ink)">Income statement</text>
+  <circle cx="560" cy="268" r="15" fill="var(--accent)"/>
+  <circle cx="800" cy="268" r="15" fill="var(--accent)"/>
+  <text class="t" x="72" y="356" font-size="19" fill="var(--ink)">Cash flow statement</text>
+  <circle cx="560" cy="348" r="15" fill="var(--accent)"/>
+  <circle cx="800" cy="348" r="15" fill="var(--accent)"/>
+  <text class="t" x="72" y="436" font-size="19" fill="var(--ink)">Balance sheet</text>
+  <circle cx="560" cy="428" r="15" fill="var(--accent)"/>
+  <circle cx="800" cy="428" r="15" fill="var(--accent)"/>
+
+  <line x1="48" y1="470" x2="912" y2="470" stroke="var(--line)"/>
+  <text class="t" x="48" y="512" font-size="22" font-weight="700" fill="var(--ink)">Switch to operating; the liability stays</text>
+</svg>
