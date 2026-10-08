@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩條方向相反的線在供應鏈由緊到鬆的橫軸上交叉">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="70" font-size="27" font-weight="700" fill="var(--ink)">同一個資產類別，兩個相反方向</text>
+
+  <rect x="150" y="110" width="700" height="320" fill="var(--card)"/>
+  <line x1="150" y1="430" x2="850" y2="430" stroke="var(--line)" stroke-width="3"/>
+
+  <polyline points="150,150 420,230 620,330 850,390" fill="none" stroke="var(--accent)" stroke-width="6"/>
+  <polyline points="150,395 420,330 620,215 850,145" fill="none" stroke="var(--warn)" stroke-width="6"/>
+
+  <text class="t" x="160" y="138" font-size="20" font-weight="700" fill="var(--accent)">缺貨漲價</text>
+  <text class="t" x="840" y="418" font-size="19" text-anchor="end" fill="var(--accent)">毛利被吃</text>
+
+  <text class="t" x="160" y="420" font-size="19" fill="var(--warn)">客戶縮手</text>
+  <text class="t" x="840" y="135" font-size="20" font-weight="700" text-anchor="end" fill="var(--warn)">靠出貨量</text>
+
+  <text class="t" x="150" y="465" font-size="19" fill="var(--dim)">供應鏈緊繃</text>
+  <text class="t" x="850" y="465" font-size="19" text-anchor="end" fill="var(--dim)">價格拉平、回落</text>
+
+  <text class="t" x="60" y="525" font-size="22" font-weight="700" fill="var(--ink)">對沖留在股票裡，不出這個類別</text>
+</svg>

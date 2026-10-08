@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="指數貼著高點、個股離高點距離越來越遠的分岔圖">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="70" font-size="27" font-weight="700" fill="var(--ink)">判準不是跌多少，是差多少</text>
+
+  <rect x="150" y="110" width="700" height="300" fill="var(--card)"/>
+  <line x1="150" y1="150" x2="850" y2="150" stroke="var(--line)" stroke-width="3" stroke-dasharray="8 6"/>
+  <text class="t" x="150" y="138" font-size="19" fill="var(--dim)">各自的 52 週高點</text>
+
+  <polyline points="150,165 350,160 550,158 850,155" fill="none" stroke="var(--accent)" stroke-width="6"/>
+  <text class="t" x="860" y="160" font-size="19" fill="var(--accent)" text-anchor="end" dy="-14">指數</text>
+
+  <polyline points="150,180 350,230 550,300 850,385" fill="none" stroke="var(--warn)" stroke-width="6"/>
+  <text class="t" x="840" y="412" font-size="19" text-anchor="end" fill="var(--warn)">連月新高都站不回</text>
+
+  <line x1="700" y1="158" x2="700" y2="352" stroke="var(--ink)" stroke-width="2"/>
+  <text class="t" x="715" y="260" font-size="20" font-weight="700" fill="var(--ink)">差距</text>
+  <text class="t" x="715" y="288" font-size="16" fill="var(--dim)">在拉大</text>
+
+  <text class="t" x="60" y="480" font-size="22" font-weight="700" fill="var(--ink)">不需要你對未來有看法，只要你願意看現在</text>
+</svg>
