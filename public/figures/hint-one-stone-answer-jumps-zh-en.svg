@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A row of stepping stones runs from start to finish: a hint pushes you forward by just one stone, while the answer is a dashed arc that leaps straight to the end without touching a single stone in between.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">A hint moves you one stone; the answer walks the whole path</text>
+
+  <rect x="60" y="92" width="840" height="320" rx="14" fill="var(--card)"/>
+
+  <path d="M190 200 C 400 86, 660 86, 828 186" fill="none" stroke="var(--warn)" stroke-width="3.5" stroke-dasharray="10 8"/>
+  <polygon points="820,172 836,196 812,198" fill="var(--warn)"/>
+  <text class="t" x="509" y="152" font-size="20" font-weight="700" fill="var(--warn)" text-anchor="middle">Answer</text>
+
+  <ellipse cx="190" cy="300" rx="42" ry="22" fill="var(--accent)"/>
+  <ellipse cx="297" cy="300" rx="42" ry="22" fill="var(--accent)" opacity="0.55"/>
+  <ellipse cx="404" cy="300" rx="42" ry="22" fill="var(--grey)" opacity="0.5"/>
+  <ellipse cx="511" cy="300" rx="42" ry="22" fill="var(--grey)" opacity="0.5"/>
+  <ellipse cx="618" cy="300" rx="42" ry="22" fill="var(--grey)" opacity="0.5"/>
+  <ellipse cx="725" cy="300" rx="42" ry="22" fill="var(--grey)" opacity="0.5"/>
+  <ellipse cx="832" cy="300" rx="42" ry="22" fill="var(--grey)"/>
+
+  <text class="t" x="190" y="350" font-size="16" fill="var(--dim)" text-anchor="middle">Now</text>
+  <text class="t" x="832" y="350" font-size="16" fill="var(--dim)" text-anchor="middle">Got it</text>
+
+  <path d="M190 258 C 225 232, 262 232, 294 254" fill="none" stroke="var(--accent)" stroke-width="3.5"/>
+  <polygon points="286,240 302,262 278,266" fill="var(--accent)"/>
+  <text class="t" x="243" y="222" font-size="20" font-weight="700" fill="var(--accent)" text-anchor="middle">Hint</text>
+
+  <text class="t" x="480" y="478" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">Stones you never stepped on stay strangers</text>
+</svg>

@@ -1,0 +1,116 @@
+---
+title: "When the Answer Comes Too Fast, the Learning Doesn't Happen: Notes on \"How to Keep Learning in the Age of LLMs\""
+description: "In an October 4, 2026 post, engineer Oğuzhan Olguncu admits that instant AI answers drained his motivation to learn. He lays out four fixes: use AI as a tutor rather than an answer machine, struggle before you look, plan your stages ahead of time, and make progress visible. This post walks through his approach and adds my own take: the question worth asking is which part of the work we hand to AI. A personal learning write-up."
+slug: "keep-learning-in-the-age-of-llms-2026-10"
+lang: "en"
+pubDate: 2026-10-08
+category: "tech"
+tags: ["Learning with AI", "LLMs", "Learning methods", "Deliberate practice", "Make It Stick"]
+ogImage: "/covers/keep-learning-in-the-age-of-llms-2026-10.png"
+cover: "/covers/keep-learning-in-the-age-of-llms-2026-10.png"
+tldr: "Give AI the chores, keep the 'why did this break' for yourself, and next time, ask it to quiz you instead of answering."
+---
+
+![Neoclassical oil painting: at a wooden desk at dawn, a student works through a problem with pencil and paper; beside him a glowing mentor holds up one finger as if asking a question instead of handing over the answer; behind them a path of stepping stones fades into the fog](/covers/keep-learning-in-the-age-of-llms-2026-10.png)
+
+> *Without small steps, there is no journey of a thousand miles; without small streams, there are no rivers and seas.*<br/>
+> —— Xunzi, "An Exhortation to Learning" (Warring States period); translation mine
+
+On October 4, 2026, engineer Oğuzhan Olguncu published "[How to keep learning in the age of LLMs](https://www.ogzhanolguncu.com/blog/how-to-keep-learning-in-the-age-of-llms/)," admitting that AI answers arrive so fast they had drained his motivation to learn. He got it back with four habits: treat the AI as a tutor instead of an answer machine, struggle before you look at the solution, plan your stages in advance, and make your progress visible. My takeaway after reading it: what matters is which part of the work we hand over. The chores can go; the "why did this break" part has to stay with you.
+
+## An engineer's confession
+
+He opens by admitting he'd lost the drive to learn.
+
+The reason is simple. When you used to get stuck on code, you had to look things up, try things, and get them wrong. Now you paste the problem into an AI and the answer shows up a second later.
+
+That's exactly the problem. Getting stuck, getting it wrong, and fixing it is when your brain actually learns. When the answer comes that fast, you skip that part entirely.
+
+It's like having someone at the gym lift the dumbbell for you. The weight goes up, sure, but your muscles stay the same size.
+
+![Two paths compared: the upper one is a long, winding, uneven road that ends at "Remembered," while the lower one is a short, straight arrow that shoots directly to "Answer" and ends at "Forgotten."](/figures/learning-loop-skipped-zh-en.svg)
+
+## His four methods
+
+### 1. Make the AI your tutor, not your answer key
+
+He read the Bitcask paper, a short design paper for a simple storage engine, and set out to build it himself. Whenever he got stuck, he asked the AI to explain the concept, not to write the code.
+
+His example is easy to follow. A small function that sums an array returns `NaN` instead of a number, because the loop runs one step too many.
+
+The AI didn't point at the bug. It asked him questions and drew out which index each pass of the loop was reading. Looking at that picture, he found the extra pass himself.
+
+He also came across a ready-made AI skill called "socratic-code-mentor," which does exactly this: it keeps asking questions until you work out the answer on your own.
+
+He draws a clear line, too. The boring parts go to the AI: writing tests, setting up tooling, turning results into charts. The core thing he actually wants to learn, he does by hand.
+
+### 2. Struggle first, then look
+
+He cites *Make It Stick*, a book on the science of learning. Its point: if you try to solve a problem before being shown how, even if you get it wrong, the correct solution sticks much better afterward.
+
+A friend of his, a CTO, does the same thing in conversation. When he pitched an idea, the friend didn't say yes or no. They asked questions back, and the conclusion ended up being one he reached himself.
+
+### 3. Plan your stages ahead of time
+
+Learning takes discipline, and the worst thing is sitting down and spending the first half hour figuring out what you're supposed to do today.
+
+For his practice project he keeps a plan file. Every stage spells out four things:
+
+1. What the goal is
+2. What the steps are
+3. What "done" looks like, in a way you can check
+4. Where people usually trip up
+
+At the bottom is a progress checklist, so all he has to say to the AI is "continue," and it knows where he left off.
+
+He also borrows an image from the Zen teacher Shunryu Suzuki: walking through fog, you never feel yourself getting wet, but after a while your clothes are soaked. Small daily steps work the same way. You can't see them adding up until they have.
+
+![On the left are thirty tiny bars so short you can barely see their height, each one a single day's progress; on the right is one tall bar, the thirty days stacked together.](/figures/fog-walk-daily-vs-total-zh-en.svg)
+
+### 4. Make progress visible
+
+He built a little interactive console for his project so he could type a command and see the result right away, and he ran benchmarks too. After compacting the data, reads came out roughly 100 times faster.
+
+Seeing that number made him want to keep going. When progress is invisible, it's hard to stick with anything.
+
+## What I took from it
+
+### First: the question is which part we hand over
+
+What struck me most is that the post never tells you to use AI less. It only asks which part you should do yourself.
+
+Writing tests, configuring tools, drawing charts: doing those a hundred times won't make you any sharper, so handing them to an AI is fine. But "why did this break" and "how should I think about the next step" are the parts you have to keep.
+
+![Two lines on one chart: the chores that never make you stronger no matter how many times you do them run flat along the bottom, while working out why you were wrong climbs up to the right.](/figures/which-part-makes-you-stronger-zh-en.svg)
+
+The test I use is simple. If I do this myself, will I be better at it next time? If yes, I do it. If not, I hand it off.
+
+### Second: "I get it now" isn't the same as "I'll remember it"
+
+My own way of studying already has a rule for this: understanding something in the moment and still knowing it a few days later are two different things.
+
+AI answers are usually so clear that reading one gives you the feeling of "got it." But that feeling is just how smoothly the explanation reads. You never pushed it through your own head, so a few days later it's gone.
+
+His off-by-one example shows the difference. If the AI just says "your loop runs one step too many," you understand it in five seconds. If it questions you until you find that extra step yourself, the next time you write a loop, you'll stop and check the boundary on your own.
+
+### Third: ask for a hint, not the answer
+
+I already do this. While studying for an AWS machine learning certification, whenever I hit a question type I hadn't seen before, I'd ask for a hint first rather than look at the answer.
+
+It's the same idea as his first method. A hint takes one step for you. The answer walks the whole path.
+
+![A row of stepping stones runs from start to finish: a hint pushes you forward by just one stone, while the answer is a dashed arc that leaps straight to the end without touching a single stone in between.](/figures/hint-one-stone-answer-jumps-zh-en.svg)
+
+### Fourth: the plan file is for the AI, and for you
+
+On the surface, his plan file is there so the AI remembers where he is. I think its bigger job is cutting down the friction of getting started.
+
+If you sit down already knowing which step is today's and what "done" looks like, thirty minutes a day really is thirty minutes, and you don't lose half of it to warming up.
+
+He says as much at the end: thirty minutes every day beats an occasional big burst.
+
+## One thing to take with you
+
+Next time you ask an AI something, add one line to the end of your question: "Don't give me the answer yet. Ask me one question so I can work it out myself."
+
+Try it for a week. Then compare: the things you figured out yourself this week versus the things you used to just look up. Which ones do you still remember?
