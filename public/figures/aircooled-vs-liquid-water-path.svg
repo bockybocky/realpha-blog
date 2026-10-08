@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左右兩格對比：風冷路徑較長，末端有水滴蒸發散失；液冷路徑較短，末端沒有水滴">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="62">水是在哪一條路上被蒸發掉的</text>
+
+<rect x="50" y="90" width="420" height="390" fill="var(--card)" stroke="var(--line)" rx="10"/>
+<text class="g" x="80" y="130">風冷</text>
+<circle cx="110" cy="190" r="12" fill="var(--grey)"/><text class="n" x="140" y="196">晶片</text>
+<circle cx="110" cy="250" r="12" fill="var(--grey)"/><text class="n" x="140" y="256">冷風</text>
+<circle cx="110" cy="310" r="12" fill="var(--grey)"/><text class="n" x="140" y="316">冷水</text>
+<circle cx="110" cy="370" r="12" fill="var(--grey)"/><text class="n" x="140" y="376">冰水機</text>
+<circle cx="110" cy="430" r="12" fill="var(--warn)"/><text class="n" x="140" y="436">冷卻塔</text>
+<line x1="110" y1="202" x2="110" y2="418" stroke="var(--grey)" stroke-width="4"/>
+<path d="M300 430 q10 -22 0 -38 q-10 16 0 38 Z" fill="var(--warn)"/>
+<path d="M340 410 q9 -20 0 -34 q-9 14 0 34 Z" fill="var(--warn)"/>
+<path d="M378 384 q8 -18 0 -30 q-8 12 0 30 Z" fill="var(--warn)"/>
+<text class="n" x="300" y="330">蒸發散失</text>
+
+<rect x="490" y="90" width="420" height="390" fill="var(--card)" stroke="var(--line)" rx="10"/>
+<text class="g" x="520" y="130">冷板液冷</text>
+<circle cx="550" cy="190" r="12" fill="var(--accent)"/><text class="n" x="580" y="196">晶片</text>
+<circle cx="550" cy="250" r="12" fill="var(--accent)"/><text class="n" x="580" y="256">45 度水</text>
+<circle cx="550" cy="310" r="12" fill="var(--accent)"/><text class="n" x="580" y="316">戶外排熱</text>
+<line x1="550" y1="202" x2="550" y2="298" stroke="var(--accent)" stroke-width="4"/>
+<text class="n" x="550" y="400">這裡沒有水滴</text>
+
+<text class="c" x="60" y="528">液冷不是開始用水，是把水從蒸發那條路上拿下來</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Three horizontal bars compare annual water use: the data center is shortest, the gas plant is three times as long, and 550 acres of farmland matches the data center.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="70">A year of water, on one ruler</text>
+<text class="n" x="60" y="100">Same 300 MW capacity</text>
+
+<text class="g" x="300" y="168" text-anchor="end">Data center</text>
+<text class="n" x="300" y="193" text-anchor="end">Evaporative</text>
+<rect x="320" y="146" width="190" height="42" fill="var(--accent)" rx="4"/>
+<text class="g" x="528" y="174">150M gallons</text>
+
+<text class="g" x="300" y="268" text-anchor="end">Gas plant</text>
+<text class="n" x="300" y="293" text-anchor="end">Combined cycle</text>
+<rect x="320" y="246" width="570" height="42" fill="var(--grey)" rx="4"/>
+<text class="g" x="700" y="274" fill="var(--page)">About 3x</text>
+
+<text class="g" x="300" y="368" text-anchor="end">Farmland</text>
+<text class="n" x="300" y="393" text-anchor="end">Soy irrigation</text>
+<rect x="320" y="346" width="190" height="42" fill="var(--grey)" rx="4"/>
+<text class="g" x="528" y="374">About 550 acres</text>
+
+<line x1="320" y1="120" x2="320" y2="420" stroke="var(--line)" stroke-width="2"/>
+<text class="c" x="60" y="470">The ruler only measures the last generation</text>
+</svg>

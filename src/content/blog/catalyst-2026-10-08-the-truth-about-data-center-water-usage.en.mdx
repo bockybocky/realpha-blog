@@ -1,0 +1,130 @@
+---
+title: "Where the Water Actually Goes: Notes on a Podcast About Data Center Cooling"
+description: "Listening notes on the 2026-10-08 episode of Catalyst with Shayle Kann featuring cooling expert Tim Shed: how much water a data center consumes is mostly a design choice, and that choice is being made right now at gigawatt scale. Educational commentary on industry structure and how to read competing claims. Not investment advice; no individual stocks discussed."
+slug: "catalyst-2026-10-08-the-truth-about-data-center-water-usage"
+lang: "en"
+pubDate: 2026-10-08
+category: investing
+kind: "podcast-notes"
+tags: ["data centers", "liquid cooling", "water", "AI infrastructure", "energy transition"]
+ogImage: "/covers/catalyst-2026-10-08-the-truth-about-data-center-water-usage-cover.png"
+cover: "/covers/catalyst-2026-10-08-the-truth-about-data-center-water-usage-cover.png"
+---
+
+![A data hall aisle where thick black liquid-cooling pipes run along the floor toward a half-open door at the far end, hot dusk light beyond it](/covers/catalyst-2026-10-08-the-truth-about-data-center-water-usage-cover.png)
+
+> What is water? It is the origin of all things, the ancestral house of every living thing.
+>
+> —— *Guanzi*, "Shuidi" chapter (Warring States period; translation mine)
+
+On the October 8, 2026 episode of *Catalyst with Shayle Kann*, host Shayle Kann brought on data center cooling expert Tim Shed, founder of Abundant Insights, to answer a question that sounds simple and turns out not to be: where does the water in a data center actually go? Shed's answer is that how much water a facility consumes is mostly a cooling design choice, and that choice is being made right now at gigawatt scale — cold plates can collect chip heat into 45°C water and return it at 55°C, which in most climates lets the heat run downhill to the outdoors, skipping the chiller and skipping the evaporated water. Shayle's opening frame of reference: a 300 MW data center using evaporative cooling consumes roughly 150 million gallons a year, while a combined cycle power plant of the same capacity uses about three times that. The limit on the argument is that it covers operations only — filling pipes, flushing them, and dust suppression during construction all consume water, and genuinely hot climates still need a chiller.
+
+## Putting the number on a ruler
+
+The two sides of the data center water fight barely touch each other. Opponents say these facilities are draining aquifers and competing with towns for drinking water. Proponents say it's a rounding error next to agriculture, and that new builds barely use water at all.
+
+Shayle's move is to put the number on a ruler first. Is 150 million gallons a year big or small? Two reference points: a same-capacity combined cycle plant uses roughly three times as much, and in farm terms it's about what 550 acres of irrigated soybeans drink in a year.
+
+![Three horizontal bars compare annual water use: the data center's bar is the shortest, the combined-cycle power plant's bar is three times as long, and the farmland bar is the same length as the data center's.](/figures/water-scale-three-references-en.svg)
+
+That ruler quiets things down a little, but it doesn't answer the question. It only describes the previous generation of facility. The line from Shed that I replayed: the whole push toward cooling things with water is only about three years old. Which means any industry-average water figure you're holding describes the world before the generation of buildings you haven't seen yet.
+
+## Where the heat is stuck: from 9 kW to 220 kW
+
+To understand where the water goes you have to understand where the heat comes from.
+
+Shed says average rack density historically ran around 9 kW. At that level the cheapest, fastest deployment was air: air conditioners around the perimeter, plumbing kept far away from the computers, hot and cold aisles to keep the streams from mixing, and you could buy compute from whoever you liked — air doesn't care. That's his phrase, and it stuck with me.
+
+The trouble is that pushing air from the edges of a room to the middle costs real fan energy, and hot and cold air will mix. So as high performance computing climbed toward 30 and 40 kW per rack, the industry moved the heat exchanger next to the heat source — rear door heat exchangers, in-row coolers, same basic idea. Fans then move heat a short distance at high efficiency, and when the racks beside the exchanger don't need cooling the fans dial back. Shed was shipping 80 kW racks routinely at Dell on rear door heat exchangers, and he says that architecture is nearly as efficient as direct liquid cooling up to that power level.
+
+Past that it stops working. Today the NVL72-class racks everyone knows are rated at 220 kW including power supplies — and Shed says that is not the ceiling. Dell is installing the Doudna supercomputing cluster at Lawrence Berkeley National Lab, where the per-rack number kept creeping up to around 280 kW. They have mapped out racks at 400 and 500 kW.
+
+![A six-step staircase rises from nine kilowatts per rack all the way to five hundred kilowatts, with the first two steps labeled air cooling and the last three labeled liquid cooling.](/figures/rack-density-staircase-en.svg)
+
+One clarification he stopped to make, because it gets misread: nobody is densifying for sport. There's no Guinness record being chased. Density is forced — every GPU in the building has to talk to every other GPU, network cabling and switches cost real money, so you keep them close; high-speed interconnect only works within a server or a rack. And chips keep drawing more power because Nvidia, AMD and Intel are learning to run the silicon they have harder. In some cases, Shed says, how hard they can run it is limited only by cooling. Electrically they could go faster. Thermally they can't.
+
+## The step that matters: make the water hot, not make it plentiful
+
+Here is the part of the episode worth copying down.
+
+Shed splits the heat's journey from chip to outdoors into three segments. The system that collects heat inside the servers is the TCS, the technology cooling system. It hands the heat across a plate heat exchanger to the FWS, the facility water system. The FWS hands it to whatever outdoor heat rejection the designer picked for that climate — chillers, cooling towers, dry coolers.
+
+Then he says the thing that relocates the whole argument: the FWS doesn't care what was on the other side. Single-phase, two-phase, immersion — it's a plate heat exchanger either way. The only thing the FWS cares about is the temperature arriving.
+
+Why does hotter help? Because you want to move heat from the hottest point in the system to the outdoors, and the cheap way to do that is downhill the whole way, letting thermodynamics carry it with no energy input beyond pumps. The hotter the water at the chip, the easier the outdoor end catches it.
+
+![A line slopes down from upper left to lower right through three nodes in order — the chip, the handoff between two water loops, and the outdoors — with the temperature falling at each step.](/figures/heat-downhill-three-stages-en.svg)
+
+That's what a cold plate does. Shed describes it as a piece of copper about 1.5 to 2 mm thick, with fins shaved off the surface and flipped up — roughly 100 microns of copper, 100 microns of spacing, about 3 mm tall — and water forced through every one of those microchannels. Getting flow into all of them is not trivial, he says, but once you do the performance is remarkable: a 1400 or 1800 watt processor cooled with 45°C water, which was not possible three years ago.
+
+![A magnified cold plate cross-section where dense thin fins rise from a thin copper base, labeled with two millimeters of copper thickness, three millimeters of fin height, and fins a hundred microns thick.](/figures/cold-plate-microchannel-scale-en.svg)
+
+45 in, 55 out. Shed converts it roughly to 135°F and says that except for the worst summer day in the middle of India, heat at that temperature can be rejected outdoors in most places without much energy and without evaporating water.
+
+So the causal chain on water looks like this: cold plates give the FWS hotter water, hotter water gives you more heat rejection options, and more options let you use less water or none. His own summary: do the best you can collecting heat so you can be as efficient as possible rejecting it.
+
+## Why this isn't just "they changed what they were optimizing for"
+
+This is the sharpest question Shayle asks, and it's the reason I think the argument holds.
+
+He lays out two competing explanations. Maybe new facilities use less water because the early hyperscalers were optimizing mainly for energy — and the most energy-efficient way to cool is evaporating water, so they evaporated water — and now that they're optimizing partly for water they just pick a different method. Or maybe it's the technical shift: a higher-temperature TCS. These are different stories. The first makes low water use a policy that can be reversed. The second makes it a gift from physics.
+
+Shed says a large percentage is the second one, and his reasoning is direct: if I'm air cooling, I'm not evaporating water inside the data hall, but I need cold water to make the cold air. Cold water to the heat exchangers means chillers, and the most efficient way to run chillers — depending on climate — is often a cooling tower feeding them. So I save energy and spend water. Air cooling and water consumption were always tied together. That was my biggest surprise from the episode: I had assumed liquid cooling means *starting* to use water. It means taking water off the evaporation path.
+
+![Two side-by-side panels: on the left the air-cooled path is longer and ends with water droplets evaporating upward and away, while on the right the liquid-cooled path is shorter and ends with no droplets at all.](/figures/aircooled-vs-liquid-water-path-en.svg)
+
+It also explains why Shed calls those early evaporative systems elegant. Wet a fill material, blow air through it, let evaporation drop the air temperature — a relatively small amount of water for a large amount of cooling. That design was correct inside its objective function. Water just wasn't in the objective function.
+
+## Where the argument breaks
+
+Shed names three limits himself, and I find them more useful than the conclusion.
+
+First, operations is not the life cycle. He puts it plainly: a building that will consume 500 megawatts of power just uses water. Dust suppression on the construction site, prepping roads, pouring concrete. And these facilities have enormous piping that has to be filled, flushed and cleaned. Early on, he says, a lot of that water was probably dumped; now most companies bring in pumping stations and refilter on site, so waste is low — but that first fill and clean still draws from somewhere.
+
+![A timeline whose left construction segment shows a few tall, narrow water-use spikes, while the right operation segment is a single low, long flat line.](/figures/construction-vs-operation-water-en.svg)
+
+Second, where the water is drawn is not where it's used. Some of it may be trucked in from a plant in Lexington, Kentucky. So "this facility used X gallons" and "this town's water table dropped" are two different questions being discussed as one.
+
+![A distant water source on the left is linked by an arrow to the plant site on the right, while a separate local aquifer sits beside the site with no connection, showing the two are not the same thing.](/figures/water-source-is-not-water-site-en.svg)
+
+Third, and he's careful here: he won't claim a community watching its water table fall is wrong. His framing is that digging deeper usually turns up many reasons, the data center may not be the only one, and the cooling system may not be the cause — it might be the water used to build the road to it. Which still makes the facility responsible, just not on a continuing basis.
+
+There's a fourth limit he doesn't say outright, though his numbers imply it. 45°C water is rejectable in most climates; above about 43°C outdoors it isn't, and then heat has to be pushed uphill with a chiller burning energy. Some climates spend half the year there. Low water consumption is a conclusion that varies by climate band, not a universal spec.
+
+![A horizontal forty-three degree threshold line: on the left, outdoor temperatures in most climates sit below it so heat can be rejected downhill, while on the right, extreme-heat days rise above it and a chiller must be run.](/figures/outdoor-temperature-threshold-en.svg)
+
+## If you want to read a new facility yourself
+
+What I kept thinking about is the ordinary person's bind here. The company says the number is small, the neighbor says the well is drying, and both can produce evidence. Comparing their numbers has never worked for me, because they're measuring different things.
+
+Three questions I took from this episode, which I'd now ask before anything else:
+
+Which generation of facility is this number describing? Shed says the liquid cooling push is three years old. Any claim citing "average data center water use" deserves a question about which build years are in the sample. Using a 2019 average to describe a 2026 groundbreaking is like quoting ten-year-old cars for today's fuel economy.
+
+Is it operating or being built? Both numbers are real. Mixed together, each side concludes the other is lying. The water trucks a community sees during construction and the operating figure in the annual report can both be true.
+
+Where does the water come from? "This site used X gallons" and "this aquifer lost X gallons" are separate questions. Facilities that can answer the second one communicate much more honestly.
+
+On that last point: Shed offers Microsoft's Wisconsin build as his example of good messaging — they got out in front, told the community how they'd cool and how much water they intended to use. And then, in what I think is the most honest moment of the episode, he says the backlash happened anyway and water is still being raised. His read is that transparency is table stakes rather than a differentiator, and that underneath this is a human problem: a general discomfort with a new technology appearing all around us, and large featureless buildings being easy things to aim that discomfort at.
+
+## A few other things worth remembering
+
+- **Two-phase direct-to-chip isn't at scale yet, and its selling point isn't performance.** Shed ran a company in this space. You pump refrigerant to the chip and boil it off the fins — "bubbles are great" — and performance turns out similar to single-phase. The real benefit is much smaller hoses and tubes. Today's liquid cooling hardware eats significant volume inside the server; that space could go back to compute.
+- **Oil-based immersion has a physics problem.** His analogy: it's a hot day, you jump in the pool, the pool is full of oil. It won't cool you off. Oil is a poor heat transfer fluid — fine for picking up low-density heat over a large area, bad at pulling heat off high-performance processors. So the immersion camp's trajectory now puts cold plates on the chips anyway and uses the immersion fluid for everything else.
+- **There's 1-2% in your antifreeze you've never thought about.** Single-phase direct-to-chip runs water with 25% propylene glycol — roughly diluted automotive antifreeze. Shed says the thing that matters in that jug is the 1-2% proprietary inhibitor package that keeps aluminum, brass and everything else from corroding for years. He sounds genuinely admiring about it. Liquid cooling systems have to solve the same problem.
+- **Cold plate volume jumped an order of magnitude.** In 2022 the whole industry might have been talking about 100,000 plates a year. Today it's hundreds of thousands a month, and next year could approach a million a month.
+- **Why the industry is betting on single-phase direct-to-chip.** Shed's reasons are all supply chain: it can scale now, the global supply chain is robust, and coolant suppliers can deliver quality fluid worldwide. At a million plates a month, the technology that keeps up is the technology that wins.
+
+![Three bars of output converted to a monthly rate: the 2022 bar is almost invisible, today's bar is much taller, and next year's estimate is three times taller again.](/figures/cold-plate-output-jump-en.svg)
+
+## Sources worth checking
+
+- *Catalyst with Shayle Kann*, October 8, 2026, hosted by Shayle Kann with guest Tim Shed, founder of Abundant Insights. Produced by Latitude Media; audio and video versions both exist.
+- Shed mentions a paper he published with colleagues about three and a half to four years ago on the thermodynamic limits of two-phase immersion cooling — a starting point if you want to follow that thread.
+- Microsoft's water communications around its Wisconsin data center, which Shed holds up as the industry reference case.
+
+## The one thing worth taking away
+
+What this episode actually taught me has nothing to do with water: **when both sides can produce numbers and still can't settle it, the problem is usually that the number describes a design choice already in the past.** 150 million gallons is real. Near-zero water is real. The difference is a person who sat down and picked cold plates and an outlet temperature. The thing worth arguing about is who holds that choice now and when they make it.
+
+Something I've tried, which works outside of infrastructure arguments too. Next time you're deadlocked with someone over a number, don't push back on the number — ask what conditions it was measured under, and then have each of you write the conditions down. Which year, which unit, which method, which phases are included. The first time I did this my wife and I were arguing about our electricity bill, both certain we remembered the right figure; once the conditions were written down it turned out she meant last summer and I meant this spring. Writing conditions is faster than arguing numbers, and it moves you both to the same side of the table.

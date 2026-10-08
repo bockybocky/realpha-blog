@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A line falling from left to right through three nodes in order — chip, loop handoff, outdoors — showing that heat travels on its own down the gradient.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="66">Heat travels downhill the whole way</text>
+
+<polyline points="140,150 400,250 660,350 880,420" fill="none" stroke="var(--accent)" stroke-width="5"/>
+
+<circle cx="140" cy="150" r="13" fill="var(--accent)"/>
+<text class="g" x="140" y="122" text-anchor="middle">Chip</text>
+<text class="n" x="140" y="196" text-anchor="middle">Hottest point</text>
+
+<circle cx="400" cy="250" r="13" fill="var(--accent)"/>
+<text class="g" x="400" y="222" text-anchor="middle">55°C return</text>
+<text class="n" x="400" y="296" text-anchor="middle">Server-side loop</text>
+
+<circle cx="660" cy="350" r="13" fill="var(--accent)"/>
+<text class="g" x="660" y="322" text-anchor="middle">Plate exchange</text>
+<text class="n" x="660" y="396" text-anchor="middle">Facility loop takes over</text>
+
+<circle cx="880" cy="420" r="13" fill="var(--grey)"/>
+<text class="g" x="880" y="392" text-anchor="middle">Outdoors</text>
+
+<line x1="90" y1="150" x2="90" y2="420" stroke="var(--line)" stroke-width="2"/>
+<text class="n" x="74" y="150" text-anchor="end">Hot</text>
+<text class="n" x="74" y="420" text-anchor="end">Cool</text>
+<text class="c" x="60" y="500">No energy input needed beyond the pumps</text>
+</svg>
