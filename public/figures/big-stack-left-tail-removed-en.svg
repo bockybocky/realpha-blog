@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The left tail of a bell-shaped distribution is crossed out as excluded, while the middle is labeled as taking damage but surviving.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="62">Big-stack spread</text>
+<line x1="80" y1="390" x2="900" y2="390" stroke="var(--line)" stroke-width="2"/>
+<path d="M120 390 C260 390 300 150 490 150 C680 150 720 390 860 390" fill="var(--accent)" opacity="0.14"/>
+<path d="M120 390 C260 390 300 150 490 150 C680 150 720 390 860 390" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<path d="M120 390 C200 390 230 290 270 250" fill="none" stroke="var(--grey)" stroke-width="4" stroke-dasharray="7 7"/>
+<line x1="118" y1="300" x2="212" y2="394" stroke="var(--warn)" stroke-width="4"/>
+<line x1="212" y1="300" x2="118" y2="394" stroke="var(--warn)" stroke-width="4"/>
+<text class="g" x="80" y="268">Left tail</text>
+<text class="b" x="80" y="440">Becomes small</text>
+<text class="b" x="80" y="464">Removed as an option</text>
+<text class="g" x="430" y="200">Middle</text>
+<text class="b" x="400" y="440">Takes some hits</text>
+<text class="b" x="400" y="464">But holds up</text>
+<text class="g" x="700" y="268">Right tail</text>
+<text class="b" x="700" y="440">Others hurt more</text>
+<text class="c" x="60" y="100">After cutting the tail</text>
+</svg>

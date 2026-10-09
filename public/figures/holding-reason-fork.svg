@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="回檔一點分出兩路：保險那路平走，看它會漲那路折向下通往要對答案">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="62">同一個回檔，兩種意義</text>
+<circle cx="200" cy="270" r="12" fill="var(--ink)"/>
+<text class="g" x="140" y="320">回檔</text>
+<path d="M212 270 C340 270 380 160 520 160" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<path d="M520 160 L720 160" stroke="var(--accent)" stroke-width="4" marker-end="url(#a6)"/>
+<text class="g" x="400" y="140">持有理由＝保險</text>
+<text class="b" x="740" y="155">不構成事件</text>
+<text class="b" x="740" y="180">回檔、加碼都一樣</text>
+<path d="M212 270 C340 270 380 400 520 400" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<path d="M520 400 L720 400" stroke="var(--warn)" stroke-width="4" marker-end="url(#a6w)"/>
+<text class="g" x="400" y="455">持有理由＝看它會漲</text>
+<text class="b" x="740" y="395">論點被打</text>
+<text class="b" x="740" y="420">要去對答案</text>
+<defs>
+<marker id="a6" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+<marker id="a6w" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--warn)"/></marker>
+</defs>
+<text class="c" x="60" y="110">先問理由，再看價格</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="黃金憑證那格由極矮變極高，右側財政部帳戶同時多出等高的一塊">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="62">改一個記帳價，錢就出現</text>
+<text class="g" x="90" y="118">改價之前</text>
+<line x1="90" y1="400" x2="420" y2="400" stroke="var(--line)" stroke-width="2"/>
+<line x1="255" y1="140" x2="255" y2="400" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="90" y="165">資產</text>
+<text class="b" x="285" y="165">負債</text>
+<rect x="100" y="382" width="130" height="18" fill="var(--grey)"/>
+<text class="b" x="100" y="430">黃金憑證</text>
+<text class="b" x="100" y="454">每盎司 42</text>
+<rect x="285" y="382" width="120" height="18" fill="var(--grey)"/>
+<text class="b" x="285" y="430">財政部帳戶</text>
+<text class="g" x="540" y="118">改價之後</text>
+<line x1="540" y1="400" x2="900" y2="400" stroke="var(--line)" stroke-width="2"/>
+<line x1="710" y1="140" x2="710" y2="400" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="540" y="165">資產</text>
+<text class="b" x="740" y="165">負債</text>
+<rect x="550" y="190" width="130" height="210" fill="var(--accent)" opacity="0.2"/>
+<rect x="550" y="190" width="130" height="210" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text class="b" x="550" y="430">黃金憑證</text>
+<text class="b" x="550" y="454">每盎司 4,100</text>
+<rect x="740" y="382" width="120" height="18" fill="var(--grey)"/>
+<rect x="740" y="190" width="120" height="192" fill="var(--warn)" opacity="0.22"/>
+<rect x="740" y="190" width="120" height="192" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<text class="b" x="740" y="430">財政部帳戶</text>
+<text class="b" x="740" y="454">多出約一兆</text>
+<path d="M470 300 L520 300" stroke="var(--ink)" stroke-width="4" marker-end="url(#a5)"/>
+<defs><marker id="a5" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--ink)"/></marker></defs>
+<text class="c" x="60" y="520">兩邊必須一樣高</text>
+</svg>
