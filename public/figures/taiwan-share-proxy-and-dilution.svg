@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩條接近滿格的比例條代表台灣目前的用水與用電占比，下方箭頭代表未來流向美國的資本支出會把占比往回推">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  .t { font-size:27px; font-weight:700; fill:var(--ink); }
+  .g { font-size:20px; font-weight:700; fill:var(--ink); }
+  .d { font-size:15px; fill:var(--dim); }
+  .n { font-size:19px; font-weight:700; fill:var(--page); }
+  .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="68">沒有產能占比可查，就找兩個量得到的影子</text>
+
+<text class="g" x="60" y="140">廠區用水</text>
+<rect x="200" y="118" width="640" height="46" rx="5" fill="var(--card)" stroke="var(--line)"/>
+<rect x="200" y="118" width="544" height="46" rx="5" fill="var(--accent)"/>
+<text class="n" x="220" y="148">台灣 85%</text>
+<text class="d" x="760" y="148">海外 15%</text>
+
+<text class="g" x="60" y="222">廠區用電</text>
+<rect x="200" y="200" width="640" height="46" rx="5" fill="var(--card)" stroke="var(--line)"/>
+<rect x="200" y="200" width="576" height="46" rx="5" fill="var(--accent)"/>
+<text class="n" x="220" y="230">台灣 90%</text>
+<text class="d" x="792" y="230">海外 10%</text>
+
+<text class="d" x="200" y="286">兩個數交叉，當成晶圓產量的粗略代理</text>
+
+<rect x="200" y="320" width="640" height="92" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="224" y="356">未來八到十年：4000 到 5000 億流入美國</text>
+<path d="M224 384 L700 384" stroke="var(--warn)" stroke-width="4"/>
+<path d="M716 384 L696 374 L696 394 Z" fill="var(--warn)"/>
+<text class="d" x="224" y="406">德州加亞利桑那，單位美元</text>
+
+<text class="c" x="60" y="476">台灣的比重不是被搬走，是被稀釋</text>
+<text class="d" x="60" y="504">台灣這邊的新竹、高雄、台南、台中各案沒有停</text>
+</svg>

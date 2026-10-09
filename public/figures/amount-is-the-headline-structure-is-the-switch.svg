@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊是灰色的大金額，右邊三個串聯開關依序排列，任何一個斷開就走不到終點">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  .t { font-size:27px; font-weight:700; fill:var(--ink); }
+  .g { font-size:20px; font-weight:700; fill:var(--ink); }
+  .d { font-size:15px; fill:var(--dim); }
+  .big { font-size:54px; font-weight:700; fill:var(--grey); }
+  .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="68">先看承諾的結構，再看金額</text>
+
+<rect x="60" y="110" width="250" height="150" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="big" x="84" y="190">1200 億</text>
+<text class="d" x="84" y="226">那串零最沒有資訊量</text>
+<text class="g" x="84" y="294">新聞標題</text>
+
+<line x1="330" y1="185" x2="370" y2="185" stroke="var(--line)" stroke-width="3"/>
+
+<rect x="380" y="110" width="160" height="150" rx="10" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+<text class="g" x="404" y="172">誰出錢</text>
+<text class="d" x="404" y="202">採購或股權</text>
+<circle cx="460" cy="236" r="9" fill="var(--accent)"/>
+
+<line x1="540" y1="185" x2="580" y2="185" stroke="var(--accent)" stroke-width="3"/>
+
+<rect x="580" y="110" width="160" height="150" rx="10" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+<text class="g" x="604" y="172">多少才算錨</text>
+<text class="d" x="604" y="202">兩成或三成</text>
+<circle cx="660" cy="236" r="9" fill="var(--accent)"/>
+
+<line x1="740" y1="185" x2="780" y2="185" stroke="var(--accent)" stroke-width="3"/>
+
+<rect x="780" y="110" width="160" height="150" rx="10" fill="var(--page)" stroke="var(--warn)" stroke-width="3"/>
+<text class="g" x="804" y="164">什麼沒發生</text>
+<text class="g" x="804" y="192">它就停</text>
+<text class="d" x="804" y="220">稅收抵減</text>
+<circle cx="860" cy="244" r="9" fill="var(--warn)"/>
+
+<path d="M460 300 L460 340 L860 340 L860 300" fill="none" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="400" y="378">三個開關串在一起，任一個斷開就走不到終點</text>
+
+<rect x="60" y="410" width="840" height="76" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="c" x="84" y="458">換到生活裡：這筆錢誰出、哪一件事沒發生它就停、最晚什麼時候得決定</text>
+<text class="d" x="60" y="518">一個月後回去看哪一句先破，破掉的那句幾乎都不是金額</text>
+</svg>
