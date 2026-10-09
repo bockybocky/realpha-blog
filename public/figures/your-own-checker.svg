@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一個結論往右分成兩條路，虛線繞回原來源，實線走向獨立檢查器">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" fill="var(--ink)">兩行字：裂縫在哪，誰來看</text>
+
+<rect x="70" y="200" width="200" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="170" y="252" font-size="19" fill="var(--ink)" text-anchor="middle">我接受的結論</text>
+
+<path d="M280 225 C 420 140, 560 140, 690 160" stroke="var(--grey)" stroke-width="3" fill="none" stroke-dasharray="7 6"/>
+<path d="M690 160 l-14 -4 l3 14 z" fill="var(--grey)"/>
+<rect x="700" y="120" width="200" height="80" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text x="800" y="155" font-size="19" fill="var(--dim)" text-anchor="middle">同一個來源</text>
+<text x="800" y="180" font-size="15" fill="var(--dim)" text-anchor="middle">不算檢查</text>
+
+<path d="M280 265 C 420 350, 560 350, 690 330" stroke="var(--accent)" stroke-width="4" fill="none"/>
+<path d="M690 330 l-14 -4 l3 14 z" fill="var(--accent)"/>
+<rect x="700" y="290" width="200" height="80" fill="var(--accent)"/>
+<text x="800" y="325" font-size="19" fill="var(--page)" text-anchor="middle">獨立的檢查器</text>
+<text x="800" y="350" font-size="15" fill="var(--page)" text-anchor="middle">擋得住一類錯</text>
+
+<text x="440" y="400" font-size="16" fill="var(--accent)" text-anchor="middle">裂縫會先出現在哪裡</text>
+<text x="480" y="470" font-size="22" fill="var(--ink)" text-anchor="middle">沒有下面這條路，就只是相信</text>
+</svg>

@@ -1,0 +1,82 @@
+---
+title: "When AI Starts Proving Theorems, What Do Mathematicians Do? Odd Lots on the Age of Proof Abundance"
+description: "Notes on the October 9, 2026 Bloomberg Odd Lots episode with MIT's Justin Solomon: AI-written proofs, the Lean checker, the Navier-Stokes counterexample, and the collapse of academic quality signals. Educational reflection, not investment advice; no stock picks or price targets."
+slug: "oddlots-2026-10-09-how-ai-is-upending-the-world-of-mathematics"
+lang: "en"
+pubDate: 2026-10-09
+category: "investing"
+kind: "podcast-notes"
+tags: ["AI", "mathematics", "academia", "verification", "education"]
+ogImage: "/covers/oddlots-2026-10-09-how-ai-is-upending-the-world-of-mathematics-cover.png"
+cover: "/covers/oddlots-2026-10-09-how-ai-is-upending-the-world-of-mathematics-cover.png"
+---
+
+![A university lecture hall at dusk, a long chalkboard receding into the depth of the frame, a lone mathematician in the foreground, cold white light leaking from a server room door at the end of the corridor](/covers/oddlots-2026-10-09-how-ai-is-upending-the-world-of-mathematics-cover.png)
+
+> To know without studying, to understand without asking — in all of history, such a thing has never happened.
+>
+> — Wang Chong, *Lunheng*, "On Real Knowledge" (Eastern Han, c. 1st century; translation mine)
+
+On the October 9, 2026 Bloomberg *Odd Lots* episode "How AI Is Upending the World of Mathematics," hosts Joe Weisenthal and Tracy Alloway talk with Justin Solomon, Associate Dean of Engineering Education at MIT. Solomon says AI-generated proofs now run to hundreds of thousands of lines of Lean code that no human can check, so correctness gets handed to a separate piece of software that is not an AI. He also gives a number: submissions to ICLR, a flagship machine learning conference, went from one or two thousand a decade ago to around sixty thousand, which breaks the peer review system that used to serve as a quality signal. Borrowing from the mathematician Terence Tao, he calls this the move from proof scarcity to proof abundance, with value shifting from writing proofs to choosing problems and verifying results. One boundary: this applies to work where output can be mass-produced while the cost of checking it stays flat.
+
+![Two grouped bar charts contrast the eras: on the left, in the age of scarce proofs, the production bar is very short and the checking bar is middling; on the right, in the age of abundant proofs, the production bar shoots to the top while the checking bar stays exactly the same height.](/figures/proof-scarcity-to-abundance-en.svg)
+
+## What the episode covers
+
+Both hosts open by admitting they don't know advanced mathematics. Tracy says everything she knows comes from *Good Will Hunting* and formulas on a chalkboard; Joe says he downloaded the Navier-Stokes paper and couldn't parse the first page. That framing helps, because the questions that follow are the ones an outsider actually has: what does advanced math do all day, do mathematicians use calculators, and is AI generating ideas or just checking answers.
+
+Solomon sits across both sides. He is an applied mathematician who once worked at Pixar — cloth, smoke, fluids, rigid bodies flying around, all governed by partial differential equations, and getting the algorithms stable enough that an artist never has to think about math is a hard mathematical problem. He teaches a course on shape analysis this semester and runs education for MIT's School of Engineering. So the conversation is less about model capability and more about how a profession's evaluation system, apprenticeship, and teaching got rearranged by a tool.
+
+## Six things that made me stop
+
+**One: correctness is outsourced to software that isn't an AI.** Asked whether models generate proofs or check them, Solomon says they do both and neither — they are bad at checking. The shift of the past year is to have the model also emit a proof in Lean, a language with a few built-in axioms where anything verified joins a library of established facts. Confidence comes from that checker, which means the trust moves to whoever wrote Lean.
+
+![On the left, one huge block of proof hundreds of thousands of lines long is marked as more than any human can read; on the right, a staircase climbs from the axioms up layer by layer to a new theorem, and the arrow of trust moves from the left block to the foot of that staircase.](/figures/lean-trust-shift-en.svg)
+
+**Two: the spoon was built by humans.** The Navier-Stokes equations describe how liquid in a cup moves. The open problem asked whether solutions exist for all time or blow up; Solomon's undergraduate professor put it as "prove that water doesn't explode and you get a million dollars." The recent result is a counterexample: stir the fluid with a very strange spoon and it becomes infinitely turbulent in finite time. Constructing that spoon was largely done by a team of human mathematicians in Spain with pen and paper over years, and AI took the last mile. Real insight from the model, he says, and not a result out of left field.
+
+![A horizontal progress bar where the long stretch is the construction humans built by hand over years, a short segment at the end is the key insight from AI, and an even shorter cell at the far right is the sprint to the line won by raw compute.](/figures/navier-stokes-last-mile-en.svg)
+
+**Three: the sprint was bought with compute.** Once word spread that someone was close, OpenAI appears to have poured a ridiculous amount of compute into writing the proof first. They said they don't need the million dollars, since they burn that much compute in two minutes. Solomon's reply is a question: then why do it? For the mathematicians, a million dollars changed a life; for a lab, this is a demo. Then a line I wrote down — for all you know, their model was trained partly on your chats.
+
+**Four: the quality signals broke together.** Citing Tao, he notes that where you publish, how much you produce, how interesting the result is, and which prizes you win used to move together, and now they conflict. AI companies learned that a big theorem makes a good press release, which adds an economic motive. The ICLR number is the blunt version: a community spending a month or two reviewing each other can't even open that many PDFs, so review goes shallow — he mentions high schoolers landing in the reviewer pool because they once did a project.
+
+![A steeply rising submissions curve climbs from one or two thousand to 60,000, while below it a nearly flat line marks review capacity, and the widening space between the two is labelled as review growing shallow.](/figures/iclr-review-capacity-gap-en.svg)
+
+**Five: sycophancy creates a new kind of belief.** Tracy asks whether models flatter you on math the way they do elsewhere. Solomon says his inbox answers that. Strangers write in saying they proved a new result with an AI, the AI told them it was important, and they need an MIT professor to validate it. He tried it himself on open problems in his own area; nothing got solved, so his corner is safe for now, but the model proved something he found superficial and added a footnote: as far as I can tell this doesn't appear in the literature — shall I format it for a journal?
+
+**Six: remixing, yes; something from nothing, not yet.** He points to his colleague Nestor Guillen's blog post: these AI results sit largely inside the convex hull of existing knowledge, intricate recombinations of what we already know, or finishing a calculation somebody got stuck on. An entirely new theory that wasn't there before — few examples so far. Joe asks whether the counterexample is elegant. Probably not, Solomon says: inequalities, bounds, indices, correct and unreadable. The loss is elsewhere — if proving becomes frictionless, the garden paths along the way that used to spawn whole research fields get pruned out.
+
+![A polygon drawn around the existing points of knowledge, with every new result falling inside that boundary, and only one or two distant points out in the blank space standing for theory that did not exist before.](/figures/convex-hull-of-known-en.svg)
+
+## Why "the data looks complete" makes me more nervous
+
+My own failure mode is receiving a well-formatted, fully cited, confident report and accepting it. This episode gave me a test: does this thing have a checker that doesn't depend on whoever produced it?
+
+Mathematicians now separate "reads like it's true" from "is true" — Lean doesn't care about your prose. The investing version is separating the story a company tells from the numbers I can recompute. Pulling revenue and cash flow from the filing myself and reconciling the definitions is my Lean. It won't tell me whether the business is good. It catches one class of error: a citation that doesn't exist, a figure that disagrees with the statement, two passages that contradict each other.
+
+Solomon says academia's bottleneck moved from production to verification, and Tracy puts it better: the ability to generate content went up and the ability to verify it didn't follow. That's my situation with research reports — supply grew, my verification capacity didn't. So I reversed the order: decide how many names I'll verify and how deep, then decide how much to read, instead of reading a pile and then worrying about which parts to trust.
+
+![Two stacked panels contrast the orderings: on top, a pile of reports is read first and then filtered, so verification capacity cannot keep up and the excess spills over; below, the amount you can actually verify is fixed first and the reading load is derived back from it, so everything gets finished.](/figures/verify-first-ordering-en.svg)
+
+## "AI can already do this — why learn it?"
+
+I've asked this myself. Solomon's answer in the education section is more concrete than "keep learning": writing a five-paragraph essay was never the goal, it taught you something else. MIT students have been scoring near 100% on homework for a year or two, and exam scores say otherwise — the feeling of learning came apart from the result.
+
+So they restructured. Homework stays, with weightlifting as the analogy: you do it because you want to be stronger. A short quiz follows, copy-pasted from the homework, to confirm students understand what they handed in. Projects added an oral component. His line is clean: we're educating the human, not testing the capabilities of Claude, and those are different things.
+
+My version of this: I can have a model map out a company's competitive landscape and save three hours, but if I've never walked from the income statement down to free cash flow myself, I have no muscle for noticing what the model skipped. The question isn't whether to use tools — it's which parts I keep practicing. I keep three: how definitions are set, how the falsification conditions are written, and which source file each number came from.
+
+## Compute is unequal, so change the contest
+
+One underrated stretch: Solomon says funding is tight even at MIT, and his PhD students want the most expensive cloud account, two hundred dollars a month per person, which starts to be comparable with the cost of another human. He asks the same question about teaching — does the student with the $200 account get the better homework?
+
+Joe adds the harder part: the model you use at a university is behind the unreleased one inside the labs, so you spend months showing a path works and they finish it in a week with something two generations ahead. Racing compute to answer known problems is a losing game for an individual.
+
+The exit Solomon describes matches Tracy's summary: the weight moves to asking questions and to taste. The typical mathematician isn't working the seven Clay problems; a lot of math is about taste rather than proving someone else's conjecture. Writing good prompts is what we've been training students to do for centuries — define the problem, pick the one worth asking, say what insight it brings. He adds a practical note: the typical math student ends up in finance or engineering, and for them that skill is the critical one. For my own holdings, this maps onto whether I can write down the one question this week's work is supposed to answer. If I can't, any data I gather is just collecting.
+
+## The one thing to take away
+
+One idea: **when output gets cheap, verification becomes your job.** Everything in this episode is a facet of it — proofs can be mass-produced, so value moved to the Lean end and the problem-selection end. Anything you hold that is fast to generate and slow to check will grow the same shape.
+
+Here's something I tried. Take one conclusion you accepted recently — it doesn't have to be about investing; a line from your doctor, a health tip a relative forwarded, a timeline a colleague gave you — and write two lines. First: if this is wrong, where does the crack show up first. Second: what would let me see that crack without going back to the person who gave me the conclusion. If you can't write the second line, you don't have your own checker yet, and knowing that now beats finding out later.

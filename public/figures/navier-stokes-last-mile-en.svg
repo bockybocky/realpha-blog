@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-label="A horizontal progress bar whose long stretch belongs to humans working by hand, with a short AI segment at the end and a tiny compute sprint at the far right.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="500" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" fill="var(--ink)">Who made that spoon</text>
+
+<rect x="80" y="200" width="540" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="620" y="200" width="160" height="90" fill="var(--accent)"/>
+<rect x="780" y="200" width="100" height="90" fill="var(--warn)" opacity="0.8"/>
+
+<text x="350" y="255" font-size="20" fill="var(--ink)" text-anchor="middle">Humans, by hand, for years</text>
+<text x="700" y="248" font-size="19" fill="var(--page)" text-anchor="middle">AI</text>
+<text x="700" y="272" font-size="15" fill="var(--page)" text-anchor="middle">Key insight</text>
+<text x="830" y="260" font-size="15" fill="var(--page)" text-anchor="middle">Compute sprint</text>
+
+<line x1="80" y1="320" x2="620" y2="320" stroke="var(--grey)" stroke-width="2"/>
+<line x1="80" y1="312" x2="80" y2="328" stroke="var(--grey)" stroke-width="2"/>
+<line x1="620" y1="312" x2="620" y2="328" stroke="var(--grey)" stroke-width="2"/>
+<text x="350" y="348" font-size="16" fill="var(--dim)" text-anchor="middle">Building that spoon</text>
+<line x1="620" y1="320" x2="880" y2="320" stroke="var(--accent)" stroke-width="2"/>
+<text x="750" y="348" font-size="16" fill="var(--accent)" text-anchor="middle">Last mile</text>
+
+<text x="480" y="430" font-size="22" fill="var(--ink)" text-anchor="middle">The one who crosses did not run it all</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A huge unreadable block of proof on the left, a staircase from axioms up to a theorem on the right, and an arrow moving trust from left to right.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" fill="var(--ink)">Trust shifts from reading it to stacking it</text>
+
+<rect x="70" y="120" width="280" height="300" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<g stroke="var(--grey)" stroke-width="2">
+<line x1="100" y1="150" x2="320" y2="150"/><line x1="100" y1="172" x2="300" y2="172"/>
+<line x1="100" y1="194" x2="320" y2="194"/><line x1="100" y1="216" x2="285" y2="216"/>
+<line x1="100" y1="238" x2="320" y2="238"/><line x1="100" y1="260" x2="310" y2="260"/>
+<line x1="100" y1="282" x2="320" y2="282"/><line x1="100" y1="304" x2="295" y2="304"/>
+<line x1="100" y1="326" x2="320" y2="326"/><line x1="100" y1="348" x2="320" y2="348"/>
+<line x1="100" y1="370" x2="270" y2="370"/><line x1="100" y1="392" x2="320" y2="392"/>
+</g>
+<text x="210" y="455" font-size="20" fill="var(--ink)" text-anchor="middle">100,000s of lines</text>
+<text x="210" y="482" font-size="16" fill="var(--warn)" text-anchor="middle">Too long to read</text>
+
+<rect x="560" y="360" width="320" height="60" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="720" y="398" font-size="19" fill="var(--ink)" text-anchor="middle">Axioms</text>
+<rect x="590" y="290" width="290" height="60" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="735" y="328" font-size="19" fill="var(--ink)" text-anchor="middle">Checked step by step</text>
+<rect x="620" y="220" width="260" height="60" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="750" y="258" font-size="19" fill="var(--ink)" text-anchor="middle">Known true</text>
+<rect x="650" y="150" width="230" height="60" fill="var(--accent)"/>
+<text x="765" y="188" font-size="19" fill="var(--page)" text-anchor="middle">New theorem</text>
+
+<path d="M380 420 L540 420" stroke="var(--accent)" stroke-width="3" fill="none"/>
+<path d="M540 420 l-14 -7 l0 14 z" fill="var(--accent)"/>
+<text x="460" y="405" font-size="16" fill="var(--dim)" text-anchor="middle">Trust moves to this end</text>
+<text x="480" y="530" font-size="22" fill="var(--ink)" text-anchor="middle">Now you trust whoever wrote the Lean</text>
+</svg>
