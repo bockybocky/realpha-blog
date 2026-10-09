@@ -1,0 +1,108 @@
+---
+title: "An Old Path, Reopened: Notes on Caibaogou Episode 569"
+description: "The 2026-10-08 episode of Caibaogou covers China's export curbs on gallium and quartz, a proposed US tariff on Chinese-made lasers, and a VCSEL redesign that stretches reach from 100 metres to two kilometres. Listening notes and supply-chain structure, for education only — no investment advice, no stock recommendations, no price targets."
+slug: "caibaogou-2026-10-08-569-v3-x-vcsel"
+lang: "en"
+pubDate: 2026-10-09
+category: "investing"
+kind: "podcast-notes"
+tags: ["Caibaogou", "VCSEL", "wide bandgap semiconductors", "optical interconnect", "export controls"]
+ogImage: "/covers/caibaogou-2026-10-08-569-v3-x-vcsel-cover.png"
+cover: "/covers/caibaogou-2026-10-08-569-v3-x-vcsel-cover.png"
+---
+
+![A night-time optical-communications lab corridor; in the foreground a wafer of tiny laser emitters glows red upward, and the light carries down the hallway toward distant racks and fibre bundles](/covers/caibaogou-2026-10-08-569-v3-x-vcsel-cover.png)
+
+> A footpath on a mountain: walk it steadily and it becomes a road; leave it unwalked a while and the weeds close it up.
+>
+> —— Mencius, *Jin Xin II* (Warring States period; translation mine)
+
+In episode 569 of *Caibaogou*, released on 8 October 2026, host Wei-Yu and the show's researcher put three things from the same week onto one map: China's move to restrict gallium and quartz exports to Taiwan, a US proposal to put a 65% tariff on Chinese-made lasers, and two optical-communications conferences that pulled a decade-old technology back onto the table — the vertical-cavity surface-emitting laser, or VCSEL. The number that matters: at 850 nm, a VCSEL reached 100 metres at 100G; redesigned to 1060 nm and flipped to emit from the back, reach becomes two kilometres. The show is explicit about the catch — there is no shared interconnect standard for this path yet, and "the device works" is a different claim from "the system will adopt it."
+
+## Late August: the squeeze lands upstream first
+
+The starting point predates the headlines by two months. China announced the gallium and quartz restrictions in late August; October is when they got amplified. The episode separates the pieces. Gallium goes into power amplifiers, and later into the receiving end of optical links — photodiodes. Quartz is two different businesses: frequency devices such as crystal oscillators, and consumables inside the fab like furnace tubes and fixtures.
+
+This is where two newspapers diverge. The *Commercial Times* wrote that chipmakers need quartz of a precision hard to source outside China. The *Economic Daily News* wrote that TSMC's quartz machining sits mainly with a Taiwanese firm and a Japanese joint venture. The show's read: China probably can't make the high-end quartz devices, and the real strength sits in Japan — Nihon Dempa Kogyo, and Seiko Epson (yes, the printer company, which also makes watches, robot arms and quartz components), with Taiwanese suppliers in the mix too. If you want a chokehold here, Japan's hand is the one that counts.
+
+That stopped me. Neither report is wrong. One is talking about mined raw material, the other about machined parts and finished devices. Two layers apart on the same chain, and the conclusion flips.
+
+![A five-step ladder runs from mining at the bottom up through raw material, fabricated parts, components and modules, widening toward the top; the two reports' arrows point to different places, one pair at the bottom two steps and the other at the middle two.](/figures/shiying-wuceng-gongyinglian-en.svg)
+
+## Early October: Washington moves, the share prices move first
+
+Next came the US discussion of a laser restriction, with the threshold reportedly at 3.2T and above, at 65%. Taiwan's optical names responded that day. But the show adds a caveat: 3.2T is not shipping in volume. Today's workhorse is 800G, with 1.6T only starting, and at lower volume than estimates from the start of the year — the bottleneck sits either in the module itself or in customers' design schedules. So the rule governs a future state, and so does the price move.
+
+## Earlier still: copper runs out at two metres
+
+Why does everyone care about optics? The episode offers a number with real physical presence: at these data rates, copper carries about two metres. "Soon it'll be shorter than we are." Two metres isn't much inside a rack, and if you can't reach the other side, you go optical.
+
+Going optical changes more than the module. Push the frequency up and the crystal oscillator — the machine's clock, the thing that keeps every component in step — has to improve; ordinary capacitors fail at high frequency, so silicon capacitors come in; the module substrate moves to finer lines. The show also notes, in passing, that the passive-component rally those few days had nothing to do with any of this.
+
+Pluggable modules still dominate. CPO and NPO remain in design. Scale-up inside the rack draws more optimism, because that domain is close to single-vendor and therefore standardised — though plenty of buyers prefer assembling their own box and don't want the whole system tied to one supplier.
+
+## Those two conferences: an old device turned around
+
+Then comes the most interesting stretch of the episode.
+
+Long reach today belongs to the edge-emitting laser, the DFB, at 1310 nm, built on indium phosphide. And indium is also on China's control list. The show jokes that the upstream materials travel as a group — they're being named one at a time.
+
+The VCSEL is the other road. It emits from the top or bottom face of the die, historically at 850 nm, over short distances; before the AI buildout it carried a fair share of optical links. Its advantages are an easier structure to design, small size and low power. Its weakness was reach and speed, which is why DFB took over.
+
+What the two conferences — the Chinese one and last week's European optical event — brought is a reworked device: the wavelength pushed from 850 to 1060 nm, and the emission flipped to the back face so the die can be flip-chip bonded straight down. The result is reach going from 100 metres to two kilometres.
+
+![A very short bar at the top is labeled 100 meters, while a long bar spanning the entire graphic below is labeled two kilometers with a twentyfold note; on the right, one chip emits upward and the other emits downward for direct bonding.](/figures/vcsel-fanmian-fenguang-en.svg)
+
+Why does flipping it matter so much? Passive alignment. There is a note of vindication in the show's tone here: the industry has spent years on optical alignment, glass substrates pitch the same benefit, and a back-emitting VCSEL walks around the problem. On top of that it uses gallium arsenide with aluminium, so it doesn't consume indium phosphide — the material now being restricted is the one it doesn't need.
+
+![Two routes descend from their materials: the left route is blocked midway by a crossed-out barrier, while the right route remains open to the destination.](/figures/cailiao-guanzhi-raodao-en.svg)
+
+What's missing is the standard. The show puts the order plainly: build it, then build volume, then talk protocol. No shared protocol exists today, and the engineering is still hard — a 100G or 200G single-channel VCSEL is a problem in itself. That is the fight between the two camps: fast and narrow with DFB, wide and slow with VCSEL, and slower still with micro LED, which is why that option needs far more redundancy designed in.
+
+## Where things stand: three clocks, three speeds
+
+The back half of the episode brings in wide bandgap semiconductors, and the information density rises.
+
+Gallium nitride's home markets were chargers and electric vehicles. It is now inside data-centre power, with a wave of new designs below 100 V, packaged with approaches like FOPLP that put the power IC and its driver into one part, dropping the lead frame and the cost. The other leg is RF, in satellites: reporting on Starlink's V3 has gallium arsenide, gallium nitride and indium phosphide content all higher than V2, against launch estimates of 19% growth this year, 16% next, and 19% again in 2028.
+
+Silicon carbide sits at the high-voltage end. A solid-state transformer can step down to 800 V in one shot, where the old approach stepped down repeatedly. The show notes automotive pricing moving again and customers redesigning — and the healthier state for this material is one where cars are no longer the only buyer; thermal and optical applications also take it.
+
+The scale gap is the point. Global new-car volume runs in the hundreds of thousands to low millions, and electric vehicles are a fraction of that; a data centre draws on the whole infrastructure build. The show reaches for laptops as a yardstick — these parts used to be measured as "more than laptops," and laptops contain none of them. The iteration speed and the unit volumes aren't in the same class.
+
+So which ferments first? The show's ordering: gallium nitride soonest, silicon carbide a little behind, VCSEL later still, equipment last — though packaging equipment already had its run. The criterion is worth copying down. A new device entering an existing system (high-voltage power) moves fast. A device waiting on a system that hasn't formed yet — optical protocols, robot specifications — has to wait for the system, and qualification and consensus both take time.
+
+![A timeline runs from left to right, with the left half labeled as an established ecosystem and the right half as an ecosystem not yet established; four nodes appear in sequence, with one pulled left to an earlier position.](/figures/san-tiao-xian-shijiancha-en.svg)
+
+## Worth reading further
+
+- *Caibaogou* episode 569, "V3 x VCSEL: new demand for wide bandgap devices," 8 October 2026
+- The *Commercial Times* and *Economic Daily News* pieces on quartz supply, which the episode quotes and compares
+- OFC and ECOC programmes and paper abstracts, for the 1060 nm VCSEL reach and rate figures
+- TrendForce's annual estimates for Starlink launch volume
+- Any optical-communications primer: the cross-section drawings of DFB and VCSEL explain more than the prose does
+
+## Good news arrives, and I still don't chase it
+
+The first reaction to news like this is usually: the story is this good, it already hit limit-up, should I get in?
+
+My own mistake has been treating "the technology works" as "the business exists." This episode lays out the gates in between, and I've since kept three separate questions for any new story: can it be built, is there volume, is there a shared standard? For VCSEL the first is a yes, with conference data behind it. The second is in progress. The third is empty. The share price is betting that the third gate eventually closes, and nobody can tell you how long closing it takes.
+
+![Three progress bars are stacked vertically: the first is full, the second is half full, and the third is completely empty.](/figures/san-ti-jinduo-en.svg)
+
+The Taiwanese supplier in the episode that announced a full pivot away from handsets hit limit-up that day. The market it's walking toward is the right one, but the specification it wants to sell has no protocol yet. That gap is the whole of the risk. So with an announcement like that, I ask first how many quarters the pivot takes, what pays the bills meanwhile, and whether the handset business still holds up — questions that help me sleep more than "is the theme right."
+
+## The headline sounds terrifying — which paper do I believe?
+
+The most useful lesson in this episode, for me, was those two contradicting reports.
+
+What I do now: when I read "we depend heavily on country X for Y," I stop and ask which layer of the chain the sentence is about. Ore? Refined material? Machined part? Device? Module? The same word — quartz — is five different businesses across five layers, with different suppliers, different substitutability, different consequences when it's cut off. Drop the layer and the reader is left holding a feeling, "terrifying" or "fine," and that feeling turns into a reason to trade.
+
+The second move is to look at what the squeezed party does next. The answer here is concrete: name an upstream material, and the downstream goes hunting for a path that doesn't need it — and the path that got dug up was mature a decade ago, set aside only because something smoother existed at the time. So a control has two effects: higher prices and shortage in the near term, and a pulled-forward timeline for the alternative in the long term. To judge how serious a restriction is, I watch the alternative's progress rather than the adjectives in the coverage.
+
+## 帶得走的一件事
+
+An abandoned path gets reopened mostly because the smoother road got blocked first. The VCSEL's structure and materials were sitting there ten years ago; nothing about it improved overnight. What changed was indium phosphide coming under control, copper running out at two metres, and flip-chip becoming standard practice — the environment moved, and the old option's relative position moved with it.
+
+![The once-smooth upper road is blocked by three gates, while the dashed old road below becomes a solid line running all the way to the goal.](/figures/laolu-chongxin-zouong-en.svg)
+
+Here's something I've tried. Take a sheet of paper and list three things you genuinely attempted and then dropped: a different form of exercise, some budgeting method, seeing a particular person once a month — all count. Then ask each one a single question: did I drop this because it didn't work, or because an easier route happened to be open at the time? If it's the second, ask whether that easier route is still open now.

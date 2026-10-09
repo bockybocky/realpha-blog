@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="上面順路被三道柵欄堵住，下面虛線老路轉為實線通行">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text x="60" y="52" font-size="27" font-weight="700" fill="var(--ink)">老路沒變強，是順路被堵住了</text>
+
+<circle cx="110" cy="280" r="16" fill="var(--ink)"/>
+<text x="110" y="330" font-size="17" fill="var(--dim)" text-anchor="middle">起點</text>
+<rect x="800" y="236" width="110" height="88" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="855" y="286" font-size="18" fill="var(--ink)" text-anchor="middle">目標</text>
+
+<path d="M126 268 C300 150, 560 150, 790 250" fill="none" stroke="var(--warn)" stroke-width="6"/>
+<rect x="290" y="146" width="12" height="60" fill="var(--warn)"/>
+<rect x="470" y="140" width="12" height="60" fill="var(--warn)"/>
+<rect x="650" y="156" width="12" height="60" fill="var(--warn)"/>
+<text x="296" y="128" font-size="16" fill="var(--warn)" text-anchor="middle">磷化銦管制</text>
+<text x="476" y="122" font-size="16" fill="var(--warn)" text-anchor="middle">銅線剩兩公尺</text>
+<text x="656" y="138" font-size="16" fill="var(--warn)" text-anchor="middle">覆晶成標配</text>
+
+<path d="M126 292 C300 430, 560 430, 790 310" fill="none" stroke="var(--accent)" stroke-width="6"/>
+<path d="M778 322 L800 304 L786 298 Z" fill="var(--accent)"/>
+<text x="458" y="476" font-size="19" fill="var(--accent)" text-anchor="middle">十年前就放下的那條路</text>
+</svg>

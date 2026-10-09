@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="The distance bar expands from very short to full width, while the emission direction flips from upward to downward.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text x="60" y="52" font-size="27" font-weight="700" fill="var(--ink)">Change the wavelength and direction, and the reach changes</text>
+
+<text x="60" y="128" font-size="20" fill="var(--dim)">850 nm　top emission</text>
+<rect x="60" y="146" width="42" height="34" rx="5" fill="var(--grey)"/>
+<text x="118" y="172" font-size="19" fill="var(--ink)">100 meters</text>
+
+<text x="60" y="246" font-size="20" fill="var(--accent)">1060 nm　backside emission</text>
+<rect x="60" y="264" width="840" height="34" rx="5" fill="var(--accent)"/>
+<text x="60" y="334" font-size="19" fill="var(--ink)">Two kilometers</text>
+<text x="800" y="334" font-size="19" font-weight="700" fill="var(--accent)">About 20×</text>
+
+<line x1="60" y1="380" x2="900" y2="380" stroke="var(--line)" stroke-width="2"/>
+
+<rect x="140" y="470" width="150" height="40" rx="5" fill="var(--card)" stroke="var(--line)"/>
+<text x="215" y="496" font-size="16" fill="var(--dim)" text-anchor="middle">Chip</text>
+<line x1="215" y1="466" x2="215" y2="420" stroke="var(--grey)" stroke-width="5"/>
+<path d="M203 428 L215 406 L227 428 Z" fill="var(--grey)"/>
+<text x="215" y="548" font-size="17" fill="var(--dim)" text-anchor="middle">Upward emission　active alignment</text>
+
+<rect x="620" y="420" width="150" height="40" rx="5" fill="var(--card)" stroke="var(--line)"/>
+<text x="695" y="446" font-size="16" fill="var(--dim)" text-anchor="middle">Chip</text>
+<line x1="695" y1="464" x2="695" y2="506" stroke="var(--accent)" stroke-width="5"/>
+<path d="M683 498 L695 520 L707 498 Z" fill="var(--accent)"/>
+<text x="695" y="548" font-size="17" fill="var(--accent)" text-anchor="middle">Downward emission　direct flip-chip bond</text>
+</svg>

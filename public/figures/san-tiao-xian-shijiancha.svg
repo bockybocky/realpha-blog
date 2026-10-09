@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="時間軸上四個節點先後排列，分屬已成型與未成型兩區">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="60" y="52" font-size="27" font-weight="700" fill="var(--ink)">誰先發酵，看它要進的體系成型了沒</text>
+
+<rect x="60" y="100" width="380" height="56" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text x="250" y="136" font-size="19" fill="var(--ink)" text-anchor="middle">舊體系已成型　進得快</text>
+<rect x="470" y="100" width="430" height="56" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text x="685" y="136" font-size="19" fill="var(--dim)" text-anchor="middle">體系還沒成型　要等協定與認證</text>
+
+<line x1="60" y1="300" x2="900" y2="300" stroke="var(--line)" stroke-width="4"/>
+<path d="M886 288 L910 300 L886 312 Z" fill="var(--grey)"/>
+<text x="860" y="346" font-size="16" fill="var(--dim)">較晚</text>
+<text x="60" y="346" font-size="16" fill="var(--dim)">較早</text>
+
+<circle cx="200" cy="300" r="13" fill="var(--accent)"/>
+<text x="200" y="262" font-size="20" font-weight="700" fill="var(--accent)" text-anchor="middle">氮化鎵</text>
+<text x="200" y="392" font-size="16" fill="var(--dim)" text-anchor="middle">資料中心電源</text>
+
+<circle cx="400" cy="300" r="13" fill="var(--ink)"/>
+<text x="400" y="262" font-size="20" fill="var(--ink)" text-anchor="middle">碳化矽</text>
+<text x="400" y="392" font-size="16" fill="var(--dim)" text-anchor="middle">高壓・車用</text>
+
+<circle cx="620" cy="300" r="13" fill="var(--ink)"/>
+<text x="620" y="262" font-size="20" fill="var(--ink)" text-anchor="middle">面射型雷射</text>
+<text x="620" y="392" font-size="16" fill="var(--dim)" text-anchor="middle">等協定</text>
+
+<circle cx="830" cy="300" r="13" fill="var(--grey)"/>
+<text x="830" y="262" font-size="20" fill="var(--dim)" text-anchor="middle">設備</text>
+
+<circle cx="300" cy="300" r="10" fill="var(--warn)"/>
+<text x="300" y="440" font-size="17" fill="var(--warn)" text-anchor="middle">封裝設備先拉過一波</text>
+<line x1="300" y1="314" x2="300" y2="418" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+</svg>

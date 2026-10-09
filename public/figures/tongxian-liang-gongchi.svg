@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="銅線只伸到一半就斷，光的連線跨到對面機櫃">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text x="60" y="52" font-size="27" font-weight="700" fill="var(--ink)">速率推高之後，銅線夠不到對面</text>
+
+<rect x="80" y="130" width="120" height="280" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="140" y="432" font-size="16" fill="var(--dim)" text-anchor="middle">機櫃</text>
+<rect x="760" y="130" width="120" height="280" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text x="820" y="432" font-size="16" fill="var(--dim)" text-anchor="middle">對面機櫃</text>
+
+<line x1="200" y1="215" x2="420" y2="215" stroke="var(--warn)" stroke-width="7"/>
+<line x1="404" y1="196" x2="436" y2="234" stroke="var(--warn)" stroke-width="5"/>
+<line x1="436" y1="196" x2="404" y2="234" stroke="var(--warn)" stroke-width="5"/>
+<text x="200" y="186" font-size="20" font-weight="700" fill="var(--warn)">銅線</text>
+<text x="300" y="186" font-size="16" fill="var(--dim)">約 2 公尺</text>
+
+<line x1="200" y1="330" x2="760" y2="330" stroke="var(--accent)" stroke-width="7"/>
+<path d="M748 318 L772 330 L748 342 Z" fill="var(--accent)"/>
+<text x="200" y="302" font-size="20" font-weight="700" fill="var(--accent)">光</text>
+<text x="260" y="302" font-size="16" fill="var(--dim)">接得到</text>
+
+<text x="80" y="490" font-size="22" font-weight="700" fill="var(--ink)">連不到，就只能換路</text>
+</svg>
