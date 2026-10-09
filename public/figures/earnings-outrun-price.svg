@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="盈餘上升線比股價上升線更陡，本益比由二十一倍降到二十倍">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="48" y="62">盈餘跑得比股價快</text>
+<rect x="48" y="96" width="500" height="340" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<line x1="90" y1="400" x2="510" y2="400" stroke="var(--line)" stroke-width="2"/>
+<line x1="90" y1="400" x2="90" y2="130" stroke="var(--line)" stroke-width="2"/>
+<polyline points="90,400 190,362 290,330 390,296 490,262" fill="none" stroke="var(--grey)" stroke-width="5"/>
+<polyline points="90,400 190,340 290,282 390,218 490,156" fill="none" stroke="var(--accent)" stroke-width="6"/>
+<circle cx="490" cy="156" r="7" fill="var(--accent)"/>
+<circle cx="490" cy="262" r="7" fill="var(--grey)"/>
+<text class="g" x="404" y="140" fill="var(--accent)">盈餘</text>
+<text class="g" x="404" y="292" fill="var(--dim)">股價</text>
+<rect x="600" y="96" width="312" height="340" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<rect x="648" y="190" width="86" height="210" rx="4" fill="var(--grey)"/>
+<rect x="786" y="200" width="86" height="200" rx="4" fill="var(--accent)"/>
+<text class="g" x="664" y="176">21 倍</text>
+<text class="g" x="802" y="186">20 倍</text>
+<text class="b" x="648" y="424">去年</text>
+<text class="b" x="786" y="424">現在</text>
+<path d="M748 150 L772 150" stroke="var(--dim)" stroke-width="3"/>
+<path d="M772 150 l-9 -6 l0 12 z" fill="var(--dim)"/>
+<text class="b" x="640" y="130">本益比</text>
+<text class="c" x="48" y="492">分母衝得比價格快，倍數反而往下</text>
+</svg>
