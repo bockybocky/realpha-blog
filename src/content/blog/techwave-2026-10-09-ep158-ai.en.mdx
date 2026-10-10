@@ -1,0 +1,89 @@
+---
+title: "AI Keeps Getting Smarter. Can the Hardware Keep Up? Notes on TechWave EP158 with Infineon Taiwan's Managing Director"
+description: "On 9 October 2026, TechWave EP158 interviewed Chih-Hao Chen, Managing Director of Infineon Taiwan, on data-center power delivery, software-defined vehicles, and humanoid robots. These are my listening notes and personal reading — educational discussion only, no investment advice, no stock recommendations, no price targets."
+slug: "techwave-2026-10-09-ep158-ai"
+lang: "en"
+pubDate: 2026-10-10
+category: "investing"
+kind: "podcast-notes"
+tags: ["AI infrastructure", "power bottleneck", "humanoid robots", "power semiconductors", "software-defined vehicle"]
+ogImage: "/covers/techwave-2026-10-09-ep158-ai-cover.png"
+cover: "/covers/techwave-2026-10-09-ep158-ai-cover.png"
+tldr: "Models get replaced generation by generation; the well underneath them does not. This episode moves the bottleneck from compute to power, sensing, and joints — though a supplier's bottleneck list deserves a discount."
+---
+
+![A long data-center power corridor, thick copper busbars converging into the depth of the frame, a humanoid robot standing still at a charging point at the far end](/covers/techwave-2026-10-09-ep158-ai-cover.png)
+
+> The Well: the town may be moved, the well is not moved. Nothing is lost, nothing is gained; they come and go and draw from the well.
+>
+> —— *Book of Changes*, Hexagram 48 "The Well" (pre-Qin China; translated by the author)
+
+On 9 October 2026, TechWave EP158 featured host Harry interviewing Chih-Hao Chen, Managing Director of Infineon Taiwan. His core claim: AI's binding constraint has moved from compute to power delivery and sensing. Rack power went from 1–10 kW in the pre-AI era to several hundred kW today, with some customers now pushing toward the megawatt class; GPU current went from tens of amps to one or two thousand, with designs underway at three to four thousand. A single 1 GW data center, he said, draws about what the entire German city of Munich consumes in a year, and he cited an International Energy Agency projection that around 2030 global AI data centers will consume close to all of India's electricity, roughly 7% of world energy. One caveat up front: he runs the Taiwan arm of a power semiconductor supplier, and his bottleneck list overlaps closely with his product line. So I'll argue both sides to the same length, then say which one I think holds.
+
+## The Case For, Made as Strong as It Gets
+
+Using his own evidence, pushed to its limit.
+
+**The voltage ladder.** Power leaves the plant at extremely high voltage; a GPU runs on roughly one volt of DC. In between sit substation conversion, rectification, storage, and layer after layer of step-down. Every layer produces heat, and the heat costs more power to remove. A conventional substation runs several shipping containers in size, which he called impractical at today's current levels — hence solid-state transformers, which shrink that footprint to about a third, raise efficiency, let different energy sources be switched in, and can even run power in reverse.
+
+![A staircase descends from left to right, dropping from hundreds of thousands of volts to about one volt, with an upward arrow marking heat at every step.](/figures/voltage-ladder-heat-en.svg)
+
+**The shape of the load changed.** During training steps like All-Reduce, every GPU communicates at once and draw spikes. A home fridge losing power means rebooting; a data center losing power for a second can destroy hours or days of computation. Beyond conventional UPS, the last year or two brought the BBU (Battery Backup Unit), which holds through outages and also props the voltage back up when it sags.
+
+**Space runs out before electricity does.** The first wall he says they hit is volume: power gear grows, cooling grows, and the copper needed to carry high current grows thicker. I found this the most interesting part — everyone talks about generation, and he points at the room not having space. Two responses: consolidate per-rack power supplies into a microgrid (NVIDIA's AI Factory, he said, is an early form of this), and move to vertical power delivery, stacking capacitors, inductors, and power devices right next to the GPU, because distance is resistance and resistance is heat. He expects volume production within two to three years and calls the shift irreversible, since the old architecture cannot carry the load.
+
+![Two power-demand curves are compared: the left is nearly flat, while the right has several tall spikes rising from the same baseline.](/figures/load-shape-flat-vs-spiky-en.svg)
+
+**Cars and robots inherit the same logic.** On vehicles he described the software-defined vehicle: function used to be locked into hardware at the factory gate; now it's zonal control, each block governed by software, with features added after delivery. Batteries are roughly 40% of an EV's cost and determine both range and safety, so battery management plus AI pays off. My favorite concrete example: in-cabin radar can tell whether what's left in the car is a parcel or a pet, without any camera — and some countries already legislate that capability.
+
+On robots he got specific. A humanoid weighs 60–70 kg with close to 70 joints; the large ones need torque to jump and run, the finger joints need the finesse to hold an egg or thread a needle. Fans run constantly to shed the heat of simply holding a standing posture, which is why a real unit is loud when you stand next to it. The 48 V lithium pack lasts under two hours in normal use; a bigger pack makes the robot bulky, and going to 72 V brings safety exposure. He estimates teams worldwide have reached only 10–20% of human hand dexterity, and puts the blocker on sensors — small enough to sit on a fingertip, fine enough to matter. The brain he does not consider the hard part: data-center GPUs, customized, will do.
+
+![Two panels compare power delivery: above, the power supply is far from the GPU along a long, thick conductor marked as hot; below, it sits directly beneath the GPU with an extremely short path.](/figures/vertical-power-distance-en.svg)
+
+The part that stayed with me was what he most wants AI to do: take over high-risk work. Fire scenes are full of smoke and dangerous to enter, and he described customer robot dogs carrying 100 kg with customizable upper bodies — water spraying, casualty transport — with stair, slope, and mud stability he rated as close to a real dog or better. In Taiwan, Infineon has worked with local partners to put radar on fire trucks so they don't clip people or bicycles while turning, and next month extends the sensing work to fire scenes and homes, detecting smoke and pressure change for earlier warning.
+
+## The Case Against
+
+Switching sides. Several things gave me pause.
+
+**One: the bottleneck list maps too neatly onto the catalog.** Power loss maps to solid-state transformers and vertical delivery, voltage instability to BBUs, poor voice pickup to silicon microphones, driver fatigue to ToF, robot safety to hardware security chips, hand finesse to sensors. Every pain point has a part number. That doesn't make him wrong, but interviews like this usually reason backward from what's sellable, and the listener has to restore the weights.
+
+**Two: a 1% fix against a multiple-x shortfall.** He says semiconductors shaving 0.1%, 0.5%, or 1% off consumption plays a critical role. In the same episode he says existing generation and grid cannot carry the growth. Put those together and efficiency does not close the gap. The real limits are generation capacity, interconnection queues, lead times on large transformers, cooling water rights, and electrical labor — none of which a better power device touches. Efficiency lowers unit cost; it does not lift a constraint.
+
+![A short bar for current power supply stands beside a demand bar several times taller, leaving a large gap, while only a razor-thin slice of savings is shaved from the current bar.](/figures/one-percent-vs-gap-en.svg)
+
+**Three: the Level 5 claim gets knocked down inside the episode.** He says Tesla's Cybercab in Texas is Level 5 and full autonomy is here. The host immediately raised test footage: someone got in, asked Grok to play music, and it didn't. That's a contradiction within one episode. Operating in a mapped, geofenced, remotely supervised area and driving any city street autonomously are different difficulty classes — and the music that didn't play points straight at the pain point he himself named, sensing and latency. Demo footage as proof of maturity is exactly where this goes wrong.
+
+**Four: two to three years is an R&D timeline, not a deployment timeline.** His basis is that many customers' development work looks mature. A supplier sees engineering progress; what it doesn't see is that undepreciated halls don't get torn out early, that utility approvals don't speed up because an architecture improved, and that heavy assets usually lag specs by years. I accept "irreversible." I treat "two to three years" as the optimistic end.
+
+**Five: the robot bottleneck is placed entirely on sensing.** Attributing the 10–20% dexterity gap to sensor size while calling the brain not the hard part is an allocation I'd question. Holding an egg without crushing it needs force-control policy in messy environments, not just pressure signals, and training data for that remains scarce enough to block scaling. He's a hardware supplier; weighting hardware is natural. The weighting shouldn't be copied over.
+
+**Six: he leaves a brutal line about commercialization himself.** On robot dogs: this will never be a ten- or twenty-million-unit market, so the business model is hard and customers struggle in the transition. Fire services and governments can push it, but high unit price, low volume, long procurement cycles. Buildable and sellable are two different curves.
+
+## My Read: Which Condition Decides It, and What You Can Watch Tomorrow
+
+My conclusion: his description of **physical limits** is credible; his description of **timelines and his own contribution** needs a discount. The dividing line is whether an outside party could prove the statement wrong. Conversion loss down the voltage ladder, the trade-off between joint torque and battery weight, the size floor on fingertip sensors — that's physics, and anyone saying it says the same thing. "Two to three years to volume" and "1% savings is critical" are positions, and a different speaker gives different numbers.
+
+Three things I've been chewing on since, which I suspect are where a lot of listeners get stuck too.
+
+**"The news keeps saying AI is short of power — should I go find something related to buy?"** I've fallen into this one: reading "this layer is tight" as "this layer makes money." Tight supply is not pricing power. These days I ask three questions first: can this layer raise prices while it's tight, can it sign long-term contracts, and how long would a customer need to replace it. This episode hands over a useful calibration number — Infineon is number one worldwide in automotive semiconductors with 12.8% share. A leader holding barely over a tenth means a fragmented market where switching costs aren't high enough to collect rent. The places where the leader holds seventy or eighty percent are where pricing power might live. Structure first, names second, instead of buying whoever makes the thing that's short.
+
+![Two equal horizontal bars are shown: in the upper bar, the leader occupies only a small segment while the rest is split into many fragments; in the lower bar, the leader occupies most of the bar.](/figures/share-structure-rent-en.svg)
+
+**"Why doesn't my car have the features from the keynote?"** The episode offers a better test than watching launch events. On in-cabin life detection he didn't say customers want it badly; he said some countries already legislate it. Regulation forces a definite requirement and a definite date, while a flashy feature lives and dies on reception. So with any new automotive feature I now ask: is this legally required, insurance-discounted, or a keynote highlight? The first two have a floor; the third can be cut anytime. And the Grok-music clip reminds me that bad user experience often roots in something unglamorous like microphone pickup — a spec that appears in no keynote.
+
+**"How do I ever check these predictions?"** I write the timelines down as a few dated, observable checkpoints, then come back when they're due and reweight. Three from this episode: whether, within two years, megawatt-class racks and consolidated power architectures appear in actual production shipment announcements rather than trade-show concepts; whether humanoid communication and hardware-security standards get finalized in any jurisdiction (he compared it to USB going from every vendor's own connector to one standard, which took many years); and whether robot dogs in firefighting show up in real government procurement rather than demonstration partnerships. The point of writing it down is that a year from now I won't just remember that it sounded reasonable.
+
+## Sources Worth Checking
+
+- TechWave EP158, 9 October 2026, host Harry interviewing Chih-Hao Chen, Managing Director of Infineon Taiwan. Rack power evolution, amperage figures, the Munich comparison, the IEA consumption projection, 12.8% automotive share, batteries at 40% of vehicle cost, the 48 V pack and roughly 70 joints, 10–20% hand dexterity, and the 100 kg robot dog all come from this episode.
+- To verify the consumption line yourself, look up the International Energy Agency's public reporting on data centers and electricity demand, where his figures and their definitions live.
+- For autonomy levels, read SAE's original level definitions directly, then check which level each company's claim actually matches.
+
+## The One Thing to Take Away
+
+**When someone describes both the problem and the solution, the problem half is usually more reliable than the solution half.** Physical limits read the same from any speaker; credit allocation changes with the speaker. The solid parts of this episode are the voltage ladder, joint torque, and the battery-weight trade-off. The parts needing a discount are "two to three years" and "1% savings is critical."
+
+Here's something I've tried, and do with any expert account: split the statements into two piles. Pile one is everything an outsider could prove wrong — numbers, specs, dates, regulations. Pile two is everything that rests on the speaker's own authority — importance, contribution, how many years. Don't throw pile two away; label it unverified. This works outside investing too: a doctor explaining a treatment course, a contractor quoting a wall, a colleague explaining why the project slipped. In my experience pile two is longer than pile one, and I used to copy both into my notes as if they were the same thing.
+
+![Two stacks of cards are shown: the shorter left stack is labeled as externally verifiable, while the much taller right stack is labeled as verifiable only by the person making the claims.](/figures/two-piles-verifiable-en.svg)

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="電源從遠端長導線改成貼在 GPU 旁邊，路徑縮短">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="80" y="62" font-size="27" font-weight="700" fill="var(--ink)">距離就是電阻</text>
+
+<text class="t" x="80" y="118" font-size="19" fill="var(--dim)">現在</text>
+<rect x="80" y="140" width="140" height="80" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="150" y="186" font-size="16" fill="var(--ink)" text-anchor="middle">電源</text>
+<rect x="220" y="168" width="560" height="24" fill="var(--grey)"/>
+<rect x="780" y="140" width="100" height="80" fill="var(--accent)" opacity="0.85"/>
+<text class="t" x="830" y="186" font-size="16" fill="var(--page)" text-anchor="middle">GPU</text>
+<text class="t" x="500" y="152" font-size="15" fill="var(--warn)" text-anchor="middle">長、粗、熱</text>
+
+<text class="t" x="80" y="300" font-size="19" fill="var(--dim)">垂直供電</text>
+<rect x="780" y="402" width="100" height="56" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="830" y="438" font-size="16" fill="var(--ink)" text-anchor="middle">電源</text>
+<rect x="780" y="322" width="100" height="80" fill="var(--accent)" opacity="0.85"/>
+<text class="t" x="830" y="368" font-size="16" fill="var(--page)" text-anchor="middle">GPU</text>
+<text class="t" x="660" y="396" font-size="15" fill="var(--dim)" text-anchor="end">路徑極短</text>
+<line x1="672" y1="390" x2="770" y2="390" stroke="var(--dim)" stroke-width="2"/>
+<polygon points="782,390 766,384 766,396" fill="var(--dim)"/>
+
+<text class="t" x="80" y="516" font-size="22" font-weight="700" fill="var(--ink)">把電搬到晶片旁邊，省下的是熱</text>
+</svg>
