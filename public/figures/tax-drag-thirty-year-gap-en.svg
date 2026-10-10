@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two curves rise from the same starting point, pre-tax above and after-tax below, with the gap widening by year until the difference is about one-third in year 30.">
+<defs><style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style></defs>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="62">Invisible in one year, obvious in thirty</text>
+<text class="b" x="60" y="96">Same money; the only difference is 160 basis points taken out each year</text>
+<line x1="120" y1="470" x2="880" y2="470" stroke="var(--line)" stroke-width="2"/>
+<path d="M120 460 C400 430 600 330 860 120 L860 232 C620 382 400 442 120 460 Z" fill="var(--warn)" fill-opacity="0.16"/>
+<path d="M120 460 C400 430 600 330 860 120" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<path d="M120 460 C400 442 620 382 860 232" fill="none" stroke="var(--grey)" stroke-width="4"/>
+<circle cx="860" cy="120" r="7" fill="var(--accent)"/>
+<circle cx="860" cy="232" r="7" fill="var(--grey)"/>
+<text class="g" x="700" y="104" fill="var(--accent)">Pre-tax</text>
+<text class="g" x="700" y="268" fill="var(--dim)">After tax</text>
+<line x1="896" y1="120" x2="896" y2="232" stroke="var(--warn)" stroke-width="3"/>
+<text class="g" x="716" y="180" fill="var(--warn)">Gap</text>
+<text class="g" x="716" y="206" fill="var(--warn)">About one-third</text>
+<text class="b" x="120" y="502">Year 1</text>
+<text class="b" x="812" y="502">Year 30</text>
+<text class="c" x="60" y="546">160 bps a year, and compounding magnifies it</text>
+</svg>
