@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩條通往 2K 的路：下載版要多經過一道放大模型，雲端版直達但未實測">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62">兩條路，畫面一樣大，中間差一道</text>
+
+  <text class="g" x="60" y="128">自己下載跑</text>
+  <rect x="60" y="150" width="150" height="86" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="s" x="76" y="198">1344×768</text>
+  <path d="M225 193 H315" stroke="var(--grey)" stroke-width="2"/>
+  <path d="M305 186 L318 193 L305 200 Z" fill="var(--grey)"/>
+  <rect x="325" y="160" width="190" height="66" rx="33" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text class="s" x="348" y="199">放大模型</text>
+  <path d="M530 193 H600" stroke="var(--grey)" stroke-width="2"/>
+  <path d="M590 186 L603 193 L590 200 Z" fill="var(--grey)"/>
+  <rect x="610" y="123" width="290" height="140" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="s" x="630" y="200">2560×1440</text>
+
+  <text class="g" x="60" y="352">雲端服務</text>
+  <rect x="60" y="374" width="150" height="86" rx="6" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="s" x="80" y="422">未實測</text>
+  <path d="M225 417 H600" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+  <path d="M590 410 L603 417 L590 424 Z" fill="var(--grey)"/>
+  <rect x="610" y="347" width="290" height="140" rx="6" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="s" x="630" y="424">原生 2K</text>
+</svg>

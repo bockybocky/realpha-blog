@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="記憶體峰值 52GB 的長條遠高於 24GB、12GB、8GB 三根">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62">這一段跑起來要的記憶體</text>
+  <path d="M60 450 H900" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="120" y="150" width="120" height="300" fill="var(--accent)"/>
+  <text class="g" x="140" y="135">52GB</text>
+  <text class="s" x="130" y="482">實測峰值</text>
+
+  <rect x="320" y="312" width="120" height="138" fill="var(--grey)"/>
+  <text class="g" x="345" y="297">24GB</text>
+  <text class="s" x="330" y="482">常租雲端卡</text>
+
+  <rect x="520" y="381" width="120" height="69" fill="var(--grey)"/>
+  <text class="g" x="545" y="366">12GB</text>
+  <text class="s" x="545" y="482">家用卡</text>
+
+  <rect x="720" y="404" width="120" height="46" fill="var(--grey)"/>
+  <text class="g" x="752" y="389">8GB</text>
+  <text class="s" x="745" y="482">家用卡</text>
+</svg>

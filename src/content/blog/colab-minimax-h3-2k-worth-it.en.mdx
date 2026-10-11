@@ -1,0 +1,84 @@
+---
+title: "Making AI Short Clips with MiniMax H3 on Colab: Is 2K Worth It?"
+description: "On October 12, 2026 I ran the MiniMax H3 video model through ComfyUI on a Google Colab Pro A100, generated 3-second clips at 1344×768, and upscaled them to 2K with Real-ESRGAN. Each clip took 206 seconds end to end with a GPU memory peak around 52GB. After comparing both versions, 768 was enough; the story is what decides whether a clip works. Includes the Colab gotchas I hit, the license terms worth reading, and three routes to 2K side by side. A personal learning note, not business advice."
+slug: "colab-minimax-h3-2k-worth-it"
+lang: "en"
+pubDate: 2026-10-12
+category: "tech"
+tags: ["Google Colab", "MiniMax H3", "ComfyUI", "Real-ESRGAN", "AI video", "cloud GPU"]
+ogImage: "/covers/colab-minimax-h3-2k-worth-it.png"
+cover: "/covers/colab-minimax-h3-2k-worth-it.png"
+tldr: "A 3-second AI clip on a Colab A100, upscaled to 2K, took 206 seconds and peaked near 52GB of GPU memory. On a phone the two versions look about the same, so the effort is better spent on the story and on keeping the same face from clip to clip."
+draft: false
+---
+
+![Romanticist oil painting cover: a painter on a cliff at dusk holds a small blank canvas while a huge magnifying lens beside him enlarges an empty frame; the storm clouds overhead carry the real story of the scene](/covers/colab-minimax-h3-2k-worth-it.png)
+
+> *The painting comes after the plain ground.*<br/>
+> —— Confucius, *Analects*, "Ba Yi" (Spring and Autumn period; translation mine)
+
+On October 12, 2026 I picked an A100 on Google Colab Pro and ran the MiniMax H3 video model through ComfyUI. Each clip was about 3 seconds (73 frames) at 1344×768, which I then upscaled with Real-ESRGAN to 2560×1440. Generation plus upscaling took 206 seconds per clip, and GPU memory peaked around 52GB. When I put both versions on my phone, I could barely tell them apart. My takeaway: 1344×768 is enough, 2K isn't worth the extra wait, and what actually makes a short clip work is the story and whether the person still looks like the same person from one clip to the next.
+
+## Going in, I thought resolution was the bar
+
+Here's what I assumed before I started. AI video looks "AI" mostly because it's soft. Colab lends you a big GPU, so why not push all the way to 2K and fix half the problem?
+
+MiniMax H3 is a video model MiniMax released for people to download and run themselves. Reading its official license, I noticed something few people mention: the downloadable version doesn't output 2K at all. Press coverage says the local release tops out at 768p and native 2K lives on their cloud service. The license file itself doesn't say this, so I treat it as secondhand. Either way, if you want 2K in your own setup, the only path is to render around 768 and upscale with a different model.
+
+![The top row shows the self-hosted path: a small 768 frame is generated first, then passes through an upscaling model to become a large 2K frame; the bottom row shows the cloud service path, with a dashed line going straight to the 2K frame, marked as untested.](/figures/two-roads-to-2k-en.svg)
+
+For upscaling I used Real-ESRGAN, open-sourced by researchers at Tencent ARC Lab under BSD-3, with a ready-made 2x model. 1344×768 doubled is 2688×1536, which is slightly off 16:9, so I cropped it to 2560×1440 with lanczos, a common resampling filter.
+
+## Once it ran, the evidence didn't favor 2K
+
+First, the Colab side. Colab is Google's hosted notebook: open a browser, borrow a GPU, run code. On the Pro plan the biggest card I could pick was an A100, and the runtime reported 80GB of GPU memory. H100 needs a higher tier. As for what Pro costs per month and how many compute units an A100 burns per hour, Colab's pricing page only shows details after you log in, and the FAQ just says available GPU types change over time. So I'm not putting numbers here; go by what you see in your own account.
+
+ComfyUI is an open-source node-based interface that lays out model loading, prompting, and video output as a flowchart. I used a 4-step accelerated setup: fewer steps, faster runs. Each 3-second, 73-frame 1344×768 clip, plus upscaling and cropping, came to 206 seconds, with memory peaking near 52GB. I didn't time generation and upscaling separately, so I can't say how much of that the upscale alone took.
+
+That 52GB number made me stop for a second. It's far beyond the 8GB or 12GB on a typical home graphics card, and above the 24GB cards many people rent in the cloud. Put plainly, this generate-plus-upscale setup runs smoothly on a Colab A100 and might not run at all at home.
+
+![Four bars are compared by height, and the 52GB bar stands more than twice as tall as the other three, with 24GB, 12GB and 8GB stepping down in turn.](/figures/memory-peak-vs-common-cards-en.svg)
+
+Then the comparison. I sent both the 768 version and the 2K version to my phone. Honestly, on a six-and-a-bit-inch screen I couldn't reliably tell which was which. Full-screen on a computer, the 2K one shows a bit more detail, but people watching short clips are mostly scrolling on phones.
+
+What I couldn't get past was the story. A little softness I could live with. Three seconds is enough for one action: a head turn, picking up a cup, two steps. A one-minute clip needs 15 to 20 of those stitched together, and every one is generated fresh, so the same person can have a different face in clip three than in clip four. I haven't solved that yet. 2K doesn't fix it; it just makes the mismatch easier to see.
+
+![A row of twenty 3-second cells making up one minute, each with a face; several faces differ in position and color from the rest, marking where the face breaks between clips.](/figures/one-minute-is-twenty-separate-faces-en.svg)
+
+![On the phone screen at left the grain in both halves of the frame looks the same, while on the large screen at right the right half is clearly finer, a difference that only shows up on the big screen.](/figures/screen-size-decides-visible-detail-en.svg)
+
+## How I see it now, and what's still open
+
+If you started where I did, maxing out resolution first, I'd flip the order. Lay out the whole story at 1344×768 first, make sure each action connects and the person reads as the same person, and only upscale the few clips that are actually going to a big screen.
+
+Three routes to 2K side by side (license and specs per official docs checked 2026-10-12; time and memory are my own measurements from that day):
+
+| | 768 direct | 768 + Real-ESRGAN to 2K | MiniMax cloud, native 2K |
+|---|---|---|---|
+| Did I test it | Yes, inside the 206 s | Yes, 206 s per clip | No |
+| GPU memory | Not measured alone | Peak ~52GB | Not your GPU |
+| On a phone | Good enough | About the same as 768 | Not compared |
+| Watch out for | Local-release license terms | One more model, more time | Pricing not in the docs I found |
+| Good for | Blocking out the story, phone clips | The few clips headed to a big screen | When you need native high resolution |
+
+The license deserves a second look too. The MiniMax H3 community license is royalty-free and allows commercial use, with conditions: above US$20 million in annual revenue you need a separate agreement; the US, EU, UK, and South Korea are outside the licensed territory, while Taiwan is inside; commercial products must show that they use MiniMax H3 in the interface; and there's a list of 20 prohibited uses, including using the model or its outputs to train or improve other AI models. If you plan to take paid work with these clips, check those terms before you worry about resolution.
+
+Last, the four snags I hit that day, in order.
+
+One: Colab let me run at most two sessions at once. That's the limit I ran into; the official docs don't give a number. When you're full, close an old one under "Manage sessions" before starting a new one.
+
+Two: when mounting Google Drive, I ticked only one permission the first time and got "credential propagation was unsuccessful." Doing it again with every permission selected worked. The docs don't say to select all; I've only seen that error in user reports.
+
+Three: with a close-up, head-and-shoulders framing, the hands are out of shot, so don't describe hand movements in the prompt. The model can't act them out and tends to produce something odd instead.
+
+Four: the model files are large, so I saved them to my own Google Drive. Next time a new session starts, I copy them over from Drive instead of downloading again. I haven't measured how much time that saves.
+
+Two things are still open: how the 206 seconds splits between generation and upscaling, and how to keep a person consistent across clips. The second is where my time goes next.
+
+## The one thing to take with you
+
+Get the content right before you raise the spec. A higher spec can't rescue the content; it only enlarges whatever is wrong with it.
+
+![A small canvas at left has a gap in it, and at right the same canvas magnified by a lens shows that gap grown large and obvious.](/figures/raising-spec-magnifies-the-gap-en.svg)
+
+Something you could try today: take whatever you're working on, a slide deck, a video, a report, and write two lists. One is "how polished it needs to look." The other is "what it's actually trying to say." Then check which list is eating most of your time. This time I spent it on the first list, and only then noticed the second one should have come first.

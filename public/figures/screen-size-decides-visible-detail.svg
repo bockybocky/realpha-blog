@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="手機上兩版差別看不出，大螢幕上才看得出細節差異">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62">差別在哪個螢幕上才現形</text>
+
+  <rect x="110" y="120" width="170" height="300" rx="20" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <g fill="var(--grey)">
+    <circle cx="140" cy="180" r="7"/><circle cx="170" cy="180" r="7"/><circle cx="140" cy="215" r="7"/><circle cx="170" cy="215" r="7"/>
+    <circle cx="140" cy="250" r="7"/><circle cx="170" cy="250" r="7"/><circle cx="140" cy="285" r="7"/><circle cx="170" cy="285" r="7"/>
+    <circle cx="220" cy="180" r="7"/><circle cx="250" cy="180" r="7"/><circle cx="220" cy="215" r="7"/><circle cx="250" cy="215" r="7"/>
+    <circle cx="220" cy="250" r="7"/><circle cx="250" cy="250" r="7"/><circle cx="220" cy="285" r="7"/><circle cx="250" cy="285" r="7"/>
+  </g>
+  <path d="M195 130 V410" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="150" y="455">手機</text>
+  <text class="c" x="110" y="495">分不出</text>
+
+  <rect x="480" y="140" width="400" height="240" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <g fill="var(--grey)">
+    <circle cx="520" cy="190" r="11"/><circle cx="570" cy="190" r="11"/><circle cx="620" cy="190" r="11"/>
+    <circle cx="520" cy="250" r="11"/><circle cx="570" cy="250" r="11"/><circle cx="620" cy="250" r="11"/>
+    <circle cx="520" cy="310" r="11"/><circle cx="570" cy="310" r="11"/><circle cx="620" cy="310" r="11"/>
+  </g>
+  <g fill="var(--accent)">
+    <circle cx="710" cy="180" r="4"/><circle cx="740" cy="180" r="4"/><circle cx="770" cy="180" r="4"/><circle cx="800" cy="180" r="4"/><circle cx="830" cy="180" r="4"/>
+    <circle cx="710" cy="212" r="4"/><circle cx="740" cy="212" r="4"/><circle cx="770" cy="212" r="4"/><circle cx="800" cy="212" r="4"/><circle cx="830" cy="212" r="4"/>
+    <circle cx="710" cy="244" r="4"/><circle cx="740" cy="244" r="4"/><circle cx="770" cy="244" r="4"/><circle cx="800" cy="244" r="4"/><circle cx="830" cy="244" r="4"/>
+    <circle cx="710" cy="276" r="4"/><circle cx="740" cy="276" r="4"/><circle cx="770" cy="276" r="4"/><circle cx="800" cy="276" r="4"/><circle cx="830" cy="276" r="4"/>
+    <circle cx="710" cy="308" r="4"/><circle cx="740" cy="308" r="4"/><circle cx="770" cy="308" r="4"/><circle cx="800" cy="308" r="4"/><circle cx="830" cy="308" r="4"/>
+  </g>
+  <path d="M680 150 V370" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="480" y="420">電腦全螢幕</text>
+  <text class="c" x="480" y="495">看得出</text>
+  <text class="s" x="760" y="420">多數觀眾不在這裡</text>
+</svg>
