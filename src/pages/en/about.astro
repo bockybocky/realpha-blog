@@ -3,19 +3,20 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 
 const locale = 'en';
 // 2026-09-15 redesign: the site is now about growth, learning and markets; Realpha brand kept, no author persona; ledger and challenge page removed
+// 2026-10-11 redesign: positioning is now AI x investment research, done hands-on (Charles decision; see D:/ai-memory/Projects/realpha_blog/traffic_audit_20261011.md)
 ---
 
-<SiteLayout title="About" description="Realpha is a slowly written set of learning notes: growth, research, and markets. Every post ends with one small thing you can take with you today." locale={locale} path="/en/about/" alternatePath="/about/" breadcrumbs={[{ name: 'About', path: '/en/about/' }]}>
+<SiteLayout title="About" description="Realpha is an independent research brand that combines AI, quantitative validation and fundamental research to test every investment call. We show how the research gets done with AI, tools and code included." locale={locale} path="/en/about/" alternatePath="/about/" breadcrumbs={[{ name: 'About', path: '/en/about/' }]}>
 	<main class="page article-shell">
 		<header class="article-header">
-			<h1 class="article-title">Thinking one thing through, slowly</h1>
-			<p class="lead">Realpha is a set of learning notes. Books, podcasts, new tools, markets: the parts that finally made sense get written down, and the parts that still don't are left open, honestly.</p>
+			<h1 class="article-title">Investment research with AI, with the work shown</h1>
+			<p class="lead">Realpha is an independent research brand that combines AI, quantitative validation and fundamental research to test every investment call. You get more than the conclusion: which AI tools were used, how the call was checked, and where it went wrong.</p>
 		</header>
 		<div class="prose">
 			<h2>What is here</h2>
-			<p><a href="/en/topics/growth/">Mindset &amp; Growth</a>: how to think things through, how to make a call, how to live with uncertainty.</p>
-			<p><a href="/en/topics/learning/">Research Notes</a>: AI tools, certifications, books, and a few small hands-on experiments.</p>
+			<p><a href="/en/topics/learning/">Research Notes</a>: AI x investment research, hands-on. How to read filings with AI, run checks, and build a research workflow, with tools and code you can follow.</p>
 			<p><a href="/en/topics/markets/">Investing &amp; Markets</a>: chips, the AI supply chain, macro. About understanding what is going on — no stock tips, no price targets.</p>
+			<p><a href="/en/topics/growth/">Mindset &amp; Growth</a>: how to think things through, how to make a call, how to live with uncertainty.</p>
 
 			<h2>The one thing at the end</h2>
 			<p>A few days after reading a post, most of it is gone. So every post ends with "one thing to take with you": a single idea and a small exercise you can try today. You don't need to remember the whole post — just that one thing.</p>

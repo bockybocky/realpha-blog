@@ -3,7 +3,7 @@ export type Locale = 'zh-TW' | 'en';
 export const site = {
 	name: 'Realpha Blog',
 	url: 'https://blog.getrealpha.com',
-	description: 'Bilingual technical and investment research notes by Realpha, Bocky, and the AI research team.',
+	description: 'Realpha is an independent research brand combining AI, quantitative validation and fundamental research to test every investment call.',
 	author: 'Bocky',
 	github: 'https://github.com/bockybocky',
 	org: 'Realpha',
