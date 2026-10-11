@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="同樣比例的一塊，在小圓裡很小，在放大後的大圓裡面積明顯大得多">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text x="60" y="64" font-size="27" fill="var(--ink)">池子會變大</text>
+
+<circle cx="240" cy="300" r="70" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<path d="M240 300 L310 300 A70 70 0 0 0 275 239 Z" fill="var(--accent)"/>
+<text x="240" y="420" font-size="20" fill="var(--dim)" text-anchor="middle">現在</text>
+
+<circle cx="700" cy="300" r="170" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<path d="M700 300 L870 300 A170 170 0 0 0 785 153 Z" fill="var(--accent)"/>
+<text x="700" y="500" font-size="20" fill="var(--dim)" text-anchor="middle">後來</text>
+
+<line x1="330" y1="300" x2="500" y2="300" stroke="var(--dim)" stroke-width="3"/>
+<path d="M500 300 l-14 -8 l0 16 Z" fill="var(--dim)"/>
+<text x="415" y="276" font-size="19" fill="var(--dim)" text-anchor="middle">同一份佔比</text>
+</svg>

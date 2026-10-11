@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="同一則新聞下，8% 的小倉位只對應一個查看點，30% 的大倉位對應一長排查看點">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="60" y="64" font-size="27" fill="var(--ink)">同一則新聞，兩個倉位</text>
+
+<rect x="400" y="96" width="160" height="48" rx="24" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="480" y="128" font-size="19" fill="var(--ink)" text-anchor="middle">一則新聞</text>
+<path d="M440 144 L260 196" stroke="var(--dim)" stroke-width="2"/>
+<path d="M520 144 L700 196" stroke="var(--dim)" stroke-width="2"/>
+
+<rect x="200" y="300" width="120" height="48" rx="4" fill="var(--accent)"/>
+<text x="260" y="286" font-size="20" fill="var(--accent)" text-anchor="middle">8%</text>
+<circle cx="260" cy="400" r="10" fill="var(--accent)"/>
+<text x="260" y="446" font-size="19" fill="var(--dim)" text-anchor="middle">看完放下</text>
+
+<rect x="640" y="168" width="120" height="180" rx="4" fill="var(--warn)"/>
+<text x="700" y="154" font-size="20" fill="var(--warn)" text-anchor="middle">30%</text>
+<circle cx="610" cy="400" r="10" fill="var(--warn)"/>
+<circle cx="646" cy="400" r="10" fill="var(--warn)"/>
+<circle cx="682" cy="400" r="10" fill="var(--warn)"/>
+<circle cx="718" cy="400" r="10" fill="var(--warn)"/>
+<circle cx="754" cy="400" r="10" fill="var(--warn)"/>
+<circle cx="790" cy="400" r="10" fill="var(--warn)"/>
+<text x="700" y="446" font-size="19" fill="var(--dim)" text-anchor="middle">一直刷</text>
+</svg>
