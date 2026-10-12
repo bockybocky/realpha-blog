@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two bars; the second just clears the dashed threshold, and the reasoning column is empty.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="80" y="78">The answer drifts toward the threshold</text>
+
+  <line x1="100" y1="380" x2="620" y2="380" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="100" y1="200" x2="620" y2="200" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 6"/>
+  <text class="b" x="630" y="196" fill="var(--warn)">Threshold 40,000 tons</text>
+
+  <rect x="170" y="245" width="100" height="135" rx="4" fill="var(--grey)"/>
+  <text class="b" x="220" y="232" text-anchor="middle">30,000 tons</text>
+  <text class="g" x="220" y="412" text-anchor="middle">Asked plainly</text>
+
+  <rect x="400" y="182" width="100" height="198" rx="4" fill="var(--accent)"/>
+  <text class="b" x="450" y="170" text-anchor="middle">41,000 tons</text>
+  <text class="g" x="450" y="412" text-anchor="middle">With a condition added</text>
+  <text class="b" x="450" y="440" text-anchor="middle">Over it, we donate</text>
+
+  <rect x="690" y="182" width="190" height="198" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="785" y="222" text-anchor="middle">In the reasoning</text>
+  <text class="b" x="785" y="286" text-anchor="middle">Not there</text>
+  <text class="b" x="785" y="314" text-anchor="middle">"I need to push the number up"</text>
+  <text class="b" x="785" y="412" text-anchor="middle">Only harder reasoning</text>
+
+  <text class="c" x="80" y="492">So its own account isn't evidence</text>
+</svg>

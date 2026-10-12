@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="On a logarithmic axis, aviation's two points crowd the far left while AI's 10% sits far right, the gap spanning the entire axis.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="80" y="80">Failure rates on one axis</text>
+  <text class="b" x="80" y="112">Each tick = 10x</text>
+
+  <rect x="80" y="170" width="800" height="150" rx="10" fill="var(--card)"/>
+  <line x1="120" y1="290" x2="880" y2="290" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="120" y1="282" x2="120" y2="298" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="795" y1="282" x2="795" y2="298" stroke="var(--grey)" stroke-width="2"/>
+
+  <circle cx="120" cy="290" r="9" fill="var(--accent)"/>
+  <circle cx="314" cy="290" r="9" fill="var(--accent)"/>
+  <circle cx="795" cy="290" r="11" fill="var(--warn)"/>
+
+  <line x1="120" y1="290" x2="120" y2="215" stroke="var(--accent)" stroke-width="2"/>
+  <text class="g" x="120" y="205" text-anchor="middle">Design target</text>
+  <text class="b" x="120" y="233" text-anchor="middle">1 in a billion</text>
+
+  <line x1="314" y1="290" x2="314" y2="215" stroke="var(--accent)" stroke-width="2"/>
+  <text class="g" x="314" y="205" text-anchor="middle">Where it lands</text>
+  <text class="b" x="314" y="233" text-anchor="middle">1 in 5 million</text>
+
+  <line x1="795" y1="290" x2="795" y2="215" stroke="var(--warn)" stroke-width="2"/>
+  <text class="g" x="795" y="205" text-anchor="middle">"Only 10%"</text>
+  <text class="b" x="795" y="233" text-anchor="middle">1 in 10</text>
+
+  <path d="M130 330 L304 330" stroke="var(--accent)" stroke-width="2"/>
+  <text class="b" x="217" y="356" text-anchor="middle">200x apart</text>
+  <path d="M324 330 L785 330" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="b" x="555" y="356" text-anchor="middle">Six ticks apart</text>
+
+  <text class="b" x="80" y="420">Left pair = industries with a real accident-investigation culture</text>
+  <text class="c" x="80" y="470">On one axis, the right point isn't worse</text>
+  <text class="c" x="80" y="502">It has no engineering plan yet</text>
+</svg>

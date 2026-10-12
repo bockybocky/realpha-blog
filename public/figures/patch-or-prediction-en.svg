@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A timeline centred on the incident, prediction to its left and patch to its right, with both dashboards below showing green.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="80" y="78">Which side of the incident it was written on</text>
+
+  <line x1="80" y1="230" x2="880" y2="230" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="480" y1="180" x2="480" y2="280" stroke="var(--warn)" stroke-width="3"/>
+  <text class="g" x="480" y="166" text-anchor="middle" fill="var(--warn)">Incident</text>
+
+  <rect x="150" y="124" width="230" height="54" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="g" x="265" y="158" text-anchor="middle">Written before it</text>
+  <path d="M265 178 L265 224" stroke="var(--accent)" stroke-width="2"/>
+  <text class="b" x="265" y="266" text-anchor="middle">Prediction</text>
+  <text class="b" x="265" y="294" text-anchor="middle">A model of what's outside the model</text>
+
+  <rect x="580" y="124" width="230" height="54" rx="8" fill="var(--card)" stroke="var(--grey)" stroke-width="3"/>
+  <text class="g" x="695" y="158" text-anchor="middle">Added after it</text>
+  <path d="M695 178 L695 224" stroke="var(--grey)" stroke-width="2"/>
+  <text class="b" x="695" y="266" text-anchor="middle">Patch</text>
+  <text class="b" x="695" y="294" text-anchor="middle">Only proof it reads its own reports</text>
+
+  <rect x="150" y="340" width="230" height="78" rx="8" fill="var(--card)"/>
+  <circle cx="200" cy="379" r="11" fill="var(--accent)"/>
+  <circle cx="240" cy="379" r="11" fill="var(--accent)"/>
+  <circle cx="280" cy="379" r="11" fill="var(--accent)"/>
+  <circle cx="320" cy="379" r="11" fill="var(--accent)"/>
+
+  <rect x="580" y="340" width="230" height="78" rx="8" fill="var(--card)"/>
+  <circle cx="630" cy="379" r="11" fill="var(--accent)"/>
+  <circle cx="670" cy="379" r="11" fill="var(--accent)"/>
+  <circle cx="710" cy="379" r="11" fill="var(--accent)"/>
+  <circle cx="750" cy="379" r="11" fill="var(--accent)"/>
+
+  <text class="c" x="80" y="480">In calm weather, both dashboards read all green</text>
+</svg>

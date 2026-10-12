@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="One reference arrow and three deviations: overshooting the same way, pointing the opposite way, and veering off at an angle, with the angled one highlighted.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="80" y="78">Three ways to miss, one with no fix</text>
+
+  <circle cx="300" cy="300" r="7" fill="var(--ink)"/>
+  <text class="b" x="300" y="336" text-anchor="middle">Where you started it</text>
+
+  <line x1="300" y1="300" x2="520" y2="300" stroke="var(--ink)" stroke-width="3"/>
+  <path d="M520 300 L504 292 L504 308 Z" fill="var(--ink)"/>
+  <text class="g" x="528" y="296">What you wanted</text>
+
+  <line x1="300" y1="300" x2="760" y2="222" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M760 222 L742 218 L746 234 Z" fill="var(--grey)"/>
+  <text class="g" x="700" y="202">Literal overshoot</text>
+  <text class="b" x="700" y="228">Fix: say it clearly</text>
+
+  <line x1="300" y1="300" x2="110" y2="400" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M110 400 L128 398 L120 384 Z" fill="var(--grey)"/>
+  <text class="g" x="96" y="438">Awakened rebellion</text>
+  <text class="b" x="96" y="464">Fix: don't let it wake up</text>
+
+  <line x1="300" y1="300" x2="700" y2="440" stroke="var(--warn)" stroke-width="4"/>
+  <path d="M700 440 L682 436 L686 452 Z" fill="var(--warn)"/>
+  <text class="g" x="640" y="482" fill="var(--warn)">Related, but not the thing</text>
+  <text class="b" x="640" y="508">Fix: none</text>
+
+  <text class="c" x="80" y="150">The real one is the angled one</text>
+</svg>

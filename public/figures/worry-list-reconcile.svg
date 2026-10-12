@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左右兩欄配對，部分實線連上，部分虛線斷在中間">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="80" y="78">一條一條對</text>
+
+  <text class="g" x="80" y="132">三個月前寫下的</text>
+  <text class="g" x="880" y="132" text-anchor="end">真正發生的</text>
+
+  <rect x="80" y="160" width="260" height="52" rx="8" fill="var(--card)"/>
+  <rect x="80" y="232" width="260" height="52" rx="8" fill="var(--card)"/>
+  <rect x="80" y="304" width="260" height="52" rx="8" fill="var(--card)"/>
+  <rect x="80" y="376" width="260" height="52" rx="8" fill="var(--card)"/>
+  <text class="b" x="106" y="192">擔心一</text>
+  <text class="b" x="106" y="264">擔心二</text>
+  <text class="b" x="106" y="336">擔心三</text>
+  <text class="b" x="106" y="408">擔心四</text>
+
+  <rect x="620" y="160" width="260" height="52" rx="8" fill="var(--card)"/>
+  <rect x="620" y="232" width="260" height="52" rx="8" fill="var(--card)"/>
+  <rect x="620" y="304" width="260" height="52" rx="8" fill="var(--card)"/>
+  <rect x="620" y="376" width="260" height="52" rx="8" fill="var(--card)"/>
+  <text class="b" x="646" y="192">麻煩一</text>
+  <text class="b" x="646" y="264">麻煩二</text>
+  <text class="b" x="646" y="336">麻煩三</text>
+  <text class="b" x="646" y="408">麻煩四</text>
+
+  <line x1="340" y1="186" x2="620" y2="186" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="340" y1="330" x2="620" y2="258" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="340" y1="258" x2="455" y2="258" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+  <line x1="340" y1="402" x2="455" y2="402" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+  <line x1="505" y1="330" x2="620" y2="330" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+  <line x1="505" y1="402" x2="620" y2="402" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+
+  <text class="b" x="480" y="162" text-anchor="middle" fill="var(--accent)">對上了</text>
+  <text class="b" x="480" y="466" text-anchor="middle" fill="var(--warn)">斷在中間的，是你在追著事後補</text>
+
+  <text class="c" x="80" y="512">能證明你不是事後聰明的，只有那個日期</text>
+</svg>

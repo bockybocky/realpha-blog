@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two columns paired up, some joined by solid lines and others with dashed lines breaking off midway.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="80" y="78">Line by line</text>
+
+  <text class="g" x="80" y="132">Written three months ago</text>
+  <text class="g" x="880" y="132" text-anchor="end">What actually happened</text>
+
+  <rect x="80" y="160" width="260" height="52" rx="8" fill="var(--card)"/>
+  <rect x="80" y="232" width="260" height="52" rx="8" fill="var(--card)"/>
+  <rect x="80" y="304" width="260" height="52" rx="8" fill="var(--card)"/>
+  <rect x="80" y="376" width="260" height="52" rx="8" fill="var(--card)"/>
+  <text class="b" x="106" y="192">Worry 1</text>
+  <text class="b" x="106" y="264">Worry 2</text>
+  <text class="b" x="106" y="336">Worry 3</text>
+  <text class="b" x="106" y="408">Worry 4</text>
+
+  <rect x="620" y="160" width="260" height="52" rx="8" fill="var(--card)"/>
+  <rect x="620" y="232" width="260" height="52" rx="8" fill="var(--card)"/>
+  <rect x="620" y="304" width="260" height="52" rx="8" fill="var(--card)"/>
+  <rect x="620" y="376" width="260" height="52" rx="8" fill="var(--card)"/>
+  <text class="b" x="646" y="192">Trouble 1</text>
+  <text class="b" x="646" y="264">Trouble 2</text>
+  <text class="b" x="646" y="336">Trouble 3</text>
+  <text class="b" x="646" y="408">Trouble 4</text>
+
+  <line x1="340" y1="186" x2="620" y2="186" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="340" y1="330" x2="620" y2="258" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="340" y1="258" x2="455" y2="258" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+  <line x1="340" y1="402" x2="455" y2="402" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+  <line x1="505" y1="330" x2="620" y2="330" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+  <line x1="505" y1="402" x2="620" y2="402" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+
+  <text class="b" x="480" y="162" text-anchor="middle" fill="var(--accent)">Matched</text>
+  <text class="b" x="480" y="466" text-anchor="middle" fill="var(--warn)">The broken ones are where you're catching up after the fact</text>
+
+  <text class="c" x="80" y="512">Only that date proves you weren't wise after the event</text>
+</svg>
