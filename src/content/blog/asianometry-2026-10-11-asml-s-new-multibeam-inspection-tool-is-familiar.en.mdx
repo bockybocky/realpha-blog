@@ -1,0 +1,118 @@
+---
+title: "A Lithography Machine That Never Sold, Reborn Two Decades Later as an ASML Inspection Tool"
+description: "Asianometry's 11 October 2026 episode on ASML's eScan 2200 multibeam inspection tool, whose technology came from Mapper Lithography, the Dutch startup that went bankrupt in 2018. Listening notes: the twenty-year timeline plus my own reading. Educational only — no investment advice, price targets or stock recommendations."
+slug: asianometry-2026-10-11-asml-s-new-multibeam-inspection-tool-is-familiar
+lang: "en"
+pubDate: 2026-10-12
+category: investing
+kind: "podcast-notes"
+tags: ["ASML", "semicap", "electron beam", "lithography", "TSMC"]
+ogImage: /covers/asianometry-2026-10-11-asml-s-new-multibeam-inspection-tool-is-familiar-cover.png
+cover: /covers/asianometry-2026-10-11-asml-s-new-multibeam-inspection-tool-is-familiar-cover.png
+---
+
+![A cleanroom corridor at night; in the foreground a compact electron-beam inspection column glows from within while a technician opens a single-side service panel, identical columns receding into haze deep behind](/covers/asianometry-2026-10-11-asml-s-new-multibeam-inspection-tool-is-familiar-cover.png)
+
+> Everyone knows the usefulness of the useful, but no one knows the usefulness of the useless.
+>
+> —— *Zhuangzi*, "In the World of Men" (Warring States period; translated by the author)
+
+In Asianometry's 11 October 2026 episode, "ASML's New Multibeam Inspection Tool is Familiar," the host says he was at ITF World 2026 in Antwerp listening to ASML CEO Christophe Fouquet when he recognised something on the slides: the new eScan 2200 multibeam inspection tool runs on technology from Mapper Lithography, a Dutch lithography startup. Mapper was founded in 2000, took investment from TSMC in 2008, and filed for bankruptcy in December 2018; ASML bought its IP and assets for €75 million and said plainly at the time that the people would be hired but the technology line would not be continued as lithography. Seven years on, that technology is in the inspection line — from the nine beams of the 2022 eScan 1000 and the twenty-five of the 1100, up to this year's 2200. What follows is engineering and corporate history, with no bearing on buying or selling anything.
+
+## 1989 to 1999: first, a proposal that died cleanly
+
+Drawing chips with electrons is an old idea. Electron beam direct write tools — EBDW, which paints the design straight onto a resist-coated wafer with no mask in between — appeared in the 1960s, modelled on electron microscopes: an electron gun fires one beam, electron optics focus it, and the beam scans the wafer line by line like the gun in an old cathode ray tube television. Its strengths are real. It was doing 20-nanometre line widths in the 1990s and goes below 10 today, finer than leading-edge nodes demand. Optical lithography suffers hot spots where certain mask patterns fail to print; an electron beam draws whatever you want. And there is no photomask — a set of leading-edge masks costs tens of millions of dollars, so skipping it is money in hand.
+
+The price is speed. One beam scanning slowly takes hours or days per wafer, and the more complex the design the worse it gets. Which is why e-beam lithography's day job is still making the photomasks themselves, or prototypes for customers and small academic runs — the cases where volume can never justify an expensive mask.
+
+In 1989 Bell Labs proposed SCALPEL, which tried to teach electrons the optical trick: project the beam at a scattering mask carrying the design at four times final size, let most electrons pass through with little deflection while the printed "ink" scatters others sharply, then send everything through a magnetic lens and an aperture that filters out the strongly scattered ones. Putting the filtering job on the aperture spares the delicate, expensive mask from the bombardment. Bell Labs worked on it for over a decade without making it work.
+
+The part I like most is how it was killed. Pieter Kruit, a physics professor specialising in electron optics at Delft University of Technology, evaluated a similar system for ASML and judged it structurally flawed. The aperture forces every electron in the beam through a single crossover point, and electrons repel one another, so at that chokepoint energetic electrons shove each other aside at random and blur the beam. Because the interactions are stochastic, ordinary lenses cannot correct the blur. Applied Materials and later Nikon spent years on variants of electron projection lithography and got nowhere.
+
+## 2000: splitting one beam into twenty million
+
+Kruit's answer was to avoid the crossover entirely. Crowding is what causes the repulsion, so make every beamlet weak enough that they leave each other alone — his original paper discussed a million to a hundred million beamlets, each one a pixel in the design. The concept was named MAPPER, for Multiple Aperture Pixel by Pixel Enhancement of Resolution. Two graduate students, Bert Kampherbeek and Marco Wieland, developed it far enough to raise a few million, license the IP from the university, and found Mapper Lithography in 2000. One early investor was Arthur Del Prado, the Dutch semiconductor legend who founded the equipment maker ASM International — one of the parents of ASML.
+
+![Top row: one strong beam must be focused down to a single crossover point, while the bottom row uses a whole array of weak beamlets that travel separately straight down onto the wafer pixels, contrasting having a crossover with having none.](/figures/mapper-many-weak-beams-en.svg)
+
+The first design was elegant. Illuminate an ordinary chromium-quartz photomask with an array of about a million small light spots; the pattern blocks some and passes others; optical lenses shrink the array of spots, which then strikes a "converter plate" that turns light into electrons. Each electron spot was roughly 100 nanometres wide, the array about 5 by 20 millimetres, for some twenty million beamlets.
+
+Then it failed, and the reason is worth writing down. The team went in believing the converter plate was a photocathode: light excites an electron, the electron drifts up, leaves the tip in orderly fashion, nothing is stored, current is stable, and you can toggle it on and off. The plate turned out to be a photodiode feeding a field emitter. The electron leaving the tip came from a pool of excited electrons dragged up by an electric field, with the light merely refilling the pool through the diode. So the energy and position of each departing electron were beyond control, switching was too slow, and a source that looked stable on paper was unusable for lithography. They added an aperture to filter out the aberrant electrons, and then the number of electrons getting through the aperture was itself unstable.
+
+After one to two years stuck there, they changed course: take one electron beam and split it into many parallel beamlets. The host says it reminds him of water through a shower head, which I find easier to remember than any diagram. Each beamlet switches on and off while the whole array scans a 26 by 10 millimetre field across the wafer — still the television gun, now holding many pens at once.
+
+This resembles the multibeam mask writer built by IMS Nanofabrication in Vienna, one of the tools TSMC uses to write masks today, which also starts with one beam and splits it. The difference is in the demagnifying optics: the IMS tool needs a crossover, so its beam current has to stay low to avoid the column interaction problem above, which makes it slow — fine for masks, not for fab lithography. Mapper removed the crossover, which let it push higher currents at the cost of far more control complexity.
+
+## 2005 to 2008: first patterns, and TSMC comes aboard
+
+Per a presentation at a maskless lithography meeting in San Jose, Mapper achieved first proof of lithography in Q4 2005. The industry was still guessing at the next generation. EUV showed potential but was one candidate among several. Conferences on next generation lithography ended with attendees voting on which technology would emerge, and the results showed nobody had any idea — the host calls it the wild west. One faction argued there would be no next generation at all, that multi-patterning and pitch splitting could run indefinitely. That approach did carry fabs to the 22-nanometre node, though how much further was anyone's guess.
+
+TSMC does not bet the farm on one technology. While funding ASML's EUV alongside Intel and Samsung, it went looking for alternatives, which brought it to Mapper. The 2008 investment came with R&D staff buying tools and supplying feedback, and the interest was specific: whether maskless lithography could bend the then-skyrocketing mask cost curve. When Mapper hit 32-nanometre class patterns in late 2007, TSMC's lithography sensei Dr. Burn Lin called it a significant breakthrough that proved the multi-beam resolution capability of Mapper's low voltage approach. A tool also went into CEA-Leti in France as part of a maskless lithography research programme called IMAGINE — the kind of place whose job is to find every one of a machine's kinks before it ever reaches a production fab.
+
+For speed, Mapper and TSMC's answer was clustering. Single-tool target: about 10 wafers per hour. Against the ~100 needed to compete with EUV or double patterning, that looks hopeless, until you cluster — ten machines at 10 wafers gives you 100, six machines at 20 gives you 120.
+
+## 2009 to 2013: one wafer an hour here, sixty over there
+
+The 2009 alpha 300-millimetre tool had just 110 beams at lower voltage. Inside the CEA-LETI cleanroom it printed at the right resolutions, at about one wafer per hour — a factor of ten short of what clustering needed, twenty years after the concept was first sketched. The host makes a point I keep coming back to: had the company shipped something sooner, even something half usable, it might have built real momentum.
+
+Money was the constant constraint. He says this is a refrain he has heard repeatedly in the European deep-tech community: hard things take money, seed funding exists for small projects, and funding something as bold as Mapper was another matter. In 2012 they closed an €80 million round led by RUSNANO, the Russian state investment fund dedicated to building a nanotechnology cluster inside Russia; as part of the partnership Mapper worked with Russian research institutes and later opened a MEMS fab in Moscow to produce lens elements for its tools.
+
+Around that same raise, ASML's EUV light source started showing real gains, thanks to a pre-pulse that reshapes the tin droplet before the main shot. Power climbed and throughput climbed with it.
+
+In 2013 Mapper shipped its first pre-production prototype, the FLX-1200, to CEA-Leti: 1,300 beamlets, 32-nanometre half-pitch, a performance befitting the 14-to-90-nanometre nodes. Raw throughput was still one wafer per hour; reaching ten meant going from 1,300 beamlets to 13,000 — not done, but visible. By then ASML's source was at 80 to 100 watts, translating to roughly 60 wafers per hour.
+
+The host notes that Mapper's key metric was never the raw wafer number. It was wafers per hour per million euro spent, or wafers per hour per square metre of cleanroom footprint. The FLX-1200 was a far smaller tool, and servicing it was easier: a serviceman only needs access to one side of the tool to replace the source, which EUV cannot offer — and which is exactly what makes clustering feasible.
+
+The engineering details are the part I enjoyed most. The critical component was the beam blanker array, a custom microchip with thousands of 1-to-2-micrometre holes dry-etched through it; when the design data calls for a pixel to go dark, the chip runs a voltage around the corresponding hole and deflects that beamlet into a stopper. The chip was fabbed on an advanced node by TSMC, with Mapper etching the holes itself — and every time something went wrong, the next version cost another million dollars or so at TSMC. On the mechatronics side they could not use conventional linear motors, whose magnetic fields interfere with the beams; but because Mapper never has to align a mask to a wafer, only scan continuously, it avoids the violent stops and starts of a normal scanner, and one designer estimated the accelerations in a Mapper machine at a hundredth of those in a typical ASML machine. Wafers under constant electron bombardment get hot, so they needed active cooling. And design data streaming straight into the blanker array meant data rates that copper wire could not keep up with, so Mapper moved to glass fibre.
+
+## 2016 to 2018: after the backer died
+
+In September 2016 Arthur Del Prado died at 85. He had been the steadfast investor; after his death, his estate told Mapper it would keep funding only if the startup found a new lead investor.
+
+The problem was the pitch. "An alternative to EUV" had become hard to sell, with EUV so far along and Mapper needing so much more money to reach market. Another direction was tools for prototyping, niche runs and academia — the maskless lane the host saw at SEMICON West with a company called MicroWriter — but commercialising that would take over $100 million. A third I found interesting: personalised security chips, where the absence of a mask lets designers write a distinct hardware IP signature into every individual die, making cloning and reverse engineering harder.
+
+Time ran out first. In December 2018 the company filed for bankruptcy. Several firms emerged to buy the IP, and ASML moved to keep it in the Netherlands, its CEO telling the Dutch broadcaster BNR that they wanted a deal. Months later the deal was announced: €75 million for Mapper's IP and assets, jobs offered to the 240 to 270 people then at the company, and the work itself not continued.
+
+## After 2019: the same beams, now hunting defects
+
+ASML had a different use in mind. Back in 2016 it had already paid $3.1 billion for the Taiwanese company Hermes Microvision, or HMI, which did electron beam inspection.
+
+Inspection means finding defects. Most tools fire light or lasers at the wafer's patterns and compare the result to a golden image in memory, or to another part of the wafer; deviations hint at defects. With EUV, defects get smaller than optical inspection can pinpoint, while electrons' far shorter wavelengths find defects 1 to 10 nanometres across. The other trend is 2.5D and 3D structures, where not everything sits on the surface — optical inspection cannot see a defect in the contacts between stacked 3D NAND layers. Electron beams can do voltage contrast inspection: fire primary electrons at the surface, measure the secondary electrons bouncing back, and the count tells you, predictably, about the quality of the electrical contacts underneath.
+
+The bottleneck came back as throughput. The semiconductor line moves fast and there is no time to wait while an e-beam tool inspects every lot. But HMI's inspection plus Mapper's multibeam technology could plausibly yield a tool fast enough to run on the line. In 2022 ASML debuted its first multibeam inspection tool, the eScan 1000 with nine beams in a 3x3 grid, followed by the 1100 with twenty-five in a 5x5. Customers found them good enough, and after those two incremental moves the eScan 2200 aims to raise the beam array, and therefore throughput, by a step — with more machines expected.
+
+The host closes by thanking the Mapper ex-employees who spoke with him, and places the new tool inside ASML's long-running holistic lithography strategy: the scanner on the fab floor is one piece, with computational lithography and optical corrections ahead of exposure, metrology and inspection to find and correct defects after it, and all of it feeding data back into the software.
+
+## Further reading
+
+- Asianometry, "ASML's New Multibeam Inspection Tool is Familiar," 11 October 2026
+- ITF World 2026 (Antwerp), presentation by ASML CEO Christophe Fouquet
+- Public material on CEA-Leti's IMAGINE maskless lithography programme
+- ASML's own descriptions of holistic lithography and the eScan family
+- Company material from IMS Nanofabrication on multibeam mask writers, and from MicroWriter on maskless exposure
+
+## Extension one: "the technology leads, so why did the company die?"
+
+If you hold a technology name whose specs beat its peers, whose press is glowing, and whose share price keeps sliding, this timeline is worth a pass.
+
+Mapper's specs did improve: 110 beams to 1,300, resolution down to 32-nanometre half-pitch. On specs alone it was closing the gap. But the denominator customers buy on was something else — wafers per hour per million euro, wafers per hour per square metre of cleanroom. The numerator crept while the clock in the denominator kept running, and on the other side a single pre-pulse improvement stepped EUV's throughput up a level. So the question to ask is which arrives first: this company's rate of progress, or the time it has. Twenty years from concept to FLX-1200 was real spending.
+
+The second layer is the capital structure. Mapper's road was shaped like "needs a lot of money, pays back late," and European deep-tech seed funding suits small projects rather than that shape. One major shareholder died and the financing terms changed — a line that never appears in a valuation model, yet decided whether there would be another round.
+
+What I do myself is look for the denominator the company uses on itself. If it talks only in specs and cannot state a denominator, I treat it as not yet understanding how its customers do the arithmetic. I have had this work and had it mislead me, so it is an opening question rather than a conclusion.
+
+## Extension two: "it failed, so does it all go to zero?"
+
+Someone underwater is wondering whether to cut or hold; someone short is wondering whether the technology is dead. Mapper offers a cleaner way to cut it.
+
+As a lithography company it went to zero: bankruptcy, and ASML's own statement that the work would not continue. Yet the multibeam control, the blanker chip with its thousands of etched holes, the glass fibre data path — moved to inspection, those face a different denominator. Inspection needs less throughput than production lithography and more resolution. Same parts, new standard, failing grade turns into a pass.
+
+Putting ASML's two prices side by side is instructive too: $3.1 billion for HMI, €75 million for Mapper. One was a working business with customers, the other a pile of parts nobody had untangled. Seven years later they meet inside the eScan 2200.
+
+So before calling a technology dead, name the standard it died against. Without that standard, "it's finished" is tone of voice. Listening to this, I went back to the holdings of mine with good technology and poor sales. I used to ask only whether they could turn around; now I add one question — under another use, what does the denominator look like?
+
+## One thing to take away
+
+Pass or fail is decided by the denominator, and whoever writes the denominator owns the standard. Mapper's machine lost its way into bankruptcy under "wafers per hour," and the same parts became production equipment under "nanometre-scale defects found per hour." The specs never changed.
+
+Here is something I tried that you could do today. Take the most recent thing you were told was not good enough — not only investments; a proposal sent back at work, a hobby that never progressed, a relationship that left you feeling short. Write the standard you were judged against as one sentence, with the numerator and the denominator both spelled out. "My presentation is weak" becomes "points three managers remember, per hour of meeting time." Then change the setting and recompute with a different denominator: same deck, but if the denominator is "points still remembered a week later," what is the score? The time I tried it, dropping "speed" out of the denominator turned the thing from a fail into something I could go do.
