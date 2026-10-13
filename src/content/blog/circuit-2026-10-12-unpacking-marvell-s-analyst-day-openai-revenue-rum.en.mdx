@@ -1,0 +1,102 @@
+---
+title: "When the data center gets big enough, the corner parts become a business — notes on The Circuit's Marvell analyst day episode"
+description: "Listening notes on The Circuit, 2026-10-12: why Marvell's five-year targets came in above sell-side models, and where heterogeneous racks, BMCs and grid interconnection set the limits. Educational industry observation, no individual stock advice."
+slug: "circuit-2026-10-12-unpacking-marvell-s-analyst-day-openai-revenue-rum"
+lang: "en"
+pubDate: 2026-10-13
+category: investing
+kind: "podcast-notes"
+tags: ["semiconductors", "data center", "heterogeneous compute", "AI infrastructure", "podcast notes"]
+ogImage: "/covers/circuit-2026-10-12-unpacking-marvell-s-analyst-day-openai-revenue-rum-cover.png"
+cover: "/covers/circuit-2026-10-12-unpacking-marvell-s-analyst-day-openai-revenue-rum-cover.png"
+---
+
+![A late-night machine-room aisle, work light falling on the small sensor and control chips crowding a server tray in the foreground, rows of racks receding into darkness](/covers/circuit-2026-10-12-unpacking-marvell-s-analyst-day-openai-revenue-rum-cover.png)
+
+> Build thin upon thin and it becomes thick; gather few upon few and it becomes many.
+>
+> —— *Zhanguo Ce, Qin Strategies IV* (compiled by Liu Xiang, Western Han, from Warring States material; translation mine)
+
+On the 2026-10-12 episode of *The Circuit*, Jay Goldberg had just come back from Marvell's analyst day in New York, and he said the room felt good — the company put out five-year revenue and EPS targets that sat above most of the sell-side numbers he had read. The explanation he and Ben Bajarin gave does not run through the custom-silicon share war: most of the product lines Marvell talked about are things it has shipped for years, too small to put in a slide deck until now, and data center spending has grown large enough that even those corner parts can become categories worth hundreds of millions. The claim carries a condition — the buildout has to keep its current pace — and later in the same episode both hosts name the crack in it: how much power the US grid can add next year, where the energy research they read points toward 20 GW and the compute people hope for more than 30.
+
+## Thousands of chips on a board, suddenly worth counting
+
+The line that stayed with me was Jay's, when he explained those eyebrow-raising numbers: Marvell walked through roughly a dozen categories at the same level of detail as the BMC one. A BMC is the board management controller, a small chip that has sat on server boards for years. It does none of the AI math. It watches the electricity moving around the board — voltage, temperature, current across hundreds of sense points on a traditional server — and it is the place you read a temperature from or turn a fan on and off.
+
+Who sells those today? ASPEED in Taiwan is the merchant leader, and next to it you often find a Lattice FPGA — a chip whose logic can be rewritten, which engineers use to patch whatever has no purpose-built silicon yet, sometimes power management, sometimes security. The two companies have a deal together, because the two chips were always used as a pair.
+
+![Top view of a motherboard: two large compute dies sit at the center, a dozen-odd small sensing points are scattered across the board, and every sensing trace converges on one very small square in the lower-left corner the BMC, with a gap-filling FPGA beside it; the shape makes clear that what matters is not its size but its position.](/figures/bmc-corner-position-on-board-en.svg)
+
+Jay said there are thousands of chips in a server, and Marvell has been making many of them for years. The point sits in what follows: that used to be a niche on the side, and now the volume moves revenue. The way they reach big numbers is not helping somebody design one chip and billing for the design. It is selling millions upon millions of small chips into the data center, one at a time.
+
+![Two blocks of similar area side by side: on the left a tall narrow column stands for one high-priced chip, on the right a dense grid of a hundred small squares stands for millions of cheap chips; the shape shows that the same revenue can come from price or from volume.](/figures/one-big-ticket-versus-many-small-units-en.svg)
+
+## Three things this argument needs
+
+Working through it myself, the chain holds only if three things are true at once.
+
+The first is the base. The same chip, sold the same way, goes from a market of a few hundred thousand servers a year to rack fleets measured in megawatts, and the order of magnitude changes. The episode gives an anchor to check it against: forecasts for the BMC market by 2030 land anywhere between three and eight billion dollars depending on whose you read, and Ben notes these are not expensive chips. An inexpensive part supporting a market that size gets there on unit count.
+
+The second is that the problem got harder. Ben spent a stretch describing what he hears from the engineers building these boards — they keep saying these are very hard engineering problems. Power goes up, more compute per board, networking complicated beyond easy description, so people rethink logic board design, how many capacitors and MLCCs go on, how many sensors. A single modern GPU or accelerator can carry dozens of sense points of its own, and the thing being managed is no longer one server but a rack, a row, a cluster wired into large memory pools. He mentioned HPE's work on Helios, where a complex compute tray needed a pile of microcontrollers that were never designed for the job.
+
+So the unnamed thing Marvell teased — they did not call it a BMC, they called it AI infrastructure management, and they said plainly it is not a product — reads to Ben as aimed at that improvised reality. He was honest about it: he has no idea whether it goes anywhere, and what interests him is that the problem is real.
+
+The third is that saved power has a price tag. Jay gave the most useful conversion in the episode: how these chips perform affects server performance, and once you talk about saving a few percent of electricity across a gigawatt of capacity, the dollars pile up fast. That is how a small chip watching voltages moves from a line item nobody reads to a place somebody wants to redesign.
+
+![On the left a large block stands for gigawatt-scale capacity, with only a very thin sliver cut from it for the few percent saved; an arrow points right, where that sliver is multiplied out into a block far larger than the original miscellaneous procurement spend.](/figures/small-percent-times-huge-capacity-en.svg)
+
+### The question a reader has right here: the five-year target beats the sell side, so what
+
+My own first reaction to any analyst-day deck is suspicion. Company long-range targets look better than outside estimates; that is the genre. This episode turned my suspicion into a question I can check: are these numbers **one big win** or **many small ones added up**?
+
+The two break differently. A number that rests on one big win ends when the customer switches suppliers. A number built from hundreds of categories selling millions of units each only ends when data center spending as a whole turns. Jay's description of how the Marvell narrative shifted has the same shape: for years the only question anyone asked was how much share they were losing at Amazon, Alchip versus Marvell, and now the customer set and the product set are both wider. Changing the narrative produces no revenue by itself, but it tells you where the next blow would land.
+
+![On the left one thick column holds up a slab, with a crack partway up the column labeled customer; on the right the same slab rests on many thin columns that are all intact, and the crack appears instead in the shared foundation beneath them, labeled build-out pace.](/figures/where-the-number-breaks-en.svg)
+
+## Where it fails
+
+The second half of the episode states the cracks more plainly than the first half states the case, and I think that part is worth keeping.
+
+Jay has been putting a hypothetical to investors: next year one gigawatt-scale campus slips six months, because transformers are short, or turbines are short, or some permitting office is closed on Tuesdays. If it happened today, he says, the street looks through it and nobody cares. A year from now he does not know. His reason is the amount of complexity and the amount of expectation stacked on top of it — once a semiconductor company says it was going to sell a pile of units into that cluster and now pushes the numbers out two quarters, the reaction is hard to call.
+
+![The same stack of blocks at two points on a timeline: today it is only three blocks high and pulling one out leaves it standing; a year later it is eight blocks high and pulling the same block out makes the whole stack lean and fall.](/figures/delay-hurts-more-later-en.svg)
+
+Ben's answer treats it as something already visible: what gets energized annually does not line up with the compute implied by accelerator sales forecasts. His phrasing stuck with me — demand is not what goes down; infrastructure takes time, it is hard, and the power is not there. He raised a second path that is harder to defend against: one large cyberattack or data breach that makes people say maybe we should slow our roll. Neither of these runs through demand. They run through interlocking supply chains, and from there into somebody's numbers.
+
+![Two columns of different heights: the shorter one on the left is labeled power that can be connected to the grid next year, the taller one on the right is labeled the compute demand implied by accelerator sales, and a clear distance between their tops is marked as the gap.](/figures/grid-supply-versus-compute-expectation-en.svg)
+
+Put that back against the first half and the denominator under Marvell's many-small-parts logic is the buildout itself. The parts can be numerous and cheap, as long as the racks actually get built and plugged in.
+
+## Why this is not "they won the custom silicon war"
+
+There is a friendly argument in this episode that I enjoyed. Ben's question: for four or five years this company described itself a different way every year — has it found its lane now? Jay disagrees with the premise. He thinks the pieces were always there, that about a year ago they started framing it as data center infrastructure, and that the direction has not changed, only the substance behind it.
+
+Why does the distinction matter? Read the numbers as a reversal in custom silicon share and you end up watching the wrong indicator: who lands which hyperscaler's next accelerator. Yet Ben himself says customers are largely not coming for the XPU or hardened ARM itself — they come for the periphery of the accelerators, the periphery of the racks, and a growing amount of network connectivity and IO. Jay's addition is blunter: for both Marvell and Broadcom, the custom story was never only a processor.
+
+The other explanation to rule out is that heterogeneity is brand new. Both hosts think rack heterogeneity is rising and will keep rising, that every hyperscaler and AI lab will do its servers and rack architecture a little differently, and that this helps Marvell. But Ben keeps insisting the world has not arrived: even with Google networking nine-thousand-plus TPUs together, that is still a sharded model, not one model across that many racks behaving as a single brain. The state he wants — huge models loaded into shared memory and storage, serving many concurrent users at very long context — has not been reached even within a single vendor.
+
+So what drives those numbers is the sheer scale of data center spending plus engineering problems getting harder. Heterogeneity is a tailwind, and the engine sits elsewhere. Ben also slipped in a complaint I found charming: he wants everyone to append the word "domain" to scale-up and scale-out, since each company uses the terms differently and the only unambiguous one is scale-across.
+
+![Two thick horizontal arrows side by side push a block to the right, labeled scale of spending and engineering getting harder; above them a small diagonal arrow labeled heterogeneity points the same way but is clearly much smaller.](/figures/tailwind-is-not-the-engine-en.svg)
+
+## A few other things worth keeping
+
+- The OpenAI revenue rumor knocked semis down for a day, and following it leads to accounting treatment — seventy billion against fifty, gross against net, layered on ARR, a funky number to start with. Jay's conclusion is the one I liked: the story had no substance, and the real signal is the fragility of the trade, where this much spending is driven by six companies, really two, and those two lose a great deal of money.
+- They put dedicated AI spending this year somewhere between 250 and 300 billion dollars, double last year. Ben's stance is that you can argue the number and you cannot argue the doubling.
+- Ben offered a defense of this cycle I had not considered: railways, cars, electricity, the web, mobile — each one made the customer buy a new expensive thing first, wire the house, buy a computer, sign up for a plan, get a phone. This one runs on hardware people already own, so there is no adoption cycle for new gear. Then he added the limit himself: what you wait for is the infrastructure to serve it at scale.
+- Jay's conspiracy theory: Lisa Su said in Asia that AMD expects greater than expected TSMC capacity next year, which he reads as an indirect signal about Intel — TSMC now discusses Intel Foundry at a distance, Intel's constraint is cash, so routing extra capacity to AMD and squeezing Intel's CPU cash flow is a rational move. Where do the wafers come from? Ben's answer is PCs: IDC has next year's decline near 20%, which frees capacity. Then he points out the irony — in any prior cycle a bad PC year was a disaster for Intel, and now that it owns a foundry and can shift wafers toward higher-ASP server CPUs, terrible PC sales help it in two separate ways at once.
+- Ben said he moved from GPT to Claude over the interface: one central chat agent that organizes threads into projects, and his wife uses the teacher plan for her classes. His phrasing was that the interface helps your mental model use it better. I kept turning that over — same model capability, different shape, and people stay.
+
+![A wide slab across the top stands for the whole round of spending, and beneath it six circles act as supports, but only two are drawn solid and visibly bearing the load, with those two labeled as losing money.](/figures/six-payers-two-load-bearing-en.svg)
+
+## Worth reading next
+
+- *The Circuit*, 2026-10-12, hosts Ben Bajarin and Jay Goldberg: the Marvell analyst day, BMCs and heterogeneous racks, the OpenAI revenue definitions, TSMC capacity allocation.
+- The Open Compute Project summit and Semicon West, both landing the week this was recorded; the episode notes OCP sold out and has outgrown San Jose.
+- To track the condition yourself, two public numbers: US grid additions next year (the episode cites a 20 to 30 GW range and two camps of expectation), and IDC's PC shipment forecast.
+
+## The one thing to take with you
+
+The episode taught me one angle for reading a growth story: first ask whether the number is **one big thing** or **many small things**, because the two break in different places. One big thing breaks at that customer. Many small things break at the pace of the whole buildout. Marvell's story is the second kind, so the thing to watch is not where it lost share, it is how many megawatts actually get energized next year.
+
+Here is something I tried that needs no stocks at all: take anything in your life that is currently improving — an income stream, progress in a course, a habit — break it into the few sources feeding it, write them on paper, and next to each one write a sentence saying what would make that source stop. The first time I did this it surprised me. I thought I was running on many small things, and the paper showed eighty percent coming from one place. That sheet beats any optimistic or pessimistic feeling, because it points at which one to watch.
