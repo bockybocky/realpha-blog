@@ -1,0 +1,77 @@
+---
+title: "Betting Before the Evidence: What Muse Wonder's Launch Reveals About Signing the Check First"
+description: "Notes after listening to the 12 October 2026 Cheeky Pint with Mark Zuckerberg and Alex Wang. Why Meta committed hundred-billion-dollar spending before seeing a model, why they moved evaluation in-house, and where that argument is weakest. Educational discussion of method; no investment advice and no view on any stock."
+slug: "cheekypint-2026-10-12-muse-wonder-zuckerberg-and-wang-s-100b-ai"
+lang: "en"
+pubDate: 2026-10-13
+category: "investing"
+kind: "podcast-notes"
+tags: ["Meta", "superintelligence", "capital expenditure", "AI evaluation", "personal agents"]
+ogImage: "/covers/cheekypint-2026-10-12-muse-wonder-zuckerberg-and-wang-s-100b-ai-cover.png"
+cover: "/covers/cheekypint-2026-10-12-muse-wonder-zuckerberg-and-wang-s-100b-ai-cover.png"
+---
+
+![A dim late-night data hall; one desk lamp glows on a folding table with a handwritten ledger while a distant figure stands small between rows of racks](/covers/cheekypint-2026-10-12-muse-wonder-zuckerberg-and-wang-s-100b-ai-cover.png)
+
+> Thus do many calculations lead to victory, and few calculations to defeat.
+>
+> —— Sun Tzu, *The Art of War*, "Laying Plans" (Spring and Autumn period; translation mine)
+
+On the 12 October 2026 episode of *Cheeky Pint*, Stripe's Patrick Collison hosted Meta's Mark Zuckerberg and Meta Superintelligence Labs lead Alex Wang to talk about their new model, Muse Wonder. Zuckerberg opens by describing how, at the end of last year, before anyone had seen the models, they signed off on spending on the order of "$100 billion, $200 billion," and he asked Alex: are you sure this is going to work? Wang supplies the arithmetic: operating a gigawatt-class cluster runs roughly $15 billion a year, building one costs closer to $50–60 billion up front, and the full bill for training a frontier model lands in the tens of billions. Their conclusion is that a bet like this can only be made ahead of the evidence — and that conclusion holds only if the compute has other buyers and paying demand materialises inside the depreciation window.
+
+## The strongest version of their case
+
+Their core argument is lead time. Muse Wonder was planned starting last August. The Prometheus cluster in Ohio and the Hyperion cluster in Louisiana were conceived back in 2023 and 2024, and are only coming online now. Wang puts it plainly: you cannot run Lean Startup here — ship something small, see if it works, double down. By the time you have confirmation that a model will be good, someone else's cluster has been running for two years. So you push the chips in before you are dealt the cards.
+
+![On a single timeline the bet sits at the far left and the evidence appears at the far right, separated by a long gap marked "about two years"; a small note below the axis points out that lean startup wants the two points to coincide, but by then someone else's cluster has been running for two years.](/figures/bet-before-evidence-timeline-en.svg)
+
+The part I found most persuasive is how they cut the downside. Zuckerberg's answer has two layers. First, for the money to be lost, Meta failing is not enough; AI as a whole has to fail. Second, even then the compute has other uses — at $15 billion a gigawatt, plenty of other people want it. Wang adds an accounting wrinkle: data-centre capex depreciates over many years, whereas researcher salaries buy something with a multi-year useful life and cannot be capitalised. Owners depreciate; cloud renters pay the annual rate. And an H100 is worth more today than it was last year.
+
+The product evidence is in the episode too. Zuckerberg used Instacart maybe twice a year, usually on his wife's account; he opened his own so his Muse could order, and now uses it once or twice a week. His three-year-old daughter Aurelia loves baking, so they spend the week telling Muse what they want to make, and by Saturday the ingredients have arrived. One week Muse worked out the basket was under the delivery minimum, added a watermelon, and asked if he wanted it — that watermelon later showed up on a livestream. Zuckerberg then asks the question I keep returning to: is that Instacart account really for me, or for the Muse? Wang's Muse is called Oiler, and it spends each week sourcing increasingly obscure teas from small farms in Taiwan and Japan.
+
+Underneath all this sits their slogan: the model is the product. The product layer thins out and the feel of the thing moves into training. Memory lives in the model rather than in an external harness — Wang calls it active memory, and he contrasts it with OpenClaw, which he uses happily but whose compaction between long- and short-term memory gets buggy over time. Muse ships with no model selector and no effort selector; Zuckerberg's reasoning is that the naming conventions out there run backwards sometimes, and someone who does not read API specs has no way to pick.
+
+Moving evaluation in-house closes the loop. Wang argues that climbing external benchmarks outsources your product thinking to whichever PhD student happened to make a viral benchmark — a reasonable place to start a lab, a bad place to end up. So they built their own, and quantified even "big model smell" as a number: the gap between a model's performance on tasks inside its post-training distribution and tasks outside it.
+
+## Now the other side
+
+Once evaluation moves into your own back yard, every superlative in this episode becomes self-reported. State of the art on personal and professional agent tasks comes with "based on our measurement." The lead on finance and legal evals rests on their own question sets. The memory claim rests on their internal Memory Bench. Goodhart's Law does not go away because the metric is now yours; what goes away is anyone else's ability to check your arithmetic. "Big model smell" deserves a second look in particular: they draw the in-distribution line, write the tasks, measure the gap, and announce the improvement.
+
+The episode leaves a visible seam here. Collison asks for advice on OpenRouter, which Stripe has agreed to acquire, and Wang answers that he hopes it helps developers see the subtle differences between models rather than stopping at tweet-length verdicts. One reason developers cannot see those differences is that every lab has pulled measurement back behind its own door. Both statements sit in the same conversation.
+
+The downside argument needs unpacking too. "AI as a whole has to fail" defines the risk as a macro event, and macro events are the hardest thing to hedge. Worse, the buyers who would absorb the compute are governed by the same condition. The depreciation point has the same shape: rising H100 residuals depend on compute staying constrained, and if it stops being constrained, that accounting advantage inverts into an asset whose useful life is running out first.
+
+![Three side-by-side pillars each carry one layer of downside protection, and all three stand on the same slab labeled "compute stays scarce," which is marked as the single premise.](/figures/three-floors-one-foundation-en.svg)
+
+The product home run is self-reported as well. They cite third-party reports suggesting this may be the fastest-growing agent app yet, without saying how it was counted — and Zuckerberg volunteers that their median expectation was several iterations before growth, which is why the growth machinery was not ready at launch. Honest, and also an admission that nobody inside was confident at the time.
+
+Then there are the people. Part of the justification was that Zuckerberg talked to every research lead he could find and concluded the best people wanted to work with Alex. Followership is a property of a person, not of an institution. And the episode preserves a counterexample: in one of Wang's first meetings, a lead told him they did not need a reasoning model — do consumers need a reasoning model? That lead no longer works at Meta. The same selection machinery got it wrong eighteen months ago, wrong enough to require rebooting the team.
+
+## Which side I land on, and the condition that decides it
+
+I lean toward their case, on a narrow condition.
+
+Start with where a reader gets stuck. News like this tends to produce three problems. A company announces a bet in the hundreds of billions — what am I supposed to do with that? A company says its model is the best in the world — should I believe it? And more practically: I already hold something in this space, so where in the financials do I look to see whether the money came back?
+
+All three reduce to one question: is the number in front of you self-reported or checkable? Muse Wonder's scores, the active memory improvement, "big model smell" — all self-reported. Subscription retention, the count of agent-completed purchases, depreciation expense against operating cash flow — checkable. Zuckerberg lays out the revenue path in the episode: a free tier on Muse Spark, a paid subscription if you want Wonder on hard tasks, then taking a small cut of what the agent saves or makes for you, then the API and the enterprise group CJ Desai is coming in to build. Each of those becomes a line in a filing eventually, and that line will collide with the depreciation line.
+
+![Two columns list items scored by the company itself on the left and items outsiders can audit on the right, with a dashed line breaking between them to show the reconciliation path is cut.](/figures/self-scored-vs-auditable-en.svg)
+
+So my condition is this: subscription retention and agent transaction volume — the two externally checkable numbers — have to show up inside the depreciation window of those buildings. If they do, betting ahead of the evidence was a calculation done right. If they do not, the other side wins, and the money bought a lead that only their own ruler can detect.
+
+One reading habit I take from this: when anyone announces they are the best at something, go find out who built the ruler. If an outsider built it, you can at least compare scores. If they built it themselves, you are looking at an experiment with no visible control group. That does not make in-house measurement useless — Wang's criticism of being tethered to a PhD student's question set holds up. It means the burden of verification moves to users and to financial statements, and both of those move slower than a benchmark.
+
+![A line chart in which a flat depreciation expense is already locked in at a high level, one paid-revenue curve catches up to it before the depreciation life ends, and another dashed curve is still below the line when the life runs out.](/figures/revenue-versus-depreciation-race-en.svg)
+
+## Worth a look
+
+- *Cheeky Pint*, 12 October 2026: Patrick Collison with Mark Zuckerberg and Alex Wang on Muse Wonder and Meta Superintelligence Labs
+- Meta's own Muse Wonder research blog post — the "big model smell" metric is defined there, so go to the source for the definition
+- The external benchmarks they name on air: DeepSWE, SWE-Marathon, Terminal-Bench 4
+- Goodhart's Law: a measure that becomes a target stops working as a measure. The whole episode wrestles with that sentence
+
+## The one thing to take away
+
+One idea: **whoever announces that they are the best also designed the ruler, so look at the ruler instead of the score.** The most honest moment in this episode is Wang admitting that external benchmarks tether you to someone's dissertation; the same sentence concedes that once the questions are yours, nobody outside is checking. For any claim, ask who wrote the test.
+
+Here is something I have tried, and it works outside investing. Pick a kind thing you have said about yourself lately — my work is back on track, things are better with so-and-so, I have been healthier these past few months — and write down what you are measuring it with. Then skip a line and write what a completely different person (your partner, a colleague, your doctor) would measure the same thing with. Wherever the two rulers disagree, that is the self-reported portion of your kind sentence. The first time I did this I found I was measuring "things are better with so-and-so" by "we haven't argued recently," while they might be measuring it by whether I ever ask what they are thinking about. Those two numbers can both be true, and they can be very far apart.

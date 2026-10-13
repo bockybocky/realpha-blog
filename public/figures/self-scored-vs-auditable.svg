@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左欄自評口徑與右欄可對帳口徑之間，對帳路徑斷開">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .w { font-size:16px; fill:var(--warn); }
+    .a { font-size:16px; fill:var(--accent); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="80" y="58">同一筆錢，兩種口徑</text>
+
+  <rect x="80" y="100" width="340" height="340" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text class="g" x="106" y="140">自評口徑</text>
+  <text class="w" x="106" y="168">出題、量測、宣布：同一家</text>
+  <line x1="106" y1="186" x2="394" y2="186" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="106" y="226">評測分數</text>
+  <text class="b" x="106" y="266">記憶能力</text>
+  <text class="b" x="106" y="306">大模型的味道</text>
+  <text class="b" x="106" y="346">領域題庫領先</text>
+  <text class="w" x="106" y="410">外人沒有對照組</text>
+
+  <rect x="540" y="100" width="340" height="340" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="g" x="566" y="140">可對帳口徑</text>
+  <text class="a" x="566" y="168">日後會變成財報某一行</text>
+  <line x1="566" y1="186" x2="854" y2="186" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="566" y="226">訂閱留存</text>
+  <text class="b" x="566" y="266">代理下單筆數</text>
+  <text class="b" x="566" y="306">抽成金額</text>
+  <text class="b" x="566" y="346">折舊 對 營運現金流</text>
+  <text class="a" x="566" y="410">外人可以跟著算</text>
+
+  <line x1="420" y1="270" x2="468" y2="270" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="492" y1="270" x2="540" y2="270" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="462" y1="246" x2="498" y2="294" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="498" y1="246" x2="462" y2="294" stroke="var(--warn)" stroke-width="3"/>
+  <text class="w" x="406" y="330">對帳路徑</text>
+  <text class="w" x="420" y="354">被切斷</text>
+
+  <text class="b" x="80" y="498">讀者卡住的三個問題，拆到底都是在問：手上這個數字落在哪一欄</text>
+</svg>

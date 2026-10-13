@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Between the self-scored column on the left and the auditable column on the right, the reconciliation path is broken.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .w { font-size:16px; fill:var(--warn); }
+    .a { font-size:16px; fill:var(--accent); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="80" y="58">Same money, two yardsticks</text>
+
+  <rect x="80" y="100" width="340" height="340" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text class="g" x="106" y="140">Self-scored</text>
+  <text class="w" x="106" y="168">Sets, measures, announces: same firm</text>
+  <line x1="106" y1="186" x2="394" y2="186" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="106" y="226">Benchmark scores</text>
+  <text class="b" x="106" y="266">Memory ability</text>
+  <text class="b" x="106" y="306">The big-model feel</text>
+  <text class="b" x="106" y="346">Leads on in-house tests</text>
+  <text class="w" x="106" y="410">Outsiders have no control group</text>
+
+  <rect x="540" y="100" width="340" height="340" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="g" x="566" y="140">Auditable</text>
+  <text class="a" x="566" y="168">Will land in a financial line</text>
+  <line x1="566" y1="186" x2="854" y2="186" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="566" y="226">Subscriber retention</text>
+  <text class="b" x="566" y="266">Agent order count</text>
+  <text class="b" x="566" y="306">Take-rate dollars</text>
+  <text class="b" x="566" y="346">Depreciation vs operating cash flow</text>
+  <text class="a" x="566" y="410">Outsiders can redo the math</text>
+
+  <line x1="420" y1="270" x2="468" y2="270" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="492" y1="270" x2="540" y2="270" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="462" y1="246" x2="498" y2="294" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="498" y1="246" x2="462" y2="294" stroke="var(--warn)" stroke-width="3"/>
+  <text class="w" x="406" y="330">Reconciliation path</text>
+  <text class="w" x="420" y="354">Cut off</text>
+
+  <text class="b" x="80" y="498">All three questions readers get stuck on boil down to one: which column does this number sit in</text>
+</svg>

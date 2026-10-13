@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Paid revenue chases a flat depreciation line, with one curve catching up within the depreciation life and one failing to.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .w { font-size:16px; fill:var(--warn); }
+    .a { font-size:16px; fill:var(--accent); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="80" y="58">A race: paid demand vs depreciation life</text>
+
+  <line x1="120" y1="440" x2="890" y2="440" stroke="var(--line)" stroke-width="3"/>
+  <line x1="120" y1="120" x2="120" y2="440" stroke="var(--line)" stroke-width="3"/>
+  <text class="b" x="820" y="470">Time</text>
+  <text class="b" x="80" y="112">Amount</text>
+
+  <line x1="120" y1="210" x2="890" y2="210" stroke="var(--ink)" stroke-width="3"/>
+  <text class="g" x="132" y="196">Depreciation expense (locked in)</text>
+
+  <path d="M120 420 C 300 400, 420 330, 520 210 C 600 150, 700 136, 880 128"
+        fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <circle cx="520" cy="210" r="8" fill="var(--accent)"/>
+  <text class="a" x="412" y="262">Catches up in time</text>
+
+  <path d="M120 420 C 320 414, 500 390, 700 356 C 790 342, 840 336, 880 332"
+        fill="none" stroke="var(--warn)" stroke-width="4" stroke-dasharray="9 7"/>
+  <text class="w" x="700" y="396">Still below at the end</text>
+
+  <line x1="760" y1="120" x2="760" y2="440" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+  <text class="b" x="700" y="110">Depreciation life</text>
+
+  <text class="c" x="80" y="516">Catch up and the bet was right; miss, and you bought your own head start</text>
+</svg>

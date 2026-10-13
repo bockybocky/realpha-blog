@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="同一位置在外部尺讀到六、在自家尺讀到九的兩把尺對照">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .n { font-size:16px; fill:var(--ink); }
+    .w { font-size:16px; fill:var(--warn); }
+    .big { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="80" y="58">同一件事，兩把尺</text>
+
+  <text class="g" x="80" y="140">外人的尺</text>
+  <text class="b" x="80" y="166">刻度均勻</text>
+  <rect x="220" y="150" width="660" height="40" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="220" y1="190" x2="880" y2="190" stroke="var(--ink)" stroke-width="2"/>
+  <g stroke="var(--grey)" stroke-width="2">
+    <line x1="220" y1="166" x2="220" y2="190"/>
+    <line x1="352" y1="172" x2="352" y2="190"/>
+    <line x1="484" y1="172" x2="484" y2="190"/>
+    <line x1="616" y1="166" x2="616" y2="190"/>
+    <line x1="748" y1="172" x2="748" y2="190"/>
+    <line x1="880" y1="166" x2="880" y2="190"/>
+  </g>
+  <text class="n" x="214" y="214">0</text>
+  <text class="n" x="346" y="214">2</text>
+  <text class="n" x="478" y="214">4</text>
+  <text class="n" x="610" y="214">6</text>
+  <text class="n" x="742" y="214">8</text>
+  <text class="n" x="872" y="214">10</text>
+
+  <text class="g" x="80" y="390">自己做的尺</text>
+  <text class="w" x="80" y="416">刻度自己定</text>
+  <rect x="220" y="356" width="660" height="40" rx="6" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <line x1="220" y1="356" x2="880" y2="356" stroke="var(--ink)" stroke-width="2"/>
+  <g stroke="var(--grey)" stroke-width="2">
+    <line x1="220" y1="356" x2="220" y2="380"/>
+    <line x1="400" y1="356" x2="400" y2="374"/>
+    <line x1="520" y1="356" x2="520" y2="374"/>
+    <line x1="616" y1="356" x2="616" y2="380"/>
+    <line x1="760" y1="356" x2="760" y2="374"/>
+    <line x1="880" y1="356" x2="880" y2="380"/>
+  </g>
+  <text class="n" x="214" y="340">0</text>
+  <text class="n" x="394" y="340">6</text>
+  <text class="n" x="514" y="340">8</text>
+  <text class="n" x="610" y="340">9</text>
+  <text class="n" x="754" y="340">10</text>
+  <text class="n" x="872" y="340">10</text>
+
+  <line x1="616" y1="190" x2="616" y2="356" stroke="var(--accent)" stroke-width="3" stroke-dasharray="8 6"/>
+  <circle cx="616" cy="190" r="8" fill="var(--accent)"/>
+  <circle cx="616" cy="356" r="8" fill="var(--accent)"/>
+  <text class="b" x="632" y="278">同一個待量的東西</text>
+
+  <text class="big" x="80" y="496">先問那把尺是誰做的，再看分數</text>
+</svg>
