@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-label="Two machine architecture diagrams place their bandwidth figures on different connection segments.">
+<rect x="0" y="0" width="960" height="500" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--ink); }
+    .d { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<text class="t" x="48" y="54">Which link does this measure?</text>
+<text class="g" x="48" y="140">Separate</text>
+<rect x="200" y="110" width="150" height="70" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text class="b" x="275" y="152" text-anchor="middle">CPU</text>
+<line x1="350" y1="145" x2="470" y2="145" stroke="var(--warn)" stroke-width="4"/>
+<text class="b" x="410" y="128" text-anchor="middle" fill="var(--warn)">600GB/s</text>
+<rect x="470" y="110" width="150" height="70" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text class="b" x="545" y="152" text-anchor="middle">GPU</text>
+<line x1="620" y1="145" x2="740" y2="145" stroke="var(--grey)" stroke-width="4" stroke-dasharray="7 5"/>
+<text class="d" x="680" y="128" text-anchor="middle">Not found</text>
+<rect x="740" y="110" width="150" height="70" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text class="b" x="815" y="152" text-anchor="middle">Memory</text>
+<text class="g" x="48" y="300">Unified</text>
+<rect x="200" y="250" width="290" height="70" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text class="b" x="345" y="292" text-anchor="middle">CPU + GPU</text>
+<line x1="490" y1="285" x2="740" y2="285" stroke="var(--accent)" stroke-width="4"/>
+<text class="b" x="615" y="268" text-anchor="middle" fill="var(--accent)">819GB/s</text>
+<rect x="740" y="250" width="150" height="70" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text class="b" x="815" y="292" text-anchor="middle">Same memory</text>
+<text class="c" x="480" y="416" text-anchor="middle">One measures a link; one measures memory</text>
+<text class="d" x="480" y="452" text-anchor="middle">Different points, not directly comparable</text>
+</svg>

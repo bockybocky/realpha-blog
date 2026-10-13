@@ -1,0 +1,118 @@
+---
+title: "He Bought a Mac Studio and Won't Run Local Models on It: Xiaotian's \"Dumplings for a Dab of Vinegar,\" and What I Found Timing Seven Days of My Own AI Work"
+description: "In an October 12, 2026 video, Xiaotian (小天fotos) says he bought the 96 GB Ultra Mac Studio and doesn't plan to run local models on it. When he broke down one After Effects project an AI agent did for him, model output was only 22% of the time; most of the rest was waiting on tools and renders. I broke down seven days of my own AI work and the model's share came to 29%. This post covers his vinegar-and-dumplings idea, lines up six big-memory machines by their official specs, and asks whether it's worth buying a big-memory computer just to run models. A technical learning note, not business advice."
+slug: "xiaotian-2026-10-12-mac-studio-beyond-llm"
+lang: "en"
+pubDate: 2026-10-13
+category: "tech"
+kind: "podcast-notes"
+tags: ["Xiaotian", "Mac Studio", "Local models", "Unified memory", "AI workflow", "Hardware", "Decision making"]
+ogImage: "/covers/xiaotian-2026-10-12-mac-studio-beyond-llm.png"
+cover: "/covers/xiaotian-2026-10-12-mac-studio-beyond-llm.png"
+tldr: "Xiaotian timed one AI-driven video project and found model output took 22% of the time. I timed seven days of my own AI work: the model took 29%, and 71% went to waiting on tools. If you want AI work to go faster, look at what it's waiting on before you chase a faster model."
+---
+
+![Expressionist oil painting cover: a kitchen late at night, a wooden table crowded with plates of dumplings and one small dish of vinegar in the middle, while a computer behind it glows red like a stove](/covers/xiaotian-2026-10-12-mac-studio-beyond-llm.png)
+
+> *The old drunkard's heart is not in the wine, but in the hills and streams.*<br/>
+> —— Ouyang Xiu, *The Old Drunkard's Pavilion* (Northern Song, 1046); translation mine
+
+In [a video posted on October 12, 2026](https://www.youtube.com/watch?v=dYHB-p3Tm7I), the Chinese creator Xiaotian (小天fotos) says he bought the 96 GB Ultra version of the Mac Studio and has no plans to run local models on it. He broke down the log of one After Effects project an AI agent did for him: the model was producing output for only 22% of the time, and most of the rest went to waiting on tools and renders. I did the same with seven days of my own AI work, up to October 13, 2026. The model was thinking or writing for 29% of the time; 71% was waiting on tools. Same direction. So if you want AI work to finish sooner, a faster CPU and more memory often help more than a faster model. One caution: his hardware comparison is one person, two machines, one scene, and it doesn't show that a Mac beats a workstation.
+
+## What the video is about: a whole batch of dumplings for a dab of vinegar
+
+Xiaotian makes videos about AI and hardware. He opens this one by warning that he's about to annoy people: if you mostly use a Mac Studio to run models, you're wasting it.
+
+His description of how he works is easy to remember: he makes a whole batch of dumplings just to have something to dip in a little vinegar. The vinegar is what he sells, the story in each video. The dumplings are the software, plugins, and workflows he has AI burn through piles of tokens to build so he can tell that story well. Once, to explain a sponsored topic clearly, he built a whole set of plugins, and those same dumplings later fed a second video.
+
+That used to sound excessive. In the AI era it doesn't, because dumplings are cheap and the vinegar is what's worth money. Everything he says about hardware grows out of that line.
+
+![The top row has a large circle for dumplings and a small one for vinegar; below, the bars point in opposite directions, with a short bar for dumplings and a tall one for vinegar, showing that the amount used is the inverse of its value.](/figures/vinegar-and-dumplings-value-inversion-en.svg)
+
+## Point 1: people said he wasted money on 96 GB. He never meant to run models
+
+Commenters told him 96 GB was an awkward size that couldn't hold big models. He says he never intended to run models on it, and admits that his advice a few months ago to get started with local models was only half right.
+
+## Point 2: AI can now drive professional software
+
+He says the newest models can operate After Effects, Blender, Premiere, and DaVinci directly, and he now has AI make videos inside After Effects.
+
+The detail that matters: his small Mac mini simply froze trying to run these apps. They only worked on a workstation with 256 GB of RAM, and one project ate roughly 200 GB. So once AI can drive this software, the limit becomes how fast your CPU is and how much memory you have. I rarely see that point in local-model discussions, where the only question is how big a model fits.
+
+![Three bars of different heights represent machine memory, while a dashed line across the chart marks the roughly 200GB required by one project; only the tallest bar crosses the line.](/figures/project-memory-need-vs-machine-capacity-en.svg)
+
+## Point 3: 22%, the model is a small slice
+
+To test the idea, he broke down the full agent log of that After Effects project. Model output was 22% of the time and context compaction (squeezing a long conversation down) was 7%. The rest was waiting for tool calls to return or for renders to finish. His conclusion: to cut total time, upgrading the CPU and memory beats getting a few dozen more tokens per second out of the model.
+
+## Point 4: the junk shop scene, 8.17 seconds vs. 11.51
+
+With the Mac just out of the box, he rendered a classic Blender test scene, [The Junk Shop](https://www.blendernation.com/2019/11/20/this-is-the-2-81-splash/) by Alex Treviño, the Blender 2.81 splash image, at 256 samples, taking the median of three runs. His workstation, a Threadripper with a 96 GB RTX PRO 6000, took 11.51 seconds. The Mac Studio took 8.17. A heavier camera-move test took about 48 minutes on both, a tie. He credits the Mac's unified memory, where CPU and GPU share one pool of fast memory.
+
+![Two pairs of bars. In the left pair, the junk shop scene, the Mac Studio bar is shorter at 8.17 seconds against the workstation's 11.51 seconds; in the right pair, the heavier camera-move test, both bars are the same height at about 48 minutes, a tie.](/figures/two-tests-one-win-one-tie-en.svg)
+
+## Point 5: ¥3,000 a month in tokens, earned back twentyfold
+
+His math: if you spend 3,000 yuan a month on tokens and earn twenty times that back, running models locally to save that money makes no sense. I agree with the direction, with one caveat. It's a hypothetical, and it assumes you actually have the twentyfold.
+
+## I timed my own: 71% waiting on tools
+
+When I heard 22%, my first thought was: what about me?
+
+I broke down the time in 174 AI work sessions over the seven days up to October 13, 2026. The model was thinking or writing for 29% of it, about 19.4 hours. The other 71%, about 47.2 hours, was spent waiting for tools to finish. Of that waiting, 93% was command-line work: running code, building the site, downloading, rendering. That was 5,780 commands averaging about 28 seconds each.
+
+![Two equal-length horizontal bars each have a small segment on the left for the model and a large segment on the right for waiting on tools, with nearly identical split points.](/figures/where-the-ai-time-goes-two-splits-en.svg)
+
+Two sources of error. Some of the "waiting on tools" time was really me taking a while to click "allow," so it was waiting on a person. And any single gap over 30 minutes I counted as me being away and left out.
+
+My 29% and his 22% aren't the same measurement. He timed one project; I timed a week of assorted chores. They still point the same way: the bottleneck isn't the model. If tomorrow's model ran twice as fast, my seven days would shrink by less than 15%. The other 70% only gets shorter if the computer runs faster or I stop making it redo work.
+
+## What's easy to miss: don't read too much into one benchmark
+
+The likely retelling of this video is "a Mac beats an RTX PRO 6000 workstation." But that's one person, two machines, one scene, three runs, and the second, heavier test was a draw. What it does show is that unified memory helps in professional apps that eat a lot of memory. It doesn't show the Mac is faster overall, and it says nothing about model speed.
+
+Another thing the video glosses over: the 600 GB/s figure for RTX Spark is the link between CPU and GPU, [not the memory bandwidth itself](https://tomshardware.com/laptops/nvidia-enters-the-windows-pc-market-with-rtx-spark), so you can't set it against the Mac's 819 GB/s.
+
+![In the top row, three blocks form a chain and the number labels the link between the first two; below, two blocks share the same memory and the number labels the path to memory, showing that the two numbers measure different links.](/figures/bandwidth-numbers-measure-different-links-en.svg)
+
+## Six machines side by side
+
+The video mentions a lot of hardware. Here it is from the official pages (checked 2026-10-13):
+
+| Machine | Max memory | Memory bandwidth | OS | Better for | My take |
+|---|---|---|---|---|---|
+| [Mac Studio M3 Ultra](https://support.apple.com/en-us/122211) | 96 GB base, up to 256 GB | 819 GB/s | macOS | Memory-hungry pro apps; can run models too | The sweet spot for the work in the video |
+| [Mac Studio M5 Ultra](https://www.apple.com/newsroom/2026/08/apple-introduces-new-mac-studio-with-m5-max-and-m5-ultra/) | Up to 512 GB (512 GB model late October) | 1.2 TB/s | macOS | Same, bigger and faster | From US$5,499 with 96 GB |
+| [DGX Spark](https://docs.nvidia.com/dgx/dgx-spark/hardware.html) | 128 GB | 273 GB/s | DGX OS (Linux-based) | Running models, development; two units can link | Few pro creative apps |
+| [RTX Spark](https://techspot.com/news/113737-nvidia-rtx-spark-laptops-desktops-arrive-october-six.html) | Up to 128 GB | Not found on official pages | Windows on Arm | Pro apps, depending on Arm support | Ships in October; wait for real tests |
+| [Ryzen AI Max+ 495](https://amd.com/en/products/processors/laptop/ryzen-pro/ai-max-pro-400-series/amd-ryzen-ai-max-plus-pro-495.html) mini PC | Not found on official pages | Not found on official pages | Depends on the maker | 16 Zen 5 cores, CPU-heavy work | Specs incomplete; wait and see |
+| [RTX PRO 6000](https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000/) workstation | 96 GB on the card, system RAM separate | 1,792 GB/s on the card | Windows / Linux | Strong at both | Card list price US$13,250 in June |
+| Rented cloud GPU | Depends on the card | Depends on the card | Mostly Linux | An occasional big batch | What actually works for my household |
+
+About that RTX PRO 6000 price: he says he paid over 60,000 yuan in May and it has since more than doubled. I couldn't find a Chinese price to check. In the US, NVIDIA's list price went from US$8,565 at launch to [US$13,250 by June](https://www.ithome.com/0/963/977.htm), up about 55%.
+
+## Further thoughts: should I buy a big-memory computer just to run local models?
+
+This is the question I most wanted to answer, because my situation is the opposite of his. The PC we use for image generation has an 8 GB graphics card, so video work means renting in the cloud.
+
+Start with where your AI time actually goes. If you're like Xiaotian and me, with 70% or more spent waiting on tools, then buying lots of memory so the model can run locally spends money on the other 30%. If instead your days are spent having AI drive Blender, run renders, or edit big video projects, then big memory spent on those apps pays off much more directly.
+
+Then ask whether you care more about image quality or about the story. On October 12, 2026, the same day his video went up, I rented an A100 on Colab, made a 3-second AI clip, and upscaled it to 2K. Each clip took 206 seconds and GPU memory peaked at 52 GB, more than six times what my card has. On a phone I could barely tell the 2K version from the original 1344×768, so I decided to stay at 1344×768 from now on and spend the effort on the plot and on keeping characters consistent from shot to shot (the details are in "[Making AI Short Clips with MiniMax H3 on Colab: Is 2K Worth It?](/en/blog/colab-minimax-h3-2k-worth-it/)"). Looking back, resolution was the dumplings and the plot was the vinegar. Had I bought a machine with 52 GB or more of GPU memory for 2K, I'd have paid vinegar prices for a plate of dumplings.
+
+So here's how I split it now. For an occasional big job, rent. If you run memory-hungry pro apps every day, then consider buying big memory. If the reason is just "so it can run local models too," hold off. People also tend to mix up a control desk with raw compute: a quiet small computer makes a good command center while the heavy lifting happens on other machines. I wrote about that split in "[Mac mini or a GPU for AI at home? First figure out which machine you're missing](/en/blog/lunchuizhe-2026-09-17-mac-mini-ai-control-desk/)".
+
+## Further thoughts: models keep getting faster, so why isn't my work?
+
+Every new model launch starts with a tokens-per-second race. But if the model is only 20 to 30% of your total time, doubling its speed saves you 15% at most.
+
+![Two horizontal bars are compared vertically; in the lower bar, only the model segment on the left is halved, so the total bar is barely shorter and only a small dashed section disappears from the right end.](/figures/faster-model-barely-shortens-the-bar-en.svg)
+
+How do you shrink the other 70%? Three ideas. First, see which commands you wait on longest. Site builds and big downloads that keep you waiting can be batched to run overnight so nobody sits watching them. Second, cut redundant work: rebuilding an entire site to fix one word costs more than a slightly slower model. Only then think about hardware, and by that point you'll know whether the upgrade should be CPU, memory, or storage, rather than reaching for a bigger graphics card by reflex.
+
+That's what Xiaotian's dumplings are really about. Tools keep getting cheaper and compute keeps getting more plentiful. What I want to take care of first is the vinegar.
+
+## One thing to take with you
+
+What stuck with me: to make AI work go faster, first see what it's waiting on, then decide where the money goes.
+
+Something I've tried, if you want to give it a go: next time AI finishes a job for you, before you close the window, split that stretch of time into three boxes, "AI writing," "waiting on tools," and "waiting on me," and write down a rough number of minutes for each.
