@@ -300,6 +300,14 @@ def fill_post(post, body, paywall_k, upload_image=None):
         if not ln.strip():
             i += 1
             continue
+        # 影片 <video ... src="/videos/x.mp4">：Substack 不能嵌，改成一行連到部落格影片檔
+        # （2026-10-13：大丈夫那篇原樣印出 <video> 標籤字串才發現，同 vocus_publish_mdx.py 寫法）
+        if ln.lstrip().startswith('<video'):
+            m_v = re.search(r'src="([^"]+)"', ln)
+            if m_v:
+                post.paragraph(parse_inline(f'▶ Watch the film: [play it here]({BLOG_URL}{m_v.group(1)})'))
+            i += 1
+            continue
         if ln.startswith('!['):
             m_img = re.match(r'!\[(.*?)\]\((.*?)\)', ln)
             src = m_img.group(2) if m_img else ln
