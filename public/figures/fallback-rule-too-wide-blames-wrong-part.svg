@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="懷疑範圍由寬變窄的兩排對比：寬範圍誤收無辜元件，窄範圍只留文字模型本身">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="80" y="74" font-size="27" font-weight="700" fill="var(--ink)">懷疑範圍開太寬</text>
+  <text class="t" x="80" y="148" font-size="20" font-weight="700" fill="var(--dim)">舊規則</text>
+  <rect x="200" y="118" width="620" height="110" rx="8" fill="var(--warn)" opacity="0.18"/>
+  <rect x="200" y="118" width="620" height="110" rx="8" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="8 6"/>
+  <rect x="240" y="148" width="190" height="52" rx="5" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="335" y="181" font-size="19" fill="var(--ink)" text-anchor="middle">文字模型</text>
+  <rect x="470" y="148" width="150" height="52" rx="5" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="545" y="181" font-size="19" fill="var(--ink)" text-anchor="middle">載入</text>
+  <rect x="650" y="148" width="140" height="52" rx="5" fill="var(--accent)" opacity="0.85"/>
+  <text class="t" x="720" y="181" font-size="19" font-weight="700" fill="var(--page)" text-anchor="middle">接線</text>
+  <text class="t" x="880" y="181" font-size="19" font-weight="700" fill="var(--warn)" text-anchor="start">全算它</text>
+  <text class="t" x="80" y="330" font-size="20" font-weight="700" fill="var(--dim)">新規則</text>
+  <rect x="200" y="300" width="230" height="110" rx="8" fill="var(--accent)" opacity="0.14"/>
+  <rect x="200" y="300" width="230" height="110" rx="8" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <rect x="240" y="330" width="150" height="52" rx="5" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="315" y="363" font-size="19" fill="var(--ink)" text-anchor="middle">文字模型</text>
+  <rect x="650" y="330" width="140" height="52" rx="5" fill="var(--accent)" opacity="0.85"/>
+  <text class="t" x="720" y="363" font-size="19" font-weight="700" fill="var(--page)" text-anchor="middle">接線</text>
+  <line x1="720" y1="315" x2="720" y2="326" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="720" y="304" font-size="19" font-weight="700" fill="var(--accent)" text-anchor="middle">真正的錯</text>
+  <text class="t" x="80" y="500" font-size="22" font-weight="700" fill="var(--ink)">範圍越寬，越容易換掉沒有錯的那個</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩根柱子：一段切三鏡每格 4.19 秒，單鏡段每格 2.70 秒，前者明顯較高">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="80" y="78" font-size="27" font-weight="700" fill="var(--ink)">每格生成秒數</text>
+  <text class="t" x="80" y="112" font-size="16" fill="var(--dim)">同一張卡、同一輪</text>
+  <line x1="80" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <rect x="240" y="200" width="160" height="230" rx="4" fill="var(--accent)"/>
+  <rect x="560" y="281" width="160" height="149" rx="4" fill="var(--grey)"/>
+  <text class="t" x="320" y="182" font-size="27" font-weight="700" fill="var(--ink)" text-anchor="middle">4.19</text>
+  <text class="t" x="640" y="263" font-size="27" font-weight="700" fill="var(--ink)" text-anchor="middle">2.70</text>
+  <text class="t" x="320" y="464" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">一段切三鏡</text>
+  <text class="t" x="320" y="490" font-size="16" fill="var(--dim)" text-anchor="middle">362 格</text>
+  <text class="t" x="640" y="464" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">單鏡一段</text>
+  <text class="t" x="640" y="490" font-size="16" fill="var(--dim)" text-anchor="middle">124 格</text>
+  <path d="M430 230 L530 290" stroke="var(--dim)" stroke-width="2" fill="none"/>
+  <text class="t" x="480" y="222" font-size="19" font-weight="700" fill="var(--warn)" text-anchor="middle">貴五成</text>
+  <text class="t" x="880" y="520" font-size="15" fill="var(--dim)" text-anchor="end">含載入模型，實際差距略小</text>
+</svg>

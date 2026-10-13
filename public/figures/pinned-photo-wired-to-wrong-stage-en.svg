@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A small-size pinned photo is wired into the upscaled second stage, and the two boxes are clearly different sizes.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="80" y="78" font-size="27" font-weight="700" fill="var(--ink)">Wired to the previous stage's size</text>
+  <rect x="120" y="260" width="150" height="180" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="195" y="240" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">Stage one</text>
+  <text class="t" x="195" y="352" font-size="19" fill="var(--dim)" text-anchor="middle">384×672</text>
+  <text class="t" x="195" y="382" font-size="16" fill="var(--dim)" text-anchor="middle">30 steps</text>
+  <rect x="560" y="140" width="300" height="300" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="710" y="120" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">Stage two</text>
+  <text class="t" x="710" y="300" font-size="19" fill="var(--dim)" text-anchor="middle">768×1344</text>
+  <text class="t" x="710" y="330" font-size="16" fill="var(--dim)" text-anchor="middle">Last 10 steps</text>
+  <rect x="150" y="300" width="90" height="100" rx="4" fill="var(--accent)" opacity="0.85"/>
+  <text class="t" x="195" y="430" font-size="16" fill="var(--accent)" text-anchor="middle">Pinned photo</text>
+  <path d="M290 350 L540 290" stroke="var(--warn)" stroke-width="3" fill="none"/>
+  <rect x="580" y="240" width="90" height="100" rx="4" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+  <path d="M588 248 L662 332 M662 248 L588 332" stroke="var(--warn)" stroke-width="3"/>
+  <text class="t" x="415" y="286" font-size="19" font-weight="700" fill="var(--warn)" text-anchor="middle">Sizes don't match</text>
+  <text class="t" x="80" y="500" font-size="22" font-weight="700" fill="var(--ink)">Each stage has its own size, and the photo must change with it</text>
+</svg>

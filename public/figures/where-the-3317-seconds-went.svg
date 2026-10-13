@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="總時間橫條：生成佔一半以上，放大約四成，補格只有一條窄縫">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="100" y="80" font-size="27" font-weight="700" fill="var(--ink)">3317 秒，花在哪</text>
+  <text class="t" x="100" y="114" font-size="16" fill="var(--dim)">成功那一輪，兩段合計</text>
+  <rect x="100" y="250" width="424" height="90" fill="var(--grey)"/>
+  <rect x="524" y="250" width="302" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="826" y="250" width="33" height="90" fill="var(--accent)"/>
+  <text class="t" x="312" y="305" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">生成</text>
+  <text class="t" x="675" y="305" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">放大</text>
+  <text class="t" x="312" y="382" font-size="19" fill="var(--dim)" text-anchor="middle">1851 秒</text>
+  <text class="t" x="675" y="382" font-size="19" fill="var(--dim)" text-anchor="middle">1320 秒</text>
+  <line x1="842" y1="240" x2="842" y2="196" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="842" y="178" font-size="20" font-weight="700" fill="var(--accent)" text-anchor="middle">補格</text>
+  <text class="t" x="842" y="152" font-size="19" fill="var(--accent)" text-anchor="middle">146 秒</text>
+  <text class="t" x="100" y="450" font-size="22" font-weight="700" fill="var(--ink)">24 格補成 48 格，是整條流程最便宜的一步</text>
+</svg>
