@@ -1,63 +1,105 @@
 ---
-title: "Daijoubu: A Novelist Who Can't Write a Card | A 55-Second Short Film with Three AI Characters"
-description: "Our original short film Daijoubu: AI novelist Shen Wan is asked to write a good-luck card for a friend, spends half an hour on it, and ends up with three characters. 55 seconds, 15 shots, all made from three photos, plus a behind-the-scenes note on shooting with only three locations and what to do when the model starts speaking fake Chinese. All three leads are AI characters."
+title: "Reshooting an AI Short Film: Testing Three Quality Settings for MiniMax H3 on a Colab A100"
+description: "A lab note: nobody understood the first cut of our AI short film Daijoubu, so I rewrote the script around four problems, generated a fresh starting photo for every shot, and tested three quality settings on two shots on a Google Colab A100 before shooting all 13 clips. Timings and compute units for each setting, what the full shoot cost, a first run that produced nothing, and how the characters got to say their own lines this time. All characters are AI."
 slug: "daijoubu-ai-short-film"
 lang: "en"
 pubDate: 2026-10-12
+updatedDate: 2026-10-13
 category: "lab"
-tags: ["original short film", "AI characters", "behind the scenes", "writing"]
+tags: ["AI video", "Colab", "MiniMax H3", "lab notes"]
 ogImage: "/covers/daijoubu-ai-short-film.png"
 cover: "/covers/daijoubu-ai-short-film.png"
-tldr: "A novelist can't write a card that only needs one line, and what she finally writes is her friend's own favorite three characters. 55 seconds, 15 shots, three photos, and three AI leads."
+tldr: "Rendering small and upscaling was more than twice as fast as rendering at full size, and it looked sharper. The second cut of Daijoubu was shot that way: 13 clips, 6,985 seconds of cloud generation, 14.48 compute units."
 ---
 
-![Shot 12 of the short film Daijoubu: under a big tree in a park at dusk, a young woman looks down at the card in her hands, tears in her eyes, and laughs](/covers/daijoubu-ai-short-film.png)
+![Cover of the lab short film Daijoubu: one of the film's AI characters](/covers/daijoubu-ai-short-film.png)
 
 > *Therefore, since brevity is the soul of wit,*<br/>
 > *And tediousness the limbs and outward flourishes,*<br/>
 > *I will be brief.*<br/>
 > —— William Shakespeare, *Hamlet*, Act 2, Scene 2 (c. 1600)
 
-*Daijoubu* is our first original short film, finished on October 12, 2026. It runs 55 seconds across 15 shots. The story is small: AI novelist Shen Wan is asked by her friend Lin Yun to write a good-luck card for mio, who is about to go on stage for the first time. Shen Wan is stuck for half an hour, and in the end writes only the three characters mio always says to herself. All three leads are AI characters; every shot was generated from one of three photos, and all dialogue is in subtitles.
+Over October 12 and 13, 2026, I reshot our lab short film *Daijoubu* from scratch with MiniMax H3, a model that turns a still photo into a video clip with sound, running on a Google Colab A100. Before shooting, I tested three quality settings on two shots. Rendering directly at full size took about 590 seconds per clip; rendering small and upscaling took 245 seconds and looked sharper. The setting I picked, small-then-upscale plus a detail pass with SeedVR2, took about 340 seconds. The finished film is 74.7 seconds, 1080×1920 vertical, made of 13 video clips and one still card. All timings are for the 80GB A100 and clips of roughly five seconds.
 
 <video controls playsinline preload="metadata" poster="/videos/daijoubu-en.jpg" src="/videos/daijoubu-en.mp4" width="100%"></video>
 
-## Three people, three places
+## Why nobody could follow the first cut
 
-Shen Wan writes novels. It's raining, and she has been wrestling the same paragraph in a café for three rounds. Lin Yun is at a flower shop, has already picked out flowers for mio, and texts: "You write the card. You're the writer." mio is a dancer from Osaka living in Taipei. Tonight is her first time on stage, and she's waiting under a big tree in the park, so nervous her smile has gone stiff.
+The feedback on the first version was blunt: people had no idea what was going on. When I went back through it shot by shot, I found four reasons, and image quality wasn't one of them.
 
-The three never share a frame. That was partly a choice and partly a constraint (more on that below). You only see three faces taking turns, and the story runs on what each of them is waiting for: Shen Wan for the right words, Lin Yun for Shen Wan, mio for her moment on stage.
+The three characters lived in three places and never visibly connected. They never shared a frame, there were no text messages on screen, and we never saw the card change hands. The props the story depended on (the card, the flowers, the stage) never appeared at all; the subtitles had to carry them. All 15 shots were a single face changing expression, and at three seconds a shot, viewers lost track of who they were looking at. And the title, Japanese for "it's okay," only got explained at the very end, so for most of the film the word meant nothing to anyone.
 
-## Why a writer can't write a card
+I'd assumed that three photos plus some camera moves would give me enough variety. It turns out pretty pictures don't help much if the viewer can't tell who wants what and what's in the way.
 
-Shen Wan tries "Wishing you a great show," then "You'll definitely succeed." One sounds like an office memo, the other like an ad.
+## What changed in the second cut
 
-Neither line is wrong. The trouble is that anyone could write them, to anyone. Novelists know this better than most: a sentence lands when the reader feels it's about them. A good-luck card works the same way: the person opening it wants proof that you remember who she is.
+I threw out the script. The story now runs through one person, Shen Wan, who writes novels. Her friend mio is going on stage for the first time tonight, and their friend Lin Yun has handed Shen Wan the job of writing the good-luck card. She spends half an hour stuck, and what she finally writes is the phrase mio always says to herself after a fall. The other two characters come in through text messages, objects, and shots from behind, with no more than one visible face in any frame.
 
-So Shen Wan's turn comes when she remembers mio. Whenever people laugh at mio's Chinese, she quietly tells herself "daijoubu, daijoubu," Japanese for "it's okay," which also happens to be written with three Chinese characters, 大丈夫. Shen Wan gives those three characters back to her, and mio cries when she reads the card, because the words were hers to begin with.
+**Every shot gets its own starting photo.** The first cut recycled three photos. This time each shot got a new one with its own angle, action, and framing. I generated them on my home machine, three candidates per shot, 42 in total, and went through them one by one checking faces, fingers, and backgrounds. Plenty got rejected. One had a second person reflected in the mirror, one had sprouted black wings, and all three candidates for the stage shot came out as a cinema screen, so I rewrote that prompt and tried again.
 
-Lin Yun teases: "Half an hour, and the writer gives her three characters?" Shen Wan's answer is the one line the film is built around: "The words that matter most are short to begin with."
+**Props go on screen.** The blank card, the crumpled drafts, the flowers, the backstage mirror, and the stage lights each get a shot of their own. In shot 5, mio trips at dance practice and says "daijoubu" out loud with the meaning shown beside it, so by the end the phrase pays off without needing any explanation.
 
-## Behind the scenes: a film from three photos
+**Text on the card is added in post.** H3 turns lettering into gibberish, so every card in the starting photos is blank and every phone screen is dark. Shot 11 skips the video model entirely: a photo of an open blank card, enlarged, with handwritten-style text laid over it in post, followed by a slow 3.5-second push-in.
 
-Every shot in this film started from a single photo that AI brought to life. We had exactly three: Shen Wan in the café, Lin Yun in the flower shop, mio under the tree. So rule one of the script was "only three locations." A fourth location would have meant generating a fourth photo first. That's why the three never share a frame.
+Two small prompt lessons carried over. In the first cut, one shot came out with what looked like a fake subtitle line along the bottom; the cause was putting framing words like "close-up" right after the scene description, so this time I kept them apart. And because this setup has no negative prompt, writing "no text" can actually draw text. I describe only what I want, as in "the card is blank."
 
-Reuse one photo a dozen times and you get a slideshow. To avoid that, every shot specifies a framing and a camera move: about half are medium close-ups and the rest are cropped down to just the face, and the camera either holds still, pushes in slowly, pans right, or pulls back. Across 15 shots that came to 8 for Shen Wan, 3 for Lin Yun and 4 for mio, with 9 medium close-ups and 6 close-ups, which is enough variety that it doesn't read as one picture wobbling.
+## Three quality settings, tested on two shots
 
-All dialogue went into subtitles because I wasn't sure the AI could speak Chinese lines clearly. That worry turned out to be right. After generating the film, I ran speech recognition over the audio track and found that in five shots the model had started "talking" on its own. Nobody wrote any lines for those shots, yet it produced strings that sound like Chinese but mean nothing, such as "from now on the night passes, full moon, third floor, acting cute."
+My first guess was that the first cut looked soft because I'd used a pruned, compressed model at a native short side of 768 pixels. The official documentation says otherwise: its own examples use the same compressed model at the same native size. I was already using what the official examples use, so any fix had to come from how I rendered.
 
-My first fix was turning those stretches down to 4% volume. A second scan still found all three fake sentences, because the loudness pass at the end raised everything, quiet nonsense included. The second fix was to replace those stretches entirely: I cut the clean rain sound from the first shot, looped it, and laid it under the five shots. The next scan found zero speech. About half the rain you hear in the film is borrowed from shot one.
+So I picked shot 8 (a rain-wet street at night) and shot 10 (mio reading the card) and rendered each three ways, 124 frames, about five seconds per clip. All three settings dropped the four-step speed-up add-on the first cut used and ran the full 30 steps.
 
-| Item | Number |
-|---|---|
-| Running time | 55 seconds (with title and end cards) |
-| Shots | 15, about 3 seconds each |
-| Starting photos | 3, one per character |
-| Generation time per shot | about 45 seconds |
-| Shots where the model invented fake dialogue | 5, all replaced with rain |
+- **A**: render directly at 768×1344 for 30 steps.
+- **B**: render at 384×672 for 30 steps, double the size inside the model, then redo the last 10 steps at 768×1344. The ready-made pipeline I started from redoes only 2; I went with 10 to see whether more detail would grow back.
+- **C**: take B's output and run it through SeedVR2, an open-source model built for upscaling video and restoring detail, enlarging it 1.5× to 1152×2016.
+
+| Setting | Output size | Shot 10 (s) | Shot 8 (s) |
+|---|---|---|---|
+| A, full size directly | 768×1344 | 590 | 595 |
+| B, small then upscale | 768×1344 | 245 | 245 |
+| C, B plus SeedVR2 | 1152×2016 | 340 | 350 |
+
+All six clips together cost 17.40 compute units.
+
+I went in thinking A was the "proper" method and would look best. Side by side, A was slow but native, B was much faster, and C was the sharpest. B surprised me most. Doing most of the steps at a small size cut the time by close to 60 percent and lost nothing I could see.
+
+## Why I went with C
+
+Watched side by side on a phone, C's faces and hair were visibly cleaner. It costs about 100 seconds more than B per clip, and in exchange the output is already 1152×2016, close to a full vertical phone screen, so post only needs a small resize to 1080×1920.
+
+For a 13-clip film, the extra time still fit inside one night. For something with dozens of clips I'd probably pick B and spend the saved time reshooting the clips I didn't like.
+
+## What the full shoot cost
+
+Shots 8 and 10 came straight from the test as C versions, and the other 11 were new. Each new clip took about 275 to 360 seconds for the B stage and about 345 seconds for the C stage, 6,985 seconds of cloud generation in all, or roughly two hours. It started around midnight and finished a little after 2 a.m. Compute units went from 148.72 to 134.24, so the shoot cost 14.48.
+
+Joined end to end with no subtitles and no card, the 13 clips ran 67 seconds. Post added the shot 11 card, the subtitles, and transitions. I only faded where the script calls for a break: into the flashback, back to the present, around the card, and at the end. Everything else is a hard cut. Shot 5 is the flashback, so it's warmed up with slightly darkened corners. The result is the 74.7-second film above.
+
+## A first run that produced nothing
+
+The quality test actually took two attempts. The first ran from about 4:30 to a little past 7 p.m., used 14.32 compute units, and produced zero clips.
+
+The cause was mundane. One notebook cell checks that every required component is present and stops if anything is missing, so the GPU isn't wasted. A newer version of ComfyUI, an open-source tool for building image and video pipelines out of nodes, had changed the format of the list it reports. My check misread it, decided the upscaling model was missing, and stopped, exactly as designed. The GPU stayed on, though, and sat idle until Colab disconnected it. I had a watcher script looking for errors, and it never fired.
+
+The second attempt hit two more errors, but I caught them faster. Across both runs that day I spent 31.72 compute units. Most of what I learned is about watching the run rather than the code itself:
+
+- **Before trusting a watcher, feed it a known error and confirm it goes off.** Mine scanned the whole page, but Colab clears the output of cells that scroll out of view, and some errors render inside an embedded frame in the cell where page text can't reach them.
+- **A red error marker only means something failed at some point.** Once I dismissed a real error as a leftover marker from an earlier run and lost another twenty minutes. To tell whether a run is stuck, check whether anything is still executing and whether the clip count is still going up.
+- **Set up the automatic shutdown the moment you start, and run it detached from the chat session.** Background jobs have a time limit, and when it hits, the watcher dies with it and nobody turns the GPU off.
+- **Check which card you got right after starting.** Both are called A100. My first machine was the 40GB version; I deleted it and requested again to get 80GB.
+
+## Letting the characters speak
+
+In the first cut I removed the original audio entirely. In shots where nobody had any lines, the model had made up strings that sounded like Chinese and meant nothing. This time I went the other way and wrote into the prompts that mio says "Daijoubu" in Japanese, so she had something real to say.
+
+After generating, I ran speech recognition over the audio. Shots 5, 6, and 12 all came back with "daijoubu," and those are exactly the three shots where she says it. Shot 13 came back as a Japanese "thanks for watching," but that stretch is nearly silent; the recognizer was guessing at silence, and the model hadn't said anything. A transcript like that only means something next to the volume of the same stretch.
+
+I kept the original audio at 0.55 of its level, put the music at 0.35, and normalized the whole film to -14 LUFS. Her voice sits under the music where you can hear it without fighting the subtitles.
+
+Looking back, the model behaved the same both times. The difference was whether the prompt gave it a line. Give it one and it says it; leave a gap and it fills the gap itself.
 
 ## The one thing to take with you
 
-**The words that matter most are short, and short words only land when they're the other person's own.**
+**Before spending real money or real time, try the smallest possible version of a few options side by side.**
 
-Today, find someone who's nervous: a coworker before an interview, a kid before an exam, a friend about to go on stage. Send them a message of five words or fewer. Before you write it, think about what they usually say to themselves, and use their words. Then note what they reply. Next time, you'll know whether one short line was enough.
+Had I shot all 13 clips with A, each would have taken over 200 seconds longer and come out softer. Two shots and about US$1.80 settled the direction for the whole film. None of this is specific to AI. Today, if you're trying a new soup, a new route to work, or a new bag of coffee beans, make the smallest batch you can, put two or three versions next to each other, and write down which one wins and why. Then decide whether to do it that way for real.
