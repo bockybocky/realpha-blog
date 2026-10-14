@@ -6,6 +6,11 @@ interface Props {
 }
 
 import survivorship from '../data/survivorship.json';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+
+// Content hash as ?v= so a rebuilt script is never served from a stale CDN/browser cache.
+const ver = (file: string) => createHash('sha1').update(readFileSync(`public/${file}`)).digest('hex').slice(0, 10);
 
 const { demo, title, space } = Astro.props;
 const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'zh-TW';
@@ -19,8 +24,8 @@ const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'zh-TW';
 		</div>
 	) : demo === 'espresso' ? (
 		<div data-lab-demo="espresso" data-lang={lang} class="demo-frame tool" aria-label={title}>
-			<script src="/espresso-machine.js" defer></script>
-			<script src="/espresso-lab.js" defer></script>
+			<script src={`/espresso-machine.js?v=${ver('espresso-machine.js')}`} defer></script>
+			<script src={`/espresso-lab.js?v=${ver('espresso-lab.js')}`} defer></script>
 		</div>
 	) : demo === 'sweetvox' ? (
 		<div data-lab-demo="sweetvox" data-lang={lang} class="demo-frame tool" aria-label={title}>
