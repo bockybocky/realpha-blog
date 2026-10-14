@@ -948,6 +948,18 @@
       autoIo.observe(machineDiv);
     }
 
+    // Click (or Enter/Space) on the machine figure replays the full brew, same as the play button.
+    if (machine) {
+      machineDiv.style.cursor = 'pointer';
+      machineDiv.setAttribute('role', 'button');
+      machineDiv.setAttribute('tabindex', '0');
+      machineDiv.setAttribute('aria-label', T.play.replace('▶ ', ''));
+      machineDiv.addEventListener('click', function () { startPlay(); });
+      machineDiv.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); startPlay(); }
+      });
+    }
+
     if (typeof ResizeObserver !== 'undefined') {
       var chartRo = new ResizeObserver(function () {
         var fs = measureFs(c1);
