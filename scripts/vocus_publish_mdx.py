@@ -105,6 +105,7 @@ except (OSError, ValueError):
 
 # 封面檔名不一定等於 slug（早期幾篇用短名），對不上時在這裡指名
 COVERS = {
+    'espresso-machine-drawing-and-simulation-2026-10': 'espresso-machine-drawing-and-simulation-2026-10.png',
     'mio-daily-ai-short-film': 'mio-daily-ai-short-film.png',
     'xiaotian-2026-10-12-mac-studio-beyond-llm': 'xiaotian-2026-10-12-mac-studio-beyond-llm.png',
     'daijoubu-ai-short-film': 'daijoubu-ai-short-film.png',
