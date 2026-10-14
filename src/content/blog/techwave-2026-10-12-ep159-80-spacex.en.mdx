@@ -1,0 +1,108 @@
+---
+title: "TechWave EP159: Musk Bought 800 MHz — and Then What?"
+description: "Notes on TechWave EP159 (12 October 2026): SpaceX acquired US 800 MHz low-band spectrum on 8 October (817–824 MHz uplink, 862–869 MHz downlink), US carrier shares fell 8–9% that day, and host Harry works through path loss and beam capacity to explain why Starlink fits better as a backup network. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "techwave-2026-10-12-ep159-80-spacex"
+lang: "en"
+pubDate: 2026-10-14
+category: "investing"
+kind: "podcast-notes"
+tags: ["TechWave", "podcast-notes", "satellite connectivity", "SpaceX", "spectrum"]
+ogImage: "/covers/techwave-2026-10-12-ep159-80-spacex-cover.png"
+cover: "/covers/techwave-2026-10-12-ep159-80-spacex-cover.png"
+---
+
+![Night interior of a high-speed train carriage, the aisle running deep toward the front, phone screens glowing against the window, a few scattered lights in the hills outside](/covers/techwave-2026-10-12-ep159-80-spacex-cover.png)
+
+> The perilous tower stands a hundred feet high; from here my hand could pick the stars. I dare not raise my voice, for fear of startling those who live in the sky.
+>
+> —— Li Bai, "Staying Overnight at a Mountain Temple" (Tang dynasty; translation mine)
+
+In TechWave EP159, published 12 October 2026, host Harry works through the 8 October news that SpaceX had acquired US 800 MHz low-band spectrum — 817 to 824 MHz on the uplink, 862 to 869 MHz on the downlink, 7 MHz each way — which Musk called the final piece of the puzzle. US carrier shares fell 8% to 9% that day, with no exceptions. Harry takes the other side: after working through path loss and beam capacity, he concludes Starlink cannot replace terrestrial carriers in cities, and that its reasonable position is a backup tier or a budget tier. He says himself that this is a high-level, non-specialist read of the technology, so the episode is a line of reasoning and he does not treat it as settled.
+
+## He loses signal on the train once a week
+
+The part of the episode that stayed with me is where Harry talks about his own commute. He spends weekends at his family home in Changhua recording the show, works in Taipei on weekdays, and rides the high-speed rail at least once a week — where coverage keeps dropping out. If his carrier offered a plan that added a few hundred Taiwan dollars a month and switched him to Starlink wherever terrestrial coverage failed, he would buy it, and he says working internet on the train alone would be worth the money.
+
+I laughed at that, because it describes me too. And that bit of small talk is where the episode starts: somebody who actually has a use for satellite internet states what he would pay for first. Everything that follows answers a different question — whether that use can grow into a business that replaces carriers.
+
+## On 8 October, the market gave a different answer
+
+Some terms first. Starlink is SpaceX's low-earth-orbit network, with roughly ten thousand satellites in operation; second place is Europe's OneWeb at 650 and third is Amazon Leo at 390, so competitors barely enter the discussion. There are two ways to connect. One is Dishy, a white panel about 30 cm across that sits on your roof or car and hands the signal to your devices like a Wi-Fi router. The other is Direct to Cell, where the satellite reaches your phone's own antenna, currently through partnerships like the one with T-Mobile that switches over when terrestrial coverage has a hole.
+
+So why is 800 MHz the puzzle piece? Lower frequency means longer wavelength, and longer waves diffract around doors and walls, which makes low band the band for indoor coverage. Eight hundred megahertz sounds large — eight hundred million oscillations a second — yet in radio terms it is low: 2 GHz runs at two and a half times that rate, and above it sit 3.5 GHz and 5G millimetre wave at 28 GHz. The higher bands SpaceX already held work fine outdoors into a rooftop Dishy, and struggle to get inside a building. This purchase buys the indoor leg.
+
+![Two walls side by side: on the left, a long rolling wave crests over the wall, bends indoors and reaches a phone, while on the right, tightly packed short waves hit the wall and stop, leaving the phone behind it greyed out.](/figures/low-band-diffraction-indoor-en.svg)
+
+Online opinion split into carriers-are-finished and this-will-never-clear-the-physics. The market voted for the first camp that day. Harry picks the second, and states his bias up front: he is a big Musk fan who refuses to believe a conclusion first and look for the logic afterwards, and Musk has shipped projects that fizzled, so he re-derives this one from the technology.
+
+## He turns the distance into a number
+
+The first number is path loss. Your nearest cell tower is tens of metres to a few kilometres away; a low-earth-orbit satellite is three hundred-odd kilometres up. Holding everything else constant — same transmit power, same frequency, one link at one kilometre and the other assumed at five hundred — the satellite link takes about 54 dB more loss. Since dB is a log scale, that is a factor of 250,000 in power.
+
+The satellite side has a remedy. Radio waves interfere, so many small antennas adding in phase can boost the signal; SpaceX publishes a maximum antenna gain of 38 dBi, which in theory recovers about 6,300x and shrinks the gap to roughly forty times. Then Harry adds the line I liked most in the episode: gain is not a satellite privilege, and ground towers use it too. That forty-times gap does not close by trying harder in orbit.
+
+![On a logarithmic scale, three bars of decreasing height: the 250,000x bar is cut down most of the way by 6,300x of gain, yet a 40x bar still remains.](/figures/path-loss-gain-remaining-gap-en.svg)
+
+## Then he works out how many people share one beam
+
+The second number decides speed and stability, and it needs a change of unit. On the ground the smallest serving unit is a tower; for a satellite it is a beam. Starlink V2 carries roughly two hundred beams and V3 can reach two thousand, and one beam plays the role one tower plays — everyone inside its footprint shares its capacity.
+
+The footprints differ. An urban tower covers a few hundred metres and they are packed densely; a beam fired from three hundred kilometres up spreads by diffraction and lands tens of kilometres wide. Narrowing an 800 MHz main beam to one kilometre would need a twenty-metre antenna aperture, which does not fit inside a rocket, several satellites at a time. So Harry runs the arithmetic: assume one beam carries 14 Mbps, assume those tens of kilometres are all mountains with only a hundred users, and each gets 140 kbps — enough for text messages, and he is not sure about voice calls. That is why Direct to Cell is slow today, and urban density puts tens of thousands of people under one beam.
+
+![One large circle representing a beam lands on the ground, packed with dozens of small circles representing cell towers, labelled tens of kilometres for the large circle and a few hundred metres for the small ones.](/figures/one-beam-covers-many-cells-en.svg)
+
+Why not fire more beams at the same area? Spectrum is the constraint. SpaceX holds 79 MHz in total against T-Mobile's 400 MHz at one carrier, and in low band this 800 MHz block is what it has. Two beams carrying different signals on the same block arrive at your phone together and interfere. The fix is MIMO: shape each beam so the stream meant for you adds constructively at your position while the others cancel out. Harry compares it to active noise cancelling in AirPods, where the earbud emits an inverted wave to kill the noise it hears — same physics.
+
+![The same capacity bar is split among a hundred dots on the left and a dense mass of dots on the right, so each person gets a visible slice on the left but one too thin to see on the right.](/figures/beam-capacity-per-user-en.svg)
+
+MIMO has its own ceiling, also set by distance. The satellite must resolve two phones before it can engineer a stream for each. A hundred metres apart is manageable; two people standing face to face less than a metre apart look like one point from three hundred kilometres up. A ground tower sits close enough to separate them, which is its second advantage. The research direction is distributed MIMO, using several satellites to view the same patch from different angles — like two people standing one behind the other, indistinguishable head-on and obvious from the side. Harry notes SpaceX has said publicly that MIMO is central to Direct to Cell, has not spelled out the distributed part, and has the fleet size to make it a strength.
+
+![Three bars drawn to the same scale: a long bar of 400 on top, a short bar of 79 in the middle, and a very short bar of 14 at the bottom.](/figures/spectrum-bars-comparison-en.svg)
+
+SpaceX's stated vision for Direct to Cell is a 150 Mbps peak per user. That speed is quick for daily use, and it is a peak, with nothing said about city versus countryside, how many simultaneous users, or indoors versus outdoors. Put those variables back and Harry sees no near-term path to matching a ground tower on speed and stability in a city.
+
+## He considered the hybrid route and found no edge
+
+The second architecture is hybrid: SpaceX builds its own ground towers, satellites feed them, and the towers distribute to phones over 800 MHz. Gwynne Shotwell recently mentioned deploying large numbers of small Dishy-like base stations on rooftops and similar spots, alongside some larger conventional towers. Their public filings point this way.
+
+Harry splits the route in two and asks about each leg. Tower to phone: SpaceX has 79 MHz while AT&T has far more, which carries more capacity — a disadvantage. Satellite to tower: it inherits the path loss above, where a conventional carrier's backhaul runs on submarine fibre with vastly more bandwidth. Neither leg has an edge, so in ordinary urban use, what would make this network faster or steadier than the incumbent?
+
+He leaves one opening: the SpaceX engineering team, which he rates as the strongest in the world — look at the rockets — and which may build something nobody can see yet. He also grants that this opening has no technical roadmap anyone can point at.
+
+## So the two roads he would bet on are small ones
+
+The first is the add-on backup tier, the one he wants to buy himself: automatic switchover to Starlink wherever the carrier cannot reach — trains, mountains, cruise ships, aircraft. Every market has people who will pay extra for that, and he thinks the tier alone is a large business.
+
+The second is what this 800 MHz block opens: a budget carrier plan with weaker, less stable service at urban peak, wide coverage, and a lower monthly price — positioned the way Taiwan's old budget carrier T Star was. The bar here is lower, since it needs no street-by-street build-out: put micro cells where they matter most, leave the rest to Direct to Cell, and go after price-sensitive customers without matching incumbent capex.
+
+He closes with a first-principles comparison. Musk built rockets because cheap materials assembled into something a hundred times dearer made no sense, and chose vision-only autonomy because that road scales. For becoming a carrier, he sees no reason of that order. Starlink as the planet's backup network — dead zones, war zones, disasters — is already a large ambition.
+
+## One headline knocks ten percent off a whole group — should I act?
+
+This was my first question after listening, because it happens every few months: a group of companies you follow drops a tenth overnight and you hold no new numbers.
+
+One thing you can do is split the headline into which gate it unlocked and how many gates remain behind it. The 8 October news unlocked signal getting indoors. It did not change beam capacity, it did not change three hundred kilometres of path loss, and it did not add to the 79 MHz on SpaceX's books. Harry's half-episode of arithmetic is a count of the remaining gates, and the market read gate one as the whole road.
+
+![Four gates stand along a corridor: the first swings open and lets an arrow through, while the three behind it still block the way and stop the arrow.](/figures/four-gates-only-one-opened-en.svg)
+
+The market was not wholly wrong either — the budget-tier road was opened by this block, and that road takes a slice of price-sensitive customers from the incumbents. The direction of the move can be right while its size and timing are separate questions. My own habit is to count the gates first and decide about acting second.
+
+## Can I still trust my own read on a company I love?
+
+The harder problem to admit: you have been bullish on a company for years and notice that you have an explanation ready for every piece of bad news about it.
+
+Harry spends time in this episode separating a fan from a blind fan, and the difference is sequence — first ask whether the technology can work at all, then ask whether it can work at the scale the founder claims — and he did not skip step one. His conclusion here runs against his own preference, which is itself a signal about how much weight to give it.
+
+One way I have made this concrete: for your favourite company, write down what would have to happen for you to admit you were wrong. If you can write it, you hold a judgement you can check against facts later. If you cannot, you hold a belief. The first time I tried it, two of my positions came up blank — and those two were where I lost the most.
+
+## Further reading
+
+- TechWave EP159 (12 October 2026), hosted by Harry; the chapter markers separate the telecom primer from the analysis
+- SpaceX and Starlink's official Direct to Cell pages, including coverage and carrier partners
+- FCC spectrum licence and transfer filings, where the 817–824 MHz and 862–869 MHz blocks can be checked
+
+## One thing to take away
+
+Unlocking one gate is not the same as unlocking the road. This 800 MHz block opened the indoor gate, and path loss, beam capacity and total spectrum holdings still stand behind it — which is how one headline can be a real step forward and still sit far from the conclusion.
+
+Here is something I have tried. Take one thing you heard recently that excited or worried you — it need not involve investing; a child changing schools, a friend announcing a startup, your employer rolling out a new system all count. Write three lines: line one, the gate it genuinely removed; lines two and three, what still stands in the way. Fill all three and you understand it better than the headline did. Come up short, and I take that as a sign I do not understand it yet and park the judgement.
