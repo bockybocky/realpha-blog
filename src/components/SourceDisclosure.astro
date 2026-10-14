@@ -1,6 +1,6 @@
 ---
 interface Props {
-	demo: 'canvas-waves' | 'line-chart' | 'price-volume' | 'leverage-decay' | 'survivorship';
+	demo: 'canvas-waves' | 'line-chart' | 'price-volume' | 'leverage-decay' | 'survivorship' | 'sweetvox' | 'espresso';
 	locale: 'zh-TW' | 'en';
 }
 
@@ -62,6 +62,27 @@ parts.forEach((pct) => {
 // -20, 25 走三次：index 回到 100，lev 只剩 72.9。
 // 少掉的 27.1 不是手續費，是波動本身。
 const shortfall = index - lev;`,
+	'sweetvox': `// 甜嗓：拆 MID／SIDE，女聲前移、通透、真空管暖度
+// 全程在瀏覽器裡處理，不上傳。
+y = norm * (tanh(k*(x + b)) - tanh(k*b))
+k=0.6、b=0.18`,
+	'espresso': `// 粉量 18 g、目標出杯 36 g、預浸 4 秒
+// 壓力超過 9 bar 粉餅被壓得更密，多出的壓力只有一部分變成流速
+Peff = pressure <= 9 ? pressure : 9 + (pressure - 9) * 0.35
+// 達西定律簡化：流速 ∝ 粒徑平方 × 壓力
+flow = 1.45 * (grind / 300) ** 2 * (Peff / 9)          // g/s
+shotTime = 4 + 36 / flow                                 // 秒（含預浸）
+// 萃取：越細表面積越大、越熱溶得越快，接觸越久越接近上限
+rate = 0.0447 * (300 / grind) * Math.exp(0.045 * (temp - 93))
+EYmax = 28
+EY(t) = EYmax * (1 - Math.exp(-rate * t))               // t 為秒
+ey = EY(shotTime)                                         // 萃取率 %
+tds = ey * 18 / 36                                        // 濃度 %
+// 通道效應：太細又太高壓，水會鑽出裂縫
+channel = clamp((240 - grind) / 60, 0, 1) * clamp((pressure - 8.5) / 2.5, 0, 1)
+eyEff = ey * (1 - 0.15 * channel)
+// 酸苦：-1 = 很酸，0 = 平衡，+1 = 很苦
+balance = clamp((eyEff - 20) / 4 + (temp - 93) * 0.06, -1, 1)`,
 	'survivorship': `// 資料來自自建的 Norgate 資料庫（1990 年起）：
 // active 3,925 檔、delisted 8,562 檔，合計 12,487 檔。
 const total = D.active_count + D.delisted_count;
