@@ -9,9 +9,9 @@ class NodeStub {
   removeAttribute(name) { delete this.attrs[name]; }
 }
 class ContainerStub {
-  constructor() { this.nodes = new Map(); this.particles = []; this.levers = []; this.heaters = []; this.markup = ""; this.classList = { add() {} }; }
+  constructor() { this.nodes = new Map(); this.particles = []; this.levers = []; this.heaters = []; this.flowTargets = []; this.markup = ""; this.classList = { add() {} }; }
   set innerHTML(markup) {
-    this.markup = markup; this.nodes.clear(); this.particles = []; this.levers = []; this.heaters = [];
+    this.markup = markup; this.nodes.clear(); this.particles = []; this.levers = []; this.heaters = []; this.flowTargets = [];
     this.iso = new NodeStub(); this.svg = new NodeStub(); this.readout = new NodeStub();
     for (const match of markup.matchAll(/<[^>]*data-part="([^"]+)"[^>]*>/g)) {
       const attrs = {}; for (const pair of match[0].matchAll(/([\w-]+)="([^"]*)"/g)) attrs[pair[1]] = pair[2];
@@ -26,6 +26,10 @@ class ContainerStub {
       const existing = attrs["data-part"] ? this.nodes.get(attrs["data-part"]) : null;
       const lever = existing ?? new NodeStub(attrs); Object.assign(lever.attrs, attrs); this.levers.push(lever);
     }
+    for (const match of markup.matchAll(/<[^>]*data-flow-target[^>]*>/g)) {
+      const attrs = {}; for (const pair of match[0].matchAll(/([\w-]+)="([^"]*)"/g)) attrs[pair[1]] = pair[2];
+      this.flowTargets.push(new NodeStub(attrs));
+    }
     for (const match of markup.matchAll(/<[^>]*data-heater="true"[^>]*>/g)) {
       const attrs = {}; for (const pair of match[0].matchAll(/([\w-]+)="([^"]*)"/g)) attrs[pair[1]] = pair[2];
       this.heaters.push(new NodeStub(attrs));
@@ -37,7 +41,7 @@ class ContainerStub {
     if (selector === "[data-readout]") return this.readout;
     const match = selector.match(/^\[data-part="(.+)"\]$/); return match ? this.nodes.get(match[1]) ?? null : null;
   }
-  querySelectorAll(selector) { if (selector === ".em-particle") return this.particles; if (selector === "[data-lever]") return this.levers; if (selector === "[data-heater]") return this.heaters; return []; }
+  querySelectorAll(selector) { if (selector === ".em-particle") return this.particles; if (selector === "[data-lever]") return this.levers; if (selector === "[data-heater]") return this.heaters; if (selector === "[data-flow-target]") return this.flowTargets; return []; }
 }
 
 const htmlClass = new Set(["dark"]);
@@ -77,15 +81,25 @@ assert.ok(fineVisible > container.particles.filter((p) => p.getAttribute("data-h
 assert.notEqual(fineAngle, node("grind-pointer").getAttribute("transform"));
 controller.update({ ...base, channel: 0.1 }); assert.equal(node("channel-cracks").getAttribute("opacity"), "0");
 controller.update({ ...base, channel: 0.5 }); assert.equal(node("channel-cracks").getAttribute("opacity"), "1");
-controller.update({ ...base, t: 0 }); assert.equal(node("flow-stream").getAttribute("display"), "none"); assert.ok(container.levers.every((part) => part.getAttribute("transform").startsWith("rotate(0 ")));
+const leverAngle = (part) => Number(part.getAttribute("transform").match(/rotate\(([-\d.]+) /)[1]);
+assert.ok(!/ data-flow[= >]/.test(container.markup), "static markup carries no data-flow");
+controller.update({ ...base, t: 0 }); assert.equal(node("flow-stream").getAttribute("display"), "none"); assert.ok(container.levers.every((part) => leverAngle(part) === 0), "idle lever is up");
+assert.ok(container.flowTargets.length >= 3, "coffee stream and water pipe have flow targets");
+assert.ok(container.flowTargets.every((part) => part.getAttribute("data-flow") === null), "idle: no element has data-flow");
+assert.equal(node("water-flow").getAttribute("display"), "none");
 controller.update({ ...base, t: 12.5, flow: 2 }); assert.equal(node("flow-stream").getAttribute("display"), "inline"); assert.equal(node("flow-stream").getAttribute("stroke-width"), "2.90");
 assert.ok(container.levers.length >= 2, "lever test includes tube segments and ball");
-assert.ok(container.levers.every((part) => part.getAttribute("transform").startsWith("rotate(18 ")), "entire lever rotates during extraction");
+assert.ok(container.levers.every((part) => Math.abs(leverAngle(part)) >= 25), "entire lever presses down >= 25 degrees from idle during extraction");
+assert.ok(container.flowTargets.filter((part) => part.getAttribute("data-flow") !== null).length >= 1, "playing: data-flow set on at least one element");
+assert.equal(node("water-flow").getAttribute("display"), "inline");
+const rot = leverAngle(container.levers[0]) * Math.PI / 180;
 const pivotX = Number(container.levers[0].getAttribute("data-pivot-x")), pivotY = Number(container.levers[0].getAttribute("data-pivot-y"));
-const rotatedCentres = container.levers.map((part) => { const x = Number(part.getAttribute("data-center-x")), y = Number(part.getAttribute("data-center-y")), a = 18 * Math.PI / 180; return [pivotX + (x - pivotX) * Math.cos(a) - (y - pivotY) * Math.sin(a), pivotY + (x - pivotX) * Math.sin(a) + (y - pivotY) * Math.cos(a)]; });
+const rotatedCentres = container.levers.map((part) => { const x = Number(part.getAttribute("data-center-x")), y = Number(part.getAttribute("data-center-y")), a = rot; return [pivotX + (x - pivotX) * Math.cos(a) - (y - pivotY) * Math.sin(a), pivotY + (x - pivotX) * Math.sin(a) + (y - pivotY) * Math.cos(a)]; });
 const leverCentre = rotatedCentres.reduce((sum, p) => [sum[0] + p[0] / rotatedCentres.length, sum[1] + p[1] / rotatedCentres.length], [0, 0]);
 assert.ok(Math.hypot(leverCentre[0] - pivotX, leverCentre[1] - pivotY) < 40, "rotated lever assembly stays centred near its pivot");
 controller.update({ ...base, t: 25 }); assert.equal(node("flow-stream").getAttribute("display"), "none");
+assert.ok(container.levers.every((part) => leverAngle(part) === 0), "lever returns up when the shot ends");
+assert.ok(container.flowTargets.every((part) => part.getAttribute("data-flow") === null), "flow stops when the shot ends");
 assert.doesNotThrow(() => controller.update({}));
 assert.equal(container.svg.getAttribute("aria-label"), "會動的義式咖啡機剖面圖");
 assert.equal(container.iso.getAttribute("data-theme"), null); htmlClass.delete("dark"); mutationCallback(); assert.equal(container.iso.getAttribute("data-theme"), "light"); htmlClass.add("dark"); mutationCallback(); assert.equal(container.iso.getAttribute("data-theme"), null);

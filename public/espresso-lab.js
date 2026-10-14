@@ -318,6 +318,10 @@
     return p.l + (t / xmax) * (p.w - p.l - p.r);
   }
 
+  // Shot playback timeline (ms). Extraction is the only stage today.
+  var STAGES = [{ id: 'extract', start: 0, end: 6000 }];
+  var PLAY_MS = STAGES[STAGES.length - 1].end;
+
   function mountEspresso(el) {
     if (!el || el.getAttribute('data-es-mounted') === '1') return;
     el.setAttribute('data-es-mounted', '1');
@@ -846,6 +850,20 @@
       }
     }
 
+    // Playback timeline: each stage owns [start, end) in ms and a run(u) hook (u = 0..1 inside it).
+    // Extraction is one stage that drives the charts, numbers and machine; more stages can be
+    // inserted before/after it (see STAGES / PLAY_MS on EspressoLab).
+    var stageRun = {
+      extract: function (u) {
+        var t = u * result.shotTime;
+        var pt = interp(result.curve, t);
+        setNums(result, pt);
+        drawChartEy(result, t);
+        drawChartFlow(result, t);
+        pushMachine(result, pt);
+      }
+    };
+
     function startPlay() {
       stopPlay(false);
       result = model(state);
@@ -854,14 +872,15 @@
       function tick(now) {
         if (!playing) return;
         if (!t0) t0 = now;
-        var u = Math.min(1, (now - t0) / 3000);
-        var t = u * result.shotTime;
-        var pt = interp(result.curve, t);
-        setNums(result, pt);
-        drawChartEy(result, t);
-        drawChartFlow(result, t);
-        pushMachine(result, pt);
-        if (u < 1) raf = requestAnimationFrame(tick);
+        var ms = Math.min(PLAY_MS, now - t0);
+        for (var si = 0; si < STAGES.length; si++) {
+          var st = STAGES[si];
+          if (ms >= st.start && (ms < st.end || (si === STAGES.length - 1 && ms >= PLAY_MS))) {
+            stageRun[st.id](Math.min(1, (ms - st.start) / (st.end - st.start)));
+            break;
+          }
+        }
+        if (ms < PLAY_MS) raf = requestAnimationFrame(tick);
         else {
           playing = false;
           setNums(result, null);
@@ -874,6 +893,21 @@
     }
 
     redraw();
+
+    // Auto-play once when the machine first scrolls into view (not under reduced motion).
+    var reduceMotion = typeof global.matchMedia === 'function' && global.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (machine && !reduceMotion && typeof IntersectionObserver !== 'undefined') {
+      var autoIo = new IntersectionObserver(function (entries) {
+        for (var ei = 0; ei < entries.length; ei++) {
+          if (entries[ei].isIntersecting) {
+            autoIo.disconnect();
+            if (!playing) startPlay();
+            return;
+          }
+        }
+      }, { threshold: 0.4 });
+      autoIo.observe(machineDiv);
+    }
 
     if (typeof ResizeObserver !== 'undefined') {
       var chartRo = new ResizeObserver(function () {
@@ -889,7 +923,7 @@
     }
   }
 
-  global.EspressoLab = { model: model, VERSION: VERSION, interp: interp, states: { ey: eyState, time: timeState, flow: flowState, puck: puckState } };
+  global.EspressoLab = { PLAY_MS: PLAY_MS, STAGES: STAGES, model: model, VERSION: VERSION, interp: interp, states: { ey: eyState, time: timeState, flow: flowState, puck: puckState } };
   global.mountEspresso = mountEspresso;
 
   function autoMount() {
@@ -907,6 +941,6 @@
   }
 
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { model: model, interp: interp, VERSION: VERSION, states: { ey: eyState, time: timeState, flow: flowState, puck: puckState }, PRESETS: PRESETS };
+    module.exports = { PLAY_MS: PLAY_MS, STAGES: STAGES, model: model, interp: interp, VERSION: VERSION, states: { ey: eyState, time: timeState, flow: flowState, puck: puckState }, PRESETS: PRESETS };
   }
 })(typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : this));

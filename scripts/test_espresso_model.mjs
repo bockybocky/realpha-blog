@@ -9,7 +9,7 @@ import fs from 'node:fs';
 const src = fs.readFileSync(path.join(root, 'public', 'espresso-lab.js'), 'utf8');
 const cjs = { exports: {} };
 new Function('module', 'exports', 'require', src)(cjs, cjs.exports, require);
-const { model, interp, states, PRESETS } = cjs.exports;
+const { model, interp, states, PRESETS, PLAY_MS, STAGES } = cjs.exports;
 
 let failed = 0;
 function assert(cond, msg) {
@@ -20,6 +20,9 @@ function assert(cond, msg) {
     console.log('ok  ', msg);
   }
 }
+
+assert(PLAY_MS === 6000, `play duration 6000 ms got ${PLAY_MS}`);
+assert(Array.isArray(STAGES) && STAGES.some((st) => st.id === 'extract' && st.end - st.start === 6000), 'extraction stage lasts 6000 ms');
 
 const d = model({ grind: 300, temp: 93, pressure: 9 });
 assert(d.shotTime >= 25 && d.shotTime <= 32, `default shotTime 25–32 got ${d.shotTime}`);

@@ -15,16 +15,13 @@ const W = 640, H = 430;
 // The fitted box's back-top corner sits above every real part, so scale up from the
 // chassis crown and pin that crown near the top of the card.
 const azimuth = 54, elevation = 29;
-const fitted = k.fitProjection(k.boxCorners({ x: -146, y: -64, w: 215, d: 136, r: 8 }, -14, 126), W, H, { pad: 16, azimuth, elevation });
-// Screen y of the sole and the crown, divided by H, is the empty band. Scale so that span is 84% of H.
-const CLOUD = [[-146, -64, -14], [69, -64, -14], [69, 72, 6], [-146, 72, 6], [-66, -51, 126], [62, 30, 126], [-109, -4, 123], [-26, 72, 26], [55, 46, 118], [-137, -38, 0]];
-const unitCloud = CLOUD.map((p) => k.iso(p, { origin: [0, 0], scale: 1, azimuth, elevation }));
-const ys = unitCloud.map((p) => p[1]), xs = unitCloud.map((p) => p[0]);
-const fitScale = Math.min((H * 0.84) / (Math.max(...ys) - Math.min(...ys)), (W * 0.88) / (Math.max(...xs) - Math.min(...xs)));
+const fitted = k.fitProjection(k.boxCorners({ x: -146, y: -64, w: 215, d: 126, r: 8 }, -14, 128), W, H, { pad: 28, azimuth, elevation });
+const lift = 1.09;
+const crownUnit = k.iso([-66, -51, 118], { origin: [0, 0], scale: 1, azimuth, elevation });
 const P = {
   azimuth, elevation,
-  scale: fitScale,
-  origin: [W / 2 - ((Math.min(...xs) + Math.max(...xs)) / 2) * fitScale, H * 0.08 - Math.min(...ys) * fitScale],
+  scale: fitted.scale * lift,
+  origin: [W / 2 - (W / 2 - fitted.origin[0]) * lift, H * 0.07 - crownUnit[1] * fitted.scale * lift],
 };
 const R = A.recorder(P, { ground: () => true });
 const at = (p) => k.iso(p, P);
@@ -33,7 +30,7 @@ const D = (p, o = {}) => k.dotsSvg(p, o);
 let solidCount = 0;
 const S = (name, paths, o = {}, shape = null, centre = null, extra = "") => {
   solidCount++;
-  const hostClass = name === "tank.body" || name.startsWith("tank.wall") ? ` class="em-tank-shell"` : name === "grinder.hopper" ? ` class="em-hopper-glass"` : /^(portafilter\.basket|puck\.filter-wall)$/.test(name) ? ` class="em-filter-cutaway"` : "";
+  const hostClass = name === "boiler.shell" ? ` class="em-boiler-cutaway"` : name === "chassis.front-control" ? ` class="em-front-window"` : name === "tank.body" ? ` class="em-tank-shell"` : name === "grinder.hopper" ? ` class="em-hopper-glass"` : /^(portafilter\.basket|puck\.filter-wall)$/.test(name) ? ` class="em-filter-cutaway"` : "";
   const leverBallCentre = name === "group.lever-ball" ? at(centre) : null;
   const hostData = name === "group.lever-ball" ? ` data-lever="true" data-part="group.lever-ball" data-center-x="${leverBallCentre[0].toFixed(2)}" data-center-y="${leverBallCentre[1].toFixed(2)}" data-pivot-x="${leverPivotScreen[0].toFixed(2)}" data-pivot-y="${leverPivotScreen[1].toFixed(2)}"` : name === "group.lever-pivot" ? ` data-part="group.lever-pivot"` : "";
   const svg = `<g${hostClass}${hostData}>${k.solidSvg(paths, o)}${extra}</g>`;
@@ -69,15 +66,10 @@ const ROUTE_TOUCH = {
   "steam.wand": ["steam.ball", "steam.nozzle"],
   "cup.handle": ["cup.body"],
 };
-const pipe = (n, points, radius = 1.25, tone = "hi", opt = {}) => {
+const pipe = (n, points, radius = 1.25, tone = "hi") => {
   const route = G.fillet(points, Math.max(2.8, radius * 2.8), 8, { P, tube: radius });
-  const total = G.pathLength(route);
-  const gaps = [];
-  if (opt.startGap) gaps.push([0, Math.min(total, opt.startGap)]);
-  if (opt.endGap) gaps.push([Math.max(0, total - opt.endGap), total]);
-  for (const gap of opt.gaps || []) gaps.push(gap);
   R.route(n, route, radius, { piece: "machine", limp: false, touch: ROUTE_TOUCH[n], ends: [false, false], free: n === "group.lever" ? [false, false] : [true, true] });
-  tubePieces(route, radius, P, { maxLength: 16, spacing: Math.max(.65, Math.min(1.2, radius)), gaps }).forEach((piece, i) => {
+  tubePieces(route, radius, P, { maxLength: 16, spacing: Math.max(.65, Math.min(1.2, radius)) }).forEach((piece, i) => {
     const hot = n === "boiler.heater-u" ? " em-hot" : "";
     const leverCentre = n === "group.lever" ? at(piece.mid) : null;
     const lever = n === "group.lever" ? ` data-lever="true" data-center-x="${leverCentre[0].toFixed(2)}" data-center-y="${leverCentre[1].toFixed(2)}" data-pivot-x="${leverPivotScreen[0].toFixed(2)}" data-pivot-y="${leverPivotScreen[1].toFixed(2)}"` : "";
@@ -87,28 +79,8 @@ const pipe = (n, points, radius = 1.25, tone = "hi", opt = {}) => {
   return "";
 };
 const ferrule = (n, p, a, r = 2.3) => lathe(n, p, a, [[0, r * .75], [.5, r], [2.7, r], [3.2, r * .75]], "hi");
-// Far side of a turned shell: the camera half is omitted so the bore stays open. Recorded as that same sector.
-function farShell(profile, origin) {
-  const F = G.frameAlong(origin, [1, 0, 0]);
-  const V = G.viewOf(P);
-  const cam = Math.atan2(G.dot3(V, F.v), G.dot3(V, F.u));
-  const t0 = cam + Math.PI - 1.2, t1 = cam + Math.PI + 1.2, steps = 16;
-  const edge = (s, r, t) => k.iso(G.pointOf(F, s, r, t), P);
-  const ring = (s, r) => Array.from({ length: steps + 1 }, (_, j) => edge(s, r, t0 + (t1 - t0) * j / steps));
-  let fill = "";
-  for (let i = 0; i < profile.length - 1; i++) {
-    const a = ring(profile[i][0], profile[i][1]), b = ring(profile[i + 1][0], profile[i + 1][1]);
-    for (let j = 0; j < steps; j++) fill += k.pathOf([a[j], a[j + 1], b[j + 1], b[j]], true);
-    for (const t of [t0, t1]) {
-      const rIn0 = Math.min(14, profile[i][1]), rIn1 = Math.min(14, profile[i + 1][1]);
-      fill += k.pathOf([edge(profile[i][0], rIn0, t), edge(profile[i][0], profile[i][1], t), edge(profile[i + 1][0], profile[i + 1][1], t), edge(profile[i + 1][0], rIn1, t)], true);
-    }
-  }
-  const poly = [[0, 0]];
-  for (let j = 0; j <= 14; j++) { const t = t0 + (t1 - t0) * j / 14; poly.push([Math.cos(t) * 21.6, Math.sin(t) * 21.6]); }
-  return { paths: { fill, shades: ["", "", "", ""], top: "", outline: [t0, t1].map((t) => k.pathOf(profile.map(([s, r]) => edge(s, r, t)))).join("") + k.pathOf(ring(0, 19)) + k.pathOf(ring(profile.at(-1)[0], profile.at(-1)[1])), crease: "" }, shape: A.prism(F, poly, 0, profile.at(-1)[0], { name: "boiler.shell", owner: "machine" }), cam };
-}
 const out = [];
+const overlay = [];
 
 const BASE = { x: -146, y: -64, w: 215, d: 126, r: 8 };
 out.push(`<path class="iso-halo" d="${k.haloOf(BASE, -14, 12, P)}"/>`);
@@ -126,7 +98,7 @@ out.push(slab("base.ruler", RULE, 0, .55, "lo", .1, L(rt.minor, { tone: "lo" }) 
 out.push(slab("chassis.floor", { x: -65, y: -51, w: 126, d: 96, r: 4 }, 0, 5));
 out.push(slab("chassis.left", { x: -66, y: -51, w: 7, d: 96, r: 2 }, 5, 108));
 const backSlots = Array.from({ length: 8 }, (_, i) => slot(-50 + i * 13, -51.3, 7, 1.2, 86)).join("");
-out.push(slab("chassis.back", { x: -58.6, y: -51, w: 119.6, d: 6, r: 2 }, 5, 108, "mid", .7, backSlots));
+out.push(slab("chassis.back", { x: -65, y: -51, w: 126, d: 6, r: 2 }, 5, 108, "mid", .7, backSlots));
 // The front is a structural frame rather than a sealing slab: controls stay visible
 // while the boiler, pump and water routes remain exposed through the service opening.
 out.push(slab("chassis.front-left", { x: -65, y: 39, w: 8, d: 7, r: 2 }, 5, 108, "hi", 1));
@@ -135,7 +107,7 @@ out.push(slab("chassis.front-control", { x: -57, y: 39, w: 110, d: 7, r: 2 }, 65
 out.push(slab("chassis.top", { x: -66, y: -51, w: 128, d: 97, r: 4 }, 113, 5, "hi", 1));
 for (const [i, [x, y]] of [[-58, 43], [54, 43], [-58, 40], [54, 40]].entries()) out.push(screw(`front.screw.${i}`, x, y, 106));
 for (const [i, [x, y]] of [[-61, -35], [-61, 25]].entries()) out.push(screw(`side.screw.${i}`, x, y, 74));
-out.push(slab("chassis.partition", { x: 2.2, y: -44, w: 4, d: 55, r: 1 }, 5, 14, "lo", .3));
+out.push(slab("chassis.partition", { x: 7, y: -44, w: 4, d: 79, r: 1 }, 5, 15, "lo", .3));
 out.push(slab("boiler.cradle.l", { x: -49, y: -33, w: 8, d: 57, r: 2 }, 8, 9), slab("boiler.cradle.r", { x: -2, y: -33, w: 8, d: 57, r: 2 }, 8, 9));
 out.push(slab("top.warming-tray", { x: -57, y: -42, w: 109, d: 75, r: 4 }, 118, 2, "lo", .4));
 for (const [i, y] of [-30, 0, 30].entries()) {
@@ -145,36 +117,26 @@ for (const [i, y] of [-30, 0, 30].entries()) {
 }
 
 // Reservoir, lid, handle, level marks and suction route.
-const tankTicks = Array.from({ length: 5 }, (_, i) => L(k.lineOnTop([52, -34 + i * 7], [54.2, -34 + i * 7], 56, P), { tone: "lo", free: true })).join("");
-out.push(slab("tank.wall.back", { x: 36.2, y: -43, w: 17.2, d: 1.6, r: .4 }, 11, 56, "hi", .3));
-out.push(slab("tank.wall.left", { x: 35, y: -43, w: 1.6, d: 31, r: .4 }, 11, 56, "hi", .3, tankTicks));
-out.push(slab("tank.wall.right", { x: 52.4, y: -43, w: 1.6, d: 31, r: .4 }, 11, 56, "hi", .3));
-out.push(slab("tank.body", { x: 36.2, y: -15.2, w: 16.2, d: 1.6, r: .4 }, 19, 48, "hi", .3));
-out.push(slab("tank.wall.front-low", { x: 36.2, y: -15.2, w: 16.2, d: 1.6, r: .4 }, 11, 4, "hi", .3));
-out.push(slab("tank.floor", { x: 36.4, y: -41.4, w: 16, d: 26.4, r: 1 }, 8, 3, "mid", .3));
-{
-  const waterPlan = { x: 37.2, y: -40.6, w: 14.6, d: 24.6, r: 2 };
-  const waterPaths = k.slabOf(waterPlan, 12, 34, P, 4, .3);
-  const waterSvg = `<g data-part="tank.water" class="em-water">${k.solidSvg(waterPaths, { tone: "lo" })}</g>`;
-  R.put({ name: "tank.water", at: [44.5, -28.3, 29], svg: waterSvg, shapes: [A.slab(waterPlan, 12, 34, { name: "tank.water", owner: "machine" }, 4)], piece: "machine" });
-  solidCount++;
-}
+const tankDetails = L(k.sideSeam({ x: 35, y: -43, w: 20, d: 31, r: 4 }, 48, P, 4), { tone: "mid" }) + Array.from({ length: 5 }, (_, i) => L(k.lineOnTop([52, -34 + i * 7], [55, -34 + i * 7], 56, P), { tone: "lo", free: true })).join("");
+out.push(slab("tank.body", { x: 35, y: -43, w: 20, d: 31, r: 4 }, 8, 60, "hi", 1, tankDetails));
+const water = k.slabOf({ x: 37, y: -41, w: 16, d: 27, r: 3 }, 10, 38, P, 4, .4);
+out.push(`<path data-part="tank.water" class="em-water" d="${water.top}"/>`);
 out.push(slab("tank.lid", { x: 33, y: -45, w: 24, d: 35, r: 4 }, 68, 3), slab("tank.handle", { x: 39, y: -35, w: 12, d: 15, r: 4 }, 71, 3, "hi"));
-out.push(pipe("water.suction", [[44, -28, 48], [44, -28, 16], [44, -11.2, 16]], 1.1, "mid", { endGap: 3.3 }), ferrule("water.suction-fitting", [44, -11.2, 16], [0, 1, 0], 2.1));
+out.push(pipe("water.suction", [[40, -18, 53], [40, -18, 18], [31, 3, 18]], 1.1, "mid"), ferrule("water.suction-fitting", [31, 3, 18], [-1, 0, 0], 2.1));
 
 // Smooth horizontal boiler with exposed heater and all service hardware.
 {
-  const profile = [[0, 19], [2, 21], [45, 21], [47, 19]];
-  const shell = farShell(profile, [-45, -7, 58]);
-  out.push(S("boiler.shell", shell.paths, { tone: "hi" }, shell.shape, [-21.5, -7, 58]));
-  const cam = shell.cam, off = 15;
-  const hy = -7 + Math.cos(cam) * off, hz = 58 + Math.sin(cam) * off;
-  out.push(pipe("boiler.heater-u", [[-28, hy, hz], [0.4, hy, hz]], 1.5));
+  const profile = [[0, 19], [2, 21], [45, 21], [47, 19]], F = G.frameAlong([-45, -7, 58], [1, 0, 0]);
+  out.push(S("boiler.shell", G.lathe(profile, F, P, { steps: 16, smooth: true }), { tone: "hi" }, A.solid(F, profile, { name: "boiler.shell", owner: "machine" }), [-21.5, -7, 58]));
 }
 out.push(lathe("boiler.left-head", [-47, -7, 58], [-1, 0, 0], [[0, 13], [2, 20], [5, 21]], "mid", { smooth: true }));
+// Open right head: a ring, so the heater inside the shell is seen through the mouth.
 out.push(lathe("boiler.right-head", [2, -7, 58], [1, 0, 0], [[0, 21], [3, 21], [6, 14]], "mid", { smooth: true, hole: [0, 18] }));
-out.push(lathe("boiler.flange", [8.5, -7, 58], [1, 0, 0], [[0, 24], [3, 24]], "lo", { hole: [0, 18] }));
-for (let i = 0; i < 8; i++) { const a = i / 8 * Math.PI * 2; out.push(lathe(`boiler.bolt.${i}`, [11.7, -7 + Math.cos(a) * 21, 58 + Math.sin(a) * 21], [1, 0, 0], [[0, 1.35], [1.6, 1.35]], "hi", { steps: 12 })); }
+out.push(lathe("boiler.flange", [1, -7, 58], [1, 0, 0], [[0, 24], [3, 24]], "lo"));
+for (let i = 0; i < 8; i++) { const a = i / 8 * Math.PI * 2; out.push(lathe(`boiler.bolt.${i}`, [4.3, -7 + Math.cos(a) * 20, 58 + Math.sin(a) * 20], [1, 0, 0], [[0, 1.35], [1.5, 1.35]], "hi", { steps: 12 })); }
+// Straight element in the rear of the bore. It stays inside the shell radius and
+// inside the head's hole; its right end clears the front panel on screen.
+out.push(pipe("boiler.heater-u", [[-28, 8, 46], [-2, 8, 46]], 1.5));
 out.push(lathe("boiler.probe", [-18, 12, 65], [0, -1, 0], [[0, 2.2], [4, 2.2], [14, 1]], "hi"));
 out.push(pipe("boiler.probe-wire", [[-18, 14, 65], [-10, 22, 72], [9, 24, 76]], .65, "lo"));
 out.push(slab("boiler.insulation", { x: -42, y: -29, w: 39, d: 45, r: 6 }, 16, 2, "lo"), slab("boiler.thermostat", { x: -30, y: -10, w: 13, d: 11, r: 3 }, 80, 5));
@@ -187,6 +149,12 @@ out.push(slab("pump.mount", { x: 8, y: -8, w: 22, d: 20, r: 5 }, 5, 4, "lo"));
 out.push(pipe("water.pump-boiler", [[19, 4, 61], [19, -18, 73], [1, -23, 73], [-5, -7, 73]], 1.3), ferrule("water.boiler-fitting", [-5, -7, 73], [-1, 0, 0]));
 out.push(lathe("water.opv", [19, -18, 73], [0, 0, 1], [[0, 3], [3, 5], [8, 5], [11, 2.5]], "mid"));
 out.push(pipe("water.boiler-group", [[-45, -7, 71], [-55, 13, 79], [-45, 31, 83], [-26, 38, 83]], 1.45), ferrule("water.group-fitting", [-26, 38, 83], [1, 0, 0]));
+{
+  // Water moving pump -> boiler -> group head during a shot: a dashed centre line on each real route.
+  // Overlay only (not recorded), hidden when idle, so the static frame and the audit are unchanged.
+  const centre = (pts, r) => k.pathOf(G.fillet(pts, Math.max(2.8, r * 2.8), 8, { P, tube: r }).map(at));
+  overlay.push(`<g data-part="water-flow" display="none"><path class="iso-line em-waterflow" data-tone="blue" data-flow-target d="${centre([[19, 4, 61], [19, -18, 73], [1, -23, 73], [-5, -7, 73]], 1.3)}"/><path class="iso-line em-waterflow" data-tone="blue" data-flow-target d="${centre([[-45, -7, 71], [-55, 13, 79], [-45, 31, 83], [-26, 38, 83]], 1.45)}"/></g>`);
+}
 out.push(pipe("gauge.capillary", [[-8, -2, 76], [5, 16, 91], [21, 36, 92]], .55, "lo"));
 for (const [i, p] of [[19, -10, 70], [-34, 5, 76], [-45, 23, 82]].entries()) out.push(slab(`pipe.clamp.${i}`, { x: p[0] - 2, y: p[1] - 3, w: 4, d: 6, r: 1 }, p[2], 2, "lo", .2));
 
@@ -200,6 +168,8 @@ for (let i = 0; i < 5; i++) {
 }
 out.push(lathe("group.shower", [-26, 56, 47], [0, 0, -1], [[0, 10], [2, 10]], "lo"));
 const leverPivotScreen = at([-11, 71, 68]);
+// Pressing stroke of the group lever while a shot runs (screen degrees about the hinge).
+const LEVER_DOWN = -40;
 out.push(lathe("group.lever-pivot", [-11, 50, 68], [0, 1, 0], [[0, 3], [21, 3]]));
 out.push(pipe("group.lever", [[-11, 79, 68], [-16, 81, 82], [-20, 82, 92]], 1.35), lathe("group.lever-ball", [-20, 82, 92], [0, 0, 1], [[0, 4], [4, 5], [8, 4]], "hi", { smooth: true }));
 out.push(lathe("portafilter.collar", [-26, 56, 46], [0, 0, -1], [[0, 12], [2.8, 13], [5.8, 12]]), lathe("portafilter.basket", [-26, 56, 40.2], [0, 0, -1], [[0, 10.8], [5.7, 10], [9.7, 8]], "hi"));
@@ -225,8 +195,7 @@ const gaugeFrame = frontMatrix(28, 91), gc = gaugeFrame.c;
 // The dial reads as a true circle facing the reader. One-decimal values also survive
 // the card's number rounding below (which squashed the old front-plane matrix to 1 0 0 2).
 const gaugeMatrix = `matrix(1.1 0 0 1.1 ${gc[0].toFixed(1)} ${gc[1].toFixed(1)})`;
-const gaugeText = at([28, 46, 82]);
-overlay.push(`<g data-part="pressure-gauge" transform="${gaugeMatrix}"><circle class="em-gauge-rim" r="20"/><circle class="em-gauge-face" r="18"/><path data-part="pressure-green-zone" class="em-green-zone" data-start-bar="8" data-end-bar="10" d="M3.40 -19.30A19.6 19.6 0 0 1 13.86 -13.86"/>${Array.from({ length: 17 }, (_, i) => { const a = (-220 + i * 17.5) * Math.PI / 180, r = i % 2 ? 15.5 : 13; return `<path class="iso-line em-gauge-tick" data-tone="${i % 2 ? "lo" : "mid"}" d="M${(Math.cos(a) * r).toFixed(2)} ${(Math.sin(a) * r).toFixed(2)}L${(Math.cos(a) * 17.2).toFixed(2)} ${(Math.sin(a) * 17.2).toFixed(2)}"/>`; }).join("")}<path data-part="pressure-needle" class="iso-line em-needle" data-tone="hi" data-free="start" d="M-2 1L15 0" transform="rotate(-62)"/><circle class="em-hub" r="2.2"/></g><text data-part="pressure-value" class="em-gauge-label" x="${gaugeText[0].toFixed(2)}" y="${gaugeText[1].toFixed(2)}">9.0 bar</text>`);
+overlay.push(`<g data-part="pressure-gauge" transform="${gaugeMatrix}"><circle class="em-gauge-rim" r="20"/><circle class="em-gauge-face" r="18"/><path data-part="pressure-green-zone" class="em-green-zone" data-start-bar="8" data-end-bar="10" d="M3.40 -19.30A19.6 19.6 0 0 1 13.86 -13.86"/>${Array.from({ length: 17 }, (_, i) => { const a = (-220 + i * 17.5) * Math.PI / 180, r = i % 2 ? 15.5 : 13; return `<path class="iso-line em-gauge-tick" data-tone="${i % 2 ? "lo" : "mid"}" d="M${(Math.cos(a) * r).toFixed(2)} ${(Math.sin(a) * r).toFixed(2)}L${(Math.cos(a) * 17.2).toFixed(2)} ${(Math.sin(a) * 17.2).toFixed(2)}"/>`; }).join("")}<path data-part="pressure-needle" class="iso-line em-needle" data-tone="hi" data-free="start" d="M-2 1L15 0" transform="rotate(-62)"/><circle class="em-hub" r="2.2"/><text data-part="pressure-value" class="em-gauge-label" x="0" y="8.6">9.0 bar</text></g>`);
 // Wide enough for "100.0°C" and clear of the gauge, whose face reaches world x=8.
 const tempWindowW = 32, tempWindowH = 14, tempCenterX = -14, tempCenterZ = 100;
 out.push(slab("display.temp-frame", { x: tempCenterX - tempWindowW / 2, y: 45.5, w: tempWindowW, d: 1.5, r: 2 }, tempCenterZ - tempWindowH / 2, tempWindowH, "lo", .4));
@@ -251,9 +220,13 @@ const cupLiquidZ0 = 16, cupLiquidZ1 = 23, cupC = at([-26, 56, cupLiquidZ1]), cup
 const cupLiquidSvg = `<path data-part="cup-liquid" class="em-liquid" d="${k.planOutline(cupLiquidPlan, cupLiquidZ1, P, 24)}"/>`;
 const cupLiquidShape = A.disc(G.frameAlong([-26, 56, cupLiquidZ1], [0, 0, 1]), 0, .1, 8, { name: "cup.liquid", owner: "machine" });
 R.put({ name: "cup.liquid", at: [-26, 56, cupLiquidZ1], svg: cupLiquidSvg, shapes: [cupLiquidShape], piece: "machine" });
-const flowSvg = `<g data-part="flow-stream" display="none"><path class="em-coffee" d="${k.pathOf([at([-31, 56, 26]), at([-31, 56, cupLiquidZ1])])}"/><path class="em-coffee" d="${k.pathOf([at([-21, 56, 26]), at([-21, 56, cupLiquidZ1])])}"/></g>`;
+// Coffee stream from each spout tip into the cup. Drawn as an overlay (on top of the cup rim) so
+// the short fall stays visible; hidden when idle, dash-animated while a shot plays.
+const streamOf = (tip, x) => k.pathOf([at(tip), at([tip[0] + (x - tip[0]) * .4, 58.5, 24.6]), at([x, 57, cupLiquidZ1 - .5])]);
+const flowSvg = `<g data-part="flow-stream" display="none"><path class="iso-line em-coffee" data-flow-target d="${streamOf([-35.5, 59, 25.3], -30.5)}"/><path class="iso-line em-coffee" data-flow-target d="${streamOf([-16.5, 59, 25.3], -21.5)}"/></g>`;
 const flowShapes = [A.tube([[-31, 56, 26], [-31, 56, cupLiquidZ1]], [.35, .35]), A.tube([[-21, 56, 26], [-21, 56, cupLiquidZ1]], [.35, .35])];
-R.put({ name: "cup.flow", at: [-26, 56, 24.5], svg: flowSvg, shapes: flowShapes, piece: "machine" });
+R.put({ name: "cup.flow", at: [-26, 56, 24.5], svg: "", shapes: flowShapes, piece: "machine" });
+overlay.push(flowSvg);
 
 // Companion grinder on the base extension.
 out.push(slab("grinder.base", { x: -137, y: -38, w: 57, d: 69, r: 6 }, 0, 7));
@@ -313,8 +286,13 @@ R.items.splice(boilerIndex + 1, 0, ...heaterItems);
 // entries are host-surface engraving, slots, knurling, ticks and beans. Paint
 // those after the settled solids so they remain visible on their host faces.
 const settledBody = [out[0], ...R.items.map((item) => item.svg), ...out.slice(1), ...overlay].join("");
-const svg = k.figureSvg({ width: W, height: H, label: "側板拆開的 E61 家用半自動義式咖啡機，內部水箱、幫浦、鍋爐、水路、沖煮頭與左側磨豆機都可見。", body: settledBody });
-const extraCss = `.es-machine{min-height:0}.es-machine>.iso{width:100%;--anatomy-card:var(--paper,#171717);--anatomy-page:var(--paper,#171717)}.es-machine .iso-plate{width:100%;box-sizing:border-box}.es-machine .iso-svg{width:100%;height:auto;overflow:visible}.es-machine .iso-swatch{width:16px;height:10px;flex:none}.es-machine .iso-swatch[data-mark="lit"] path{stroke:#d97706!important;fill:#d97706}.es-machine .iso-swatch[data-mark="lit"] .iso-swatch-crease{stroke:#8a4b05!important}.em-water{fill:var(--anatomy-line-lo);opacity:.3}.em-boiler-cutaway{opacity:.28}.em-hot .tb-body,.em-hot .tb-shade,.em-heater-line{fill:#d97706!important;stroke:#d97706!important;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}.em-coffee{fill:none;stroke:#d97706;stroke-width:2.2;stroke-linecap:round}.em-liquid{fill:#d97706;stroke:#d97706;stroke-width:.7;opacity:.84}.em-puck .iso-fill,.em-puck .iso-top,.em-puck .iso-shade{fill:#d97706!important}.em-puck .iso-edge{stroke:var(--anatomy-lit)}.em-particle,.em-bean{fill:#d97706;opacity:.72}.em-particle[data-hidden="true"]{display:none}.em-crack{fill:none;stroke:var(--anatomy-paper);stroke-width:1.15;stroke-linecap:round}.em-gauge-rim{fill:var(--anatomy-face);stroke:var(--anatomy-hi);stroke-width:2}.em-gauge-face{fill:var(--anatomy-paper);stroke:var(--anatomy-mid);stroke-width:1}.em-green-zone{fill:none;stroke:#3f8f62;stroke-width:3.8;stroke-linecap:round}.em-gauge-tick{stroke-width:.8}.em-needle{stroke:#d97706!important;stroke-width:1.7}.em-hub{fill:var(--anatomy-hi)}.em-gauge-label,.em-machine-readout{fill:var(--anatomy-hi);font:600 5px ui-monospace,Consolas,monospace;text-anchor:middle;font-variant-numeric:tabular-nums}.em-gauge-label{font-size:6.5px}.em-scale-text{font-size:7px}.em-temp-window rect{fill:var(--anatomy-shade-0);stroke:var(--anatomy-hi);stroke-width:1.1}.em-temp-window text{font-size:8px}@media(max-width:430px){.es-machine .iso-plate-corner{font-size:10px}.es-machine .iso-plate-corner[data-corner="title"]{font-size:11px}.es-machine .iso-keys,.es-machine .iso-caption{font-size:10px}}`;
+// Enlarge by cropping: MB is the painted machine's box in this 640x430 frame (every element
+// except the floor halo, labels included), measured in the browser. The viewBox frames it with
+// a small margin, so the card shows the same drawing larger.
+const MB = [110.3, 13.9, 529.9, 362.5], VB_PAD_X = 20, VB_PAD_Y = 10;
+const VB = [MB[0] - VB_PAD_X, MB[1] - VB_PAD_Y, MB[2] - MB[0] + 2 * VB_PAD_X, MB[3] - MB[1] + 2 * VB_PAD_Y].map((v) => v.toFixed(1));
+const svg = k.figureSvg({ width: W, height: H, label: "側板拆開的 E61 家用半自動義式咖啡機，內部水箱、幫浦、鍋爐、水路、沖煮頭與左側磨豆機都可見。", body: settledBody }).replace(`viewBox="0 0 ${W} ${H}"`, `viewBox="${VB.join(" ")}"`);
+const extraCss = `.es-machine{min-height:0}.es-machine>.iso{width:100%;--anatomy-card:var(--paper,#171717);--anatomy-page:var(--paper,#171717)}.es-machine .iso-plate{width:100%;box-sizing:border-box}.es-machine .iso-svg{width:100%;height:auto;overflow:visible}.es-machine .iso-swatch{width:16px;height:10px;flex:none}.es-machine .iso-swatch[data-mark="lit"] path{stroke:#d97706!important;fill:#d97706}.es-machine .iso-swatch[data-mark="lit"] .iso-swatch-crease{stroke:#8a4b05!important}.em-water{fill:var(--anatomy-line-lo);opacity:.3}.em-boiler-cutaway{opacity:.28}.em-hot .tb-body,.em-hot .tb-shade,.em-heater-line{fill:#d97706!important;stroke:#d97706!important;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}.em-coffee{fill:none;stroke:#d97706;stroke-width:2.2;stroke-linecap:round}.em-coffee{stroke-width:1.8}.em-coffee[data-flow]{stroke-dasharray:3 1.5}.em-waterflow{stroke-width:1.5}.em-liquid{fill:#d97706;stroke:#d97706;stroke-width:.7;opacity:.84}.em-puck .iso-fill,.em-puck .iso-top,.em-puck .iso-shade{fill:#d97706!important}.em-puck .iso-edge{stroke:var(--anatomy-lit)}.em-particle,.em-bean{fill:#d97706;opacity:.72}.em-particle[data-hidden="true"]{display:none}.em-crack{fill:none;stroke:var(--anatomy-paper);stroke-width:1.15;stroke-linecap:round}.em-gauge-rim{fill:var(--anatomy-face);stroke:var(--anatomy-hi);stroke-width:2}.em-gauge-face{fill:var(--anatomy-paper);stroke:var(--anatomy-mid);stroke-width:1}.em-green-zone{fill:none;stroke:#3f8f62;stroke-width:3.8;stroke-linecap:round}.em-gauge-tick{stroke-width:.8}.em-needle{stroke:#d97706!important;stroke-width:1.7}.em-hub{fill:var(--anatomy-hi)}.em-gauge-label,.em-machine-readout{fill:var(--anatomy-hi);font:600 5px ui-monospace,Consolas,monospace;text-anchor:middle;font-variant-numeric:tabular-nums}.em-gauge-label{font-size:4.4px}.em-scale-text{font-size:7px}.em-temp-window rect{fill:var(--anatomy-shade-0);stroke:var(--anatomy-hi);stroke-width:1.1}.em-temp-window text{font-size:8px}.es-machine .iso-plate{padding:30px 6px}.es-machine .iso-plate-corners{inset:10px 12px}@media(max-width:560px){.es-machine .iso-plate{padding:24px 4px 40px}.es-machine .iso-plate-corners{inset:8px 10px}.es-machine .iso-plate-corner[data-corner="hint"]{bottom:13px}}@media(max-width:430px){.es-machine .iso-plate-corner{font-size:10px}.es-machine .iso-plate-corner[data-corner="title"]{font-size:11px}.es-machine .iso-keys,.es-machine .iso-caption{font-size:10px}}`;
 const cutawayCss = `.em-filter-cutaway{opacity:.38}.em-front-window{opacity:.24}.em-tank-shell{opacity:.35}.em-hopper-glass>.iso-fill,.em-hopper-glass>.iso-top,.em-hopper-glass>.iso-shade{opacity:.35}.em-particle{fill:#5a2d03;opacity:.9}.em-gauge-face{fill:#f4f1e8}.em-gauge-label,.em-hub{fill:#1f1f1f!important}`;
 const copy = {
   zh: { title: "義式咖啡機，打開來看", hint: "拖下面的滑桿，機器跟著動", keys: ["粉餅", "鍋爐", "壓力錶", "磨豆機調整環", "秤"], caption: "粉越細、水越熱，萃取越多；壓力錶和秤上的數字，就是下方圖表同一瞬間的值。" },
@@ -332,7 +310,7 @@ const zhCard = card("zh")
 const packWords = [`<path class="iso-fill"`,`<path class="iso-edge"`,`<path class="iso-top"`,`<path class="iso-shade"`,`<path class="iso-line"`,` data-tone="hi"`,` data-tone="mid"`,` data-tone="lo"`,` fill-rule="evenodd"`,` stroke-linejoin="round"`,` stroke-linecap="round"`,` opacity="0.`,`<g class="`,` transform="`,` class="`,`<path d="`];
 const packPairs = packWords.map((word, i) => [String.fromCharCode(0xe000 + i), word]);
 const packedCard = packPairs.reduce((text, [token, word]) => text.split(word).join(token), zhCard);
-const runtime = `(function(root,factory){var api=factory();if(root)root.EspressoMachine=api;if(typeof module!=="undefined"&&module.exports)module.exports=api;})(typeof window!=="undefined"?window:typeof globalThis!=="undefined"?globalThis:null,function(){"use strict";var VERSION="2.0.0";var CSS=${JSON.stringify(css)};var CARD=${JSON.stringify(zhCard)};var EN=${JSON.stringify([[copy.zh.title,copy.en.title],[copy.zh.hint,copy.en.hint],...copy.zh.keys.map((x,i)=>[x,copy.en.keys[i]]),[copy.zh.caption,copy.en.caption]])};function n(v,d){v=Number(v);return Number.isFinite(v)?v:d}function mount(container,options){if(!container||typeof container.querySelector!=="function")throw new TypeError("EspressoMachine.mount requires a container");if(typeof document!=="undefined"&&!document.getElementById("espresso-machine-style")){var style=document.createElement("style");style.id="espresso-machine-style";style.textContent=CSS;document.head.appendChild(style);}var lang=options&&options.lang==="en"?"en":"zh",html=CARD;if(lang==="en")for(var i=0;i<EN.length;i++)html=html.replace(">"+EN[i][0]+"<",">"+EN[i][1]+"<");if(container.classList)container.classList.add("es-machine");container.innerHTML=html;var plate=container.querySelector(".iso"),svg=container.querySelector("svg"),q=function(p){return container.querySelector('[data-part="'+p+'"]')};function theme(){if(!plate||typeof document==="undefined")return;if(document.documentElement.classList.contains("dark"))plate.removeAttribute("data-theme");else plate.setAttribute("data-theme","light")}theme();var observer=null;if(typeof MutationObserver!=="undefined"&&typeof document!=="undefined"){observer=new MutationObserver(theme);observer.observe(document.documentElement,{attributes:true,attributeFilter:["class"]})}if(svg)svg.setAttribute("aria-label",lang==="en"?"Animated cutaway espresso machine":"會動的義式咖啡機剖面圖");function update(state){state=state||{};var grind=n(state.grind,300),temp=n(state.temp,93),pressure=n(state.pressure,9),flow=n(state.flow,1.45),cup=n(state.cup,36),shot=n(state.shotTime,25),t=n(state.t,shot),channel=n(state.channel,0);var el=q("pressure-needle"),angle=-220+pressure*17.5;if(el)el.setAttribute("transform","rotate("+angle.toFixed(2)+")");el=q("pressure-value");if(el)el.textContent=pressure.toFixed(1)+" bar";el=q("temp-value");if(el)el.textContent=temp.toFixed(1)+"°C";el=q("cup-value");if(el)el.textContent=cup.toFixed(1)+" g";el=container.querySelector("[data-readout]");if(el)el.textContent=temp.toFixed(1)+"°C · "+pressure.toFixed(1)+" bar · "+cup.toFixed(1)+" g";el=q("grind-pointer");if(el)el.setAttribute("transform","rotate("+((grind-180)/240*270).toFixed(2)+" ${grc[0].toFixed(1)} ${grc[1].toFixed(1)})");var particles=container.querySelectorAll(".em-particle"),radius=.28+(grind-180)/240*.55,visible=Math.round(32-(grind-180)/240*13);for(var j=0;j<particles.length;j++){particles[j].setAttribute("r",(radius+(j%3)*.06).toFixed(2));particles[j].setAttribute("data-hidden",j<visible?"false":"true")}el=q("channel-cracks");if(el)el.setAttribute("opacity",channel>.3?String(Math.min(1,(channel-.3)/.2)):"0");var active=t>0&&t<shot;el=q("flow-stream");if(el){el.setAttribute("display",active?"inline":"none");el.setAttribute("stroke-width",Math.max(.7,flow*1.45).toFixed(2))}var levers=container.querySelectorAll("[data-lever]"),leverTransform=active?"rotate(18 ${leverPivotScreen[0].toFixed(2)} ${leverPivotScreen[1].toFixed(2)})":"rotate(0 ${leverPivotScreen[0].toFixed(2)} ${leverPivotScreen[1].toFixed(2)})";for(var l=0;l<levers.length;l++)levers[l].setAttribute("transform",leverTransform);var heaters=container.querySelectorAll("[data-heater]"),heaterOpacity=Math.max(.15,Math.min(1,.15+(temp-86)/11*.85)).toFixed(2);for(var h=0;h<heaters.length;h++)heaters[h].setAttribute("opacity",heaterOpacity);el=q("cup-liquid");if(el){var ratio=Math.max(0,Math.min(1,cup/40)),dx=(1-ratio)*(${cupLowC[0].toFixed(2)}-${cupC[0].toFixed(2)}),dy=(1-ratio)*(${cupLowC[1].toFixed(2)}-${cupC[1].toFixed(2)});el.setAttribute("transform","translate("+dx.toFixed(2)+" "+dy.toFixed(2)+")")}}update({});return{update:update,destroy:function(){if(observer)observer.disconnect()}}}return{mount:mount,VERSION:VERSION};});\n`;
+const runtime = `(function(root,factory){var api=factory();if(root)root.EspressoMachine=api;if(typeof module!=="undefined"&&module.exports)module.exports=api;})(typeof window!=="undefined"?window:typeof globalThis!=="undefined"?globalThis:null,function(){"use strict";var VERSION="2.0.0",LEVER_DOWN=${LEVER_DOWN};var CSS=${JSON.stringify(css)};var CARD=${JSON.stringify(zhCard)};var EN=${JSON.stringify([[copy.zh.title,copy.en.title],[copy.zh.hint,copy.en.hint],...copy.zh.keys.map((x,i)=>[x,copy.en.keys[i]]),[copy.zh.caption,copy.en.caption]])};function n(v,d){v=Number(v);return Number.isFinite(v)?v:d}function mount(container,options){if(!container||typeof container.querySelector!=="function")throw new TypeError("EspressoMachine.mount requires a container");if(typeof document!=="undefined"&&!document.getElementById("espresso-machine-style")){var style=document.createElement("style");style.id="espresso-machine-style";style.textContent=CSS;document.head.appendChild(style);}var lang=options&&options.lang==="en"?"en":"zh",html=CARD;if(lang==="en")for(var i=0;i<EN.length;i++)html=html.replace(">"+EN[i][0]+"<",">"+EN[i][1]+"<");if(container.classList)container.classList.add("es-machine");container.innerHTML=html;var plate=container.querySelector(".iso"),svg=container.querySelector("svg"),q=function(p){return container.querySelector('[data-part="'+p+'"]')};function theme(){if(!plate||typeof document==="undefined")return;if(document.documentElement.classList.contains("dark"))plate.removeAttribute("data-theme");else plate.setAttribute("data-theme","light")}theme();var observer=null;if(typeof MutationObserver!=="undefined"&&typeof document!=="undefined"){observer=new MutationObserver(theme);observer.observe(document.documentElement,{attributes:true,attributeFilter:["class"]})}if(svg)svg.setAttribute("aria-label",lang==="en"?"Animated cutaway espresso machine":"會動的義式咖啡機剖面圖");function update(state){state=state||{};var grind=n(state.grind,300),temp=n(state.temp,93),pressure=n(state.pressure,9),flow=n(state.flow,1.45),cup=n(state.cup,36),shot=n(state.shotTime,25),t=n(state.t,shot),channel=n(state.channel,0);var el=q("pressure-needle"),angle=-220+pressure*17.5;if(el)el.setAttribute("transform","rotate("+angle.toFixed(2)+")");el=q("pressure-value");if(el)el.textContent=pressure.toFixed(1)+" bar";el=q("temp-value");if(el)el.textContent=temp.toFixed(1)+"°C";el=q("cup-value");if(el)el.textContent=cup.toFixed(1)+" g";el=container.querySelector("[data-readout]");if(el)el.textContent=temp.toFixed(1)+"°C · "+pressure.toFixed(1)+" bar · "+cup.toFixed(1)+" g";el=q("grind-pointer");if(el)el.setAttribute("transform","rotate("+((grind-180)/240*270).toFixed(2)+" ${grc[0].toFixed(1)} ${grc[1].toFixed(1)})");var particles=container.querySelectorAll(".em-particle"),radius=.28+(grind-180)/240*.55,visible=Math.round(32-(grind-180)/240*13);for(var j=0;j<particles.length;j++){particles[j].setAttribute("r",(radius+(j%3)*.06).toFixed(2));particles[j].setAttribute("data-hidden",j<visible?"false":"true")}el=q("channel-cracks");if(el)el.setAttribute("opacity",channel>.3?String(Math.min(1,(channel-.3)/.2)):"0");var active=t>0&&t<shot;el=q("flow-stream");if(el){el.setAttribute("display",active?"inline":"none");el.setAttribute("stroke-width",Math.max(.7,flow*1.45).toFixed(2))}el=q("water-flow");if(el)el.setAttribute("display",active?"inline":"none");var flows=container.querySelectorAll("[data-flow-target]");for(var f=0;f<flows.length;f++){if(active)flows[f].setAttribute("data-flow","");else flows[f].removeAttribute("data-flow")}var press=active?Math.max(0,Math.min(1,t/(shot*.06),(shot-t)/(shot*.06))):0,levers=container.querySelectorAll("[data-lever]"),leverTransform="rotate("+(LEVER_DOWN*press).toFixed(2)+" ${leverPivotScreen[0].toFixed(2)} ${leverPivotScreen[1].toFixed(2)})";for(var l=0;l<levers.length;l++)levers[l].setAttribute("transform",leverTransform);var heaters=container.querySelectorAll("[data-heater]"),heaterOpacity=Math.max(.15,Math.min(1,.15+(temp-86)/11*.85)).toFixed(2);for(var h=0;h<heaters.length;h++)heaters[h].setAttribute("opacity",heaterOpacity);el=q("cup-liquid");if(el){var ratio=Math.max(0,Math.min(1,cup/40)),dx=(1-ratio)*(${cupLowC[0].toFixed(2)}-${cupC[0].toFixed(2)}),dy=(1-ratio)*(${cupLowC[1].toFixed(2)}-${cupC[1].toFixed(2)});el.setAttribute("transform","translate("+dx.toFixed(2)+" "+dy.toFixed(2)+")")}}update({});return{update:update,destroy:function(){if(observer)observer.disconnect()}}}return{mount:mount,VERSION:VERSION};});\n`;
 const finalRuntime = runtime
   .replace(JSON.stringify(zhCard), JSON.stringify(packedCard))
   .replace(';var EN=', `;var PACK=${JSON.stringify(packPairs)};for(var pi=0;pi<PACK.length;pi++)CARD=CARD.split(PACK[pi][0]).join(PACK[pi][1]);var EN=`);
