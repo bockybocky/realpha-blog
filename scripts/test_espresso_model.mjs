@@ -21,8 +21,13 @@ function assert(cond, msg) {
   }
 }
 
-assert(PLAY_MS === 6000, `play duration 6000 ms got ${PLAY_MS}`);
-assert(Array.isArray(STAGES) && STAGES.some((st) => st.id === 'extract' && st.end - st.start === 6000), 'extraction stage lasts 6000 ms');
+assert(PLAY_MS === 16000, `play duration 16000 ms got ${PLAY_MS}`);
+assert(Array.isArray(STAGES) && STAGES.length === 7, 'stage count = 7');
+assert(STAGES.map((st) => st.id).join(',') === 'beans,grind,dose,extract,steam,pour,done', 'stage sequence order');
+assert(STAGES.every((st, i) => st.start === (i ? STAGES[i - 1].end : 0) && st.end > st.start), 'stages are contiguous and non-empty');
+assert(STAGES[3].id === 'extract', 'chart-synced extraction is stage 4');
+assert(/stages: \['1 落豆'.*'7 完成'\]/.test(src) && /stages: \['1 Beans'.*'7 Done'\]/.test(src), 'captions exist in both locales');
+assert((src.match(/drawChartEy\(result, t\)/g) || []).length === 1 && (src.match(/drawChartFlow\(result, t\)/g) || []).length === 1, 'charts sync only inside extraction stage');
 
 const d = model({ grind: 300, temp: 93, pressure: 9 });
 assert(d.shotTime >= 25 && d.shotTime <= 32, `default shotTime 25–32 got ${d.shotTime}`);

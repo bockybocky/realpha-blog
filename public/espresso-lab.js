@@ -160,7 +160,8 @@
       temp: '水溫', pressure: '壓力',
       unitUm: 'µm', unitC: '°C', unitBar: 'bar',
       sour: '太酸（萃取不足）', balanced: '平衡', bitter: '太苦（過萃）', turbo: '渦輪濃縮', reset: '重設',
-      play: '▶ 萃取',
+      play: '▶ 完整沖煮',
+      stages: ['1 落豆', '2 磨粉', '3 填粉', '4 萃取', '5 打奶泡', '6 拉花', '7 完成'],
       ey: '萃取率', flow: '流速', time: '萃取時間', tds: '濃度', cup: '杯重', puck: '粉餅狀態',
       eyHint: '理想 18–22%',
       unitPct: '%', unitGps: 'g/s', unitS: '秒', unitG: 'g',
@@ -183,7 +184,8 @@
       temp: 'Temp', pressure: 'Pressure',
       unitUm: 'µm', unitC: '°C', unitBar: 'bar',
       sour: 'Too sour (under)', balanced: 'Balanced', bitter: 'Too bitter (over)', turbo: 'Turbo shot', reset: 'Reset',
-      play: '▶ Extract',
+      play: '▶ Make latte',
+      stages: ['1 Beans', '2 Grind', '3 Dose', '4 Extract', '5 Steam', '6 Pour & art', '7 Done'],
       ey: 'Extraction', flow: 'Flow', time: 'Shot time', tds: 'TDS', cup: 'Cup', puck: 'Puck',
       eyHint: 'ideal 18–22%',
       unitPct: '%', unitGps: 'g/s', unitS: 's', unitG: 'g',
@@ -223,6 +225,7 @@
     css.textContent = [
       '.es-root{display:flex;flex-direction:column;gap:0.9rem;color:var(--text);min-width:0;max-width:100%;}',
       '.es-machine{min-height:0;}',
+      '.es-step{text-align:center;font-weight:700;letter-spacing:.04em;color:var(--accent);min-height:1.5em;margin:.25rem 0 0;}',
       '.es-sliders{display:flex;flex-direction:column;gap:0.7rem;}',
       '.es-row{display:grid;grid-template-columns:6.2rem 1fr auto;gap:0.55rem;align-items:center;}',
       '.es-row label{font-size:0.88rem;color:var(--muted);}',
@@ -318,8 +321,16 @@
     return p.l + (t / xmax) * (p.w - p.l - p.r);
   }
 
-  // Shot playback timeline (ms). Extraction is the only stage today.
-  var STAGES = [{ id: 'extract', start: 0, end: 6000 }];
+  // Full latte storyboard. Only extraction owns chart/model playback.
+  var STAGES = [
+    { id: 'beans', start: 0, end: 1800 },
+    { id: 'grind', start: 1800, end: 3600 },
+    { id: 'dose', start: 3600, end: 5600 },
+    { id: 'extract', start: 5600, end: 10600 },
+    { id: 'steam', start: 10600, end: 12600 },
+    { id: 'pour', start: 12600, end: 14500 },
+    { id: 'done', start: 14500, end: 16000 }
+  ];
   var PLAY_MS = STAGES[STAGES.length - 1].end;
 
   function mountEspresso(el) {
@@ -350,6 +361,10 @@
     } else {
       machineDiv.style.display = 'none';
     }
+    var stepCaption = document.createElement('p');
+    stepCaption.className = 'es-step';
+    stepCaption.hidden = true;
+    machineDiv.appendChild(stepCaption);
 
     function sliderRow(key, min, max, step, label, unit, extraHint) {
       var wrap = document.createElement('div');
@@ -820,6 +835,20 @@
       machine.update(payload);
     }
 
+    function showStage(index, u) {
+      stepCaption.hidden = false;
+      stepCaption.textContent = T.stages[index];
+      setNums(result, null);
+      drawChartEy(result, null);
+      drawChartFlow(result, null);
+      if (machine && typeof machine.update === 'function') machine.update({
+        grind: state.grind, temp: state.temp, pressure: state.pressure,
+        flow: result.flow, cup: index < 3 ? 0 : 36, t: result.shotTime,
+        shotTime: result.shotTime, channel: result.channel,
+        stage: STAGES[index].id, progress: u
+      });
+    }
+
     function redraw() {
       result = model(state);
       setNums(result, null);
@@ -848,20 +877,29 @@
         drawChartFlow(result, null);
         pushMachine(result, null);
       }
+      stepCaption.hidden = true;
     }
 
     // Playback timeline: each stage owns [start, end) in ms and a run(u) hook (u = 0..1 inside it).
     // Extraction is one stage that drives the charts, numbers and machine; more stages can be
     // inserted before/after it (see STAGES / PLAY_MS on EspressoLab).
     var stageRun = {
+      beans: function (u) { showStage(0, u); },
+      grind: function (u) { showStage(1, u); },
+      dose: function (u) { showStage(2, u); },
       extract: function (u) {
+        stepCaption.hidden = false;
+        stepCaption.textContent = T.stages[3];
         var t = u * result.shotTime;
         var pt = interp(result.curve, t);
         setNums(result, pt);
         drawChartEy(result, t);
         drawChartFlow(result, t);
         pushMachine(result, pt);
-      }
+      },
+      steam: function (u) { showStage(4, u); },
+      pour: function (u) { showStage(5, u); },
+      done: function (u) { showStage(6, u); }
     };
 
     function startPlay() {
@@ -887,6 +925,7 @@
           drawChartEy(result, null);
           drawChartFlow(result, null);
           pushMachine(result, null);
+          stepCaption.hidden = true;
         }
       }
       raf = requestAnimationFrame(tick);

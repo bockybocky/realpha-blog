@@ -9,9 +9,9 @@ class NodeStub {
   removeAttribute(name) { delete this.attrs[name]; }
 }
 class ContainerStub {
-  constructor() { this.nodes = new Map(); this.particles = []; this.levers = []; this.heaters = []; this.flowTargets = []; this.markup = ""; this.classList = { add() {} }; }
+  constructor() { this.nodes = new Map(); this.particles = []; this.levers = []; this.heaters = []; this.flowTargets = []; this.doseParts = []; this.steam = []; this.markup = ""; this.classList = { add() {} }; }
   set innerHTML(markup) {
-    this.markup = markup; this.nodes.clear(); this.particles = []; this.levers = []; this.heaters = []; this.flowTargets = [];
+    this.markup = markup; this.nodes.clear(); this.particles = []; this.levers = []; this.heaters = []; this.flowTargets = []; this.doseParts = []; this.steam = [];
     this.iso = new NodeStub(); this.svg = new NodeStub(); this.readout = new NodeStub();
     for (const match of markup.matchAll(/<[^>]*data-part="([^"]+)"[^>]*>/g)) {
       const attrs = {}; for (const pair of match[0].matchAll(/([\w-]+)="([^"]*)"/g)) attrs[pair[1]] = pair[2];
@@ -34,6 +34,14 @@ class ContainerStub {
       const attrs = {}; for (const pair of match[0].matchAll(/([\w-]+)="([^"]*)"/g)) attrs[pair[1]] = pair[2];
       this.heaters.push(new NodeStub(attrs));
     }
+    for (const match of markup.matchAll(/<[^>]*data-dose="true"[^>]*>/g)) {
+      const attrs = {}; for (const pair of match[0].matchAll(/([\w-]+)="([^"]*)"/g)) attrs[pair[1]] = pair[2];
+      this.doseParts.push(attrs["data-part"] && this.nodes.get(attrs["data-part"]) || new NodeStub(attrs));
+    }
+    for (const match of markup.matchAll(/<circle class="em-steam"[^>]*>/g)) {
+      const attrs = {}; for (const pair of match[0].matchAll(/([\w-]+)="([^"]*)"/g)) attrs[pair[1]] = pair[2];
+      this.steam.push(new NodeStub(attrs));
+    }
   }
   querySelector(selector) {
     if (selector === ".iso") return this.iso;
@@ -41,7 +49,7 @@ class ContainerStub {
     if (selector === "[data-readout]") return this.readout;
     const match = selector.match(/^\[data-part="(.+)"\]$/); return match ? this.nodes.get(match[1]) ?? null : null;
   }
-  querySelectorAll(selector) { if (selector === ".em-particle") return this.particles; if (selector === "[data-lever]") return this.levers; if (selector === "[data-heater]") return this.heaters; if (selector === "[data-flow-target]") return this.flowTargets; return []; }
+  querySelectorAll(selector) { if (selector === ".em-particle") return this.particles; if (selector === ".em-steam") return this.steam; if (selector === "[data-dose]") return this.doseParts; if (selector === "[data-lever]") return this.levers; if (selector === "[data-heater]") return this.heaters; if (selector === "[data-flow-target]") return this.flowTargets; return []; }
 }
 
 const htmlClass = new Set(["dark"]);
@@ -87,6 +95,13 @@ controller.update({ ...base, t: 0 }); assert.equal(node("flow-stream").getAttrib
 assert.ok(container.flowTargets.length >= 3, "coffee stream and water pipe have flow targets");
 assert.ok(container.flowTargets.every((part) => part.getAttribute("data-flow") === null), "idle: no element has data-flow");
 assert.equal(node("water-flow").getAttribute("display"), "none");
+for (const part of ["bean-drop", "grounds-fall", "steam-scene", "pour-scene", "latte-art"]) assert.equal(node(part).getAttribute("display"), "none", `idle hides ${part}`);
+controller.update({ ...base, stage: "beans", progress: .5 }); assert.equal(node("bean-drop").getAttribute("display"), "inline");
+controller.update({ ...base, stage: "grind", progress: .5 }); assert.equal(node("grounds-fall").getAttribute("display"), "inline"); assert.match(node("grind-pointer").getAttribute("transform"), /rotate\(360 /);
+controller.update({ ...base, stage: "dose", progress: .25 }); assert.ok(container.doseParts.some((part) => !/translate\(0/.test(part.getAttribute("transform"))), "dose moves portafilter from grinder to group");
+controller.update({ ...base, stage: "steam", progress: .5 }); assert.equal(node("steam-scene").getAttribute("display"), "inline"); assert.ok(container.steam.every((part) => part.getAttribute("data-flow") !== null), "steam puffs flow");
+controller.update({ ...base, stage: "pour", progress: .7 }); assert.equal(node("pour-scene").getAttribute("display"), "inline"); assert.equal(node("latte-art").getAttribute("display"), "inline"); assert.ok(node("pour-stream").getAttribute("data-flow") !== null, "milk pour flows");
+controller.update({ ...base, stage: "done", progress: .5 }); assert.equal(node("latte-art").getAttribute("display"), "inline"); assert.equal(node("steam-scene").getAttribute("display"), "none");
 controller.update({ ...base, t: 12.5, flow: 2 }); assert.equal(node("flow-stream").getAttribute("display"), "inline"); assert.equal(node("flow-stream").getAttribute("stroke-width"), "2.90");
 assert.ok(container.levers.length >= 2, "lever test includes tube segments and ball");
 assert.ok(container.levers.every((part) => Math.abs(leverAngle(part)) >= 25), "entire lever presses down >= 25 degrees from idle during extraction");
