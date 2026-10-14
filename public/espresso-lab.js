@@ -149,14 +149,19 @@
 
   model.interp = interp;
 
+  function eyState(ey) { return ey < 18 ? 'under' : ey > 22 ? 'over' : 'ideal'; }
+  function timeState(seconds) { return seconds < 20 ? 'fast' : seconds > 35 ? 'slow' : 'normal'; }
+  function flowState(flow) { return flow < 1 ? 'slow' : flow > 2 ? 'fast' : 'normal'; }
+  function puckState(channel) { return channel < 0.15 ? 'even' : channel <= 0.4 ? 'risk' : 'channeling'; }
+
   var STR = {
     zh: {
       grind: '研磨度', grindHint: '細 ← → 粗',
       temp: '水溫', pressure: '壓力',
       unitUm: 'µm', unitC: '°C', unitBar: 'bar',
-      sour: '太酸（萃取不足）', balanced: '平衡', bitter: '太苦（過萃）', reset: '重設',
+      sour: '太酸（萃取不足）', balanced: '平衡', bitter: '太苦（過萃）', turbo: '渦輪濃縮', reset: '重設',
       play: '▶ 萃取',
-      ey: '萃取率', flow: '流速', time: '萃取時間', tds: '濃度', cup: '杯重',
+      ey: '萃取率', flow: '流速', time: '萃取時間', tds: '濃度', cup: '杯重', puck: '粉餅狀態',
       eyHint: '理想 18–22%',
       unitPct: '%', unitGps: 'g/s', unitS: '秒', unitG: 'g',
       chartEy: '萃取率隨時間', chartFlow: '流速與杯中重量',
@@ -164,7 +169,9 @@
       stop: '停止', acid: '酸', sweet: '甜', bitterL: '苦', body: '醇厚',
       sweetZone: '甜區',
       yEy: '萃取率 %', yFlow: '流速 g/s', yCup: '杯重 g',
-      idealBand: '理想 18–22%', target36: '目標 36 g',
+      idealBand: '理想 18–22%', target36: '目標 36 g', typicalFlow: '常見流速',
+      zoneUnder: '萃取不足', zoneIdeal: '甜蜜點', zoneOver: '過萃', speedFast: '偏快', speedNormal: '標準', speedSlow: '偏慢', flowNormal: '正常',
+      puckEven: '均勻', puckRisk: '有通道風險', puckChanneling: '通道明顯',
       under: '偏酸、萃取不足：試著研磨調細一點，或水溫提高 1–2 度。',
       over: '偏苦、過度萃取：試著研磨調粗一點，或水溫降低 1–2 度。',
       ideal: '落在理想區間，酸甜苦平衡。',
@@ -175,9 +182,9 @@
       grind: 'Grind', grindHint: 'fine ← → coarse',
       temp: 'Temp', pressure: 'Pressure',
       unitUm: 'µm', unitC: '°C', unitBar: 'bar',
-      sour: 'Too sour (under)', balanced: 'Balanced', bitter: 'Too bitter (over)', reset: 'Reset',
+      sour: 'Too sour (under)', balanced: 'Balanced', bitter: 'Too bitter (over)', turbo: 'Turbo shot', reset: 'Reset',
       play: '▶ Extract',
-      ey: 'Extraction', flow: 'Flow', time: 'Shot time', tds: 'TDS', cup: 'Cup',
+      ey: 'Extraction', flow: 'Flow', time: 'Shot time', tds: 'TDS', cup: 'Cup', puck: 'Puck',
       eyHint: 'ideal 18–22%',
       unitPct: '%', unitGps: 'g/s', unitS: 's', unitG: 'g',
       chartEy: 'Extraction over time', chartFlow: 'Flow and cup weight',
@@ -185,7 +192,9 @@
       stop: 'Stop', acid: 'Sour', sweet: 'Sweet', bitterL: 'Bitter', body: 'Body',
       sweetZone: 'sweet zone',
       yEy: 'EY %', yFlow: 'flow g/s', yCup: 'cup g',
-      idealBand: 'Ideal 18–22%', target36: 'Target 36 g',
+      idealBand: 'Ideal 18–22%', target36: 'Target 36 g', typicalFlow: 'Typical flow',
+      zoneUnder: 'Under', zoneIdeal: 'Sweet spot', zoneOver: 'Over', speedFast: 'Fast', speedNormal: 'Normal', speedSlow: 'Slow', flowNormal: 'Normal',
+      puckEven: 'Even', puckRisk: 'Some channeling risk', puckChanneling: 'Channeling',
       under: 'Sour and under-extracted: grind a bit finer, or raise water temp 1–2°C.',
       over: 'Bitter and over-extracted: grind a bit coarser, or lower water temp 1–2°C.',
       ideal: 'In the ideal window; sour, sweet and bitter are in balance.',
@@ -197,7 +206,8 @@
   var PRESETS = {
     sour: { grind: 380, temp: 89, pressure: 9 },
     bal: { grind: 300, temp: 93, pressure: 9 },
-    bitter: { grind: 210, temp: 95.5, pressure: 10.5 }
+    bitter: { grind: 210, temp: 95.5, pressure: 10.5 },
+    turbo: { grind: 420, temp: 93, pressure: 6 }
   };
   var DEFAULTS = PRESETS.bal;
 
@@ -211,7 +221,7 @@
     var css = document.createElement('style');
     css.id = 'es-lab-style';
     css.textContent = [
-      '.es-root{display:flex;flex-direction:column;gap:0.9rem;color:var(--text);}',
+      '.es-root{display:flex;flex-direction:column;gap:0.9rem;color:var(--text);min-width:0;max-width:100%;}',
       '.es-machine{min-height:0;}',
       '.es-sliders{display:flex;flex-direction:column;gap:0.7rem;}',
       '.es-row{display:grid;grid-template-columns:6.2rem 1fr auto;gap:0.55rem;align-items:center;}',
@@ -224,11 +234,17 @@
       '.es-btns button:hover{border-color:var(--accent);}',
       '.es-nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0.55rem;}',
       '.es-num{border:1px solid var(--line);border-radius:8px;padding:0.55rem 0.6rem;background:var(--paper);}',
-      '.es-num b{display:block;font-size:1.15rem;font-variant-numeric:tabular-nums;}',
+      '.es-num b{display:flex;flex-wrap:wrap;align-items:center;gap:0.4rem;font-size:1.15rem;font-variant-numeric:tabular-nums;}',
       '.es-num span{font-size:0.75rem;color:var(--muted);}',
+      '.es-num .es-metric-value{font-size:inherit;color:var(--text);}',
+      '.es-badge[hidden]{display:none;}',
+      '.es-badge{display:inline-flex;align-items:center;width:max-content;max-width:100%;padding:0.15rem 0.42rem;border:1px solid currentColor;border-radius:999px;font-size:0.68rem;line-height:1.25;font-weight:600;white-space:normal;}',
+      '.es-badge.es-good{color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent);}',
+      '.es-badge.es-warn{color:#d97706;background:rgba(217,119,6,.13);}',
+      '.es-badge.es-bad{color:#dc2626;background:rgba(220,38,38,.13);}',
       '.es-hint2{display:block;font-size:0.7rem;color:var(--muted);}',
       '.es-chart{width:100%;overflow:hidden;}',
-      '.es-chart svg{width:100%;height:auto;display:block;max-width:100%;}',
+      '.es-chart svg{width:100%;height:auto;display:block;max-width:100%;touch-action:pan-y;}',
       '.es-h{font-size:0.88rem;margin:0 0 0.25rem;color:var(--text);}',
       '.es-bars{display:flex;flex-direction:column;gap:0.35rem;}',
       '.es-barrow{display:grid;grid-template-columns:3.2rem 1fr;gap:0.4rem;align-items:center;font-size:0.8rem;color:var(--muted);}',
@@ -245,7 +261,7 @@
       '.es-rlab.es-l{left:0;}',
       '.es-rlab.es-r{right:0;}',
       '.es-rlab.es-m{left:50%;transform:translateX(-50%);color:var(--accent);}',
-      '@media (max-width:520px){.es-nums{grid-template-columns:repeat(2,minmax(0,1fr));}.es-row{grid-template-columns:4.6rem 1fr auto;}}'
+      '@media (max-width:520px){.es-nums{grid-template-columns:repeat(2,minmax(0,1fr));}.es-row{grid-template-columns:4.6rem minmax(0,1fr) auto;}.es-val{min-width:4.8rem}.es-chart{max-width:100%;}}'
     ].join('');
     document.head.appendChild(css);
     styleInjected = true;
@@ -409,6 +425,7 @@
     addBtn(T.sour, function () { applyPreset(PRESETS.sour); });
     addBtn(T.balanced, function () { applyPreset(PRESETS.bal); });
     addBtn(T.bitter, function () { applyPreset(PRESETS.bitter); });
+    addBtn(T.turbo, function () { applyPreset(PRESETS.turbo); });
     addBtn(T.reset, function () { applyPreset(DEFAULTS); });
     addBtn(T.play, function () { startPlay(); });
     root.appendChild(btns);
@@ -424,6 +441,13 @@
       s.textContent = label;
       d.appendChild(s);
       d.appendChild(b);
+      var value = document.createElement('span');
+      value.className = 'es-metric-value';
+      b.appendChild(value);
+      var badge = document.createElement('em');
+      badge.className = 'es-badge';
+      badge.hidden = true;
+      b.appendChild(badge);
       if (extra) {
         var e = document.createElement('span');
         e.className = 'es-hint2';
@@ -431,12 +455,13 @@
         d.appendChild(e);
       }
       nums.appendChild(d);
-      numEls[key] = b;
+      numEls[key] = { value: value, badge: badge };
     }
     numCell('ey', T.ey, T.eyHint);
     numCell('flow', T.flow);
     numCell('time', T.time);
     numCell('tds', T.tds);
+    numCell('puck', T.puck);
     var cupCell = document.createElement('div');
     cupCell.className = 'es-num';
     cupCell.style.display = 'none';
@@ -533,6 +558,8 @@
     var playDot2b = null;
     var lastPlayT = null;
     var lastChartFs = null;
+    var hover1 = null;
+    var hover2 = null;
 
     function measureFs(container) {
       var w = container && container.clientWidth ? container.clientWidth : 640;
@@ -615,6 +642,7 @@
         playDot1.setAttribute('cx', String(x(pt.t)));
         playDot1.setAttribute('cy', String(y(pt.ey)));
       }
+      hover1 = appendHover(svg1, p, xmax, function (pt) { return pt.ey.toFixed(1) + '%'; });
     }
 
     function drawChartFlow(res, playT) {
@@ -628,6 +656,14 @@
       function x(t) { return mapX(t, xmax, p); }
       function yF(f) { return p.t + (1 - f / 4) * (p.h - p.t - p.b); }
       function yC(c) { return p.t + (1 - c / 40) * (p.h - p.t - p.b); }
+      svg2.appendChild(svgEl('rect', {
+        x: String(p.l), y: String(yF(1.5)), width: String(p.w - p.l - p.r),
+        height: String(yF(1.2) - yF(1.5)), fill: 'rgba(48,164,108,.15)'
+      }));
+      svg2.appendChild(tickText({
+        x: String(p.w - p.r - 4), y: String(yF(1.35) + fs * 0.35), fill: 'var(--accent)',
+        'font-size': String(fs), 'text-anchor': 'end'
+      }, T.typicalFlow));
       svg2.appendChild(svgEl('path', {
         d: 'M' + p.l + ' ' + p.t + ' V' + (p.h - p.b) + ' H' + (p.w - p.r),
         fill: 'none', stroke: 'var(--line)', 'stroke-width': '1'
@@ -691,6 +727,51 @@
         playDot2b.setAttribute('cx', String(x(pt.t)));
         playDot2b.setAttribute('cy', String(yC(pt.cup)));
       }
+      hover2 = appendHover(svg2, p, xmax, function (pt) { return pt.flow.toFixed(2) + ' ' + T.unitGps; });
+    }
+
+    function appendHover(svg, p, xmax, formatter) {
+      var g = svgEl('g', { visibility: 'hidden', 'pointer-events': 'none' });
+      var line = svgEl('line', { y1: String(p.t), y2: String(p.h - p.b), stroke: 'var(--muted)', 'stroke-width': '1' });
+      var box = svgEl('rect', { width: '150', height: '28', rx: '5', fill: 'var(--paper)', stroke: 'var(--line)' });
+      var label = tickText({ fill: 'var(--text)', 'font-size': String(Math.max(12, lastChartFs || 12)), 'dominant-baseline': 'middle' }, '');
+      g.appendChild(line); g.appendChild(box); g.appendChild(label); svg.appendChild(g);
+      return { g: g, line: line, box: box, label: label, p: p, xmax: xmax, formatter: formatter };
+    }
+
+    function moveHover(svg, hover, clientX) {
+      if (!hover || !result) return;
+      var rect = svg.getBoundingClientRect();
+      if (!rect.width) return;
+      var vx = (clientX - rect.left) / rect.width * 640;
+      if (vx < hover.p.l || vx > hover.p.w - hover.p.r) { hover.g.setAttribute('visibility', 'hidden'); return; }
+      var t = clamp((vx - hover.p.l) / (hover.p.w - hover.p.l - hover.p.r) * hover.xmax, 0, result.shotTime);
+      var pt = interp(result.curve, t);
+      var xx = mapXStatic(pt.t, hover.xmax, hover.p);
+      var boxX = xx + 7;
+      if (boxX + 150 > hover.p.w - hover.p.r) boxX = xx - 157;
+      hover.line.setAttribute('x1', String(xx)); hover.line.setAttribute('x2', String(xx));
+      hover.box.setAttribute('x', String(boxX)); hover.box.setAttribute('y', String(hover.p.t + 5));
+      hover.label.setAttribute('x', String(boxX + 8)); hover.label.setAttribute('y', String(hover.p.t + 19));
+      hover.label.textContent = pt.t.toFixed(1) + ' ' + T.unitS + ' ・ ' + hover.formatter(pt);
+      hover.g.setAttribute('visibility', 'visible');
+    }
+
+    function bindHover(svg, getHover) {
+      svg.addEventListener('pointermove', function (ev) { moveHover(svg, getHover(), ev.clientX); });
+      svg.addEventListener('pointerdown', function (ev) { moveHover(svg, getHover(), ev.clientX); });
+      svg.addEventListener('pointerleave', function () { var h = getHover(); if (h) h.g.setAttribute('visibility', 'hidden'); });
+      svg.addEventListener('pointercancel', function () { var h = getHover(); if (h) h.g.setAttribute('visibility', 'hidden'); });
+    }
+    bindHover(svg1, function () { return hover1; });
+    bindHover(svg2, function () { return hover2; });
+
+    function setMetric(key, text, badgeText, level) {
+      var cell = numEls[key];
+      cell.value.textContent = text;
+      cell.badge.textContent = badgeText;
+      cell.badge.className = 'es-badge es-' + level;
+      cell.badge.hidden = false;
     }
 
     function setNums(res, live) {
@@ -699,10 +780,18 @@
       var tm = live ? live.t : res.shotTime;
       var cup = live ? live.cup : TARGET_CUP;
       var tds = live ? (live.ey * DOSE / TARGET_CUP) : res.tds;
-      numEls.ey.textContent = ey.toFixed(1) + T.unitPct;
-      numEls.flow.textContent = fl.toFixed(2) + ' ' + T.unitGps;
-      numEls.time.textContent = tm.toFixed(1) + ' ' + T.unitS;
-      numEls.tds.textContent = tds.toFixed(2) + T.unitPct;
+      var ez = eyState(ey);
+      var ts = timeState(tm);
+      var fs = flowState(fl);
+      setMetric('ey', ey.toFixed(1) + T.unitPct, ez === 'under' ? T.zoneUnder : ez === 'ideal' ? T.zoneIdeal : T.zoneOver, ez === 'ideal' ? 'good' : ez === 'under' ? 'warn' : 'bad');
+      setMetric('flow', fl.toFixed(2) + ' ' + T.unitGps, fs === 'normal' ? T.flowNormal : fs === 'fast' ? T.speedFast : T.speedSlow, fs === 'normal' ? 'good' : fs === 'fast' ? 'warn' : 'bad');
+      setMetric('time', tm.toFixed(1) + ' ' + T.unitS, ts === 'normal' ? T.speedNormal : ts === 'fast' ? T.speedFast : T.speedSlow, ts === 'normal' ? 'good' : ts === 'fast' ? 'warn' : 'bad');
+      numEls.tds.value.textContent = tds.toFixed(2) + T.unitPct;
+      numEls.tds.badge.hidden = true;
+      var ps = puckState(res.channel);
+      setMetric('puck', res.channel.toFixed(2),
+        ps === 'even' ? T.puckEven : ps === 'risk' ? T.puckRisk : T.puckChanneling,
+        ps === 'even' ? 'good' : ps === 'risk' ? 'warn' : 'bad');
       if (live) {
         numEls.cupWrap.style.display = '';
         numEls.cup.textContent = cup.toFixed(1) + ' ' + T.unitG;
@@ -800,7 +889,7 @@
     }
   }
 
-  global.EspressoLab = { model: model, VERSION: VERSION, interp: interp };
+  global.EspressoLab = { model: model, VERSION: VERSION, interp: interp, states: { ey: eyState, time: timeState, flow: flowState, puck: puckState } };
   global.mountEspresso = mountEspresso;
 
   function autoMount() {
@@ -818,6 +907,6 @@
   }
 
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { model: model, interp: interp, VERSION: VERSION };
+    module.exports = { model: model, interp: interp, VERSION: VERSION, states: { ey: eyState, time: timeState, flow: flowState, puck: puckState }, PRESETS: PRESETS };
   }
 })(typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : this));

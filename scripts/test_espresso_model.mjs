@@ -9,7 +9,7 @@ import fs from 'node:fs';
 const src = fs.readFileSync(path.join(root, 'public', 'espresso-lab.js'), 'utf8');
 const cjs = { exports: {} };
 new Function('module', 'exports', 'require', src)(cjs, cjs.exports, require);
-const { model, interp } = cjs.exports;
+const { model, interp, states, PRESETS } = cjs.exports;
 
 let failed = 0;
 function assert(cond, msg) {
@@ -66,6 +66,16 @@ const fn = interp || model.interp;
 assert(typeof fn === 'function', 'interp function exists');
 const atEnd = fn(d.curve, d.shotTime);
 assert(Math.abs(atEnd.cup - 36) <= 0.5, `interp at shotTime cup≈36 got ${atEnd.cup}`);
+
+assert(states.ey(17.999) === 'under' && states.ey(18) === 'ideal' && states.ey(22) === 'ideal' && states.ey(22.001) === 'over', 'extraction badge boundaries 18/22');
+assert(states.time(19.999) === 'fast' && states.time(20) === 'normal' && states.time(35) === 'normal' && states.time(35.001) === 'slow', 'shot-time badge boundaries 20/35');
+assert(states.flow(0.999) === 'slow' && states.flow(1) === 'normal' && states.flow(2) === 'normal' && states.flow(2.001) === 'fast', 'flow badge boundaries 1.0/2.0');
+assert(states.puck(0.1499) === 'even' && states.puck(0.15) === 'risk' && states.puck(0.4) === 'risk' && states.puck(0.4001) === 'channeling', 'puck badge boundaries 0.15/0.4');
+
+const turbo = PRESETS.turbo;
+const turboResult = model(turbo);
+assert(turbo.grind >= 180 && turbo.grind <= 450 && turbo.temp >= 86 && turbo.temp <= 96 && turbo.pressure >= 6 && turbo.pressure <= 11, 'turbo preset is within slider ranges');
+assert([turboResult.flow, turboResult.shotTime, turboResult.ey, turboResult.tds, turboResult.channel, turboResult.balance].every(Number.isFinite), 'turbo preset model has no NaN or infinite values');
 
 if (failed) {
   console.error(`\n${failed} failed`);
