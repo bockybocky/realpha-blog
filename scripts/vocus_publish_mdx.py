@@ -28,7 +28,7 @@ CATEGORY = {'_id': '5a978e00fd897800016874cc', 'title': '投資理財', 'score':
 BLOG = 'https://blog.getrealpha.com'
 
 # 非投資文 slug（isInvestment 不勾；分類仍沿用沙龍預設）
-NON_INVESTMENT = {'mio-daily-ai-short-film', 'daijoubu-ai-short-film', 'xiaotian-2026-10-12-mac-studio-beyond-llm', 'sweetvox-room-measurement-2026-10', 'keep-learning-in-the-age-of-llms-2026-10', 'old-laptop-ai-server-2026-10', 'webcam-read-aloud-english-2026-10', 'opencode-go-vs-openrouter-deepseek-privacy-2026-10', 'vast-gpu-rental-notes-2026-10', 'free-llm-api-vs-omniroute-2026-10', 'huggingface-spaces-free-ai-app-2026-10', 'mla-c01-four-week-route', 'mla-c01-ai-tutor', 'herdr-complete-guide', 'herdr-codexbar-jianguo-quota-dispatch', 'xiaotian-2026-09-07-mac-ane-inference-1-8x', 'codexbar-quota-dispatch','lunchuizhe-2026-09-05-ten-dollars-one-request', 'lunchuizhe-2026-09-06-subscription-is-a-clock', 'caleb-2026-09-04-token-efficient-is-not-cost-efficient', 'tao-2026-08-28-six-math-essentials','local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
+NON_INVESTMENT = {'espresso-machine-drawing-and-simulation-2026-10', 'mio-daily-ai-short-film', 'daijoubu-ai-short-film', 'xiaotian-2026-10-12-mac-studio-beyond-llm', 'sweetvox-room-measurement-2026-10', 'keep-learning-in-the-age-of-llms-2026-10', 'old-laptop-ai-server-2026-10', 'webcam-read-aloud-english-2026-10', 'opencode-go-vs-openrouter-deepseek-privacy-2026-10', 'vast-gpu-rental-notes-2026-10', 'free-llm-api-vs-omniroute-2026-10', 'huggingface-spaces-free-ai-app-2026-10', 'mla-c01-four-week-route', 'mla-c01-ai-tutor', 'herdr-complete-guide', 'herdr-codexbar-jianguo-quota-dispatch', 'xiaotian-2026-09-07-mac-ane-inference-1-8x', 'codexbar-quota-dispatch','lunchuizhe-2026-09-05-ten-dollars-one-request', 'lunchuizhe-2026-09-06-subscription-is-a-clock', 'caleb-2026-09-04-token-efficient-is-not-cost-efficient', 'tao-2026-08-28-six-math-essentials','local-ai-hardware-worth-it', 'herdr-agent-automation-vocus', 'lunchuizhe-2026-08-11-ai-content-factory', 'hardware-is-hard',
                   'lunchuizhe-2026-08-31-pick-your-model-and-agent', 'tao-2026-08-31-ai-math-drunk-genius', 'runpod-vs-local-gpu-2026-09', 'tao-2026-09-02-coin-game-human-ai-division', 'kelly-tsai-graph-engineering-2026-09', 'lunchuizhe-2026-08-23-no-best-agent-only-right-seat', 'my-creative-path-2026-09', 'fear-of-blowing-up-2026-09', 'xiaotian-2026-09-03-evox-swarm-social-rsi',
                   'dont-let-ai-say-no-problem', 'video-memory-without-the-cloud',
                   'aice-ai-engineering-cert-prep', 'aice-must-know-concepts', 'read-the-source-before-you-install',
@@ -37,6 +37,7 @@ NON_INVESTMENT = {'mio-daily-ai-short-film', 'daijoubu-ai-short-film', 'xiaotian
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
+    'espresso-machine-drawing-and-simulation-2026-10': ['濃縮咖啡', '互動圖', '模擬', '做中學', '工具教學'],
     'mio-daily-ai-short-film': ['AI影片', 'AI角色', 'Colab', '原創小電影', '幕後'],
     'xiaotian-2026-10-12-mac-studio-beyond-llm': ['AI工具', 'Mac Studio', '本地模型', '工作流'],
     'daijoubu-ai-short-film': ['AI角色', '原創小電影', '寫作', '幕後'],
