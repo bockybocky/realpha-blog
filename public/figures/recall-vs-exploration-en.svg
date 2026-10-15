@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A straight line on the left, a branching tree on the right with most branches pruned and only one reaching the end.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">Compute differs by branch count</text>
+
+<rect x="60" y="96" width="340" height="368" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="t" x="80" y="132" font-size="20" font-weight="700" fill="var(--dim)">Recall</text>
+<circle cx="110" cy="290" r="13" fill="var(--grey)"/>
+<line x1="123" y1="290" x2="327" y2="290" stroke="var(--grey)" stroke-width="3"/>
+<circle cx="340" cy="290" r="13" fill="var(--grey)"/>
+<text class="t" x="96" y="336" font-size="16" fill="var(--dim)">Question</text>
+<text class="t" x="320" y="336" font-size="16" fill="var(--dim)">Answer</text>
+
+<rect x="440" y="96" width="460" height="368" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="t" x="460" y="132" font-size="20" font-weight="700" fill="var(--accent)">Explore</text>
+
+<circle cx="480" cy="290" r="13" fill="var(--accent)"/>
+<line x1="493" y1="290" x2="570" y2="196" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5"/>
+<line x1="493" y1="290" x2="570" y2="290" stroke="var(--accent)" stroke-width="3"/>
+<line x1="493" y1="290" x2="570" y2="392" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5"/>
+<circle cx="578" cy="196" r="9" fill="var(--grey)"/>
+<circle cx="578" cy="290" r="11" fill="var(--accent)"/>
+<circle cx="578" cy="392" r="9" fill="var(--grey)"/>
+
+<line x1="589" y1="290" x2="676" y2="232" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5"/>
+<line x1="589" y1="290" x2="676" y2="300" stroke="var(--accent)" stroke-width="3"/>
+<line x1="589" y1="290" x2="676" y2="358" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5"/>
+<circle cx="684" cy="232" r="9" fill="var(--grey)"/>
+<circle cx="684" cy="300" r="11" fill="var(--accent)"/>
+<circle cx="684" cy="358" r="9" fill="var(--grey)"/>
+
+<line x1="695" y1="300" x2="782" y2="252" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5"/>
+<line x1="695" y1="300" x2="782" y2="306" stroke="var(--accent)" stroke-width="3"/>
+<line x1="695" y1="300" x2="782" y2="368" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5"/>
+<circle cx="790" cy="252" r="9" fill="var(--grey)"/>
+<circle cx="790" cy="306" r="11" fill="var(--accent)"/>
+<circle cx="790" cy="368" r="9" fill="var(--grey)"/>
+<line x1="801" y1="306" x2="856" y2="306" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="866" cy="306" r="13" fill="var(--accent)"/>
+
+<text class="t" x="460" y="444" font-size="16" fill="var(--dim)">Dashed = pruned</text>
+<text class="t" x="60" y="506" font-size="22" font-weight="700" fill="var(--ink)">One question, one path or many</text>
+</svg>

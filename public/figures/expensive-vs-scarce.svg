@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="四象限：橫軸貴不貴、縱軸稀不稀缺，晶片在貴而不稀缺，變壓器與許可與師傅在稀缺一側">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">貴的那一格，不一定是卡住的那一格</text>
+
+<rect x="140" y="96" width="700" height="340" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<rect x="140" y="96" width="700" height="170" fill="var(--warn)" opacity="0.14"/>
+<line x1="140" y1="266" x2="840" y2="266" stroke="var(--line)" stroke-width="2"/>
+<line x1="490" y1="96" x2="490" y2="436" stroke="var(--line)" stroke-width="2"/>
+
+<text class="t" x="118" y="180" font-size="19" font-weight="700" fill="var(--warn)" text-anchor="end">稀缺</text>
+<text class="t" x="118" y="356" font-size="19" font-weight="700" fill="var(--dim)" text-anchor="end">買得到</text>
+<text class="t" x="300" y="466" font-size="19" font-weight="700" fill="var(--dim)" text-anchor="middle">便宜</text>
+<text class="t" x="680" y="466" font-size="19" font-weight="700" fill="var(--dim)" text-anchor="middle">貴</text>
+
+<circle cx="700" cy="350" r="13" fill="var(--grey)"/>
+<text class="t" x="700" y="384" font-size="16" fill="var(--dim)" text-anchor="middle">晶片</text>
+
+<circle cx="560" cy="170" r="13" fill="var(--warn)"/>
+<text class="t" x="560" y="204" font-size="16" fill="var(--ink)" text-anchor="middle">變壓器</text>
+
+<circle cx="300" cy="150" r="13" fill="var(--warn)"/>
+<text class="t" x="300" y="184" font-size="16" fill="var(--ink)" text-anchor="middle">許可</text>
+
+<circle cx="400" cy="214" r="13" fill="var(--warn)"/>
+<text class="t" x="400" y="248" font-size="16" fill="var(--ink)" text-anchor="middle">會蓋機房的師傅</text>
+
+<text class="t" x="820" y="130" font-size="16" fill="var(--warn)" text-anchor="end">卡關在這一帶</text>
+<text class="t" x="60" y="524" font-size="22" font-weight="700" fill="var(--ink)">找最難補的那一格，不是最貴的那一格</text>
+</svg>
