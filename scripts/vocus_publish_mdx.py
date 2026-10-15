@@ -35,8 +35,15 @@ NON_INVESTMENT = {'espresso-machine-drawing-and-simulation-2026-10', 'mio-daily-
                   'lunchuizhe-2026-09-17-mac-mini-ai-control-desk', 'xiaotian-2026-04-25-qwen-27b-20-to-184-tokens',
                   'the-stimulated-mind-cognitive-athlete'}
 
+# 只發方格子、不上部落格的文（部落格端 draft: true），文末不放部落格回鏈，否則是死連結
+NO_BLOGLINK = {'taiex-2026-10-15-pullback-past-5-percent'}
+
+# 付費房間文：讀者已付費，不放「加入沙龍免費會員」的邀請（文中與文末都不放）
+NO_CTA = {'taiex-2026-10-15-pullback-past-5-percent'}
+
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
 TAGS = {
+    'taiex-2026-10-15-pullback-past-5-percent': ['台股', '加權指數', '回測', '籌碼', '外資期貨'],
     'espresso-machine-drawing-and-simulation-2026-10': ['濃縮咖啡', '互動圖', '模擬', '做中學', '工具教學'],
     'mio-daily-ai-short-film': ['AI影片', 'AI角色', 'Colab', '原創小電影', '幕後'],
     'xiaotian-2026-10-12-mac-studio-beyond-llm': ['AI工具', 'Mac Studio', '本地模型', '工作流'],
@@ -389,13 +396,13 @@ def load_article(slug):
     blocks = mdx_to_blocks(body)
     # 三分之二處：點愛心；長文再於前三分之一處：先加入收藏、回頭慢慢看（帶連結）
     blocks = insert_at_fraction(blocks, witty['heart'] or HEART_FALLBACK, 2 / 3)
-    if len(blocks) >= LONG_BLOCKS:
+    if len(blocks) >= LONG_BLOCKS and slug not in NO_CTA:
         save = (witty['save'] or SAVE_FALLBACK) + f' 👉 [加入沙龍免費會員]({SALON_URL})'
         blocks = insert_at_fraction(blocks, save, 1 / 3)
     return {'title': fm['title'], 'abstract': abstract,
             'tags': TAGS.get(slug, SUGGESTED_TAGS.get(slug, ['投資', '心得'])),
-            'blocks': (blocks + [('p', witty['join'] or CTA_FALLBACK), CTA_LINK_BLOCK,
-                                 ('p', bloglink_text(slug))]
+            'blocks': (blocks + ([] if slug in NO_CTA else [('p', witty['join'] or CTA_FALLBACK), CTA_LINK_BLOCK])
+                       + ([] if slug in NO_BLOGLINK else [('p', bloglink_text(slug))])
                        + signature_blocks(slug))}
 
 
