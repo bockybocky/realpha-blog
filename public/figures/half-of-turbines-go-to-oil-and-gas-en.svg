@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="A bar of one year's deliveries is split into two equal halves, utilities and oil and gas, both pointing down into the same supply chain.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">The denominator everyone skips</text>
+  <text class="t" x="60" y="94" font-size="16" fill="var(--dim)">Industrial gas turbines delivered in a year</text>
+
+  <rect x="80" y="130" width="400" height="96" fill="var(--accent)" opacity="0.85"/>
+  <rect x="480" y="130" width="400" height="96" fill="var(--grey)"/>
+  <text class="t" x="280" y="188" font-size="20" font-weight="700" fill="var(--page)" text-anchor="middle">Utilities</text>
+  <text class="t" x="680" y="188" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">Oil and gas</text>
+  <text class="t" x="280" y="256" font-size="16" fill="var(--dim)" text-anchor="middle">About half</text>
+  <text class="t" x="680" y="256" font-size="16" fill="var(--dim)" text-anchor="middle">About half</text>
+
+  <path d="M280 272 L280 340" fill="none" stroke="var(--ink)" stroke-width="3" marker-end="url(#ar2)"/>
+  <path d="M680 272 L680 340" fill="none" stroke="var(--ink)" stroke-width="3" marker-end="url(#ar2)"/>
+  <defs>
+    <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--ink)"/>
+    </marker>
+  </defs>
+
+  <rect x="200" y="350" width="560" height="84" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+  <text class="t" x="480" y="400" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">One supply chain, one set of slots</text>
+
+  <text class="t" x="60" y="486" font-size="22" font-weight="700" fill="var(--ink)">Watch only power demand and you miss half the queue</text>
+</svg>

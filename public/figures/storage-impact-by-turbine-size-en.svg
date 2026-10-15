@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Three blocks arranged by unit size with arrows pointing different ways: level for small units, up for mid-size, down for large.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">One storage story, three directions</text>
+  <text class="t" x="60" y="94" font-size="16" fill="var(--dim)">Arrow = what grid batteries do to this class of unit</text>
+
+  <g>
+    <rect x="70" y="150" width="260" height="230" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <text class="t" x="200" y="190" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">Under 20 MW</text>
+    <line x1="130" y1="280" x2="270" y2="280" stroke="var(--grey)" stroke-width="7" stroke-linecap="round"/>
+    <text class="t" x="200" y="344" font-size="16" fill="var(--dim)" text-anchor="middle">Little effect</text>
+  </g>
+
+  <g>
+    <rect x="350" y="150" width="260" height="230" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+    <text class="t" x="480" y="190" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">40–100 MW</text>
+    <path d="M415 320 L545 232" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M545 232 L512 234 L540 262 z" fill="var(--accent)"/>
+    <text class="t" x="480" y="344" font-size="16" fill="var(--dim)" text-anchor="middle">Hybrid systems: gas charges the batteries</text>
+  </g>
+
+  <g>
+    <rect x="630" y="150" width="260" height="230" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+    <text class="t" x="760" y="190" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">150–250 MW+</text>
+    <path d="M695 232 L825 320" fill="none" stroke="var(--warn)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M825 320 L792 290 L795 318 z" fill="var(--warn)"/>
+    <text class="t" x="760" y="344" font-size="16" fill="var(--dim)" text-anchor="middle">Peakers displaced</text>
+  </g>
+
+  <text class="t" x="60" y="470" font-size="22" font-weight="700" fill="var(--ink)">Good news or bad depends on the size</text>
+</svg>
