@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Layer diagram: the control boundary falls between the protocol and the deployer, with regulation on the upper layer.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .lb { font-size:16px; fill:var(--ink); }
+    .dm { font-size:16px; fill:var(--dim); }
+    .cc { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="56">Which layer control sits on</text>
+<rect x="120" y="96" width="640" height="96" fill="var(--accent)" opacity="0.2" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="148" y="132">Deployer</text>
+<text class="lb" x="148" y="166">Contract specs　Leverage caps　Which price to push</text>
+<text class="g" x="782" y="150" fill="var(--warn)">Regulation</text>
+<path d="M900 144 L776 144" stroke="var(--warn)" stroke-width="3"/>
+<path d="M776 144 l14 -8 l0 16 z" fill="var(--warn)"/>
+<line x1="100" y1="212" x2="920" y2="212" stroke="var(--warn)" stroke-width="3" stroke-dasharray="10 7"/>
+<text class="dm" x="100" y="238">The control boundary</text>
+<rect x="120" y="258" width="640" height="96" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="148" y="294">Protocol</text>
+<text class="lb" x="148" y="328">Order book　Settlement　Liquidation　1% clamp</text>
+<text class="dm" x="782" y="312">No semantics</text>
+<rect x="120" y="376" width="640" height="76" fill="var(--grey)" opacity="0.3" stroke="var(--line)"/>
+<text class="g" x="148" y="422" fill="var(--dim)">Tech base layer</text>
+<text class="dm" x="320" y="422">Like TCP/IP, unregulated itself</text>
+<text class="cc" x="60" y="512">If you can't split it, it's more like a company</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Inverted pyramid: the underlying layer at the bottom is narrowest, and each layer above is wider.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .lb { font-size:19px; font-weight:700; fill:var(--ink); }
+    .dm { font-size:16px; fill:var(--dim); }
+    .cc { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="56">Inverted pyramid</text>
+<g stroke="var(--line)">
+<rect x="120" y="100" width="720" height="56" fill="var(--accent)" opacity="0.18"/>
+<rect x="190" y="164" width="580" height="56" fill="var(--accent)" opacity="0.26"/>
+<rect x="260" y="228" width="440" height="56" fill="var(--accent)" opacity="0.34"/>
+<rect x="330" y="292" width="300" height="56" fill="var(--accent)" opacity="0.46"/>
+<rect x="400" y="356" width="160" height="56" fill="var(--warn)"/>
+</g>
+<text class="lb" x="860" y="136">Prediction</text>
+<text class="lb" x="790" y="200">Options</text>
+<text class="lb" x="720" y="264">Futures</text>
+<text class="lb" x="650" y="328">Derivatives</text>
+<text class="lb" x="580" y="390" fill="var(--warn)">Spot</text>
+<text class="dm" x="580" y="414">The thinnest layer</text>
+<line x1="90" y1="412" x2="90" y2="110" stroke="var(--dim)" stroke-width="2"/>
+<text class="dm" x="60" y="440">Thick</text>
+<text class="dm" x="60" y="100">Thin</text>
+<text class="cc" x="60" y="500">The first-hand layer is now the smallest piece</text>
+</svg>

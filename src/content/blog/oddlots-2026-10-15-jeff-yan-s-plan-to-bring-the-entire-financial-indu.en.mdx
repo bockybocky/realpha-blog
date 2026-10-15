@@ -1,0 +1,112 @@
+---
+title: "Housing All of Finance on One Chain: Notes on Odd Lots with Hyperliquid's Jeff Yan"
+description: "Listening notes on the October 15, 2026 Bloomberg Odd Lots episode with Hyperliquid Labs co-founder Jeff Yan: perpetual futures, oracle prices, the 31-hour deployment auction, and which layer regulation should sit on. Educational, not investment advice; no stock recommendations or price targets."
+slug: "oddlots-2026-10-15-jeff-yan-s-plan-to-bring-the-entire-financial-indu"
+lang: "en"
+pubDate: 2026-10-15
+category: investing
+kind: "podcast-notes"
+tags: ["Hyperliquid", "perpetual futures", "onchain finance", "market structure", "Odd Lots"]
+ogImage: "/covers/oddlots-2026-10-15-jeff-yan-s-plan-to-bring-the-entire-financial-indu-cover.png"
+cover: "/covers/oddlots-2026-10-15-jeff-yan-s-plan-to-bring-the-entire-financial-indu-cover.png"
+---
+
+![A canal lock house at night repurposed as a market operations room, side channels converging into one lit course down a long stone corridor](/covers/oddlots-2026-10-15-jeff-yan-s-plan-to-bring-the-entire-financial-indu-cover.png)
+
+> The nine rivers were cleared to their sources, the nine marshes were embanked, and the four seas came together.
+>
+> —— *Book of Documents, "Tribute of Yu"* (pre-Qin; my own translation)
+
+On the October 15, 2026 episode of Bloomberg Odd Lots, Joe Weisenthal and Tracy Alloway hosted Jeff Yan, co-founder and CEO of Hyperliquid Labs (they note the recording date as October 13). He describes Hyperliquid as a neutral chain whose stated goal is housing all of finance, where anyone who wants to list a market must first stake 500,000 HYPE tokens and then win a slot in a Dutch auction that resets every 31 hours. Running a validator node takes 128 GB of RAM; there are around thirty validators, with the top 27 by stake operating the network. He also states the limits: under the terms of service, US users cannot trade derivatives on it, and he calls the "90% of finance" figure aspirational and far off.
+
+## 2023: Find what people already use, then ask about the technology
+
+Jeff Yan joined Hudson River Trading straight out of college, and says he learned both markets and how a firm can keep a startup's culture. When he left in 2023, his read differed from the prevailing narrative: he did not see crypto as nothing but meme coins. He saw centralized venues offering perpetual futures with real product-market fit — users wanted them and kept coming back.
+
+So where was the gap? Those venues all did it in a centralized way. You got a good interface and handed over custody of your capital; you kept self-custody and got a clumsy onchain experience. His judgment was that both properties could hold at once, so the team dug down to the consensus layer and asked how nodes should talk to each other at all. The sequence is the part I keep coming back to: confirm what people want, then ask whether the technology can deliver it. I have watched a long row of projects run that order backwards.
+
+![A four-quadrant chart with interface usability on the vertical axis and self-custody of assets on the horizontal axis, where centralized exchanges sit in the upper left and early on-chain trading sits in the lower right, leaving the upper right corner empty — and that is where Hyperliquid placed its bet.](/figures/custody-vs-usability-quadrant-en.svg)
+
+## The first layer: everyone has to agree on the ledger
+
+He explains "protocol" by analogy to HTTP and TCP — a messaging framework a set of participants agrees to follow. What a blockchain protocol adds is this: so long as two-thirds of the network's stake behaves under the normal rules (he uses the term non-Byzantine), the whole network converges on one consistent view of the world.
+
+Joe pushes on how that differs from a regulated exchange, and the answer lands at the base of finance: if we cannot agree on how much sits in your account and how much sits in mine, nothing above it works. A regulated exchange solves this with "we trust this company." A decentralized design needs a mechanism that makes independent validators converge on their own.
+
+Then comes the stake I had to sit with. A 24/7, 365-day exchange is hard to run, and a mistake anywhere — matching engine, clearing, any vendor in the stack — is a single point of failure for critical financial infrastructure. Swap the base for a distributed set of validators where several can drop and the network keeps progressing, and the regulated exchange you build on top has firmer ground under it. He is explicit that these are compatible: a single registered entity can hold permissions over the markets it deploys and still sit on onchain rails.
+
+![On the left, a straight four-link chain with one middle link crossed out and everything after it greyed out; on the right, nine interconnected nodes with two dropped, while the remaining links still carry through end to end.](/figures/single-point-vs-validator-set-en.svg)
+
+## Perpetuals: one number carries the whole contract
+
+Tracy asks the practical version: I buy a million dollars of Bitcoin perps — who takes the other side, where is the collateral, who sets the liquidation price. His answer is that these mechanisms differ little from futures on a futures exchange. The counterparty is in the order book, the liquidation level is a property of the clearing system rather than someone's judgment call. What is distinct is that the clearing system runs onchain, executed by a process called hyper-core inside the chain's own state, which carries out clearing and liquidations the way a default waterfall does at a regulated futures exchange.
+
+The elegance of a perpetual is in his line about it: something this expressive ultimately boils down to one number, the index price. Because it never expires, it needs an oracle price tethering it to the world. Oracle has a specific meaning onchain — information published by one or more publishers that cannot be derived from onchain data alone. He adds a forward-looking note I found interesting: once spot markets move onto the chain, that price could stop being published and start being derived from onchain properties.
+
+![Several contract elements pass through a narrowing funnel at the top and converge into a single circular index price at the center, which is then tethered downward by a dashed line to real-world spot.](/figures/perp-converges-to-one-number-en.svg)
+
+## HIP-3: the person who lists a market becomes a distinct role
+
+How does an NVIDIA perp show up there? Jeff Yan avoids "issue" and uses "deploy." Stake 500,000 HYPE to unlock the deployment functionality, win a slot in the Dutch auction, send a transaction specifying the contract, and then push the oracle price yourself or through your own system of publishers. Deployers inherit the order book, the clearing, and the existence of USDC wired into Circle's infrastructure.
+
+Why auction it? Every order book and every clearing system for a market consumes network compute, which makes deployment slots scarce. His reasoning on the auction format is worth copying down: ordinary auctions have poor game-theoretic properties — you are incentivized to penny the other bidders and to withhold information until you spam it at the close. A Dutch auction runs in reverse, the price falls linearly, the first bidder takes it, so spamming buys you nothing; and each round resets at twice the last clearing price, so it walks itself toward the scarce resource's market value. The 31 hours are chosen to be relatively prime to 24, so the reset time rotates across time zones.
+
+![A sawtooth line chart where each round's price falls linearly from a high to the point of sale, the next round restarts at twice the last clearing price, and the overall height steps down round by round.](/figures/dutch-auction-sawtooth-en.svg)
+
+Joe likens deployers to ETF issuers, and Jeff Yan takes half of it: the protocol carries no semantic understanding of what a perpetual is. It is a basket of tools a deployer picks up and uses. He says he does not track the auctions himself — too busy — though others have built nice analytics on top, since onchain data is transparent and auditable by anyone.
+
+## Two stress tests this year: one bad quote, and oil at 1 a.m.
+
+Joe raises two real incidents. One is the SK Hynix bad quote earlier this year, where the oracle price deviated sharply and caused losses. Jeff Yan places it in the category of implementation issues: deployer TradeXYZ published a detailed postmortem, the system worked as intended but was not intuitive, and refunds followed. He compares it to Apple shipping an OS with bugs and patching it — a property of software, with nothing chain-specific about it.
+
+The other is Mango Markets on Solana years ago, where perp size relative to the underlying token got extreme enough that manipulating the underlying and letting it transmit through the oracle became profitable. So is a derivative that dwarfs its underlying a risk in itself? His answer overturned my prior. The volume ratio can run high and stay healthy — S&P 500 futures and ETFs versus the components already do. Thin trading in the underlying is not the thing that matters. What matters is that someone in the underlying sees a 1% move that does not reflect value and says, whatever size you want, I am here to trade against you. Price discovery can happen on the derivative while the underlying still reflects real value — as long as those people exist.
+
+On the protocol side there are hard rules: between two oracle updates, the relative difference cannot exceed 1%. Push a price 2% away and the protocol clamps it to 1%, so you push again. The reason is leverage in the system: move the price too fast and the state machine cannot mutate in an orderly way, while a composition of near-continuous moves is fine. But a subjective call — this underlying is too illiquid, this contract makes no sense — is a question he says the protocol cannot even parse. It is the same position as a vendor supplying order book software who cannot know whether what you list on it is appropriate.
+
+![On a number line, an arc trying to jump from 100 to 102 is stopped by a wall marked with a one percent cap, reaching only 101, and a second step then moves from 101 to 102.](/figures/oracle-one-percent-clamp-en.svg)
+
+## Where it stands now: which layer gets regulated
+
+Tracy notes that Donald Trump talked about Hyperliquid a couple of months ago and about US regulators working to bring it onshore; Jeff Yan says that was a surprise to him. His read is that the CFTC wants a proactive stance toward onchain rails — a view that markets can be improved and that the US should not take an extremely restrictive position.
+
+Then Tracy asks what I think is the most valuable question in the episode: could you see a world where the deployers get regulated rather than the protocol? He calls that an astute framing. TCP/IP is a technology used to build financial stacks, and it is not regulated. Regulation sits where the controls are, and the deployers are the ones who exercise them.
+
+On what is holding things up, he is level about it. The CFTC's core principles are agnostic to the underlying technology, which is why they are called core principles rather than technological rules. The gap is in understanding — this is hot off the presses, and conservative regulators serve everyone, because the existing system largely works, serves many people, and has protections built in. He describes the property he thinks lands as an aha moment: anyone in the world can verify that the sum of user balances equals the USDC sitting at a given address. In traditional settings that runs on process — someone asks, you show them the bank account and the ledger. Onchain it is a property that holds without being asked. Process versus property is the distinction I most want to keep from this episode.
+
+![On the left, three interlocking rings with one already broken so the chain hangs loose; on the right, a circular fact with several arrows pointing in at it from all sides, needing nobody present.](/figures/process-versus-property-en.svg)
+
+Closing out, Tracy says 24/7 trading feels inevitable, and Joe notes that whatever happens to Hyperliquid specifically, perps as a primitive have been growing a long time and will be with us for a long time. Then they complain about financial journalists losing their weekends.
+
+## Extended thought one: how do I tell infrastructure from packaging
+
+Every time a new platform appears, my question is the same: does this add a layer of capability, or re-wrap something old and charge for it again? This episode gives me a usable test — list who is responsible for what, and see where each control sits. For Hyperliquid the list comes out as: the protocol owns the order book, clearing, liquidations, and the 1% clamp on oracle updates; the deployer owns the contract spec, the leverage limits, and which price gets pushed. If the list resolves, you know who to ask when something breaks. If it will not resolve, or every line points back to the same team, you are looking at a company rather than a layer of infrastructure.
+
+![Three horizontal bands run from the bottom up as tech base layer, protocol and deployer, with a dashed line drawn between protocol and deployer marking that control and regulation land on the upper layer.](/figures/where-control-sits-en.svg)
+
+The test has a side benefit: it shows you the shape of the risk. What failed in the Hynix episode was a deployer's implementation, not a protocol rule, which is why the deployer handled the refunds. If you cannot separate those two layers, all you take away afterward is "onchain stuff is unreliable," and you walk into the same hole next time.
+
+## Extended thought two: derivatives dwarf the underlying — is that a warning sign
+
+Tracy opens with a metaphor I liked, which she calls the inverse pyramid: traditional media had original reporting at the base, with commentary and video stacked on top; now it is flipped, with the first-hand layer thinnest and the content above it thickest. She says finance has the same shape today — the underlying is the smallest part of the market, with derivatives, futures, options, and now prediction markets piled above it.
+
+![An inverted pyramid whose narrowest band at the bottom is the underlying spot, with each band above it growing wider in turn: derivatives, futures, options and prediction markets.](/figures/inverted-pyramid-of-layers-en.svg)
+
+I had been reading that shape as a risk signal. Jeff Yan's answer changed how I read it: the ratio by itself says little, and the question is whether anyone in the underlying will step in when price dislocates. That gives me a check to run — when I worry that a derivative tail is wagging the dog, I go ask who provides liquidity in the underlying in bad weather, and on what basis that person knows fair value. The S&P 500 has a row of market makers, so large futures volume is fine. A small token's underlying has a handful of resting orders, and Mango happened on exactly that structure. Same phenomenon, two structures, opposite conclusions.
+
+![Two equally top-heavy shapes side by side, with a full row of market makers under the base layer on the left and only two on the right, giving the same volume ratio but very different absorption at the bottom.](/figures/same-ratio-two-structures-en.svg)
+
+One honest gap while I am here: his remark that once spot moves onchain the oracle could be derived from onchain properties went undeveloped, and I do not yet know what that would look like in practice. I am filing it to watch.
+
+## Sources worth your time
+
+- Bloomberg Odd Lots, October 15, 2026, interview with Jeff Yan (recorded October 13) — the episode these notes are about
+- The earlier Odd Lots episode with Austin Campbell on blockchains unifying markets, which Joe cites during this one
+- TradeXYZ's postmortem on the SK Hynix oracle price incident, which Jeff Yan says he is quoting
+- The CFTC's core principles in the original, to weigh what "agnostic to the technology" actually buys
+- Any clear explainer on perpetual funding rates and how they pull a derivative toward the underlying; Joe recommends listeners fill in this piece
+
+## One thing to take with you
+
+One idea: separate what you depend on into process and property. A process is "ask me and I will show you" — it needs me willing, available, and not making mistakes. A property is "anyone can verify it themselves, any time" — it does not need me present at all. Jeff Yan said this about balance audits, and it reaches well past finance: most of the trust between people runs on process, and process breaks on the busiest, most exhausted day, which is the day it most needed to hold.
+
+Something I have tried myself: pick one thing you depend on daily — who picks up the kids, who knows the password to that one machine, who tracks whether your parents took their medication — and write down whether it currently runs on process or on property. Then change exactly one of them into a property: put the password somewhere two people can see, tape the pickup time to the fridge, swap the pill bottle for the kind of box that shows at a glance whether today's dose is gone.

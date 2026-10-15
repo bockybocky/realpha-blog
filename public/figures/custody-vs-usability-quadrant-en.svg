@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Four-quadrant chart: usability and self-custody used to live in opposite corners, upper left and lower right, and the empty upper right is where Hyperliquid sits.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .ax { font-size:19px; font-weight:700; fill:var(--dim); }
+    .lb { font-size:16px; fill:var(--ink); }
+    .dm { font-size:16px; fill:var(--grey); }
+    .cc { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="56">The old trade-off</text>
+<rect x="150" y="100" width="700" height="340" fill="var(--card)" stroke="var(--line)"/>
+<line x1="500" y1="100" x2="500" y2="440" stroke="var(--line)" stroke-width="2"/>
+<line x1="150" y1="270" x2="850" y2="270" stroke="var(--line)" stroke-width="2"/>
+<line x1="150" y1="440" x2="870" y2="440" stroke="var(--dim)" stroke-width="2"/>
+<line x1="150" y1="440" x2="150" y2="90" stroke="var(--dim)" stroke-width="2"/>
+<text class="ax" x="150" y="78">Easy to use</text>
+<text class="ax" x="700" y="470">Self-custody</text>
+<circle cx="300" cy="175" r="11" fill="var(--grey)"/>
+<text class="lb" x="322" y="170">Centralized exchanges</text>
+<text class="dm" x="322" y="194">Easy, but you hand over the keys</text>
+<circle cx="650" cy="365" r="11" fill="var(--grey)"/>
+<text class="lb" x="672" y="360">Early on-chain trading</text>
+<text class="dm" x="672" y="384">Your keys, but painful</text>
+<circle cx="700" cy="160" r="15" fill="var(--accent)"/>
+<text class="lb" x="560" y="140" fill="var(--accent)" font-weight="700">This box used to be empty</text>
+<text class="dm" x="300" y="368">Nobody wants this</text>
+<text class="cc" x="150" y="518">You can have both at once</text>
+</svg>

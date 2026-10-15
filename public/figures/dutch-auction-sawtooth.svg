@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="鋸齒折線：每輪價格線性下落到成交點，下輪起點是上次成交價的兩倍">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .ax { font-size:19px; font-weight:700; fill:var(--dim); }
+    .dm { font-size:16px; fill:var(--dim); }
+    .lb { font-size:16px; fill:var(--ink); }
+    .cc { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="56">價格自己往下找</text>
+<line x1="140" y1="440" x2="900" y2="440" stroke="var(--dim)" stroke-width="2"/>
+<line x1="140" y1="440" x2="140" y2="110" stroke="var(--dim)" stroke-width="2"/>
+<text class="ax" x="92" y="100">價格</text>
+<text class="ax" x="700" y="474">每 31 小時一輪</text>
+<g stroke="var(--line)" stroke-width="1" stroke-dasharray="4 5">
+<line x1="140" y1="330" x2="900" y2="330"/>
+<line x1="140" y1="355" x2="900" y2="355"/>
+<line x1="140" y1="380" x2="900" y2="380"/>
+</g>
+<polyline points="160,150 300,330" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<polyline points="320,230 470,355" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<polyline points="490,280 660,380" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<polyline points="680,330 860,392" fill="none" stroke="var(--accent)" stroke-width="4" stroke-dasharray="8 6"/>
+<g fill="var(--warn)">
+<circle cx="300" cy="330" r="9"/><circle cx="470" cy="355" r="9"/><circle cx="660" cy="380" r="9"/>
+</g>
+<line x1="300" y1="330" x2="320" y2="230" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 4"/>
+<line x1="470" y1="355" x2="490" y2="280" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 4"/>
+<line x1="660" y1="380" x2="680" y2="330" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 4"/>
+<text class="dm" x="196" y="196">線性下落</text>
+<text class="lb" x="246" y="310" fill="var(--warn)">成交</text>
+<text class="dm" x="336" y="212">起點＝上次成交價 ×2</text>
+<text class="dm" x="700" y="420">還在下落</text>
+<text class="cc" x="60" y="528">沒有最後一刻，所以沒有洗頻</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Funnel diagram: multiple contract elements converge into one index price, which is then tethered downward to the real world.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .lb { font-size:16px; fill:var(--ink); }
+    .dm { font-size:16px; fill:var(--dim); }
+    .cc { font-size:22px; font-weight:700; fill:var(--accent); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="56">Converging on one number</text>
+<g>
+<rect x="100" y="100" width="120" height="48" fill="var(--card)" stroke="var(--line)"/>
+<text class="lb" x="130" y="130">Long and short legs</text>
+<rect x="250" y="100" width="120" height="48" fill="var(--card)" stroke="var(--line)"/>
+<text class="lb" x="288" y="130">Leverage</text>
+<rect x="400" y="100" width="150" height="48" fill="var(--card)" stroke="var(--line)"/>
+<text class="lb" x="430" y="130">Order book depth</text>
+<rect x="580" y="100" width="120" height="48" fill="var(--card)" stroke="var(--line)"/>
+<text class="lb" x="610" y="130">Funding rate</text>
+<rect x="730" y="100" width="130" height="48" fill="var(--card)" stroke="var(--line)"/>
+<text class="lb" x="760" y="130">No expiry</text>
+</g>
+<path d="M100 170 L860 170 L560 280 L400 280 Z" fill="var(--accent)" opacity="0.14" stroke="var(--accent)"/>
+<circle cx="480" cy="340" r="54" fill="var(--accent)"/>
+<text x="434" y="334" font-size="16px" fill="var(--page)" font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',sans-serif">Index</text>
+<text x="434" y="356" font-size="16px" fill="var(--page)" font-family="'Noto Sans TC','Microsoft JhengHei','PingFang TC',sans-serif">Price</text>
+<text class="dm" x="560" y="330">One number</text>
+<text class="dm" x="560" y="354">Pushed by publishers</text>
+<line x1="480" y1="394" x2="480" y2="450" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+<rect x="320" y="450" width="320" height="52" fill="none" stroke="var(--warn)" stroke-width="2"/>
+<text class="g" x="356" y="483" fill="var(--warn)">Real-world spot</text>
+<text class="cc" x="60" y="544">What never expires needs a tether</text>
+</svg>
