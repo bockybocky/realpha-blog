@@ -38,7 +38,7 @@ NON_INVESTMENT = {'espresso-machine-drawing-and-simulation-2026-10', 'mio-daily-
 # 只發方格子、不上部落格的文（部落格端 draft: true），文末不放部落格回鏈，否則是死連結
 NO_BLOGLINK = {'taiex-2026-10-15-pullback-past-5-percent'}
 
-# 付費房間文：讀者已付費，不放「加入沙龍免費會員」的邀請（文中與文末都不放）
+# 付費房間文：讀者已付費，文中與文末都不放「加入沙龍免費會員」與「點愛心」的邀請
 NO_CTA = {'taiex-2026-10-15-pullback-past-5-percent'}
 
 # 方格子關鍵字用中文才有搜尋價值，frontmatter 的英文 tag 不直接沿用
@@ -395,7 +395,8 @@ def load_article(slug):
     witty = cta_witty(fm['title'], abstract, body[:800])
     blocks = mdx_to_blocks(body)
     # 三分之二處：點愛心；長文再於前三分之一處：先加入收藏、回頭慢慢看（帶連結）
-    blocks = insert_at_fraction(blocks, witty['heart'] or HEART_FALLBACK, 2 / 3)
+    if slug not in NO_CTA:
+        blocks = insert_at_fraction(blocks, witty['heart'] or HEART_FALLBACK, 2 / 3)
     if len(blocks) >= LONG_BLOCKS and slug not in NO_CTA:
         save = (witty['save'] or SAVE_FALLBACK) + f' 👉 [加入沙龍免費會員]({SALON_URL})'
         blocks = insert_at_fraction(blocks, save, 1 / 3)
