@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="依數量級排列的橫條，一條垂直虛線把最短的供應環節當成天花板切過出貨目標">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="80" y="56" font-size="27" fill="var(--ink)">年產量差好幾個零</text>
+  <text x="80" y="88" font-size="16" fill="var(--dim)">橫條長度按數量級，不是等比</text>
+
+  <text x="80" y="160" font-size="19" fill="var(--dim)">空中無人機</text>
+  <rect x="300" y="138" width="560" height="30" rx="4" fill="var(--grey)"/>
+  <text x="300" y="196" font-size="16" fill="var(--dim)">2000 萬台</text>
+
+  <text x="80" y="268" font-size="19" fill="var(--dim)">水下無人機</text>
+  <rect x="300" y="246" width="200" height="30" rx="4" fill="var(--grey)"/>
+  <text x="300" y="304" font-size="16" fill="var(--dim)">1000 到 2000 台</text>
+
+  <text x="80" y="376" font-size="19" fill="var(--warn)">海事供應環節</text>
+  <rect x="300" y="354" width="110" height="30" rx="4" fill="var(--warn)"/>
+  <text x="300" y="412" font-size="16" fill="var(--dim)">100 到 200 件</text>
+
+  <text x="80" y="470" font-size="19" fill="var(--accent)">明年目標</text>
+  <rect x="300" y="448" width="170" height="30" rx="4" fill="var(--accent)"/>
+  <text x="490" y="470" font-size="16" fill="var(--dim)">約 1000 台</text>
+
+  <line x1="410" y1="340" x2="410" y2="500" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="420" y="524" font-size="19" fill="var(--warn)">天花板</text>
+</svg>
