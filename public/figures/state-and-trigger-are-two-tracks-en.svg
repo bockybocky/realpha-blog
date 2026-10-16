@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The state track stays lit, while the action track needs four of seven squares to go dark before exiting.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .d { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="56">State on one track, action on another</text>
+<rect x="60" y="92" width="600" height="130" rx="14" fill="var(--card)"/>
+<text class="g" x="88" y="134">State</text>
+<text class="d" x="88" y="168">Two standard deviations off</text>
+<rect x="420" y="128" width="210" height="58" rx="29" fill="var(--accent)" opacity="0.85"/>
+<text class="g" x="525" y="166" text-anchor="middle" fill="var(--page)">Always lit</text>
+<rect x="60" y="256" width="600" height="170" rx="14" fill="var(--card)"/>
+<text class="g" x="88" y="298">Action</text>
+<text class="d" x="88" y="332">Seven generals break their moving averages</text>
+<rect x="88" y="356" width="60" height="46" rx="6" fill="var(--warn)" opacity="0.9"/>
+<rect x="160" y="356" width="60" height="46" rx="6" fill="var(--warn)" opacity="0.9"/>
+<rect x="232" y="356" width="60" height="46" rx="6" fill="var(--warn)" opacity="0.9"/>
+<rect x="304" y="356" width="60" height="46" rx="6" fill="var(--warn)" opacity="0.9"/>
+<rect x="376" y="356" width="60" height="46" rx="6" fill="var(--grey)"/>
+<rect x="448" y="356" width="60" height="46" rx="6" fill="var(--grey)"/>
+<rect x="520" y="356" width="60" height="46" rx="6" fill="var(--grey)"/>
+<text class="g" x="600" y="388">4/7</text>
+<path d="M680,340 L790,340" stroke="var(--ink)" stroke-width="4"/>
+<path d="M790,340 l-16,-10 l0,20 z" fill="var(--ink)"/>
+<rect x="800" y="306" width="110" height="68" rx="14" fill="var(--warn)" opacity="0.9"/>
+<text class="g" x="855" y="348" text-anchor="middle" fill="var(--page)">Exit</text>
+<text class="d" x="680" y="402">Both tracks must ring</text>
+<line x1="60" y1="470" x2="900" y2="470" stroke="var(--line)" stroke-width="2"/>
+<text class="c" x="60" y="518">Too pricey is a state, leaving is an action</text>
+</svg>

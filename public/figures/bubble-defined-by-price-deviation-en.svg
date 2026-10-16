@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="The real price line breaks out above the upper edge of the trend's plus and minus two standard deviation band at the end.">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .d { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="56">One ruler, one question: how far from trend</text>
+<polygon points="90,350 880,150 880,290 90,490" fill="var(--card)"/>
+<line x1="90" y1="350" x2="880" y2="150" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 6"/>
+<line x1="90" y1="490" x2="880" y2="290" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 6"/>
+<line x1="90" y1="420" x2="880" y2="220" stroke="var(--dim)" stroke-width="3"/>
+<path d="M90,436 L200,404 L300,424 L400,372 L500,352 L600,300 L700,252 L780,168 L880,112" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<path d="M770,168 L880,112" fill="none" stroke="var(--warn)" stroke-width="6"/>
+<circle cx="772" cy="176" r="8" fill="var(--warn)"/>
+<text class="g" x="700" y="238" fill="var(--warn)">Mid-25</text>
+<text class="g" x="596" y="96" fill="var(--warn)">Bubble zone</text>
+<text class="d" x="890" y="150" text-anchor="end">+2 SD</text>
+<text class="d" x="890" y="244" text-anchor="end">Trend</text>
+<text class="d" x="890" y="312" text-anchor="end">−2 SD</text>
+<text class="g" x="96" y="452" fill="var(--accent)">Real price</text>
+<line x1="90" y1="520" x2="880" y2="520" stroke="var(--line)" stroke-width="2"/>
+<text class="c" x="60" y="562">Not how pricey, but how far off</text>
+</svg>
