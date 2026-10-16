@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A gap between price and value forks into two paths, one reverting upward and one declining slowly, both above the baseline.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="68">The handicap</text>
+<line x1="100" y1="190" x2="420" y2="190" stroke="var(--grey)" stroke-width="4"/>
+<text class="g" x="100" y="172">Value</text>
+<rect x="100" y="190" width="320" height="170" fill="var(--accent)" opacity="0.14"/>
+<line x1="100" y1="360" x2="900" y2="360" stroke="var(--accent)" stroke-width="4"/>
+<text class="g" x="100" y="392">Purchase price</text>
+<text class="c" x="212" y="286">Discount</text>
+<path d="M420,360 C540,320 660,250 880,206" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<path d="M880,206 l-16,2 l4,13 z" fill="var(--accent)"/>
+<text class="g" x="648" y="226">Story wrong</text>
+<text class="b" x="648" y="252">Price returns to value</text>
+<path d="M420,360 C560,352 700,336 880,318" fill="none" stroke="var(--warn)" stroke-width="5"/>
+<text class="g" x="648" y="430">Story right</text>
+<text class="b" x="648" y="456">Decline is slow</text>
+<line x1="100" y1="360" x2="900" y2="360" stroke="var(--accent)" stroke-width="4" stroke-dasharray="10 8"/>
+<text class="b" x="100" y="492">Both paths start from the discount line</text>
+<text class="c" x="60" y="536">You pick the handicap, not the favourite</text>
+</svg>
