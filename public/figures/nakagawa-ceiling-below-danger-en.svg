@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Two current axes side by side: on the left the danger line sits below the capability ceiling and the operating band hits it, while on the right the ceiling is pushed below the danger line so the band hits the ceiling instead.">
+  <defs>
+    <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ti { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="ti" x="40" y="54">Flip the problem around</text>
+
+  <text class="g" x="60" y="104">Before</text>
+  <line x1="60" y1="130" x2="60" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="40" y="470">Current</text>
+  <rect x="60" y="330" width="360" height="110" fill="var(--card)"/>
+  <text class="b" x="88" y="400">Operating band</text>
+  <line x1="60" y1="330" x2="440" y2="330" stroke="var(--warn)" stroke-width="5"/>
+  <text class="g" x="60" y="316" fill="var(--warn)">Latch-up line</text>
+  <line x1="60" y1="190" x2="440" y2="190" stroke="var(--accent)" stroke-width="5" stroke-dasharray="10 8"/>
+  <text class="g" x="60" y="176" fill="var(--accent)">Capability ceiling</text>
+  <path d="M 300 420 L 300 344" fill="none" stroke="var(--warn)" stroke-width="4" marker-end="url(#a5)"/>
+  <defs><marker id="a5" markerWidth="11" markerHeight="11" refX="7" refY="5.5" orient="auto"><path d="M0,0 L11,5.5 L0,11 z" fill="var(--warn)"/></marker></defs>
+  <text class="b" x="320" y="376">Hits the danger line first</text>
+
+  <line x1="480" y1="90" x2="480" y2="500" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="g" x="520" y="104">After</text>
+  <line x1="520" y1="130" x2="520" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <rect x="520" y="330" width="380" height="110" fill="var(--card)"/>
+  <text class="b" x="548" y="400">Operating band</text>
+  <line x1="520" y1="190" x2="900" y2="190" stroke="var(--warn)" stroke-width="5"/>
+  <text class="g" x="520" y="176" fill="var(--warn)">Latch-up line</text>
+  <line x1="520" y1="330" x2="900" y2="330" stroke="var(--accent)" stroke-width="5"/>
+  <text class="g" x="520" y="316" fill="var(--accent)">Ceiling pushed down</text>
+  <path d="M 760 420 L 760 344" fill="none" stroke="var(--accent)" stroke-width="4" marker-end="url(#a5b)"/>
+  <defs><marker id="a5b" markerWidth="11" markerHeight="11" refX="7" refY="5.5" orient="auto"><path d="M0,0 L11,5.5 L0,11 z" fill="var(--accent)"/></marker></defs>
+  <text class="b" x="780" y="376">Hits itself first</text>
+
+  <text class="c" x="60" y="546">The danger line barely moves, so push the ceiling under it</text>
+</svg>

@@ -1,0 +1,124 @@
+---
+title: "Asianometry Notes: The IGBT, Two Transistors Grafted Into One"
+description: "Notes on Asianometry's 15 October 2026 episode 'IGBTs Took Silicon Power to the Next Level': B. Jayant Baliga published the MOSFET–bipolar hybrid idea at GE in 1979, demonstrated it at IEDM in December 1982 and shipped it as the IGT in June 1983, while Toshiba's Akio Nakagawa solved latch-up by pushing saturation current below the latch-up limit and sold a non-latching part in 1985. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "asianometry-2026-10-15-igbts-took-silicon-power-to-the-next-level"
+lang: "en"
+pubDate: 2026-10-16
+category: "investing"
+kind: "podcast-notes"
+tags: ["Asianometry", "podcast-notes", "power semiconductors", "IGBT", "technology substitution"]
+ogImage: "/covers/asianometry-2026-10-15-igbts-took-silicon-power-to-the-next-level-cover.png"
+cover: "/covers/asianometry-2026-10-15-igbts-took-silicon-power-to-the-next-level-cover.png"
+---
+
+![A semiconductor lab late at night, a long probe bench receding into the distance, a silicon wafer in the foreground lit by a warm desk lamp, rows of instruments behind it glowing faintly blue](/covers/asianometry-2026-10-15-igbts-took-silicon-power-to-the-next-level-cover.png)
+
+> Force is that by which a body is set in motion.
+>
+> —— Mozi, "Canons I" (Warring States period; translation mine)
+
+Asianometry's 15 October 2026 episode, "IGBTs Took Silicon Power to the Next Level," is about a switch nobody talks about: the insulated-gate bipolar transistor. When your air conditioner slows its motor down after the room is cool instead of running flat out, that is the IGBT at work. The host tells its origin story as a dispute: B. Jayant Baliga published the idea at General Electric in 1979, demonstrated the device at IEDM in December 1982 and shipped it as the IGT in June 1983, while RCA's Hans Becke and Carl Wheatley filed their patent in March 1980. His conclusion is that most people today credit Baliga as inventor or co-inventor — conditional on reading "IGBT" as the generation that can latch up. Tighten the definition to "no latch-up anywhere in the operating range" and the answer changes hands.
+
+## What kind of switch this is
+
+In plain words: a power semiconductor is the same sort of thing as the transistors in your CPU — a switch — except it switches currents orders of magnitude larger. The host opens with a question I had never thought about: why use a semiconductor switch at all, rather than a mechanical one? Mechanical switches have moving parts that wear out, they make noise, and they are slow; a semiconductor switch has no moving parts, lasts far longer, and can toggle thousands to millions of times a second.
+
+A good switch needs three things: when on, it should behave like metal, conducting with little loss; when off, like an insulator, cutting the current clean; and it should move between those states fast. Those three are the ruler, and every generation of device loses a notch on it.
+
+![A four-row by three-column matrix of filled dots and hollow gaps for three conditions, where the first three device generations each have gaps and the final IGBT row has its gaps filled in.](/figures/power-switch-three-ruler-en.svg)
+
+## Before the IGBT, three switches with three diseases
+
+The field began seventy years ago with the thyristor, a four-layer PNPN silicon switch. A small current into the gate opens it, and GE introduced it as the Silicon Controlled Rectifier — a real solid-state breakthrough. The flaw is that once it turns on, it latches: it stays conducting until the anode current falls to zero or below some limit. Alternating current crosses zero on its own, so using it to rectify AC into DC is fine; direct current never crosses zero, so you have to bolt on extra circuitry to force the current down, which eats power and space.
+
+Next came the power bipolar junction transistor. It switches on and off at will via the base current, at three costs: keeping it on requires a continuous base current, which burns energy; it does not switch fast, and once it saturates it takes extra time to close; and it is not rugged, so it overheats and needs protection circuitry that adds bulk. The slowness clicked for me only after this episode: a BJT uses both minority and majority carriers to make the base conductive, and turning it off means flushing the injected minority carriers out first, which takes time.
+
+Power MOSFETs, arriving in the late 1970s, fixed the first two. A MOSFET uses majority carriers only, is controlled by voltage, switches much faster, and is rugged — and it only became a power device once the structure went vertical, with gate and source on top of the silicon and the drain underneath. In 1977 J.O.M. Jenkins of Siliconix published a piece titled "MOSPOWER — The Challenge to Power Bipolars," and the industry argued for years about replacing the BJT. One thing stopped it: MOSFETs cannot hold off high voltages, which is fine for a personal computer and useless for an EV or a locomotive.
+
+## Both at once: mixed up in the telepod
+
+Baliga joined GE's research centre in 1974, was assigned to power semiconductors, and did not want the job — he thought it was a 25-to-30-year-old technology, mature and dull. He started on thyristors: after Jun-ichi Nishizawa announced the static induction thyristor in Japan in 1975, GE decided to follow and handed him the problem. Three years later he had working parts that were default-ON, which made them useless for power work.
+
+Stuck there, he thought back to the industry's BJT-versus-MOSFET tug of war and asked: could there be a voltage-controlled device with a MOSFET's speed and ruggedness that still handles BJT-level power? Why not merge them.
+
+The host's description of the result is my favourite part of the episode. He says the IGBT is both at once — the two devices are not wired together; they got mixed up inside the telepods from the movie *The Fly*. The IGBT has the strapping, muscular body of a vertically oriented BJT with the power-efficient brain and spine of a MOSFET grafted onto it. His own note on this: semiconductor body horror. Even the terminals are hybrid — the gate from the MOSFET, the emitter and collector from the BJT.
+
+![A vertical cross-section through silicon shows stacked layers, with the upper half bracketed as a MOSFET head and the lower half as a BJT body, and electrons passing downward through it.](/figures/igbt-graft-cross-section-en.svg)
+
+It works like this: voltage on the gate pulls electrons to the surface of the P-type body region beneath it, forming a conductive channel — that part is the MOSFET. Those electrons flow into the N-type drift region, which acts like base current fed to the PNP BJT underneath, so minority carriers are injected into the drift region, resistance collapses, and a large current gets through. To turn it off you drop the gate voltage back below threshold — and the BJT's weakness comes with the package: clearing the minority carriers takes time.
+
+## A threat put it on the fast track
+
+Baliga first wrote the hybrid idea down in 1977 and published it in *Electronics Letters* in September 1979. Getting from paper to a production line took a different kind of force. This was GE in the years when Jack Welch was making his presence known, and a vice president turned up at the research team wanting a replacement for the power BJTs inside the adjustable speed drives he used in heat pumps and air conditioners. He put it bluntly: if Research could not produce something, he would tell Welch the labs were unnecessary.
+
+So Baliga pitched the half-BJT, half-MOSFET idea to him, stretching the applications from variable speed motors to appliances, lighting and other GE businesses. The VP got excited and took it to Welch himself. Welch fast-tracked the device in late 1980, the first wafers came out in August 1981, it was presented at IEDM in December 1982 as the "Insulated Gate Rectifier," and it reached the market in June 1983 as the "Insulated Gate Transistor," or IGT.
+
+Carl F. Wheatley at RCA was chasing the same thing. In a 2010 interview with *Electronic Design* he described his thinking: make the power MOSFET, make sure it has some bipolar action as well, and that gives a lot of high current-density capability. He was the kind of inventor who threw off raw ideas for his staff to polish, and this one went to Hans Becke. The two filed in March 1980, and RCA commercialised the device in 1983 as the COMFET. COMFET, IGR, IGT, IGBT — one family of devices, four names, which is part of why this history is hard to trace.
+
+## A transistor nobody asked for, hiding in the PNPN
+
+Both devices shared one serious flaw: latch-up. The clue is in the structure — the thyristor is PNPN, and so is the IGBT, and latching was the thyristor's great headache.
+
+An IGBT works as a MOSFET driving a PNP BJT, and every IGBT also contains an unwanted parasitic NPN BJT. Holes are injected up from the P-type collector, through the drift region and the P-type body, and sideways to the emitter metal contact. That sideways trip has resistance, so it has a voltage drop. If the current is large enough and the drop high enough, the hidden NPN triggers, it and the normal PNP feed each other, and you get a self-sustaining loop — the host compares it to the reactor at the end of *Spider-Man 2* that cannot be shut down. Closing the gate no longer does anything, and what follows is thermal runaway. Fire.
+
+![Two transistors feed each other through a pair of arrows that close into a loop, while the gate's control line is cut off outside the circle.](/figures/latchup-parasitic-loop-en.svg)
+
+Sceptics, including some of Baliga's own coworkers, flagged this from the start. His fix was "Deep P+," a more deeply doped region inside the transistor that limits the flow of holes and makes latch-up harder to reach. His other fix is stranger: to attack the slow switching, he added a post-processing step that irradiates the silicon, deliberately creating lattice defects that trap electrons after the gate closes, which speeds up turn-off. Manufacturing defects to buy speed was new to me.
+
+![Two turn-off current curves, the original trailing a long tail and the irradiated one with its tail cut short.](/figures/turn-off-tail-tradeoff-en.svg)
+
+Both fixes only lower the odds. GE's IGRs and IGTs and RCA's COMFETs could still latch up, and the rest of the responsibility sat with the user: keep the device inside its safe operating window.
+
+## Akio Nakagawa turned the problem around
+
+When the IGR was demonstrated in 1982, Japanese firms mostly held back. Toshiba's Akio Nakagawa was one of the sceptics. He attended that IEDM, heard about Baliga's presentation, and his first reaction was: who would care about a device that takes more than ten microseconds to switch? Back in Japan he worked out the answer — plenty of high-current applications can live with slow switching.
+
+In early 1983 he was assigned to integrate a bipolar and a MOSFET onto one chip. He seems not to have liked the assignment, set out to build his own IGT instead, and that meant facing latch-up. To follow his solution you need two current limits kept apart: the latch-up limit, where the parasitic device ignites, and the saturation current limit, the most current the device can physically carry.
+
+Until then, everyone attacked latch-up by raising the latch-up limit. The difficulty is that the BJT's saturation limit is high to begin with, so the latch-up line is relatively easy to reach — and worse, that line moves, sliding downward as temperature rises from the device's own heating. System architects therefore had to keep in mind at all times that their IGBT could latch up and run away thermally.
+
+Nakagawa's move looks obvious in hindsight, which is exactly what makes it good: leave the latch-up line alone and push the device's saturation current below it. The device now tops out against its own ceiling first, and the latch-up point sits outside the normal operating range, out of reach. Toshiba started selling that version in 1985, and with consistent behaviour across the whole operating range, these parts rapidly displaced power BJTs and MOSFETs in many medium- and high-voltage converter applications.
+
+![Two panels, before and after, in which the danger line and the capability ceiling swap places, so the operating band goes from reaching the danger line to never touching it.](/figures/nakagawa-ceiling-below-danger-en.svg)
+
+## The dispute is about a definition
+
+Mixing bipolar and MOSFET was an old idea — Japan even had a name for it, Bi-FETs. In 1968 K. Yamagami of Mitsubishi filed a Japanese patent on a PNP bipolar transistor driven by a MOSFET; in 1978 Stanford's Jim Plummer and Scharf published on a MOSFET controlling a thyristor variant called a TRIAC. Ideas are cheap. The question is who turned one into a thing.
+
+The host lays out both hands. Baliga published first (1979) and shipped first (1983), and he was the device's evangelist — pushing it into GE's own products, working through latch-up and slow switching in the early 1980s, filing over twenty patents along the way, and writing an 800-plus-page textbook, *The IGBT Device*. Becke and Wheatley appear to have moved on after that first patent. But RCA's patent was early, and the key line in its claim is that there is no latch-up across the device's full operating range. Baliga's 1979 device admits to "thyristor-like" behaviour at higher currents.
+
+![Two parallel timelines: the upper one keeps adding tick marks and grows thicker, while the lower one breaks off right after its first tick.](/figures/igbt-claim-timeline-en.svg)
+
+So the dispute reduces to a definition: is the IGBT we mean the one that can latch up, or the one that never does anywhere in its operating range? The rebuttal to RCA is that neither company had the latter at the time. Most people today credit Baliga, and everyone agrees Nakagawa produced the first non-latching IGBT — while Nakagawa's own website attributes the real invention to Becke. The host says this reminds him of the integrated circuit: Texas Instruments' Jack Kilby made the first one, which was not yet the IC we use, and it took Fairchild's Bob Noyce and Jean Hoerni with the planar process to get there. The two companies fought in court for years, and today people just say the credit is shared.
+
+## New technology arrived, so why is the old one still alive?
+
+Silicon carbide and gallium nitride — wide bandgap materials — have been in the news for years, and it sounds as though silicon should have left the stage. The host's closing line says otherwise: plain old silicon IGBTs still dominate the mid-voltage segments.
+
+What I take from it is that substitution has to be read segment by segment. New materials take the segment where they win clearly first — high frequency, high temperature, places where size matters. In the mid-voltage, high-current, cost-sensitive segment, where customers have already tuned their safe operating windows and thermal designs, switching means requalifying an entire system, and the loss you save may not cover it. "The new technology is better" and "the new technology will take this market" are two questions: the first is answered by a datasheet, the second by asking how much work the customer has to redo.
+
+![A voltage axis split into three bands, with new materials pressing inward from both ends while the middle band is still held by silicon behind a thick wall labeled as validation assets.](/figures/voltage-bands-substitution-en.svg)
+
+So I start with: which segment does this "substitution" refer to? What are the incumbent's cost and reliability in that segment? How thick is the qualification work a customer would throw away? If I cannot answer all three, I file the news as progress. And the condition on silicon IGBTs is stated plainly enough: watch when SiC and GaN close the cost-per-amp gap in mid-voltage.
+
+## "We invented this" — how do I check?
+
+One of the most common lines in a company deck is that some technology was pioneered by them. This episode handed me a method I can copy, because it breaks an unresolvable argument into three things you can check.
+
+First, dates — three separate ones: when the idea was written down, when the patent was filed, when the product shipped. Those three often belong to different companies, and which one you pick decides how the story reads. Second, the sentence inside the patent claim: RCA's whole case rests on "no latch-up across the full operating range," and that is where the dispute sits. The scope of a claim lives in the claim, not in the press release. Third, what happened afterwards: twenty-odd further patents, an 800-page book, years of internal evangelism on one side, and a move to other projects on the other.
+
+I have used those three on a few "first ever" claims, and the result usually lands in the middle: the person who thought of it has a case, and so does the person who made it a business. These days, when I hear "pioneered," my first question is which of the three dates they mean.
+
+## Further reading
+
+- Asianometry, "IGBTs Took Silicon Power to the Next Level" (15 October 2026), the source for these notes
+- B. J. Baliga, *The IGBT Device: Physics, Design and Applications of the Insulated Gate Bipolar Transistor* — 800-plus pages, the place to go for device physics and design
+- *Electronic Design*'s 2010 interview with Carl F. Wheatley, for RCA's side
+- Becke and Wheatley's US patent, filed March 1980 — the "no latch-up across the full operating range" claim is worth reading yourself
+- Akio Nakagawa's website on IGBT history, where he sets out why he credits Becke
+
+## One thing worth taking with you
+
+Nakagawa's solution is one sentence: the dangerous line is hard to move, so push your capability ceiling below it. Everyone else was trying to raise the latch-up threshold; he made the device hit its own ceiling first, which puts the dangerous point outside the normal operating range. No careful user required, no warning in the manual required: the device physically cannot get there.
+
+Here is something I have tried: take one thing you currently manage with "I'll stop before it goes wrong" and replace it with a hard ceiling. It does not have to involve investing. Mine is watching videos — I used to rely on going to bed when I got tired, and now the computer is scheduled to sleep at eleven and the screen simply goes dark, with nothing left for present-me to decide. It could be how many projects you take in a week, how many times a day you check messages, how many dinners out in a month. Pick one, write the number down, and put it somewhere you cannot reach.

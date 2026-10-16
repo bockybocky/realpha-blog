@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="In this figure two blocks are joined by two arrows into a self-sustaining ring, and the gate's control line is crossed out and severed outside that ring.">
+  <defs>
+    <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ti { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    </style>
+    <marker id="aw" markerWidth="11" markerHeight="11" refX="7" refY="5.5" orient="auto">
+      <path d="M0,0 L11,5.5 L0,11 z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="ti" x="40" y="54">The loop you can't switch off</text>
+
+  <rect x="300" y="130" width="200" height="96" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="334" y="178">The intended PNP</text>
+  <text class="b" x="334" y="206">The one doing the work</text>
+
+  <rect x="300" y="380" width="200" height="96" rx="10" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+  <text class="g" x="334" y="428">The parasitic NPN</text>
+  <text class="b" x="334" y="456">The one nobody wanted</text>
+
+  <path d="M 520 190 C 620 210 620 400 520 428" fill="none" stroke="var(--warn)" stroke-width="4" marker-end="url(#aw)"/>
+  <path d="M 288 420 C 190 396 190 206 288 174" fill="none" stroke="var(--warn)" stroke-width="4" marker-end="url(#aw)"/>
+  <text class="g" x="636" y="306" fill="var(--warn)">Feeding each other</text>
+
+  <line x1="80" y1="178" x2="282" y2="178" stroke="var(--grey)" stroke-width="4"/>
+  <text class="g" x="80" y="152">Gate</text>
+  <line x1="168" y1="156" x2="200" y2="200" stroke="var(--warn)" stroke-width="4"/>
+  <line x1="200" y1="156" x2="168" y2="200" stroke="var(--warn)" stroke-width="4"/>
+  <text class="b" x="80" y="232">No longer has a say</text>
+
+  <rect x="620" y="400" width="300" height="96" rx="8" fill="var(--card)"/>
+  <text class="g" x="648" y="440">Lateral voltage drop</text>
+  <text class="b" x="648" y="470">More current, closer to ignition</text>
+</svg>

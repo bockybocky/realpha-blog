@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="橫向電壓軸分三段，左段低壓與右段高頻高溫由新材料箭頭往內侵入，中段由矽佔據並有一道厚牆標示驗證資產">
+  <defs>
+    <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ti { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+    </style>
+    <marker id="a8" markerWidth="11" markerHeight="11" refX="7" refY="5.5" orient="auto">
+      <path d="M0,0 L11,5.5 L0,11 z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="ti" x="40" y="54">替代要分段看</text>
+
+  <rect x="60" y="200" width="230" height="140" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="90" y="246">低壓</text>
+  <text class="b" x="90" y="276">個人電腦</text>
+  <text class="b" x="90" y="302">MOSFET</text>
+
+  <rect x="310" y="180" width="340" height="180" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="4"/>
+  <text class="g" x="344" y="230" fill="var(--accent)">中階電壓</text>
+  <text class="b" x="344" y="262">大電流、看成本</text>
+  <text class="b" x="344" y="290">矽 IGBT 仍主宰</text>
+  <rect x="344" y="310" width="272" height="26" rx="4" fill="var(--grey)"/>
+  <text class="b" x="344" y="352">厚的那一層是驗證資產</text>
+
+  <rect x="670" y="200" width="230" height="140" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="700" y="246">高頻高溫</text>
+  <text class="b" x="700" y="276">體積敏感</text>
+  <text class="b" x="700" y="302">SiC　GaN</text>
+
+  <path d="M 230 400 L 330 400" fill="none" stroke="var(--warn)" stroke-width="4" marker-end="url(#a8)"/>
+  <path d="M 740 400 L 640 400" fill="none" stroke="var(--warn)" stroke-width="4" marker-end="url(#a8)"/>
+  <text class="b" x="378" y="406">新材料先吃兩端</text>
+
+  <line x1="60" y1="450" x2="900" y2="450" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="60" y="480">電壓</text>
+  <text class="c" x="60" y="516">看每安培成本什麼時候追平</text>
+</svg>
