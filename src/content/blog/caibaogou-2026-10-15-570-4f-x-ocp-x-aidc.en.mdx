@@ -1,0 +1,84 @@
+---
+title: "4F² in Memory, a New Laminate at OCP, and an Energy Expo That Pivoted to AI Data Centers"
+description: "Notes from the October 15, 2026 episode (#570) of the Taiwanese podcast Caibaogou: CXMT's 4F² DRAM announcement and G4 ramp, PTFE laminates and optics roadmaps at OCP in the US, and a Taipei energy expo where nearly every booth was pitching AI data centers. On the gap between making something work and making the yield work, and why land that has already cleared permitting suddenly became scarce. Educational, not investment advice; no stock recommendations or price targets."
+slug: "caibaogou-2026-10-15-570-4f-x-ocp-x-aidc"
+lang: "en"
+pubDate: 2026-10-16
+category: "investing"
+kind: "podcast-notes"
+tags: ["Caibaogou", "memory", "AI data center", "OCP", "energy storage"]
+ogImage: "/covers/caibaogou-2026-10-15-570-4f-x-ocp-x-aidc-cover.png"
+cover: "/covers/caibaogou-2026-10-15-570-4f-x-ocp-x-aidc-cover.png"
+---
+
+![A battery storage yard at dusk, white containers in front, a data center hall being built behind them, a substation and wind turbines on the horizon](/covers/caibaogou-2026-10-15-570-4f-x-ocp-x-aidc-cover.png)
+
+> Terrain is an aid to the army. To size up the enemy and seize victory, to reckon the hazards, the narrows, the distances — that is the way of a great commander.
+>
+> —— Sun Tzu, *The Art of War*, "Terrain" (Spring and Autumn period; my own translation)
+
+In episode 570 of Caibaogou, recorded on October 15, 2026, host Wei-yu and CIO Sky worked through three things that happened in the same week. CXMT said its next DDR5 generation would move to a 4F² cell by year end, and that its G4 platform is already in production with 50% more good die per wafer than the prior node. At OCP in the US, a slide showing NVIDIA's PTFE laminate supply chain leaked out, alongside 1.6T through 6.4T optics and an 800-volt DC power architecture. And at Taiwan's international smart energy expo, Sky said that the moment he walked in, every booth was talking about AI data centers. His read: the vertical-gate path is no surprise, the hard part sits in high-aspect-ratio etch, cleaning and inspection — the steps export controls bite into — so yield remains the open question and the market move is short-term noise. The number that stuck with me came from the energy half: Google says a data center pays back in 12 months, and Sky's point was that even at 16 to 18 months, people will still fight for it.
+
+## China is shrinking the DRAM cell to 4F². Should Taiwanese and Korean makers worry?
+
+Not this quarter; the long-run answer depends on yield. A quick plain-language detour: the area of one DRAM memory cell is counted in multiples of F², where F is the minimum feature size. Today's mainstream is 6F² — picture a two-by-three box of six squares — and 4F² is two by two. Cut cell area by a third and the same wafer holds more bits, which is why the announcement rattled people; even SK Hynix's chief told reporters that China is catching up, a line Sky said sounded awfully familiar.
+
+![The tall 2 × 3 block on the left and the shorter 2 × 2 block on the right, with the omitted top row outlined by a dashed box, show that the cell area is reduced by one-third.](/figures/dram-cell-6f2-vs-4f2-en.svg)
+
+Sky's view is that the route itself is unremarkable. Shrinking to 4F² generally means standing the transistor gate upright into a 3D structure, and going vertical is the shared shape of every Chinese breakthrough of the past few years: when you cannot buy a tool, you route around it and stack upward for performance. The problems live in the ring around that choice. An upright structure means etching holes that are deep and narrow, and high-aspect-ratio etch is hard on its own. The dielectric and metal liners wrapping that structure push from CVD toward ALD, adding layers. Vertical usually adds cleaning steps, and inspection and bonding demand goes up with it. Sky noted that those tools and processes "all look like they're inside the restrictions," so he parks his conclusion in one sentence: they can build it, yield is a question mark.
+
+One contrast is worth keeping. The episode notes that Hynix itself only recently said it might go to 4F², and that large US, European and Japanese equipment makers are all describing it as something that raises tool demand. When even a customer with full vendor support treats this as a hard problem, the distance to a maker without that support, grinding yield out through volume, is exactly what to watch once the headline move is priced.
+
+![The gate lies flat on the substrate on the left and stands upright as a deep, narrow hole on the right, where the aspect ratio and additional cleaning and inspection steps are labeled.](/figures/planar-gate-vs-vertical-gate-en.svg)
+
+## Then why do memory stocks fall on news and grind back up?
+
+Because the direction of the industry and the position of the stock are two separate questions, and this episode kept them apart. Sky said that since the start of the year, each piece of news knocks prices down and they climb back, yet they cannot push through the top. What that proves, he said, is that going higher needs a bigger push — and the push has to be growth, or real added capacity.
+
+![A sawtooth stock-price line drops at each news event and then slowly recovers, but it always remains below the dashed ceiling above.](/figures/memory-price-sawtooth-ceiling-en.svg)
+
+He put the market's worry plainly: AI will consume a lot of memory, robots will consume a lot of memory, none of that is wrong. The question now is whether the stock has already priced it. Once the growth rate rolls over, multiples compress, and both things are true at once. The technology gap also has not closed in one step. He singles out HBM as the class of product that stays hard to copy, and notes that CXMT's DDR5 exists but each die is a little slower, with less capacity behind it than the market imagines.
+
+On the industry itself, his view for next year is unchanged: still short of supply all year, because the constraint on new fabs is people. The exchange that made me laugh was about labor: short of workers, so bring in robots to build the fab? The chips those robots need are the thing that is short right now, so the chicken-and-egg loop does not close. Hence his split verdict — the industry is positive, the share price is difficult.
+
+## Why did one leaked PTFE supply-chain slide at OCP move the market so much?
+
+Because a new material appearing on a supply-chain map means it is just getting designed in, and that is the stage with the widest room to imagine. PTFE is Teflon. Laminates built with it used to go into high-frequency boards for 5G base stations, never into servers; now servers run at those frequencies too, so the material got pulled over. The chatter before this had the supply chain in China, and the slide that leaked at OCP has Taiwanese names on it — which Sky found genuinely interesting.
+
+The material's personality is the fun part: it is soft, so the equipment and the time needed to process it inside PCB fabs both shift. Sky was careful here — the drilling tool is still the drilling tool, the equipment itself does not change, what changes is that it runs slower. He then guessed the material might account for only around ten layers inside a hundred-plus-layer board, and immediately added, "that's my understanding, I could be wrong." I like that addition, because it marks where observation ends and guessing starts.
+
+![In a stack of more than one hundred thin layers, only a narrow section in the middle is marked as the new material, showing that it accounts for very little of the board's total thickness.](/figures/ptfe-ten-layers-in-a-hundred-en.svg)
+
+Optics was busier. 1.6T is not deployed yet and architectures for 3.2T and 6.4T are already drawn, plus pluggable modules at 400G per lane. CPO, NPO and pluggable all still have a seat; Sky said the market story he picks up in his channel work currently has NPO ahead of CPO, with pluggable persisting rather than being killed off. Whether the light source ends up LED or VCSEL is also contested, and he suggests watching fiber prices alongside it, because the cheap-source option can carry expensive fiber, and these systems run well over a thousand strands — thin as they are, a thousand-plus is a lot of them.
+
+The most durable line in this section is Sky's aside: sometimes the thing that gets picked is not the best one, it is the one whose ecosystem offers the least resistance. His example is silicon photonics, known for more than a decade and only now actually being used; the years in between were talk. A technology being in a vendor's portfolio means it is inside the range of choices. Whether volume follows is a separate matter.
+
+## How does an energy expo turn into an AI data center expo?
+
+Because generation itself had no new trick to show, and electricity now converts directly into compute. Sky went to Taiwan's smart energy week and said solar, wind, hydro and hydrogen were all things you have heard before — yet every booth was offering to build the power system that sits outside your AI data center. Companies that used to sell storage or solar now sell a bundle: storage cabinets plus an energy management system that works out when to bring which source in so the load never drops, then pours it into the data center.
+
+He calls this EPC with extras. Older projects were single-purpose: a 200 MW site, all solar, built and done. Now one site buys in solar, adds storage, keeps diesel or gas gensets on hand, maybe fuel cells too, and blends all of it into the data center. The water loops and power paths inside the building — stepping 13.5 kV down to 12 volts — used to be something only the four big cloud operators could design, and that work is becoming modular too.
+
+Once it is modular, Sky argues, the competition moves: winning the order is what counts. The buyer he hears most often in Taiwan is the national supercomputing center, and a second thread is companies that used to build telecom equipment rooms in Japan and Southeast Asia now bidding for this work, since a telecom room and a data center are the same concept serving a different product. As for whether the power side is hard, his assessment is that it is hard but passable; the real labor sits in operations, in how much manpower you can marshal on site, and in local relationships and local methods.
+
+The other thread he pulled out is power trading platforms. Several of those companies in Taiwan are not listed yet, and the demand is real: corporates need RE100 and need to pass customer audits. Sky's point was that a company among the largest in the world by market value will certainly get audited, so green power transfer looks like a settled need.
+
+The cleverest move in the whole episode is converting an existing storage site straight into a data center. Land is the hard part to get, and a storage site means that plot already has power, already has grid interconnection, and already cleared its environmental review — so you rebuild what sits on top. Sky calls it a new investment model, with the caveat that nobody knows how long the returns last. Google says 12 months to payback; he says 16 or 18 months is still good money, and against money like that people pile in. His closing line on it was that over five or ten years, you never know.
+
+![Two panels share the same foundation labeled with power, grid connection, and environmental approval, while one supports energy-storage cabinets and the other a data-center facility.](/figures/same-land-different-top-en.svg)
+
+## So what can I actually do with this?
+
+What I took from this episode is to treat "already cleared" as an asset class of its own. The technology half asks whether something can be built; the energy half asks whether it can be put to work; and both answers have the same shape. Plenty of things can be built. The ones that count are the ones that reach a buyer, pass an audit, and can be staffed on site. The storage-site example is the cleanest version — same plot, same interconnection, one price when it feeds batteries and another when it feeds compute, and the valuable part in the middle is the permitting and the grid connection already being done. That is time you cannot buy back.
+
+Looking at my own holdings through this lens changes the question I ask. I used to ask how good the technology was. Now I ask first what the company already has cleared that is hard to clear again: customer qualifications, long-term contracts, trained field crews, land in hand. A technical lead gets caught up, which is what that yield question mark in the episode is about, while the already-cleared column makes a challenger stand in line again.
+
+![In the upper row, a technically leading company has pursuers only a short distance behind, while in the lower row, a qualified company forces pursuers to start again from the far end of the queue.](/figures/lead-gap-vs-queue-again-en.svg)
+
+I apply it to my own time too. For the past few years I have spent far more hours learning something new than connecting what I already know to the people who need it, and the second one looks better paid right now. I am not sure what the right ratio is, but I have at least started treating it as something I allocate rather than something I leave alone.
+
+## The One Thing to Take Away
+
+What a thing is worth is set by who it is connected to right now, not by its own specifications. The land under that storage site did not change; what sits on top of it did. The skill you have did not change either; who it serves did.
+
+Here is something I tried, offered rather than assigned. Take a sheet of paper and list three things you hold that have already cleared some bar but are currently connected to nobody: a certification you passed, a degree you finished, someone you know but have not spoken to in six months, a room you rent and leave empty, a medical checkup you read once and filed. Write one line after each — who is it connected to now? If you cannot write it, that slot is empty. Then pick one of them and spend thirty minutes this week connecting it to a specific person or use. Just one.
