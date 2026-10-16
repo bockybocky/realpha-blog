@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="三層長條由上往下，塗色比例七成、七成、五成，右側代表客戶的圓點從五顆縮到兩顆再縮到一顆">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; fill:var(--ink); }
+.g { font-size:20px; fill:var(--ink); }
+.s { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="68">往下一層，分母就小一號</text>
+
+<text class="g" x="60" y="140">Nvidia 應收帳款</text>
+<rect x="60" y="156" width="560" height="46" fill="var(--card)" stroke="var(--line)"/>
+<rect x="60" y="156" width="392" height="46" fill="var(--accent)"/>
+<text class="s" x="76" y="186" fill="var(--page)">七成</text>
+<circle cx="672" cy="179" r="11" fill="var(--accent)"/>
+<circle cx="702" cy="179" r="11" fill="var(--accent)"/>
+<circle cx="732" cy="179" r="11" fill="var(--accent)"/>
+<circle cx="762" cy="179" r="11" fill="var(--accent)"/>
+<circle cx="792" cy="179" r="11" fill="var(--accent)"/>
+<text class="g" x="824" y="186">五家</text>
+
+<text class="g" x="60" y="266">超大規模廠 AI 收入</text>
+<rect x="60" y="282" width="560" height="46" fill="var(--card)" stroke="var(--line)"/>
+<rect x="60" y="282" width="392" height="46" fill="var(--accent)"/>
+<text class="s" x="76" y="312" fill="var(--page)">七成</text>
+<circle cx="672" cy="305" r="11" fill="var(--accent)"/>
+<circle cx="702" cy="305" r="11" fill="var(--accent)"/>
+<circle cx="732" cy="305" r="11" fill="var(--grey)" opacity="0.25"/>
+<circle cx="762" cy="305" r="11" fill="var(--grey)" opacity="0.25"/>
+<circle cx="792" cy="305" r="11" fill="var(--grey)" opacity="0.25"/>
+<text class="g" x="824" y="312">兩家</text>
+
+<text class="g" x="60" y="392">Oracle 積壓訂單</text>
+<rect x="60" y="408" width="560" height="46" fill="var(--card)" stroke="var(--line)"/>
+<rect x="60" y="408" width="280" height="46" fill="var(--accent)"/>
+<text class="s" x="76" y="438" fill="var(--page)">一半</text>
+<circle cx="672" cy="431" r="11" fill="var(--accent)"/>
+<circle cx="702" cy="431" r="11" fill="var(--grey)" opacity="0.25"/>
+<circle cx="732" cy="431" r="11" fill="var(--grey)" opacity="0.25"/>
+<circle cx="762" cy="431" r="11" fill="var(--grey)" opacity="0.25"/>
+<circle cx="792" cy="431" r="11" fill="var(--grey)" opacity="0.25"/>
+<text class="g" x="824" y="438">一家</text>
+
+<line x1="60" y1="492" x2="900" y2="492" stroke="var(--line)"/>
+<text class="c" x="60" y="532">分母　五 → 二 → 一</text>
+</svg>

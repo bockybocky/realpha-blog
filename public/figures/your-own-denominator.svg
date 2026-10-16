@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩張紙並列，左邊只有一條佔滿寬度的長條，右邊有三條長短不一的長條">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.t { font-size:27px; fill:var(--ink); }
+.g { font-size:20px; fill:var(--ink); }
+.s { font-size:16px; fill:var(--dim); }
+.c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="68">先數自己的分母</text>
+
+<rect x="80" y="110" width="360" height="300" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="104" y="156">分母 一</text>
+<rect x="104" y="186" width="312" height="44" fill="var(--warn)"/>
+<text class="s" x="118" y="216" fill="var(--page)">$10</text>
+<text class="s" x="104" y="286">少這一條就歸零</text>
+<text class="s" x="104" y="318">星期一要打的電話：？</text>
+
+<rect x="520" y="110" width="360" height="300" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="544" y="156">分母 三</text>
+<rect x="544" y="186" width="170" height="36" fill="var(--accent)"/>
+<text class="s" x="726" y="212">$7</text>
+<rect x="544" y="238" width="60" height="36" fill="var(--accent)" opacity="0.7"/>
+<text class="s" x="616" y="264">$2</text>
+<rect x="544" y="290" width="30" height="36" fill="var(--accent)" opacity="0.45"/>
+<text class="s" x="586" y="316">$1</text>
+<text class="s" x="544" y="372">少最大那條，還剩兩條撐一週</text>
+
+<line x1="60" y1="456" x2="900" y2="456" stroke="var(--line)"/>
+<text class="c" x="60" y="500">她看的不是成長率，是分母</text>
+</svg>
