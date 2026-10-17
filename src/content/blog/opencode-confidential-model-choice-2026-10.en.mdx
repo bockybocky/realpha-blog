@@ -1,0 +1,96 @@
+---
+title: "Free and \"Zero Retention\"? Picking a Model in OpenCode for Sensitive Work Taught Me to Ask Who's Making the Promise"
+description: "On October 17, 2026, I went looking for a model in OpenCode that could handle sensitive data, actually do the job, and not cost much. The top-scoring free model trains on your prompts, and so does the cheapest first-party API. I settled on a free model whose docs promise zero retention, but the upstream host is never named, so I emailed OpenCode to ask. This post takes apart how much that promise is really worth, with a price-and-policy comparison. A technical learning note, not business advice."
+slug: "opencode-confidential-model-choice-2026-10"
+lang: "en"
+pubDate: 2026-10-17
+category: "tech"
+tags: ["OpenCode", "DeepSeek", "Data privacy", "Zero retention", "AI tools", "Decision making"]
+ogImage: "/covers/opencode-confidential-model-choice-2026-10.png"
+cover: "/covers/opencode-confidential-model-choice-2026-10.png"
+tldr: "OpenCode's DeepSeek V4.1 Flash Free costs nothing and its docs say zero retention, no training, which makes it the sensible pick today. But that line is the provider's own claim and the host is anonymous, so I use it with a hard line around truly sensitive material, and I've asked OpenCode for the basis."
+---
+
+![Fauvist oil painting cover: a small locked wooden box on a table beside an open window, a brightly colored road outside running off toward a horizon you can't see the end of, flat blocks of pure color and heavy dark outlines](/covers/opencode-confidential-model-choice-2026-10.png)
+
+> *Sincere words are not beautiful; beautiful words are not sincere.*<br/>
+> —— Laozi, *Tao Te Ching*, ch. 81 (Spring and Autumn period); translation mine
+
+On October 17, 2026, I wanted a model inside OpenCode, the AI coding tool, that I could trust with sensitive material: no retention, no training on my data, good enough to use, and cheap. I ended up with DeepSeek V4.1 Flash Free, which OpenCode offers at no cost. Its docs say the provider "follows a zero-retention policy and does not use your data for model training," and the specs hold up (a 200,000-token context, image input, reasoning). The catch is that this is the provider's own statement, the docs never say who the provider is, and I couldn't find it anywhere on my machine either. So I emailed OpenCode the same day. Until they answer, I use it, but the truly confidential stuff stays out.
+
+## The top-scoring model was the first one I dropped
+
+I started the obvious way: open the free-model list, set the highest scorer as default. It was labeled Contributor. Shortly after, I worked out what that label meant. The price of using it is that your conversations get used to train someone else's model. It's free because you are the raw material.
+
+That flipped my whole order of operations. I had been checking capability, then price, and skimming the terms last. Now the terms go first, and only what survives gets compared on score and cost. If you need confidentiality, "free" and "safe for sensitive work" have nothing to do with each other.
+
+![The two columns compare the same three filter criteria: “terms” starts at the bottom in the smallest type, then moves to the top and grows into the first gate.](/figures/terms-moved-to-the-top-of-the-filter-en.svg)
+
+## The comparison: cheap ones have loose terms, clean ones want your card
+
+Next I lined up every route I could plug into OpenCode. Prices are USD per million tokens, input/output, checked on 2026-10-17:
+
+| Option | Price (in/out) | What happens to your data | Verdict |
+|---|---|---|---|
+| Top-scoring free Contributor model | 0 | Used for training | Out |
+| OpenCode's DeepSeek V4.1 Flash Free | 0 | Docs say zero retention, no training; host unnamed | **Picked** |
+| OpenCode paid DeepSeek V4.1 Flash | 0.30 / 1.20 | Paid terms | Pricier than going direct; skipped |
+| DeepSeek's own API (off-peak) | 0.15 / 0.60 | Policy says data may be used to improve models, no clean opt-out | Out |
+| DeepSeek V4.1 Flash on DeepInfra | 0.20 / 0.60 | Zero retention by default per its own policy | Paid backup |
+
+The irony is plain. The cheapest first-party API has the loosest terms. DeepInfra, with the cleanest terms, won't serve you until you add a card or prepay. And the free model sits right where "costs nothing" meets "docs say no retention," so it looks like the obvious answer.
+
+![Scatter plot with price on the horizontal axis and cleanliness of terms on the vertical axis, where the cheap options all sit low on the loose-terms side, the clean ones sit upper right and cost money, and only the free model circled with a dashed line lands in the upper-left intersection.](/figures/price-versus-terms-diagonal-en.svg)
+
+"Looks like" is where the trouble starts.
+
+## Digging in: what "zero retention" actually guarantees
+
+Here's the sentence from OpenCode's docs:
+
+> DeepSeek V4.1 Flash Free is free on OpenCode for a limited time. Its provider follows a zero-retention policy and does not use your data for model training.
+
+Pull it apart and it rests on three legs, and each one wobbles a little.
+
+![A banner reading “zero-retention promise” rests on three cracked, slightly leaning pillars labeled who said it, the nature of the promise, and its duration.](/figures/three-wobbling-pillars-of-zero-retention-en.svg)
+
+**Leg one: who is speaking.** It says *its provider* follows zero retention, not OpenCode's own servers. Your data passes through OpenCode and then goes to a third party to run. Which third party, the docs don't say. I went through OpenCode's local session database, logs and model catalog, and every record lists the upstream simply as "opencode." There's no field naming the real host. You can't read the privacy policy of a company whose name you don't know.
+
+![Data flows from the user through OpenCode to a third-party host; the first two stages have names and readable policies, while the final stage is a dashed box with a question mark and a blank policy field.](/figures/the-link-with-no-name-en.svg)
+
+**Leg two: is it a commitment or boilerplate.** When I rechecked the docs, I noticed that another free model on the same page, GLM-5.3-Flash Free, carries the exact same sentence, word for word. That doesn't make it false. But it reads more like a standard line for the free tier than a model-specific statement backed by a contract. Whether there's a data processing agreement, a technical setup where the host simply can't store anything, or an outside audit, the docs don't say.
+
+**Leg three: how long it lasts.** "For a limited time," with no announced end date. And with the host anonymous, if the provider ever changed, I'd have no way to notice from my side.
+
+So the claim holds only under narrow conditions: it's a self-reported statement, you trust OpenCode to vet its upstream, and nothing changes while you're using it. I can't verify any of the three.
+
+Why pick it anyway? Because the other two routes have problems I *can* verify. The first-party API says outright that it may use your data. The Contributor model is even blunter. One "says it won't, can't be checked" against two "says it will" — the first is at least uncertainty pointed in the right direction. It's like renting a room where the landlord promises verbally not to come in. You can't install a camera to check, but it beats a lease that says the landlord may enter anytime. You still don't leave your valuables on the desk.
+
+## How I'm handling the uncertainty
+
+Once that was clear, I did three things.
+
+First, **I drew a line around sensitive data.** Everyday coding, organizing public material, editing posts: the free model is fine. Truly confidential files, personal information, contract terms: never pasted in. The model doesn't hold that line. I do.
+
+![A thick vertical line divides the data into two sides: three kinds of everyday data appear beside a model icon on the left, while three kinds of confidential data have no model on the right; the line is labeled “I enforce it myself.”](/figures/the-line-i-draw-myself-en.svg)
+
+Second, **I asked directly.** That afternoon I emailed OpenCode's support address with four questions: which upstream provider serves this model; whether zero retention rests on a contract, a technical mechanism or an audit; whether "no training" also rules out anonymized or aggregate uses, and whether OpenCode's own gateway keeps prompts even briefly; and whether the free period has an end date. As of writing, no reply yet.
+
+Third, **I set up a paid fallback without paying yet.** OpenCode has built-in DeepInfra support, so it's just pasting a key, no config edits. I gave myself three triggers, any one of which means loading $10 and setting a spending cap: the free quota runs out, I need more than 200,000 tokens of context, or OpenCode's answer can't point to a real basis.
+
+Halfway through I did ask myself whether I should just top up now to be safe. No. Paying today doesn't buy more certainty. It swaps one provider's uncertainty for another's and adds a bill.
+
+![Two panels each contain an equally sized dashed circle representing uncertainty; the right panel adds a bill, but the circle remains exactly the same size.](/figures/paying-does-not-shrink-the-unknown-en.svg)
+
+## A few other things worth noting
+
+- **The free model only works inside OpenCode.** Calling its endpoint directly from outside returns a free-tier access error. You can't wire it into other tools.
+- **Router-site policy tables are secondhand.** Some aggregators list which hosts are zero-retention, and a few entries contradict what the hosts themselves say. If the host's own page doesn't say it, I don't count it.
+- **A host's policy may not cover models it relays.** Calling another big lab's model through DeepInfra doesn't necessarily come with DeepInfra's zero-retention promise.
+- **Prices move daily.** DeepInfra's catalog went from 180 to 181 models between morning and evening on the same day. Every number here is a 2026-10-17 snapshot.
+
+## One thing to take with you
+
+**When "free" and a guarantee show up in the same sentence, find out who's doing the guaranteeing.** What this taught me wasn't which model is strongest. It was to ask who stands behind a nice-sounding promise, whether they have a name, and whether you can hold them to it.
+
+Here's a small exercise for today. Open a free service you use a lot, whether it's email, cloud storage, a translator or an AI tool, and find the line where it says what it won't do with your data. Ask three things: who is saying this? Is it in a contract or on a marketing page? If they changed the wording, would you even know? Whichever question you can't answer is where you should draw your own line.

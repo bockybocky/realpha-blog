@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="A scatter plot of price against cleanliness of terms, with the cheap options low down, the clean ones at the upper right, and the one model that is both free and claims clean terms sitting alone in the upper-left corner inside a dashed circle.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text class="t" x="60" y="60" font-size="27" font-weight="700" fill="var(--ink)">Cheap means loose terms; clean costs money</text>
+
+  <line x1="150" y1="110" x2="150" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <line x1="150" y1="470" x2="840" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="150" y="500" font-size="15" fill="var(--dim)" text-anchor="middle">$0</text>
+  <text class="t" x="840" y="500" font-size="15" fill="var(--dim)" text-anchor="end">Pricier →</text>
+  <text class="t" x="495" y="528" font-size="16" font-weight="700" fill="var(--dim)" text-anchor="middle">Price</text>
+  <text class="t" x="128" y="122" font-size="15" fill="var(--dim)" text-anchor="end">Clean ToS</text>
+  <text class="t" x="128" y="462" font-size="15" fill="var(--dim)" text-anchor="end">Trains:yes</text>
+
+  <circle cx="190" cy="430" r="11" fill="var(--warn)"/>
+  <text class="t" x="214" y="436" font-size="16" fill="var(--ink)">Contributor tier</text>
+  <circle cx="300" cy="392" r="11" fill="var(--warn)"/>
+  <text class="t" x="324" y="398" font-size="16" fill="var(--ink)">First-party API</text>
+  <circle cx="620" cy="300" r="11" fill="var(--grey)"/>
+  <text class="t" x="644" y="306" font-size="16" fill="var(--dim)">OpenCode paid</text>
+
+  <circle cx="380" cy="168" r="11" fill="var(--accent)"/>
+  <text class="t" x="404" y="174" font-size="16" fill="var(--ink)">DeepInfra</text>
+  <text class="t" x="404" y="196" font-size="15" fill="var(--dim)">Card required</text>
+
+  <circle cx="186" cy="210" r="26" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 5"/>
+  <circle cx="186" cy="210" r="11" fill="var(--accent)"/>
+  <text class="t" x="222" y="205" font-size="16" font-weight="700" fill="var(--ink)">Free Flash</text>
+  <text class="t" x="222" y="227" font-size="15" fill="var(--dim)">Docs say no retention</text>
+
+  <text class="t" x="480" y="570" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">The only one in the overlap, resting on one sentence</text>
+</svg>

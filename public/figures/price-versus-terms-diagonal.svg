@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="價格與條款乾淨度的散佈圖，便宜的在下方、乾淨的在右上，免費又聲稱乾淨的那支孤零零在左上角且用虛線圈起">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text class="t" x="60" y="60" font-size="27" font-weight="700" fill="var(--ink)">便宜的條款鬆，乾淨的要先付錢</text>
+
+  <line x1="150" y1="110" x2="150" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <line x1="150" y1="470" x2="840" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="150" y="500" font-size="15" fill="var(--dim)" text-anchor="middle">零元</text>
+  <text class="t" x="840" y="500" font-size="15" fill="var(--dim)" text-anchor="end">越貴</text>
+  <text class="t" x="495" y="528" font-size="16" font-weight="700" fill="var(--dim)" text-anchor="middle">價格</text>
+  <text class="t" x="128" y="122" font-size="15" fill="var(--dim)" text-anchor="end">條款乾淨</text>
+  <text class="t" x="128" y="462" font-size="15" fill="var(--dim)" text-anchor="end">明說拿去訓練</text>
+
+  <circle cx="190" cy="430" r="11" fill="var(--warn)"/>
+  <text class="t" x="214" y="436" font-size="16" fill="var(--ink)">Contributor 版</text>
+  <circle cx="300" cy="392" r="11" fill="var(--warn)"/>
+  <text class="t" x="324" y="398" font-size="16" fill="var(--ink)">原廠 API</text>
+  <circle cx="620" cy="300" r="11" fill="var(--grey)"/>
+  <text class="t" x="644" y="306" font-size="16" fill="var(--dim)">OpenCode 付費版</text>
+
+  <circle cx="380" cy="168" r="11" fill="var(--accent)"/>
+  <text class="t" x="404" y="174" font-size="16" fill="var(--ink)">DeepInfra</text>
+  <text class="t" x="404" y="196" font-size="15" fill="var(--dim)">要先綁卡</text>
+
+  <circle cx="186" cy="210" r="26" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 5"/>
+  <circle cx="186" cy="210" r="11" fill="var(--accent)"/>
+  <text class="t" x="222" y="205" font-size="16" font-weight="700" fill="var(--ink)">免費 Flash</text>
+  <text class="t" x="222" y="227" font-size="15" fill="var(--dim)">文件說不留</text>
+
+  <text class="t" x="480" y="570" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">唯一落在交集上的那支，靠的是一句話</text>
+</svg>
