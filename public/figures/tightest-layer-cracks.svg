@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="堆疊的供應鏈分層，最缺貨的頂層出現裂縫，右側向下箭頭指向其餘各層">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<defs>
+<marker id="dn" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="var(--warn)"/></marker>
+</defs>
+<g font-family='"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif'>
+<text x="60" y="58" font-size="27" fill="var(--ink)">最緊的那層先裂</text>
+
+<rect x="260" y="110" width="380" height="86" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+<text x="286" y="162" font-size="20" fill="var(--warn)">記憶體</text>
+<text x="430" y="162" font-size="16" fill="var(--dim)">最缺貨</text>
+<path d="M560,110 L540,140 L570,156 L548,196" fill="none" stroke="var(--warn)" stroke-width="4"/>
+
+<rect x="260" y="212" width="380" height="86" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="286" y="264" font-size="20" fill="var(--ink)">零組件</text>
+<rect x="260" y="314" width="380" height="86" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="286" y="366" font-size="20" fill="var(--ink)">硬體</text>
+<rect x="260" y="416" width="380" height="86" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="286" y="468" font-size="20" fill="var(--ink)">指數</text>
+
+<line x1="700" y1="150" x2="700" y2="470" stroke="var(--warn)" stroke-width="3" marker-end="url(#dn)"/>
+<text x="716" y="300" font-size="19" fill="var(--warn)">每層重算估值</text>
+
+<rect x="60" y="416" width="160" height="86" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="78" y="456" font-size="19" fill="var(--ink)">韓國指數</text>
+<text x="78" y="484" font-size="16" fill="var(--dim)">半數權重</text>
+<path d="M140,416 C140,280 180,160 256,152" fill="none" stroke="var(--grey)" stroke-width="3" stroke-dasharray="7 7"/>
+</g>
+</svg>

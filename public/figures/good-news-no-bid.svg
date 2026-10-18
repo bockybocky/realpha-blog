@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="消息好壞與股價反應組成的四象限，右下格被圈出代表好消息已經在價格裡">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<g font-family='"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif'>
+<text x="60" y="58" font-size="27" fill="var(--ink)">消息好不好，和有沒有新買盤</text>
+
+<rect x="160" y="100" width="300" height="190" rx="10" fill="var(--card)"/>
+<rect x="480" y="100" width="300" height="190" rx="10" fill="var(--card)"/>
+<rect x="160" y="310" width="300" height="190" rx="10" fill="var(--card)"/>
+<rect x="480" y="310" width="300" height="190" rx="10" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+
+<text x="186" y="200" font-size="20" fill="var(--ink)">壞消息出盡</text>
+<text x="186" y="232" font-size="16" fill="var(--dim)">買盤回來</text>
+<text x="506" y="200" font-size="20" fill="var(--ink)">預期落後</text>
+<text x="506" y="232" font-size="16" fill="var(--dim)">新買盤進場</text>
+<text x="186" y="410" font-size="20" fill="var(--ink)">預期還在往下</text>
+<text x="186" y="442" font-size="16" fill="var(--dim)">沒人接</text>
+<text x="506" y="410" font-size="20" fill="var(--warn)">已在價格裡</text>
+<text x="506" y="442" font-size="16" fill="var(--dim)">邊際買盤缺席</text>
+
+<line x1="160" y1="300" x2="780" y2="300" stroke="var(--line)" stroke-width="2"/>
+<line x1="470" y1="100" x2="470" y2="500" stroke="var(--line)" stroke-width="2"/>
+<text x="160" y="532" font-size="19" fill="var(--dim)">消息差</text>
+<text x="700" y="532" font-size="19" fill="var(--dim)">消息好</text>
+<text x="820" y="150" font-size="19" fill="var(--dim)">股價漲</text>
+<text x="820" y="470" font-size="19" fill="var(--dim)">股價不動</text>
+</g>
+</svg>

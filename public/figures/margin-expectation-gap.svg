@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="預期柱遠高於實際柱，兩者之間標出三倍以上的落差">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<g font-family='"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif'>
+<text x="60" y="60" font-size="27" fill="var(--ink)">預期與答案之間的那個洞</text>
+<line x1="120" y1="470" x2="880" y2="470" stroke="var(--line)" stroke-width="2"/>
+
+<rect x="200" y="245" width="120" height="225" fill="var(--accent)"/>
+<rect x="200" y="170" width="120" height="75" fill="var(--accent)" opacity="0.35"/>
+<text x="200" y="148" font-size="20" fill="var(--accent)">預期</text>
+<text x="330" y="182" font-size="16" fill="var(--dim)">200 億</text>
+<text x="330" y="256" font-size="16" fill="var(--dim)">150 億</text>
+<text x="196" y="504" font-size="19" fill="var(--ink)">盤中推估</text>
+
+<rect x="620" y="395" width="120" height="75" fill="var(--warn)"/>
+<text x="620" y="376" font-size="20" fill="var(--warn)">實際</text>
+<text x="750" y="406" font-size="16" fill="var(--dim)">50 億</text>
+<text x="620" y="504" font-size="19" fill="var(--ink)">晚上開出</text>
+
+<path d="M460,180 L500,180 L500,395 L460,395" fill="none" stroke="var(--dim)" stroke-width="2"/>
+<text x="512" y="282" font-size="22" fill="var(--ink)">落差三倍</text>
+<text x="512" y="316" font-size="16" fill="var(--dim)">籌碼還沒洗完</text>
+</g>
+</svg>
