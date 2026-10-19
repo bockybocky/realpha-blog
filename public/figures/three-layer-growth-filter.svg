@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="三層由寬到窄的漏斗，依序是回收期、實績、監督，每層有被篩掉的側向分支，只有通過底部出口的才進入估值">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t h" x="60" y="62">成長計畫的三層過濾網</text>
+
+  <rect x="200" y="110" width="440" height="80" fill="var(--accent)" opacity="0.18" stroke="var(--line)"/>
+  <text class="t g" x="222" y="158">回收期</text>
+  <text class="t b" x="380" y="158">換成報酬率，低於資金成本就出局</text>
+
+  <rect x="260" y="210" width="320" height="80" fill="var(--accent)" opacity="0.30" stroke="var(--line)"/>
+  <text class="t g" x="282" y="258">實績</text>
+  <text class="t b" x="400" y="258">過去投的錢長成什麼</text>
+
+  <rect x="320" y="310" width="200" height="80" fill="var(--accent)" opacity="0.45" stroke="var(--line)"/>
+  <text class="t g" x="342" y="358">監督</text>
+
+  <path d="M420 390 V450" stroke="var(--accent)" stroke-width="4"/>
+  <path d="M420 450 l-9 -18 h18 z" fill="var(--accent)"/>
+  <rect x="280" y="455" width="280" height="64" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t g" x="302" y="496">列進估值的分子</text>
+
+  <path d="M640 150 H840" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M840 150 l-16 -8 v16 z" fill="var(--grey)"/>
+  <path d="M580 250 H840" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M840 250 l-16 -8 v16 z" fill="var(--grey)"/>
+  <path d="M520 350 H840" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M840 350 l-16 -8 v16 z" fill="var(--grey)"/>
+  <rect x="770" y="380" width="160" height="60" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t g" x="788" y="418">當選擇權</text>
+
+  <text class="t c" x="60" y="556">任何一層不過，就不算進分子</text>
+</svg>
