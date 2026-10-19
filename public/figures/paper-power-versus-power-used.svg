@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="橫軸紙上權力、縱軸實際動用的兩軸圖，英格蘭銀行在右下角紙上權力大但從未動用，Fed 在左側，兩者落在同一條等獨立虛線上">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    svg { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">紙上的權力，和真的動用過的權力</text>
+
+<line x1="150" y1="460" x2="900" y2="460" stroke="var(--line)" stroke-width="4"/>
+<line x1="150" y1="460" x2="150" y2="120" stroke="var(--line)" stroke-width="4"/>
+<text x="900" y="492" font-size="19" text-anchor="end" fill="var(--dim)">政府紙上可介入 →</text>
+<text x="150" y="108" font-size="19" text-anchor="middle" fill="var(--dim)">↑ 實際動用</text>
+
+<line x1="150" y1="430" x2="900" y2="430" stroke="var(--accent)" stroke-width="3" stroke-dasharray="10 8"/>
+<text x="470" y="418" font-size="16" fill="var(--accent)">同一條線上：都算獨立</text>
+
+<circle cx="330" cy="430" r="14" fill="var(--accent)"/>
+<text x="330" y="394" font-size="20" font-weight="700" text-anchor="middle" fill="var(--accent)">Fed</text>
+
+<circle cx="790" cy="430" r="14" fill="var(--accent)"/>
+<text x="790" y="394" font-size="20" font-weight="700" text-anchor="middle" fill="var(--accent)">英格蘭銀行</text>
+<text x="790" y="366" font-size="16" text-anchor="middle" fill="var(--dim)">財相年度來信</text>
+<text x="790" y="342" font-size="16" text-anchor="middle" fill="var(--dim)">指令權：據知從未動用</text>
+
+<text x="190" y="190" font-size="19" fill="var(--grey)">看紙上條文的誤讀：</text>
+<text x="190" y="220" font-size="19" fill="var(--grey)">往右＝比較不獨立</text>
+<path d="M430 206 L690 206" stroke="var(--grey)" stroke-width="4" stroke-dasharray="8 8"/>
+<path d="M676 194 L700 206 L676 218" fill="var(--grey)"/>
+<path d="M548 184 L580 228 M580 184 L548 228" stroke="var(--warn)" stroke-width="5"/>
+
+<text x="60" y="528" font-size="22" font-weight="700" fill="var(--ink)">沒有一體適用的獨立性版本</text>
+</svg>
