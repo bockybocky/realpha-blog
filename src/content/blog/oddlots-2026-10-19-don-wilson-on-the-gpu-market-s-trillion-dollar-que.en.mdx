@@ -1,0 +1,118 @@
+---
+title: "Nobody Knows What a B200 Is Worth in Four Years — Odd Lots on the Trillion Dollar Question"
+description: "Notes from the 2026-10-19 Bloomberg Odd Lots live show in Chicago, where DRW founder Don Wilson discussed GPU futures, compute hedging and token spreads. Personal listening notes for education only: no investment advice, no price targets, no stock recommendations. The contracts discussed are not yet trading and the regulatory situation may change."
+slug: "oddlots-2026-10-19-don-wilson-on-the-gpu-market-s-trillion-dollar-que"
+lang: "en"
+pubDate: 2026-10-19
+category: investing
+kind: "podcast-notes"
+tags: ["GPU futures", "compute markets", "hedging", "AI infrastructure", "Odd Lots"]
+ogImage: "/covers/oddlots-2026-10-19-don-wilson-on-the-gpu-market-s-trillion-dollar-que-cover.png"
+cover: "/covers/oddlots-2026-10-19-don-wilson-on-the-gpu-market-s-trillion-dollar-que-cover.png"
+---
+
+![An engineer at a small desk deep inside a server hall, reading a printed price curve under a warm lamp while rows of blue-lit racks recede into the distance](/covers/oddlots-2026-10-19-don-wilson-on-the-gpu-market-s-trillion-dollar-que-cover.png)
+
+> To plan for a task before the task arrives is called readiness; to consider trouble before trouble arrives is called foresight. With foresight, the disaster never happens.
+>
+> —— Xunzi, "Dalüe" (Warring States period; my own translation)
+
+On the Bloomberg Odd Lots live show recorded in Chicago on 19 October 2026, DRW founder Don Wilson said the holdup on GPU futures sits with regulators: the CFTC extended the comment period, and if nothing further happens the contracts can be listed on 9 November, with maturities initially running out three years. He called "what a B200 will be worth four or five years from now" the trillion dollar question, and his answer was that the market needs to exist precisely because nobody knows. In the same episode he recalled H100 hourly on-demand prices sliding all last autumn and then turning upward around Thanksgiving, while over a comparable stretch the Silicon Data token index price fell hard. What follows is my own reading of it, on the understanding that these are his remarks on a podcast and the contracts are still not trading.
+
+## A year ago, on the same stage, people asked him who would want the hedge
+
+This was Wilson's second appearance at the Odd Lots Chicago live show, twelve months after the first. Joe Weisenthal opened by saying that on AI time, twelve months may as well be ten years.
+
+Wilson's own memory of the gap was more concrete. Around this time last year, the hourly on-demand price of H100s was sliding, quarter after quarter, and so he kept running into the same objection: this thing only goes down, so who are you going to sell GPU futures to?
+
+I paused on that, because the objection sounds airtight. If the price of something has been falling in one direction for a long time, the holders want to hedge — who stands on the other side?
+
+## Then the curve turned around Thanksgiving
+
+Wilson says that around Thanksgiving last year, H100 hourly prices turned and went up and to the right. The trigger was Anthropic's newest model, which was a step up in usefulness large enough that inference demand appeared in a rush. More recently he has watched B200, B300 and H100 prices surge again — and over the same window, the token index tracked by Silicon Data plummeted.
+
+One chain, with the price of renting the chips rising while the price of the tokens coming out of them fell. He told the story without any victory lap. His conclusion was one sentence: these things go up and they go down, so a hedging instrument is badly needed.
+
+The lesson I took sits with the people who doubted him. Their evidence was a real decline that had really happened, and from that real thing they inferred that the price would keep going the same way. Three months later the curve turned and the inference was worthless. They had the data right and mistook a trend for a structure.
+
+![Over the same stretch of time two lines move in opposite directions: upstream GPU rental prices fall and then turn back up, while downstream token prices keep sliding.](/figures/gpu-rent-up-token-price-down-en.svg)
+
+## A bond yielding 15% on the table
+
+In the days before the recording, the market was watching CoreWeave's bonds, with the yield at 15%. Tracy Alloway put it straight to Wilson: if compute futures were up and running, would all of CoreWeave's problems be solved?
+
+His answer took the 15% apart. If you are a neocloud and you sign contracts with the most creditworthy companies in the world, you are fine. But a lot of the people buying GPUs are not the most creditworthy companies in the world, and as a neocloud you want to be able to sell to them. So what the market is saying is this: if you sell on-demand compute, or you sell to weaker counterparties, your cost of capital is going to be higher.
+
+Then he described the trade that futures would open up. Buy the GPUs, deploy them in your data centre, sell a strip of GPU futures to lock in the forward revenue, and then sell on-demand compute with whatever is left — or sell six-month contracts to weaker companies that post a large share of the contract value up front. Companies that put most of their book on that giant basis trade, he said, will see a much lower cost of capital, and the market will reward them.
+
+![Two companies' revenue mixes side by side: the left one is entirely floating on-demand rental so its funding cost bar is long, while the right one locks most capacity into forward contracts so its funding cost bar is short.](/figures/funding-cost-two-neoclouds-en.svg)
+
+What stayed with me is that this translates "15% yield" into a different sentence: the number is pricing who you sell to and how you sell, and that part is something a company can change.
+
+## The trillion dollar question
+
+Tracy then asked the heaviest question of the episode. Being bullish on compute markets and being bullish on the value of a single GPU are two different things. The card depreciates, something more efficient arrives, people move on.
+
+Wilson said that is the trillion dollar question, that he was glad it was asked, and that it is exactly why these futures need to exist — nobody knows what a B200 will be worth four or five years out. He expects CME's contracts to go out three years initially and further as liquidity builds. An unknown price does not mean an unmanageable risk; a forward curve that people are willing to trade is itself an answer.
+
+## The pushback: does this just let everyone borrow more?
+
+The best exchange in the episode comes here. Tracy put up a hypothetical: suppose GPUs depreciate over time, so that even with more demand the value of a unit drifts down. Does a market for hedging future GPU revenue then just let people borrow more and overbuild — taking a nominal hedge against an underlying that is moving against them?
+
+Wilson said the hypothesis does not work, because a futures contract requires a willing buyer and a willing seller. For her version to run, sellers would have to be able to sell at some made-up, too-high price with infinite demand on the other side. What he expects instead is the opposite: because hedging pressure concentrates in the forward space, those forward contracts will print at lower prices, and investors have to want to generate a return by buying them before any of it clears.
+
+![A forward curve is pushed down by hedging sell pressure concentrated in the far months, falling below the dashed line of a casually extrapolated high price, and only after it is pushed down will buyers step in to take the other side.](/figures/hedging-pressure-pushes-curve-down-en.svg)
+
+That one is worth reading twice. For a market like this to work, the bad news has to get into the price first; only then does somebody want the other side.
+
+## They already have a name for the spread
+
+Then Wilson threw out a direction I had not considered: eventually you trade futures on the output itself — on the tokens.
+
+The picture he drew was clear. You rent GPUs at the on-demand price, load up an open source model, and start selling tokens through something like OpenRouter. Can you do that profitably? That margin, he said, is the same kind of object as what an oil refinery or a soybean crush plant earns. In oil we call it the crack spread, in soybeans the crush spread — and at DRW, he said, they call this one the crunch spread. "You heard it here first."
+
+![Three spreads of the same shape: crude oil to refined products, soybeans to meal and oil, and compute to tokens, where the height gap in the middle is the profit.](/figures/crunch-spread-structure-en.svg)
+
+Asked how far along this is, he said it is at the thought stage, though the Silicon Data token index is already producing interesting data and is widely discussed, which is a start.
+
+As for the common objection that compute is not homogeneous enough for futures, he split it in two. First, volume: the money going into H100s alone, or B200s alone, is large enough to support a single futures market. Second, the other silicon — AMD, Trainium, TPUs, various in-house chips — is highly correlated with the baseline, so people will trade the basis between them. Somebody planning a training run needs a giant cluster and will pay a premium for it; but if inference demand rises sharply, that training run gets more expensive too. These differences become a basis, and a basis is something traders already know how to handle.
+
+Does every new chip need its own contract and its own pool of liquidity? Yes, he said, and you will not launch one for every single chip, only the major ones. His comparison was electricity: there are thousands of contracts for individual nodes, and that is fine.
+
+## If you are also asking whether what you hold will still be worth something
+
+Nearly everyone holding a position thinks about this at some point. Cards depreciate, models get replaced, themes go out of fashion — so how do you value what you are holding in four years?
+
+In my experience the easy move is to go looking for a confident sentence — someone saying it keeps climbing, someone saying it is scrap in three years — and stand next to whichever one sounds better. Wilson does the opposite. He concedes that nobody knows, then asks what price the market will trade that unknown at. It is the same spirit as a reverse DCF: instead of forecasting the future, you ask what the current price already assumes.
+
+Which is where a forward curve becomes useful to an ordinary investor: it gives you something to check your answer against. If GPU futures start trading, the three-year price will tell you the market's collective assumption about depreciation. Then look at the depreciation schedule in the filings of a company you own. When those two numbers disagree, you have found a gap worth digging into — more useful than arguing about whether AI is a bubble.
+
+![Two depreciation lines head down from the same point: one follows market forward prices and falls fast, the other follows the accounting useful life and falls slowly, opening a gap between them.](/figures/forward-curve-vs-depreciation-en.svg)
+
+## The headline says 15%, should I be scared?
+
+Here is the other scene that makes hands shake: a company connected to something you own sees its bond yield jump to 15%, and the timeline starts shouting that the bubble has burst.
+
+The tool this episode offers is to take the number apart. A bond yield is pricing three things at once: whether demand disappears, who this company sells to, and whether it has instruments to manage that risk. The third is changeable, and Wilson's argument is that once GPU futures exist, companies able to run the basis trade will see their cost of capital separate from everyone else's. Two companies in the same industry could end up far apart on the question of whether they use the hedge.
+
+There was also a passage on the rhythm of demand that I think helps when reading headlines. Joe asked whether the jitters of the past few days — a company's revenue growth coming in at 50% instead of 51% — meant AI was shifting into a lower gear. Wilson said anything growing this fast will not grow at a constant rate: the first derivative is not constant and neither is the second, so to him this is expected volatility. He also joked that maybe people went on vacation in August and consumed fewer tokens.
+
+And one piece that lands on the individual. Joe asked how DRW allocates tokens internally, and Wilson said the thing that matters most is being thoughtful about how you route inference requests — not every request needs a frontier model, and what they optimise for is minimising token spend through good routing. Listening to that, I thought about my own workflow, where I have handed plain reformatting jobs to the most expensive model available and then complained about running out of budget.
+
+![On the left every request is funneled into the same most expensive lane, while on the right requests are sorted by difficulty into large, medium and small lanes and the total cost bar is visibly shorter.](/figures/route-requests-by-cost-en.svg)
+
+## References
+
+- Bloomberg Odd Lots episode page and daily newsletter: bloomberg.com/oddlots (this episode recorded live in Chicago, 2026-10-19)
+- CFTC listing and comment-period procedures: cftc.gov
+- CME Group contract specifications and listing notices: cmegroup.com
+- IOSCO Principles for Financial Benchmarks, 2013 — the source of the "IOSCO compliant" phrase used in the episode: iosco.org
+- For the structure of crack and crush spreads, CME's energy and agricultural education pages are a good start
+
+## 帶得走的一件事
+
+One idea from this episode: **an unknown price and an unmanageable risk are two different things.** Wilson says plainly that nobody knows what a B200 is worth in four years, and his response is to build a place where that unknown can be traded. Admit you do not know, then handle it — two steps, and most of us stop at the first one and go hunting for a confident sentence instead.
+
+![From "I don't know" the path splits in two: a short one that dead-ends at finding a comfortable confident statement, and one that keeps going toward actually handling the unknown.](/figures/two-steps-after-admitting-en.svg)
+
+Here is something I have tried, offered rather than assigned. Take one thing you have been going back and forth on — a job change, a move, a conversation you keep postponing — and write down one sentence naming what you do not know, concrete enough that it could be answered ("I don't know whether that company still exists in two years" beats "I don't know if this is a good idea"). Then write one line underneath: if this goes the bad way, what is one small thing I can do now. One thing, not three, and small enough to finish this week.

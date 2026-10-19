@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Left and right compared: all requests go to one expensive lane on the left, sorted into three lanes on the right, with a visibly shorter cost bar.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62">Same requests, two ways to route</text>
+
+  <rect x="60" y="92" width="390" height="302" rx="14" fill="var(--card)"/>
+  <g fill="var(--dim)">
+    <circle cx="104" cy="150" r="9"/><circle cx="104" cy="186" r="9"/>
+    <circle cx="104" cy="222" r="9"/><circle cx="104" cy="258" r="9"/>
+    <circle cx="104" cy="294" r="9"/>
+  </g>
+  <g stroke="var(--warn)" stroke-width="4" fill="none">
+    <path d="M120 150 L220 222"/><path d="M120 186 L220 222"/>
+    <path d="M120 222 L220 222"/><path d="M120 258 L220 222"/>
+    <path d="M120 294 L220 222"/>
+  </g>
+  <rect x="232" y="176" width="180" height="92" rx="10" fill="var(--warn)"/>
+  <text class="g" x="256" y="230" fill="var(--page)">The most expensive one</text>
+  <text class="b" x="90" y="340">Cost</text>
+  <rect x="90" y="352" width="320" height="18" rx="9" fill="var(--warn)"/>
+
+  <rect x="510" y="92" width="390" height="302" rx="14" fill="var(--card)"/>
+  <g fill="var(--dim)">
+    <circle cx="554" cy="150" r="9"/><circle cx="554" cy="186" r="9"/>
+    <circle cx="554" cy="222" r="9"/><circle cx="554" cy="258" r="9"/>
+    <circle cx="554" cy="294" r="9"/>
+  </g>
+  <g stroke="var(--accent)" stroke-width="4" fill="none">
+    <path d="M570 150 L672 158"/><path d="M570 186 L672 158"/>
+    <path d="M570 222 L672 226"/><path d="M570 258 L672 226"/>
+    <path d="M570 294 L672 294"/>
+  </g>
+  <rect x="684" y="132" width="150" height="52" rx="8" fill="var(--grey)"/>
+  <text class="g" x="706" y="165" fill="var(--page)">Boilerplate</text>
+  <rect x="684" y="200" width="150" height="52" rx="8" fill="var(--accent)" opacity="0.5"/>
+  <text class="g" x="706" y="233" fill="var(--ink)">Ordinary</text>
+  <rect x="684" y="268" width="150" height="52" rx="8" fill="var(--accent)"/>
+  <text class="g" x="706" y="301" fill="var(--page)">Genuinely hard</text>
+  <text class="b" x="540" y="340">Cost</text>
+  <rect x="540" y="352" width="120" height="18" rx="9" fill="var(--accent)"/>
+
+  <text class="c" x="60" y="462">Save the expensive one for what deserves it</text>
+  <text class="b" x="60" y="494">Optimize the routing, not the quota</text>
+</svg>

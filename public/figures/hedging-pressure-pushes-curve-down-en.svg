@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The forward curve is pushed down by hedging sell pressure in the far months, falling below the dashed line of an imagined high price, and buyers step in only after it is pushed down.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="62">Sell pressure in far months pushes forwards down</text>
+  <rect x="60" y="92" width="840" height="320" rx="14" fill="var(--card)"/>
+  <line x1="120" y1="372" x2="860" y2="372" stroke="var(--line)" stroke-width="2"/>
+
+  <path d="M130 188 L400 182 L860 176" fill="none" stroke="var(--grey)" stroke-width="5" stroke-dasharray="10 9"/>
+  <text class="b" x="600" y="164">High price nobody will pay</text>
+
+  <path d="M130 196 L380 244 L600 288 L860 316" fill="none" stroke="var(--accent)" stroke-width="6" stroke-linejoin="round"/>
+  <text class="g" x="140" y="166" fill="var(--accent)">The curve that can trade</text>
+
+  <g stroke="var(--warn)" stroke-width="4">
+    <line x1="420" y1="150" x2="420" y2="228"/>
+    <line x1="560" y1="150" x2="560" y2="272"/>
+    <line x1="700" y1="150" x2="700" y2="294"/>
+    <line x1="820" y1="150" x2="820" y2="308"/>
+  </g>
+  <g fill="var(--warn)">
+    <polygon points="420,240 412,220 428,220"/>
+    <polygon points="560,284 552,264 568,264"/>
+    <polygon points="700,306 692,286 708,286"/>
+    <polygon points="820,320 812,300 828,300"/>
+  </g>
+  <text class="g" x="560" y="138" fill="var(--warn)">Hedging sell pressure</text>
+
+  <text class="b" x="130" y="400">Near months</text>
+  <text class="b" x="810" y="400">Far months</text>
+
+  <text class="c" x="60" y="476">Bad news gets priced in first</text>
+  <text class="b" x="60" y="508">Only then will someone take the other side</text>
+</svg>

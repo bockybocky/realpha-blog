@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two companies compared: the left one's revenue is all floating with a long funding cost bar, the right one locks most of it forward with a short bar.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="62">Same chips, two ways to sell</text>
+
+  <rect x="60" y="96" width="390" height="300" rx="14" fill="var(--card)"/>
+  <text class="g" x="90" y="136">Company A</text>
+  <rect x="90" y="156" width="330" height="150" rx="8" fill="var(--warn)" opacity="0.85"/>
+  <text class="g" x="112" y="238" fill="var(--page)">Floating revenue</text>
+  <text class="b" x="90" y="336">On-demand, weaker-credit counterparties</text>
+  <text class="b" x="90" y="366">Funding cost</text>
+  <rect x="90" y="378" width="330" height="18" rx="9" fill="var(--warn)"/>
+
+  <rect x="510" y="96" width="390" height="300" rx="14" fill="var(--card)"/>
+  <text class="g" x="540" y="136">Company B</text>
+  <rect x="540" y="156" width="240" height="150" rx="8" fill="var(--accent)" opacity="0.9"/>
+  <text class="g" x="562" y="238" fill="var(--page)">Locked forward</text>
+  <rect x="790" y="156" width="80" height="150" rx="8" fill="var(--grey)"/>
+  <text class="b" x="540" y="336">The rest sold floating, paid upfront</text>
+  <text class="b" x="540" y="366">Funding cost</text>
+  <rect x="540" y="378" width="96" height="18" rx="9" fill="var(--accent)"/>
+
+  <text class="c" x="60" y="470">Part of what the yield prices is how you sell</text>
+  <text class="b" x="60" y="502">And that part, the company can change itself</text>
+</svg>
