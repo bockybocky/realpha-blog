@@ -1,0 +1,104 @@
+---
+title: "Last Ship Wins: Christina Cacioppo on Holding a Software Company Together in the AI Era"
+description: "Listening notes on Invest Like the Best EP.496. Vanta founder Christina Cacioppo on token pricing, eating inference costs to buy usage, an eight-year codebase turning into debt, the talent war, and the multiple compression. Educational notes only, no investment advice, no stock recommendations."
+slug: "iltb-2026-10-20-christina-cacioppo-building-an-enduring-software-c"
+lang: "en"
+pubDate: 2026-10-20
+category: investing
+kind: "podcast-notes"
+tags: ["software valuation", "AI agents", "token pricing", "security compliance", "talent war"]
+tldr: "Vanta has 16,000 customers after eight years, with growth and margins better than five years ago, yet the market pays a third of the old multiple; the founder's answer is to eat token costs to buy usage now and fix pricing later."
+ogImage: "/covers/iltb-2026-10-20-christina-cacioppo-building-an-enduring-software-c-cover.png"
+cover: "/covers/iltb-2026-10-20-christina-cacioppo-building-an-enduring-software-c-cover.png"
+---
+
+![A blank highway billboard at dusk, car headlights drawn into long streaks below, a city skyline just coming on in the distance](/covers/iltb-2026-10-20-christina-cacioppo-building-an-enduring-software-c-cover.png)
+
+> Zhou is an old realm, yet its mandate is renewed.
+>
+> —— *Book of Songs*, "Greater Odes: King Wen" (pre-Qin; my own translation)
+
+On 20 October 2026, Invest Like the Best EP.496 paired Patrick O'Shaughnessy with Christina Cacioppo, founder of the security and compliance software company Vanta. Eight years in, she says the company serves 16,000 customers and pulls data from 400 tools, with growth and margins both better than five years ago — while the market pays roughly a third to a quarter of the multiple it once paid for a business like hers. Her response is to absorb the token cost rather than mark it up, push customers into the agent flow first (a quarter of them today, three quarters the target), and settle pricing later. For that to work she has to be right about two things: the timeline on which software interfaces change, and her ability to hold her best people through the years when richer-looking companies are bidding for them.
+
+## The case for her: eight years of data is this round's starting line
+
+The hardest line in the episode comes early. Asked how Vanta won, she says execution, then adds the sentence I kept turning over afterwards: the blessing and curse of software is that you're only as good as the last thing you shipped. Being first buys nothing, because someone can vibe code your product over a weekend.
+
+Left there it would be a poster slogan. She immediately supplies the counterexample — integrations. Vanta connects to 400 tools and pulls a great deal of data out of them; internally it's the Trust Graph, which she describes plainly as a security data lake, broader than any other provider's including some pure-play security vendors, because it touches areas they don't. That layer isn't written, it's accumulated: one connector at a time, one customer authorization at a time, maintained every time a schema changes. In hindsight, she says, that foundation is why they could build agents faster than anyone else.
+
+So the slogan has structure underneath it. The copyable layer resets to zero every week; the uncopyable layer grows slowly beneath it. Both are true at once, which is how a company can be a winner and a condemned building on the same day.
+
+![The top half is a jagged line that repeatedly spikes up and drops straight back to the ground, while the bottom half is a staircase line that climbs step by step and never turns back, both layers existing at once.](/figures/two-layers-reset-and-accumulate-en.svg)
+
+Pricing is where she's clearest. Vanta talked to customers about token-based pricing and heard back arithmetic: you marked up a Claude token 4x — are you 4x better than Claude? Let me go find out. Her conclusion is that any markup on tokens puts you in competition with the model labs, and no application company wants to stand there. Wrapping it in credits with a credit-to-token exchange rate doesn't help either; users say I see what you're doing and I see that you've obscured it.
+
+![A dividing line runs down the middle, with the model lab pricing a token at one dollar on the left and the application layer pricing it at four dollars on the right, while the customer's arrow bypasses the application layer and goes straight to the model lab.](/figures/token-markup-puts-you-opposite-en.svg)
+
+So she eats the cost, takes the lower margin, and concentrates on usage. A quarter of customers are in that agent flow today and she wants three quarters, on the belief that retention and experience both improve. This is a deployment phase and a usage phase; commercialization comes after.
+
+The price of that decision lands on the income statement. The return lands somewhere that hasn't happened yet. She knows it, which is why she talks about belief.
+
+![Two lines run in opposite directions: one climbs from a quarter to three quarters representing workflow penetration, while a gross margin line falls at the same time, with a dashed marker on the right showing the pricing moment that has not arrived yet.](/figures/margin-down-usage-up-en.svg)
+
+The third point is the counterintuitive one, and the most useful thing I took away: model swapping at Vanta is decided on quality, not cost — because of volume. Coding and coding agents burn tokens, legal and document drafting probably come next, and decision-and-action work like hers sits a tier below. That tier buys her the luxury of optimizing for quality. Earlier this year they had people who had actually run security and compliance programs elsewhere write the eval frameworks, then evaluated those evals. The product is one Vanta agent to the customer and hundreds of task-specific agents behind the curtain.
+
+One human detail worth keeping. Rebuilding onboarding this year, the team kept arriving at product review with an onboarding wizard — four steps, progress bar, confetti. She kept saying stop, go use an LLM. The team was motivated, talented, and invested, and kept bringing the wizard. What finally came out was: we don't know whether the drag-your-files-in flow will work, and we know the wizard works because we've built one before — we didn't think we were allowed to fail on this project. Her answer was fine, we're betting the LLM flow works, we'll hill climb as long as we need to, burn the boats. They asked for another product review the next day. What shipped is a big Claude-style canvas: drag in your messy files and screenshots, it makes sense of them, asks you questions, and you're set up.
+
+What blocked them was never capability or will. It was an unspoken question about permission.
+
+## The case against: whoever hands over the margin may not get to the other side
+
+The same hour supplies enough material to push back.
+
+Start with the gap she leaves herself. Benchmarking their in-product agent against the companies people call AI applications, she says they have yet to find anyone further along — then supplies the obvious critique, that maybe they're doing a bad job looking. That's self-assessment. The episode contains no third-party comparison and no definition of further along, and the eval frameworks are written by their own experts and graded by their own process. Excellent for internal decisions. As evidence of a lead, it's a yardstick she minted herself.
+
+The real pressure is margin. Eating the token cost hands your gross margin to someone else's price list. If models get cheaper she wins; if they don't, and she triples flow penetration from a quarter to three quarters, unit cost multiplies with it. Fix pricing later, she says — and the history of enterprise software price increases doesn't favor that, because the anchor is set at renewal and every lift has to be renegotiated account by account.
+
+A sharper contradiction sits nearby. A US enterprise in a live deal asked her to turn the AI features off, because a non-AI tool clears procurement far more easily. There is no off switch, and she doesn't want to build one; she'd rather spend the effort on something useful. That collides with her own opening line. If the scoreboard is the last thing you shipped, why doesn't the thing the customer explicitly asked for count as something to ship?
+
+The quality-over-cost premise may also expire on its own. The security endgame she describes is a permanent penetration test — a white hat agent always probing, with a patcher agent beside it fixing whatever it finds. She also points out that models try nine quadrillion things where a person quits after nine thousand, and that the real shift is their ability to chain seventeen individually benign findings into something serious, which inverts prioritization and leaves you fixing at machine speed. That's a loop with no end state, and loops with no end state drift toward coding-scale token consumption. On that day, today's luxury is gone.
+
+![Three bars each one tier apart in height, with coding tallest, legal documents next, and decisions and actions shortest, and a dashed arrow pulling the shortest bar up to the height of the tallest.](/figures/token-usage-tiers-en.svg)
+
+Asset and liability share the same eight years. The data foundation is the asset; the codebase is the debt. She grades herself low there: throw an eight-year codebase at an agent sight unseen and the context window can't hold it, so it does silly things, which means a high-context engineer has to babysit — defeating part of the point. They're modularizing now, and Notion was nine months ahead of them. Her framing is the one I'll reuse: this problem used to be called "it takes a new engineer a while to learn the codebase," and now it's called "we'd like to onboard nine thousand new engineers tomorrow."
+
+She also draws her own boundaries on expansion. Stacking security products on the platform sounds clean, and she's honest about the limits: CrowdStrike will do it better for enterprises, and cloud misconfiguration belongs to Wiz, whose customers and price points start at multi-thousand-person companies. Her target is the accounts she's already embedded in — the ones unlikely to pay $150,000 for Wiz but quite willing to pay $40,000 or $50,000 for something fitted to them. That's the lower half of the market, which competitors have left alone for now, and that price point caps how much token cost she can absorb.
+
+![On the left a data lake keeps widening and stacking higher, while on the right an eight-year block cannot fit inside a visibly smaller context window frame, with the overflow hanging outside the frame.](/figures/data-lake-asset-codebase-liability-en.svg)
+
+Then talent. The top people who made X five years ago make roughly ten times that today, and she thinks it should be higher. Vanta never ran tenders; now she says the game on the field is that you run one every time. Asked whether this is healthy, she says totally unhealthy — and that her opinion doesn't matter, because it's normalized and expected. The competing pitch to her people is: we're $6 billion today, Sequoia writes $10 billion in a month, someone marks it to $25 billion next year, and you can get in at $6 now. Her counter is data and trustworthy vibes against YOLO vibes, which works in the cases where the data wins. Against a company repricing 5x every six months, the data side has no card to play.
+
+## Where I land: the difference is one condition you can track
+
+Here's a situation I suspect a lot of people are sitting in: a company's numbers keep improving, the stock keeps sliding, and you start to suspect you're the one who's wrong.
+
+The episode offers a clean way to split it. Christina does the arithmetic herself: over a long enough period, an 80%-growth business at 80% margins returns more cash than a 160%-growth business at 30% margins — and today the latter trades at three or four times the former's multiple, sometimes ten. Her word for holding both of those in your head is cognitive dissonance.
+
+![In the left half of cumulative cash curves the steady one ends up above the high-growth low-margin one, while the multiple bars on the right half run the opposite way, with the low-margin company's bar three to four times taller.](/figures/cash-versus-multiple-dissonance-en.svg)
+
+The market is pricing an end state. This year's numbers carry little weight in that calculation. A multiple cut to a third is a discount applied to the durability of being a system of record — the doubt being what that position is worth once agents can reorganize the data inside it. Whether the doubt is correct has one observable test: at renewal, do customers stay because the data can't move, or because another quarter of new work landed? The first is system-of-record value, the second is last-ship value. Christina picks the second all hour, and has rebuilt the company to match.
+
+![Two paths lead up to a renewal door, the left one coming from a heavy object wrapped in chains and the right one from a newly delivered box, and the two paths are equally wide.](/figures/why-they-renew-en.svg)
+
+Second common sticking point: how do you tell whether a company eating cost to buy usage is investing or bleeding?
+
+I look for whether the thing it bought leaves a trace that survives the end of the subsidy. The useful part here is that she named the fields — a quarter to three quarters on flow penetration, plus retention. That gives a date to check the answer. A year from now, if penetration is up, margin hasn't recovered, and pricing is unchanged, the bear case wins. If penetration is up and customers renew at a new price, she wins. She calls it betting on a time horizon herself, which makes the bet falsifiable, so I'm tracking it as a question rather than holding it as a faith.
+
+One more thing worth recording. Visiting customers in Paris, she found most local software companies running Chinese models. She guessed nationalism and was corrected on the spot: not at all — when a US model was closed off to non-Americans, everyone saw the business continuity risk, decided they couldn't trust that an American model would always be available, and stopped building on one. A single policy move swapped out a country's stack. No model capability ranking would ever show you that.
+
+![A line runs to the same point next year and then splits into two branches, the upper one where penetration rose but margin never recovered and pricing never changed, and the lower one where penetration rose and renewals happened at the new price.](/figures/the-falsifiable-fork-en.svg)
+
+So where do I land? Slightly on her side, with one condition attached: she's betting nobody will put a reporting tool inside their own product again — ask for a chart and the agent draws one on demand. I believe the direction and I won't bet the timeline. And her line about only being as good as the last thing you shipped hit harder once I dropped the word software, because then it was about me.
+
+## Worth looking at
+
+- Invest Like the Best EP.496, 20 October 2026, hosted by Patrick O'Shaughnessy — joincolossus.com
+- vanta.com, for the five product lines and the integration list she describes
+- OpenAI's RSA talk on Hugging Face, her example of chaining seventeen low-severity findings
+- Andreessen Horowitz's old market-versus-founder argument, the frame she reaches for when discussing Bending Spoons
+
+## 帶得走的一件事
+
+Past work doesn't score. Your real asset sits in the layer nobody can copy — relationships, context, accumulated data — while your score comes only from the last thing you handed over. Those two facts make the same person safe and exposed at once, and most of us only feel the safe half.
+
+Here's something I tried that takes ten minutes. On one sheet of paper, write down what you actually put into someone else's hands over the past three months. Not your remit, not your title, not what's planned — only what someone else now holds and can use. The first time I did this I scraped together one and a half items, and it stung. Then ask the follow-up: if someone could build my one item over a weekend, what's left? Whatever that answer is, that's the layer worth thickening.
