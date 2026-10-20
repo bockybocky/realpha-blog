@@ -1,0 +1,108 @@
+---
+title: "The Foundation Is Being Rebuilt, But You Can Only Swap One Thing at a Time — Notes on The Circuit, Oct 19, 2026"
+description: "Notes on the October 19, 2026 episode of The Circuit covering SEMICON West and OCP: TSMC's larger reticle, N5 fabs converted to N3, TSMC staff doing site checks at data centers, and why liquid cooling, optics and 800VDC cannot all happen at once. Educational personal commentary; not investment advice, no stock picks or price targets."
+slug: "circuit-2026-10-19-wfe-to-the-moon-still-semicon-west-and-ocp-insight"
+lang: "en"
+pubDate: 2026-10-20
+category: "investing"
+kind: "podcast-notes"
+tags: ["semicap", "data center", "liquid cooling", "TSMC", "OCP"]
+ogImage: "/covers/circuit-2026-10-19-wfe-to-the-moon-still-semicon-west-and-ocp-insight-cover.png"
+cover: "/covers/circuit-2026-10-19-wfe-to-the-moon-still-semicon-west-and-ocp-insight-cover.png"
+---
+
+![A night-time data center aisle with an enormous liquid cooling manifold cabinet standing at the end of a row, an engineer facing away in the foreground, the aisle receding into a band of light](/covers/circuit-2026-10-19-wfe-to-the-moon-still-semicon-west-and-ocp-insight-cover.png)
+
+> The craftsmen make squares with the set-square, circles with the compass, straight lines with the cord, uprights with the plumb line, and levels with water. Skilled or unskilled, all of them take these five as their standard.
+>
+> —— *Mozi, "The Standard of Craft"* (Warring States period; translation mine)
+
+On the October 19, 2026 episode of The Circuit, Ben Bajarin and Jay Goldberg report back from a week that contained both SEMICON West and OCP. Upstream, the foundation is being rebuilt: TSMC is moving to a larger reticle, converting N5 fabs to N3, and the equipment industry is building toward a market that crosses $300 billion somewhere around 2029 to 2031. Downstream, the conclusion runs the other way — Jay argues nobody can complete all three transitions (liquid cooling, optical interconnect, 800V DC) in the next few years, so operators will have to pick one. The two hosts openly disagree about how high HBM should stack and how much longer copper survives, and those disagreements mark exactly where the answers don't exist yet.
+
+## What this episode covers
+
+The Circuit is a weekly conversation between two semiconductor analysts. This week was a double event: SEMICON West in San Francisco, the annual show for chipmaking equipment and materials, and OCP in San Jose, the summit of the Open Compute Project, a cloud-operator-led body that opens up data center hardware specs for shared use. Three analyst days were squeezed in between, plus ASML and TSMC earnings. They recorded late at night, and Jay described himself as "a little extra crunchy."
+
+The hosts split the material in two: equipment and wafer manufacturing first, data center racks second. Listening to it, I think those are two ends of one story — upstream is rebuilding its tools, downstream is queuing up to re-equip, and the re-equipping takes longer than the market talks about.
+
+### 1. Equipment is solving problems it never had to solve
+
+Ben's observation is that the most interesting voices in this cycle come from the people building the machines and the cleanrooms. In the era of designing monolithic mobile and laptop chips, the innovation pressure on tooling was lighter. Now, to build giant AI accelerators — and networking ASICs, which are also growing and also getting advanced packaging — the tools, the test, the yield work and the wiring are all pushed onto new problems. The last comparable period, he says, was when the industry was shrinking nodes every eighteen months.
+
+### 2. A bigger reticle sounds small; the bill isn't
+
+Ahead of SEMICON West, TSMC said it is moving to a larger reticle size. The reticle caps how big a single chip can be on a wafer, so raising it lets chips get bigger and more complicated. Jay's point is that this sounds like a minor change and costs tens of billions in R&D and retrofitting. It also has to happen, because chip sizes are already pressed against that line.
+
+![On the left, a small frame is already filled edge to edge with dies, and on the right an obviously larger frame is filled the same way, with an arrow between them showing that die area can only grow once the reticle limit is raised.](/figures/reticle-limit-enlarged-en.svg)
+
+### 3. TSMC sends its own people to count progress at data centers
+
+This was the part I kept thinking about. TSMC sits several layers removed from data centers, yet it now has employees doing site inspections — checking how far along these builds are, what's real, what gets energized when. Jay remembers the TSMC that used to call the sell side and ask for handset and PC forecasts and model from that. A company famous for conservatism, one that cannot afford idle fabs, going out to count bricks itself says more than any single line in its results. Ben reads that as the most bullish demand signal available; Jay says he isn't there yet and they'll argue another day. The episode leaves it unresolved, which I prefer.
+
+### 4. N5 fabs converted to N3, leaving a gap behind
+
+On the call, TSMC mentioned converting N5 fabs to N3. Their old pattern was to keep the older fabs running and build new ones; retrofitting is new behavior. Follow that and a question appears: demand at five nanometres and below still exists, so who picks it up as TSMC shifts forward? The episode names GlobalFoundries as one beneficiary, also raising capex and moving to new nodes. As for the broader mature-node market, both hosts call that a separate topic, tangled up with the capacity China is bringing online, and economically less attractive.
+
+![Three horizontal bars stand for N3, N5 and mature nodes, with one segment of N5 moved by an arrow into N3, leaving a dashed empty slot behind to mark the gap.](/figures/n5-to-n3-capacity-gap-en.svg)
+
+### 5. Used tools are tight enough that people steal them
+
+Jay has been reading about the secondhand semicap tool market in China, which is healthy and now tight enough that theft has started. You're a broker with a warehouse of used trailing-edge tools; someone pulls up with a truck, ten guys and a forklift, and the equipment is gone. Organized crime has moved from banks to chipmaking tools — a detail that sticks better than any demand curve.
+
+### 6. How high to stack HBM: vendors and customers say different things
+
+ASML is reportedly building a hybrid bonding tool — bonding wafers directly without bumps — which opens a live argument in memory: should HBM stack higher? Applied Materials sounded confident at its analyst day that hybrid-bonded HBM wafers will get stacked taller. At Hot Chips in August, the end customers buying HBM kept saying the opposite: don't stack it higher, just give us more of it. Pressed on this, Applied's answer was that it depends on the workload — training can exploit taller stacks, while light inference or medium reasoning workloads won't keep twelve-high busy. So the answer lives in software: whether models and workloads can absorb that bandwidth decides whether the hardware goes up. Jay doesn't agree with Applied, but grants they have reasons.
+
+![Two stacks of twelve layers each, with the training workload on the left filling the entire stack and light inference on the right filling only the bottom five layers while the top seven stay empty and dashed.](/figures/hbm-stack-vs-workload-en.svg)
+
+### 7. Three transitions, and you can't do them together
+
+This is the heart of the OCP segment. The standard description of the future data center is all-optical, liquid cooled, 800V DC. Jay's challenge is that no operator can execute all three retrofits in the next few years. Liquid cooling alone is a full redesign; optics is another; 800V DC with its sidecars is another, on top of manifolds that look like car engines. The show floor made the point for him: the most crowded booth across all three days was Delta's cooling system, and Ben says he had to throw elbows to get near it — a crush usually reserved for 5:30pm when the free alcohol appears. Everyone knows cooling comes first.
+
+![The top half shows three retrofit projects starting at once and tangling together over the same stretch of time, while the bottom half staggers them into a queue with cooling placed first.](/figures/three-transitions-must-queue-en.svg)
+
+Ben adds a twist: those giant cooling cabinets and 800V sidecars eat rack-row space. You squeeze out more compute per watt and lengthen the distance between racks — and distance turns straight back into a networking problem. Jay's prediction: two years from now someone says "we went with active electrical copper because we needed two meters, then we forgot about the sidecar, we need three, so it's optical after all."
+
+![Top row: two racks stand 2 m apart; bottom row: after a cooling cabinet and a power sidecar are inserted between them, the gap becomes 3 m and the copper cable is no longer long enough.](/figures/cooling-cabinet-eats-the-aisle-en.svg)
+
+### 8. Copper versus optics, explained with cars
+
+Jay expected to leave the show with a clear answer on copper's remaining runway and came away blurrier. His analogy: optics is a brand-new Alfa Romeo — fast, beautiful, packed with electronics, reliability unknown. Copper is a 1968 Mustang — slower, but you can fix it off YouTube and the parts are everywhere. One step further, co-packaged optics (CPO, where the optics sit on the chip package itself) is the Ferrari: far faster, complicated, hard to buy, and you've read somewhere that the new ones are reliable without knowing whether to believe it.
+
+![A two-axis chart with speed on the horizontal axis and how uncertain reliability is on the vertical axis, where copper sits at the lower left, optics in the middle and slightly higher, and co-packaged optics at the upper right.](/figures/copper-optics-cpo-two-axis-en.svg)
+
+Ben offers a counterargument. The reason anyone crams GPU density into one rack is to serve a large model from that rack. If east-west networking can bind three to five racks into one compute brain, there's no need to force 500 GPUs into a single rack, and copper inside the rack survives longer. Jay allows the point, then adds news: NVIDIA's networking session showed a Rubin Ultra pod with scale-up co-packaged optics, earlier than the 2028 Feynman timeline most people assumed. His read is that it won't be the volume stack — the parts won't exist — more a toe in the water.
+
+## Good news keeps coming, so why isn't anything moving?
+
+This is where I get stuck most often, and the episode offers an answer: timing. Tool orders, machine lead times, retrofit sequencing — they land in 2027, 2028 and beyond. TSMC walking data center floors proves the demand is real; it says nothing about when revenue arrives. And three transitions that can't run in parallel means three supply chains harvest in different years, which decides whose year looks good.
+
+What I do now is split a headline into two columns: left, "will this happen"; right, "when does it hit the income statement." Most of the news that makes me anxious has a strong left column and an empty right one. Until that right column gets filled in, it's background noise to me.
+
+![Two columns side by side, where the left column asking whether it will happen has all three rows filled in and the right column asking when it hits the income statement has all three rows empty and dashed.](/figures/two-columns-event-and-timing-en.svg)
+
+## The disagreements are the part worth tracking
+
+The hosts openly disagree on several points: whether HBM stacks higher, how long copper lasts, whether Rubin Ultra's CPO ships in volume. I used to skip those passages — no conclusion, no value. I've flipped on that. The consensus parts (AI demand is strong, equipment must expand) are already in the price, and hearing them again teaches me nothing. The contested parts are where new data will land over the next few quarters.
+
+So I write the disagreement down and add one line: what has to show up for me to know which side was right. On HBM, the test is workload mix — if inference keeps outgrowing training, Applied's view looks optimistic. On copper, the test is how smoothly rack-to-rack networking works out. Written that way, the next earnings season gives me something to check against, instead of another round of other people's fresh opinions.
+
+## Floor space is a cost too
+
+Last, that rack space swallowed by cooling. A data center square foot is priced like cleanroom space, so an eight-foot cooling cabinet plus a power sidecar has to pay for itself in watts saved and compute gained. Listening to that, what struck me is that once a system has three constraints pulling against each other — compute, heat, space — an optimum stops existing, and what's left is the question of which one you give up first. That guy going door to door in a San Diego neighborhood with pamphlets about the benefits of data centers is standing in the same place: he isn't selling technology, he's asking a community what it will trade for what.
+
+## References
+
+- The Circuit, episode of October 19, 2026, hosted by Ben Bajarin and Jay Goldberg
+- SEMICON West (held in San Francisco in 2026, returning to Arizona next year)
+- OCP Global Summit (held in San Jose in 2026, moving to San Francisco next year)
+- Applied Materials EPIC Center grand opening, Santa Clara, California
+- TSMC and ASML quarterly earnings calls, public portions
+
+## One Thing to Take With You
+
+**Three changes at once equals none of them.**
+
+The hardest line in the episode is Jay's: "I don't see how anybody in the next couple of years can do all of those transitions at one time." It transfers to any system. Change three things together and each one touches the interfaces of the other two, so every failure is unattributable, and progress stops.
+
+Here's something I've tried, offered rather than assigned. Take one thing you meant to change this year and haven't — exercise, a job move, repairing a relationship — and write out the conditions that all have to hold for it to work. You'll usually get three or four. Then put exactly one of them on this month's calendar and write "after the first one holds" next to the rest. The first time I did this I found that my past failures weren't laziness; I had started all three in the same week and watched them collapse together by the second week. There's no right one to pick. Pick one.
