@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="左欄期貨稅負切成六四兩段，右欄交換是一整條，並多出保證金與註冊兩塊">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t h" x="60" y="66">名稱不同，規則表也不同</text>
+
+  <text class="t g" x="90" y="130">期貨</text>
+  <text class="t g" x="540" y="130">交換</text>
+
+  <text class="t b" x="90" y="178">稅</text>
+  <rect x="90" y="192" width="192" height="46" rx="5" fill="var(--accent)"/>
+  <rect x="282" y="192" width="128" height="46" rx="5" fill="var(--grey)"/>
+  <text class="t b" x="100" y="266">長期六成</text>
+  <text class="t b" x="292" y="266">短期四成</text>
+
+  <text class="t b" x="540" y="178">稅</text>
+  <rect x="540" y="192" width="320" height="46" rx="5" fill="var(--warn)"/>
+  <text class="t b" x="550" y="266">一般所得</text>
+
+  <text class="t b" x="90" y="340">保證金天數</text>
+  <rect x="90" y="354" width="10" height="40" rx="4" fill="var(--grey)"/>
+  <text class="t b" x="112" y="382">無此要求</text>
+
+  <text class="t b" x="540" y="340">保證金天數</text>
+  <rect x="540" y="354" width="150" height="40" rx="4" fill="var(--warn)"/>
+  <rect x="700" y="354" width="160" height="40" rx="4" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text class="t b" x="552" y="382" fill="var(--page)">清算五天</text>
+  <text class="t b" x="712" y="382">不清算十天</text>
+
+  <text class="t b" x="540" y="452">另加</text>
+  <rect x="540" y="466" width="150" height="44" rx="5" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t b" x="556" y="494">政府註冊</text>
+  <rect x="706" y="466" width="154" height="44" rx="5" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t b" x="722" y="494">合規義務</text>
+
+  <text class="t c" x="60" y="552">同一筆部位，換個名字換一本規則</text>
+</svg>

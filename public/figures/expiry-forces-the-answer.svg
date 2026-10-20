@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="上線有結算標記並終止，下線無標記一路延伸出畫面">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t h" x="60" y="66">有沒有一個日期</text>
+
+  <text class="t g" x="80" y="150">有到期日</text>
+  <path d="M80 200 L700 200" stroke="var(--accent)" stroke-width="5"/>
+  <path d="M700 160 L700 240" stroke="var(--accent)" stroke-width="5"/>
+  <rect x="700" y="152" width="110" height="40" rx="5" fill="var(--accent)"/>
+  <text class="t b" x="716" y="180" fill="var(--page)">結算</text>
+  <text class="t b" x="700" y="268">必須對答案</text>
+
+  <text class="t g" x="80" y="356">沒有到期日</text>
+  <path d="M80 400 L880 400" stroke="var(--grey)" stroke-width="5" stroke-dasharray="14 12"/>
+  <text class="t b" x="80" y="444">沒有一格要你結算</text>
+  <text class="t c" x="560" y="444">也就不必承認錯</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="送件柱子很高、退件柱子高度為零，中間閘門是虛線">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t h" x="60" y="70">自我認證</text>
+
+  <rect x="90" y="130" width="150" height="300" rx="6" fill="var(--accent)"/>
+  <text class="t g" x="90" y="465">送進去</text>
+  <text class="t b" x="90" y="492">2,500 件</text>
+
+  <rect x="400" y="120" width="160" height="320" rx="10" fill="var(--card)" stroke="var(--line)" stroke-dasharray="9 9" stroke-width="3"/>
+  <text class="t g" x="430" y="270" fill="var(--dim)">審查</text>
+  <text class="t b" x="408" y="300">件數之外無細節</text>
+
+  <rect x="720" y="424" width="150" height="6" rx="3" fill="var(--warn)"/>
+  <text class="t g" x="720" y="465">被否決</text>
+  <text class="t b" x="720" y="492">0 件</text>
+
+  <path d="M250 280 L392 280" stroke="var(--grey)" stroke-width="4"/>
+  <path d="M568 280 L712 280" stroke="var(--grey)" stroke-width="4"/>
+  <path d="M700 280 L712 280 L700 272" stroke="var(--grey)" stroke-width="4" fill="none"/>
+
+  <text class="t c" x="60" y="100">先開槍，再瞄準</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="On a timeline the paying reader's position is clearly ahead of yours, and the gap between them is where the bets were already placed.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t h" x="60" y="66">Same news, two timestamps</text>
+
+  <path d="M80 300 L900 300" stroke="var(--line)" stroke-width="4"/>
+  <text class="t b" x="820" y="340">Time</text>
+
+  <circle cx="220" cy="300" r="14" fill="var(--warn)"/>
+  <text class="t g" x="160" y="250">Paid to get it early</text>
+  <text class="t b" x="160" y="222">$100,000</text>
+
+  <circle cx="680" cy="300" r="14" fill="var(--accent)"/>
+  <text class="t g" x="650" y="250">You</text>
+
+  <rect x="234" y="356" width="432" height="44" rx="6" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text class="t b" x="258" y="384">The bets were placed in this gap</text>
+
+  <path d="M220 316 L220 356" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M680 316 L680 356" stroke="var(--grey)" stroke-width="3"/>
+
+  <text class="t c" x="60" y="470">Work back to when it could first be known</text>
+</svg>
