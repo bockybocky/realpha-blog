@@ -1,0 +1,127 @@
+---
+title: "You Can't Boil the Ocean: The Trade-Offs Behind a Blood Pressure Ring"
+description: "In the 19 October 2026 episode of Medsider, Vital Signals CEO Tom Moss describes going from an emergency room reading of 250 systolic to shipping a calibration-free blood pressure ring, and the trade-offs behind a 792-subject validation study, component sourcing, and licensing versus building. An educational listening note about how to read R&D and validation claims; no investment advice and no stock recommendations."
+slug: "medsider-2026-10-19-why-you-can-t-boil-the-ocean-when-building-a-devic"
+lang: "en"
+pubDate: 2026-10-20
+category: investing
+kind: "podcast-notes"
+tags: ["medical devices", "clinical validation", "hardware startups", "product trade-offs", "wearables"]
+ogImage: "/covers/medsider-2026-10-19-why-you-can-t-boil-the-ocean-when-building-a-devic-cover.png"
+cover: "/covers/medsider-2026-10-19-why-you-can-t-boil-the-ocean-when-building-a-devic-cover.png"
+---
+
+![A dawn-lit hospital research corridor with a desk lamp over a single small ring, stacks of blood pressure cuff boxes receding into darkness down the hall](/covers/medsider-2026-10-19-why-you-can-t-boil-the-ocean-when-building-a-devic-cover.png)
+
+> A craftsman who keeps switching trades loses his craft; a worker who keeps shifting his post loses his work.
+>
+> —— *Han Feizi*, "Explaining Laozi" (Warring States period; my own translation)
+
+In the 19 October 2026 episode of Medsider, host Scott Nelson interviews Tom Moss, co-founder and CEO of Vital Signals, about Signal Ring — a smart ring that measures blood pressure without first being calibrated against a cuff. Tom offers two numbers that don't line up: he lost close to 30% of his body weight and his blood pressure barely moved, while the validation white paper launching with the product covers 792 subjects spanning Monk skin tone scale 1 through 10 along with a range of BMI, age, and blood pressure levels. He also draws the line of the business: the ring itself is an ordinary smart ring, the sensor and algorithms are where they bet, because you can't boil the ocean. This episode is about how to read R&D and validation claims, not about what the company is worth.
+
+## The ambulance ride that interrupted a vacation
+
+Tom's career had nothing to do with blood pressure. He was an early leader on Google's Android team, left to found 3LM (acquired by Motorola) and then Nextbit (acquired by Razer), and later served as the first COO of the drone company Skydio. Twenty years in consumer hardware, and by his own account, a guy who loves gadgets.
+
+Then, on vacation with his family, he started having chest pain severe enough for an ambulance ride to the ER. Everyone along the way thought he was having a heart attack, and so did the hospital. It wasn't a heart attack. It was a hypertensive emergency — his systolic pressure in the ER was 250. He pauses on that number in the episode and says, "I don't know how familiar you are with blood pressure, but let's just say that's very bad." Follow-up work found years of undiagnosed hypertension plus coronary artery disease.
+
+Which is the thing he names directly: we all know what stress and a bad lifestyle do to us, and we don't take it seriously until something pins us to the wall.
+
+## He bought everything on the market and found snake oil
+
+The first thing he did after discharge was what everyone does: buy a cuff. It took him a while to work out that the cuff size was wrong for his arm, so the readings were off to begin with. It took him longer to realize the orientation was also wrong — his cuff wanted the hose aligned over the brachial artery, not over the little dot printed on the cuff that looks like the positioning marker.
+
+He describes being stuck on the same problem: he couldn't measure the moment he wanted to measure. Knowing his pressure right now meant sitting down, rolling up a sleeve, strapping something on. Cumbersome and embarrassing, so he started buying anything that claimed to help him track it. The conclusion after one round of shopping was that what gets sold to hypertensives is mostly nonsense and snake oil. He says it felt insulting.
+
+Then he did a second thing: he went looking to invest. He had been an angel since 2010 with a couple of exits behind him, so he started meeting people in the industry to find out who was solving this. After a full circuit he still couldn't find anything that generalized across a population. His bafflement comes through in the episode: the cuff is about 150 years old, the current version close to 100. Cardiovascular issues drive one in every three deaths, and blood pressure reflects arterial health — the thing that takes you out one way or another. Something that important, and there was no better tool.
+
+That bafflement, plus some anger, pushed him toward his two co-founders, Mohammed and Faisal. Early 2023, a lunch through a mutual friend, and he only wanted to understand why nobody had built it.
+
+## A year into the company, still not knowing whether it would work
+
+They started with nothing in hand. Tom is blunt about it: no product, no algorithm, no theory. A goal and a hope. It took over a year to get the first proof points that they weren't wasting their time.
+
+He also volunteers the precondition: this kind of start got funded because he had built companies, had exits, and had decades of relationships with investors. Someone straight out of college pitching the same thing wouldn't raise. He calls it a luxury.
+
+They didn't set out to build a ring. His framing was "let's go where the science takes us, and whatever device we have to build for it to work, that's the device we'll make." The technology turned out to fit into a very small package, and plenty of people dislike sleeping in a wrist device while they'll sleep in a ring — and nocturnal hypertension is six to seven times more predictive of a cardiovascular event than daytime hypertension. The ring followed from that.
+
+![Two bars differ sharply in height: daytime blood pressure carries only one unit of predictive power, while nighttime blood pressure carries about six to seven.](/figures/night-vs-day-predictive-power-en.svg)
+
+There's a technical watershed here worth going slowly over. Some wearables on the market can track blood pressure for a short window, provided you first feed them a reading from a cuff as a baseline, after which they watch changes in your pulse waveform and infer from there. Tom calls that a dead end for two reasons. First, your arterial environment shifts within a single day: stress, stiffness from age, blood pressure medication changing arterial compliance, smoking, caffeine, ambient temperature. The device can't separate signal changes caused by blood pressure from signal changes caused by the arterial environment, so after a few hours — and certainly after a few days — the readings drift. Second, and more fundamental, people conflate "the cuff is the best available home device" with "the cuff is absolute truth." The cuff has its own margin of error, and then there's user error on top. He points out that nurses at the clinic often leave your arm hanging, clip an SpO2 sensor on the other hand, and ask you questions, each of which moves your number. The baseline itself may be badly wrong, and calibrating against it is what he calls fruit of the poisonous tree.
+
+![Two lines start from the same point: true blood pressure stays flat while the device reading keeps drifting upward, and the grey gap between them widens over time.](/figures/calibration-drift-widens-en.svg)
+
+So their device is calibration-free: open the box, connect the app, put it on, and it starts measuring with no baseline from another device. That's the breakthrough he names, and the part the industry has been attempting for over ten years.
+
+![A horizontal dashed line marks the true value and a tilted solid line marks the skewed baseline; every later reading dot follows the tilted line, holding a fixed gap away from the true value.](/figures/tilted-baseline-poison-tree-en.svg)
+
+## Where he demonstrates "don't boil the ocean" himself
+
+Midway through, Scott asks which lessons from earlier companies changed how he does things now. Tom's first story is Nextbit.
+
+A new component had come out, a voice coil for camera focus. New, cool technology, and they decided they had to use it. The problem was that one or maybe two vendors made it at the time, and precisely because it was cool, much bigger companies came in after Nextbit had finished the design and placed orders. The supplier told them there was no inventory for them, signed purchase order notwithstanding. Tom does the supplier's voice: what are you going to do, sue us? You're thirty, fifty thousand units. I'm getting orders for millions.
+
+Then he names the second cost of new parts: a new chipset has fewer known bugs because nobody has had time to find them yet. And when you hit a strange one, nobody helps you, because you aren't Qualcomm's or TI's number one client — not their thousandth — and they're busy with Google's bugs and Apple's.
+
+His advice to hardware founders runs the other way: use readily available, well-understood, mature components available from many vendors, the kind sitting in inventory somewhere that you can pick up in spot buys. Scott points out on the spot that this cuts against what investors want to hear, which is that you're building the newest thing on the frontier. Tom draws the line clearly: the sensor they co-designed and the algorithms are a generation ahead of everybody else, no question. The ring itself is a normal smart ring, and other rings are thinner and do some things better, which he says plainly. Then Scott lands the line: you can't boil the ocean.
+
+Listening to that, what struck me is that this call is hard because both sides sound right. People who love hardware want the latest thing by temperament, and the phone era trained consumers to read spec sheets too. Choosing "ordinary" in the area you're best at amounts to admitting your resources are finite. He conceded that layer first, which is what freed up room to bet on the sensor.
+
+![A fixed-size resource bar is split into two blocks: the ring body block deliberately stops low, a dashed outline beside it marks the excellence given up, and the saved amount piles onto the tall column for sensors and algorithms.](/figures/cannot-boil-the-ocean-allocation-en.svg)
+
+## 792 people is the real bar
+
+In the back half, Scott turns to clinical validation, and Tom calls it the most important question about a product like theirs.
+
+He starts with why blood pressure is hard: generalizing across a population is the difficult part. He is specific about it — building something that measures blood pressure to within roughly plus or minus ten points on healthy 25-year-old white males is close to trivial, because their arterial environments look much the same, an optical sensor has no trouble getting signal through that skin tone, and the values land in a narrow band. Which is why you see startups and academic papers saying: we're five healthy young graduates, we built this with an amazing new method, look at these results.
+
+Then you put it on an older person, a person with darker skin, a person with a higher BMI, a person on hypertension medication, and it falls apart. He says this shows up especially in AI and machine learning approaches, where the model is overfit to whoever supplied the development data.
+
+![Two checkerboards sit side by side: on the left only one corner square is filled, standing for a sample covering just a small slice of the young and healthy, while on the right every square is filled.](/figures/sample-coverage-window-en.svg)
+
+Then there's the design of the validation itself. ISO guidelines for blood pressure mention 85 subjects, and Tom says "nowhere near enough" twice. Not 85 people — 85 of each characteristic: ages, genders, weights, people coming in at 120-something, 140-something, 160. Every bucket filled, and no excluding people. He names a common manoeuvre: start with 85, drop subjects for assorted reasons, end with beautiful data on 10, and headline it as an 85-subject study. You read the headline thinking you've seen a large study when ten people's data made it through.
+
+![On the left a funnel narrows sharply from wide to thin, titled 85 people with only 10 left at the bottom; on the right a full-width block that never narrows stands for 792 people.](/figures/denominator-funnel-vs-792-en.svg)
+
+Their white paper covers 792 subjects across Monk skin tone scale 1 to 10 plus diverse BMI, age, gender, and hypertension level. Four sites in the United States: two hospitals in Texas (one in Austin), Stanford University, and a medical clinic in Southern California, partly through a CRO, each with its own principal investigator, nurses keeping records, and IRB approval.
+
+The provenance of that rigor is a little accidental. They had originally been pursuing an FDA 510(k), with a Q-Sub pre-submission, a meeting with the agency, and clinical protocol feedback. Then the rules changed in January: wellness devices can present blood pressure as long as they don't diagnose or claim clinical accuracy, and manufacturer validation is sufficient. Tom's framing is that because they were already on that trajectory, their version of manufacturer validation grew out of a standard built for clearance.
+
+His feelings about the change are mixed. He cites an interview with the then FDA commissioner, who answered a question about accuracy with something close to buyer beware, the market will let good devices rise. Tom says marketing and misinformation are common in this area, and he worries a wave of bad devices will burn the whole category — consumers buy junk, lose money, and stop trusting the product class. That became one of their reasons to launch: if a pile of bad devices is coming anyway, put a good one out there and show the industry it can be done.
+
+## How to read "the data looks great" for yourself
+
+You've probably had this experience: a company publishes a study, the headline says large and accurate, you can't evaluate the method, and all you can do is believe it or not. This episode offers a few angles you can check yourself.
+
+The first is whether the denominator moved. Starting at 85 and excluding down to 10 appears in the methods section, never in the headline. When you meet a beautiful accuracy number, find the number finally included in the analysis and compare it against the number initially enrolled.
+
+The second is whether the sample composition includes you. Tom's examples are skin tone, age, BMI, and medication status, each of which changes the signal an optical sensor receives. A study whose subjects look nothing like you offers you no accuracy guarantee. The logic travels: any conclusion tested "on a group of people" starts with asking who those people were.
+
+The third is what the comparison baseline is. They used trained medical professionals with stethoscopes rather than home automatic cuffs, because automatic cuffs aren't accurate enough to validate against. A study's accuracy is capped by the accuracy of whatever it was compared to. The same holds in reading investment claims — validating one set of error-prone numbers against another doesn't make the error go away because both sides did arithmetic.
+
+![Two groups of bars are each capped by a ceiling line: the left group has a low ceiling that holds its bars down, while the right group has a high ceiling that lets its bars grow tall.](/figures/accuracy-ceiling-of-reference-en.svg)
+
+## Why a company with strong technology doesn't license it
+
+A question Tom gets from investors: if big companies failed at this for over a decade, why not license the technology to them and collect. Behind the question is an intuition that being depended on by large companies sounds like a steady business.
+
+His answer comes from doing white label and licensing work at his first company. Customers split quickly into two camps: the small ones who will never have volume worth your time and don't have much money, and the ones winning the market, who are permanently running a buy-versus-build calculation. Then he inverts the common intuition: people assume that the more critical your technology is to a customer, the longer they'll keep paying. In practice, the more critical it is, the faster they put a team on it on day one. Your customers become your potential competitors, and the relationship turns strange.
+
+The other half of the reason is experience. Their user research found that plenty of people simply dislike cuffs — the squeeze on the arm, the sound of the Velcro, the way it makes them feel old and frail — so the cuff goes in a drawer where they don't have to see it, and then it never comes out even though they know they should use it. So the team looked at meditation apps: before a spot reading, the app walks you through about 20 seconds of timed breathing with soothing sounds and animation, and you can disable it. That makes readings more accurate and makes the act less unpleasant. The display of past readings deliberately avoids a judgmental tone, because they want people to keep measuring, and nobody engages with something that tells them they've been bad. License the technology out and you lose that entire layer.
+
+Scott closes on an unexpected side effect: the design might get people to stop and breathe a few more times during the day. Tom adds that people have had a vague sense that relaxing helps, and now you can put the data in front of them.
+
+## Worth a look
+
+- The Medsider episode itself: Scott Nelson interviewing Vital Signals co-founder and CEO Tom Moss, 19 October 2026. The show's past interviews and courses have moved to the host's own site.
+- Signal Ring's product site, signalring.com, where the validation white paper launching with the product also lives.
+- For validation standards, blood pressure devices have decades of accumulated guidance; Tom mentions the ISO subject-count spec and the Q-Sub pre-submission step in the FDA 510(k) pathway.
+- The January change in how US wellness devices may present blood pressure values is the backdrop for much of the episode's reasoning.
+
+## The one thing to take with you
+
+One idea: deliberately choosing "ordinary" in the area you're strongest in is how you keep resources for the part that decides the outcome. Tom loves hardware and has done it for twenty years, and he let the ring itself stay ordinary so everything could go into the sensor and the algorithms. The hard part is that what you're best at is usually what you most want to perfect, which makes it the easiest place to burn your resources and the one that feels most justified while you do.
+
+Here's something I've tried, offered for whatever it's worth: take what you're working on this quarter, write down the three specific things you spend the most time on, and ask of each one — if this were merely adequate, would anyone notice, would the outcome change. Usually one or two answers come back no. Those are the places you can let drop to ordinary, and the time you save moves to the item whose answer was yes. The exercise holds outside work too: someone spends enormous time keeping a house immaculate, when what gets remembered is whether there was dinner together.
+
+![Three equally tall time columns are filtered by the same question; two are cut down to the pass line and the height removed is moved by arrows onto the third, making it taller.](/figures/downgrade-to-passing-exercise-en.svg)
