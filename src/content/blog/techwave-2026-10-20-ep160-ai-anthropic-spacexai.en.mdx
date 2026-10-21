@@ -1,0 +1,100 @@
+---
+title: "One Person Running a Hundred Agents: What Anthropic Rewriting Git Tells Us About the New Bar for Companies"
+description: "Notes after listening to TechWave EP160. Anthropic now merges 30,000 code changes a day and built its own version control system, Scion; SpaceXAI engineer Lauren Tan ships 2,500 code updates a month. The bar has moved from model capability to how clean your environment is. Educational observation, not investment advice, no individual stocks discussed."
+slug: "techwave-2026-10-20-ep160-ai-anthropic-spacexai"
+lang: "en"
+pubDate: 2026-10-21
+category: investing
+kind: "podcast-notes"
+tags: ["AI agents", "technical debt", "software engineering", "org design", "TechWave"]
+ogImage: "/covers/techwave-2026-10-20-ep160-ai-anthropic-spacexai-cover.png"
+cover: "/covers/techwave-2026-10-20-ep160-ai-anthropic-spacexai-cover.png"
+---
+
+![A vast glass greenhouse at night, a gardener walking with a lantern between tidy rows of seedling racks, the far end overgrown and tangled, fading into darkness](/covers/techwave-2026-10-20-ep160-ai-anthropic-spacexai-cover.png)
+
+> Follow the seasons, measure the land, and little effort yields much. Work against the way of things, and you labour for nothing.
+>
+> —— Jia Sixie, *Qimin Yaoshu*, "Sowing Grain" (Northern Wei, c. 533; translation mine)
+
+In TechWave EP160, published 20 October 2026, host Harry put two numbers side by side. Anthropic merged 2,500 code changes a day in May 2026 and 30,000 a day by September, and somewhere in between they replaced Git — the tool the whole industry has shared for over twenty years — with a system of their own called Scion. Meanwhile SpaceXAI engineer Lauren Tan ships 2,500 code updates a month on her own, against roughly four to eight a month for an engineer not running agents at scale. Harry's read: the bar has moved from model capability to how clean your environment is, because in a codebase buried in technical debt, opening a hundred agents just buys you a hundred more problems. The claim rests on one condition — agent costs keep falling — and he puts that at one to two years, admitting six months looks too tight.
+
+![Four bars compare output: Anthropic rose twelvefold from 2,500 to 30,000 per day; a typical engineer’s monthly output is barely a line, while Lauren Tan’s bar reaches the top.](/figures/output-gap-two-numbers-en.svg)
+
+## Why would a company rewrite version control from scratch?
+
+Because the old tool's design assumptions collapse under the new workload.
+
+Git in plain words: you write code, you ship a version, the next day a new feature breaks an old one, and you need to go back to yesterday. That's version control. Git is what everyone has used for two decades; only a handful of outfits at Google or Meta scale run their own.
+
+Git assumes a human working offline. You clone the whole project from the cloud onto your laptop — history included — edit and test locally, and push back when you're happy. That works for twenty people, because cloning is a one-off you might do once a week. But Harry points out that the history of Anthropic's main product already runs to 100 GB, and their engineers spin up a hundred agents at the drop of a hat, each needing its own working environment. Anthropic ran the numbers: at today's workload, staying on Git would mean 600 PB of traffic a day — 600 million gigabytes. No network on earth carries that.
+
+![On the left, a 100 GB history stack points to a grid of one hundred small squares on the right, each holding a complete copy, which together total 600 PB per day.](/figures/git-copy-explosion-en.svg)
+
+So Scion inverts the design. Git was built for offline humans; Scion is built for agents that live online, and the heavy work moves to the server. Computing the diff between two versions used to happen on your machine, which meant downloading the old files first. Now the server computes it and the client never needs that copy; when you genuinely need history, you ask for it. The results: infrastructure footprint down by a factor of 200, pulling the latest version down from 87 seconds to 3.5, checking status from 3.9 seconds to 19 milliseconds. These are the actions an engineer performs dozens of times a day.
+
+![On the left, the heavy load sits on the local side; on the right, it moves to the server side, while three sets of bars below show the same operations falling from 87 seconds to 3.5 seconds and from 3.9 seconds to 19 milliseconds.](/figures/git-vs-scion-where-work-happens-en.svg)
+
+## Is the thing stopping a hundred agents the technology, or the money?
+
+Neither one is the last gate. Harry offers a thought experiment I liked: find the engineer at your company who already writes code with AI, tell them the token budget is unlimited, and ask them to put a hundred agents to work right now. They won't do it.
+
+Why not? The first answer is that they couldn't manage them. Go one layer down: the reason is that the one to five agents they run today each need them watching — each one stops partway and needs a human glance, a nudge, a decision. And the reason for that is trust. Lauren Tan shipping 2,500 updates a month means she keeps a large population of agents running: some wired to external triggers around the clock, so a complaint landing in the support inbox gets investigated, fixed and tested without her; others reporting in on a schedule. She lets go, so the number goes up.
+
+![One hundred agents pass through the open cost gate but are all stopped at the closed trust gate, with only 1 to 5 slipping through to the other side.](/figures/two-gates-cost-and-trust-en.svg)
+
+Cost is one gate, not the final one. Model efficiency has improved every year for three years, and Harry's view is that within a year or so most companies could afford what Anthropic burns today. The gap will land somewhere else: whether your environment is ready when that day arrives.
+
+## Why does cleaning the environment beat tuning the model?
+
+Because a large language model continues the pattern it's given. It writes the next thing that fits what's already there.
+
+This was the part that stayed with me. Most of the trust conversation stares at the model — alignment, guardrails, blocking prompt injection. Lauren Tan starts somewhere else: the place the agent works, which for a coding agent means the codebase. Keep it clean and the agent keeps producing clean work. Fill it with expedient hacks and those habits spread like a virus through everything it writes next. It learns the bad patterns too.
+
+![On the left, neatly arranged blocks continue into equally neat new blocks; on the right, crooked, disordered blocks continue into equally crooked new blocks.](/figures/codebase-shapes-the-agent-en.svg)
+
+I've hit the small version of this myself. When an agent wrote something I disliked, my reflex was to add a rule telling it not to — and then a fifth rule. Reading Lauren's framing backwards: it wrote that way because that way was already sitting in the folder, and it was copying. Sweeping the environment goes at the cause; correcting each instance goes at the symptom. Her prescription has three layers: delete the technical debt for real, collapse the ways of doing things down to the one you believe in and fence off the rest with automated checks, then distil the team's best engineering judgement into instructions an agent can read — and finally build out the verification layer.
+
+Verification deserves its own line. Agents can already do a great deal; what stops them is often not knowing whether they got it right. Give them a sharp way to check and each step tells them whether they moved closer, so they can walk themselves in. Leave it vague and they can't even tell what you wanted, so they don't produce it.
+
+![On the left, footprints move step by step toward the center of a clear bullseye; on the right, only a blurred dashed ring remains as footprints wander around its edge.](/figures/verification-as-a-target-en.svg)
+
+## What does this have to do with people who don't write code?
+
+The test travels: if a piece of work can be completed end to end inside a digital environment, an agent can own it.
+
+Harry's example is recruiting. Say the company opens a new line of business and you alone have to staff the team. One agent per role: it drafts the job description from your brief plus the company's own records, posts it, goes hunting on career platforms, handles the back-and-forth, and writes the confirmed slot straight into your calendar. Your day becomes spawning agents, handing out work, and showing up for the parts that need you — the interview.
+
+Whether that runs depends on the environment again. HR has its own technical debt: two people in the same role on different salaries with no record of why the negotiation went that way, so an agent can't judge what the next hire should get; leave requested over chat with a manager and never logged, so nobody can say how many days someone has left this year; onboarding handed over verbally. Those blanks are exactly where an agent stalls.
+
+From there Harry borrows Lauren Tan's own coinage: the gardener — the person who builds and keeps maintaining a clean, high-trust environment. He argues the role survives AI, because a company's direction and business keep shifting and someone has to hold trust steady through the shifts, and because the job needs all three at once: how agents behave, how the product works, and the taste to judge what counts as a good pattern. As for the work that still needs a human in the loop, he draws the line at moving atoms in the physical world. His example is carrying bricks — within two years, he doesn't see one person steering a crowd of agents to do that.
+
+A human footnote: this episode landed on a Tuesday because Harry's interview-and-meeting marathon gave him acute pharyngitis and his throat, in his words, exploded. He joked that talking for a living comes with occupational injuries. It made me smile, and then it made me notice something: the reason he dug into this topic at all is that his own six-person company is trying to grow in exactly this direction.
+
+## So how do I actually use this?
+
+Here's a reasonable objection first: I don't own the company, the technical debt predates me by a decade, and the environment isn't mine to decide — so what does this episode have to do with me?
+
+My own read is that the test works at a very small scale, and where it applies has nothing to do with your job title. You've got a few things only you know how to do: why that number in the report gets adjusted that way, who has to be asked before this client, how those files get named. Everything that exists only inside your head is the technical debt of your seat. It buys you a little irreplaceability today, and it's also the reason you can't hand the work off — and work you can't hand off, you do forever.
+
+![On the left, a head contains three pieces of knowledge, but the outward arrow is blocked; on the right, the same three items are written on paper and passed successfully to another person.](/figures/knowledge-only-in-your-head-en.svg)
+
+Turning the same test on companies changed what I ask. I used to count the tools a company listed when it talked about using AI. Now I want to know whether its processes leave records, whether the same task has one accepted way of being done, and how many times a delegated job comes back for clarification. None of that shows up in a press release, and all of it decides whether the company can actually multiply its headcount on the day costs fall. Following Harry's logic, the gap opens then — and until then, how many tools you've adopted and whether you catch this wave are two separate questions.
+
+I should mark the boundary too. This episode describes what software engineering is seeing first; the extension to other functions is Harry's judgement rather than an established fact, and even his own timeline wobbles between one and two years. So I'm treating it as a direction worth preparing for, not a conclusion already in hand.
+
+## Further reading
+
+- TechWave EP160 (2026-10-20), hosted by Harry. This piece is my own notes after listening; for the full content, go to the original episode.
+- Anthropic's published write-up on Scion, its internal version control system, and the figures cited in the episode (2,500 code changes a day in May 2026, 30,000 a day in September, a 200x reduction in infrastructure footprint).
+- SpaceXAI engineer Lauren Tan's public account of shipping 2,500 code updates in a month, and the "gardener" framing she coined.
+
+## The One Thing to Take With You
+
+**How much you can let go of depends on how clean the environment is, not on how smart your helper is.**
+
+That's the single line I kept. Drop a brilliant model into a place with no records and five accepted ways of doing the same task, and you'll still be watching every step; put an average helper somewhere orderly and it can run all the way to the end. So if you want more output, go fix the environment before you go shopping for a better assistant.
+
+![A four-quadrant chart plots environment cleanliness on the horizontal axis and assistant intelligence on the vertical axis; only the two right-hand quadrants allow autonomy, while even a smart assistant in the upper-left must be watched at every step.](/figures/environment-beats-smarter-helper-en.svg)
+
+One thing I've tried, offered rather than assigned: take something you explained out loud to someone this week — handing a report to a colleague, or telling your family how to look after a sick cat, or how to sign that form from school — and write it on one page, complete enough that they finish it without coming back to you once. You'll stall while writing. The places you stall are the things you assumed "I'll just mention it" covered, which in fact live only in your head. My first attempt stalled on line three, when I realised I'd never told anyone where the file was supposed to be saved.
