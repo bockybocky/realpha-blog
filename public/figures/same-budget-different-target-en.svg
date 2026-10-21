@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two budget bars of similar height but very different target heights, with the extra 100 million pointing at the driver.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t h" x="60" y="68">Same budget, different expectations</text>
+
+<line x1="60" y1="430" x2="900" y2="430" stroke="var(--line)" stroke-width="3"/>
+
+<rect x="140" y="250" width="150" height="180" rx="8" fill="var(--accent)" opacity="0.85"/>
+<rect x="140" y="196" width="150" height="48" rx="8" fill="var(--warn)"/>
+<text class="t b" x="140" y="462">Mercedes</text>
+<text class="t b" x="300" y="226">100 million more</text>
+<text class="t g" x="140" y="160">Target: the title</text>
+
+<rect x="620" y="250" width="150" height="180" rx="8" fill="var(--accent)" opacity="0.85"/>
+<text class="t b" x="620" y="462">Williams</text>
+<text class="t g" x="620" y="300" fill="var(--page)" opacity="0">x</text>
+<text class="t g" x="620" y="226">Target: top six</text>
+
+<path d="M460 220 L600 220" stroke="var(--warn)" stroke-width="3" stroke-dasharray="9 8"/>
+<text class="t b" x="430" y="186">Where it went</text>
+<rect x="400" y="300" width="180" height="60" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="t g" x="420" y="338">Star driver</text>
+<rect x="400" y="378" width="180" height="60" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="t g" x="420" y="416">Pay driver</text>
+<text class="t b" x="400" y="462">He is the one who won it</text>
+
+<text class="t c" x="60" y="518">One of them was wrong: same money, two different targets</text>
+</svg>
