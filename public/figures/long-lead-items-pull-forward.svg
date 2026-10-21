@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩條時間軸，下方那條終點提前一段，虛線標示省下的時間">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<g font-family='"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif'>
+<text x="48" y="66" font-size="27" fill="var(--ink)">先下單，終點往前移</text>
+<text x="140" y="136" font-size="19" fill="var(--dim)">照順序來</text>
+<rect x="140" y="150" width="720" height="44" fill="var(--card)" stroke="var(--line)"/>
+<rect x="140" y="150" width="200" height="44" fill="var(--grey)"/>
+<text x="152" y="179" font-size="16" fill="var(--page)">設計定稿</text>
+<text x="360" y="179" font-size="16" fill="var(--dim)">再訂長交期設備</text>
+<circle cx="860" cy="172" r="9" fill="var(--ink)"/>
+<text x="140" y="276" font-size="19" fill="var(--dim)">先買長交期品項</text>
+<rect x="140" y="290" width="504" height="44" fill="var(--card)" stroke="var(--line)"/>
+<rect x="140" y="290" width="200" height="44" fill="var(--accent)"/>
+<text x="152" y="319" font-size="16" fill="var(--page)">同時下單</text>
+<text x="360" y="319" font-size="16" fill="var(--dim)">邊設計邊製造</text>
+<circle cx="644" cy="312" r="9" fill="var(--accent)"/>
+<line x1="644" y1="200" x2="644" y2="290" stroke="var(--line)" stroke-dasharray="6 6"/>
+<line x1="860" y1="190" x2="860" y2="380" stroke="var(--line)" stroke-dasharray="6 6"/>
+<line x1="644" y1="380" x2="860" y2="380" stroke="var(--warn)" stroke-width="3"/>
+<text x="700" y="410" font-size="19" fill="var(--warn)">約三年</text>
+<text x="820" y="440" font-size="16" fill="var(--dim)">商轉日</text>
+<text x="48" y="486" font-size="22" fill="var(--ink)">省下的是等設備的那段</text>
+</g>
+</svg>
