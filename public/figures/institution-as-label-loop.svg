@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="三個節點構成一個閉合的循環箭頭：結果、標籤、解釋互相指回，中央標示預測力為零">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--grey)"/>
+    </marker>
+  </defs>
+  <text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">事後貼的標籤：一個繞回自己的圈</text>
+
+  <path d="M 600 168 Q 712 250 716 380" fill="none" stroke="var(--grey)" stroke-width="3" marker-end="url(#ah)"/>
+  <path d="M 596 432 Q 480 496 368 436" fill="none" stroke="var(--grey)" stroke-width="3" marker-end="url(#ah)"/>
+  <path d="M 236 380 Q 242 250 356 170" fill="none" stroke="var(--grey)" stroke-width="3" marker-end="url(#ah)"/>
+
+  <rect x="365" y="119" width="230" height="64" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="480" y="146" font-size="16" fill="var(--dim)" text-anchor="middle">看到的結果</text>
+  <text class="t" x="480" y="170" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">它很有錢</text>
+
+  <rect x="605" y="389" width="230" height="64" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="720" y="416" font-size="16" fill="var(--dim)" text-anchor="middle">貼上的名詞</text>
+  <text class="t" x="720" y="440" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">制度好</text>
+
+  <rect x="125" y="389" width="230" height="64" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="240" y="416" font-size="16" fill="var(--dim)" text-anchor="middle">拿它去解釋</text>
+  <text class="t" x="240" y="440" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">為什麼有錢</text>
+
+  <text class="t" x="480" y="292" font-size="22" font-weight="700" fill="var(--warn)" text-anchor="middle">永遠說得通</text>
+  <text class="t" x="480" y="322" font-size="22" font-weight="700" fill="var(--warn)" text-anchor="middle">預測力 0</text>
+</svg>
