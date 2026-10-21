@@ -1,0 +1,104 @@
+---
+title: "Designing, Building and Consuming Your Own Chips: The Hardest Claim in Supply Chained's Terafab Episode"
+description: "The 20 October 2026 episode of Supply Chained covers the TSMC–Terafab talks. This post unpacks John's argument that captive-only fabs lock their own yields: how it follows, who survived it historically, and the conditions under which it fails. Educational listening notes — no investment advice, no price targets."
+slug: "supplychained-2026-10-20-the-terafab-kerfuffle-tim-s-scoop-caused-a-stir-bu"
+lang: "en"
+pubDate: 2026-10-21
+category: investing
+kind: "podcast-notes"
+tags: ["TSMC", "semiconductors", "vertical integration", "foundry", "supply chain"]
+ogImage: "/covers/supplychained-2026-10-20-the-terafab-kerfuffle-tim-s-scoop-caused-a-stir-bu-cover.png"
+cover: "/covers/supplychained-2026-10-20-the-terafab-kerfuffle-tim-s-scoop-caused-a-stir-bu-cover.png"
+---
+
+![An engineer in a cleanroom suit stands with their back to us at a plant gate, a lit corridor receding into depth behind them, bright far and dark near](/covers/supplychained-2026-10-20-the-terafab-kerfuffle-tim-s-scoop-caused-a-stir-bu-cover.png)
+
+> The government foundries cast iron tools mostly in large sizes, caring only to meet their quotas, so the tools do not suit the people's use. Blunt and shoddy, they cannot cut grass.
+>
+> —— Huan Kuan, *Discourses on Salt and Iron*, "Floods and Droughts" (Western Han, c. 81 BCE; my own translation)
+
+On the 20 October 2026 episode of *Supply Chained*, Tim Culpan and John of Asianometry worked through the Terafab story. Tim's read is that TSMC wants to rent bare space inside the Terafab complex, install its own tools and run its own process to supply the many supporting chips a Tesla, a rocket or a data centre needs; his evidence is C.C. Wei's earnings-call remark about being interested in soaking up spare capacity, which most listeners skipped past. John supplied the harder half: a company that designs its own chips, builds them, and consumes them in its own end products cannot generate the volume that yields require, and yields that stall keep costs bleeding — a loop that tightens on itself unless the company finds outside customers or another cash engine.
+
+## The line everyone skipped
+
+Terafab is the large manufacturing complex the Tesla–SpaceX camp is building in Texas; Tim noted he uses the name loosely, since many of the people involved sit on Tesla or SpaceX payroll rather than inside Terafab LLC. The ambition is unusual in scope: memory and logic under one roof, plus packaging, test and mask production. John said that combination almost never happens.
+
+Tim's inference follows from treating it as an industrial complex rather than a set of cleanrooms. TSMC would not rent someone else's installed cleanroom — Elon doesn't believe in cleanrooms anyway — but renting bare space, installing its own equipment and running its own fab is a deal that can be written. Elon has said Tesla and SpaceX will make two chips themselves. Everything else that goes into a car, a rocket, a data centre or a robot is still open, and that is the business TSMC could take.
+
+![A large box represents the Terafab park, with planned blocks inside for memory, logic, packaging, test and mask, one of them a dashed empty shell space; outside the park sits a separate cleanroom already fitted with tools, marked not for lease.](/figures/terafab-park-empty-shell-space-en.svg)
+
+I think the reasoning holds, and it dissolves the surface contradiction. Both sides say they want to run the fab, which sounds impossible — until you notice they may be talking about different floors.
+
+## Why captive production gets more expensive
+
+Then Tim asked the question I found most useful in the whole hour: apart from Samsung, who designs chips, manufactures them, and puts them in their own end devices? He could think of IBM and Motorola, and both are gone from that position.
+
+John's answer gave the mechanism, and it generalises.
+
+Yields on an advanced node are not calculated, they are run. Every wafer is a sample. Where the defects come from, which step drifted, which tool needs tightening — all of that comes out of statistics accumulated across many wafers. Less volume, fewer samples, a slower climb. Meanwhile the cleanroom, the depreciating tools and the engineering team are fixed costs paid up front, spread across those few wafers.
+
+![Two yield curves share a horizontal axis of cumulative wafers: the high-volume curve keeps climbing, while the low-volume curve flattens early and stalls at a low level, leaving a clear gap between them.](/figures/yield-learning-curve-volume-en.svg)
+
+So, as John put it, captive volume holds yields at some level and they stop growing. Stalled yields bleed cost; bleeding cost makes the product uncompetitive; an uncompetitive product makes you unwilling to invest more in the fab; and that keeps yields where they are. He called it a self-defeating loop. Tim's line: you end up eating your own dog food, and it isn't very tasty dog food.
+
+![Each side holds an identically sized block of fixed cost: on the left it is spread over three wafers and yields one very tall unit-cost bar, on the right it is spread over thirty wafers and leaves only a tiny bar.](/figures/fixed-cost-divided-by-volume-en.svg)
+
+What strikes me here is the mirror problem. Vertical integration reads as strength in every press release — own the chain, capture the margin. But when your only customer is yourself, you lose the surface that tells you your output is mediocre. A foundry fills its tools with dozens of customers and hundreds of products, and those customers' complaints push the process. A captive fab has quotas instead of complaints, which is the two-thousand-year-old observation in the epigraph: state foundries met their numbers and produced sickles that couldn't cut grass.
+
+![Five nodes form a closed ring, with arrows running in turn from too little volume to yield stuck, cost bleeding, no appetite to invest and learning stalled, then back to the start; outside the ring a dashed box marks the only way out.](/figures/self-defeating-loop-ring-en.svg)
+
+For a reader, the usable test is this. When a company announces it is bringing a step in-house, ask whether that capacity will serve anyone but itself. If not, its learning rate is set by its own product volume rather than the industry's. The answer sits in capacity figures and customer lists, not in the announcement.
+
+## Three exceptions, two of them extinct
+
+The historical check carries more weight than the argument. IBM and Motorola both did design, manufacture and consume, and both left. Samsung remains, and John explained what holds it up: a DRAM and NAND oligopoly that is enormously profitable and throws off cash to feed the foundry side, plus years of government support and money from the wider Samsung group. His conclusion was that the world has no room for many Samsungs.
+
+![Three timelines run in parallel: the top two break off partway and are marked exited, while the bottom one runs all the way to today, with another parallel cash-flow line beneath it holding it up.](/figures/three-exceptions-two-gone-en.svg)
+
+Tim then asked the right question: where is Elon's DRAM oligopoly? What is Terafab's cash generator?
+
+That nails the argument down. Samsung's exception does not rest on vertical integration; it rests on a separate business line that keeps transfusing it. Remove that line and integration is just cost. Which is also why "Tesla sells two million cars" doesn't settle it — a leading-edge fab's monthly capacity runs to tens of thousands of wafers, each wafer yields chips by the hundred, and Elon has said two chip designs. Two designs cannot push a fab up a learning curve.
+
+## Three conditions that break the argument
+
+An argument is only useful with its failure modes stated. The episode didn't spell them out; here are the three I'd watch.
+
+One: it takes outside orders. That breaks the volume constraint and relocates the difficulty — serving external customers means process design kits, debugging alongside clients, committed schedules and confidentiality. That is a service business. Whether it fits a culture that wants to tear up the playbook is an observable fact over time rather than a guess about temperament.
+
+Two: Tim's version. TSMC moves in and the site becomes a multi-tenant cluster, with fixed infrastructure shared and mask, packaging and test lines carrying a second user. The mildest of the three, and the one I'd track.
+
+Three: equity markets keep funding it. While the financing window stays open the bleeding can be amortised as R&D and the yield curve can crawl. The risk is that survival then depends on the share price and the narrative rather than on manufacturing. You watch financing announcements for this one, not yield news.
+
+![Three forks branch to the right from one starting point, leading to outside orders, a multi-tenant park and equity funding, with each path's endpoint labelled with the kind of fact to go and check.](/figures/three-ways-out-fork-en.svg)
+
+## What culture and poaching don't explain
+
+The episode spent real time on culture. John senses distrust between the two, says Elon is unpredictable, and notes TSMC has a very specific way of doing things while Elon wants to tear up the playbook. Tim added an angle I hadn't considered: what about Intel? Intel is culturally closer to TSMC than people admit — semiconductor firms are cautious and slow by nature — so Intel and Terafab will have their own friction, papered over because each side needs the other.
+
+The poaching section is worth keeping too. A Korean commentator accused Terafab of draining talent from Samsung's Taylor fab; Tim called that not totally unfair, given how heavily they have recruited from Intel, including a fab manager. He also said workers should go where they like. John's reservation sits elsewhere: how sustainable is offering one-and-a-half to two times prior market rates? He thought of Meta's hundred-million-dollar AI hires. Tim's detail sharpens it: base pay isn't much above Samsung, Intel or TSMC — the upside is in restricted stock units and performance bonuses. The engineer is accepting an option. Three or four years out, if Elon changes his mind, can you go back? Tim said he doesn't know.
+
+Both are real tensions, and both sit on a different layer from the volume argument. Culture and pay make the work harder and the schedule longer; the relationship between volume and yield decides whether the fab lives. The first is friction, the second is terrain. What stayed with me after listening is that most of the public argument never leaves the friction layer.
+
+![A steep slope runs from lower left to upper right to stand for the terrain, with small pebbles scattered across its face to stand for friction; the pebbles make the road rough, while the gradient decides whether you get up at all.](/figures/friction-versus-terrain-slope-en.svg)
+
+## A few other things worth remembering
+
+- Renting a fab and renting a data centre differ. xAI leased Colossus to Anthropic, and Elon has said he might want that capacity back; Anthropic could wipe its data and hand it over — inefficient, but possible. A fab can't do that, because the tools are rooted to the floor. Tim guesses any deal would be a three- or five-year lease with a renewal decision at the end. John's suggestion for the pulled-out equipment: Facebook Marketplace.
+- Intel has already shared its process flow with Terafab. Tim's analogy: it tells you how to set up the kitchen and which tools to buy, not the recipe. Financially that looks close to risk-free for Intel so long as no cash goes out; what it spends is engineering time, plus the staff it loses. He wonders whether IP accusations surface two years from now, at which point both sides will wish the lawyers had signed something tighter.
+- Tim took a lot of abuse when he broke the story, mostly from Intel supporters. Two reasons: within a week of March's announcement Intel's leadership and Elon were shaking hands, and within a month they were discussing A14, with Elon saying the timing would be perfect by the time they ramped — so people assumed it was Intel's deal. The second reason was Elon's years of remarks about Taiwan set beside his position on Ukraine, which made a TSMC partnership look absurd to outsiders. Tim was accused of being a flunky for the Taiwanese government; he notes no cheques arrived.
+- They closed on flying cars. The new Roadster climbs walls and flips with cold-gas thrusters, recycled from rocket work. John's thought was how bad American drivers already are. Tim's complaint is that it's ugly — all jagged Cybertruck edges, none of the roundness of the older cars — and that someone will try to park one on their roof and come through the ceiling.
+
+![On the left the data centre is a few dashed boxes with one arrow walking easily out; on the right the fab's tools grow roots into the ground and the outward arrow is blocked.](/figures/exit-cost-datacenter-versus-fab-en.svg)
+
+## Sources worth checking
+
+- *Supply Chained*, episode of 20 October 2026, with Tim Culpan and John — the material behind this post.
+- TSMC's Q3 2026 earnings call remarks on Texas and capacity, worth hearing in the original against the "spare capacity" line quoted here.
+- Intel's public A18 and A14 timelines, and Samsung's Taylor progress statements, as a check on the race-to-N2-in-America discussion.
+- Asianometry's earlier videos on IBM's and Motorola's semiconductor arms, which connect directly to the historical test above.
+
+## The one thing to take away
+
+A system that serves only itself settles at good enough, because nobody from outside is there to discover it isn't. That is true of yields, of sickles, and of any method a person works out alone.
+
+Something I've tried: pick one thing you only ever made for yourself — your bookkeeping sheet, your packing list, the way you lay out a week, the dish you cook when nobody's watching — and this week hand it to an outsider and have them actually use it while you stand there saying nothing, writing down where they get stuck. The first time I did this, a spreadsheet I'd used for three years got two design flaws poked out of it inside ten minutes, because I had long since learned to steer around them.

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一條上坡代表地形，坡面上的小石子代表摩擦">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="60" y="52" font-size="27" fill="var(--ink)">摩擦與地形</text>
+<path d="M100 440 L860 180 L860 440 Z" fill="var(--card)"/>
+<path d="M100 440 L860 180" stroke="var(--accent)" stroke-width="6" fill="none"/>
+<path d="M100 440 L880 440" stroke="var(--line)" stroke-width="2"/>
+<g fill="var(--grey)">
+<circle cx="220" cy="396" r="8"/>
+<circle cx="300" cy="368" r="6"/>
+<circle cx="372" cy="344" r="9"/>
+<circle cx="452" cy="316" r="6"/>
+<circle cx="530" cy="290" r="8"/>
+<circle cx="612" cy="262" r="6"/>
+<circle cx="690" cy="234" r="9"/>
+<circle cx="770" cy="208" r="6"/>
+</g>
+<text x="560" y="150" font-size="20" fill="var(--accent)">坡度</text>
+<text x="560" y="176" font-size="16" fill="var(--accent)">量與良率</text>
+<path d="M548 160 L470 300" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 6" fill="none"/>
+<text x="150" y="258" font-size="20" fill="var(--dim)">石子</text>
+<text x="150" y="284" font-size="16" fill="var(--dim)">文化衝突·挖人成本</text>
+<path d="M216 272 L292 356" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6" fill="none"/>
+<text x="60" y="508" font-size="22" fill="var(--ink)">石子讓路難走，坡度決定上不上去</text>
+</svg>
