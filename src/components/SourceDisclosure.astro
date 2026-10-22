@@ -1,6 +1,6 @@
 ---
 interface Props {
-	demo: 'canvas-waves' | 'line-chart' | 'price-volume' | 'leverage-decay' | 'survivorship' | 'sweetvox' | 'espresso';
+	demo: 'canvas-waves' | 'line-chart' | 'price-volume' | 'leverage-decay' | 'survivorship' | 'sweetvox' | 'espresso' | 'roaster';
 	locale: 'zh-TW' | 'en';
 }
 
@@ -83,6 +83,19 @@ channel = clamp((240 - grind) / 60, 0, 1) * clamp((pressure - 8.5) / 2.5, 0, 1)
 eyEff = ey * (1 - 0.15 * channel)
 // 酸苦：-1 = 很酸，0 = 平衡，+1 = 很苦
 balance = clamp((eyEff - 20) / 4 + (temp - 93) * 0.06, -1, 1)`,
+	'roaster': `// 每秒算一步。B = 豆子本身的溫度，從 25°C 起；含水率從 11% 起
+// 熱風溫度：火力越大越熱，風門開越大帶走越多熱，投豆溫度高的部分是滾筒蓄熱、慢慢退掉
+Ta = 125.4 + 2.16 * power - 0.27 * (airflow - 50) + (charge - 200) * 0.93 * Math.exp(-t / 116)
+// 傳熱：風門開越大，熱風吹得越勤
+k = 0.00238 * (0.85 + 0.3 * airflow / 100)
+// 脫水：100°C 以上水分蒸發，吸走熱
+ev = B > 100 ? 0.0665 * (B - 100) * moist : 0
+// 一爆（196°C）後：先短暫放熱，再吸熱，所以升溫速度會掉一下
+B = B + k * (Ta - B) - ev + crack(t - tFirstCrack)
+// 探針讀數：探針本身要時間熱起來，所以投豆後讀數先降後升，最低點叫轉折點
+probe = B + (charge - B) * Math.exp(-t / 38.5)
+// 發展時間比例 = (出豆 - 一爆) / 出豆
+dtr = (tDrop - tFirstCrack) / tDrop`,
 	'survivorship': `// 資料來自自建的 Norgate 資料庫（1990 年起）：
 // active 3,925 檔、delisted 8,562 檔，合計 12,487 檔。
 const total = D.active_count + D.delisted_count;
