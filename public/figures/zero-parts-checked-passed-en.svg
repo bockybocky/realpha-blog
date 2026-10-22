@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Three bars comparing how many parts were checked, where the first has zero height yet is still labelled as passing.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="80" y="72" font-size="27" font-weight="700" fill="var(--ink)">The same word "passed" can sit on top of zero</text>
+
+  <line x1="120" y1="420" x2="900" y2="420" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="190" y="404" width="150" height="16" rx="4" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 6"/>
+  <text x="265" y="382" font-size="27" font-weight="700" text-anchor="middle" fill="var(--warn)">0</text>
+  <text x="265" y="452" font-size="19" font-weight="700" text-anchor="middle" fill="var(--warn)">Passed</text>
+  <text x="265" y="482" font-size="16" text-anchor="middle" fill="var(--dim)">First run</text>
+
+  <rect x="430" y="220" width="150" height="200" rx="5" fill="var(--accent)" opacity="0.85"/>
+  <text x="505" y="200" font-size="27" font-weight="700" text-anchor="middle" fill="var(--ink)">74</text>
+  <text x="505" y="452" font-size="19" font-weight="700" text-anchor="middle" fill="var(--ink)">Passed</text>
+  <text x="505" y="482" font-size="16" text-anchor="middle" fill="var(--dim)">One line added, 1 problem caught</text>
+
+  <rect x="670" y="120" width="150" height="300" rx="5" fill="var(--grey)" opacity="0.55"/>
+  <text x="745" y="104" font-size="27" font-weight="700" text-anchor="middle" fill="var(--ink)">111</text>
+  <text x="745" y="452" font-size="19" font-weight="700" text-anchor="middle" fill="var(--dim)">Passed</text>
+  <text x="745" y="482" font-size="16" text-anchor="middle" fill="var(--dim)">That earlier coffee machine</text>
+
+  <text x="80" y="520" font-size="22" font-weight="700" fill="var(--ink)">Ask how many parts it checked before trusting it</text>
+</svg>

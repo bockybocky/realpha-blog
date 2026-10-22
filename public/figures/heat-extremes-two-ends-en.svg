@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Three rising curves against a drop-temperature line, where low heat never reaches it, the default lands on it, and high heat hits it early.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="80" y="72" font-size="27" font-weight="700" fill="var(--ink)">Heat shifts the whole curve, earlier or later</text>
+
+  <line x1="120" y1="450" x2="900" y2="450" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="120" x2="120" y2="450" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="166" x2="900" y2="166" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="900" y="156" font-size="16" text-anchor="end" fill="var(--dim)">Drop temperature</text>
+
+  <path d="M120 180 C 150 262, 190 348, 215 342 C 260 300, 320 226, 382 166" fill="none" stroke="var(--warn)" stroke-width="3.5"/>
+  <circle cx="382" cy="166" r="8" fill="var(--warn)"/>
+  <text x="396" y="200" font-size="19" font-weight="700" fill="var(--warn)">High heat: drop at 7:14</text>
+  <text x="396" y="226" font-size="16" fill="var(--dim)">Colored outside, inside behind</text>
+
+  <path d="M120 180 C 152 268, 196 360, 224 356 C 300 326, 410 252, 496 166" fill="none" stroke="var(--accent)" stroke-width="3.5"/>
+  <circle cx="496" cy="166" r="8" fill="var(--accent)"/>
+  <text x="512" y="282" font-size="19" font-weight="700" fill="var(--accent)">Default: drop at 10:09</text>
+
+  <path d="M120 180 C 160 292, 220 392, 265 392 C 400 382, 600 352, 900 318" fill="none" stroke="var(--grey)" stroke-width="3.5"/>
+  <text x="620" y="360" font-size="19" font-weight="700" fill="var(--dim)">Low heat: never gets there</text>
+
+  <text x="104" y="462" font-size="15" text-anchor="end" fill="var(--dim)">0</text>
+  <text x="900" y="480" font-size="15" text-anchor="end" fill="var(--dim)">Time</text>
+
+  <text x="80" y="514" font-size="22" font-weight="700" fill="var(--ink)">Too little never finishes, too much burns the outside</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Three curves that dip and then rise, each with a trough of different depth and a different position left to right.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="80" y="76" font-size="27" font-weight="700" fill="var(--ink)">How deep the trough goes sets the push for the whole roast</text>
+
+  <line x1="120" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="120" x2="120" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <text x="104" y="136" font-size="15" text-anchor="end" fill="var(--dim)">Probe</text>
+  <text x="900" y="470" font-size="15" text-anchor="end" fill="var(--dim)">Time</text>
+
+  <path d="M120 150 C 150 230, 180 320, 210 340 C 260 356, 400 250, 560 196 C 700 166, 820 152, 900 146" fill="none" stroke="var(--warn)" stroke-width="3.5"/>
+  <path d="M120 180 C 152 262, 190 352, 220 360 C 280 376, 420 286, 580 232 C 720 200, 830 186, 900 180" fill="none" stroke="var(--accent)" stroke-width="3.5"/>
+  <path d="M120 180 C 158 282, 215 384, 260 390 C 330 400, 470 348, 620 306 C 760 276, 840 262, 900 254" fill="none" stroke="var(--grey)" stroke-width="3.5"/>
+
+  <circle cx="210" cy="340" r="7" fill="var(--warn)"/>
+  <circle cx="220" cy="360" r="7" fill="var(--accent)"/>
+  <circle cx="260" cy="390" r="7" fill="var(--grey)"/>
+
+  <text x="228" y="326" font-size="16" fill="var(--warn)">1:17　97.9°C</text>
+  <text x="240" y="384" font-size="16" fill="var(--accent)">1:20　85.1°C</text>
+  <text x="280" y="414" font-size="16" fill="var(--dim)">1:35　72.5°C</text>
+
+  <text x="912" y="146" font-size="19" font-weight="700" text-anchor="end" fill="var(--warn)">Hot charge</text>
+  <text x="912" y="206" font-size="19" font-weight="700" text-anchor="end" fill="var(--accent)">Default</text>
+  <text x="912" y="282" font-size="19" font-weight="700" text-anchor="end" fill="var(--dim)">Too little heat</text>
+
+  <text x="80" y="508" font-size="22" font-weight="700" fill="var(--ink)">The trough is not the real bean temperature</text>
+</svg>

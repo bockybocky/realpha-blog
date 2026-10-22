@@ -16,7 +16,11 @@ tldr: "When the same beans taste different, the difference usually lies in how l
 > *DTR is just one piece of a complex puzzle.*<br/>
 > —— Scott Rao, *Development Time Ratio* (2016)
 
-On October 22, 2026, I put a [moving coffee roaster](/en/lab/roaster/) on the blog: 74 solid parts and 3 pipes, with four sliders for charge temperature, heat, airflow and drop temperature, and a play button that squeezes a whole batch into 15 seconds. Underneath is a simplified simulation. At the defaults (charge 200°C, heat 70%, airflow 50%, drop 215°C) it gives a turning point at 1:20, first crack at 8:02 and the drop at 10:09, for a development time ratio of 20.9%, a medium roast. All of these are model output. They're fine for telling which way to turn a knob. They won't predict your next batch on your own machine.
+On October 22, 2026, I put a [moving coffee roaster](https://blog.getrealpha.com/en/lab/roaster/) on the blog: 74 solid parts and 3 pipes, with four sliders for charge temperature, heat, airflow and drop temperature, and a play button that squeezes a whole batch into 15 seconds. Underneath is a simplified simulation. At the defaults (charge 200°C, heat 70%, airflow 50%, drop 215°C) it gives a turning point at 1:20, first crack at 8:02 and the drop at 10:09, for a development time ratio of 20.9%, a medium roast. All of these are model output. They're fine for telling which way to turn a knob. They won't predict your next batch on your own machine.
+
+![The roaster in the lab: drum, burners, sight glass and temperature display, all moving with the sliders.](/figures/coffee-roaster-lab-machine-en.png)
+
+**👉 [Open the roaster lab and roast a batch yourself](https://blog.getrealpha.com/en/lab/roaster/)**
 
 ## What actually happens during a ten-minute roast?
 
@@ -25,6 +29,10 @@ Roughly three stages. First the water gets driven out, then the beans turn yello
 Green coffee usually holds 10–12% moisture (the range often cited from the Specialty Coffee Association), and the drying phase is usually said to end around 150–160°C bean temperature, when the beans turn yellow. Turning yellow doesn't mean the water is gone, though; beans keep losing moisture the whole way. First crack happens at roughly 196–210°C bean temperature, with the caveat that this is a probe reading and machines can disagree by more than ten degrees. A batch on a small commercial drum roaster mostly runs 10–15 minutes.
 
 The model's defaults land inside those ranges: drying ends at 5:27, first crack at 8:02, the drop at 10:09. What surprised me the first time I watched the curve was how much of the first half is spent on drying, where it looks like nothing much is happening.
+
+![One long horizontal bar is cut into three segments: the drying stage on the left takes up more than half, the Maillard stage in the middle is shorter, and the development stage on the right is the narrowest, with three time marks below.](/figures/roast-three-stages-timeline-en.svg)
+
+![Bean temperature for the default medium roast in the lab: the dip to the turning point at 1:20, then drying, first crack and the drop marked along the line.](/figures/coffee-roaster-lab-curve-en.png)
 
 ## Why does the curve dip at the start?
 
@@ -40,6 +48,8 @@ The model works the same way: the probe itself takes time to warm, so the readin
 
 (All model output.) Less heat makes the dip deeper and later; a hotter charge makes it shallower. So the turning point works like a starting whistle: it tells you how hard this batch took off, not how hot the beans really are.
 
+![All three curves fall first and then climb back up: the low-heat curve has the deepest trough and the one furthest to the right, while the hot-charge curve has the shallowest trough and the one furthest to the left.](/figures/turning-point-dip-depth-en.svg)
+
 ## How do light and dark roasts differ, and why is first crack at the same time?
 
 Flip between the "light" and "dark" presets in the lab and first crack lands at 8:02 both times. The only difference is how long the batch keeps going afterward:
@@ -52,6 +62,8 @@ Flip between the "light" and "dark" presets in the lab and first crack lands at 
 
 Development time ratio is simply the share of the batch between first crack and the drop. Real roasts commonly fall at 15–25%. Coffee roasting author Scott Rao recommends 20–25% for most roast levels, but he also says machines with a lot of heat relative to batch size can go down to about 15%, and that the ratio is only one indicator among several. That's why his line opens this post.
 
+![The first-crack mark on all three bars sits on the same vertical line, but the tail after it gets longer from one bar to the next, labelled 13%, 21% and 34%.](/figures/development-ratio-three-roasts-en.svg)
+
 First crack landing at the same time is a design choice in the model: it fires first crack when the bean's own temperature crosses a fixed threshold, and the drop temperature only decides how long to wait after that. Real beans aren't that tidy; origin, moisture and batch size all nudge first crack earlier or later. Also, the dark preset drops at 230°C, which reaches the range usually given for second crack (around 225–230°C), but the model has no second crack in it, so it can't tell you when that would arrive.
 
 In the real world, one common way to measure roast color is an Agtron meter, where lower numbers mean darker. On Coffee Review's scale, above 70 is light and below 50 is dark. Whole bean versus ground, and which scale you use, change the numbers a lot, so say which one you mean when you quote one. Weight tells you too: a light roast typically loses about 12% and a dark roast about 20%, with extremes from 10% to 25%. The model calculates neither.
@@ -62,11 +74,15 @@ In the model, heat sets how hot the air is, so more heat pushes the whole curve 
 
 The two extremes show the difference best. Drop the heat to 35% and drying doesn't finish until 10:19, and the beans never reach the drop temperature within 20 minutes, so the batch never finishes. Go the other way, charge at 228°C with 90% heat, and first crack comes early at 5:55 with the drop at 7:14. The model warns that the surface may scorch first: the outside has colored before the inside catches up.
 
+![Three rising temperature curves meet a horizontal drop-temperature line: the low-heat curve never reaches it in twenty minutes, while the high-heat curve hits it very early.](/figures/heat-extremes-two-ends-en.svg)
+
 Real machines have one more knob the model doesn't: drum speed. A 1 kg drum commonly turns at about 60–75 rpm, smaller drums spin faster, and 40–60 rpm is the range for large machines. The speed depends on the drum's size, not on how many beans are in this batch. Spin too fast and centrifugal force pins the beans to the drum wall, which actually makes heat transfer worse.
 
 ## Why should the rate of rise keep slowing, and what's that drop right after first crack?
 
 According to Rao, the rate of rise (how many degrees the bean temperature climbs per minute) should keep falling throughout the batch, and the crash often seen at first crack, followed by a flick back up, is the main cause of baked coffee (the flat, dull flavor). His explanation is that at first crack the bean cores release a lot of moisture in a short time, that moisture is cooler than the bean surface and the probe, and it drags the curve down.
+
+![A line slopes downward all the way, then drops into a sudden notch at first crack in the middle and bounces back, after which it keeps sloping down.](/figures/ror-decline-and-crash-en.svg)
 
 That's Rao's claim, and some in the industry dispute it. In my model, first crack briefly releases heat and then absorbs it, so the rate of rise dips. That only mimics the shape of the curve; it doesn't mean the model proves his argument.
 
@@ -86,6 +102,8 @@ I use it like a compass needle. Too little heat drags the curve; waiting too lon
 Because that "passed" came after checking 0 parts in 0.0 seconds. After drawing the machine, a set of checks runs automatically to see whether parts pass through each other and whether the pipes connect. The first run said "passed," and I nearly called it a day before looking at the numbers again. The same checks had covered 111 parts on the espresso machine before it.
 
 The cause was tiny. The drawing code was missing one line that hands the parts to the checker, so the checker got an empty list and naturally found nothing wrong. With that line added it really checked 74 parts and caught 1 problem: one end of the drive belt touched the outline of the drum housing on screen. Moving it 0.4 units fixed it.
+
+![Three bars stand side by side: the first is a dashed outline of zero height, the second is medium, the third is the tallest, and all three are labelled as passing.](/figures/zero-parts-checked-passed-en.svg)
 
 Two smaller traps turned up the same day. The English labels on the machine came out half in Chinese for a while. The page is written in Chinese first, and a table swaps each Chinese phrase for its English version, in order. The short Chinese word for "airflow" got swapped first, so every longer Chinese sentence containing it no longer matched its entry in the table and stayed untranslated. A test written specifically to check language still passed. The fix was to replace long phrases first and short words last. The other was that in the light theme the display text was hard to read, so I gave the display a fixed dark background with amber text, the way a real LCD looks, instead of following the theme.
 
