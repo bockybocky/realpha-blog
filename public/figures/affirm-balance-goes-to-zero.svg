@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一條欠款線階梯下降到零停住；另一條水平起伏穿出右邊界，沒有終點">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t  { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">欠的錢，走向哪裡</text>
+
+<line x1="120" y1="420" x2="860" y2="420" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="120" x2="120" y2="420" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="60" y="134" font-size="15" fill="var(--dim)">欠款</text>
+<text class="t" x="790" y="450" font-size="15" fill="var(--dim)">時間</text>
+<text class="t" x="96" y="438" font-size="15" fill="var(--dim)">0</text>
+
+<polyline points="150,180 150,240 240,240 240,300 330,300 330,350 420,350 420,392 510,392 510,420 600,420" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<circle cx="600" cy="420" r="7" fill="var(--accent)"/>
+<text class="t" x="330" y="208" font-size="19" fill="var(--accent)">Affirm：還到零</text>
+<text class="t" x="560" y="396" font-size="15" fill="var(--accent)">終點</text>
+
+<polyline points="150,290 230,276 310,296 390,272 470,292 550,268 630,290 710,266 790,288 870,264" fill="none" stroke="var(--warn)" stroke-width="4" stroke-dasharray="1 0"/>
+<polyline points="862,268 884,264 866,256" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<text class="t" x="150" y="258" font-size="19" fill="var(--warn)">信用卡循環餘額</text>
+<text class="t" x="700" y="232" font-size="15" fill="var(--warn)">沒有終點</text>
+
+<text class="t" x="60" y="510" font-size="22" font-weight="700" fill="var(--ink)">看它有沒有終點，不看它多大</text>
+</svg>

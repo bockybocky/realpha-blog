@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Several fixed-cost bars close into endpoints on a date, while the last two have no endpoint, run past the right edge and are circled.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t  { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">For each one, when does it stop</text>
+
+<text class="t" x="60" y="120" font-size="19" fill="var(--dim)">Today</text>
+<line x1="150" y1="130" x2="150" y2="480" stroke="var(--line)" stroke-width="2"/>
+
+<text class="t" x="60" y="178" font-size="16" fill="var(--ink)">Installments</text>
+<rect x="150" y="160" width="300" height="22" rx="4" fill="var(--accent)" opacity="0.8"/>
+<circle cx="450" cy="171" r="7" fill="var(--accent)"/>
+
+<text class="t" x="60" y="228" font-size="16" fill="var(--ink)">Courses</text>
+<rect x="150" y="210" width="190" height="22" rx="4" fill="var(--accent)" opacity="0.8"/>
+<circle cx="340" cy="221" r="7" fill="var(--accent)"/>
+
+<text class="t" x="60" y="278" font-size="16" fill="var(--ink)">Premiums</text>
+<rect x="150" y="260" width="520" height="22" rx="4" fill="var(--accent)" opacity="0.8"/>
+<circle cx="670" cy="271" r="7" fill="var(--accent)"/>
+
+<text class="t" x="60" y="348" font-size="16" fill="var(--ink)">Subscriptions</text>
+<rect x="150" y="330" width="740" height="22" rx="4" fill="var(--warn)" opacity="0.8"/>
+<polyline points="884,324 904,341 884,358" fill="none" stroke="var(--warn)" stroke-width="3"/>
+
+<text class="t" x="60" y="398" font-size="16" fill="var(--ink)">Favors</text>
+<rect x="150" y="380" width="740" height="22" rx="4" fill="var(--warn)" opacity="0.8"/>
+<polyline points="884,374 904,391 884,408" fill="none" stroke="var(--warn)" stroke-width="3"/>
+
+<rect x="700" y="316" width="196" height="100" rx="50" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<text class="t" x="700" y="446" font-size="19" fill="var(--warn)">Your revolving balance</text>
+
+<text class="t" x="60" y="520" font-size="22" font-weight="700" fill="var(--ink)">The ones with no date are the problem</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="計息那塊矩形又寬又高，短期免息那塊又窄又矮">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t  { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">寬是量，高是毛利率</text>
+
+<line x1="140" y1="420" x2="860" y2="420" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="120" x2="140" y2="420" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="60" y="134" font-size="15" fill="var(--dim)">毛利率</text>
+<text class="t" x="770" y="450" font-size="15" fill="var(--dim)">成交金額</text>
+
+<rect x="140" y="180" width="500" height="240" fill="var(--accent)" opacity="0.85"/>
+<text class="t" x="170" y="226" font-size="20" fill="var(--page)">計息貸款</text>
+<text class="t" x="170" y="256" font-size="16" fill="var(--page)">七成的量</text>
+<text class="t" x="170" y="286" font-size="16" fill="var(--page)">毛利率　四到六</text>
+
+<rect x="640" y="320" width="220" height="100" fill="var(--grey)"/>
+<text class="t" x="664" y="356" font-size="20" fill="var(--ink)">短期免息</text>
+<text class="t" x="664" y="386" font-size="16" fill="var(--ink)">毛利率　一到三</text>
+
+<line x1="140" y1="252" x2="860" y2="252" stroke="var(--ink)" stroke-width="2" stroke-dasharray="6 6"/>
+<text class="t" x="790" y="244" font-size="15" fill="var(--ink)">混合　約四</text>
+
+<text class="t" x="60" y="510" font-size="22" font-weight="700" fill="var(--ink)">錢主要來自利息，不是抽成</text>
+</svg>
