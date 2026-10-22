@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A short worker bar stands beside a tall manager bar, with a floor line below and a dashed ratio band above, squeezing the pay distribution from both ends.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="48" y="62" font-size="27" fill="var(--ink)">A ratio on top, a floor below</text>
+
+  <rect x="560" y="110" width="160" height="120" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="7 6"/>
+  <rect x="560" y="230" width="160" height="240" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="560" y="92" font-size="20" fill="var(--ink)">Manager</text>
+  <text x="736" y="124" font-size="16" fill="var(--dim)">6x</text>
+  <text x="736" y="244" font-size="16" fill="var(--dim)">4x</text>
+
+  <rect x="200" y="410" width="120" height="60" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="200" y="392" font-size="20" fill="var(--ink)">Worker</text>
+  <text x="200" y="372" font-size="16" fill="var(--dim)">Base pay + profit share</text>
+
+  <line x1="120" y1="470" x2="880" y2="470" stroke="var(--warn)" stroke-width="5"/>
+  <text x="120" y="500" font-size="16" fill="var(--warn)">Wage floor | line cook $15/hour</text>
+
+  <text x="48" y="540" font-size="22" fill="var(--ink)">Capped gaps, guaranteed pay</text>
+</svg>

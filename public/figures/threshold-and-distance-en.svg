@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="A marker for the present sits on a horizontal axis, a dashed threshold line stands to its right, and a double arrow between them marks the distance.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text x="48" y="62" font-size="27" fill="var(--ink)">Where the line is, how far you are</text>
+
+  <line x1="120" y1="340" x2="880" y2="340" stroke="var(--line)" stroke-width="3"/>
+
+  <path d="M300 340 L 282 306 L 318 306 Z" fill="var(--accent)"/>
+  <text x="258" y="286" font-size="20" fill="var(--ink)">Now</text>
+
+  <line x1="700" y1="180" x2="700" y2="400" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 7"/>
+  <text x="700" y="162" font-size="20" fill="var(--warn)">When it turns ugly</text>
+
+  <line x1="300" y1="420" x2="700" y2="420" stroke="var(--dim)" stroke-width="2"/>
+  <path d="M300 420 L 320 412 L 320 428 Z" fill="var(--dim)"/>
+  <path d="M700 420 L 680 412 L 680 428 Z" fill="var(--dim)"/>
+  <text x="452" y="452" font-size="16" fill="var(--dim)">Distance</text>
+
+  <text x="48" y="498" font-size="22" fill="var(--ink)">Line on row one, distance on row two</text>
+</svg>
