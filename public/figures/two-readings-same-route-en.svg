@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Heart-rate bars for two runners on the same route, one short and one tall, with an obvious gap between them.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="60" y="66" font-size="27" fill="var(--ink)">Same route, two readings</text>
+  <rect x="60" y="100" width="520" height="390" rx="16" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="100" y1="440" x2="540" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <rect x="175" y="224" width="90" height="216" rx="6" fill="var(--grey)"/>
+  <text x="220" y="206" font-size="22" fill="var(--dim)" text-anchor="middle">120</text>
+  <text x="220" y="470" font-size="19" fill="var(--dim)" text-anchor="middle">Veteran runner</text>
+  <rect x="375" y="134" width="90" height="306" rx="6" fill="var(--warn)"/>
+  <text x="420" y="116" font-size="22" fill="var(--warn)" text-anchor="middle">170</text>
+  <text x="420" y="470" font-size="19" fill="var(--ink)" text-anchor="middle">Him</text>
+  <rect x="620" y="160" width="280" height="110" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text x="648" y="200" font-size="19" fill="var(--dim)">Body says</text>
+  <text x="648" y="240" font-size="22" fill="var(--grey)">Fine</text>
+  <rect x="620" y="300" width="280" height="110" rx="14" fill="var(--card)" stroke="var(--warn)"/>
+  <text x="648" y="340" font-size="19" fill="var(--dim)">Watch says</text>
+  <text x="648" y="380" font-size="22" fill="var(--warn)">Not normal</text>
+</svg>

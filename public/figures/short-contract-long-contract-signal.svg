@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="上升的價格曲線上，短橫槓出現在低位、長橫槓出現在高位">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text x="60" y="66" font-size="27" fill="var(--ink)">合約長短，是對後市的表態</text>
+  <rect x="60" y="100" width="840" height="390" rx="16" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="120" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="140" x2="120" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <text x="104" y="134" font-size="15" fill="var(--dim)" text-anchor="end">價格</text>
+  <path d="M120 420 L260 380 L340 392 L460 320 L560 332 L680 240 L780 200 L860 184" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linejoin="round"/>
+  <line x1="236" y1="358" x2="296" y2="358" stroke="var(--dim)" stroke-width="7"/>
+  <line x1="436" y1="298" x2="496" y2="298" stroke="var(--dim)" stroke-width="7"/>
+  <text x="300" y="336" font-size="19" fill="var(--dim)">短約</text>
+  <text x="300" y="470" font-size="16" fill="var(--dim)">還看漲</text>
+  <line x1="690" y1="160" x2="866" y2="160" stroke="var(--warn)" stroke-width="9"/>
+  <text x="690" y="140" font-size="19" fill="var(--warn)">長約</text>
+  <text x="690" y="470" font-size="16" fill="var(--warn)">想先避險</text>
+</svg>
