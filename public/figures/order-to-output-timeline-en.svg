@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Three blocks of different lengths run along the timeline in sequence, ending at 2030.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="h" x="60" y="58">Order today, output lands where</text>
+
+  <rect x="150" y="270" width="280" height="54" rx="6" fill="var(--warn)"/>
+  <rect x="430" y="270" width="170" height="54" rx="6" fill="var(--accent)" opacity="0.8"/>
+  <rect x="600" y="270" width="230" height="54" rx="6" fill="var(--grey)"/>
+  <polygon points="830,270 870,297 830,324" fill="var(--grey)"/>
+
+  <g class="g" text-anchor="middle" fill="var(--page)">
+    <text x="290" y="304">18-month lead time</text>
+  </g>
+  <g class="g" text-anchor="middle">
+    <text x="515" y="304" fill="var(--page)">Fab and install</text>
+    <text x="715" y="304" fill="var(--page)">Ramp to volume</text>
+  </g>
+
+  <g stroke="var(--line)" stroke-width="2">
+    <line x1="150" y1="200" x2="150" y2="268"/>
+    <line x1="430" y1="200" x2="430" y2="268"/>
+    <line x1="830" y1="200" x2="830" y2="268"/>
+  </g>
+  <g class="g">
+    <text x="150" y="190">Order</text>
+    <text x="430" y="190" text-anchor="middle">Tool arrives</text>
+    <text x="830" y="190" text-anchor="end">Volume starts</text>
+  </g>
+  <g class="b">
+    <text x="150" y="358">2026</text>
+    <text x="430" y="358" text-anchor="middle">2028</text>
+    <text x="830" y="358" text-anchor="end">2030</text>
+  </g>
+  <text class="c" x="60" y="440">The first stretch is longest, and not yours to control</text>
+</svg>

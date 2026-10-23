@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="四條步驟橫條中最長且標為換不掉的那條被指為要先動的一步">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="h" x="60" y="58">找出你自己的那 18 個月</text>
+  <text class="b" x="60" y="88">條長＝最短要多久</text>
+
+  <line x1="300" y1="120" x2="300" y2="430" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="g" x="280" y="170" text-anchor="end">自己查資料</text>
+  <rect x="300" y="150" width="150" height="30" rx="5" fill="var(--grey)"/>
+  <text class="b" x="466" y="172">可並行</text>
+
+  <text class="g" x="280" y="230" text-anchor="end">自己練習</text>
+  <rect x="300" y="210" width="240" height="30" rx="5" fill="var(--grey)"/>
+  <text class="b" x="556" y="232">可並行</text>
+
+  <text class="g" x="280" y="290" text-anchor="end">等別人回覆</text>
+  <rect x="300" y="270" width="520" height="30" rx="5" fill="var(--warn)"/>
+  <text class="g" x="836" y="292" fill="var(--warn)">換不掉</text>
+
+  <text class="g" x="280" y="350" text-anchor="end">現場辦理</text>
+  <rect x="540" y="330" width="140" height="30" rx="5" fill="var(--grey)"/>
+  <text class="b" x="696" y="352">要排在後面</text>
+
+  <path d="M300 404 L300 418 L820 418 L820 404" fill="none" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="560" y="444" text-anchor="middle">總時間由最長那條決定</text>
+  <text class="c" x="60" y="506">最久又換不掉的那一步，先去動它</text>
+</svg>

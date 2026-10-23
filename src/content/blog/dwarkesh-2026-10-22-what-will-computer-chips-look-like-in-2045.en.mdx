@@ -1,0 +1,92 @@
+---
+title: "You Want Ten Times. Upstream Offers Two — Inside Intel's Fabs with Dwarkesh"
+description: "Notes on the 22 October 2026 Dwarkesh Podcast tour of Intel's fabs, working through why leading-edge wafer output is capped by equipment lead times rather than capital. Educational writing on industry structure; no investment advice and no stock recommendations."
+slug: "dwarkesh-2026-10-22-what-will-computer-chips-look-like-in-2045"
+lang: "en"
+pubDate: 2026-10-23
+category: investing
+kind: "podcast-notes"
+tldr: "Intel's CTO says leading-edge wafer output can roughly double, not 10x; the binding constraint is equipment lead time, not money or buildings."
+tags: ["semiconductors", "leading-edge-process", "AI-compute", "supply-chain-bottleneck", "Intel"]
+ogImage: "/covers/dwarkesh-2026-10-22-what-will-computer-chips-look-like-in-2045-cover.png"
+cover: "/covers/dwarkesh-2026-10-22-what-will-computer-chips-look-like-in-2045-cover.png"
+---
+
+![A cleanroom corridor in a chip fab, a long row of lithography tools receding into the distance, one empty tool bay in the foreground lit from above showing bare anchor bolts](/covers/dwarkesh-2026-10-22-what-will-computer-chips-look-like-in-2045-cover.png)
+
+> Patience is the road to accomplishment; capacity to receive is the road to greatness.
+>
+> —— *Book of Documents, "Prince Chen"* (pre-Qin China; my own translation)
+
+In the 22 October 2026 episode of the Dwarkesh Podcast, Dwarkesh Patel spent two days walking Intel's fabs and interviewed Chris Auth, who runs development for processes now in manufacturing, researchers Jack Kavalieros and Tyler Osborn, and Intel CTO Pushkar Ranade. He asked Ranade a blunt question: with unlimited capital, could leading-edge wafer output go up tenfold? Ranade said not 10x, but probably 2x — against an AI industry that has tripled compute year over year for a decade. That gap holds on one condition: upstream stays put. ASML ships fewer than 100 EUV machines a year, a large tool order takes about 18 months to arrive, and once a process flow is locked you cannot swap in a different vendor's tool.
+
+![Two lines diverge from a shared starting point: the upper one climbs steeply, showing compute demand tripling each year, while the lower one stays almost flat along the bottom, showing leading-edge capacity only doubling by 2030, and the widening gap between them is marked on the right.](/figures/demand-triples-supply-doubles-en.svg)
+
+## What a CTO is actually saying when he says "two times"
+
+The episode opens with an industry voice describing demand running 40 to 50 percent above maximum capacity, a gap he says he has never seen before. My instinct on hearing that was the common one: a gap that big should close once money shows up. Ranade's answer dismantles the instinct, and the way he dismantles it is worth following step by step, because the chain transfers to other industries.
+
+Start by unpacking "capacity." Wafer output is the product of three things: how much clean room you have, how many tools sit in it, and how many dies on each wafer come out good. Ranade walks all three.
+
+![Three bars of very different heights stand for how much room is left in cleanroom space, tools and yield: the space bar is tallest, the tool bar is short and labeled stuck, and the yield bar is shortest.](/figures/three-factors-one-ceiling-en.svg)
+
+Yield goes fastest. Asked how much more could be squeezed from the installed tool fleet, he says it is incremental, because yields today are already high — and the higher the yield, the harder each extra percent, since the flow is already finely tuned. Optimising installed assets is real, and it pays in percentage points, not multiples.
+
+Buildings, power and water he grants can scale. On the Terafab partnership with Elon Musk, Dwarkesh points out that if tools are the bottleneck, a new fab does not add net silicon to the world; it gives one buyer guaranteed supply. Ranade adds that a fab also needs a lot of power, water and consumables. Asked whether those can be scaled the way tools cannot, he says yes, some more easily than others. So electricity, water and clean room space all sit on the side of the ledger that money and time can fix.
+
+Then come the tools, where the weight of the interview sits. Ranade says ASML is not the only bottleneck, just a bigger one, and that every category of equipment is short right now. The decisive sentence: once a process flow is set — 18A, say — it needs one specific tool, and you cannot go get a different tool for the same process. Even where a tool category has several vendors, a process already in production has exactly one. Intel's mitigation is fungibility across nodes: moving from 18A to 14A, maybe 80 percent of the tool set gets reused. That saves money and lead time. It does not add capacity.
+
+Now the arithmetic, which I re-ran myself. Place an enormous tool order today, allow 18 months, and the tools land in 2028. If that batch needs new clean room, add shell construction, install and qualification, and you are at the end of the decade. So Ranade's conclusion splits in two halves pointing opposite ways: next year's output could come in above what people forecast, because twelve-month marginal adjustments genuinely exist; but 2030 output will not be much above forecast, unless the whole chain — equipment makers, their suppliers, their sub-suppliers — ramps together.
+
+What I like about the chain is that it separates what can speed up from what cannot, and the dividing line is lead time and substitutability rather than technical difficulty. Which means a rebuttal has to come from one of those two dimensions.
+
+![A horizontal timeline is cut into three blocks of different lengths: eighteen months pass from order to tool delivery, then fab fit-out and installation follow, and the end point lands at the close of this decade.](/figures/order-to-output-timeline-en.svg)
+
+**Rebuttal one is money.** Dwarkesh runs a number on air: a couple of billion dollars of CapEx on Intel's books yields the logic for chips supporting something like $100 billion of annual revenue at the AI model companies, with the CapEx amortised over years. With a ratio like that, the labs should simply say *build everything you can, we guarantee the income stream.* Ranade says there are early signs of exactly that, with demand signals so high that single model companies could consume a fab's worth of silicon on their own, or several, and have the capital to fund it. But what money buys here is queue position, not lead time: those 18 months belong to someone else's production schedule. Ranade's closing admission lands in the same place — had they known what they know today, they would have invested a year ago, and knowing it now, they will invest more. Note the tense. That is not a sentence about capacity arriving next year.
+
+**Rebuttal two is routing around it.** If lithography is the expensive, jammed layer, can you use less of it? That path is in the episode, and it is Intel's 14A choice. High-NA EUV widens the numerical aperture from 0.33 to 0.55, printing features about 1.7 times smaller in a single pass. When features are finer than one pass can print, older machines split the pattern into two, three, even four passes, each one eating time on a roughly $200 million machine and adding another chance for defects. High-NA costs about twice as much and buys back passes. The interesting part is that TSMC has said High-NA does not pencil out for them yet while Intel says it does — two firms reading the same machine in opposite directions. Chris Auth's explanation is backside power: Intel moved the power lines beneath the transistors, so the signal lines on top need not be packed as tightly, and High-NA can print them in one pass. Without backside power the pitches stay tighter, High-NA still needs double patterning, and the expensive machine buys nothing. This path improves what each machine delivers. It does not change the fact that fewer than 100 ship a year.
+
+![A quadrant chart plots lead time on the horizontal axis against substitutability on the vertical: power, water, consumables and fab shells sit in the lower left, while advanced lithography tools sit in the upper right where lead times are longest and nothing can replace them.](/figures/leadtime-vs-substitutability-en.svg)
+
+**Rebuttal three is the deepest, and Ranade raises it himself.** Fab construction cost has been doubling every four to five years, and lithography — the most expensive module — doubles faster than that. A High-NA scanner with its associated equipment runs about $400 million today. Draw the line out: patterning at $800 million in four years? It does not make sense. So he asks a question I had not considered: are there things we could do radically differently today that we could not do twenty years ago, and are we still doing them the old way? His example is the clean room. Run an experiment, he suggests, where people eat hamburgers and smoke cigars in the research fab and see what happens to yield — a great experiment, which no incumbent, Intel or TSMC or Samsung, would willingly run. The industry is risk-averse for good reason when tens of billions are at stake, but decades of it breed indoctrination: new engineers get taught how the fab works and the process flow runs, and take it as gospel. Chip design too — many CPU design practices were locked in thirty years ago. His conclusion is that sometimes you start from a clean slate.
+
+Only the third rebuttal can overturn the "two times." But it runs on a different clock: it attacks the cost structure, and it needs someone willing to stake tens of billions on a method their peers will call insane.
+
+![A row of waiting slots stands for a queue, and one slot labeled pays more is moved by an arrow from the back toward the front, while a bracket spanning the whole row marks that the queue is still eighteen months long.](/figures/money-buys-position-not-length-en.svg)
+
+So if I write this episode's claim as something falsifiable, it comes out roughly: absent a synchronised ramp by equipment makers and their sub-suppliers, and absent a replacement for today's clean room and lithography paradigm, leading-edge annual output through 2030 is capped near double today's. Both conditions are trackable — equipment capacity under construction, whether order-to-delivery lead times shorten, whether anyone actually rewrites the rules. Those become the things to watch, rather than order numbers on the demand side.
+
+Here is why I think that matters for a reader, because I make the opposite mistake often. A headline says demand in some industry has exploded and a 40 percent gap has opened, and my first move is to ask who captures the gap. This episode taught me to ask a different question first: for that gap to close, which layer has to move, how long is that layer's lead time, and can it be substituted. The layer with the longest queue and no substitute sets the speed of the whole thing; volume on the demand side changes who gets served first. That reading says nothing about valuation and points at no particular stock, and it changes the first question you ask of a "demand beats expectations" story.
+
+## A few other things worth keeping
+
+**Innovation gets rationed.** Auth says the lesson from 10nm is that you cannot put too much innovation into one node, because complexity compounds and you miss the schedule the customer wants. 10nm targeted 2016 and started manufacturing in 2018; Intel judged EUV unready and engineered around it, while TSMC put EUV into volume production in 2019 and Intel's first EUV process reached products in 2023. Intel now runs maturity metrics and phase gates, and anything that misses waits for the next node.
+
+**The ideas are old; manufacturing them is the hard part.** FinFET was demonstrated in 1989 and reached volume at Intel in 2011. Gate-all-around was demonstrated in 1988, and Samsung shipped it in 2022. Same era of invention, a decade apart in production. Auth's reason: you do not tackle something before you have to, so long as other levers still drive performance.
+
+![Two parallel year axes start almost level in the late 1980s, but their mass-production points land in 2011 and 2022 respectively, so the two horizontal bars differ clearly in length.](/figures/idea-to-mass-production-gap-en.svg)
+
+**Stacking transistors is next.** CFET puts the two transistor polarities directly on top of each other, fitting twice as many in the same area in principle. Kavalieros says a simplified version exists in the lab — one ribbon over one ribbon — but the connections now have to run vertically between the transistors, which pushes etch aspect ratios and fill, and poor fill leaves voids. Heat has no clear exit yet.
+
+**Packaging is moving faster than I assumed.** Tyler Osborn says first-level interconnect pitch was 130 to 150 micrometres fifteen years ago, 25 micrometres in volume manufacturing today, sub-10 in the lab, and a paper at this year's ECTC showed reliability data at 0.45 micron hybrid bonded pitch. Since the upper metal layers inside the fab sit around half a micron to a micron, packaging below 0.5 microns means you could strip layers off the top of a die and bond one chip's lower wiring straight to another's.
+
+**Fixed cost explains why three firms are left.** Once a fab is built, Ranade says about 80 percent of the cost structure is fixed, so each extra point of utilisation adds disproportionate revenue, and lifting die yield from 60 to 65 or 70 percent gives non-linear output from the same footprint. Forty years ago there were around twenty foundries; at the advanced node there are three.
+
+![A number line running from coarse to fine marks packaging pitch shrinking from 130 microns all the way to 0.45 microns, and its right-hand stretch meets a gray band standing for back-end-of-line metal wiring on the wafer.](/figures/packaging-pitch-meets-wiring-en.svg)
+
+**The meeting where schedule gets enforced has people in it.** My favourite stretch is Kevin Fischer on the Hot Topics meeting. He says the average engineer has no visibility into the stakes and stops at the first no, while the rule of this industry is that you will never have a complete data set and waiting for one means you are already too late — so his job is deciding how much risk to take. The fab runs tiered "hot boxes," and HotBox 1 races through with priority at every tool, which he compares to clearing a carpool lane and telling everyone else to get out of it; fab operations people dislike playing that card because tools get used inefficiently. He also jokes about being written up as an ogre putting the hammer down. The defect they were working that morning was epi nodules — abnormal fast growth during epitaxy that he describes as a little tumour, which shorts one source or drain to the wrong one and kills the transistor.
+
+## Worth a look
+
+- The Dwarkesh Podcast episode of 22 October 2026, *What will computer chips look like in 2045?*, with Intel's Chris Auth, Jack Kavalieros, Tyler Osborn, Kevin Fischer and CTO Pushkar Ranade
+- The third-party density comparison cited in the episode comes from SemiAnalysis; Ranade disputes it on air, so read both
+- The packaging pitch figures trace back to papers at the annual IEEE ECTC conference in May
+- For background, the episode's narration on the path from planar transistors to FinFET to gate-all-around is plainer than most textbooks
+
+## The one thing to take away
+
+The idea I kept from this episode: how fast something can happen is set by the layer with the longest queue and no substitute. Money changes your place in the queue. No amount of demand makes another company's production line run faster.
+
+One thing I have tried that has nothing to do with investing. Take something you want to finish this year — a certification, a move, getting an older relative in for a check-up — break it into the steps that will actually occur, and write only three things next to each: the shortest it can take, whether it can run alongside another step, and whether someone else can do it for you. Then find the step that is both the longest and the least substitutable. That is your 18 months; start there and let the rest queue. I ran this table on something I had been dragging for six months and found that the two steps I kept busying myself with could run in parallel, while the one that was actually blocking me had not even gotten its first phone call.
+
+![Four horizontal bars of different lengths stand for the steps in one task, two of them labeled as able to run in parallel, and the longest bar is also labeled as having no substitute and is pointed out as the step to move first.](/figures/find-your-own-eighteen-months-en.svg)

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="封裝間距的數線一路往細的方向走，右端穿過代表晶片內部金屬線寬的灰帶">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="h" x="60" y="58">封裝的線寬追上了晶片內部</text>
+  <text class="b" x="60" y="88">橫軸為間距，單位微米，越往右越細</text>
+
+  <rect x="742" y="180" width="81" height="190" fill="var(--card)"/>
+  <text class="g" x="782" y="166" text-anchor="middle">晶圓後段金屬線</text>
+  <text class="b" x="782" y="392" text-anchor="middle">0.5 到 1</text>
+
+  <line x1="150" y1="290" x2="880" y2="290" stroke="var(--line)" stroke-width="3"/>
+  <polygon points="880,290 862,281 862,299" fill="var(--line)"/>
+
+  <circle cx="173" cy="290" r="9" fill="var(--grey)"/>
+  <circle cx="366" cy="290" r="9" fill="var(--accent)"/>
+  <circle cx="473" cy="290" r="9" fill="var(--accent)"/>
+  <circle cx="836" cy="290" r="11" fill="var(--warn)"/>
+
+  <g class="g" text-anchor="middle">
+    <text x="173" y="262">130</text>
+    <text x="366" y="262">25</text>
+    <text x="473" y="262">10</text>
+    <text x="856" y="262" text-anchor="end" fill="var(--warn)">0.45</text>
+  </g>
+  <g class="b" text-anchor="middle">
+    <text x="173" y="326">15 年前</text>
+    <text x="366" y="326">今天量產</text>
+    <text x="473" y="326">實驗室</text>
+    <text x="856" y="326" text-anchor="end">今年會議數據</text>
+  </g>
+  <text class="c" x="60" y="470">兩邊碰上了，頂層幾層就可以拿掉</text>
+</svg>

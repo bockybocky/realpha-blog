@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The demand curve rises steeply while the supply curve stays nearly flat, with the gap between them marked on the right.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="h" x="60" y="58">Demand and supply, different slopes</text>
+
+  <line x1="130" y1="110" x2="130" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <line x1="130" y1="470" x2="900" y2="470" stroke="var(--line)" stroke-width="2"/>
+
+  <g class="b" text-anchor="end">
+    <text x="118" y="185">81x</text>
+    <text x="118" y="255">30x</text>
+    <text x="118" y="325">10x</text>
+    <text x="118" y="395">3x</text>
+    <text x="118" y="465">1x</text>
+  </g>
+  <g stroke="var(--line)" stroke-width="1" stroke-dasharray="4 6">
+    <line x1="130" y1="180" x2="880" y2="180"/>
+    <line x1="130" y1="250" x2="880" y2="250"/>
+    <line x1="130" y1="320" x2="880" y2="320"/>
+    <line x1="130" y1="390" x2="880" y2="390"/>
+  </g>
+
+  <polyline points="160,460 340,390 520,320 700,250 860,180" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <polyline points="160,460 860,416" fill="none" stroke="var(--warn)" stroke-width="4"/>
+
+  <circle cx="160" cy="460" r="5" fill="var(--accent)"/>
+  <circle cx="860" cy="180" r="6" fill="var(--accent)"/>
+  <circle cx="860" cy="416" r="6" fill="var(--warn)"/>
+
+  <text class="g" x="700" y="150" fill="var(--accent)">Compute demand</text>
+  <text class="b" x="700" y="172">3x a year</text>
+  <text class="g" x="560" y="448" fill="var(--warn)">Leading-edge supply</text>
+  <text class="b" x="560" y="470" fill="var(--dim)">~2x by 2030</text>
+
+  <line x1="890" y1="186" x2="890" y2="410" stroke="var(--ink)" stroke-width="2"/>
+  <polygon points="890,180 885,194 895,194" fill="var(--ink)"/>
+  <polygon points="890,416 885,402 895,402" fill="var(--ink)"/>
+  <text class="g" x="878" y="310" text-anchor="end">Gap</text>
+
+  <g class="b">
+    <text x="160" y="496" text-anchor="middle">2026</text>
+    <text x="860" y="496" text-anchor="middle">2030</text>
+    <text x="60" y="88">Y axis is multiples, scale illustrative</text>
+  </g>
+  <text class="c" x="60" y="534">Different slopes, so the gap only widens</text>
+</svg>

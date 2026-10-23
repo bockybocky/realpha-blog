@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="象限圖中多數項目聚在交期短又可替代的左下角，曝光機孤立在右上角">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="h" x="60" y="58">分界線在交期與可替代性</text>
+
+  <rect x="510" y="120" width="370" height="175" fill="var(--card)"/>
+  <line x1="140" y1="470" x2="900" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <line x1="140" y1="110" x2="140" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <line x1="510" y1="110" x2="510" y2="470" stroke="var(--line)" stroke-width="1" stroke-dasharray="5 6"/>
+  <line x1="140" y1="295" x2="900" y2="295" stroke="var(--line)" stroke-width="1" stroke-dasharray="5 6"/>
+
+  <circle cx="250" cy="430" r="8" fill="var(--grey)"/>
+  <text class="g" x="268" y="436">耗材</text>
+  <circle cx="275" cy="385" r="8" fill="var(--grey)"/>
+  <text class="g" x="293" y="391">電與水</text>
+  <circle cx="330" cy="340" r="8" fill="var(--grey)"/>
+  <text class="g" x="348" y="346">無塵室空間</text>
+  <circle cx="660" cy="240" r="8" fill="var(--accent)"/>
+  <text class="g" x="678" y="246">設備商的次級供應商</text>
+  <circle cx="800" cy="168" r="11" fill="var(--warn)"/>
+  <text class="g" x="786" y="150" text-anchor="end" fill="var(--warn)">先進曝光機</text>
+
+  <text class="b" x="866" y="286" text-anchor="end">這一層定速度</text>
+  <g class="b">
+    <text x="150" y="496">交期短</text>
+    <text x="900" y="496" text-anchor="end">交期長</text>
+    <text x="60" y="118">換不掉</text>
+    <text x="60" y="466">換得掉</text>
+  </g>
+  <text class="c" x="60" y="552">不是技術難不難，是等多久、能不能換</text>
+</svg>
