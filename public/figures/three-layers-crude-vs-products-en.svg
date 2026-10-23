@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Three stacked bars: the source layer is nearly full, the processing layer holds only 30 percent, and the gap sits in the middle.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="70" font-size="27" font-weight="700" fill="var(--ink)">The gap is not at the source, it is in the middle layer</text>
+
+  <text class="t" x="60" y="140" font-size="20" font-weight="700" fill="var(--dim)">Source | crude through the strait</text>
+  <rect x="300" y="118" width="540" height="46" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="300" y="118" width="459" height="46" rx="6" fill="var(--accent)"/>
+  <text class="t" x="860" y="149" font-size="20" font-weight="700" fill="var(--accent)">80-90%</text>
+
+  <text class="t" x="60" y="250" font-size="20" font-weight="700" fill="var(--dim)">Processing | refined fuels</text>
+  <rect x="300" y="228" width="540" height="46" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="300" y="228" width="162" height="46" rx="6" fill="var(--warn)"/>
+  <text class="t" x="860" y="259" font-size="20" font-weight="700" fill="var(--warn)">25-35%</text>
+  <rect x="462" y="228" width="378" height="46" rx="6" fill="none" stroke="var(--warn)" stroke-dasharray="7 6"/>
+  <text class="t" x="651" y="305" font-size="16" text-anchor="middle" fill="var(--warn)">Gap</text>
+
+  <text class="t" x="60" y="370" font-size="20" font-weight="700" fill="var(--dim)">Delivery | gasoline, diesel, jet fuel</text>
+  <rect x="300" y="348" width="540" height="46" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="300" y="348" width="162" height="46" rx="6" fill="var(--grey)"/>
+  <text class="t" x="860" y="379" font-size="20" font-weight="700" fill="var(--grey)">Capped by the middle layer</text>
+
+  <line x1="60" y1="430" x2="900" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="60" y="478" font-size="22" font-weight="700" fill="var(--ink)">More wells cannot fix the furnaces</text>
+</svg>

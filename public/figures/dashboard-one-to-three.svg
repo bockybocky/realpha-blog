@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="左邊一個錶，右邊三個錶，指針位置各不相同">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .arc { fill:none; stroke:var(--line); stroke-width:14; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="68" font-size="27" font-weight="700" fill="var(--ink)">儀表板從一格改成三格</text>
+
+  <path class="arc" d="M90 290 A 80 80 0 0 1 250 290"/>
+  <line x1="170" y1="290" x2="170" y2="215" stroke="var(--grey)" stroke-width="5"/>
+  <circle cx="170" cy="290" r="7" fill="var(--grey)"/>
+  <text class="t" x="170" y="330" font-size="19" font-weight="700" text-anchor="middle" fill="var(--dim)">原油報價</text>
+  <text class="t" x="170" y="380" font-size="16" text-anchor="middle" fill="var(--dim)">過去只看這個</text>
+
+  <path d="M300 265 L360 265" stroke="var(--grey)" stroke-width="4"/>
+  <path d="M360 265 l-16 -9 l0 18 z" fill="var(--grey)"/>
+
+  <path class="arc" d="M400 290 A 70 70 0 0 1 540 290"/>
+  <line x1="470" y1="290" x2="470" y2="225" stroke="var(--grey)" stroke-width="5"/>
+  <circle cx="470" cy="290" r="6" fill="var(--grey)"/>
+  <text class="t" x="470" y="328" font-size="19" text-anchor="middle" fill="var(--dim)">原油報價</text>
+
+  <path class="arc" d="M580 290 A 70 70 0 0 1 720 290"/>
+  <line x1="650" y1="290" x2="710" y2="255" stroke="var(--warn)" stroke-width="5"/>
+  <circle cx="650" cy="290" r="6" fill="var(--warn)"/>
+  <text class="t" x="650" y="328" font-size="19" font-weight="700" text-anchor="middle" fill="var(--warn)">柴油裂解價差</text>
+
+  <path class="arc" d="M760 290 A 70 70 0 0 1 900 290"/>
+  <line x1="830" y1="290" x2="890" y2="255" stroke="var(--accent)" stroke-width="5"/>
+  <circle cx="830" cy="290" r="6" fill="var(--accent)"/>
+  <text class="t" x="830" y="328" font-size="19" font-weight="700" text-anchor="middle" fill="var(--accent)">補貼與資本支出</text>
+  <text class="t" x="830" y="353" font-size="15" text-anchor="middle" fill="var(--dim)">成品油過海峽比例同看</text>
+
+  <text class="t" x="60" y="465" font-size="22" font-weight="700" fill="var(--ink)">第三格鬆了，前兩格才咬到人</text>
+</svg>
