@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="左邊點排成斜線右邊點四散，下方刻度顯示重算後 VIX 落在四十">
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<style>
+ svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+       --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+ @media (prefers-color-scheme: dark) {
+   svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+         --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+ }
+ text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+ .h{font-size:27px;font-weight:700}
+ .g{font-size:19px;fill:var(--dim)}
+ .b{font-size:16px;fill:var(--dim)}
+ .c{font-size:22px;font-weight:700}
+</style>
+<text class="h" x="60" y="52">個股各走各的，波動就被藏起來</text>
+<rect x="60" y="86" width="400" height="250" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="80" y="120">正常年份 相關 50–60%</text>
+<circle cx="100" cy="310" r="7" fill="var(--accent)"/>
+<circle cx="132" cy="296" r="7" fill="var(--accent)"/>
+<circle cx="164" cy="288" r="7" fill="var(--accent)"/>
+<circle cx="196" cy="272" r="7" fill="var(--accent)"/>
+<circle cx="228" cy="262" r="7" fill="var(--accent)"/>
+<circle cx="260" cy="246" r="7" fill="var(--accent)"/>
+<circle cx="292" cy="238" r="7" fill="var(--accent)"/>
+<circle cx="324" cy="222" r="7" fill="var(--accent)"/>
+<circle cx="356" cy="208" r="7" fill="var(--accent)"/>
+<circle cx="388" cy="196" r="7" fill="var(--accent)"/>
+<circle cx="420" cy="180" r="7" fill="var(--accent)"/>
+<rect x="500" y="86" width="400" height="250" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="520" y="120">現在 相關 5%</text>
+<circle cx="540" cy="300" r="7" fill="var(--grey)"/>
+<circle cx="596" cy="180" r="7" fill="var(--grey)"/>
+<circle cx="632" cy="268" r="7" fill="var(--grey)"/>
+<circle cx="684" cy="150" r="7" fill="var(--grey)"/>
+<circle cx="700" cy="310" r="7" fill="var(--grey)"/>
+<circle cx="748" cy="224" r="7" fill="var(--grey)"/>
+<circle cx="792" cy="166" r="7" fill="var(--grey)"/>
+<circle cx="812" cy="298" r="7" fill="var(--grey)"/>
+<circle cx="860" cy="206" r="7" fill="var(--grey)"/>
+<circle cx="568" cy="238" r="7" fill="var(--grey)"/>
+<circle cx="876" cy="286" r="7" fill="var(--grey)"/>
+<line x1="140" y1="470" x2="860" y2="470" stroke="var(--line)" stroke-width="3"/>
+<line x1="420" y1="456" x2="420" y2="484" stroke="var(--dim)" stroke-width="2"/>
+<line x1="700" y1="456" x2="700" y2="484" stroke="var(--dim)" stroke-width="2"/>
+<text class="b" x="398" y="512">20</text>
+<text class="b" x="680" y="512">40</text>
+<circle cx="300" cy="470" r="11" fill="var(--accent)"/>
+<circle cx="700" cy="470" r="11" fill="var(--warn)"/>
+<text class="b" x="250" y="440">現在的 VIX</text>
+<text class="b" x="640" y="440" fill="var(--warn)">換回正常相關</text>
+<text class="c" x="60" y="572">波動低，不等於風險低</text>
+</svg>
