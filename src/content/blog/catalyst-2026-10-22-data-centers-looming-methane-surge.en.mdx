@@ -1,0 +1,79 @@
+---
+title: "The Methane Bill for Data Centers: Same Plant, Double the Emissions"
+description: "Notes after listening to Catalyst with Shayle Kann (2026-10-22) — where the methane in a behind-the-meter gas data center actually leaks from, how the 380-million-tonne figure is built, why roughly half of it can be avoided for under 1% of project cost, and which link in that arithmetic is weakest. Educational discussion of method, not investment advice, no stock recommendations."
+slug: "catalyst-2026-10-22-data-centers-looming-methane-surge"
+lang: "en"
+pubDate: 2026-10-23
+category: "investing"
+kind: "podcast-notes"
+tags: ["methane", "data centers", "gas generation", "emissions accounting", "energy transition"]
+ogImage: "/covers/catalyst-2026-10-22-data-centers-looming-methane-surge-cover.png"
+cover: "/covers/catalyst-2026-10-22-data-centers-looming-methane-surge-cover.png"
+---
+
+![At dusk on the Texas plains, rows of containerized reciprocating gas engines recede toward the horizon, heat shimmer distorting the air above their exhaust stacks, with a windowless data center hall further back](/covers/catalyst-2026-10-22-data-centers-looming-methane-surge-cover.png)
+
+> Trouble is born of what we overlook; disaster begins in the minute.
+>
+> —— Liu Xiang, *Garden of Persuasions*, "On Prudence" (Western Han; my own translation)
+
+On the 22 October 2026 episode of *Catalyst with Shayle Kann*, "Data centers' looming methane surge," Frost Methane founder and CEO Olya Irzak walked through an arithmetic: if 50 gigawatts of behind-the-meter gas generation for data centers comes online in the next 18 months, and 7.5% of the methane reaches the atmosphere unburned, US emissions gain 380 million tonnes of CO2-equivalent, with 40–50% of that coming from methane rather than combustion. Counting only the CO2 from the burn, in other words, counts half the bill. She also said about half of that total is avoidable with measures that together add under 1% to the cost of a data center. Both numbers carry conditions: the 50 GW is an assumption, and "double" holds on a 100-year warming basis — switch to 20 years and the total becomes 724 million tonnes, with methane now the majority.
+
+## The case for: same fuel, same megawatt-hour, double the emissions
+
+The episode picks its question well. Shayle Kann opens by taking the obvious debate off the table: interconnection queues run for years, the hyperscalers and frontier labs are not waiting, and on-site gas is the fastest route to firm power at scale today. So the only live question is how the emissions bill is calculated.
+
+Irzak splits the chain into four segments. The first is the wellhead and the gathering pipes — assume the data center sits in Texas and the gas comes from the Permian, and 4% of production is lost between the wellhead and the in-basin processing plant. Then she adds the line that matters most to me: the 4% is an average. The best operators leak 0.2%; the worst are at least double the average. Long-distance transmission pipelines, she says plainly, are not the thing to worry about.
+
+![A horizontal pipeline is divided into four segments, each with an upward arrow representing methane leakage; the arrows vary greatly in thickness and length, with very long arrows over wellhead and gathering and engine exhaust, while the long-distance transmission arrow is nearly invisible.](/figures/methane-four-segments-leak-en.svg)
+
+The second is the site itself, and her comparison is vivid. A gigawatt plant for a utility is two turbines plus a second stage, sitting in one building. Some data centers reaching that same gigawatt right now are using 35 reciprocating engines spread across close to a mile. The piping, welds and connections scale up, and so do the leaks.
+
+![Three horizontal bars differ dramatically in length: the best operator has only a tiny sliver, the average is moderate, and the worst exceeds twice the average.](/figures/methane-operator-spread-en.svg)
+
+The third segment is methane slip, the part I most wanted to write down. A reciprocating engine — a scaled-up car engine — does not burn cleanly, and unburned methane walks straight out of the exhaust. The EPA average for a four-stroke lean-burn engine at full load is 3%, and Irzak says she has seen measurements up to 12% at partial load. Here is the counterintuitive part: plenty of people, with good intentions, want their gas fleet to follow the solar curve, so they run every engine at reduced load — which is the worst state for slip. Her advice is to shut half the engines off and run the rest at full load.
+
+Add the four segments and you get the 380 million tonnes. She gives a sense of scale: California's entire installed gas generation capacity is 40 GW, and this behind-the-meter buildout is larger, so the world in which data centers were a rounding error on energy use is gone. The avoidable half, she says, equals 15% of US grid emissions, and she laughs a little at that point — the biggest climate lever she has had a chance to pull in her career.
+
+![On the left, one building houses two turbines; on the right, thirty-five small blocks stretch across a very long site, yet both represent one gigawatt.](/figures/one-gigawatt-two-shapes-en.svg)
+
+Her list of what to do costs almost nothing. Buy from lower-leakage basins or operators (the Permian already has certified low-leak supply from majors like BP, and the premium is small). Install leak detection with fast repair at the site — you already paid for that methane, so a leak is cash burning, and pressurised gas plus one colleague with a cigarette is a safety event. Don't run reciprocating engines at partial load. Put an oxidation catalyst on the exhaust, the same principle as the catalytic converter on your car. Her estimate: under 1% added cost, and no hit to what she calls time to flops — the only hard metric this industry currently respects.
+
+![Two panels are compared: on the left, all four engines run at half load and emit thick upward arrows; on the right, two engines are off and two run at full load, producing much thinner arrows.](/figures/part-load-methane-slip-en.svg)
+
+## The case against: the weakest link is the one the arithmetic leans on
+
+I accept every mechanism above. The 380 million tonnes I cannot put weight on.
+
+She raises the first objection herself: site-level leakage has the worst dataset of the four segments, and utility-scale factors cannot be transplanted onto a plant sprawled over a mile, because the structure differs. So where does the 7.5% total come from? Her own words: that composite already applies optimistic assumptions to facility leaks. An assumption stacked on a factor that cannot be extrapolated, multiplied by an assumed capacity. As for the satellites, "it doesn't look so great for some players" is a direction, not a quantity.
+
+Second, the time horizon. "Twice what you imagined" holds on a 100-year basis; on 20 years it looks worse. She honestly reports both, which means that headline multiple contains a choice, and the choice is a position rather than a measurement. Any methane figure expressed in CO2-equivalent deserves one question first: which horizon?
+
+![Two stacked columns are compared: the right column is much taller, and methane shifts from a minority share to the majority.](/figures/gwp-timescale-flip-en.svg)
+
+Third, each cheap lever has a ceiling, and she concedes them. Could certified low-leak supply be bought out at scale? Methane oxidation catalysts, in her words, are "not a solved problem," and regenerative thermal oxidisers at these concentrations need extra energy input. The incentive problem is worse: the episode cites RMI research finding leak rates track gas prices — high prices justify more frequent inspection, low prices make the inspector worth less than the gas saved. That makes 0.2% a behaviour under given economics, not a specification of a piece of equipment. A certificate bought this year does not guarantee next year's behaviour.
+
+Fourth, the contracting chain. Her description is memorable: a hyperscaler has a subcontractor who has a subcontractor who has a subcontractor, and by the time anybody welds anything you are three layers down, on a chain where the number of people who know what methane slip is rounds to zero. Managing a physical problem through contracts and certification, across three layers of misaligned incentives — I have been burned by that on far smaller projects, where what was written in the spec and what got built were never the same object.
+
+Finally, the other half. Two options, she says: capture the CO2 on site, which costs about 15% of the facility's energy, and energy not going to flops is the one thing nobody will give up; or pay to avoid emissions somewhere else. Offsets have a short credit history, and she positions them only as an interim move.
+
+## My read: the mechanism holds, the total is a scenario, and measurement decides it
+
+Laying both sides out, I think the mechanism side holds and the aggregate side is a scenario. The difference is verifiability. Partial load taking slip from 3% to 12% can be measured on one engine and changed by the operator today. The 380 million tonnes is four uncertainties multiplied together. Those two kinds of statement often appear in the same sentence, and they support decisions of very different strength.
+
+Which points at a frustration a lot of people share: can you trust a company's reported emissions? This episode offers a usable cut. Irzak says hyperscaler disclosures have mostly not handled slip correctly, because they lean on averages or country-level factors that satellite observation fails to match. So to judge a disclosure, skip its conclusion and look at its measurement basis: averages, a manufacturer's full-load datasheet, or on-site measurement? She also defends the people doing it — the person running the carbon inventory has no reason to know how reciprocating engines differ from turbines on slip, which is an absurdly narrow specialism. The gap comes from the division of labour rather than from anyone lying. The error it produces is real anyway.
+
+The other common sticking point: when you hear a "structural opportunity" framing, how do you tell noise from a layer that genuinely collects rent? I look at the bottleneck. On this chain there are three candidates for genuine scarcity: certified low-leak gas, methane oxidation catalysts, and fast leak-detection-and-repair services. Yet Irzak says the premium on certified gas is low — which is precisely why her argument works, because cheap is persuasive. That is the tension I found most interesting in the episode: a fix cheap enough to convince everyone is usually cheap enough that nobody earns much from supplying it. Tight supply and pricing power are two claims to verify separately.
+
+She closes with something I had not considered. A lot of the structures being built now leave no room to add a second stage later. Getting 50% more electricity from the same gas cuts emissions, adds power and saves money all at once, and it is being permanently blocked by the shape of a building. She calls it the biggest mistake she sees. I think that line outweighs the 380 million tonnes, because it needs no warming-equivalence conversion to hold.
+
+## Worth a look
+
+- *Catalyst with Shayle Kann*, "Data centers' looming methane surge," 22 October 2026, produced by Latitude Media, hosted by Shayle Kann, with Olya Irzak, founder and CEO of Frost Methane
+- Three sources the episode points to if you want to check the numbers yourself: EPA methane slip factors for reciprocating engines, RMI's research on the correlation between leak rates and gas prices, and MiQ's certification standard for low-leak natural gas
+
+## One thing to take with you
+
+One idea: before totalling the cost of anything, find the segment nobody is measuring. That is the whole episode in a line — same plant, same megawatt-hour, double the emissions, and every bit of the difference sits in the segments where no one owns the measurement. Counting only the measurable half leaves you with a stable, wrong impression of scale, and that error never surfaces on its own, because every column on the page is filled in.
+
+Here is something I have tried, if you want it. Take one thing you feel you have a handle on — a monthly expense, how your day goes, the household electricity bill, the progress of a long project — split it end to end into four segments, and write one word next to each: *measured* or *guessed*. Numbers from a bill, a timer or a log are measured; numbers from impression, experience or what somebody told you are guessed. If two or more segments come back guessed, what you know is the shape of the thing, not its size.

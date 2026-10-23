@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊四台引擎全部降載、甲烷漏出很多；右邊關掉一半、剩下滿載，漏出明顯變細">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="64">同樣的出力，兩種跑法</text>
+
+<text class="g" x="60" y="120">全部降載</text>
+<line x1="230" y1="180" x2="230" y2="146" stroke="var(--warn)" stroke-width="22"/>
+<polygon points="209,152 251,152 230,132" fill="var(--warn)"/>
+<text class="g" x="290" y="158">滑脫 12%</text>
+<g>
+<rect x="60" y="200" width="70" height="140" fill="none" stroke="var(--line)" stroke-width="2"/>
+<rect x="60" y="270" width="70" height="70" fill="var(--grey)"/>
+<rect x="150" y="200" width="70" height="140" fill="none" stroke="var(--line)" stroke-width="2"/>
+<rect x="150" y="270" width="70" height="70" fill="var(--grey)"/>
+<rect x="240" y="200" width="70" height="140" fill="none" stroke="var(--line)" stroke-width="2"/>
+<rect x="240" y="270" width="70" height="70" fill="var(--grey)"/>
+<rect x="330" y="200" width="70" height="140" fill="none" stroke="var(--line)" stroke-width="2"/>
+<rect x="330" y="270" width="70" height="70" fill="var(--grey)"/>
+</g>
+<text class="n" x="60" y="372">四台都在半載</text>
+
+<line x1="480" y1="120" x2="480" y2="400" stroke="var(--line)" stroke-width="2"/>
+
+<text class="g" x="540" y="120">關掉一半</text>
+<line x1="710" y1="180" x2="710" y2="156" stroke="var(--accent)" stroke-width="6"/>
+<polygon points="703,160 717,160 710,146" fill="var(--accent)"/>
+<text class="g" x="760" y="158">滑脫 3%</text>
+<g>
+<rect x="540" y="200" width="70" height="140" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="630" y="200" width="70" height="140" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="720" y="200" width="70" height="140" fill="none" stroke="var(--line)" stroke-width="2"/>
+<rect x="720" y="200" width="70" height="140" fill="var(--accent)"/>
+<rect x="810" y="200" width="70" height="140" fill="none" stroke="var(--line)" stroke-width="2"/>
+<rect x="810" y="200" width="70" height="140" fill="var(--accent)"/>
+</g>
+<text class="n" x="540" y="372">兩台停機，兩台滿載</text>
+
+<text class="c" x="60" y="462">想配合太陽能而全部降載，剛好是最糟的狀態</text>
+</svg>
