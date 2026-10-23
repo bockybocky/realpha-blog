@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two panels stacked vertically, each with a rising line, same direction but opposite meaning.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="80" y="56">Both lines point up</text>
+
+  <rect x="80" y="96" width="800" height="164" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="110" y1="236" x2="590" y2="236" stroke="var(--line)" stroke-width="2"/>
+  <polyline points="110,226 206,214 302,204 398,182 494,162 586,140" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="586" cy="140" r="7" fill="var(--accent)"/>
+  <text class="g" x="630" y="150">Aggregate data</text>
+  <text class="b" x="630" y="178">Claims, bad debt, wages</text>
+  <text class="b" x="630" y="202">Asks: will income stop?</text>
+  <text class="b" x="110" y="124">Moving the good way</text>
+
+  <rect x="80" y="286" width="800" height="164" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="110" y1="426" x2="590" y2="426" stroke="var(--line)" stroke-width="2"/>
+  <polyline points="110,416 206,398 302,374 398,344 494,318 586,296" fill="none" stroke="var(--warn)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="586" cy="296" r="7" fill="var(--warn)"/>
+  <text class="g" x="630" y="340">Personal cost table</text>
+  <text class="b" x="630" y="368">Rent, premiums, bottled water</text>
+  <text class="b" x="630" y="392">Asks: what does it buy?</text>
+  <text class="b" x="110" y="314">Moving the expensive way</text>
+
+  <text class="c" x="80" y="516">Same direction, opposite meaning</text>
+</svg>

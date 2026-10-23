@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一條橫條分兩段，左段運算被軟體覆蓋，右段注意力仍保留">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="80" y="56">軟體吃掉左半，右半還在</text>
+
+  <text class="b" x="80" y="136">客戶付的錢</text>
+  <rect x="80" y="150" width="800" height="22" rx="6" fill="var(--line)"/>
+
+  <rect x="80" y="232" width="380" height="96" rx="8" fill="var(--grey)" opacity="0.5"/>
+  <text class="g" x="110" y="276">運算</text>
+  <text class="b" x="110" y="306">規劃試算、報表、再平衡</text>
+
+  <rect x="480" y="232" width="400" height="96" rx="8" fill="var(--accent)"/>
+  <text class="g" x="510" y="276" fill="var(--page)">注意力</text>
+  <text class="b" x="510" y="306" fill="var(--page)">有人聽、記得你的事、一起承擔結果</text>
+
+  <line x1="80" y1="200" x2="460" y2="200" stroke="var(--dim)" stroke-width="4"/>
+  <polygon points="460,192 476,200 460,208" fill="var(--dim)"/>
+  <text class="b" x="80" y="190">軟體與 AI 覆蓋到這裡</text>
+
+  <line x1="680" y1="360" x2="680" y2="400" stroke="var(--accent)" stroke-width="4"/>
+  <text class="c" x="500" y="432">他真正付錢買的在這一段</text>
+</svg>
