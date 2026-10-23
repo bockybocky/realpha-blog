@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A comparison of two heads, where the left one is stimulated at a fixed location and the right one is stimulated at the exact point where the network is broken.">
+  <defs><style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style></defs>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+
+  <text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">Fixed settings, or find the break</text>
+
+  <rect x="60" y="100" width="400" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="500" y="100" width="400" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t" x="80" y="134" font-size="20" font-weight="700" fill="var(--dim)">Same params</text>
+  <text class="t" x="520" y="134" font-size="20" font-weight="700" fill="var(--dim)">Add an EEG</text>
+
+  <circle cx="260" cy="300" r="110" fill="none" stroke="var(--grey)" stroke-width="2"/>
+  <circle cx="700" cy="300" r="110" fill="none" stroke="var(--grey)" stroke-width="2"/>
+
+  <line x1="210" y1="250" x2="290" y2="270" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="290" y1="270" x2="245" y2="340" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="245" y1="340" x2="320" y2="350" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="210" y1="250" x2="245" y2="340" stroke="var(--grey)" stroke-width="3"/>
+  <circle cx="210" cy="250" r="7" fill="var(--grey)"/>
+  <circle cx="290" cy="270" r="7" fill="var(--grey)"/>
+  <circle cx="245" cy="340" r="7" fill="var(--grey)"/>
+  <circle cx="320" cy="350" r="7" fill="var(--grey)"/>
+
+  <line x1="650" y1="250" x2="730" y2="270" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="730" y1="270" x2="703" y2="312" stroke="var(--grey)" stroke-width="3" stroke-dasharray="5 9"/>
+  <line x1="685" y1="340" x2="760" y2="350" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="650" y1="250" x2="685" y2="340" stroke="var(--grey)" stroke-width="3"/>
+  <circle cx="650" cy="250" r="7" fill="var(--grey)"/>
+  <circle cx="730" cy="270" r="7" fill="var(--grey)"/>
+  <circle cx="685" cy="340" r="7" fill="var(--grey)"/>
+  <circle cx="760" cy="350" r="7" fill="var(--grey)"/>
+  <circle cx="704" cy="313" r="11" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <text class="t" x="724" y="395" font-size="16" fill="var(--warn)">Break</text>
+
+  <line x1="260" y1="150" x2="260" y2="268" stroke="var(--accent)" stroke-width="4"/>
+  <polygon points="260,284 252,264 268,264" fill="var(--accent)"/>
+  <text class="t" x="260" y="140" font-size="16" fill="var(--accent)" text-anchor="middle">Forehead</text>
+
+  <line x1="820" y1="170" x2="722" y2="300" stroke="var(--accent)" stroke-width="4"/>
+  <polygon points="712,312 718,292 730,302" fill="var(--accent)"/>
+  <text class="t" x="820" y="158" font-size="16" fill="var(--accent)" text-anchor="middle">At the break</text>
+
+  <text class="t" x="60" y="524" font-size="22" font-weight="700" fill="var(--ink)">Locate first, then stimulate</text>
+</svg>
