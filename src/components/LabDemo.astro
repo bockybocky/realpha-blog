@@ -1,6 +1,6 @@
 ---
 interface Props {
-	demo: 'canvas-waves' | 'line-chart' | 'price-volume' | 'leverage-decay' | 'survivorship' | 'sweetvox' | 'hf-space' | 'espresso' | 'roaster';
+	demo: 'canvas-waves' | 'line-chart' | 'price-volume' | 'leverage-decay' | 'survivorship' | 'sweetvox' | 'hf-space' | 'espresso' | 'roaster' | 'pourover';
 	title: string;
 	space?: string;
 }
@@ -31,6 +31,11 @@ const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'zh-TW';
 		<div data-lab-demo="roaster" data-lang={lang} class="demo-frame tool" aria-label={title}>
 			<script src={`/roaster-machine.js?v=${ver('roaster-machine.js')}`} defer></script>
 			<script src={`/roaster-lab.js?v=${ver('roaster-lab.js')}`} defer></script>
+		</div>
+	) : demo === 'pourover' ? (
+		<div data-lab-demo="pourover" data-lang={lang} class="demo-frame tool" aria-label={title}>
+			<script src={`/pourover-machine.js?v=${ver('pourover-machine.js')}`} defer></script>
+			<script src={`/pourover-lab.js?v=${ver('pourover-lab.js')}`} defer></script>
 		</div>
 	) : demo === 'sweetvox' ? (
 		<div data-lab-demo="sweetvox" data-lang={lang} class="demo-frame tool" aria-label={title}>

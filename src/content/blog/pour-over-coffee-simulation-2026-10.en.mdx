@@ -1,0 +1,108 @@
+---
+title: "What really separates a V60 from a KADOU starburst? Six pour-over questions, answered with a moving model"
+description: "On October 25, 2026 I put a pour-over station in the blog's lab that moves with its sliders, running on a simplified brewing simulation with five drippers and five pour methods. This post works through six questions: how much the dripper, the pour method and the grind each change, which common claims a manufacturer has actually written down, and where the model is wrong. A technical learning note."
+slug: "pour-over-coffee-simulation-2026-10"
+lang: "en"
+pubDate: 2026-10-25
+category: "tech"
+tags: ["pour-over coffee", "interactive", "simulation", "V60", "learning by doing"]
+ogImage: "/covers/pour-over-coffee-simulation-2026-10.png"
+cover: "/covers/pour-over-coffee-simulation-2026-10.png"
+tldr: "In the model, switching drippers or pour methods mostly moves extraction by one or two points; grind and water temperature are what push a cup from sour to bitter. The V60 and the KADOU starburst come out nearly identical, because nobody has measured the difference between them."
+---
+
+![Pour-over lab cover](/covers/pour-over-coffee-simulation-2026-10.png)
+
+> *The only role of the last 60% of the total water is to control the strength of coffee.*<br/>
+> —— Tetsu Kasuya, 2016 World Brewers Cup champion, interview in *Barista Magazine*
+
+On October 25, 2026 I added a [moving pour-over station](https://blog.getrealpha.com/en/lab/pourover/) to the blog. The grinder, kettle, dripper, carafe and scale all respond to the sliders, and you can switch between five drippers (V60, KADOU starburst, Kalita, Melitta, Clever) and five pour methods (single pour, two-stage, three-stage, pulse, and the 4:6 method). Underneath is a simplified simulation. The default is 15 g of coffee, 255 g of water (1:17), 93°C, a V60 and a three-stage pour, and it lands at 3:30 total time, 20.2% extraction and 1.35% strength, right inside the "ideal" box people usually quote. All of those are model outputs. They're good for telling you which way to turn a knob, and no good for predicting tomorrow morning's cup.
+
+👉 [Open the pour-over lab and brew a cup yourself](https://blog.getrealpha.com/en/lab/pourover/)
+
+## How much does changing the dripper change the cup?
+
+The time changes a lot; the taste, much less. Same settings, same three-stage pour, five drippers:
+
+| Dripper | Total time | Extraction | Strength | Peak water in dripper | Model warning |
+|---|---|---|---|---|---|
+| V60 | 3:30 | 20.2% | 1.35% | 86 g | none |
+| KADOU starburst | 3:20 | 20.3% | 1.36% | 79 g | none |
+| Kalita flat bed | 4:20 | 20.2% | 1.35% | 111 g | none |
+| Melitta trapezoid | 5:30 | 19.8% | 1.32% | 134 g | grounds clogged |
+| Clever | 4:20 | 20.9% | 1.40% | 225 g | none |
+
+(All model outputs.) Total time runs from 3:20 to 5:30, while extraction stays between 19.8% and 20.9%. Extraction is the share of the coffee's weight the water carried away; strength is how much ended up dissolved in the cup. The classic brewing control chart marks 18–22% extraction and 1.15–1.35% strength as the ideal middle.
+
+![On the left, total brew-time bars for five brewers differ widely, stretching twofold from shortest to longest; on the right, the extraction-yield bars for those same five brewers are almost exactly equal, forming what looks like a flat wall.](/figures/brewer-time-spreads-extraction-flat-en.svg)
+
+The real gap may be even smaller. Kurasu, a Kyoto roaster, brewed ten cups each with V60 and Kalita Wave filter papers in the same Origami dripper. The V60 paper drained only about 9 seconds faster on average, extraction was 18.29% against 18.16%, and the cups differed more in character (fruitier and more defined versus sweeter) than in numbers. My model puts the two drippers 50 seconds apart, several times the measured gap. That gap comes from my flow parameter being too aggressive. The model discovered nothing here.
+
+## So what actually separates a V60 from a KADOU starburst?
+
+The construction differs. How much the cup differs, nobody has measured yet. Here is what a manufacturer or retailer page actually says:
+
+| Dripper | What a page confirms | What I couldn't find |
+|---|---|---|
+| Hario V60 | Launched 2004, named after its 60-degree angle, spiral ribs inside (Hario UK) | Who designed it |
+| KADOU starburst M1 | 16 long and 16 short ribs inside, Hasami ceramic, 8.3 cm tall, 11.4 cm base, 355 g, developed in Taiwan and made in Japan (retailer page) | Number of outlet holes, any measured flow rate |
+| Kalita Wave | Flat bed, three holes, wave filter touches the wall less (Kalita Japan) | Launch year |
+| Melitta | Registered with the German patent office on June 20, 1908; the prototype had "inclined flow holes," plural (DPMA) | How many holes the current model has |
+| Clever | A valve in the base opens when it sits on a cup, so it steeps first and drains after (retailers) | Designer, launch year |
+
+What surprised me most while filling in that table was how many familiar claims have no primary source behind them. "Melitta is a one-hole dripper" doesn't appear in any manufacturer spec I could open, and the original 1908 patent describes several holes, so the lab calls it a "trapezoid with a small opening" and leaves it there. The starburst's "very fast flow, very forgiving" exists only in retailer copy.
+
+So the model gets just two assumptions about the starburst: ceramic holds a little more heat, which multiplies extraction efficiency by 1.02, and the retailer says it drains fast, so its flow is set to 1.1 times the V60. Bypass is set the same for both. The starburst then finishes 10 seconds sooner with 0.1 points more extraction, and that is just my own inputs coming back around. It can't count as evidence. To really know, you'd brew the same beans through both drippers ten times each and time them, the way Kurasu did.
+
+## Single pour, three stages, or 4:6: which is best?
+
+In the model, the pour method mostly changes the water level and the time. Extraction moves by about two points. All on a V60:
+
+| Pour method | Total time | Extraction | Strength | Peak water in dripper |
+|---|---|---|---|---|
+| Single pour | 2:57 | 19.0% | 1.27% | 133 g |
+| Two-stage | 3:19 | 19.9% | 1.33% | 94 g |
+| Three-stage | 3:30 | 20.2% | 1.35% | 86 g |
+| Pulse | 3:21 | 19.9% | 1.33% | 88 g |
+| 4:6 | 4:07 | 21.2% | 1.42% | 51 g |
+
+The single pour stacks 133 g in the dripper at once. The 4:6 method pours a fifth at a time and never goes above 51 g, so the water level differs by two and a half times, while extraction runs only from 19.0% to 21.2%, all inside the ideal range.
+
+![Two brewer cross-sections sit side by side: the left one gets a single pour that piles the water up close to the rim, while the right one is filled by five small pours and its water level reaches less than half the height of the left.](/figures/water-level-one-pour-vs-four-six-en.svg)
+
+Of the five, only 4:6 has a named author. Tetsu Kasuya won the 2016 World Brewers Cup with it: split the water into five pours, let the first two (40%) set the balance of acidity and sweetness and the last three (60%) set the strength, and wait for each pour to drain before the next. Single pour, two-stage and three-stage are just common names; I couldn't find who proposed them or when, so writing them up as someone's invention would be wrong. The James Hoffmann V60 technique people often cite came out as a video in 2019. I had it filed under 2016 at first, and only when I checked did I realize I'd merged it with the year Kasuya won.
+
+## What actually decides whether a cup tastes sour or bitter?
+
+In the model, grind and water temperature. The lab's "too sour" preset grinds coarser and drops the water to 88°C: extraction falls to 15.7% and the brew drains in 2:36. "Too bitter" grinds finer and heats the water to 99°C: extraction climbs to 24.1%, it takes 6:46 to drain, and the model warns that fines have clogged the filter. That's 8.4 points between the two presets, four times what switching pour methods does.
+
+![Along a horizontal extraction-yield axis sit three range brackets of increasing length: brewer is shortest, pour style a little longer, and grind plus temperature is longest, overshooting the ideal band in the middle at both ends.](/figures/grind-and-temp-move-the-most-en.svg)
+
+So my own order is grind first, then temperature, and only then the technique. One caveat: the ideal box itself is moving. A new version of the brewing control chart appeared in the *Journal of Food Science* in 2023, and Fresh Cup's 2024 coverage quoted the line "good coffee is not a singular thing." None of what I found gives a new numeric ideal range, though, so the lab still uses the original 18–22% and 1.15–1.35%.
+
+## Where is the model wrong, and did the drawing get things wrong too?
+
+Four places I know about:
+
+- Bypass. Water does slip down the sides of the dripper around the bed, but the author of Coffee Ad Astra, a long-time pour-over researcher, writes: "I'm still not sure how much bypass happens during a normal V60 brew, and I suspect it's not a very big amount." The model's bypass share is illustrative.
+- How much water the grounds keep. The model assumes 2 g of water per gram of coffee. Common figures for pour-over run 2 to 3 times, with no journal source. That changes how many grams end up in the carafe.
+- Flow is exaggerated. As above, the model puts Kalita and V60 several times further apart than the measurement did.
+- It doesn't know your beans, your roast or your filter paper. Different filter brands may not even drain at the same speed.
+
+The drawing went wrong once too. On the afternoon of October 25, 2026, after the starburst was added to the station, the automatic check went over 93 parts and reported zero collisions and nothing unsupported. Then I opened the screenshot. All 32 ribs were on the outside of the cup, standing a little away from the wall, forming a fence that made the cone look like a straight tube. The dripper in the drawing code is a solid shape, so ribs placed inside collide with it and the check fails; the ribs had been pushed outside instead. Going back, the V60's four ribs were stuck to the outside the same way, just too small to notice. The fix was to move the ribs back inside and add a test: every rib must sit closer to the center than the inner wall at that height.
+
+![Two panels each show a brewer cross-section: on the left the ribs sit outside the body and ring it like a straight-walled fence, while on the right the ribs hug the inside of the cone wall, and both panels mark an inner-diameter dimension line.](/figures/ribs-outside-versus-inside-en.svg)
+
+A check can only vouch for the things it measures. This one measured whether parts pass through each other. It never measured whether the thing looks like a dripper.
+
+![The fixed lab pour-over station set to the KADOU starburst dripper: the ribs now sit inside the cone, the gooseneck kettle is pouring, and the scale reads 200 g at 2:30.](/figures/pourover-lab-machine-en.png)
+
+## So how can I use this when I brew?
+
+Treat it as a map of directions. If this morning's cup was sour, try one step finer and two degrees hotter in the lab and see where the dot moves, then go back to the kitchen, change only that one thing, and write down the total time. Time is the most honest number you can measure at home. If you want to try 4:6 or a different dripper, change only that and keep everything else the same, so you know what caused the difference you taste.
+
+And if you happen to own both a V60 and a starburst, you could run the experiment nobody has published: same beans, same grind, three brews each, and note when each finishes draining. Those numbers would beat the retailer copy and my model.
+
+## One thing to take with you
+
+A "pass" tells you only that the things it measured are fine; whether the thing looks right is a separate question you answer with your eyes. I picked up the habit of putting a screenshot next to every check result after seeing that fence of ribs on the outside of the cup. Next time something comes back "all clear" — a handover of a new flat, a car back from the garage, a report from a colleague — write down next to the "pass" one thing the checklist doesn't measure but you care about, then look at it yourself: run every tap, walk once around the car, pick one row of numbers and trace it back. Write what you saw on that same line.

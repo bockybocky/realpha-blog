@@ -50,7 +50,7 @@ const lab = defineCollection({
 		generateId: ({ entry }) => entry.replace(/\.(md|mdx)$/, ''),
 	}),
 	schema: base.extend({
-		demo: z.enum(['canvas-waves', 'line-chart', 'price-volume', 'leverage-decay', 'survivorship', 'sweetvox', 'hf-space', 'espresso', 'roaster']),
+		demo: z.enum(['canvas-waves', 'line-chart', 'price-volume', 'leverage-decay', 'survivorship', 'sweetvox', 'hf-space', 'espresso', 'roaster', 'pourover']),
 		space: z.string().url().optional(),
 		...preregistration,
 	}),

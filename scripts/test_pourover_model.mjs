@@ -1,0 +1,67 @@
+import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import fs from 'node:fs';
+
+const require=createRequire(import.meta.url),root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const src=fs.readFileSync(path.join(root,'public','pourover-lab.js'),'utf8'),cjs={exports:{}};
+new Function('module','exports','require',src)(cjs,cjs.exports,require);
+const {model,PARAMS,PRESETS,PLAY_MS}=cjs.exports;
+let failed=0;function assert(x,msg){if(x)console.log('ok  ',msg);else{failed++;console.error('FAIL',msg);}}
+const between=(x,a,b)=>x>=a&&x<=b, drippers=['v60','kadou','kalita','melitta','clever'], methods=['single','two','three','pulse','46'], base={grind:700,temp:93,ratio:17,pourRate:5,dripper:'v60',method:'three'};
+const d=model(base), run=(x)=>model({...base,...x});
+assert(typeof model==='function'&&PLAY_MS===15000,'model exports without DOM; playback is 15000 ms');
+assert(between(d.totalTime,150,210),`default total time 150–210 got ${d.totalTime}`);
+assert(between(d.ey,19,21),`default extraction 19–21% got ${d.ey.toFixed(3)}`);
+assert(between(d.tds,1.20,1.35),`default TDS 1.20–1.35% got ${d.tds.toFixed(3)}`);
+assert(d.taste.extraction==='balanced'&&d.taste.strength==='ideal','default taste balanced + ideal');
+assert(d.warnings.length===0,`default warnings empty got ${d.warnings.join(',')}`);
+assert(Math.abs(d.curve.at(-1).cup-(15*17-30))<=2,`default cup mass 225±2 got ${d.curve.at(-1).cup.toFixed(3)}`);
+const fine=run({grind:500}),coarse=run({grind:1000}),hot=run({temp:99}),cold=run({temp:87}),long=run({ratio:18}),quick=run({pourRate:9});
+assert(fine.totalTime>d.totalTime&&fine.ey>d.ey,'grind 500 takes longer and extracts more');
+assert(coarse.totalTime<d.totalTime&&coarse.ey<d.ey,'grind 1000 is faster and extracts less');
+assert(hot.ey>d.ey&&cold.ey<d.ey,'temperature extraction monotonicity');
+assert(long.tds<d.tds&&long.ey>=d.ey,'ratio 18 is weaker without lower extraction');
+assert(quick.peakHead>d.peakHead&&quick.pourEnd<d.pourEnd,'pour rate 9 raises peak and ends pouring earlier');
+const sour=model({...base,...PRESETS.sour}),bitter=model({...base,...PRESETS.bitter}),weak=model({...base,...PRESETS.weak}),rush=model({...base,...PRESETS.rush});
+assert(between(sour.ey,14,18)&&sour.taste.extraction==='sour',`sour preset is 14–18% got ${sour.ey.toFixed(2)}%`);
+assert(between(bitter.ey,22.5,26)&&bitter.taste.extraction==='bitter'&&bitter.warnings.includes('choke'),`bitter preset is 22.5–26% + choke got ${bitter.ey.toFixed(2)}% ${bitter.warnings}`);
+assert(weak.taste.strength==='weak',`weak preset weak got ${weak.tds.toFixed(3)}%`);
+assert(!rush.warnings.includes('overflow')&&rush.peakHead<=PARAMS.drippers.v60.cap,`rush does not fake overflow below the 300 g cap; peak ${rush.peakHead.toFixed(2)}`);
+function conserved(r){return r.curve.every(p=>Math.abs(p.poured-(p.head+Math.min(p.poured,PARAMS.dose*PARAMS.retain)+p.cup))<.01);}
+assert(conserved(d),'mass conserved at every default second');
+assert(JSON.stringify(model(base))===JSON.stringify(d),'same input is deterministic');
+const ds=Object.fromEntries(drippers.map(k=>[k,run({dripper:k})]));
+assert(ds.v60.totalTime<ds.kalita.totalTime&&ds.kalita.totalTime<ds.melitta.totalTime,'dripper time v60 < kalita < melitta');
+assert(ds.kadou.totalTime<=ds.v60.totalTime,'KADOU total time is no longer than V60');
+assert(ds.v60.tds<ds.kalita.tds,'V60 bypass dilutes more than Kalita');
+assert(ds.clever.curve.filter(p=>!p.valve).every(p=>p.flow===0)&&ds.clever.curve.some(p=>p.phase==='steep'),'Clever stays closed and has steep phase');
+assert(run({dripper:'clever',grind:1000}).ey>run({dripper:'v60',grind:1000}).ey,'coarse Clever extracts more than coarse V60');
+const ms=Object.fromEntries(['single','two','three','pulse','46'].map(k=>[k,run({method:k})]));
+assert(ms.single.peakHead>ms.two.peakHead&&ms.pulse.peakHead>ms.three.peakHead,'single is highest; exact 12-second pulses accumulate slightly more water than three-stage');
+assert(ms.single.totalTime===Math.min(...Object.values(ms).map(r=>r.totalTime)),'single pour has shortest total time');
+assert(ms.single.pours.length===2&&ms.two.pours.length===3&&ms.three.pours.length===4&&ms.pulse.pours.length>=6&&ms['46'].pours.length===5,'pour counts 2 / 3 / 4 / ≥6 / 5');
+assert(ms['46'].pours.every((p,i,a)=>i===0||p.start-a[i-1].start===45),'4:6 starts are 45 seconds apart');
+const kick=PARAMS.pourKick;PARAMS.pourKick=1;const noKickA=run({method:'single'}),noKick3=run({method:'three'});PARAMS.pourKick=kick;
+assert(Math.abs(noKickA.ey-noKick3.ey)>1e-6,'schedule still changes extraction when pour kick is 1.0');
+const extractionCore=src.slice(src.indexOf('var stir ='),src.indexOf('var warnings ='));
+assert(!extractionCore.includes('method'),'no method-dependent direct extraction adjustment');
+let combos=true;for(const dripper of drippers)for(const method of methods){const r=run({dripper,method});if(r.totalTime>=600||!conserved(r)||JSON.stringify(r).includes('null'))combos=false;}
+assert(combos,'all 25 dripper × method combinations finish, conserve mass, and contain no NaN');
+const methodEys=Object.values(ms).map(r=>r.ey),methodSpread=Math.max(...methodEys)-Math.min(...methodEys);
+assert(methodEys.every(x=>between(x,17.5,22))&&methodSpread<=2.5,`five methods are 17.5–22% with spread ≤2.5 pp; got ${methodEys.map(x=>x.toFixed(2)).join('/')} spread ${methodSpread.toFixed(2)}`);
+const sortedEys=[...methodEys].sort((a,b)=>a-b);
+assert(ms.single.ey<=sortedEys[1]+1e-9,'single pour extraction is lowest or second-lowest');
+assert(between(ms.three.peakHead,80,180)&&between(ms.single.peakHead,120,260),`peak water targets: three ${ms.three.peakHead.toFixed(2)} g, single ${ms.single.peakHead.toFixed(2)} g`);
+const original46=run(PRESETS.original46);
+assert(PRESETS.original46.method==='46'&&PRESETS.original46.grind===900&&PRESETS.original46.ratio===15&&original46.taste.extraction==='balanced'&&between(original46.totalTime,180,240),`4:6 original is balanced in 3:00–4:00; got ${original46.totalTime}s ${original46.ey.toFixed(2)}%`);
+assert(src.includes('原版用偏粗的粉、1:15')&&src.includes("['original46','original46']"),'4:6 method note and original preset button are present');
+assert(PARAMS.drippers.v60.cap===300&&PARAMS.drippers.kadou.cap===300&&PARAMS.drippers.kalita.cap===300&&PARAMS.drippers.melitta.cap===300&&PARAMS.drippers.clever.cap===350,'dripper capacities equal spec 300/300/300/300/350');
+assert(src.includes("I18N.zh.melitta='Melitta 梯形小孔'")&&src.includes('陶瓷錐形、32 條長短肋骨'),'verified dripper labels and descriptions are present');
+const overflowInputs=[];for(let i=0;i<20;i++)overflowInputs.push({grind:400+i*40,temp:85+(i%8)*2,ratio:13+(i%6),pourRate:2+(i%9),dripper:['v60','kalita','melitta','clever'][i%4],method:['single','two','three','pulse','46'][i%5]});
+overflowInputs.push({},PRESETS.standard,PRESETS.sour,PRESETS.bitter,PRESETS.weak,PRESETS.rush,PRESETS.original46);
+assert(overflowInputs.every(input=>{const full={...base,...input},r=model(full);return r.warnings.includes('overflow')===(r.peakHead>PARAMS.drippers[full.dripper].cap);}), 'overflow warning iff peakHead > selected dripper cap across 20 cases + presets');
+function line(name,input){const r=model({...base,...input}),warn=r.warnings.join('+')||'none';console.log(`${name} ${Math.floor(r.totalTime/60)}:${String(r.totalTime%60).padStart(2,'0')} EY ${r.ey.toFixed(2)}% TDS ${r.tds.toFixed(3)}% peak ${r.peakHead.toFixed(2)}g ${r.taste.extraction}/${r.taste.strength} ${warn}`);}
+console.log('--- presets ---');line('預設',{});line('標準',PRESETS.standard);line('太酸',PRESETS.sour);line('太苦',PRESETS.bitter);line('太淡',PRESETS.weak);line('注水太急',PRESETS.rush);line('4:6 原版',PRESETS.original46);
+console.log('--- 25 combinations ---');for(const dripper of drippers)for(const method of methods)line(`${dripper}/${method}`,{dripper,method});
+if(failed){console.error(`\n${failed} failed`);process.exit(1);}console.log('\nall passed');
