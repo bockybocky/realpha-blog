@@ -1,0 +1,122 @@
+---
+title: "Where Does a 60% Default Probability Come From? Listening to MacroMicro on CoreWeave"
+description: "MacroMicro's After Meeting EP.219 (October 2026) spends an episode on CoreWeave: five-year CDS past 1,000 basis points, a market-implied 60% default probability, and research manager Jason taking the formula apart. Educational listening notes on how assumptions decide a probability and how to read a refinancing wall — no price targets, no stock recommendations."
+slug: "macromicro-2026-10-25-coreweave-ai-after-meeting-ep-219"
+lang: "en"
+pubDate: 2026-10-25
+category: "investing"
+kind: "podcast-notes"
+tags: ["CoreWeave", "AI infrastructure", "credit risk", "refinancing wall", "reading financials"]
+ogImage: "/covers/macromicro-2026-10-25-coreweave-ai-after-meeting-ep-219-cover.png"
+cover: "/covers/macromicro-2026-10-25-coreweave-ai-after-meeting-ep-219-cover.png"
+tldr: "Change the recovery-rate assumption on the same CDS quote from 40% to 20% and the five-year default probability drops from 60% to about 50%. A frightening number is three things stacked together — a market quote, an assumption, and an insurance premium — and you only learn which one scares you by pulling them apart."
+---
+
+![A late-night data centre aisle receding into depth, a coil of uninstalled power cable beside an empty rack in the foreground, a row of lit indicator panels far down the hall](/covers/macromicro-2026-10-25-coreweave-ai-after-meeting-ep-219-cover.png)
+
+> Credit has a great, but not, as many people seem to suppose, a magical power; it cannot make something out of nothing.
+>
+> — John Stuart Mill, *Principles of Political Economy*, Book III, Chapter XI (1848)
+
+MacroMicro's After Meeting EP. 219, published on 25 October 2026 and recorded on 22 October, gives its whole first half to CoreWeave: the company's five-year credit default swap quote has blown past 1,000 basis points, which the standard formula turns into a 60% chance of default within five years. Research manager Jason reads that number as too high — the formula assumes creditors recover 40% of assets in a bankruptcy, and CoreWeave's assets are fast-depreciating GPUs, so moving the recovery rate to 20–25% brings the probability down to roughly 50%. He also says CoreWeave is not yet a systemic risk, and that the real pressure arrives when its debt matures between 2030 and 2032 — a conclusion that holds as long as the big tech balance sheets stay where they are and investment-grade credit spreads stay pinned at the low end.
+
+## An episode that opens with a bad mood at TSMC's earnings call
+
+The episode was taped on 22 October, and it opens on the prior week's TSMC earnings call. The numbers were good, yet the semiconductor group did not stand up with them: the Philadelphia Semiconductor Index fell eight sessions in a row, its longest losing streak in 18 years. Roger mentions C.C. Wei telling a media outlet that he was in a bad mood, and that he knew the stock would not take the numbers well before he published them.
+
+Good results and an ungrateful share price get traced back to financing upstream: the US government is borrowing, big tech is borrowing, and the neoclouds are borrowing, and with that many borrowers the price of money rises. So the market swapped its question — from "how big is the AI story" to "where is your money coming from, and can you pay it back." Follow that question up the chain and the layer under the most pressure is the neoclouds, the operators who buy GPUs, build the halls, and rent the compute out. The one being watched hardest in that layer is CoreWeave.
+
+## The 60% probability grows out of one assumption you can swap
+
+CoreWeave dropped a quarter of its value in a single week, taking the share price to roughly $60, its lowest since late July. The number that frightened people comes from the credit default swap — insurance against the company defaulting, where a higher quote means pricier insurance. The five-year quote cleared 1,000 basis points, which convention turns into "60% chance of default within five years."
+
+Jason takes that conversion apart. One field in the formula is the recovery rate: what creditors get back when a company fails. The habitual figure for investment-grade issuers is 40%. But CoreWeave's assets are a pile of fast-depreciating GPUs that will not liquidate at 40 cents, and once you set that field to 20–25%, the same quote converts to about 50%.
+
+![Three horizontal bars of decreasing length: the longest is the roughly 60% implied straight from market quotes, the middle shrinks to about 50% once the recovery-rate assumption is changed, and the shortest falls further after stripping out the insurance premium — showing that one quote yields different answers depending on the assumptions.](/figures/cds-sixty-percent-breakdown-en.svg)
+
+There is another layer under that. Whoever sells a CDS marks it up the way an insurer does: on a $10 million policy with a one-in-a-thousand loss probability, the arithmetic says charge $10,000, but when an earthquake of 1999 Taiwan magnitude arrives every policy pays out at once, and the seller has no clean way to hand that risk on, so the price exceeds the arithmetic. Jason notes that the academic work found long ago that CDS-implied probabilities run high, and this premium is why. Part of that 60% is default probability; part of it is the price of insurance.
+
+## How the bond market votes: no collateral, and short paper falling harder than long
+
+You can argue about CDS; traded prices are harder to argue with. CoreWeave's unsecured notes maturing in 2031 and 2032 have fallen to around 80 in the secondary market, a yield of roughly 15%. For comparison: in October 2026 the broad high-yield index yields about 8%, and junk rated CCC and below about 16.5%. The three agencies rate CoreWeave between B+ and BB−, still at the top of high yield rather than down in the CCC zone where restructuring and liquidation live — but the price is drifting that way.
+
+Why does the coupon have to be this high? Jason's explanation is blunt: CoreWeave borrows from banks without posting collateral. What it could pledge is GPUs, the banks do not want GPUs, so the rate compensates. The logic is the same as a loan shark's.
+
+What stopped me was a different chart. Over the past fortnight, the yield on the 2030 maturity has jumped more than the 2032 — short paper falling harder than long. When rates rise, long bonds usually fall more; duration sits right there. Short paper falling harder means the market is pricing something else: if the company actually fails, nobody cares which year your note matured in, because every note gets valued off the same recovery rate.
+
+That reading has something to check it against. CoreWeave has issued bank loans, unsecured notes and convertibles — a whole shelf of instruments — and they carry cross-default clauses: once any material debt trips, with 30 days after notice to cure or negotiate a waiver, every other creditor can demand accelerated repayment. One missed payment, and all of it comes due at once. That is what the short end of the curve is reflecting.
+
+![Two upward arrows show that yields on debt maturing in 2030 rose much more than those on debt maturing in 2032, while a bracket on the right indicates that cross-default makes all debt due together.](/figures/short-end-worse-than-long-en.svg)
+
+## Revenue doubles, interest eats a quarter of it
+
+The income statement: second-quarter revenue of $2.575 billion, more than doubled year on year; net interest expense in the same quarter close to $600 million, about a quarter of revenue; operating income, after depreciation, barely over $100 million.
+
+![A single bar represents one quarter of revenue, and a quarter of it is cut away by interest expense, leaving only a very thin sliver of operating income.](/figures/revenue-eaten-by-interest-en.svg)
+
+The cash flow gap is more direct. Operating cash flow in the first half of 2026 was roughly $3.7 billion against $14 billion of capital expenditure, with the $10 billion-plus difference covered by new borrowing. MacroMicro's note that week projects three years out: 2027 revenue of $26.6 billion, 2028 of $42.3 billion — revenue keeps doubling, yet profitability has still not turned positive by 2028, and free cash flow across those three years sums to roughly negative $79 billion. To stay alive, CoreWeave has to keep issuing debt or raising equity.
+
+![Two columns differ greatly in height: operating cash flow is low and capital expenditure is high, while a dashed segment labeled new borrowing fills the gap between them.](/figures/cash-gap-filled-by-debt-en.svg)
+
+Which brings us to the wall. It currently pays roughly 8% on average, with coupons on both the bank debt and the unsecured notes in the 9–10% range. If the next round of refinancing has to clear at today's market quotes, it pays 13–15%. Jason's term for this is the refinancing wall: a maturity itself is manageable, and the wall is reaching that date unable to borrow, or able to borrow only at double the rate. CoreWeave's maturities cluster in 2030 to 2032, so that is where the risk sits — not this month.
+
+## Fibre and shale both walked into this wall
+
+Jason brings out two pieces of history. In the 2000 dot-com bust, telecom operators overbuilt fibre, utilisation never caught up, high-yield spreads pushed past 15% and 20% from the third quarter of that year with the worst names at 30%, and through 2001 and 2002 the companies hit the refinancing wall one by one and failed when the money stopped. US shale in the 2010s ran the same pattern: a well produces hard in year one and depletes after, so operators borrowed new money to drill new wells, and when oil collapsed in 2014 and 2015 the interest became unpayable and the industry consolidated.
+
+The endings are the interesting part. Fibre became the infrastructure we all use daily, and the US became the world's largest oil producer — the story was right both times, and a slice of the people who borrowed to build it did not live to see it. Jason's line stayed with me: the growth story being correct does not mean everyone along the way makes money, and it does not mean everyone who borrowed can pay it back.
+
+![An industry curve rises steadily to the end, while several dots representing companies fall to the bottom in their refinancing year and only a few follow the curve all the way.](/figures/narrative-right-companies-dead-en.svg)
+
+So where are we? He runs through the three detonators from his May report: a reversal in industry supply and demand, a change in rates and financing conditions, and accounting fraud. Supply and demand he reads as unreversed — fibre utilisation in 2000 was 5%, while today nobody can get GPUs and even advanced packaging capacity is queued. On fraud, he sees no Enron or WorldCom case yet. The middle one is moving, and it is moving in specific players.
+
+## Will it reach big tech? Two ledgers, kept separately
+
+The "no" ledger has two numbers. First, other data-centre-linked debt — project bonds guaranteed by Google or Fluidstack, or with Amazon and Meta as tenants — still carries spreads of 200 to 300-odd basis points and did not jump in this wave. Second, inside the broad spread picture, CCC is back near its 2022 highs while BBB and AAA remain pinned at the bottom, AAA at just 0.55%. The pressure is concentrated at the worst-rated end and has not spread upward.
+
+![A vertical credit-cost scale places AAA, BBB, and tech-giant-backed project debt unchanged near the bottom, while CCC and CoreWeave yields jump to the top, concentrating pressure in only the highest segment.](/figures/credit-spread-ladder-en.svg)
+
+The "yes" ledger has material too. CoreWeave carried about $36 billion of debt as of the second quarter, over $40 billion by August, funded behind the scenes by large banks, asset managers, private credit and insurers. Default on even part of it and those institutions will mark down their willingness to keep lending to AI infrastructure. Jason connects this year's queue of big-tech bond sales, share sales and IPO talks to exactly that — grab the money now, before the wall. Beyond that sit Microsoft's compute contracts with CoreWeave, where undelivered capacity is money down the drain, and Nvidia, whose revenue and valuation would take a hit, plus the off-balance-sheet financing earlier episodes covered: if a neocloud fails, those arrangements may come back onto the books.
+
+With both ledgers open, Jason's conclusion is that some people get hurt, while CoreWeave's size is nothing like WorldCom or Global Crossing in 2000, or Lehman and Bear Stearns in 2008.
+
+## An $80 billion loss, $72 billion of which never left the building
+
+The noise on the demand side lately is Anthropic: a first-half net loss of $80 billion. Jason pulls it apart — roughly $72 billion of it is non-cash, from early convertible notes that triggered conversion as the equity value jumped, and the revaluation booked when that debt became equity. The loss actually burned on compute contracts is around $8 billion. The headline number and the money that left the building differ by an order of magnitude.
+
+![A bar representing an $80 billion loss is mostly gray non-cash revaluation, with only a small segment on the right representing cash actually burned.](/figures/anthropic-loss-noncash-split-en.svg)
+
+He does concede the slowdown in growth: the third quarter came in at $16.8 billion, growing over 40%, which looks slow next to the ten-times-plus of the first half. His reasons are OpenAI cutting prices to take share (while enterprise AI adoption keeps rising, so the pie grows together), enterprises moving from experiments to shipped products and starting to control the bill, and the October restrictions on Chinese model distillation costing roughly 5–7% of revenue. None of the three reasons is that demand went away.
+
+My favourite stretch of this section is the power constraint. Jason says there is enough gas and nuclear capacity behind the electricity squeeze at US data centres; what you queue for is grid interconnection permits, local opinion, regulation and environmental review. Oracle in New Mexico is stuck on a permit for a gas pipeline. So the metric he watches is Time to Power: who can get electricity to the rack first. A power shortage does not mean buying utilities; whoever delivers the power collects the money.
+
+![A pipe narrows and then widens: abundant natural gas and nuclear power enter from the left, permitting and environmental reviews pinch the middle into a bottleneck, and racks waiting for electricity sit on the right.](/figures/time-to-power-bottleneck-en.svg)
+
+## The news says 60% odds of failure — should I run?
+
+Reading "60% chance of default within five years" and feeling your pulse go up is normal. What this episode does well is demonstrate how to take a percentage apart: the number is three things stacked — a market quote for insurance, a recovery-rate assumption, and the premium the insurance seller charges. The quote is a fact; the other two are assumptions. Move recovery from 40% to 20% and the answer goes from 60% to 50%; strip the premium layer and it goes lower again.
+
+So the next time a frightening probability shows up, I look for two things: where the premises behind the number are written down, because if I cannot find them it is just an intensity reading; and whether some other evidence that does not lean on that assumption is available for comparison. In this episode that evidence is traded bond prices, the agency ratings, and the relative moves of short versus long maturities.
+
+A smaller number is not the same as nothing to worry about. CoreWeave's 15% yield, the absent collateral, the cross-default clauses and the free cash flow that still has not turned by 2028 are all still there. Taking the assumptions apart tells you what you are afraid of.
+
+## I read the industry right, so why am I still losing money?
+
+The fibre history is a standing reminder to me: getting the direction right and the participants making money are two separate questions.
+
+The episode offers a test that separates them: whether a company depends on outside financing to stay alive, and when its money absolutely has to be repaid. CoreWeave's shape is doubling revenue, a quarter of revenue going to interest, the gap filled by borrowing, maturities packed into 2030–2032. Further along the same supply chain, big tech's shape is a balance sheet that holds and related project bonds still at two or three hundred basis points. Two constitutions hanging off one AI story will not behave the same way when financing conditions tighten.
+
+The adjustment I made for myself is treating the maturity schedule as a column I always read: which year is the next payment it cannot postpone, and whose money does it plan to repay with. When the answer is "money we will borrow," I need a view on interest rates as well, not only a view on the industry.
+
+## Further reading
+
+- MacroMicro, After Meeting EP. 219 (recorded 22 October 2026, published 25 October), hosted by Roger with research manager Jason; the CoreWeave discussion runs through the first half
+- MacroMicro's May 2026 report on AI breaking the cycle, with manufacturing and the productivity cycle in resonance — its later sections list the three detonators that puncture a bubble
+- MacroMicro's report splitting the AI bubble into four stages, useful for locating where we currently sit
+- John Stuart Mill, *Principles of Political Economy*, Book III, on credit (1848, public domain)
+
+## One thing to take away
+
+One idea: every frightening probability has a set of assumptions holding it up, and that set is usually not in the headline. Sixty per cent became fifty with one field changed — how much gets recovered when the thing fails. The number is what scares you, and a field you never saw is what decides the number.
+
+Here is something I have tried, and any percentage you ran into today will do: the risk figure on a health screening, the payout odds an insurance agent quotes, the chance of rain, the acceptance rate someone mentioned before an interview. Take a sheet of paper and write two lines — "for this number to hold, which two premises are required" — then pick one and go find out what it actually is. Two things happen. Sometimes the number holds up and your worry now has a basis. Sometimes a premise does not hold at all, and the number that scared you falls apart on its own.
