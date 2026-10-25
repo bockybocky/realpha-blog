@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="The price-times-volume block forks after a price drop: compute grows shorter and wider holding its area, while airlines only grow shorter and lose area.">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="60" y="58" font-size="27" fill="var(--ink)">Price falls; can volume pick up the slack?</text>
+<rect x="130" y="150" width="120" height="240" fill="var(--accent)" opacity="0.22"/>
+<rect x="130" y="150" width="120" height="240" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<line x1="130" y1="390" x2="270" y2="390" stroke="var(--line)" stroke-width="2"/>
+<text x="130" y="134" font-size="20" fill="var(--dim)">Now</text>
+<text x="130" y="418" font-size="16" fill="var(--dim)">Price × volume</text>
+<line x1="290" y1="268" x2="430" y2="214" stroke="var(--grey)" stroke-width="2"/>
+<line x1="290" y1="286" x2="430" y2="400" stroke="var(--grey)" stroke-width="2"/>
+<text x="296" y="238" font-size="16" fill="var(--dim)">Price falls</text>
+<text x="452" y="186" font-size="20" fill="var(--accent)">Compute</text>
+<rect x="540" y="180" width="300" height="96" fill="var(--accent)" opacity="0.22"/>
+<rect x="540" y="180" width="300" height="96" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<line x1="540" y1="276" x2="860" y2="276" stroke="var(--line)" stroke-width="2"/>
+<text x="540" y="166" font-size="16" fill="var(--accent)">Volume jumps · area holds</text>
+<text x="452" y="400" font-size="20" fill="var(--warn)">Airlines</text>
+<rect x="540" y="384" width="130" height="96" fill="var(--warn)" opacity="0.22"/>
+<rect x="540" y="384" width="130" height="96" fill="none" stroke="var(--warn)" stroke-width="2"/>
+<line x1="540" y1="480" x2="860" y2="480" stroke="var(--line)" stroke-width="2"/>
+<rect x="670" y="384" width="170" height="96" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="540" y="370" font-size="16" fill="var(--warn)">No extra volume · area shrinks</text>
+<text x="130" y="540" font-size="22" fill="var(--ink)">This is where GPUs and airlines part ways</text>
+</svg>

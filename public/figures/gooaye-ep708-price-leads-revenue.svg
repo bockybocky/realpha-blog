@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="股價線先漲、走平成高原後下落，營收線此時仍在上升，兩條線的轉折相隔一段時間差">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="60" y="58" font-size="27" fill="var(--ink)">股價走在營收前面，高原之後才是壞消息</text>
+<line x1="130" y1="100" x2="130" y2="460" stroke="var(--line)" stroke-width="2"/>
+<line x1="130" y1="460" x2="900" y2="460" stroke="var(--line)" stroke-width="2"/>
+<text x="860" y="490" font-size="16" fill="var(--dim)">時間</text>
+<path d="M160 420 C 260 388 320 250 420 200 L560 192" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<path d="M560 192 L630 300 L700 368 L800 380" fill="none" stroke="var(--warn)" stroke-width="3"/>
+<path d="M160 440 C 320 430 460 392 600 330 L870 252" fill="none" stroke="var(--grey)" stroke-width="3"/>
+<text x="300" y="218" font-size="19" fill="var(--accent)">股價</text>
+<text x="470" y="178" font-size="16" fill="var(--dim)">高原</text>
+<text x="800" y="238" font-size="19" fill="var(--dim)">營收</text>
+<circle cx="560" cy="192" r="6" fill="var(--warn)"/>
+<line x1="560" y1="192" x2="560" y2="470" stroke="var(--grey)" stroke-width="2" stroke-dasharray="4 6"/>
+<line x1="830" y1="262" x2="830" y2="470" stroke="var(--grey)" stroke-width="2" stroke-dasharray="4 6"/>
+<line x1="560" y1="492" x2="830" y2="492" stroke="var(--dim)" stroke-width="2"/>
+<line x1="560" y1="486" x2="560" y2="498" stroke="var(--dim)" stroke-width="2"/>
+<line x1="830" y1="486" x2="830" y2="498" stroke="var(--dim)" stroke-width="2"/>
+<text x="620" y="518" font-size="16" fill="var(--dim)">半年到兩年</text>
+<text x="130" y="552" font-size="22" fill="var(--ink)">好消息推不動它的時候，就進高原</text>
+</svg>

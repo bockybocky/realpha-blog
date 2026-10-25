@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two pairs of bars: build exceeds demand in both; the left excess is marked never used, and the right demand bar is a dashed question mark.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="60" y="58" font-size="27" fill="var(--ink)">More was laid than could ever be used</text>
+<line x1="110" y1="450" x2="900" y2="450" stroke="var(--line)" stroke-width="2"/>
+<text x="150" y="112" font-size="20" fill="var(--dim)">2000 fiber</text>
+<text x="590" y="112" font-size="20" fill="var(--dim)">GPUs now</text>
+<rect x="160" y="310" width="110" height="140" fill="var(--accent)" opacity="0.28"/>
+<rect x="160" y="310" width="110" height="140" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="178" y="478" font-size="16" fill="var(--dim)">Demand</text>
+<rect x="300" y="160" width="110" height="290" fill="none" stroke="var(--warn)" stroke-width="2"/>
+<rect x="300" y="160" width="110" height="150" fill="var(--warn)" opacity="0.20"/>
+<text x="304" y="478" font-size="16" fill="var(--dim)">Fiber laid</text>
+<line x1="410" y1="232" x2="470" y2="208" stroke="var(--warn)" stroke-width="2"/>
+<text x="420" y="196" font-size="19" fill="var(--warn)">Never used</text>
+<rect x="600" y="330" width="110" height="120" fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="640" y="400" font-size="27" fill="var(--dim)">?</text>
+<text x="618" y="478" font-size="16" fill="var(--dim)">Demand</text>
+<rect x="740" y="150" width="110" height="300" fill="none" stroke="var(--warn)" stroke-width="2"/>
+<rect x="740" y="150" width="110" height="180" fill="var(--warn)" opacity="0.20"/>
+<text x="744" y="478" font-size="16" fill="var(--dim)">Build-out</text>
+<text x="130" y="525" font-size="22" fill="var(--ink)">The part beyond demand has no price</text>
+</svg>
