@@ -1,5 +1,5 @@
 /* ============================================================
-   Realpha 共用頂端選單  rp-nav.js  v1.0（2026-10-26）
+   Realpha 共用頂端選單  rp-nav.js  v2（2026-10-26）
    用法（各站加兩行，放在 <body> 開頭或 </body> 前都可）：
      <link rel="stylesheet" href="https://getrealpha.com/rp/rp-tokens.css?v=1">
      <script src="https://getrealpha.com/rp/rp-nav.js?v=1"
@@ -10,8 +10,13 @@
      data-rp-mode    bar（預設，靜態在流、會隨頁面捲走）
                      sticky（黏在頂端；只給沒有自家 sticky 頁首的站）
                      float（全螢幕站：右上角浮動小鈕，零版面佔用）
+     data-rp-corner  tl | tr（預設）| bl | br。只對 float：浮動鈕放哪個角（距邊 10px）；
+                     左側兩角的抽屜改從左邊滑出。站內 CSS rp-nav{...} 仍可覆寫。
+     data-rp-frame   "1" 允許在 iframe 裡掛選單（沒給→在 iframe 裡什麼都不做）
      data-rp-toggle  "1" 顯示深淺切換鈕（站已接 rp:theme 事件或吃 --rp- 變數時才開）
      data-rp-lock    "1" 鎖定主題（忽略 cookie；同時隱藏切換鈕）
+   v2 新增：data-rp-corner、iframe 守衛（data-rp-frame）、自報版本（version='2'、host[data-rp-version="2"]）。
+         沒加新屬性的站行為與 v1 相同。
    鐵律：classic script（不要改成 type=module）、不 fetch、不載字型 → 跨網域免 CORS。
          只動三樣東西：插入 <rp-nav>、設 html[data-rp-theme]、寫 --rp-nav-h。
          不碰各站任何元素的 position / top / margin。
@@ -22,7 +27,16 @@
   'use strict';
   if (window.RealphaNav) return; // 重複載入保護
 
-  var VERSION = '1.0.0';
+  // ---------- 讀 script 屬性（必須同步讀，之後 currentScript 會是 null） ----------
+  var me = document.currentScript;
+  var ds = (me && me.dataset) || {};
+
+  // ---------- iframe 守衛：在別人的框裡不掛（除非 data-rp-frame="1"） ----------
+  var framed;
+  try { framed = window.self !== window.top; } catch (e) { framed = true; } // 跨網域讀 top 會丟例外 → 視同在 iframe
+  if (framed && ds.rpFrame !== '1') return; // 不建元素、不改 html 屬性、不設 window.RealphaNav
+
+  var VERSION = '2';
   var DOMAIN = 'getrealpha.com';
   var HUB_URL = 'https://' + DOMAIN + '/hub/';
   var COOKIE = 'rp_theme';
@@ -55,14 +69,13 @@
     ]}
   ];
 
-  // ---------- 讀 script 屬性（必須同步讀，之後 currentScript 會是 null） ----------
-  var me = document.currentScript;
-  var ds = (me && me.dataset) || {};
   var SITE = ds.rpSite || guessSite();
   var MODE = ds.rpMode || 'bar';
   var LOCK = ds.rpLock === '1';
   var SHOW_TOGGLE = ds.rpToggle === '1' && !LOCK;
   var DEFAULT_THEME = ds.rpTheme === 'dark' || ds.rpTheme === 'light' ? ds.rpTheme : null;
+  // 只認四個值；沒給或亂給 → null（不設 data-corner，沿用 v1 的右上角規則）
+  var CORNER = MODE === 'float' && /^(tl|tr|bl|br)$/.test(ds.rpCorner || '') ? ds.rpCorner : null;
 
   function guessSite() {
     var h = location.hostname.split('.')[0];
@@ -121,6 +134,11 @@
     '  --z:var(--rp-z-nav,40);--dur:var(--rp-dur,160ms);--ease:var(--rp-ease,cubic-bezier(.2,.7,.2,1))}',
     ':host([data-mode="sticky"]){position:sticky;top:0;z-index:var(--z)}',
     ':host([data-mode="float"]){position:fixed;top:10px;right:10px;z-index:var(--z);width:auto}',
+    /* v2 角落：只在 data-corner 存在時生效；站內 rp-nav{...} 屬外層樣式，照樣蓋得過 :host */
+    ':host([data-mode="float"][data-corner="tl"]){top:10px;left:10px;right:auto;bottom:auto}',
+    ':host([data-mode="float"][data-corner="tr"]){top:10px;right:10px;left:auto;bottom:auto}',
+    ':host([data-mode="float"][data-corner="bl"]){top:auto;bottom:10px;left:10px;right:auto}',
+    ':host([data-mode="float"][data-corner="br"]){top:auto;bottom:10px;right:10px;left:auto}',
     ':host([hidden]){display:none}',
     '*{box-sizing:border-box;margin:0;padding:0}',
     'a{color:inherit;text-decoration:none}',
@@ -169,6 +187,7 @@
     '.scrim{position:absolute;inset:0;background:rgba(0,0,0,.35)}',
     '.sheet{position:absolute;top:0;right:0;bottom:0;width:min(360px,92vw);overflow:auto;background:var(--surface);border-left:1px solid var(--line);',
     '  box-shadow:var(--shadow);padding:12px 12px 24px;color:var(--text)}',
+    ':host([data-corner="tl"]) .sheet,:host([data-corner="bl"]) .sheet{right:auto;left:0;border-left:0;border-right:1px solid var(--line)}',
     '.sheet .top{display:flex;align-items:center;justify-content:space-between;height:36px;margin-bottom:8px}',
     '.sheet h4{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.06em;margin:14px 8px 4px}',
     '.sheet .item{padding:9px 10px}',
@@ -238,6 +257,8 @@
     host.setAttribute('data-mode', MODE);
     host.setAttribute('data-site', SITE);
     host.setAttribute('data-theme', theme);
+    host.setAttribute('data-rp-version', VERSION);
+    if (CORNER) host.setAttribute('data-corner', CORNER);
     root = host.attachShadow({ mode: 'open' });
     root.innerHTML = render();
 
