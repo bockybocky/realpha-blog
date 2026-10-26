@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A map of where the agent stands: it sits closer to the seller than to you, with both your data and the sponsorship money flowing into it.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">Which side the agent sits on</text>
+
+  <line x1="470" y1="120" x2="470" y2="470" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="t" x="470" y="108" font-size="15" fill="var(--dim)" text-anchor="middle">Midline</text>
+
+  <rect x="50" y="240" width="180" height="110" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="140" y="292" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">You</text>
+  <text class="t" x="140" y="320" font-size="15" fill="var(--dim)" text-anchor="middle">Want the cheapest</text>
+
+  <rect x="540" y="230" width="190" height="130" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t" x="635" y="285" font-size="20" font-weight="700" fill="var(--accent)" text-anchor="middle">Your agent</text>
+  <text class="t" x="635" y="315" font-size="15" fill="var(--dim)" text-anchor="middle">Claims to act for you</text>
+
+  <rect x="790" y="240" width="130" height="110" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="855" y="286" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">Seller</text>
+  <text class="t" x="855" y="314" font-size="15" fill="var(--dim)" text-anchor="middle">Advertiser</text>
+
+  <polyline points="140,240 140,170 635,170 635,224" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="635,234 628,218 642,218" fill="var(--warn)"/>
+  <text class="t" x="385" y="158" font-size="16" fill="var(--warn)" text-anchor="middle">Reads your inbox</text>
+
+  <polyline points="855,350 855,420 635,420 635,366" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="635,356 628,372 642,372" fill="var(--warn)"/>
+  <text class="t" x="750" y="444" font-size="16" fill="var(--warn)" text-anchor="middle">Sponsorship fee</text>
+
+  <line x1="540" y1="300" x2="250" y2="300" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="240,300 256,293 256,307" fill="var(--accent)"/>
+  <text class="t" x="395" y="288" font-size="16" fill="var(--accent)" text-anchor="middle">The pricier plan</text>
+
+  <text class="t" x="60" y="506" font-size="22" font-weight="700" fill="var(--ink)">It sits on the side that pays it.</text>
+</svg>

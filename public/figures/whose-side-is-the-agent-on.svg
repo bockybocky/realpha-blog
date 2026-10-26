@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="代理人的位置圖：它站得離賣方比離你近，資料與贊助費兩條線都流進它">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">代理人坐在哪一側</text>
+
+  <line x1="470" y1="120" x2="470" y2="470" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="t" x="470" y="108" font-size="15" fill="var(--dim)" text-anchor="middle">中線</text>
+
+  <rect x="50" y="240" width="180" height="110" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="140" y="292" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">你</text>
+  <text class="t" x="140" y="320" font-size="15" fill="var(--dim)" text-anchor="middle">要最便宜</text>
+
+  <rect x="540" y="230" width="190" height="130" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t" x="635" y="285" font-size="20" font-weight="700" fill="var(--accent)" text-anchor="middle">你的代理人</text>
+  <text class="t" x="635" y="315" font-size="15" fill="var(--dim)" text-anchor="middle">自稱替你</text>
+
+  <rect x="790" y="240" width="130" height="110" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="855" y="286" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">賣方</text>
+  <text class="t" x="855" y="314" font-size="15" fill="var(--dim)" text-anchor="middle">廣告主</text>
+
+  <polyline points="140,240 140,170 635,170 635,224" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="635,234 628,218 642,218" fill="var(--warn)"/>
+  <text class="t" x="385" y="158" font-size="16" fill="var(--warn)" text-anchor="middle">讀你的信箱</text>
+
+  <polyline points="855,350 855,420 635,420 635,366" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="635,356 628,372 642,372" fill="var(--warn)"/>
+  <text class="t" x="750" y="444" font-size="16" fill="var(--warn)" text-anchor="middle">贊助費</text>
+
+  <line x1="540" y1="300" x2="250" y2="300" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="240,300 256,293 256,307" fill="var(--accent)"/>
+  <text class="t" x="395" y="288" font-size="16" fill="var(--accent)" text-anchor="middle">更貴的方案</text>
+
+  <text class="t" x="60" y="506" font-size="22" font-weight="700" fill="var(--ink)">誰付錢給它，它就站那一側</text>
+</svg>

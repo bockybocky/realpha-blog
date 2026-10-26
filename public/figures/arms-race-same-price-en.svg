@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="The dots grow as both sides upgrade their models, the deal price stays flat, and the bars paid to model vendors rise each round.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">Both sides upgrade, the price ends up where it started</text>
+
+  <text class="t" x="60" y="146" font-size="16" fill="var(--dim)">Your model</text>
+  <circle cx="265" cy="140" r="8" fill="var(--accent)"/>
+  <circle cx="405" cy="140" r="12" fill="var(--accent)"/>
+  <circle cx="545" cy="140" r="16" fill="var(--accent)"/>
+  <circle cx="685" cy="140" r="20" fill="var(--accent)"/>
+
+  <text class="t" x="60" y="206" font-size="16" fill="var(--dim)">Its model</text>
+  <circle cx="265" cy="200" r="8" fill="var(--grey)"/>
+  <circle cx="405" cy="200" r="12" fill="var(--grey)"/>
+  <circle cx="545" cy="200" r="16" fill="var(--grey)"/>
+  <circle cx="685" cy="200" r="20" fill="var(--grey)"/>
+
+  <line x1="120" y1="258" x2="860" y2="258" stroke="var(--ink)" stroke-width="3" stroke-dasharray="10 7"/>
+  <text class="t" x="120" y="246" font-size="16" fill="var(--ink)">Deal price</text>
+  <text class="t" x="860" y="246" font-size="16" fill="var(--dim)" text-anchor="end">Flat</text>
+
+  <rect x="220" y="430" width="90" height="40" rx="4" fill="var(--warn)"/>
+  <rect x="360" y="390" width="90" height="80" rx="4" fill="var(--warn)"/>
+  <rect x="500" y="340" width="90" height="130" rx="4" fill="var(--warn)"/>
+  <rect x="640" y="286" width="90" height="184" rx="4" fill="var(--warn)"/>
+  <line x1="120" y1="470" x2="860" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="265" y="496" font-size="15" fill="var(--dim)" text-anchor="middle">Round 1</text>
+  <text class="t" x="405" y="496" font-size="15" fill="var(--dim)" text-anchor="middle">Round 2</text>
+  <text class="t" x="545" y="496" font-size="15" fill="var(--dim)" text-anchor="middle">Round 3</text>
+  <text class="t" x="685" y="496" font-size="15" fill="var(--dim)" text-anchor="middle">Round 4</text>
+  <text class="t" x="770" y="330" font-size="19" font-weight="700" fill="var(--warn)">Paid to vendors</text>
+
+  <text class="t" x="60" y="548" font-size="22" font-weight="700" fill="var(--ink)">Both sides got smarter, and the savings never showed up.</text>
+</svg>
