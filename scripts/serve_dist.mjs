@@ -100,7 +100,26 @@ const types = new Map([
 // 2026-09-15 PWA：sw.js 一定要每次回原站確認，否則 Cloudflare／瀏覽器沿用舊版，新版網站永遠裝不上去。
 // 其他檔案照舊不送 cache-control（維持原本行為）。
 export function cacheControl(pathname) {
+	if (pathname.startsWith('/rp/')) return 'public, max-age=3600';
+	if (pathname.startsWith('/hub/')) return 'private, no-cache';
 	return pathname === '/sw.js' ? 'no-cache' : null;
+}
+
+// 2026-10-26 14 站統一選單：/rp/ 供應共用檔、/hub/ 供應總覽頁，都讀建置之外的 rp_shared/（不綁 blog 建置）。
+const RP_DIR = resolve(REPO_ROOT, 'rp_shared');
+const HUB_DIR = resolve(RP_DIR, 'hub');
+
+// /rp/ 只給 rp_shared 本層的共用檔；hub/ 底下的東西只能從 /hub/ 進（/hub/ 之後要掛門禁，不能從 /rp/hub/ 繞過）。
+export function sharedPath(pathname) {
+	if (pathname.startsWith('/rp/')) {
+		const target = localPath(pathname.slice(3), RP_DIR);
+		// Windows 檔名不分大小寫：/rp/HUB/ 也會讀到 hub/，所以比對前一律轉小寫
+		const t = target?.toLowerCase();
+		const hub = HUB_DIR.toLowerCase();
+		return t && t !== hub && !t.startsWith(`${hub}${sep}`) ? { sub: pathname.slice(3), root: RP_DIR } : null;
+	}
+	if (pathname.startsWith('/hub/')) return { sub: pathname.slice(4), root: HUB_DIR };
+	return undefined;
 }
 
 // 2026-09-15 有聲文章：podcast App 與 iOS Safari 播音檔會送 Range，只回 200 整檔會拖不動或直接拒播。
@@ -189,6 +208,12 @@ async function handle(req, res) {
 
 	const root = await currentRoot();
 
+	if (url.pathname === '/hub') {
+		res.writeHead(302, { location: `/hub/${url.search}` });
+		res.end();
+		return;
+	}
+
 	// 私人儀表板。不進 dist、不進網站地圖，外面只靠 Cloudflare Access 擋。
 	if (url.pathname === '/_dash' || url.pathname === '/_dash/') {
 		const days = Number(url.searchParams.get('days')) || 14;
@@ -202,7 +227,8 @@ async function handle(req, res) {
 		return;
 	}
 
-	const entry = await fileEntry(url.pathname, root);
+	const shared = sharedPath(url.pathname);
+	const entry = shared === undefined ? await fileEntry(url.pathname, root) : shared && (await fileEntry(shared.sub, shared.root));
 	if (!entry) {
 		logVisit(req, 404);
 		await sendFallback(req, res, root);
@@ -272,6 +298,21 @@ function check() {
 	assert.equal(cacheControl('/sw.js'), 'no-cache');
 	assert.equal(cacheControl('/copy-code.js'), null);
 	assert.equal(cacheControl('/blog/x/'), null);
+	// 2026-10-26 /rp/ 共用檔與 /hub/
+	assert.equal(cacheControl('/rp/rp-nav.js'), 'public, max-age=3600');
+	assert.equal(cacheControl('/hub/'), 'private, no-cache');
+	assert.equal(localPath('/../package.json', RP_DIR), null);
+	assert.equal(localPath('/..%2fpackage.json', RP_DIR), null);
+	assert.equal(sharedPath('/rp/../package.json'), null);
+	assert.equal(sharedPath('/rp/..%2fpackage.json'), null);
+	assert.equal(sharedPath('/rp/hub/index.html'), null);
+	assert.equal(sharedPath('/rp/hub'), null);
+	assert.equal(sharedPath('/rp/HUB/index.html'), null);
+	assert.equal(sharedPath('/rp/%2e%2e/package.json'), null);
+	assert.deepEqual(sharedPath('/rp/rp-nav.js'), { sub: '/rp-nav.js', root: RP_DIR });
+	assert.deepEqual(sharedPath('/hub/'), { sub: '/', root: HUB_DIR });
+	assert.equal(sharedPath('/blog/x/'), undefined);
+	assert.equal(localPath('/../rp-nav.js', HUB_DIR), null);
 	console.log('serve_dist self-check ok');
 }
 

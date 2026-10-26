@@ -1,0 +1,160 @@
+/* ============================================================
+   Realpha 共用設計變數  rp-tokens.css  v1.0（2026-10-26）
+   方向：「墨與紙」— 米白紙面＋靛藍墨水（延續 blog 既有品牌），
+         深色版是「墨黑紙＋提亮靛藍」。紅漲綠跌（台灣慣例）。
+   規矩：
+   1. 只宣告變數，不做任何 reset，不對 html/body/標籤寫樣式。
+   2. 所有變數前綴 --rp-，不與各站既有 --bg / --accent 撞名。
+   3. 不含 @font-face、不載外部字型（跨網域不需 CORS）。
+   4. 主題由 html[data-rp-theme="light|dark"] 決定；沒標時跟系統。
+   供應：https://getrealpha.com/rp/rp-tokens.css?v=1
+   ============================================================ */
+
+:root {
+  /* ---------- 字型 ---------- */
+  --rp-font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --rp-font-display: "LXGW WenKai TC", "Kaiti TC", "BiauKai", "DFKai-SB", "Noto Serif TC", serif;
+  --rp-font-mono: "Cascadia Code", "SFMono-Regular", Consolas, "Roboto Mono", "Liberation Mono", monospace;
+
+  /* ---------- 字級（16px 基準，中文字行高 1.6） ---------- */
+  --rp-text-xs: 0.75rem;    /* 12 */
+  --rp-text-sm: 0.875rem;   /* 14 */
+  --rp-text-md: 1rem;       /* 16 */
+  --rp-text-lg: 1.125rem;   /* 18 */
+  --rp-text-xl: 1.375rem;   /* 22 */
+  --rp-text-2xl: 1.75rem;   /* 28 */
+  --rp-text-3xl: clamp(2rem, 5vw, 2.75rem);
+  --rp-leading: 1.6;
+  --rp-leading-tight: 1.3;
+
+  /* ---------- 間距（4 的倍數） ---------- */
+  --rp-space-1: 4px;
+  --rp-space-2: 8px;
+  --rp-space-3: 12px;
+  --rp-space-4: 16px;
+  --rp-space-5: 24px;
+  --rp-space-6: 32px;
+  --rp-space-7: 48px;
+  --rp-space-8: 64px;
+
+  /* ---------- 圓角（偏方正，呼應手帳紙） ---------- */
+  --rp-radius-sm: 3px;
+  --rp-radius: 6px;
+  --rp-radius-lg: 10px;
+  --rp-radius-pill: 999px;
+
+  /* ---------- 版面 ---------- */
+  --rp-measure: 65ch;
+  --rp-content-max: 1120px;
+  --rp-nav-h: 44px;           /* rp-nav.js 掛上後會再寫一次實際值 */
+  --rp-z-nav: 40;             /* 高於各站頁首（10～30），低於各站遮罩與 modal（seller/kline/piano 的全螢幕遮罩是 50） */
+
+  /* ---------- 動態 ---------- */
+  --rp-ease: cubic-bezier(.2,.7,.2,1);
+  --rp-dur: 160ms;
+}
+
+/* ================= 淺色（紙） =================
+   預設；blog / learn / health / cycle / asset / seller / stock(淺) / zhangtianping 首頁 / easel */
+:root,
+html[data-rp-theme="light"] {
+  color-scheme: light;
+  --rp-bg: #f6f5f1;           /* 米白紙 */
+  --rp-bg-dot: #e6e8ec;       /* 點格紙的點（可不用） */
+  --rp-surface: #fffefb;      /* 卡片 */
+  --rp-surface-2: #efede6;    /* 次級面（表頭、工具列） */
+  --rp-line: #e4e1d8;
+  --rp-line-strong: #cfcbbf;
+  --rp-text: #2b2f3a;
+  --rp-text-muted: #5d6474;
+  --rp-text-faint: #7d8392;
+  --rp-accent: #3a4f9a;       /* 靛藍墨水 */
+  --rp-accent-strong: #2e3f7d;
+  --rp-accent-contrast: #ffffff;
+  --rp-accent-tint: rgba(58, 79, 154, 0.10);
+  --rp-highlight: #fbf3c9;    /* 便利貼黃，只做標記不做主色 */
+  --rp-up: #c0392b;           /* 漲：紅 */
+  --rp-down: #1e8449;         /* 跌：綠 */
+  --rp-flat: #7d8392;
+  --rp-warn: #b7791f;
+  --rp-danger: #b03a2e;
+  --rp-ok: #2f855a;
+  --rp-shadow-rest: 0 1px 2px rgba(60, 50, 20, 0.06);
+  --rp-shadow-hover: 0 14px 26px -16px rgba(60, 50, 20, 0.38), 0 3px 8px -6px rgba(60, 50, 20, 0.16);
+  --rp-nav-bg: rgba(246, 245, 241, 0.92);
+  --rp-nav-line: #e4e1d8;
+}
+
+/* ================= 深色（墨） =================
+   patent / piano / kline / seller(深) / stock(深) / hot(深) / zhangtianping 內頁 */
+html[data-rp-theme="dark"] {
+  color-scheme: dark;
+  --rp-bg: #0f1218;           /* 墨黑，不是純黑 */
+  --rp-bg-dot: #1a1f28;
+  --rp-surface: #161b23;
+  --rp-surface-2: #1d232d;
+  --rp-line: #262d38;
+  --rp-line-strong: #343c49;
+  --rp-text: #e6e9ef;
+  --rp-text-muted: #a4acba;
+  --rp-text-faint: #7b8494;
+  --rp-accent: #8fa3e6;       /* 提亮靛藍（深底上才看得清） */
+  --rp-accent-strong: #aebdf0;
+  --rp-accent-contrast: #0f1218;
+  --rp-accent-tint: rgba(143, 163, 230, 0.14);
+  --rp-highlight: #4a4320;
+  --rp-up: #e5533f;
+  --rp-down: #3fbf72;
+  --rp-flat: #7b8494;
+  --rp-warn: #d9a441;
+  --rp-danger: #e05a4e;
+  --rp-ok: #4fbf7f;
+  --rp-shadow-rest: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --rp-shadow-hover: 0 14px 26px -16px rgba(0, 0, 0, 0.7), 0 3px 8px -6px rgba(0, 0, 0, 0.5);
+  --rp-nav-bg: rgba(15, 18, 24, 0.90);
+  --rp-nav-line: #262d38;
+}
+
+/* 沒有標 data-rp-theme 的站：跟系統。用 :not() 讓顯式標記永遠優先。 */
+@media (prefers-color-scheme: dark) {
+  html:not([data-rp-theme]) {
+    color-scheme: dark;
+    --rp-bg: #0f1218;
+    --rp-bg-dot: #1a1f28;
+    --rp-surface: #161b23;
+    --rp-surface-2: #1d232d;
+    --rp-line: #262d38;
+    --rp-line-strong: #343c49;
+    --rp-text: #e6e9ef;
+    --rp-text-muted: #a4acba;
+    --rp-text-faint: #7b8494;
+    --rp-accent: #8fa3e6;
+    --rp-accent-strong: #aebdf0;
+    --rp-accent-contrast: #0f1218;
+    --rp-accent-tint: rgba(143, 163, 230, 0.14);
+    --rp-highlight: #4a4320;
+    --rp-up: #e5533f;
+    --rp-down: #3fbf72;
+    --rp-flat: #7b8494;
+    --rp-warn: #d9a441;
+    --rp-danger: #e05a4e;
+    --rp-ok: #4fbf7f;
+    --rp-shadow-rest: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --rp-shadow-hover: 0 14px 26px -16px rgba(0, 0, 0, 0.7), 0 3px 8px -6px rgba(0, 0, 0, 0.5);
+    --rp-nav-bg: rgba(15, 18, 24, 0.90);
+    --rp-nav-line: #262d38;
+  }
+}
+
+/* ---------- 少量可選工具 class（全部帶 rp- 前綴，站不用就不受影響） ---------- */
+.rp-up   { color: var(--rp-up); }
+.rp-down { color: var(--rp-down); }
+.rp-flat { color: var(--rp-flat); }
+.rp-num  { font-variant-numeric: tabular-nums; }
+.rp-mono { font-family: var(--rp-font-mono); font-variant-numeric: tabular-nums; }
+.rp-card {
+  background: var(--rp-surface);
+  border: 1px solid var(--rp-line);
+  border-radius: var(--rp-radius);
+  box-shadow: var(--rp-shadow-rest);
+}

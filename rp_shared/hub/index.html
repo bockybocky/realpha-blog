@@ -1,0 +1,124 @@
+<!doctype html>
+<!-- 不在 <html> 寫死 data-rp-theme：寫死＝站鎖主題，rp-nav 會尊重它而忽略 cookie。預設交給下面 script 的 data-rp-theme -->
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Realpha 總入口</title>
+<link rel="icon" href="https://blog.getrealpha.com/favicon.svg">
+<link rel="stylesheet" href="/rp/rp-tokens.css?v=1">
+<style>
+  /* 總入口頁自己的樣式：只用 --rp- 變數，不寫死顏色 */
+  * { box-sizing: border-box; }
+  html { background: var(--rp-bg); color: var(--rp-text); font-family: var(--rp-font-sans); font-size: 16px; line-height: var(--rp-leading); }
+  body {
+    margin: 0; min-height: 100vh;
+    background-color: var(--rp-bg);
+    background-image: radial-gradient(circle, var(--rp-bg-dot) 1px, transparent 1.2px);
+    background-size: 18px 18px;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { width: min(100% - 2rem, var(--rp-content-max)); margin: 0 auto; padding: var(--rp-space-7) 0 var(--rp-space-8); }
+  .hero { display: grid; gap: var(--rp-space-3); margin-bottom: var(--rp-space-7); }
+  .hero h1 { margin: 0; font-family: var(--rp-font-display); font-weight: 700; font-size: var(--rp-text-3xl); line-height: var(--rp-leading-tight); }
+  .hero h1 .mark { background: linear-gradient(transparent 62%, var(--rp-highlight) 0); padding: 0 .05em; }
+  .hero p { margin: 0; max-width: 58ch; color: var(--rp-text-muted); font-size: var(--rp-text-lg); }
+  .hero .meta { display: flex; flex-wrap: wrap; gap: var(--rp-space-2) var(--rp-space-4); color: var(--rp-text-faint); font-size: var(--rp-text-sm); font-variant-numeric: tabular-nums; }
+  .hero .meta b { color: var(--rp-text); font-weight: 600; }
+
+  .group { padding: var(--rp-space-6) 0; border-top: 1px solid var(--rp-line); }
+  .group-h { display: flex; align-items: baseline; gap: var(--rp-space-3); margin-bottom: var(--rp-space-4); }
+  .group-h h2 { margin: 0; font-family: var(--rp-font-display); font-weight: 700; font-size: var(--rp-text-2xl); line-height: var(--rp-leading-tight); }
+  .group-h h2::before { content: ""; display: inline-block; width: 1.6rem; height: 2px; margin-right: .6rem; vertical-align: middle; background: var(--rp-accent); border-radius: 2px; }
+  .group-h span { color: var(--rp-text-faint); font-size: var(--rp-text-sm); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: var(--rp-space-4); }
+  .card {
+    display: grid; align-content: start; gap: var(--rp-space-2); min-height: 9.5rem; padding: var(--rp-space-4);
+    background: var(--rp-surface); border: 1px solid var(--rp-line); border-radius: var(--rp-radius); box-shadow: var(--rp-shadow-rest);
+    transition: transform var(--rp-dur) var(--rp-ease), box-shadow var(--rp-dur) var(--rp-ease), border-color var(--rp-dur) var(--rp-ease);
+  }
+  .card:hover { border-color: color-mix(in srgb, var(--rp-accent) 40%, var(--rp-line)); box-shadow: var(--rp-shadow-hover); }
+  @media (prefers-reduced-motion: no-preference) { .card:hover { transform: translateY(-2px); } }
+  .card .top { display: flex; align-items: center; gap: var(--rp-space-2); }
+  .card h3 { margin: 0; font-size: var(--rp-text-lg); font-weight: 700; line-height: var(--rp-leading-tight); }
+  .card .host { margin-left: auto; font-family: var(--rp-font-mono); font-size: var(--rp-text-xs); color: var(--rp-text-faint); }
+  .card p { margin: 0; color: var(--rp-text-muted); font-size: var(--rp-text-sm); }
+  .card .tags { display: flex; flex-wrap: wrap; gap: var(--rp-space-1); margin-top: auto; padding-top: var(--rp-space-2); }
+  .tag { border: 1px solid var(--rp-line); border-radius: var(--rp-radius-sm); padding: .25rem .6rem; font-size: var(--rp-text-xs); color: var(--rp-text-muted); background: var(--rp-surface-2); }
+  .tag.lock { color: var(--rp-accent-strong); border-color: color-mix(in srgb, var(--rp-accent) 35%, var(--rp-line)); background: var(--rp-accent-tint); }
+  .tag.dark { color: var(--rp-text-muted); }
+  .swatch { width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--rp-line-strong); flex: none; }
+
+  footer { margin-top: var(--rp-space-7); padding-top: var(--rp-space-4); border-top: 1px solid var(--rp-line); color: var(--rp-text-faint); font-size: var(--rp-text-sm); display: flex; flex-wrap: wrap; gap: var(--rp-space-2) var(--rp-space-4); }
+  footer .up { color: var(--rp-up); } footer .down { color: var(--rp-down); }
+</style>
+</head>
+<body>
+<!-- 共用選單：總入口自己也掛同一支，目前站＝hub，顯示深淺切換 -->
+<script src="/rp/rp-nav.js?v=1" data-rp-site="hub" data-rp-theme="light" data-rp-mode="sticky" data-rp-toggle="1"></script>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Realpha <span class="mark">總入口</span></h1>
+    <p>十四個站，一個門口。投資儀表板在上面，生活與創作在下面；每一站頂端都有同一條選單可以互相跳。</p>
+    <div class="meta"><span>站數 <b>14</b></span><span>公開 <b>1</b>（部落格）</span><span>需登入 <b>13</b>（Cloudflare Access）</span><span id="asof"></span></div>
+  </section>
+
+  <section class="group">
+    <div class="group-h"><h2>投資</h2><span>深色為主，紅漲綠跌</span></div>
+    <div class="grid">
+      <a class="card" href="https://stock.getrealpha.com/"><div class="top"><span class="swatch" style="background:#58a6ff"></span><h3>持股決策</h3><span class="host">stock</span></div><p>美股／台股今日行動、倉位、停損、決策佇列、週情境、持股日報。</p><div class="tags"><span class="tag lock">需登入</span><span class="tag">雙主題</span></div></a>
+      <a class="card" href="https://seller.getrealpha.com/"><div class="top"><span class="swatch" style="background:#58a6ff"></span><h3>台指選擇權</h3><span class="host">seller</span></div><p>四源綜合即時儀表板：阿彥、A 大 TXO、AAII、GEX。只提供給 OP 研究所。</p><div class="tags"><span class="tag lock">需登入</span><span class="tag">雙主題</span></div></a>
+      <a class="card" href="https://asset.getrealpha.com/"><div class="top"><span class="swatch" style="background:#58a6ff"></span><h3>資產彙總</h3><span class="host">asset</span></div><p>總資產、美股台股期貨現金四格、槓桿與風險燈、淨值曲線。</p><div class="tags"><span class="tag lock">需登入</span></div></a>
+      <a class="card" href="https://kline.getrealpha.com/"><div class="top"><span class="swatch" style="background:#d39b3c"></span><h3>K 線台</h3><span class="host">kline</span></div><p>多檔同屏技術圖、KD、均價、買賣點；全螢幕工作台。</p><div class="tags"><span class="tag lock">需登入</span><span class="tag dark">深色</span><span class="tag">全螢幕</span></div></a>
+      <a class="card" href="https://cycle.getrealpha.com/"><div class="top"><span class="swatch" style="background:#2364aa"></span><h3>營運週期</h3><span class="host">cycle</span></div><p>持股與研究清單的營運週期判讀、反證條件、論點守衛。</p><div class="tags"><span class="tag lock">需登入</span></div></a>
+      <a class="card" href="https://zhangtianping.getrealpha.com/"><div class="top"><span class="swatch" style="background:#2F3437"></span><h3>掌天瓶</h3><span class="host">zhangtianping</span></div><p>市場把一家公司當柯達丟掉、但獲利還在長——判決紀錄與對錯回顧。</p><div class="tags"><span class="tag lock">需登入</span></div></a>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-h"><h2>情報</h2><span>資訊流</span></div>
+    <div class="grid">
+      <a class="card" href="https://hot.getrealpha.com/"><div class="top"><span class="swatch" style="background:#176b75"></span><h3>熱點</h3><span class="host">hot</span></div><p>AI 動態精選、持股雷達、瓶頸層雷達、總經雷達、熱點榜。</p><div class="tags"><span class="tag lock">需登入</span><span class="tag">雙主題</span></div></a>
+      <a class="card" href="https://patent.getrealpha.com/"><div class="top"><span class="swatch" style="background:#f2c14e"></span><h3>專利情報</h3><span class="host">patent</span></div><p>防守查詢、攻擊情報、草稿初篩、監控管理。</p><div class="tags"><span class="tag lock">需登入</span><span class="tag dark">深色</span></div></a>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-h"><h2>學習</h2></div>
+    <div class="grid">
+      <a class="card" href="https://learn.getrealpha.com/"><div class="top"><span class="swatch" style="background:#1769aa"></span><h3>學習站</h3><span class="host">learn</span></div><p>進行中的主題、待學書單、複習與查詢。</p><div class="tags"><span class="tag lock">需登入</span><span class="tag">雙主題</span></div></a>
+      <a class="card" href="https://piano.getrealpha.com/"><div class="top"><span class="swatch" style="background:#ffcf4d"></span><h3>Piano Quest</h3><span class="host">piano</span></div><p>鋼琴輔導助教：老師出功課、孩子在家練、老師看得到。</p><div class="tags"><span class="tag lock">需登入</span><span class="tag dark">深色</span></div></a>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-h"><h2>生活</h2></div>
+    <div class="grid">
+      <a class="card" href="https://health.getrealpha.com/"><div class="top"><span class="swatch" style="background:#2f9e44"></span><h3>健康站</h3><span class="host">health</span></div><p>體重、飲食、運動、睡眠、照片、InBody、健檢。</p><div class="tags"><span class="tag lock">需登入</span></div></a>
+      <a class="card" href="https://fitable.getrealpha.com/"><div class="top"><span class="swatch" style="background:#4ade80"></span><h3>健身車</h3><span class="host">fitable</span></div><p>邊騎邊看世界：踏頻帶動影片配速。</p><div class="tags"><span class="tag lock">需登入</span><span class="tag">全螢幕</span></div></a>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-h"><h2>創作</h2></div>
+    <div class="grid">
+      <a class="card" href="https://blog.getrealpha.com/"><div class="top"><span class="swatch" style="background:#3a4f9a"></span><h3>部落格</h3><span class="host">blog</span></div><p>聽我陪你做研究：用 AI 做投資研究的實作筆記，每篇都留一件帶得走的事。</p><div class="tags"><span class="tag">公開</span></div></a>
+      <a class="card" href="https://easel.getrealpha.com/"><div class="top"><span class="swatch" style="background:#158f9a"></span><h3>Easel</h3><span class="host">easel</span></div><p>出圖與內容畫板。</p><div class="tags"><span class="tag lock">需登入</span><span class="tag">全螢幕</span></div></a>
+    </div>
+  </section>
+
+  <footer>
+    <span>Realpha</span>
+    <span>台灣慣例：<span class="up">紅漲</span>／<span class="down">綠跌</span></span>
+    <span>共用檔 /rp/rp-tokens.css、/rp/rp-nav.js</span>
+  </footer>
+</main>
+<script>
+  // 只做一件事：印今天日期（as-of），沒有任何對外請求
+  (function(){var d=new Date();var s=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');document.getElementById('asof').innerHTML='檢視日 <b>'+s+'</b>';})();
+</script>
+</body>
+</html>
