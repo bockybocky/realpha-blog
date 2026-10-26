@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="In the left panel the path routes around the break and arrives, and in the right panel there is no way around, so both paths stop midway.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <text x="480" y="60" font-size="27" fill="var(--ink)" text-anchor="middle">Two rails: only interoperable ones are a backup</text>
+
+  <rect x="50" y="110" width="400" height="330" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="250" y="150" font-size="20" fill="var(--accent)" text-anchor="middle">Interoperable</text>
+  <circle cx="90" cy="285" r="12" fill="var(--accent)"/>
+  <text x="90" y="330" font-size="15" fill="var(--dim)" text-anchor="middle">Payment</text>
+  <line x1="102" y1="210" x2="210" y2="210" stroke="var(--accent)" stroke-width="6"/>
+  <line x1="102" y1="285" x2="102" y2="210" stroke="var(--accent)" stroke-width="6"/>
+  <line x1="236" y1="196" x2="264" y2="224" stroke="var(--warn)" stroke-width="5"/>
+  <line x1="264" y1="196" x2="236" y2="224" stroke="var(--warn)" stroke-width="5"/>
+  <line x1="210" y1="210" x2="210" y2="370" stroke="var(--accent)" stroke-width="6"/>
+  <line x1="210" y1="370" x2="396" y2="370" stroke="var(--accent)" stroke-width="6"/>
+  <circle cx="412" cy="370" r="12" fill="var(--accent)"/>
+  <text x="412" y="408" font-size="15" fill="var(--dim)" text-anchor="middle">Arrives</text>
+  <text x="250" y="258" font-size="16" fill="var(--dim)" text-anchor="middle">Broken, but routable</text>
+
+  <rect x="510" y="110" width="400" height="330" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="710" y="150" font-size="20" fill="var(--warn)" text-anchor="middle">Not interoperable</text>
+  <circle cx="550" cy="285" r="12" fill="var(--grey)"/>
+  <text x="550" y="330" font-size="15" fill="var(--dim)" text-anchor="middle">Payment</text>
+  <line x1="562" y1="210" x2="670" y2="210" stroke="var(--grey)" stroke-width="6"/>
+  <line x1="562" y1="285" x2="562" y2="210" stroke="var(--grey)" stroke-width="6"/>
+  <line x1="696" y1="196" x2="724" y2="224" stroke="var(--warn)" stroke-width="5"/>
+  <line x1="724" y1="196" x2="696" y2="224" stroke="var(--warn)" stroke-width="5"/>
+  <line x1="670" y1="210" x2="670" y2="300" stroke="var(--grey)" stroke-width="4" stroke-dasharray="8 8"/>
+  <line x1="630" y1="318" x2="710" y2="318" stroke="var(--warn)" stroke-width="6"/>
+  <line x1="562" y1="370" x2="648" y2="370" stroke="var(--grey)" stroke-width="6"/>
+  <circle cx="872" cy="370" r="12" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <text x="872" y="408" font-size="15" fill="var(--dim)" text-anchor="middle">Lost</text>
+  <text x="730" y="262" font-size="16" fill="var(--dim)" text-anchor="middle">Broken stays broken</text>
+
+  <text x="480" y="520" font-size="22" fill="var(--ink)" text-anchor="middle">Two rails you cannot route between are not a backup</text>
+  <text x="480" y="556" font-size="22" fill="var(--ink)" text-anchor="middle">They are two costs</text>
+</svg>

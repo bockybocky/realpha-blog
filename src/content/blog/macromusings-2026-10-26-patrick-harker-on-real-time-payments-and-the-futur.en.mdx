@@ -1,0 +1,92 @@
+---
+title: "He Argues Real-Time Payments Should Be 16 Seconds Slower: Harker on Fraud and Liquidity in One Rail"
+description: "Macro Musings, 26 October 2026, hosts former Philadelphia Fed president Patrick Harker. He argues real-time payments should not settle in milliseconds: add 16 seconds to cut fraud, add 30 to let banks hold less liquidity. I build his case to its strongest form, then take the other side. Reading notes on payment system design — no tickers, no recommendations, no price targets."
+slug: "macromusings-2026-10-26-patrick-harker-on-real-time-payments-and-the-futur"
+lang: "en"
+pubDate: 2026-10-26
+category: "investing"
+kind: "podcast-notes"
+tags: ["real-time payments", "Federal Reserve", "bank liquidity", "fraud", "institutional design"]
+ogImage: "/covers/macromusings-2026-10-26-patrick-harker-on-real-time-payments-and-the-futur-cover.png"
+cover: "/covers/macromusings-2026-10-26-patrick-harker-on-real-time-payments-and-the-futur-cover.png"
+tldr: "Harker says 16 seconds of delay in a real-time payment rail cuts fraud, and 30 seconds lets banks hold less liquidity. He also says nobody has measured how deep payment fraud runs — so those 16 seconds are best read as a direction of travel."
+---
+
+![A rural bank drive-through lane at dusk, the teller window lit, a horse-drawn buggy waiting at it, the gravel lane running back into cornfields toward the far end of the frame](/covers/macromusings-2026-10-26-patrick-harker-on-real-time-payments-and-the-futur-cover.png)
+
+> When it is time to stop, stop; when it is time to act, act. Keep stillness and motion each to its season, and the way ahead is bright.
+>
+> — *Book of Changes*, commentary on the hexagram Gen (pre-Qin; translated here by me)
+
+On the Macro Musings episode published 26 October 2026, recorded at Wharton, David Beckworth hosts Patrick Harker, president of the Philadelphia Fed from 2015 to June 2025. Harker makes a counterintuitive design argument: a real-time payment rail — one where the payee has the money within seconds — should not settle in milliseconds, because his calibrated model shows that inserting 16 seconds into the flow gives fraud detection room to work, and that at 30 seconds banks can net more payments against each other and therefore hold less liquidity in the network. The conditions on that conclusion are narrow: something has to be running inside those 16 seconds, and the payment cannot be happening at a supermarket checkout.
+
+## His case, built to its strongest form
+
+Start with the most memorable story in the episode. Bank of Bird-in-Hand, in Pennsylvania, was the first de novo bank chartered in America after the financial crisis, and it serves the Amish — a Christian group that declines modern technology. Amish customers mostly have no credit scores and often no ID, so the bank went to the FDIC for a waiver letting it use the genealogical records the community keeps in meticulous detail. You open the family-tree book, point to the person on the tree, and someone who knows him comes in to attest: this is Earl, Earl is fine, you can bank with Earl. The bank's mobile branches are called Geldt buses — Geldt is Pennsylvania Dutch for money — and every stop counts as a branch under the rules, so a schedule change needs fresh approval, which they learned to fast-track. The branch has two drive-through lanes, one for cars and one for the horse and buggy. Loans on barns and houses carry no insurance, because if your barn burns the community comes and rebuilds it; Harker says a commercial banker hearing that gets steam coming out of his ears. Write-offs are rare.
+
+I read that bank as the physical version of Harker's argument: identifying a person takes time, and the time spent produces something.
+
+Back to payments. There is a line in the business, which Harker attributes to the man running the US Payments Council and says payment people hate: faster payments equal faster fraud. Fraudsters move in and out quickly, looking for the path of least resistance. Then he concedes the thing that is both the foundation of the argument and the crack in it — nobody knows how deep the fraud runs, because victims do not always report and reports are not always public. Only that it is big.
+
+Then the two numbers. Add 16 seconds, and detection has time to finish a check. Double that to 30, and banks can net more payments, which drains liquidity out of the network's requirements. One more step down is where the argument gets its real force: if I have to hold a large pile of liquidity against the payment rail, and I want a given return, I will take more risk with what is left. The latency setting of a payment system travels across the balance sheet and comes out as bank risk appetite.
+
+![A three-step staircase rising from left to right, with 0 seconds lowest, 16 seconds in the middle and 30 seconds highest, each step labeled with what that amount of delay buys.](/figures/harker-delay-ladder-en.svg)
+
+Harker's doctorate is in engineering and he used to do control theory and optimisation. The goal in a stochastic control model, he says, is to never reach the edge, never reach the turbulent flow — you want laminar flow. The capital-side tool for the same idea already exists: the countercyclical capital buffer. It has sat at zero in the United States since inception; in the UK it is 2%. The usual objection is that this forces banks to hold more capital, and Harker says no, you lower the other capital requirements. What he values is the absence of stigma — when you release it, the whole industry goes from 2% to zero on the same day, and nobody has to raise a hand alone.
+
+![On the left a bar is mostly blocked in gray with only a small top segment free to move; on the right two sloping lines show that the line gets clearly steeper once the usable portion shrinks.](/figures/harker-liquidity-spillover-en.svg)
+
+The control group is recent. In the Silicon Valley Bank episode, the Bank Term Funding Program took collateral with no haircut, so there was no stigma and you would have been dumb to skip the loan; looking back, Harker says that program was not well thought through, it was done in haste, and the whole response overdid it. He thinks the Fed should borrow a page from the Bank of England and put time limits on such facilities. Discount window stigma he considers unfixable by engineering, since the borrowing gets publicly disclosed and the market reads it as that bank being in trouble. Hence his conclusion: keep the buffer in place during calm, instead of hunting for tools at the cliff edge.
+
+## Taking the other side: where the design gives way
+
+The first cut comes from the host in the room. America now has two real-time rails: the Fed's FedNow and The Clearing House's RTP. The host calls it two sewer systems, with the cost curve split between them. Harker reaches for cloud computing — most organisations run two cloud providers for redundancy, so two payment systems need not be bad — and then adds the condition: they have to be interoperable. Asked whether they are today, he says they have to keep working on it. Redundancy counts as risk reduction only once interoperability exists; until then, two systems are two cost bases.
+
+![Two panels each hold two pipes; in the left panel the upper pipe is broken but the flow reroutes through the lower one and still arrives, while in the right panel the upper pipe breaks with no connector, so both pipes stop halfway.](/figures/harker-two-rails-interoperability-en.svg)
+
+The second cut is that the cost of delay lands on other people. Sixteen seconds does not work in a checkout line, and Harker says so himself — milliseconds are what work there. He says there are ways to engineer around it; he does not say in the episode which way. The host then raises the people Aaron Klein at Brookings has spent years on: direct deposit lands Friday, the money is not usable until Tuesday. Harker says his family were union pipefitters, he gets it, and that this part is easy to solve — he puts the delay on payments going out, where he says most of the fraud sits. Yet inbound and outbound run on the same rail, something has to classify which leg a payment belongs to, and the classification rule is itself an attack surface.
+
+The third cut is the hardest, and it comes from another passage in the same episode. On the 2019 balance sheet runoff he says the appropriate level of reserves cannot be known a priori — estimates ran from $500 billion to $1.5 trillion, his team knocked its own estimate from $1.5 trillion down to a trillion while privately holding onto $500 billion, and the answer landed near $1.5 trillion. He calls it a humbling experience and says the only way you learn the number is the market's reaction. He also drops a joke about it: outsiders called the approach the Harker plan, and he told them that if it works it is the Harker plan, and if it fails it is the Remendur plan, after the economist on his staff whose idea it actually was. That is the tension: the same man says a model cannot tell you the reserve number in advance, and uses a calibrated model to produce 16 seconds — on a fraud base rate he says nobody has measured. A number built on an unmeasured base rate is an estimate some distance from a design spec.
+
+![The top row shows one very wide gray band, while the bottom row shows a single point on the same axis, labeled that no one has measured the underlying base rate.](/figures/harker-band-versus-point-en.svg)
+
+The fourth cut is political economy. The countercyclical buffer has been zero since inception for a reason. He says he sat in the Board room arguing for raising it, and of course the banks pushed back. The binding layer is who is willing to press the button; the engineering tool for staying away from the edge is already in the rulebook and nobody presses it. Framing that as a design problem suggests design is the thing missing.
+
+One more passage made me re-read his ceiling. He says the dual mandate is in law, yet treating it as a trade-off is where the trouble starts, so he would run it hierarchically: inflation is job one, and once you are within spitting distance of target you worry about unemployment. His reason is that the forces moving the labour market now — AI, immigration — have little to do with anything the Fed controls. I see where that comes from, and it carries the same scent as the 16 seconds: both assume a designer can cleanly separate the variables inside a system.
+
+## Which side holds, and on what condition
+
+The delay argument holds across a narrower range than the range it was stated in, and two conditions set the boundary.
+
+The first is where the payment sits. Account-to-account transfers, corporate payables, large outbound wires — nobody notices 16 to 30 extra seconds there, and the fraud and liquidity gains all land in that segment. The checkout lane is different. So the thing to design is the segmentation: milliseconds at the till, a window between accounts. Stating it as a speed ceiling for the whole rail is what makes the argument easy to knock over with one line about waiting 16 seconds at Walmart.
+
+![A horizontal rail splits into two segments, a narrow front one labeled milliseconds and a wide back one labeled 16 to 30 seconds, with a dashed window above the back segment saying screening is running.](/figures/harker-segmented-rail-en.svg)
+
+The second is whether anything runs inside the window. Sixteen seconds has no value on its own; the value sits in the check that completes inside them. With no shared fraud intelligence and no mandatory reporting, the window is just latency. So the order should reverse: make fraud measurable first, and the seconds acquire meaning. His number reads as a direction; reading it as a spec is getting ahead of the evidence.
+
+One layer out, this connects to a question you may be sitting with: the news says stablecoins and tokenized deposits are about to upend banks — should I believe it?
+
+Harker hands you a test you can run yourself. A tokenized deposit — a bank deposit made transferable as a token on a ledger — has one built-in advantage over a stablecoin: it can pay interest. If a tokenized deposit does everything a stablecoin does and pays interest on top, he says, he will take the deposit. That test travels to any story about new technology displacing incumbents: ask first whether the incumbent holds something the newcomer cannot legally hold. Whatever that thing is sets the ceiling on the disruption.
+
+There is a better passage still for separating noise from structure. Swipe a card in America and the merchant pays around 3%; some jurisdictions cap the rate at 50 basis points. Harker points out that absent separate cash and card pricing, cash payers subsidise card payers — and cash payers skew lower income. So when a technology or a rule advertises how fast and cheap it is, asking whose account the invisible cost is booked to usually separates noise from structure better than asking who wins.
+
+One detail from his current work I did not expect, worth recording. He fed Claude his hundred-plus career articles, every public speech on the Fed website, every op-ed, told it "here's me," and it learned him; now he iterates with it the way he used to iterate with a speechwriter and a research team. He wrote an essay called "The Speechwriter I Never Mentioned" — 26 years running institutions, a speechwriter the whole time, and he never once opened at the podium by thanking Ethan for these words. Then he draws a line: he and Druckenmiller can work this way because the judgment took decades to build, and the young person walking across campus today cannot. That line and the 16 seconds are the same thought — what he cares about is what the skipped time was doing.
+
+![Two paths run under the same sticker price, the card path leaves the merchant with less, a thick arrow points from the cash side to the card side, and beside it a much thinner arrow shows the flow after the interchange cap.](/figures/harker-hidden-interchange-subsidy-en.svg)
+
+## Further reading
+
+- Macro Musings, episode published 26 October 2026, host David Beckworth, guest Patrick Harker, recorded at the Wharton School; produced by the Mercatus Center at George Mason University
+- Harker's paper with a Wharton finance colleague, "Speed, Fraud, and Bank Liquidity: The Operational Architecture of Real-Time Payment Systems" — the 16- and 30-second models live here
+- Harker's Substack, *The Load Bearer*, where the buffer, balance sheet and AI arguments appear in written form
+- The Wharton Future of Finance Initiative, where he is co-academic director
+- Brazil's PIX and the Bahamian sand dollar, both raised in the episode, as comparisons for small or geographically dispersed economies adopting a public payment rail
+- The *Book of Changes*, hexagram Gen (pre-Qin, public domain)
+
+## One thing to take away
+
+Speed carries no moral weight on its own; what carries weight is what the skipped time was doing. Sixteen seconds is worth something because a check fits inside it. Dropping the speechwriter costs Harker nothing because the 26 years of judgment are still there. The time a student skips has nothing growing in it yet, so it cannot be skipped. Before you cut a wait, find out what the wait was doing for you.
+
+![Three boxes of equal size sit side by side, the first two packed with small blocks and the third drawn in a dashed outline and completely empty.](/figures/harker-what-was-in-the-time-en.svg)
+
+Something I have tried: take one thing you answer instantly — your manager's message, a request from family, a colleague's midnight SOS. Before replying, write one line on paper: "what I don't know right now is ___." Reply after you've written it. That line is your own 16 seconds.
