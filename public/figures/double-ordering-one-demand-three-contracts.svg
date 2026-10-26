@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="左邊一個寫著 1 的方塊分出三條箭頭，指向右邊三個各寫著 1 的長約方塊，再由括號收攏成右側一個寫著 3 的方塊">
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+    .n { font-size:38px; font-weight:700; fill:var(--accent); }
+    .nw { font-size:38px; font-weight:700; fill:var(--warn); }
+  </style>
+
+  <text class="t" x="60" y="58">同一批需求，簽出三份長約</text>
+
+  <rect x="90" y="215" width="190" height="110" rx="8" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="185" y="256" text-anchor="middle">實際需求</text>
+  <text class="n" x="185" y="302" text-anchor="middle">1</text>
+
+  <path d="M 288 258 C 380 220 440 185 508 166" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <polygon points="514,164 500,160 503,172" fill="var(--accent)"/>
+  <line x1="288" y1="270" x2="508" y2="268" stroke="var(--accent)" stroke-width="2.5"/>
+  <polygon points="514,268 500,263 500,273" fill="var(--accent)"/>
+  <path d="M 288 290 C 380 330 440 350 508 370" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <polygon points="514,372 500,364 503,376" fill="var(--accent)"/>
+
+  <rect x="516" y="124" width="190" height="86" rx="8" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <text class="b" x="545" y="175">長約</text>
+  <text class="n" x="660" y="183" text-anchor="middle">1</text>
+
+  <rect x="516" y="226" width="190" height="86" rx="8" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <text class="b" x="545" y="277">長約</text>
+  <text class="n" x="660" y="285" text-anchor="middle">1</text>
+
+  <rect x="516" y="328" width="190" height="86" rx="8" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <text class="b" x="545" y="379">長約</text>
+  <text class="n" x="660" y="387" text-anchor="middle">1</text>
+
+  <path d="M 724 140 H 752 V 398 H 724" fill="none" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="752" y1="269" x2="782" y2="269" stroke="var(--grey)" stroke-width="2"/>
+  <polygon points="788,269 774,264 774,274" fill="var(--grey)"/>
+
+  <rect x="790" y="224" width="140" height="92" rx="8" fill="none" stroke="var(--warn)" stroke-width="2.5"/>
+  <text class="b" x="860" y="258" text-anchor="middle">供應鏈看見</text>
+  <text class="nw" x="860" y="302" text-anchor="middle">3</text>
+
+  <text class="c" x="90" y="472">需求 1，可見度 3</text>
+</svg>

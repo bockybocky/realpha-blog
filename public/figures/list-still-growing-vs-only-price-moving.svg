@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左右兩張卡片對照：左邊名單多出一條虛線新成員、下面報價線幾乎是平的；右邊名單沒有新成員、下面報價線陡峭往上竄">
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+
+  <text class="t" x="60" y="58">名單還在變長，就還在前半段</text>
+
+  <rect x="60" y="100" width="400" height="380" rx="10" fill="var(--card)"/>
+  <text class="g" x="85" y="146">擴散中</text>
+  <rect x="85" y="172" width="180" height="26" rx="4" fill="var(--grey)"/>
+  <rect x="85" y="210" width="180" height="26" rx="4" fill="var(--grey)"/>
+  <rect x="85" y="248" width="180" height="26" rx="4" fill="var(--grey)"/>
+  <rect x="85" y="286" width="180" height="26" rx="4" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="b" x="277" y="306" fill="var(--accent)">新認證</text>
+  <polyline points="90,420 160,414 230,418 300,412 370,416 430,414" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <text class="b" x="85" y="466">報價 平</text>
+
+  <rect x="500" y="100" width="400" height="380" rx="10" fill="var(--card)"/>
+  <text class="g" x="525" y="146">尾聲</text>
+  <rect x="525" y="172" width="180" height="26" rx="4" fill="var(--grey)"/>
+  <rect x="525" y="210" width="180" height="26" rx="4" fill="var(--grey)"/>
+  <rect x="525" y="248" width="180" height="26" rx="4" fill="var(--grey)"/>
+  <line x1="525" y1="299" x2="705" y2="299" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="b" x="717" y="306">沒有新名單</text>
+  <polyline points="530,432 600,424 660,402 720,344 790,252 860,192" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <text class="b" x="525" y="466">報價 跳</text>
+
+  <text class="c" x="60" y="528">先看名單，再看報價</text>
+</svg>

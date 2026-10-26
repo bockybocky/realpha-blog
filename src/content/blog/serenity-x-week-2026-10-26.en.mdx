@@ -1,0 +1,90 @@
+---
+title: "A Week of Serenity's Public Posts, Lined Up: Whoever Sells Out First Decides Who Gets Called Next"
+description: "Serenity, an independent researcher on X, posted a batch of public notes between 19 and 24 October 2026. This week I take a single argument and pull it apart end to end: how an optical shortage propagates down the supplier list, and where that reasoning breaks. Notes on industry structure — no tickers, no recommendations, no price targets."
+slug: "serenity-x-week-2026-10-26"
+lang: "en"
+pubDate: 2026-10-26
+category: "investing"
+kind: "podcast-notes"
+tags: ["optical networking", "AI infrastructure", "supply chain bottlenecks", "memory", "how to read information"]
+ogImage: "/covers/serenity-x-week-2026-10-26-cover.png"
+cover: "/covers/serenity-x-week-2026-10-26-cover.png"
+tldr: "One optical component leader has sold out into 2029, is negotiating 2030, and has buyers funding its 2031 expansion — so the buyers who missed out sign long-term agreements one tier down the list. The shortage signal shifts away from pricing and onto something else: who got newly qualified this month."
+---
+
+![A long loading dock at dusk receding into depth, the nearest bay lit and being loaded while a line of idling trucks waits behind it, stretching out past where the eye can follow](/covers/serenity-x-week-2026-10-26-cover.png)
+
+> From the side, a range; from the end, a single peak —
+> near, far, high, low, no two views the same.
+> I cannot know the true face of Mount Lu,
+> for I am standing somewhere on it.
+>
+> — Su Shi, "Written on the Wall of Xilin Temple" (my own rendering)
+
+Serenity, an independent researcher on X, posted a batch of public material between 19 and 24 October 2026, clustered around optical lasers, advanced packaging and memory. This week I am taking just one of his arguments apart: an optical component leader has sold its capacity out into 2029, has begun negotiating 2030, and has cloud buyers paying for a 2031 expansion — and in the same week a leading accelerator maker announced that a packaging house will raise advanced packaging capacity by more than 300% by the end of 2028, with substrate suppliers expanding 2.5x. I used only the posts readable on his public timeline and subscribe to nothing of his. The figures trace back to public earnings calls, public interviews and public news, with a few resting on trade-show channel checks and trade press, which are a notch softer — I flag those in place. The limits first: the pricing terms inside those agreements and how volume splits between buyers are not public, and nobody has disclosed how much room is hiding inside the phrase "to a large degree noncancellable." So everything below stops at volume and ordering.
+
+## One Line of Game Theory Holds Up the Whole Week
+
+The cleanest thing he wrote this week was his description of the game inside a shortage: when supply is tight, buyers widen their supplier count, so the opportunity flows down the list. It sounds like common sense, but once you break it into steps it hands you an observation point that has nothing to do with pricing.
+
+Start from the top. Step one is the leader selling out. That optical component maker was first sold out into 2027; the overflow pushed outward, other cloud operators found they could not get in line, and they rushed to sign long-term agreements — contracts that lock future volume and delivery terms years ahead — eating the capacity out to 2029. Now 2030 is being negotiated, and buyers have prepaid for the 2031 expansion.
+
+Step two is where it gets useful. The buyers who missed out do not stop building data centres; they go to the second and third names on the list. Another radio-frequency and optical components house, a transceiver and laser maker — both get called at this step. So "one company sold out" shows up, in the form of signed contracts, in somebody else's results three to six months later.
+
+![Three bars of different lengths sit on a year axis: the top leader bar is filled solid from 2026 through 2029, followed by a pale segment and a dashed outline, while two arrows curve from its right end down to the left toward two much shorter bars below.](/figures/sold-out-pushes-buyers-down-the-list-en.svg)
+
+Step three goes upstream. Transceivers need lasers, laser chips need foundry allocation and cleanroom space, and expansion at that layer takes longer than at the module layer. So when the downstream starts widening its supplier list, the number of qualification programmes at the upstream laser supplier jumps — and those qualifications appear in its own announcements, usually earlier than the integrator talks about its own ramp. This week offered an example: a 1.6T optical engine programme scaling in the second half of 2027 was read out of an upstream laser supplier's disclosure, not out of the integrator building it. Small companies are forced to disclose customer qualification progress; large ones can stay quiet. The supply chain's timetable leaks from the smallest end first.
+
+![On a single timeline, two solid dots sit high and to the left marking disclosures by small upstream suppliers, while a lone dot sits low and to the right where the integrator finally talks about its ramp schedule, leaving a long lead gap between them.](/figures/small-suppliers-disclose-first-en.svg)
+
+Step four is the metric this reasoning produces. That laser chip supplier won its first production order this week, and the application is lidar — the laser sensing used in vehicles and robots — rather than the data centre. Serenity's comment is worth copying down: this is the first of many qualifications to convert into production. Which means the fields worth tracking are "how much laser capacity the foundry allocation plus existing lines can support" and "how diversified the qualified customer base is," while talk of a revenue pipeline does nothing for the judgement. He criticised the same company the day before for spending its last earnings call on non-photonics segments, calling them noise for valuation. I read that as a line that holds for investors too: when a company sits in the bottleneck layer, the numbers worth following are its capacity ceiling and its qualification conversion rate.
+
+## Four Layers Added Capacity on the Same Day, Five in the Same Week
+
+One supplier selling out can mean the supplier is small. For this argument to hold, the same shape has to show up at different layers at the same time.
+
+22 October supplied that comparison. The leading accelerator maker announced a string of capacity agreements at once: three substrate suppliers expanding 2.5x; a packaging and test house raising advanced packaging capacity by more than 300% by the end of 2028, attached to a 1.3 billion dollar agreement; a multibillion-dollar capacity reservation prepayment to a Japanese substrate plant; and a test house with an 1.1 billion dollar capacity agreement. One line in the release is worth remembering: by 2028, production allocated to that chip maker is projected to account for a significant share of one substrate supplier's total annual capacity.
+
+Substrate, advanced packaging, test, optical engines — four distinct layers adding capacity on the same day through the same instrument: prepayment, long-term contract, locked allocation; count the laser long-term agreements from the same week and it is five. What those layers share is that expansion requires buildings, equipment and qualification runs; none of it can be conjured with overtime. One company selling out can be dismissed as a small company. Five layers locked up by buyer prepayments inside a single week is buyers voting with cash to say they cannot get in line.
+
+![The supply chain is stacked as five blocks from downstream up to upstream, and a single vertical dashed line on the right touches every one of them, showing that all five layers were locked the same day in the same way.](/figures/five-layers-locked-same-day-en.svg)
+
+The optical component maker's CEO added a second demand leg in his interview: he said his company depends less on the AI data centre buildout than some peers, because the conversion from electrical to optical inside the data centre is happening anyway and generates structural demand on its own. I include it, but tagged as a self-interested claim — his job is to convince the market that his demand does not rest on one theme, so I treat the sentence as a hypothesis to be tested rather than as evidence.
+
+## Where This Chain Breaks
+
+The argument only becomes falsifiable once the failure conditions are written down. There are four.
+
+The first is Chinese laser capacity arriving early. He compiled the list himself: one producer going from 9 million units a month to 22 million, targeting 300 million a year by 2027, though mostly electro-absorption modulated lasers; two others planning 72 million continuous-wave 100mW units a year and 18.75 million 70/100mW units a year, with both projects reaching full output around 2029; and another with a stated total target of 170 million a year, much of it again modulated lasers. What makes this list supportive of a continuing shortage is two things: most of the expansion is not in the tightest grade, and full output lands in 2029. So the failure condition is writable — continuous-wave capacity in that band arriving before 2029 and half the structure above collapses. As for the billion-units-a-year figure, that is the first producer's own headline target with no date attached; he says to take it with a grain of salt, and I agree.
+
+![A two-dimensional chart plots time to full output on the horizontal axis against how tight the spec is on the vertical axis; every dot lands in the top right or bottom left, and the top-left cell is outlined with a warning dashed border and left empty.](/figures/china-laser-capacity-two-axes-en.svg)
+
+The second is the "to a large degree" in "to a large degree noncancellable." This is the thinnest part of the whole chain. Whether the noncancellable share is 70% or 90%, how penalties are computed, whether they attach to volume or to duration — none of it is disclosed. The strength of the sentence "sold out into 2029" rests directly on a number nobody has published.
+
+The third is financing. He names credit markets as this cycle's genuine risk, and I agree. This week provided a case: one cloud operator hit a UK grid interconnection queue, pushed delivery out by three to four years, and the buyer simply cancelled and went elsewhere. He reads that as demand rerouting rather than demand disappearing, and I think that reading holds. But the same event demonstrates the chain's fragile point — a signed contract is not a delivered one, and whether the upstream long-term agreement dies along with it is not visible in public filings.
+
+The fourth is one he does not address and I worry about: double ordering. The same block of compute demand, insured by signing with three suppliers at once, grows into triple the apparent demand visibility inside the supply chain. This has happened at the tail of every shortage in history. Ruling it out requires looking at shipments and inventory after delivery, which takes several quarters of results to see.
+
+## Why Not "The Market Already Sees Something"
+
+With all of the above intact, the share prices of the companies involved have been falling this month. The lazy explanation is that the market sees something I do not.
+
+The counter-evidence also showed up this week. A wire service report cited hedge fund data tracked by an investment bank: 22 October was the first day since the Covid crash that long/short, systematic and multi-strategy funds all lost more than 1% on the same day. Tech-focused funds were down around 10% for October, Asia-focused funds around 9%. In the same reporting, large financial institutions said the main buyers of semiconductor, cloud and memory names through that stretch were retail. Forced deleveraging ahead of month-end client reporting does produce selling that has nothing to do with fundamentals.
+
+I should be honest about a problem with that story: it is exactly what every bull says during a drawdown. "Prices fell because people were forced to sell, not because I was wrong" cannot be falsified, so it should not count as evidence — only as a competing explanation. To settle between the two, you watch the things that have nothing to do with the share price: whether prepayments get clawed back, whether contracted delivery dates slide, whether qualification programmes get cancelled. All three sit in company announcements, and all three will update over the next month. My approach for now is to list those three fields and wait, rather than guess at the market.
+
+## A Few Other Things Worth Noting
+
+- Two public statements on memory stacked up this week: the accelerator maker's chief executive, asked whether 2029 brings oversupply, said he doesn't think so, on the grounds that you can always use more memory; and a North American cloud chief said the memory shortage does not end in 2027, that his 2027 capacity is largely sold out with a good chunk of 2028 gone too, and that the roughly 220 billion dollars of 2026 capital spending could go higher without being a bad use of capital.
+- A listed group of Musk's raised its quarterly capital spending guidance from about 18.4 billion dollars to 35–40 billion, and talked about adding 10 to 20 gigawatts of power next year. The significance is that this number sits on the power side, a different layer from the capacity agreements above.
+- A niche memory maker was quoted in trade press saying tightness in its legacy-process products runs through 2028 or longer, with a supply shortfall above 30%. That is trade press, softer than a filing; I treat it as a lead rather than a conclusion.
+- He posted his own drawdown publicly, said he is running about 1.15x leverage, and added that people who never lose money turn out half the time to be selling a paywall. That has nothing to do with the industry; I use it as a source-quality tag — an account that volunteers what it lost gets a little more trust on its other claims.
+- He said this week that October 2026 will be looked back on as an opportunity, the way earlier panics were. That is his market call; I relay it as his and neither endorse nor adopt it.
+
+## One Thing to Take With You
+
+Next time a "shortage of X" headline crosses your screen, skip the price quote. Draw the list instead: who sold out first and through what year, who signed the next long-term agreement, and who got newly qualified this month. Fill those three fields and you are holding a scale more honest than price — while the propagation is still moving down the list, the shortage is in its first half; when the list stops lengthening and only the quotes move, it is probably late.
+
+![Two cards sit side by side: on the left the list has an extra dashed new entrant and the price line below is almost flat, while on the right the list gains no new entrant and the price line below shoots steeply upward.](/figures/list-still-growing-vs-only-price-moving-en.svg)
+
+Doing this myself this week, I found the field I used to skip was the last one. Qualification announcements are short and read like press releases, yet it is the only field that shows up several quarters early, and it usually sits on the announcement page of one of the smallest upstream suppliers, where nobody collates it for you. If you want the raw material behind this piece, find Serenity's account on X — this week's threads are all still up, including the Chinese laser capacity list and his own drawdown notes.
