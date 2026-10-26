@@ -1,0 +1,189 @@
+---
+title: "How Linux Ate UNIX: Commodity Silicon, One Licence, and a Business That Sold Water"
+description: "In its 25 October 2026 episode, Asianometry traces how the enterprise server market changed hands between the early 1990s and the mid-2000s: Intel's volume economics, Windows NT's arrival, and Linux's GPL and commercial distributions pushed a set of vendors selling $250,000 integrated systems into selling Linux themselves. Notes on technology history and business models — no tickers, no recommendations, no price targets."
+slug: "asianometry-2026-10-25-how-linux-and-windows-ate-unix"
+lang: "en"
+pubDate: 2026-10-26
+category: "investing"
+kind: "podcast-notes"
+tags: ["technology history", "open source", "business models", "semiconductors", "how to read information"]
+ogImage: "/covers/asianometry-2026-10-25-how-linux-and-windows-ate-unix-cover.png"
+cover: "/covers/asianometry-2026-10-25-how-linux-and-windows-ate-unix-cover.png"
+tldr: "UNIX vendors sold hardware and operating system as one locked bundle at a quarter of a million dollars a box. Intel turned the server into a commodity and Linux turned the operating system into something free, and once both pincers closed, the UNIX vendors started selling Linux themselves."
+---
+
+![A machine room aisle at night receding into depth, rows of plain beige slim chassis blinking small green LEDs in the foreground, a single dark monolithic cabinet standing at the far end under a dying spotlight](/covers/asianometry-2026-10-25-how-linux-and-windows-ate-unix-cover.png)
+
+> The sea refuses no water, and so it becomes vast; the mountain refuses no stone, and so it becomes high; the wise ruler wearies of no man, and so his people become many.
+>
+> —— Guanzi, "Xingshi Jie" (Warring States; my own translation)
+
+Asianometry's 25 October 2026 episode, "How Linux (and Windows) Ate UNIX," is about an enterprise server market that changed hands in a little over a decade. In 1997 a boxed copy of Red Hat retailed at about $50, a Windows NT licence ran from $150 to $1,100, and a UNIX system with hardware and software cost $25,000 to $250,000 or more. By 2002, Gartner put Linux server hardware revenue growth at 63% and UNIX hardware revenue at minus 11%. The substitution happened at the low and middle end first; the high end held out for years behind the memory ceiling of 32-bit x86, and only gave way after AMD's Opteron brought 64-bit to x86 in 2003.
+
+![Three horizontal bars of wildly unequal length: a tiny stub at the top for retail Linux, a mid-length bar for a Windows NT license, and a bottom bar so long it nearly spans the whole figure, showing that the price difference is one of orders of magnitude rather than percentages.](/figures/unix-linux-price-gap-1997-en.svg)
+
+## The Early 1990s: Kingdoms That Cost a Quarter of a Million
+
+Running a server that could carry an enterprise meant UNIX software on RISC hardware. RISC is a processor design built around a stripped-down instruction set that is easier to make fast; a server is the machine in the back room that feeds compute and data over a network to a crowd of client computers.
+
+The market belonged to vertically integrated system vendors. Sun Microsystems sold its own SPARC chips with Solaris, IBM had POWER with AIX, Hewlett-Packard had PA-RISC with HP-UX, and Silicon Graphics was in there too. Closed, proprietary, priced into the hundreds of thousands — and once you were in, you could not leave, because the software was tied to the hardware and the hardware to that vendor's service organisation.
+
+![Four separate tall columns, each built from an operating system, a chip and a services block and enclosed by its own wall, with the horizontal arrows between columns crossed out to show that nothing could move from one vendor to another.](/figures/unix-vertical-city-states-en.svg)
+
+Intel had just finished winning consumer PCs with a loop that turns on its own: high volume lifts semiconductor yield, better yield cuts cost and raises profit, the cash goes back into better manufacturing. AMD and Cyrix could not catch that loop. Intel believed the same playbook would work in servers.
+
+![A clockwise loop whose five nodes run in order from high volume to better yield, lower cost, more cash and stronger manufacturing, with two small boxes parked outside the circle unable to catch it.](/figures/intel-volume-flywheel-en.svg)
+
+## 1993 to 1996: Intel's Volume, Plus a Windows Written From Scratch
+
+To get into servers Intel needed a software partner, which took it to Microsoft and Windows NT. NT shipped in 1993 from a team led by Dave Cutler, and underneath it had nothing to do with consumer Windows — the consumer product was a graphical shell grafted onto MS-DOS, while NT was written from the ground up for the enterprise.
+
+The first version ran on the 386. It worked and set nothing on fire. NT was missing features that IBM's OS/2, Novell's NetWare and the UNIX variants already had, and it wanted 16 megabytes of RAM, which was a lot for 1993. It sold around 30,000 units that year and about 115,000 licences in 1994. Disappointing numbers, except that Microsoft keeps coming back.
+
+The turn came in late 1995 with the Pentium Pro: 5.5 million transistors at 150 to 200 megahertz, against the original Pentium's 3.1 million and 60 megahertz. It edged past the fastest RISC chips on certain integer benchmarks, which caught the industry off guard. MIPS's R10000 matched it soon after, but the Pro had already redrawn the perceived performance ceiling of what was dismissed as a desktop architecture.
+
+![Two groups of bars in which transistor count and clock speed both jump from a short bar to one nearly twice and three times as tall, with a line marking the earlier RISC lead broken through by the new bars.](/figures/pentium-pro-ceiling-redrawn-en.svg)
+
+That same year Intel began circulating reference boards it called Standard High Volume Servers, so partners could shorten time to market. The first generation took one to four Pentium Pros, one to two gigabytes of working memory and hundreds of gigabytes of storage, and Intel said they could handle up to 2,000 transactions per second. At the November launch the line ran from a $2,600 workstation to a $20,000 server. Paired with NT 4.0, NT sales grew 85% in 1996 and IDC gave it 27% market share.
+
+Intel knew the risk in chaining its enterprise future to Microsoft. In 1995 it pushed a multimedia software standard called native signal processing, meant to move audio and video work onto the CPU so people would buy faster processors. Microsoft read it as middleware stepping onto the operating system's turf, said publicly it would not support it, and Bill Gates emailed Andy Grove to say he was irritated. The episode surfaced later in the antitrust case; both sides waved it away at the time, but Intel had learned that its partner would use its leverage to kill things it disliked.
+
+Worse, NT had been written to be portable. Beyond x86 it ran on DEC's Alpha, on IBM and Apple's PowerPC, and on MIPS, and Microsoft kept signing more chip support deals while standing right in front of Intel. If NT cornered the market, could Microsoft turn x86 into one hardware architecture among many?
+
+The cadences did not line up either. Moore's Law gave Intel a new chip every two years; Microsoft shipped a Windows every three to five, and that Windows did not always use what the silicon offered. Intel released a 32-bit chip, the 386, in 1985, and Microsoft did not ship a 32-bit consumer operating system until Windows 95 — ten years. Bob Colwell recorded another instance in *The Pentium Chronicles*: Microsoft told Intel in meeting after meeting that Chicago, the future Windows 95, would be 32-bit only with the legacy 16-bit code stripped out, which let Intel optimise the Pentium Pro for 32-bit performance. In 1994 Microsoft announced publicly that Chicago's graphics display interface would stay 16-bit. It was too late in the cycle to change the chip, and the press dinged Intel for weak desktop graphics performance.
+
+![Two timelines stacked vertically, the upper one packed with closely spaced chip nodes and the lower one with sparse operating-system nodes, with a long bracket between them marking the decade between 32-bit hardware and 32-bit software.](/figures/silicon-vs-software-cadence-en.svg)
+
+On the server side, what bothered Intel was NT 4.0's limit of four to eight processors per operating system instance, a ceiling that locked it out of the high end while some UNIX variants handled up to 64. That gap traces back to two different growth models. Intel grows by selling you the newest chip, so it wants software that helps. Microsoft serves its whole installed base, so it moves slowly and protects backwards compatibility. Building a Windows takes thousands of employees and can cost billions of dollars; that is how software goes.
+
+So Intel went looking for alternatives, and in the late 1990s a strong candidate appeared on the radar: Linux.
+
+## Doubling Back: From GNU in 1984 to Red Hat in 1995
+
+In January 1984 an MIT programmer named Richard Stallman formally began a project to replace UNIX. He came out of the MIT AI Lab, which had run on Lisp for early AI research — until businesspeople saw the industry in it and the lab split into Symbolics and Lisp Machines Inc. Symbolics raised millions and hired away the lab's best hackers, leaving a shell. Stallman never forgave it. "Everything's dying," he would say.
+
+Loss of a community pushed him to build a new one on top of free software. He set out to write a free operating system that followed UNIX's design principles — modularity, portability across hardware — without copying its code, for trade secret reasons. He called it GNU, which he glossed as "GNU's Not UNIX." He did not know whether he would finish, and with such things you never find out unless you start.
+
+Over the following years the toolchain came together piece by piece. What was missing was the kernel, the layer between operating system and hardware that manages memory, how much CPU time a process gets, disk space. It kept slipping.
+
+![Two panels side by side: on the left the stack has an empty dashed gap between the toolchain and the hardware, and on the right that same slot is filled by a solid kernel block.](/figures/gnu-missing-kernel-en.svg)
+
+The kernel arrived from a 21-year-old Finnish undergraduate, Linus Torvalds, inspired by a teaching operating system called MINIX. In August 1991 he posted to the MINIX Usenet group that he was building a free hobby operating system and asked for feature ideas. Contributors came from that ecosystem, the thing spun off on its own, and it was called Linux. The first workable version shipped in October 1991.
+
+Torvalds's role shifted from writing code to reviewing other people's contributions and merging them, an approach famously described as a bazaar, and it let Linux ship new code faster than companies could. In 1992, version 0.12 adopted Stallman's GPL: anyone can read and modify the code, as long as modifications are open-sourced when distributed.
+
+That licence did two things. It stopped companies from taking the code, salting it, and reselling a closed-source competitor, which spared the kernel the fragmentation that had split UNIX. And it reassured companies that improvements they funded would not be locked away — IBM eventually had hundreds of employees contributing. Torvalds later said going GPL was the best thing he ever did.
+
+![A central pool of open source code, with the arrow leading right toward a closed-source product blocked by a gate and crossed out, while a downward arrow loops back to carry company improvements into the pool.](/figures/gpl-one-way-gate-en.svg)
+
+The GPL also made a business possible. Linux is a kernel, an engine; you still need the rest of the car. Early adopters can build their own, ordinary users cannot be asked to. So people started making distributions, bundling the kernel with utilities from the GNU Project and other free software into something more convenient. The episode likens it to the mixtapes teenagers used to pass around.
+
+![On the left a single engine block stands alone, and on the right the outline of a car wraps that same engine together with four surrounding part blocks, with two wheels below.](/figures/kernel-engine-distro-car-en.svg)
+
+Early notable distributions include Slackware, Debian — and Red Hat, set up by Marc Ewing in 1993. Ewing adopted Linux early, then realised he was spending more time managing his Linux box than writing software, so he built a distribution in the spare bedroom of his apartment near Duke University, named after a red-and-white striped lacrosse cap he wore in college. He added the pieces that made Linux feel professional, like the Red Hat Package Manager for adding, removing and updating software. In 1995 he and Robert Young founded the company, selling CDs plus training, education and support.
+
+How do you make money from something free? Young liked a ketchup metaphor: anyone with tomatoes, sugar and vinegar can make ketchup, and Heinz owns 80% of the market. Someone else compared the model to bottled water — different packaging, same water.
+
+## Summer 1998: Intel Discovers Its Customers Running Linux
+
+Adoption started small and compounded. Linux had maybe a few hundred users in early 1992, one to two million by 1996, and a worldwide base conservatively estimated at three to five million by mid-1997. Far behind Windows' 100 million and the Macintosh's 50 million plus — but the slope was there.
+
+![On a chart of user counts, Windows and the Macintosh are two very high horizontal lines while Linux sits along the bottom almost invisibly, and an inset panel at the upper right shows that same line rising steeply.](/figures/linux-slope-not-height-en.svg)
+
+Price mattered and was not the whole story. One user called Linux close to "crash-proof," which converts into productivity. Sophisticated users loved having the source: somebody got Linux running on a Palm Pilot, and researchers at Los Alamos networked 68 PCs together to simulate atomic shock waves. *Byte* in 1997 described a systems consultant at Eastman Kodak installing Linux on a Photo CD project and saving the company $10,000 over a high-priced UNIX alternative.
+
+The shortcomings were plain. Far fewer applications than Windows or the Mac, no good Linux version of Office or Visual Basic. If something broke, what documentation do you read and who do you call — which is exactly where Red Hat and Caldera sat. And there was reputation: Linux shares no direct lineage with UNIX yet gets associated with it, inheriting UNIX's aura of being inscrutable. A manager would ask, "How can you possibly consider it for a critical server?" — while it was probably already running somewhere in his company. An anonymous system administrator told the *San Francisco Chronicle* in 1998:
+
+> "Many management types distrust Linux because it is free. But they put me in charge of running their servers and I am going to use what works best. What works best is Linux."
+
+In early 1998 Intel started getting odd requests from around the country: engineers and researchers at places like Fermi National Lab wanted Intel's math libraries ported to Linux. Until then Intel's involvement amounted to fixing a bug or two. Checks with the OEMs building white-label servers for small internet service providers showed growth exploding — close to 20% of public web servers ran it, a high share for an operating system with next to no desktop presence. The news went straight to Andy Grove, who remarked in colourful language that they ought to do something.
+
+Intel executives met Red Hat and came away baffled. Red Hat does not own the intellectual property behind its core product, which anyone can have for free. How does that make money, and how is it investable? Red Hat kept talking ketchup, and Linux advocates inside Intel brought data on ISP adoption. Management was convinced, and the two started discussing partnership.
+
+There was a second motive. Intel was building Merced, the first implementation of its 64-bit IA-64 server architecture, later branded Itanium and said to be blazingly fast. The worry was that NT would shackle it, the way 32-bit had been shackled for a decade. Microsoft's next NT, then called 5.0, slipped from 1998 to 1999 and was renamed Windows 2000 after further delays, which did not help. Supporting Linux and tuning it to Intel's newest silicon would produce a credible alternative.
+
+Then came the summer of 1998. In June, IBM — one of the most conservative companies out there — said it would include the open source web server Apache in its e-commerce suite. Apache is not Linux, but most Apache instances run on it. IBM had first picked Apache in 1996 for the Atlanta Summer Olympics website; now it was stamping approval, giving open source its first foothold in the enterprise.
+
+On 6 July, InfoWorld published "Linux not yet critical mass," in which Oracle, Sybase and Informix all said they had no plans to ship their database software for Linux, citing no real customer demand. Three days later Oracle announced it was porting Oracle8 to Linux. A major reason for the turnaround was a July panel in Santa Clara called "the Future of Linux," where over 900 people watched Torvalds and others debate whether open source was a fad and urge users to push application vendors to port. By September, Computer Associates, Corel and Informix all had Linux ports.
+
+Intel was at that panel. Sunil Saxena presented Linux as the operating system of choice for internet service providers while naming its weaknesses: scalability, drivers for high-end hardware, large memory support. On 29 September the words turned into action — Intel, alongside Netscape and the venture firms Benchmark and Greylock, invested in Red Hat, promising technical contribution and a dedicated engineering liaison, and joining Linux International. An underrated domino followed: one Benchmark partner also sat on Dell's board, and through him Red Hat got in front of Michael Dell. Dell invested, and more importantly announced in early 1999 that it would preinstall Linux on workstations and servers, the first major vendor to do it.
+
+When the Intel investment broke, the press went into a frenzy over what it meant. Red Hat's executives recalled in *Under the Radar* that Microsoft "went ballistic," and that weekend Intel executives took several angry calls from their Microsoft counterparts. Before 1998 Microsoft might have been able to nix the deal, but that May the US government charged it with monopolistic conduct, and the scrutiny forced restraint. Publicly, Microsoft cited Red Hat as evidence it held no monopoly on operating systems; later it invoked Linux as proof the market was competitive enough that it should not be broken up.
+
+Internally it was another matter. In October 1998 a set of memos nicknamed the Halloween Memos leaked, calling free software like Linux a long-term credible threat to Windows. Microsoft reportedly formed a "Linux attack team," put up a "Linux Myths" page promising to step back from the hype, and worked through claims like "Linux performs better than Windows NT 4" and "Linux is free." In April 1999 it sponsored benchmarks from a lab called Mindcraft showing NT beating Linux by 2.5 times as a file server and 3.7 times as a web server.
+
+Intel's escape from Gates's fury was to declare itself operating-system neutral: Linux, NetWare, Solaris, Windows 2000 — it wanted them all running well on its hardware. Intel formalised the Switzerland strategy as "Port of Choice" in 2010, though CTO Pat Gelsinger called it long-standing back in 2001. The operating system makers had to accept it, because Intel silicon had no real alternative.
+
+## 2001 to 2004: From Four CPUs to Sixty-Four
+
+The hardware pushed upward first. In mid-1998 the Pentium II Xeon brought higher clocks and a 512-kilobyte L2 cache to mid-range workstations and servers; in March 1999 the Pentium III Xeon was fast and cheap and supported 8-way systems through something called Profusion, breaking a 4-way ceiling that was causing performance problems in data centres. Those configurations needed operating system support, which NT and Windows 2000 had and Linux struggled with.
+
+![The vertical axis counts the processors a single system can use: UNIX holds the highest horizontal line from the start while Linux climbs year by year from the lowest step, with its final step reaching the same height.](/figures/cpu-ceiling-staircase-en.svg)
+
+What flipped the market was the shape of the work. Serving websites, hosting email and running firewalls is not like running a database or analytics, and companies worked out that scaling out with nodes of Intel silicon running Linux beat scaling up one big UNIX box. Sun initially welcomed Linux, in line with its "open" motto, porting the Java Development Kit and releasing a Linux port of workstation hardware. The impression was that Sun did not mind whether a box ran Linux or Solaris, as long as it was a SPARC box. It did not have to be a SPARC box.
+
+The dotcom bust accelerated everything. Venture money dried up, startups died, frugality became the word of the day, and companies either bought second-hand gear from liquidations or moved to Linux. Amazon did a major Linux transition in 2001 and told the SEC it had cut costs by an estimated $17 million per quarter. Asked how, a spokesman said:
+
+> "We've always been pretty closed-mouthed about technology on the back-end stuff, partly because it's pretty steep tuition and we don't want other people going to school on our tuition."
+
+The broker Etrade published a 2006 case study that put it plainly: a $250,000 Sun 4500 Enterprise Server served 300 to 400 users, while a $4,000 Linux-Intel box served 180. How do you close the gap? Buy two boxes. From 2001 on, Linux boxes on Intel silicon got good enough to steadily replace Sun's in everything from airline fares to commodities contract trading to financial calculations. Sun tried its own scale-out play with the Netra, whose 2001 X1 model went as low as $1,000, and commodity x86 still gave better performance per dollar. The company never formulated a real answer to the move from Solaris on SPARC to Linux on Intel.
+
+![On the left a huge box stands for a single machine costing 250,000 dollars, on the right two tiny boxes stand for machines costing 4,000 dollars each, and both sides serve almost the same number of people.](/figures/scale-up-versus-scale-out-en.svg)
+
+Having won the low end, Linux turned to scaling up. In late 2000 IBM's CEO Lou Gerstner, believing Linux would change the world the way the internet had, committed $1 billion and 1,500 employees. Linux 2.4 arrived in January 2001 and Red Hat picked it up quickly. It was a year late, and it addressed issues like spin locks so Linux could use 16 or even 32 processors with some effectiveness — the sorest point in the 1999 Mindcraft tests had been Linux 2.2 failing to scale past two CPUs in a single system, while NT 4.0 and 2000 had 4-way, 8-way and even 32-way support.
+
+2.4 did not make Linux an overnight challenger to high-end UNIX machines. Handling four or eight CPUs capably was enough to clear a path for Linux on Intel into the middle ground of compute work, and the economics got compelling: a Dell server with four Xeons running Red Hat at $24,000 cost half a comparable Sun Fire UNIX box and performed as well. Red Hat and IBM went straight at Sun's Solaris base, while Hewlett-Packard and SGI began offering their proprietary-hardware customers a path to Linux, reasoning it was better to keep the relationship. 2002 was a hard year for servers overall, and Linux boxes still grew: Gartner reported Linux server hardware revenue up 63% while UNIX hardware revenue fell 11%. UNIX was still much bigger in dollars, $17 billion against Linux's $2 billion, because those were expensive high-end machines — but the pressure was on. By 2004 the average selling price of a Sun server had fallen 31%, from $22,920 to $15,860.
+
+The last wall was 64-bit. In April 1999 Intel spun up Project Trillian, a consortium that confidentially received Itanium prototypes to develop a Linux port, and in February 2000 the project released the IA-64 Linux source code early to the community — a milestone in open source history. Itanium did not end up replacing 32-bit x86, though HP adopted it to retire the processors behind its proprietary UNIX. The 64-bit transition was kicked off by AMD's Opteron in mid-2003, and Intel followed in 2004 with the Nocona Xeon, adopting AMD's backwards-compatible extension.
+
+![Two boxes of very different sizes sit side by side, with a downward arrow above the large box and an upward arrow above the small box.](/figures/unix-shrinking-linux-growing-2002-en.svg)
+
+The weight of that is in memory. A 32-bit x86 machine addresses about 4 gigabytes of RAM, far less than high-end databases or scientific simulations need to hold. After 64-bit, an x86 system addresses dozens or hundreds of gigabytes. Some thought Intel's route to 64-bit was a kludge, a stopgap on the way to Itanium. The results are hard to argue with: x86-64 knocked down the last wall around UNIX.
+
+## After 2005: Linux Ate UNIX, and Microsoft Kept People Through Identity
+
+Linux 2.6, released in late 2003, turned out to be an iconic kernel — speed, networking, support for up to 64 processors, improvement across the board, arguably the first enterprise-ready Linux kernel. Its timing was good, arriving as users of the now-antiquated Windows NT 4.0 entered their upgrade cycles, with IBM, Hewlett-Packard and Dell singing like sirens. IBM led hardest: training thousands of people, helping developers rewrite apps, throwing marketing dollars and discounted machines at potential switchers.
+
+Against something anyone can download for free, Microsoft's pitch was that everyone already uses Office, so switching to Linux would cost more trouble than buying Windows Server licences. Its 2004 "Get the facts" campaign promoted research showing Windows in a better light, and those studies drew criticism for not being impartial.
+
+The method I think worked far better was the lock-in from Active Directory, which Ben Thompson of Stratechery has called "one of the most valuable free products of all time." Shipped with Windows 2000, it authenticates and authorises every user and asset inside a Windows network: pushing updates, assigning security rights to groups along the org chart, validating credentials. With it, an administrator onboards a new manager once and grants the right tools, users log into many things with one set of credentials, and a pile of loose Windows machines becomes one manageable organisation.
+
+Ben's point is that this also gave Microsoft ownership of individual identity. Identity reaches deep into an organisation, which raised the cost of switching far beyond swapping an operating system. So in defiance of everyone predicting Linux would take Microsoft down, Windows Server sales kept growing; in 2005 Windows matched UNIX revenue for the first time, and the next year it passed it. Linux kept growing too, and that growth came from eating UNIX and from markets where Windows never got a foothold — supercomputing, high performance compute, web, and in the 2010s, cloud.
+
+UNIX server sales declined slowly afterwards without dying out. Customers remain on Solaris, HP-UX and AIX today, with the laggard applications clustered in banking and healthcare, where porting to Linux is too hard or too risky.
+
+So why did UNIX lose? The episode's own framing: UNIX lost on business model. These vertically integrated kingdoms worked well until Intel showed up with high volume economics. Windows NT hit them first, then Linux hit them harder, offering everything UNIX offered without the lock-in. Once Linux got good enough, the UNIX vendors had one option left — switch to selling it themselves.
+
+## "The Technology I Like Is Better, So Why Is the Other Side Winning?"
+
+The itchiest part of this episode is the Pentium Pro. It beat the fastest RISC chips on some integer benchmarks, and the MIPS R10000 matched it shortly after. The spec lead lasted months, and the market structure changed anyway, because what changed it was volume rather than those scores.
+
+When I look at where a company sits, I try to separate a spec lead from a cost curve lead. A spec lead has to be won again every generation and evaporates when a rival catches up. A cost curve lead compounds: volume lifts yield, yield cuts cost, cost throws off cash, cash buys better manufacturing. Intel's decade ran on the second one.
+
+![In the left panel a sawtooth line spikes high and falls back again and again, while in the right panel a compounding curve rises without ever turning back.](/figures/spec-lead-versus-cost-curve-en.svg)
+
+The reading has a failure condition, and the episode states it clearly: when the binding constraint is a physical ceiling instead of cost, the cheap side cannot get in at all. 32-bit x86 addressed about 4 gigabytes, so the ground held by large databases and scientific simulation stayed UNIX's for four or five more years. Which means the thing to watch is when that ceiling comes down — Opteron in 2003 — and not the generational benchmark table.
+
+## "This Company's Moat Looks Deep. How Much Should I Trust It?"
+
+UNIX's lock-in was real. Buy the stack, software tied to hardware tied to vendor, and you could not leave. It got bypassed rather than broken: when customers needed to serve websites, host email or stand up a firewall, that work had never been on the UNIX machine, so they bought a different kind of box. The UNIX vendors held their database hosts for a long while, and nobody thought of them when a new website needed a home.
+
+So with a moat I start by asking whether it locks in the work a customer has today or the work that customer will grow into. The first kind bleeds out slowly as workloads migrate, and it looks fine from outside the whole time, because the existing contracts keep renewing.
+
+Active Directory is the other kind. It locks identity, identity grows with the organisation, and every new person and every new system has to come back through it to authenticate — so what it holds is future work. Applying that to my own holdings, the question I ask is where the rent is collected: on what the customer has already installed, or on the layer every additional person and project has to pass through again. The first shrinks; the second grows as the customer grows.
+
+![In the left panel a wall encircles the existing workloads while new work blocks grow outside it without passing through, and in the right panel a bottom bar runs across with every new block connected down into it.](/figures/moat-on-now-versus-later-en.svg)
+
+## Further Reading
+
+- Asianometry, "How Linux (and Windows) Ate UNIX," 25 October 2026
+- Bob Colwell, *The Pentium Chronicles* (the Pentium Pro development account cited in the episode)
+- *Under the Radar* (the Red Hat side of the Intel investment weekend, cited in the episode)
+- Ben Thompson (Stratechery) on the value of Active Directory
+- *Byte*'s 1997 reporting on early enterprise Linux adoption and the 1998 *San Francisco Chronicle* system administrator interview, both cited in the episode
+
+## One Thing to Take With You
+
+Something cheap and everywhere goes after the work that has not been created yet, gets good at it there, and only then comes back for the old ground. Nowhere in the replacement of UNIX was there a head-on fight.
+
+Here is something I tried: pick one thing you keep using because switching looks like too much hassle — a piece of software, a bank, a workflow — and write down where the first week would stall if you switched today, and who is doing that step for you now. When I did it, the stall had nothing to do with features; my account, my history and the way people reach me were all tied up in the same place. That layer is where the rent is actually being collected.
