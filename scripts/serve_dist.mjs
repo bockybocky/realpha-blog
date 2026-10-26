@@ -100,7 +100,7 @@ const types = new Map([
 // 2026-09-15 PWA：sw.js 一定要每次回原站確認，否則 Cloudflare／瀏覽器沿用舊版，新版網站永遠裝不上去。
 // 其他檔案照舊不送 cache-control（維持原本行為）。
 export function cacheControl(pathname) {
-	if (pathname.startsWith('/rp/')) return 'public, max-age=3600';
+	if (pathname.startsWith('/rp/')) return 'public, max-age=300';
 	if (pathname.startsWith('/hub/')) return 'private, no-cache';
 	return pathname === '/sw.js' ? 'no-cache' : null;
 }
@@ -299,7 +299,7 @@ function check() {
 	assert.equal(cacheControl('/copy-code.js'), null);
 	assert.equal(cacheControl('/blog/x/'), null);
 	// 2026-10-26 /rp/ 共用檔與 /hub/
-	assert.equal(cacheControl('/rp/rp-nav.js'), 'public, max-age=3600');
+	assert.equal(cacheControl('/rp/rp-nav.js'), 'public, max-age=300');
 	assert.equal(cacheControl('/hub/'), 'private, no-cache');
 	assert.equal(localPath('/../package.json', RP_DIR), null);
 	assert.equal(localPath('/..%2fpackage.json', RP_DIR), null);
