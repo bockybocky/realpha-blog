@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="同一張圖兩條線：一條持續下降不轉折；另一條先陡升、走平、再下彎，後段與下降線方向相同。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="58">光纖那條路走完的樣子</text>
+  <rect x="60" y="88" width="840" height="368" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <path d="M120 420 L860 420" stroke="var(--grey)" stroke-width="2"/>
+  <path d="M120 420 L120 130" stroke="var(--grey)" stroke-width="2"/>
+  <path d="M130 160 C 240 330 320 384 460 398 C 600 410 740 412 858 414" stroke="var(--grey)" stroke-width="4" fill="none"/>
+  <text class="g" x="150" y="150">成本</text>
+  <path d="M130 404 C 240 380 300 240 440 208 C 560 182 640 188 700 206 C 770 228 820 290 858 352" stroke="var(--accent)" stroke-width="4" fill="none"/>
+  <text class="g" x="430" y="188">市場</text>
+  <path d="M700 150 L700 420" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="s" x="712" y="150">開始縮</text>
+  <text class="s" x="120" y="446">搬動資訊愈來愈便宜</text>
+  <text class="c" x="60" y="512">成本繼續掉，市場未必跟著長</text>
+</svg>
