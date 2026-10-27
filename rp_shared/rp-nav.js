@@ -149,7 +149,7 @@
     '  border-bottom:1px solid var(--line);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);position:relative;z-index:1}',
     '.brand{display:inline-flex;align-items:center;gap:8px;padding:4px 6px 4px 2px;border-radius:var(--r);white-space:nowrap}',
     '.brand:hover{background:var(--tint)}',
-    '.logo{width:22px;height:22px;flex:none}',
+    '.logo{width:auto;height:22px;flex:none;display:block}',
     '.brand b{font-weight:700;letter-spacing:.01em}',
     '.brand .here{color:var(--muted);font-weight:500}',
     '.brand .here::before{content:"/";margin:0 6px;color:var(--line)}',
@@ -178,7 +178,7 @@
     '.fab{display:none;align-items:center;gap:6px;height:34px;padding:0 10px 0 8px;border-radius:999px;background:var(--bg);',
     '  border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(6px);color:var(--text);font-weight:600;opacity:.55;transition:opacity var(--dur) var(--ease)}',
     '.fab:hover,.fab[aria-expanded="true"]{opacity:1}',
-    '.fab .logo{width:18px;height:18px}',
+    '.fab .logo{width:auto;height:18px}',
     ':host([data-mode="float"]) .bar{display:none}',
     ':host([data-mode="float"]) .fab{display:inline-flex}',
     /* 全站面板（手機與浮動模式共用） */
@@ -198,7 +198,8 @@
   ].join('\n');
 
   // ---------- SVG ----------
-  var LOGO = '<svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 9.5 6l3.2 6.2L15.8 6 21 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><path d="M6 14.5h12" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/></svg>';
+  // 2026-10-27 換成正式標誌（α＋上升箭頭，public/brand/logo-mark.svg 的複本），原手畫折線停用
+  var LOGO = '<img class="logo" src="https://' + DOMAIN + '/rp/logo-mark.svg" alt="" aria-hidden="true">';
   var CARET = '<svg class="car" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
   var SUN = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
   var MOON = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>';
