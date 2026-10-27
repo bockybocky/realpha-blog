@@ -1,0 +1,126 @@
+---
+title: "The Day Micron Opened Its Roadmap, the Market Was Selling"
+description: "Notes after listening to The Circuit, 26 October 2026: Micron's technology webinar, Lam's record quarter that got sold, Meta's own compute, and NVIDIA locking down the supply chain. Educational notes on industry structure and how to read it — no investment advice, no stock recommendations."
+slug: "circuit-2026-10-26-micron-s-roadmap-meta-s-ai-infrastructure-and-nvid"
+lang: "en"
+pubDate: 2026-10-27
+category: "investing"
+kind: "podcast-notes"
+tags: ["memory", "AI infrastructure", "supply chain", "data centers", "semicap"]
+ogImage: "/covers/circuit-2026-10-26-micron-s-roadmap-meta-s-ai-infrastructure-and-nvid-cover.png"
+cover: "/covers/circuit-2026-10-26-micron-s-roadmap-meta-s-ai-infrastructure-and-nvid-cover.png"
+---
+
+![A data center construction hall at dusk, rows of crated equipment staged under work lights, one distant bay already powered and running](/covers/circuit-2026-10-26-micron-s-roadmap-meta-s-ai-infrastructure-and-nvid-cover.png)
+
+> Read widely and take little; store up deeply and release sparingly.
+>
+> —— Su Shi, *On Farming, for Zhang Hu* (Northern Song, 1077; translation mine)
+
+On the 26 October 2026 episode of *The Circuit*, hosts Ben Bajarin and Jay Goldberg spent an hour circling one shift: the binding constraint in AI has moved from "is there enough compute" to "can the thing physically get here." Lam Research raised its estimate for next year's wafer fab equipment market to $200 billion, up from roughly $150 billion this year — and still got sold off after an in-line quarter, because it couldn't ship everything it sold and customers didn't have clean rooms ready. Ben ran his own math on agents: if half the internet, 2.5 billion people, runs a personal agent, that alone adds about 35 gigawatts a year just to keep the agents alive. All of it assumes demand doesn't turn, and both hosts closed the episode naming the thing that could turn it — a large enough security event.
+
+## One screen showing the roadmap, the other showing red
+
+Jay described a scene I enjoyed. Micron ran a technology webinar with little warning, and he had the slides on one monitor and his stock pages on the other, all of them red. He said he couldn't reconcile the two and kept drifting.
+
+That split is familiar. A company is on stage talking about the next five years while the other half of your screen quotes the next five minutes, and your brain stacks them into a wrong conclusion: the technology story sounds great and the stock is down, so the story must be hot air.
+
+![A very long bar at the top stands for a five-year technology roadmap, while a short stub below stands for today's quote, and the difference in length is enormous.](/figures/two-clocks-one-screen-en.svg)
+
+## Micron said things memory companies don't say
+
+What made the webinar odd was the content. Memory vendors don't publish roadmaps — it's a three-player oligopoly and each one watches the others, so telling the market where you're going tells your competitors too. Micron laid out 6F², said it was skipping a node, and explained why it passed on 4F²: CTO Scott DeBoer said they had studied it for years and saw no viable scaling path.
+
+Ben read that as a message aimed at CXMT in China, which had issued a press release a week earlier announcing a new memory structure. Micron's reply amounted to: you have a structure, we have a roadmap full of them, plus the money, the tooling, and the scar tissue.
+
+![On the left sits a single isolated cell; on the right, an unbroken row of cells that clearly extends much further.](/figures/one-cell-versus-a-grid-en.svg)
+
+The real theme sat under the technical detail. Micron spent a long stretch on the thermal problems that come with stacking HBM vertically — building memory upward in layers to squeeze out bandwidth, which some call VHBM and others IHBM — and on what engineers have to re-solve at every node. Jay's summary: they want the market to stop pricing memory as a commodity. Pay us for solving hard problems, and we'll keep solving them.
+
+The detail I keep thinking about is the segmentation. Micron carved out a product line described as memory engineered for AI, and said plainly it expects higher ASPs there than for pin-compatible standard parts. Memory hasn't been tiered this way before. Whether the tier exists depends on what customers pay for it next year, not on how Micron describes it.
+
+## A record quarter, sold anyway
+
+Lam Research's results the same week put an awkward footnote on that story.
+
+In-line quarter, in-line guide, record revenue — and the stock traded off hard. As Jay put it, good enough has stopped being good enough.
+
+The analyst questions went somewhere more interesting: what would the numbers have been without the constraints? Management declined, which Jay thought was smart. But they conceded two things — they were supply constrained, and customers couldn't take delivery because their clean rooms weren't finished. A full order book and an inability to ship, at the same time.
+
+The weightiest item was the industry number. Lam now sizes next year's WFE market at $200 billion. Jay noted that earlier in the year, he and Ben were arguing about whether it could reach $150 or $160 billion; $200 billion wasn't in the conversation. The whole range relocated in six months.
+
+![On a number line, the range argued over early in the year sits on the left while today's figure jumps to the right, with a clear gap between them.](/figures/wfe-estimate-moved-en.svg)
+
+## What owning it actually buys you
+
+Meta reported the same week and announced its Prometheus cluster. Ben talked to NVIDIA's Ian Buck and to people at Meta, and came back with the most useful段 of the episode.
+
+He said he hadn't understood what owning a large slab of your own training infrastructure is worth. The logic they walked him through: with gigawatt-class capacity you don't just train one large model, you train several in roughly the same window and distill variants off them — one tuned for ad serving, one for Muse, one that costs less to run. Models become a product line, and that line isn't costed at market token rates. OpenAI and Anthropic may have excellent deals with cloud providers, but the machines underneath still aren't theirs.
+
+![One large cluster block branches rightward into several model blocks that get smaller and thinner in turn.](/figures/one-cluster-many-models-en.svg)
+
+Jay added a data point: a contact at one of the hyperscalers told him Meta has more gigawatts dedicated to AI than anyone. Meta also founded OCP, the open compute project that standardizes servers and racks across the industry, so this is a decade-plus of accumulated practice.
+
+Then the number that stings. Meta has said it will never charge for Muse. So who pays? Ben's arithmetic: current estimates run three to five gigawatts per hundred million users, so 2.5 billion people with personal agents implies another 35 gigawatts just to keep agents running, before they execute anything. Per person, somewhere between fifty and a hundred dollars a year in cost to serve.
+
+Meta's answer is its old answer: don't charge, monetize the engagement. Jay pointed out that Meta has spent a decade getting good at exactly that, and Muse is one more surface to spend time on. The same cost lands differently depending on who carries it — if the building is yours it's depreciation, and if it isn't, it's an invoice.
+
+## NVIDIA locked down everything lockable
+
+GTC Berlin brought a pile of announcements, and buried among them were fresh purchase commitments with substrate suppliers.
+
+Jay's description was blunt: lasers, substrates, packaging capacity, foundry — if someone will allocate it, NVIDIA takes it. It's Apple's mobile-era playbook, using the balance sheet to absorb the supply chain so competitors either can't get parts or pay up for them. Outside of Broadcom, he couldn't name anyone with the balance sheet to answer it.
+
+![Four upstream layers each get one bar, most of whose length is taken by a single color, leaving only a small slice at the right end for everyone else.](/figures/locking-the-upstream-layers-en.svg)
+
+One detail worth keeping: PCBs are short. Jay laughed at himself saying it — we live in a year when there aren't enough circuit boards.
+
+Which is the backdrop for the warehouse story. A report mid-month said Amazon had GPUs sitting in warehouses, and bears turned that into channel stuffing and phantom demand. Ben asked friends who build data centers for these companies, and the term he got back was staged integration: you can't build a data center to real-time demand, so you stage the materials and install them against construction progress. Substations sit around the same way. His contacts' rule of thumb is that nothing idles past two quarters.
+
+Jay supplied the sharper point: the holdup traces to what Andy Jassy said himself — not enough electricity. Not an absence of demand, an absence of power. And he expects more of this next year, arriving randomly: gas turbines in one place, an odd regulatory snag in another, a shortage of electricians somewhere else. His line was that there's no such thing as a one-quarter problem — a site slips a quarter, the ODM slips, its suppliers slip, and it propagates.
+
+## The part neither of them wanted to end on
+
+The last ten minutes went to security.
+
+CrowdStrike and several banks are reporting people probing at scale, origin unclear. Ben called it his biggest concern: agents are running around ungoverned, and one bad enough incident slows AI deployment and spending broadly. A CTO told him they're about to write a blank check for agentic security, top priority.
+
+Jay's historical parallel landed for me. Twenty-odd years ago, when the internet got robust, open source security tools got reverse-engineered and weaponized, and an entire generation of script kiddies appeared — any bored teenager with a connection could go change their grades or knock on the Defense Department's door. Same pattern now, with tools orders of magnitude more capable. He also mentioned someone shutting off the refrigerators across a French supermarket chain, spoiling all the meat.
+
+His conclusion wasn't bleak though. Corporate security's chronic problem has been that everyone calls it a priority and nobody funds it, and this week may have changed that. Ben's version was more pointed: the people he interviewed used frontier models to test their own vulnerabilities and walked away saying the holes were everywhere. Nobody funded it before because nobody had been hit and nobody knew how bad it was. Both agreed security is the number two use case after coding, because if every attacker has an n-class frontier model, somebody has to build n+1.
+
+## Good news lands and the stock drops — what went wrong
+
+Lam and Micron both ran the same play this week: the news held up, the stock didn't.
+
+The gap is that expectations are already part of the price. Lam moved next year's WFE market from the $150–160 billion everyone argued about in January to $200 billion, and that was bought long ago. What got repriced on the day was different: the company can't ship everything it sold, and customers without finished clean rooms can't receive it. For anyone with a short horizon, an optimistic next year loses to a quarter you can't deliver.
+
+That gives me a split I use: an optimistic structure and a deliverable number are two separate questions. Micron's roadmap and Lam's $200 billion are structure. Whether Micron gets a premium for AI-engineered memory, and whether Lam ships the backlog next year, are numbers. The window where the structure is right and the numbers don't arrive can outlast most people's patience. So when good news prints and the price falls, I ask which one is being repriced — the structure or the timeline. The two answers call for opposite responses.
+
+![Two lines on a time axis: the structure line rises first and the numbers line follows much later, opening a band of lag between them.](/figures/structure-ahead-numbers-behind-en.svg)
+
+## Is a shortage good news?
+
+The whole episode is a list of shortages: memory, substrates, PCBs, power, electricians. The reflex is that shortage equals pricing power.
+
+The episode supplies the counterexample. Lam's shortage means it can't ship and can't book revenue — a subtraction. NVIDIA's shortage means it spends cash locking the upstream, and the scarcity becomes its moat. Same word, opposite effect depending on where you sit.
+
+The test is in the long-term agreement discussion. Gavin Baker's observation, as quoted: when memory is tight, why would a customer walk away from an LTA to push on price? There are three suppliers, and if you walk, the allocation goes to your competitor. Pricing power lives in the layer where turning around finds you nobody else — not in the layer where the queue happens to be long today. Queues clear. Supplier counts don't double in a year.
+
+So the next time a shortage headline shows up, I add one question: how many firms can make this layer? Seven or eight, and it's a cycle. Three, with a five-year runway for entrants, and it's structure. Micron spent the whole webinar arguing it belongs in the second category, and the market answered in red the same afternoon.
+
+![A line scaled by number of suppliers: the few-supplier left end is labeled structural shortage, the many-supplier right end cyclical shortage, with a divider in between.](/figures/how-many-can-make-it-en.svg)
+
+## Further reading
+
+- *The Circuit*, episode of 26 October 2026, hosted by Ben Bajarin and Jay Goldberg.
+- Micron's technology webinar materials, including CTO Scott DeBoer on 6F² and the 4F² scaling path.
+- Lam Research's quarterly results and earnings call, including its WFE market sizing for next year.
+- Meta's quarterly results and public material on the Prometheus cluster; the Open Compute Project website.
+- NVIDIA's GTC Berlin announcements and its supply commitments for substrates and packaging capacity.
+
+## One Thing to Take With You
+
+What this episode taught me: the thing that decides when you finish is the item on your list with the **longest lead time**, not the item you're best at or most want to start. Amazon's GPUs weren't a mistaken order; the power hadn't arrived. Lam wasn't short of buyers; the clean rooms weren't built. Both finished everything that moves fast and then stalled on the thing that needed starting first.
+
+Here's something I've tried. Pick one thing you've wanted to do for a long time and haven't started — a job change, a move, a certification, the broken thing at home you've walked past for two years. On paper, list what finishing it requires. Five items is plenty. Next to each, write one number: starting today, how many days or months until that item is usable. One number will be far larger than the rest, and it's usually the one you've been avoiding — waiting on someone's reply, saving an amount, queuing for a slot months out. Today, do one thing: start that one. Leave the other four; their lead times are short and they'll catch up.
