@@ -1,0 +1,98 @@
+---
+title: "The Adversary You Put On Payroll: Notes on George Kurtz at The Compound"
+description: "Listening notes on The Compound and Friends, 26 Oct 2026. CrowdStrike co-founder and CEO George Kurtz on a $1.47 billion August quarter, record net new ARR up 51%, and a $10 billion ARR target pulled forward to fiscal 2030: why agentic intrusions tripled in six months, why keeping attackers out and letting agents in are two different businesses, and which step the February 25% drawdown got wrong. Educational notes only, no investment advice and no individual stock calls."
+slug: "compound-2026-10-26-how-crowdstrike-could-double-arr-by-2030-with-geor"
+lang: "en"
+pubDate: 2026-10-27
+category: "investing"
+kind: "podcast-notes"
+tags: ["cybersecurity", "AI agents", "supply chain risk", "business models", "podcast notes"]
+ogImage: "/covers/compound-2026-10-26-how-crowdstrike-could-double-arr-by-2030-with-geor-cover.png"
+cover: "/covers/compound-2026-10-26-how-crowdstrike-could-double-arr-by-2030-with-geor-cover.png"
+---
+
+![A hospital server corridor at night, one rack door ajar leaking a hairline of light, the aisle narrowing away toward a door at the far end](/covers/compound-2026-10-26-how-crowdstrike-could-double-arr-by-2030-with-geor-cover.png)
+
+> A fissure begins as a crack. A crack widens to a channel. A channel becomes a great breach. When the fissure first shows a sign, it can still be stopped up.
+>
+> —— Guiguzi, "Stopping the Fissure" (Warring States period; my translation)
+
+On the 26 October 2026 episode of The Compound and Friends, Josh Brown opens by showing CrowdStrike co-founder and CEO George Kurtz a chart: the stock is up 119.8% this year, the 15th best performer in the S&P 500 as of mid-October. The numbers Kurtz gives on air are a record August quarter — $1.47 billion of revenue, up 26%, with net new annual recurring revenue of $333 million, up 51% — and a September investor briefing that pulled the $10 billion ARR target forward a year, from fiscal 2031 into fiscal 2030, with a $20 billion marker still sitting out at fiscal 2035. His claim is that AI has not invented a new class of attack; it strings together the small flaws that were filed as low risk into one usable path, cheaply and fast. The claim holds only while enterprises keep deploying AI agents faster than they can govern them — and February was the counter-case on the same subject, when Anthropic shipped Claude Code Security, the market bet security was about to be automated away, and CrowdStrike fell roughly 25% in the month.
+
+## Everyone feared AI would make security redundant. Why did that flip in six months?
+
+Because the fear and the orders point at the same fact.
+
+February's selloff rested on one inference: if AI can find the vulnerabilities, the business of defending shrinks. Then in late March a leak revealed the unreleased Mythos model, which could find software flaws humans had missed for decades, and security stocks sold off again. Kurtz says the talk at the time was the doomer kind — AI is going to wreck the world — but down at the security layer, AI did not grow a new class of attack. It works on what it was trained on, and it is good at taking a pile of individually low-risk flaws, stringing them together into one high-risk vulnerability, and doing it very quickly. Then he said the line I keep coming back to: at the end of the day, it can't beam from one computer to another. So his conclusion back in the spring was that if you want to use AI, you first need something watching it.
+
+![A single fact box in the middle branches right into two paths: the upper dotted branch leads to "no need for human defenders" and is labeled with a 25% share-price drop, while the lower thick solid branch leads to "defense matters more" and is labeled with new annual recurring revenue up 51% year over year, and the two endpoints sit at different heights.](/figures/one-fact-two-conclusions-en.svg)
+
+By June he was calling it the mythos moment and saying the fear had flipped into demand. The questions customers brought changed: we don't know which AI agents are running in the enterprise, who gave them an identity, what data they touch, where they go on the network — so we can't deploy AI as fast as we want to. At their August conference CrowdStrike shipped Falcon Guardian, which takes endpoint detection and response and points it at agents instead: when an agent is born, which sub-agents it spawns, which tools it downloads or calls on your system, all of it logged. Kurtz's line for it is that the latest adversary is on your payroll — the agent you fired up yourself, holding privileges, which will lift a credential off your computer to finish the goal you gave it. He thinks this line can end up bigger than endpoint, and his reason is plain arithmetic — there will be more agents to protect than there are people.
+
+## What actually changed on the attack side?
+
+The entry barrier collapsed.
+
+He's been doing this for thirty-plus years, and he walks through an old picture: the pyramid of pain. At the bottom, the most people and the least skill — activists breaking into sites for political reasons. In the middle, the for-profit cybercrime crews: fewer of them, better tradecraft. At the top, nation states: the fewest, the most capable. He says the apex has a new name now — the agent state — and the whole pyramid has been flattened, because what they observed is the same unsophisticated actor executing the same high-level attack as a nation state. The research CrowdStrike published this week names four previously unreported threat actors using AI agents in real attacks: agentic intrusions in the second half of this year are running at three times the first half, likely agentic incidents doubled from July to August and doubled again from August to September, and there are 800-plus publicly available AI skills out there.
+
+![On the left is a three-tier pyramid, wide and low-capability at the base and narrow and strongest at the top; on the right the same area is squashed into one wide, tall flat bar, meaning everyone now stands at what used to be the top height.](/figures/pyramid-of-pain-flattened-en.svg)
+
+The tradecraft is the most informative stretch of the episode. The nation-state approach is what he calls an ensemble of models: split the attack into pieces across different models, so each piece looks like reasonable work for a security expert and no single model knows the end goal. On top sits an executor that pulls all the returned pieces together, and that executor is an open-weight model whose guardrails have been stripped — not as smart as a frontier model, but it never refuses. Josh offers a comparison here: it's how the Heath Ledger Joker robbed the bank, where each clown knew only his own job and none of them could see the hand coordinating all of them. The cost? Kurtz says anybody with a prompt and a few tokens can do it, and running one of these attacks costs a few bucks.
+
+The Argentina case is the concrete one. A Spanish-speaking actor used AI agents to compromise 15 healthcare organizations. Inside one hospital the agent was told to steal credentials; when its first approach was blocked it found another way in by itself, and about twenty minutes later it held credentials that could unlock every critical system, with no human directing it. The capability is called goal seeking: as long as cost and time allow, it keeps going — writing new programs, finding vulnerabilities, trying the next door. Which is why he says the patch cadence has to move from a calendar to a watch.
+
+![On the left one starting point fans out into four lines to four unconnected small boxes, each labeled with an action that looks like ordinary work, and the four lines then converge into an executor box on the right that has no guardrails, pointing finally at one complete attack.](/figures/ensemble-of-models-split-work-en.svg)
+
+The supply-chain piece is bigger in scale. A Russian-speaking group had an AI agent find a weakness in one software company's code, rode it into cloud infrastructure, obtained administrator-level permissions, and from there reached roughly 700 companies' databases, because those companies were already wired to each other. His own summary of the last couple of years is the harshest line in the interview: we turned thirty years of security controls on their head. The old rule was don't run untrusted code and keep everyone out; the new arrangement gives agents enormous privilege and then lets them download anything from the internet without checking it. Attackers poison the open-source packages, and the agent runs the poison.
+
+## Why would an AI lab that builds its own models buy someone else's security?
+
+Kurtz says frontier labs are customers now, and he disclosed an eight-figure deal with one of them. He gives three reasons.
+
+The first is timing. Security has to stop things in the moment they happen, which means controls written into the runtime path; the model-evaluation posture is after the fact, and by the time it has finished scoring, the event is over. The second is data: who has tracked these threat actors for a decade-plus, and whose models get fed those records. The third he frames as church and state — you'd be telling your auditors and regulators that the same thing that might go off the rails is what you're using to protect it, and his own verdict is that it defeats the purpose, which Josh then repeats back to him. Of the three, the one I weigh most is the third, because it is institutional and does not go away when the other side's model gets better.
+
+![A gate stands on a horizontal execution path, positioned before the point where the event happens; beyond the end of that same path sits a separate evaluation box, held away from the event by a stretch of time that has already passed.](/figures/control-in-path-vs-evaluation-after-en.svg)
+
+The other direction is downward, into silicon. With the Nvidia partnership expanded, CrowdStrike leans on the immutability built into the chips to look at memory and at executions in a way software can't tamper with; they do the same with Intel and AMD. Kurtz mentions building their own models on Nemotron and a software harness they call safe mind, used to instrument and protect Nvidia's containers and DPUs. For an investor the point of this section isn't the technical detail — it's that security stops being one more layer of software and becomes an enforcement point inside hardware, and enforcement points are harder to swap out.
+
+## What has to hold for the $10 billion target to arrive a year early?
+
+White-space arithmetic, plus a way of buying called Falcon Flex.
+
+Kurtz says they laid out the white space across their existing customer base against the TAM at one of the investor days and concluded it's fairly simple math, no herculean task, and he describes his CFO's habit as only talking about what he can see in front of him. Falcon Flex works like this: the customer commits a dollar amount up front, then swaps modules freely as needs change, and bigger commitments earn bigger discounts; customers who convert show average ARR uplift of more than 40%. Why do they want to buy that way? Because attackers hunt the seams between vendors and between products — he calls the gap underlap — and the moment data hands off from one tool to the next is the weak point, so customers would rather consolidate onto one platform, one agent architecture, one data architecture than run a patchwork of acquisitions that look integrated until you use them. Kurtz says they coined the name Flex and other vendors now use the word, the way facial tissue became Kleenex. The return to CrowdStrike is the other half: they get the customer's demand plan three to five years out, so they know when each legacy system rolls off and when the committed dollars burn down.
+
+![On the left, two gaps sit between three separate tools, and data falls through the gaps at the moment of handoff; on the right the same functions are one seamless platform and the data runs straight across to the end.](/figures/underlap-the-seam-between-tools-en.svg)
+
+What supports the years after that is the Cyber Super Intelligence Lab, stood up in August, one of its leaders hired out of Nvidia. They run an offensive red model and a defensive blue model and loop them against each other inside a digital twin, scrimmaging continuously. Whether that converts into product is still open, but it is the one visible three-years-out item in the episode.
+
+On what could go wrong, Kurtz points at execution: the customer base is sticky, the products exist, the job is to keep innovating quickly. I'd add two things he didn't say. Falcon Flex pulls growth forward into commitments, and those commitments only convert when customers actually retire the old systems; in a worse economy that demand plan slips, revenue doesn't break immediately, but net new ARR dulls first — which happens to be the number the market is watching. And this year's move has already priced the growth in, so at this level getting the timing wrong costs about as much as getting the story wrong.
+
+## So what can I do with any of this myself?
+
+If you held a security name in February, what you saw was a 25% drawdown attached to a reason that sounded solid: a new tool finds vulnerabilities automatically, so who needs people to defend? The hard part in those moments is that the story and the price confirm each other.
+
+The way I try to split noise from structure comes down to one question: did this change customer behaviour, or only the narrative? In February that question had very concrete forms — did anyone cut their security budget over it, did anyone churn, did net new ARR fall. At least net new ARR later answered in the other direction. This doesn't mean you should take the opposite side of every panic. It means hanging your judgement on a handful of fields the next quarterly report will answer, rather than on whichever narrative reads more smoothly.
+
+The second layer is to find the mechanism that explains both narratives. "AI finds more vulnerabilities" supports "we won't need defenders" and it supports "we'll need far more defence"; the fork is who patches what it finds, and whether they can keep up. Kurtz walks that reasoning to the end: more vulnerabilities found, found faster, exploited faster, the window compressing, and operationally people can't patch fast enough — therefore agentic defence is the only way to fight agentic attacks. I think that chain holds, because each step is an observable quantity rather than confidence in a person. And its failure point is just as clear: if patching gets automated faster than flaws get surfaced, the chain falls over.
+
+![The two time bars in the top row show the distance from discovery to exploitation getting shorter year after year, while the bar below for how long patching takes barely changes, so the shaded exposure window between them keeps widening.](/figures/exposure-window-compresses-en.svg)
+
+The third layer is checking your answer. I didn't write my February view down, so being right afterwards was luck — that's the part of this episode I'm least comfortable about. What I can do is write it now: name the field that would confirm the view, and name the number that would make me admit I was wrong. They report again around 1 December, which is the nearest chance to check.
+
+## Further reading
+
+- The Compound and Friends, 26 Oct 2026 episode, with George Kurtz (co-founder and CEO, CrowdStrike)
+- CrowdStrike's threat research published this week: four previously unreported threat actors using AI agents in real attacks
+- CrowdStrike's August 2026 quarter results and September investor briefing (ARR targets, Falcon Flex metrics)
+- Falcon Guardian and AI detection and response (announced at the August 2026 conference)
+- The expanded CrowdStrike–Nvidia partnership (chip-level enforcement, Nemotron, containers and DPUs)
+- CrowdStrike Cyber Super Intelligence Lab (stood up August 2026)
+- The PHP vulnerability discussed in the episode, known for roughly six years
+
+## One thing to take with you
+
+One idea: the known cracks you've filed under "unlikely, leave it for now" don't expire one at a time. They come due together, on the day the cost structure around them changes. Kurtz's closing example is exactly that — last week's PHP vulnerability had been known for about six years, and the reason nobody fixed it was simple: the judgement at the time was that nobody would bother exploiting it, so it sat at the bottom of the priority list. AI overturned that judgement by proving it was exploitable. He says there's a whole heap of things out there that everyone knows are broken and nobody fixed, for the same reason.
+
+![A horizontal dashed line marks the cost threshold worth acting on; on the left half a cluster of dots for known gaps all sit below the line and are left alone, while on the right half the threshold drops to a tenth and the same dots, without moving at all, now sit above it.](/figures/known-gaps-expire-together-en.svg)
+
+Something I've tried, and you can finish it today: take a sheet of paper and write down three things you already know are broken but have parked under "low odds, later" — the health check you've put off for two years, the folder you never backed up, the relationship where you know there's a crack and haven't said anything. Then ask each one the same question: if doing something about this got ten times cheaper, would it still be low odds? One or two answers will have changed. Pick that one and handle it this week.
