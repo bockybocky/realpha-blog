@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two timelines compared: when the hard part comes last, the blast sits at the right end and is large; when it comes first, the blast sits at the left end and is small.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .lbl { font-size:16px; fill:var(--dim); }
+    .onw { font-size:16px; fill:var(--page); font-weight:700; }
+    .cc  { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="ttl" x="60" y="62">Where the hardest part sits</text>
+
+<text class="grp" x="60" y="152">Old order</text>
+<rect x="60" y="172" width="180" height="56" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="lbl" x="150" y="206" text-anchor="middle">Demand</text>
+<rect x="246" y="172" width="150" height="56" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="lbl" x="321" y="206" text-anchor="middle">Prototype</text>
+<rect x="402" y="172" width="180" height="56" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="lbl" x="492" y="206" text-anchor="middle">Raise</text>
+<rect x="588" y="172" width="252" height="56" rx="8" fill="var(--warn)"/>
+<text class="onw" x="714" y="206" text-anchor="middle">Hardest part</text>
+<circle cx="840" cy="200" r="46" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<circle cx="840" cy="200" r="22" fill="var(--warn)"/>
+<text class="lbl" x="840" y="282" text-anchor="middle">Quit point</text>
+<text class="lbl" x="700" y="320" text-anchor="middle">3.5 years</text>
+
+<text class="grp" x="60" y="400">Hardest first</text>
+<rect x="60" y="420" width="128" height="56" rx="8" fill="var(--warn)"/>
+<text class="onw" x="124" y="454" text-anchor="middle">Hardest</text>
+<circle cx="124" cy="448" r="22" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<rect x="194" y="420" width="646" height="56" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="lbl" x="517" y="454" text-anchor="middle">Everything else</text>
+<text class="lbl" x="124" y="508" text-anchor="middle">6 months</text>
+
+<line x1="60" y1="528" x2="880" y2="528" stroke="var(--grey)" stroke-width="2"/>
+<polygon points="880,528 866,521 866,535" fill="var(--grey)"/>
+<text class="lbl" x="900" y="534">Time</text>
+</svg>

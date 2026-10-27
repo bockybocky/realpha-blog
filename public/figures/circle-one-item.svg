@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="清單中只有一行被圈出，箭頭把它指到右邊的一週區塊，其他行留在原地">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:19px; fill:var(--ink); font-weight:700; }
+    .lbl { font-size:16px; fill:var(--dim); }
+    .onw { font-size:19px; fill:var(--page); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="ttl" x="60" y="62">想開一間小店</text>
+
+<rect x="60" y="110" width="230" height="46" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="lbl" x="80" y="140">菜單</text>
+<rect x="60" y="172" width="230" height="46" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="lbl" x="80" y="202">裝潢</text>
+<rect x="60" y="234" width="230" height="46" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="lbl" x="80" y="264">店名</text>
+<rect x="60" y="358" width="230" height="46" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="lbl" x="80" y="388">名片</text>
+<rect x="60" y="420" width="230" height="46" rx="8" fill="var(--card)" stroke="var(--line)"/>
+<text class="lbl" x="80" y="450">社群</text>
+
+<rect x="48" y="288" width="254" height="58" rx="12" fill="var(--warn)"/>
+<text class="onw" x="72" y="326">地點租金與人流</text>
+<rect x="34" y="276" width="282" height="82" rx="20" fill="none" stroke="var(--warn)" stroke-width="4"/>
+
+<line x1="340" y1="317" x2="520" y2="317" stroke="var(--warn)" stroke-width="5"/>
+<polygon points="528,317 508,306 508,328" fill="var(--warn)"/>
+
+<rect x="560" y="212" width="340" height="212" rx="14" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="grp" x="730" y="300" text-anchor="middle">這一週</text>
+<text class="grp" x="730" y="344" text-anchor="middle">只試這一項</text>
+<text class="lbl" x="730" y="458" text-anchor="middle">其他五項留在原地</text>
+</svg>

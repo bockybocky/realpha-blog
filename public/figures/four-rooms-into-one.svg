@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="四個房間縮成一個房間，時間條從很長縮成約七分之一">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; fill:var(--ink); font-weight:700; }
+    .lbl { font-size:16px; fill:var(--dim); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="ttl" x="60" y="62">同一塊空間，裝得下幾次</text>
+
+<text class="grp" x="60" y="122">四個房間</text>
+<rect x="60" y="146" width="150" height="150" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="135" cy="221" r="18" fill="var(--grey)"/>
+<rect x="222" y="146" width="150" height="150" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="297" cy="221" r="18" fill="var(--grey)"/>
+<rect x="60" y="308" width="150" height="150" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="135" cy="383" r="18" fill="var(--grey)"/>
+<rect x="222" y="308" width="150" height="150" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="297" cy="383" r="18" fill="var(--grey)"/>
+<rect x="60" y="486" width="312" height="22" rx="11" fill="var(--grey)"/>
+<text class="lbl" x="60" y="536">三小時</text>
+
+<line x1="430" y1="200" x2="490" y2="200" stroke="var(--accent)" stroke-width="5"/>
+<polygon points="496,200 478,191 478,209" fill="var(--accent)"/>
+
+<text class="grp" x="560" y="122">一個房間</text>
+<rect x="560" y="146" width="312" height="312" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="676" cy="262" r="18" fill="var(--accent)"/>
+<circle cx="756" cy="262" r="18" fill="var(--accent)"/>
+<circle cx="676" cy="342" r="18" fill="var(--accent)"/>
+<circle cx="756" cy="342" r="18" fill="var(--accent)"/>
+<rect x="560" y="486" width="43" height="22" rx="11" fill="var(--accent)"/>
+<text class="lbl" x="560" y="536">25 分鐘</text>
+<text class="grp" x="872" y="536" text-anchor="end">再擺四間</text>
+</svg>

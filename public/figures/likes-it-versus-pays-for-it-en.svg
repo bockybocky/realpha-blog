@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Four quadrants: likes it but the payment structure does not hold falls upper left, while likes it and can pay cash falls upper right.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:19px; fill:var(--ink); font-weight:700; }
+    .lbl { font-size:16px; fill:var(--dim); }
+    .onw { font-size:16px; fill:var(--page); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="ttl" x="60" y="62">Liking it and paying are two axes</text>
+
+<rect x="140" y="110" width="740" height="380" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<line x1="510" y1="110" x2="510" y2="490" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="300" x2="880" y2="300" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="60" y="130">Likes it</text>
+<text class="grp" x="60" y="486">Doesn't like it</text>
+<text class="grp" x="290" y="534" text-anchor="middle">Structure fails</text>
+<text class="grp" x="700" y="534" text-anchor="middle">Pays cash</text>
+
+<circle cx="300" cy="196" r="20" fill="var(--warn)"/>
+<text class="grp" x="300" y="246" text-anchor="middle">Insurance-paid</text>
+<text class="lbl" x="300" y="274" text-anchor="middle">Zero deals</text>
+<line x1="264" y1="196" x2="196" y2="196" stroke="var(--warn)" stroke-width="4"/>
+<polygon points="190,196 208,187 208,205" fill="var(--warn)"/>
+<text class="lbl" x="196" y="170">Walks away</text>
+
+<circle cx="600" cy="162" r="16" fill="var(--accent)"/>
+<text class="lbl" x="624" y="168">Pro sports teams</text>
+<circle cx="600" cy="208" r="16" fill="var(--accent)"/>
+<text class="lbl" x="624" y="214">Hotel spas</text>
+<circle cx="600" cy="254" r="16" fill="var(--accent)"/>
+<text class="lbl" x="624" y="260">Fitness clinics</text>
+<circle cx="600" cy="282" r="16" fill="var(--accent)"/>
+<text class="lbl" x="624" y="288">High-net-worth individuals</text>
+<text class="grp" x="700" y="570" text-anchor="middle">Hit this axis first</text>
+</svg>

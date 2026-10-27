@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="成交週期軸：當天在最左，十二到十八個月在最右，四條通路落點分散">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:19px; fill:var(--ink); font-weight:700; }
+    .lbl { font-size:16px; fill:var(--dim); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="ttl" x="60" y="62">錢什麼時候進來</text>
+
+<line x1="120" y1="400" x2="890" y2="400" stroke="var(--grey)" stroke-width="3"/>
+<polygon points="890,400 874,392 874,408" fill="var(--grey)"/>
+<text class="lbl" x="120" y="440">當天</text>
+<text class="lbl" x="470" y="440" text-anchor="middle">半年</text>
+<text class="lbl" x="820" y="440" text-anchor="middle">十八個月</text>
+
+<rect x="112" y="388" width="16" height="24" rx="4" fill="var(--accent)"/>
+<line x1="120" y1="384" x2="120" y2="300" stroke="var(--accent)" stroke-width="2"/>
+<text class="grp" x="120" y="282" text-anchor="start">高淨值個人</text>
+<text class="lbl" x="120" y="256">當天付款</text>
+
+<rect x="230" y="390" width="90" height="20" rx="10" fill="var(--accent)"/>
+<line x1="275" y1="386" x2="275" y2="340" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="275" y="322" text-anchor="middle">職業運動隊</text>
+
+<rect x="330" y="390" width="150" height="20" rx="10" fill="var(--accent)"/>
+<line x1="405" y1="414" x2="405" y2="470" stroke="var(--line)" stroke-width="2"/>
+<text class="grp" x="405" y="494" text-anchor="middle">健身長壽診所</text>
+
+<rect x="660" y="386" width="200" height="28" rx="14" fill="var(--warn)"/>
+<line x1="760" y1="382" x2="760" y2="300" stroke="var(--warn)" stroke-width="2"/>
+<text class="grp" x="760" y="282" text-anchor="middle">飯店集團</text>
+<text class="lbl" x="760" y="256" text-anchor="middle">十二到十八個月</text>
+</svg>
