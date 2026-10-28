@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="An eight-segment long ruler and a two-to-three-year short ruler are compared, and the same single year occupies vastly different shares on each.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .d { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="70">Two</text>
+
+  <text class="g" x="60" y="132">Peers'</text>
+  <rect x="60" y="150" width="800" height="60" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="160" y1="150" x2="160" y2="210" stroke="var(--line)"/>
+  <line x1="260" y1="150" x2="260" y2="210" stroke="var(--line)"/>
+  <line x1="360" y1="150" x2="360" y2="210" stroke="var(--line)"/>
+  <line x1="460" y1="150" x2="460" y2="210" stroke="var(--line)"/>
+  <line x1="560" y1="150" x2="560" y2="210" stroke="var(--line)"/>
+  <line x1="660" y1="150" x2="660" y2="210" stroke="var(--line)"/>
+  <line x1="760" y1="150" x2="760" y2="210" stroke="var(--line)"/>
+  <rect x="60" y="150" width="100" height="60" rx="6" fill="var(--warn)"/>
+  <text class="d" x="110" y="187" text-anchor="middle" fill="var(--page)">1y</text>
+  <text class="d" x="868" y="187">8-yr</text>
+
+  <text class="g" x="60" y="302">This one</text>
+  <rect x="60" y="320" width="250" height="60" rx="6" fill="var(--accent)"/>
+  <rect x="60" y="320" width="100" height="60" rx="6" fill="var(--warn)"/>
+  <text class="d" x="110" y="357" text-anchor="middle" fill="var(--page)">1y</text>
+  <text class="d" x="322" y="357">Open 2-3y</text>
+
+  <text class="d" x="60" y="434">Same lag: rounding error above, half a life below</text>
+  <text class="c" x="60" y="486">Bad ruler, bad call</text>
+</svg>

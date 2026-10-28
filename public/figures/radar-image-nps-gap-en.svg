@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="For the same one-hour delay, two satisfaction bars land on opposite sides of zero, 120 points apart.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .d { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="70">Same delay</text>
+
+  <line x1="150" y1="320" x2="880" y2="320" stroke="var(--line)" stroke-width="2"/>
+  <line x1="150" y1="140" x2="880" y2="140" stroke="var(--line)" stroke-dasharray="4 6"/>
+  <line x1="150" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-dasharray="4 6"/>
+  <text class="d" x="110" y="146" text-anchor="end">+100</text>
+  <text class="d" x="110" y="326" text-anchor="end">0</text>
+  <text class="d" x="110" y="446" text-anchor="end">-100</text>
+
+  <rect x="230" y="320" width="150" height="110" rx="6" fill="var(--warn)"/>
+  <text class="g" x="305" y="492" text-anchor="middle">A text</text>
+  <text class="d" x="305" y="520" text-anchor="middle">Weather delay, in sun</text>
+
+  <rect x="620" y="170" width="150" height="150" rx="6" fill="var(--accent)"/>
+  <text class="g" x="695" y="492" text-anchor="middle">Radar</text>
+  <text class="d" x="695" y="520" text-anchor="middle">See the storm line</text>
+
+  <line x1="480" y1="375" x2="480" y2="245" stroke="var(--ink)" stroke-width="2"/>
+  <path d="M480,245 l-7,14 h14 z" fill="var(--ink)"/>
+  <text class="c" x="498" y="300">120 pts</text>
+</svg>

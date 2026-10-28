@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="三條長度遞增的機率條與一條滿格的確定條並列">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .d { font-size:16px; fill:var(--dim); }
+    .n { font-size:22px; fill:var(--ink); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="72">乘客看到的不是「有沒有」</text>
+
+  <text class="g" x="60" y="146">某機型 現在</text>
+  <rect x="300" y="126" width="560" height="34" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="300" y="126" width="140" height="34" rx="6" fill="var(--accent)"/>
+  <text class="n" x="456" y="152">25%</text>
+
+  <text class="g" x="60" y="226">聖誕節 檔期</text>
+  <rect x="300" y="206" width="560" height="34" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="300" y="206" width="202" height="34" rx="6" fill="var(--accent)"/>
+  <text class="n" x="518" y="232">36%</text>
+
+  <text class="g" x="60" y="306">全機隊 今天</text>
+  <rect x="300" y="286" width="560" height="34" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="300" y="286" width="269" height="34" rx="6" fill="var(--accent)"/>
+  <text class="n" x="585" y="312">48%</text>
+
+  <line x1="300" y1="356" x2="860" y2="356" stroke="var(--line)" stroke-width="1"/>
+
+  <text class="g" x="60" y="416">追蹤器查過</text>
+  <rect x="300" y="396" width="560" height="34" rx="6" fill="var(--warn)"/>
+  <text class="n" x="580" y="421" text-anchor="middle" fill="var(--page)">確定有</text>
+
+  <text class="d" x="300" y="470">左邊三條會改訂別班，最下面這條才會為它挑時段</text>
+  <text class="c" x="60" y="506">同一個機率，填滿了才換得到行為</text>
+</svg>
