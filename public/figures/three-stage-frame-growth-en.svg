@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Three frames show a small first frame, a larger second frame, and a third frame of the same size with twice the grid density below.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">Three stages: larger frames, denser motion</text>
+
+  <rect x="90" y="190" width="96" height="168" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <text class="t" x="138" y="180" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">Generate</text>
+  <text class="t" x="138" y="382" font-size="16" fill="var(--dim)" text-anchor="middle">768×1344</text>
+
+  <path d="M 215 274 L 275 274" stroke="var(--accent)" stroke-width="3"/>
+  <path d="M 263 266 L 275 274 L 263 282 Z" fill="var(--accent)"/>
+
+  <rect x="310" y="148" width="144" height="252" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="382" y="138" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">Upscale</text>
+  <text class="t" x="382" y="424" font-size="16" fill="var(--dim)" text-anchor="middle">1152×2016</text>
+
+  <path d="M 490 274 L 550 274" stroke="var(--accent)" stroke-width="3"/>
+  <path d="M 538 266 L 550 274 L 538 282 Z" fill="var(--accent)"/>
+
+  <rect x="590" y="148" width="144" height="252" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="662" y="138" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">Interpolate</text>
+  <text class="t" x="662" y="424" font-size="16" fill="var(--dim)" text-anchor="middle">1152×2016</text>
+
+  <g stroke="var(--grey)" stroke-width="3">
+    <line x1="96" y1="450" x2="96" y2="474"/>
+    <line x1="114" y1="450" x2="114" y2="474"/>
+    <line x1="132" y1="450" x2="132" y2="474"/>
+    <line x1="150" y1="450" x2="150" y2="474"/>
+    <line x1="168" y1="450" x2="168" y2="474"/>
+    <line x1="186" y1="450" x2="186" y2="474"/>
+  </g>
+  <text class="t" x="138" y="504" font-size="16" fill="var(--dim)" text-anchor="middle">24 fps</text>
+
+  <g stroke="var(--accent)" stroke-width="3">
+    <line x1="596" y1="450" x2="596" y2="474"/>
+    <line x1="605" y1="450" x2="605" y2="474"/>
+    <line x1="614" y1="450" x2="614" y2="474"/>
+    <line x1="623" y1="450" x2="623" y2="474"/>
+    <line x1="632" y1="450" x2="632" y2="474"/>
+    <line x1="641" y1="450" x2="641" y2="474"/>
+    <line x1="650" y1="450" x2="650" y2="474"/>
+    <line x1="659" y1="450" x2="659" y2="474"/>
+    <line x1="668" y1="450" x2="668" y2="474"/>
+    <line x1="677" y1="450" x2="677" y2="474"/>
+    <line x1="686" y1="450" x2="686" y2="474"/>
+    <line x1="695" y1="450" x2="695" y2="474"/>
+  </g>
+  <text class="t" x="662" y="504" font-size="16" fill="var(--accent)" text-anchor="middle">48 fps</text>
+
+  <text class="t" x="790" y="274" font-size="22" font-weight="700" fill="var(--ink)">Three outputs</text>
+  <text class="t" x="790" y="306" font-size="16" fill="var(--dim)">Hash each file</text>
+</svg>

@@ -1,0 +1,161 @@
+---
+title: "Running MiniMax H3 Without a Big GPU: I Turned \"Borrow a Colab Card, Give It Back When Done\" Into a Public Repo"
+description: "colab-gpu-runner is a public GitHub repo. One command on your own computer borrows a 96GB G4 GPU from Google Colab, turns a single photo into a short video with sound, upscales it, interpolates it to 48 fps, releases the machine, and pulls the files back through Google Drive with a SHA-256 check on each one. This post covers what it does, who it suits, how to install it, and which card to ask for, then makes the strongest case against it and lands on when it is worth using. A technical learning note, not commercial advice."
+slug: "colab-gpu-runner-minimax-h3-2026-10"
+lang: "en"
+pubDate: 2026-10-28
+category: "tech"
+tags: ["Google Colab", "MiniMax H3", "SeedVR2", "RIFE", "ComfyUI", "Cloud GPU", "AI video", "GitHub"]
+ogImage: "/covers/colab-gpu-runner-minimax-h3-2026-10.png"
+cover: "/covers/colab-gpu-runner-minimax-h3-2026-10.png"
+tldr: "You can run MiniMax H3 with no GPU of your own: one command borrows a Colab G4, and a 5-second clip takes about 9–10 minutes from boot to release, around 1.2 compute units. The price is a paid plan, a single Google account holding everything, and rules someone else sets. It fits people who make a few clips now and then."
+---
+
+![Cover image on the theme of borrowing a machine](/covers/colab-gpu-runner-minimax-h3-2026-10.png)
+
+> *If water is not deep enough, it cannot float a large boat.*<br/>
+> *Pour a cup of water into a hollow in the floor and a mustard seed will sail on it; set the cup itself there and it sticks fast. The water is shallow and the boat is large.*<br/>
+> —— *Zhuangzi*, "Free and Easy Wandering" (Warring States period); translation mine
+
+This month I packaged my method for borrowing Google Colab GPUs to run the MiniMax H3 video model into a public repo, colab-gpu-runner: https://github.com/bockybocky/colab-gpu-runner . A single command on your own computer borrows a G4 with 96GB of video memory, turns one photo into a short clip with sound, upscales it 1.5×, fills it out to 48 frames per second, and hands the machine back when it is done. In my October 2026 runs, a 5-second clip took about 9–10 minutes from boot to release and used roughly 1.2 compute units. You need a paid Colab plan, since the free tier won't hand out cards this size, and the setup suits people who make a few clips now and then. If you generate video all day, other routes will serve you better.
+
+## Why it exists: a friend wanted to try, and he has no big card
+
+H3's two-stage generation peaks at about 52GB of video memory. I mentioned that number in [my earlier post on running MiniMax H3 in Colab](/en/blog/colab-minimax-h3-2k-worth-it/). It is far beyond the 8GB or 12GB on a home card, and beyond the 24GB cards a lot of people rent in the cloud.
+
+![A bar chart shows a 52GB requirement line spanning the chart; the 8GB and 12GB consumer cards and the commonly rented 24GB card fall far below it, while only the 80GB and 96GB cards exceed it.](/figures/h3-vram-threshold-en.svg)
+
+A friend read that post and wanted to try it himself. That is when I noticed my setup lived in several scripts with paths hardcoded to my own machine. So I cleaned it up, added docs and a check script, and published it. Below I make the best case I can for borrowing Colab cards to run H3, then switch sides and attack it.
+
+## For: no card to buy, no machine to babysit, the biggest card on one command
+
+What it does is simple. On your computer you prepare a photo and one line describing the scene, and package them into a script meant to run in the cloud. The launcher borrows a GPU machine from Colab, installs ComfyUI (an open-source tool that wires models together as a node graph), downloads the models from Hugging Face, and runs three steps: MiniMax H3 generates a clip with audio, SeedVR2 upscales it 1.5×, and RIFE interpolates it from 24 to 48 frames per second. The results go to your own Google Drive, the machine is released, and your computer downloads the files and compares each one's SHA-256 hash, so you know what arrived matches what was uploaded.
+
+![Three side-by-side frames show the first at 768×1344, the second enlarged to 1152×2016, and the third at the same size but with twice the grid density below, representing an increase from 24 to 48 frames per second.](/figures/three-stage-frame-growth-en.svg)
+
+You get three videos: the raw generation, the upscaled version (768×1344 up to 1152×2016), and the 48 fps version. There is also a de-shine switch. By default it loads two add-ons that give skin a more matte look; pass `--no-deoil` when packaging if you don't want them.
+
+I see three real strengths.
+
+First, your computer needs no GPU. The card is borrowed, and your machine only sends commands and receives files. An ordinary laptop is enough.
+
+Second, the card is large, and the job checks it. On October 19, 2026 I ran the same test script on both: the G4 did about 423 TFLOPS of bf16 matrix multiplication against roughly 268 on an 80GB A100, so about 1.6× faster. The remote script reads the card's memory before doing anything else and stops if it finds less than 75,000 MiB, so you never pay for half a run on a card that was never going to finish.
+
+![Two bars show G4 at 423, about 1.6 times higher than A100 at 268, with the gap marked by a dashed bracket.](/figures/g4-vs-a100-tflops-en.svg)
+
+Third, the way files come back was fixed the hard way. Until October 20, 2026, results were base64-encoded, printed into the log, and stitched back together locally. For a three-clip job that added about 30 minutes, and the machine was billing the whole time. Once I switched to uploading to Drive and downloading afterward, that wait mostly disappeared.
+
+Time and cost, measured on a G4 in October 2026: a 5-second clip takes about 9–10 minutes and 1.2 units; 10 seconds about 17.5 minutes and 2.1 units; 15 seconds about 24 minutes and 3.1–3.4 units. Downloading the models straight from Hugging Face takes about 3 minutes, much faster than the roughly 22 minutes it took when I copied them from Drive.
+
+![A near-straight rising line: clip length of 5, 10 and 15 seconds on the horizontal axis, time and compute units on the vertical, both growing in step.](/figures/clip-length-cost-slope-en.svg)
+
+![Two horizontal timelines show that the upper one has a long file-retrieval tail after generation and remains billable throughout, while the lower one's tail nearly disappears.](/figures/base64-vs-drive-billing-tail-en.svg)
+
+## Which card to ask for
+
+Go for the G4 first. Colab's documentation doesn't say what card the G4 actually is; the machine I got reported an RTX PRO 6000 Blackwell with 96GB.
+
+| Colab GPU | Video memory | Can it run this pipeline? |
+|---|---|---|
+| G4 | 96GB | Ask for this one first. Fastest in my tests, and the default |
+| A100 | 80GB or 40GB | The 80GB version works; the 40GB version gets rejected, so try again |
+| H100 | 80GB | Enough memory, but I haven't tested it |
+| T4 / L4 | 16 / 24GB | No |
+
+## Installing it, in order
+
+The repo includes `check_env.py`. It only reads: it installs nothing, starts no machine, and costs nothing. Each item prints pass or fail, with a fix for anything that fails. I'd run it first:
+
+```powershell
+python check_env.py
+```
+
+Then install in this order:
+
+```powershell
+# 1. Install the Colab command line
+uv tool install google-colab-cli
+
+# 2. Install gog (a Google Drive command line; see github.com/openclaw/gogcli) and sign in with your own account
+
+# 3. Log in to Colab (once): print a URL, open it on your phone, paste the code back
+$PY = "$env:APPDATA\uv\tools\google-colab-cli\Scripts\python.exe"
+& $PY colab_login.py url
+& $PY colab_login.py code <auth-code>
+
+# 4. Try a card first (about 1 minute)
+colab run --gpu G4 g4_probe.py
+
+# 5. Package the job, then run a smoke test that skips generation and only checks Drive upload/download
+python film/build_remote_job.py --image start.png --prompt "a woman smiles and waves at the camera" --out-dir ./job
+pwsh film/run_g4.ps1 -Root ./job -GoogleAccount <your-google-account> -SmokeTest
+
+# 6. The real run
+pwsh film/run_g4.ps1 -Root ./job -GoogleAccount <your-google-account>
+```
+
+Two things the instructions won't tell you.
+
+The Colab command line officially supports only Linux and macOS; its own page says Windows is not supported. I installed it with uv on Windows and it works, but if a future release breaks on Windows, nobody owes you a fix. The tool itself needs Python 3.12 or newer, which uv brings along on its own; that's separate from the 3.10 the repo's scripts need.
+
+The other one: it installs and then can't be found. uv puts `colab` in `.local/bin` under your user folder, and that folder often isn't on the system path. On October 27, 2026, while writing the check script, I ran it on my own laptop and the very first line said it couldn't find the colab command, even though I had installed it. I had just removed the hardcoded paths for the public version, and the first person to trip over that was me. The check script and launcher now look in that folder themselves. If typing `colab` by hand does nothing, look there before you reinstall.
+
+## Five ways to get a GPU, side by side
+
+Every number here is one I measured or wrote about in earlier posts. Cells I haven't measured say so.
+
+| | Colab G4 | Colab A100 | vast rental | RunPod | My old 8GB card |
+|---|---|---|---|---|---|
+| Video memory | 96GB | 80GB or 40GB | The 3090 I rented: 24GB | Not tested | 8GB |
+| Runs this H3 pipeline | Yes | Only the 80GB version | Not tested; 24GB isn't enough | Not tested | No |
+| Boot to working | Not measured on its own; a 5-second clip is 9–10 minutes end to end, including about 3 minutes of setup and model downloads | Not tested | About 4–5 minutes to the first image, plus 21 minutes downloading models | About 1–3 minutes per boot | Instant |
+| Billing | Compute units; check `colab usage` for the current rate | Same | Hourly; a 3090 was $0.22/hour | Per second; a 4090 was $0.34–0.74/hour | Electricity plus wear |
+| Good for | Making a few big-model clips now and then | Backup when no G4 is free | Big batches of jobs that fit in 24GB | One-off batch work | Small models, daily use |
+
+The vast and RunPod details are in [my vast rental notes](/en/blog/vast-gpu-rental-notes-2026-10/) and [the rent-or-buy post](/en/blog/runpod-vs-local-gpu-2026-09/).
+
+## Against: when you borrow, someone else writes the rules
+
+Now the other side, argued as hard as I can.
+
+Everything hangs on one Google account. The card comes from Colab, the outputs land in the same account's Drive, and the login tokens sit there too. If that account is ever suspended or its permissions revoked, the whole route goes down at once, and there is no second provider to switch to.
+
+The billing unit can change, and the rules aren't published. Colab's FAQ says plainly that the GPU types on offer, usage limits, idle timeouts, and maximum machine lifetime all change over time and aren't disclosed. The pricing page only shows up after you sign in. My "about 1.2 units" is an October reading and may not hold next month.
+
+A machine left running keeps billing. If the local process watching the job dies, the cloud machine doesn't shut itself down. The launcher checks for leftover machines on the way out, but if your computer crashes or loses its connection, that cleanup step never runs.
+
+You may not get a card. G4 and A100 depend on what's free at the moment, and landing a 40GB A100 means getting rejected and starting over. On the day you're racing a deadline and nothing is available, you wait.
+
+The model licenses need reading line by line. MiniMax H3's community license (the August 2, 2026 version) is royalty-free, but the EU, the UK, South Korea, and the US are outside its territory; products with more than $20 million in yearly revenue need separate written permission; commercial products must prominently display "MiniMax H3" in their interface; and you may not use the model or its outputs to improve any other AI model. The two de-shine add-ons follow H3's license. SeedVR2 and the latent upscaler are Apache-2.0, and the frame interpolation add-on is MIT. The repo's own code is MIT, but complying with the model licenses is on you.
+
+Your data goes to the cloud. Your starting photo is packed into the script and sent to the remote machine, and the launcher passes your Drive refresh token and OAuth client secret into that machine as environment variables so it can upload the results. None of that is written into the script or the logs, and the machine is released when the job ends. Still, while it runs, those things sit on a computer that isn't yours.
+
+Last, every run starts cold. Each time you borrow a card, ComfyUI gets reinstalled and every model downloaded again, about 3 minutes spent before any real work. If you want to tweak settings and watch results as you go, starting from zero every time gets old fast.
+
+![Three side-by-side rental blocks each begin with the same-width gray setup segment, while the dedicated-machine block on the right shows that segment only once at the very beginning.](/figures/cold-start-repeats-every-time-en.svg)
+
+## Which side holds up: how often you run it, and what you feed it
+
+Both sides are right. Three conditions decide between them.
+
+Frequency. If you make a few clips now and then, the case for wins: no card to buy, no machine to maintain, around 1.2 units per clip, far cheaper than buying a 96GB card. If you run it heavily every day, the shifting rules and cold starts will keep biting, and renting a machine that can keep persistent storage, or seriously pricing out a card of your own, is the steadier path.
+
+![A usage-frequency axis runs from low to high, with renting more economical on the left and a dedicated machine or purchased GPU more economical on the right, separated by a crossover band rather than a hard boundary.](/figures/frequency-decides-which-side-wins-en.svg)
+
+Content. With your own photos and no commercial plans, the privacy and licensing risks stay manageable. If you'll use other people's faces, take paid work, or live in an excluded territory, read the license before you start.
+
+Tolerance for borrowing itself. For urgent work that can't wait, don't make a borrowed card your only route.
+
+Who it suits: people who want to run large video models, don't own a big card, already have or are willing to get a paid Colab plan, and make clips occasionally. Who it doesn't: people on the free tier only (no cards this size there), people who need to tweak and watch in real time, and people uneasy about their photos going to the cloud.
+
+If you're in the first group, the repo is here: https://github.com/bockybocky/colab-gpu-runner . Run `check_env.py` first, then the smoke test, and only then a real generation. That order will save you a fair amount of money.
+
+## The one thing to take away
+
+When you borrow something, work out how you'll return it before you start using it.
+
+The lines in this tool I value most are the card check at boot, the automatic release at the end, and the final look for leftover machines. They are all about giving it back, and they decide whether borrowing pays off.
+
+![A rental timeline shows generation as a wide pale-gray band, while three small checkpoints—GPU validation, automatic release, and residual-resource recheck—are emphasized at the two ends.](/figures/the-return-path-is-the-value-en.svg)
+
+One thing I've tried: next time you borrow anything, whether it's a colleague's projector, a friend's car, a library book, or just a free trial of some subscription, write one line the moment you get it: when it goes back, and how you'll confirm it went back. For a free trial, that means putting the cancel date on your calendar the day before it ends, and after cancelling, checking the billing page to make sure nothing else will be charged.

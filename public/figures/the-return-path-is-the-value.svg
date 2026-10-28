@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="借到還的時間軸：中間生成段淡灰，兩端的驗卡、自動釋放、殘留複查三個關卡被強調">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">值錢的是兩端，不是中間</text>
+
+  <rect x="230" y="200" width="420" height="70" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="440" y="243" font-size="19" fill="var(--dim)" text-anchor="middle">生成、放大、補幀</text>
+
+  <line x1="100" y1="235" x2="230" y2="235" stroke="var(--accent)" stroke-width="3"/>
+  <line x1="650" y1="235" x2="880" y2="235" stroke="var(--accent)" stroke-width="3"/>
+
+  <circle cx="170" cy="235" r="14" fill="var(--accent)"/>
+  <text class="t" x="170" y="190" font-size="19" font-weight="700" fill="var(--accent)" text-anchor="middle">驗卡</text>
+  <text class="t" x="170" y="300" font-size="16" fill="var(--dim)" text-anchor="middle">不夠就停</text>
+
+  <circle cx="700" cy="235" r="14" fill="var(--accent)"/>
+  <text class="t" x="700" y="190" font-size="19" font-weight="700" fill="var(--accent)" text-anchor="middle">自動釋放</text>
+  <text class="t" x="700" y="300" font-size="16" fill="var(--dim)" text-anchor="middle">跑完就還</text>
+
+  <circle cx="850" cy="235" r="14" fill="var(--accent)"/>
+  <text class="t" x="850" y="190" font-size="19" font-weight="700" fill="var(--accent)" text-anchor="middle">殘留複查</text>
+  <text class="t" x="850" y="300" font-size="16" fill="var(--dim)" text-anchor="middle">再看一次</text>
+
+  <line x1="100" y1="370" x2="880" y2="370" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="100" y="400" font-size="16" fill="var(--ink)">借到手</text>
+  <text class="t" x="880" y="400" font-size="16" fill="var(--ink)" text-anchor="end">確認已還</text>
+
+  <text class="t" x="100" y="462" font-size="22" font-weight="700" fill="var(--ink)">借之前，先想好怎麼還</text>
+</svg>

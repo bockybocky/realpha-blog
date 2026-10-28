@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="頻率橫軸分成左右兩區：偶爾做幾段時借卡划算，天天大量跑時固定機器或買卡划算，中間是一段過渡帶">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">一個月做幾段，決定哪邊站得住</text>
+
+  <rect x="80" y="150" width="380" height="120" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="270" y="196" font-size="20" font-weight="700" fill="var(--accent)" text-anchor="middle">借卡</text>
+  <text class="t" x="270" y="232" font-size="16" fill="var(--dim)" text-anchor="middle">不買卡、不顧機器</text>
+
+  <rect x="460" y="150" width="120" height="120" fill="var(--card)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 5"/>
+  <text class="t" x="520" y="202" font-size="16" fill="var(--dim)" text-anchor="middle">過渡帶</text>
+  <text class="t" x="520" y="228" font-size="16" fill="var(--dim)" text-anchor="middle">兩邊都對</text>
+
+  <rect x="580" y="150" width="300" height="120" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text class="t" x="730" y="196" font-size="20" font-weight="700" fill="var(--warn)" text-anchor="middle">固定機器／買卡</text>
+  <text class="t" x="730" y="232" font-size="16" fill="var(--dim)" text-anchor="middle">免冷開機、規則自己定</text>
+
+  <line x1="80" y1="340" x2="880" y2="340" stroke="var(--line)" stroke-width="3"/>
+  <path d="M 868 332 L 880 340 L 868 348 Z" fill="var(--line)"/>
+  <text class="t" x="80" y="378" font-size="19" fill="var(--ink)">偶爾幾段</text>
+  <text class="t" x="880" y="378" font-size="19" fill="var(--ink)" text-anchor="end">天天大量</text>
+  <text class="t" x="480" y="378" font-size="16" fill="var(--dim)" text-anchor="middle">使用頻率</text>
+
+  <text class="t" x="80" y="450" font-size="22" font-weight="700" fill="var(--ink)">急件不能等，就別把唯一一條路押在借的卡上</text>
+</svg>

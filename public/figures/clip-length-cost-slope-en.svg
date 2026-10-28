@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A line chart shows elapsed time and compute units rising almost proportionally as video length increases from 5 to 15 seconds.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">Double the length, double time and units</text>
+
+  <line x1="140" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <line x1="140" y1="110" x2="140" y2="430" stroke="var(--line)" stroke-width="2"/>
+
+  <polyline points="240,300 500,185 760,120" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <circle cx="240" cy="300" r="7" fill="var(--accent)"/>
+  <circle cx="500" cy="185" r="7" fill="var(--accent)"/>
+  <circle cx="760" cy="120" r="7" fill="var(--accent)"/>
+  <text class="t" x="240" y="282" font-size="16" fill="var(--accent)" text-anchor="middle">9.5 min</text>
+  <text class="t" x="500" y="167" font-size="16" fill="var(--accent)" text-anchor="middle">17.5 min</text>
+  <text class="t" x="760" y="102" font-size="16" fill="var(--accent)" text-anchor="middle">24 min</text>
+
+  <polyline points="240,390 500,320 760,250" fill="none" stroke="var(--grey)" stroke-width="4" stroke-dasharray="9 6"/>
+  <circle cx="240" cy="390" r="7" fill="var(--grey)"/>
+  <circle cx="500" cy="320" r="7" fill="var(--grey)"/>
+  <circle cx="760" cy="250" r="7" fill="var(--grey)"/>
+  <text class="t" x="240" y="414" font-size="16" fill="var(--dim)" text-anchor="middle">1.2</text>
+  <text class="t" x="500" y="344" font-size="16" fill="var(--dim)" text-anchor="middle">2.1</text>
+  <text class="t" x="760" y="274" font-size="16" fill="var(--dim)" text-anchor="middle">3.2</text>
+
+  <text class="t" x="240" y="462" font-size="16" fill="var(--ink)" text-anchor="middle">5 sec</text>
+  <text class="t" x="500" y="462" font-size="16" fill="var(--ink)" text-anchor="middle">10 sec</text>
+  <text class="t" x="760" y="462" font-size="16" fill="var(--ink)" text-anchor="middle">15 sec</text>
+
+  <text class="t" x="800" y="130" font-size="19" font-weight="700" fill="var(--accent)">Time</text>
+  <text class="t" x="800" y="260" font-size="19" font-weight="700" fill="var(--dim)">Compute units</text>
+</svg>
