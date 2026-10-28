@@ -1,0 +1,101 @@
+---
+title: "Catch It in the Clean Room: Supply Chained on the Test and Chemistry Nobody Wants to Talk About"
+description: "In the 27 October 2026 episode of Supply Chained, Asianometry's John describes the keynote he gave at Semicon West on automated test equipment, and why the show itself felt flat: OCP pulled the crowd fifty miles south the same week, and Semicon West moves to Arizona next year. Also covers the unconfirmed rumour of hiring freezes at semicap equipment makers. Educational listening notes — no investment advice, no price targets."
+slug: "supplychained-2026-10-27-jon-goes-to-semicon"
+lang: "en"
+pubDate: 2026-10-28
+category: investing
+kind: "podcast-notes"
+tags: ["semiconductor equipment", "chip test", "semiconductor materials", "supply chain", "Semicon"]
+ogImage: "/covers/supplychained-2026-10-27-jon-goes-to-semicon-cover.png"
+cover: "/covers/supplychained-2026-10-27-jon-goes-to-semicon-cover.png"
+---
+
+![An early-morning conference hall where a single lamp falls on a lone speaker at the podium, rows of seats receding down a central aisle into the dark, one empty chair left in the front row](/covers/supplychained-2026-10-27-jon-goes-to-semicon-cover.png)
+
+> The trouble with the world is not that able people are few, but that those above have no wish for them to be many.
+>
+> — Wang Anshi, "On Talent" (Northern Song, 11th century; my own translation)
+
+In the 27 October 2026 episode of *Supply Chained*, "Jon Goes to Semicon," Tim Culpan talks with Asianometry's John about the Semicon West trip John had just finished. John gave the 9 a.m. keynote at the test division symposium on the evolution of automated test equipment — ATE, the machines that run a chip's tests for you — from the 1950s to the 2020s, and he picked that subject because lithography already gets all the attention while the other value-creating steps get none. Two other things come out of the episode: OCP pulled the crowd fifty miles south the same week, this was the last Semicon West in San Francisco, and next year it moves to March and to Arizona; and John has heard from three separate people that semicap equipment makers are freezing hiring — a rumour still unconfirmed when the episode ends, which is why he says everyone is feeling the elephant.
+
+## Eight months earlier: an invitation and an unfashionable topic
+
+John knows people in the automated test equipment business. He calls them an underrated corner of the industry: tight-knit, low-key, with incredible equipment. They asked whether he would speak on day two of the test division symposium. He figured it would be fun, he would be in San Francisco anyway, so he said yes. Eight months later he was on stage.
+
+Why the machines exist: chips are too big and too complicated to test by hand, so you cannot walk up and ask whether it does everything it should. The tests get automated end to end to confirm the chip behaves as expected. John points at the tension underneath — on the books, test is a cost centre, and its job is to stop bad product from leaving. He read a pile of archive material for the talk and sounds like he enjoyed every page.
+
+The 9 a.m. room filled up, which surprised him. He has no plan to turn it into a video, and that is what he likes about speaking in person: you have to be there, nothing is recorded. Tim's line was that you got to see John in 3D. The talk happened once and will not be repeated.
+
+## 9 a.m.: the price of testing, spelled out
+
+Everyone can tell the lithography story — lasers hitting droplets of tin, ASML. John's image for test is the left-handed stepchild shoved under the cupboard, the part nobody spends time on. Tim gave it another name: the unsung hero.
+
+Then comes the part I kept thinking about. There is a stat going around that Nvidia's chips still fail after they pass test, and John cannot remember the exact framing — one a week, three per cent a day, some number in that range. He later met the person who produced the stat and asked whether it was real. The answer ended with: it's worse.
+
+What makes it expensive is that the chip is not the only thing you throw away. When it fails, the board and everything else on it goes with it. The rule of thumb the two of them land on is that the further you get from the fab, the cost steps up by roughly ten times: once it is on the circuit board, once it is in the rack, once it is in the server. Hence the conclusion from the room — catch it in the clean room.
+
+![A four-step staircase rising from the lowest step inside the fab to the highest step inside a server, with each rise taller than the last and the final step towering above the rest.](/figures/error-cost-steps-away-from-fab-en.svg)
+
+## That week in San Francisco: the other show fifty miles away
+
+Semicon West was flat this year. John's read is that San Francisco is no longer a place where silicon gets made. The scheduling made it worse: OCP — the Open Compute Project, which sets open hardware specs for cloud data centres — met in San Jose the same week, fifty miles apart with no high-speed rail to get you there, so people had to choose. What he heard was people begging for OCP tickets while the OCP floor was packed. He says he won't lie about it: Semicon West was a low-key downer.
+
+![Two venue boxes of equal size sit side by side, the left one holding only a few scattered dots of people while the right one is packed solid, with fifty miles and an arrow pointing right marked between them.](/figures/same-week-fifty-miles-apart-en.svg)
+
+The calendar did not help either. Semicon Taiwan ran only four to six weeks earlier with far more energy, and John found the Taiwan sessions more technical. Anyone who went to Taiwan would ask why they should go again for the same vendors, the same equipment, the same talks. Which makes the move defensible: March instead of October, Arizona instead of San Francisco. Tim joked that by this logic the next stop should be Texas.
+
+The crowd is worth recording too. There were more Koreans than John expected and very few Taiwanese. The agenda leaned toward policy, supply chain, working groups and good practice, with less technical meat on the bone. He walked the floor on day three and saw advanced packaging and materials as the big themes; where Taiwan had two or three panel handling robots, here he found one.
+
+## Walking the floor: materials is the hardest thing to explain
+
+John says materials is a difficult topic, and the difficulty is in the subject, not in him. Each chemical, gas or liquid, is specialised down to a single step. It gets injected into the tool, into some deposition or lithography step, it matters enormously, and it is narrow enough that explaining it — or tracking what changed in it — is close to impossible. What's left for a supplier on the show floor is "our chemicals are pure, come check us out."
+
+Then the hardest piece in the episode. John was talking recently to someone at a major chipmaker about TSMC and Samsung moving production to the US, and the person's answer was that the hardest part of ramping yield is the chemicals. Same formula, same layout, same steps — and the drum your supplier hands you in Texas or Arizona is slightly different from the one you use back home. Same supplier, different base chemicals feeding it; then add air pressure, humidity, and the rest of the local conditions. Off by a little, and you reconfigure the process.
+
+![Two columns of four items each, where the first three shapes line up exactly and the last one differs: the right-hand barrel sits at a visibly lower, tilted fill level, the only pair that fails to match.](/figures/same-recipe-different-barrel-en.svg)
+
+On top of that, every new node is a new process with new steps, and some chemicals have to be invented from scratch. John's conclusion is that chemical engineers don't get enough love, and there is a structural reason: with a machine you can watch something move from A to B, or a probe land on a wafer. Chemistry is a cylinder with something inside it, and on stage it looks like high school chemistry charts.
+
+## The last stretch: three people, one rumour
+
+John has been chasing something he heard separately from three different people: semicap equipment makers are freezing hiring. He won't say which ones, and he cannot say why.
+
+He has heard three explanations. One, they are working down fat from the COVID years — five years ago, so the excuse is weak. Two, they want AI to replace human labour. Three, the one nobody states and many imply: they are bracing for a fall.
+
+Tim adds two layers from the labour side. European firms find it hard to fire people, so a hire is a long-term commitment. Then an angle I had not considered: diminishing marginal returns on labour. Five years ago there weren't many engineers around, but the ones coming out of the universities were ready to go and they were great; now the jobs are harder, the people who can do them are harder to find, and hiring them doesn't guarantee you get what you hoped for. Better to freeze and bet that AI closes the gap.
+
+Tim then brings in his own supply chain index: the recent numbers show trouble in the middle of the chain, and the cause is an inability to ship product for want of capacity, with demand holding up. On that reading equipment makers should be selling more — except power, data centres and bullwhip effects run right through the AI compute chain, and if you build equipment you have to think five years out, so taking a breath makes sense.
+
+The counter-evidence sits in the same stretch. Test roles still have open postings and they stay unfilled, because the knowledge is that specialised. One of the companies John talked to has expansion problems from earlier strategic moves, which he sets aside, but the rest are genuine equipment manufacturers telling him outright that they have stopped hiring. He never gets to the bottom of it, and leaves it with a line I'll keep: we are all blindfolded, feeling different parts of the same elephant.
+
+## The news says everything's great, so why does it feel off?
+
+This episode gave that feeling a shape. Two different things in Tim's segment look identical from outside: demand is fine, and product can't ship. Both get written up as "strong demand, customers queuing," and they point at different next steps — demand pull puts orders into equipment makers first, while capacity and power constraints pile inventory up in the middle. Half the good news I've tracked in this space was the second kind, and at the time all I saw was the queue.
+
+![Two identical supply chains run one above the other: in the top one the order marker sits at the far-left equipment end, while the lower one bulges visibly in the middle where blocks pile up, with the right end just as thin.](/figures/two-chains-one-bulge-en.svg)
+
+The other half of the homework is where to put a rumour. Three people saying the same thing is not verification: if all three picked it up at the same show in the same circle, that is one source relayed three times. To make the thread usable you have to attach it to something falsifiable — headcount in the equipment makers' filings, how many openings sit on their own careers pages, whether lead times are stretching. Until then it stays a rumour. I have paid for this one: the third time I heard something, I assumed I knew it.
+
+![On the left, three separate starting points each connect to me; on the right, three lines fold back into a single shared origin, so the fan has only one tip.](/figures/three-voices-one-source-en.svg)
+
+## That layer you don't understand — skip it or not?
+
+Every industry has a layer you can't follow. After the floor segment, my take is that the difficulty is itself information. A step narrow enough that nobody can explain it to outsiders, reinvented at every node, reconfigured when you move it one continent over, is a step that's hard to replace and hard to hand to a newcomer. The unfilled test postings run on the same logic.
+
+What the episode supports is those three things: hard to replace, hard to understand, hard to staff. It does not support "therefore this layer can raise prices" — tight supply and pricing power are separate questions, and you settle them with gross margins, a history of price increases, and whether long-term contracts tie the customer down. What I do is put the layer on a to-verify list, write down what would change my mind, then go to the filings for the answer. The cost of skipping it is that when the layer breaks, I find out last.
+
+![Three solid pillars hold up the lower beam steadily, while a second beam hangs in midair above it with three empty dashed outlines where its pillars should be.](/figures/three-pillars-hold-one-beam-en.svg)
+
+## Sources worth your time
+
+- The 27 October 2026 episode of *Supply Chained*, Tim Culpan with John, the source material for this post. John's talk was not recorded, so the podcast account is the version available.
+- Semicon West's official notices about venue and dates, if you want to check the move to Arizona and March for yourself.
+- The agenda and attendance of OCP's annual summit, useful for testing the "two shows, one week, which way did people go" claim.
+- Asianometry's earlier videos on automated test equipment, which pick up where the ATE segment leaves off.
+
+## One thing to take away
+
+The further a mistake travels from where it was made, the more it costs to fix. For chips the step-up is ten times at each stop; a sentence, a decision, a relationship each carry their own multiplier, and the cheap moment is always the earliest one.
+
+Something I've tried: take the last thing you only noticed after it went out — the email to the wrong person, the number you reported wrong, the thing you bought that didn't fit, the sentence you remembered you shouldn't have said — and work backwards to the earliest step where it could have been stopped. Put a five-minute check at that step, and use it once this week. My version is reading the things I need out loud before I leave the house. It sounds silly, and I have not gone back for a forgotten charging cable since I started.
