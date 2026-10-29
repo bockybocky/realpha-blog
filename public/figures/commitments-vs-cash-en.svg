@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two bars on one scale: the upper bar, made of five compute leases joined end to end, stretches into the $400-800 billion range, while the lower bar of $130 billion in cash on hand covers only a short piece of it.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t h" x="60" y="66">Owed vs on hand</text>
+  <text class="t s" x="60" y="96">In $B, same scale</text>
+
+  <text class="t g" x="60" y="170">Compute leases owed</text>
+  <rect x="60" y="190" width="120" height="48" fill="var(--warn)"/>
+  <rect x="182" y="190" width="90" height="48" fill="var(--warn)" fill-opacity="0.82"/>
+  <rect x="274" y="190" width="75" height="48" fill="var(--warn)" fill-opacity="0.64"/>
+  <rect x="351" y="190" width="75" height="48" fill="var(--warn)" fill-opacity="0.46"/>
+  <rect x="428" y="190" width="32" height="48" fill="var(--warn)" fill-opacity="0.3"/>
+  <rect x="462" y="190" width="438" height="48" fill="var(--card)" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 6"/>
+
+  <text class="t s" x="60" y="268">Broadcom $160B+</text>
+  <text class="t s" x="236" y="268">SpaceX $120B+</text>
+  <text class="t s" x="392" y="268">Google/Amazon $100B each | Microsoft $40B+</text>
+  <text class="t s" x="690" y="220" text-anchor="middle" fill="var(--dim)">By some counts, up to $800B+</text>
+
+  <text class="t g" x="60" y="350">Cash on hand</text>
+  <rect x="60" y="370" width="98" height="48" fill="var(--accent)"/>
+  <text class="t s" x="172" y="400">$130B+ ($1.1B yearly interest)</text>
+
+  <line x1="60" y1="450" x2="900" y2="450" stroke="var(--line)" stroke-width="2"/>
+  <text class="t c" x="60" y="500">Only growth and new raises fill this gap</text>
+</svg>

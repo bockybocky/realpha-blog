@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩條下降線：單價緩降、單位成本陡降，兩線之間的間距從左邊的一條細縫張開成右邊的大片缺口">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t h" x="60" y="66">我漏掉的那一欄</text>
+  <text class="t s" x="60" y="96">價格往下，成本往下得更快</text>
+
+  <polygon points="200,200 780,250 780,470 200,238" fill="var(--accent)" fill-opacity="0.14"/>
+
+  <polyline points="200,200 490,228 780,250" fill="none" stroke="var(--grey)" stroke-width="5"/>
+  <polyline points="200,238 490,370 780,470" fill="none" stroke="var(--accent)" stroke-width="5"/>
+
+  <text class="t g" x="190" y="192" text-anchor="end" fill="var(--dim)">單價</text>
+  <text class="t g" x="190" y="248" text-anchor="end" fill="var(--accent)">單位成本</text>
+
+  <line x1="200" y1="500" x2="780" y2="500" stroke="var(--line)" stroke-width="2"/>
+  <text class="t s" x="200" y="524">一年多前</text>
+  <text class="t s" x="780" y="524" text-anchor="end">現在</text>
+
+  <text class="t g" x="236" y="228" fill="var(--dim)">十幾%</text>
+  <text class="t g" x="620" y="360" fill="var(--ink)">85%</text>
+  <text class="t s" x="620" y="384">缺口＝毛利</text>
+
+  <text class="t c" x="60" y="552">降價會壓毛利，只在成本不動的時候成立</text>
+</svg>
