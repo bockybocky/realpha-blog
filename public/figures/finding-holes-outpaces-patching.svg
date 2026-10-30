@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條從同一點出發的線，找漏洞那條陡升，補漏洞那條平緩爬升，兩線之間愈往右愈張開成一個缺口">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .title { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:19px; font-weight:700; fill:var(--ink); }
+    .body { font-size:15px; fill:var(--dim); }
+    .concl { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t title" x="60" y="56">找洞被自動化，補洞還在排程</text>
+  <line x1="120" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="440" x2="120" y2="110" stroke="var(--line)" stroke-width="2"/>
+  <text class="t body" x="700" y="470">時間</text>
+  <text class="t body" x="60" y="130">件數</text>
+  <path d="M120 420 C 420 400 620 300 880 140" fill="none" stroke="var(--warn)" stroke-width="5"/>
+  <path d="M120 420 C 420 412 620 390 880 352" fill="none" stroke="var(--accent)" stroke-width="5"/>
+  <path d="M880 140 L880 352" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 5"/>
+  <text class="t grp" x="700" y="128">找到的洞</text>
+  <text class="t grp" x="700" y="392">補好的洞</text>
+  <text class="t body" x="700" y="416">等人排程</text>
+  <text class="t concl" x="120" y="92">缺口往右愈張愈開</text>
+</svg>

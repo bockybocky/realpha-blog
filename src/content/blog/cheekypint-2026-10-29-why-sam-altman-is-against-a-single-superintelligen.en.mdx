@@ -1,0 +1,92 @@
+---
+title: "Cheeky Pint: A Trillion Slightly-Superhuman AIs Beat One AI With a Trillion IQ"
+description: "Notes on the 29 October 2026 episode of Cheeky Pint, where Stripe co-founder John Collison and OpenAI CEO Sam Altman talk over a beer about AI safety, compute allocation and pricing: Altman says he would rather have a trillion slightly-superhuman AIs join society than one AI with a trillion IQ; sandboxing works to a point, then monitoring, and finally alignment; the Navier-Stokes proof cost on the order of $10 million, and he wants the five-year total cost of ownership for a gigawatt of compute to fall from $70 billion to $20 billion. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "cheekypint-2026-10-29-why-sam-altman-is-against-a-single-superintelligen"
+lang: "en"
+pubDate: 2026-10-30
+category: "investing"
+kind: "podcast-notes"
+tags: ["AI safety", "agent teams", "compute cost", "podcast-notes", "memory supply"]
+ogImage: "/covers/cheekypint-2026-10-29-why-sam-altman-is-against-a-single-superintelligen-cover.png"
+cover: "/covers/cheekypint-2026-10-29-why-sam-altman-is-against-a-single-superintelligen-cover.png"
+---
+
+![A vast darkened machine hall; in the foreground an empty concrete plinth where a single giant mainframe was meant to stand, unpowered, and from that plinth the view runs deep into the hall past thousands of small racks each lit by one indicator lamp, thinning into haze at the far end](/covers/cheekypint-2026-10-29-why-sam-altman-is-against-a-single-superintelligen-cover.png)
+
+> Listen to the people one by one and you get foolishness; listen to them together and you get wisdom.
+>
+> —— "Guanzi, Junchen I" (Warring States period; my own translation)
+
+In the 29 October 2026 episode of Cheeky Pint, Stripe co-founder John Collison and OpenAI CEO Sam Altman sit down over a beer and talk about safety, compute and pricing, and Altman says the hardest line of the hour: he would rather have a trillion AIs of slightly superhuman intelligence join society than one AI of a trillion IQ. To hold that shape, he says, we will have to agree for a while to limits on how smart we let any single model get — and the progress we lose comes from that decision, not from any inability of the AI to do good research. He draws the boundary himself: on the scaling laws for teams of agents, he says they understood "absolutely nothing" when they started, and the competitive pressure is right there — one company lets you spend $10,000 on a problem, the other lets you spend $100,000, and he says it is clear what happens then.
+
+## Betting on one lab and waiting for the strongest model
+
+I used to think about this in a straight line. The AI race was a single running lane: whoever pushed one model furthest would win, and safety was a matter of building a strong enough cage — make the sandbox (the practice of letting code run only inside an isolated environment where it cannot touch anything outside) tight enough, add monitoring, and you could hold down something far smarter than a person. I thought that because it is how security has progressed for thirty years: find a hole, patch the hole, and when the holes outrun you, draw the boundary smaller.
+
+The opening of this episode, about the PHP week, was the first time that path stopped making sense to me. PHP is a web programming language that has been running for over twenty years and still sits underneath a large number of old sites. Altman's account is that these models keep getting rapidly better at finding vulnerabilities, and that until recently nobody had pointed them at everything out there; once people start, we will find far more serious vulnerabilities in the world than expected. The host says the discussion keeps circling back to "we need to fix the software," while the more durable fix is to change the architectures, which is harder. Altman agrees, and adds that we now have an amazing new tool for doing exactly that — which is why he sees a new generation of startups talking about a whole new internet and application architecture, something that would have sounded insane two years ago.
+
+What I keep returning to is that patching changed character. Attack and defence used to draw on the same kind of human labour, and finding one hole took months; now the finding side is automated first while the patching side still waits for someone's sprint. The host said a line I wrote down: the exploits get a lot of headlines, the prevented exploits do not.
+
+![Two lines start from the same point: the one for holes found climbs steeply while the one for holes patched rises gently, and the space between them widens into an ever-larger gap toward the right.](/figures/finding-holes-outpaces-patching-en.svg)
+
+## The cage only carries you halfway; the rest runs on trust
+
+What actually overturned my cage picture was the host's direct question: the knowledgeable people inside OpenAI seem pessimistic that sandboxing is possible, so why? His own mental model, he says, had been that you build a maximum-security prison for the model to work in and keep it inside.
+
+Altman's answer comes in three layers, and I think it is the most structured stretch of the episode. First, sandboxing works to a point. Second, monitoring works further — not only looking at the chain of thought but doing activation monitoring, observing the model's internal computation directly, to judge whether it is deceiving us. Third, eventually you need to believe with huge confidence that the models are truly aligned, that they will faithfully follow the intent of the people operating them, and that they will value people being in control of the future, forever. If you had a model whose alignment you were absolutely certain of, he says, then yes, it can help you build better and better sandboxes. But if you let yourself project forward to something a million times smarter than we are, he says he does not know, it gets strange — because alignment becomes hard, and you need to trust the alignment before you can trust the sandbox to stay ahead of capabilities.
+
+That inverts the order of cause. In my picture the cage was an independent insurance policy; in his, the cage's safety is a function of trust, and the steel only decides which layer it carries you to.
+
+![The horizontal axis is model capability growing stronger from left to right: the sandbox coverage band stops partway across, monitoring reaches somewhat further but also ends, and alignment lies underneath all of it the whole way.](/figures/sandbox-monitoring-alignment-coverage-en.svg)
+
+Then the host raises a direction I had not considered: can you give the models competing incentives, incentives to defect from each other? Altman calls it a promising direction. He says he hates the phrase "agent swarms" — the host notes that swarm sounds like locusts, bad branding — so they call them agent teams instead. He suspects agent teams have very interesting scaling-law properties and also variance in alignment properties, and that this is a direction to push harder on, from capabilities and from safety alike.
+
+Only here does the headline claim stand up: a trillion AIs of slightly superhuman intelligence joining society beats one AI of a trillion IQ joining society. His reason is sociological. Society has deep flaws, he says, and is unbelievably robust, and that robustness does not happen without a lot of people keeping each other in check and collaborating — the words he uses are pluralism and democracy. He had been sad that those properties were going to trend away in AI, and this direction is what now excites him.
+
+![On the left a single very tall thin column stands for one AI with a trillion IQ, while on the right thirty short columns barely above the human line are packed side by side, contrasting height against number.](/figures/one-trillion-agents-vs-one-genius-en.svg)
+
+The episode also made me see why agent teams only work now. Altman recalls that a few years ago it was impossible to throw more than a dollar of compute at a problem and have it help at all: GPT-4 could grind out a hundred thousand tokens to answer your question but was not going to write you a usable piece of software, and nobody had figured out how to turn a lot of test-time compute into a better result. Once chain-of-thought arrived, models could think hard about a problem, and compute could finally be absorbed; now you can throw a whole team at something and do it ten thousand times in parallel. Agent teams, he says, presuppose chain-of-thought and test-time compute — you cannot build a useful team out of a pile of GPT-3s. And he notes a consequence fewer people track: the gap between what most people use AI for and what the most productive users get out of it keeps spreading, and spreading, and spreading.
+
+![Two curves compare what compute buys you: the older model's curve flattens quickly into a horizontal line, while the one with chain of thought keeps climbing to the upper right.](/figures/inference-compute-pays-off-only-with-chain-of-thought-en.svg)
+
+How OpenAI allocates its own compute follows the same logic. Altman says they give a lot of compute to internal productivity and people get very wide latitude unless they are being abusive; they try never to reward anyone for using a lot of compute, and the episode notes that sitting high on the token leaderboard is slightly bad for a promotion — though if you can show you are doing something important, you get nothing but appreciation. The Navier-Stokes proof (a famous hard problem in fluid dynamics) cost on the order of $10 million, and he bets they could redo it a year later at a hundredth of the cost, on the back of smarter models and better approaches.
+
+He also described what that felt like from the inside. One weekend they got a new model and the channel was called "Model Name — Hold My Beer"; people threw the hardest problems they had at it, and the model knocked them down one after another, across many fields. Two nights running he was up most of the night, too excited to sleep — and alongside that came far more sadness and melancholy, a feeling of something ending, than he had expected. This is the right thing for the world, he says, and it is the shape of reality, and nobody can or should stop it, and the feeling is wistfulness. The host then talks about his father in 1950s Ireland, watching people around him still using horses productively in industry while tractors phased them out — witnessing the tail end of a technology humans had used for thousands of years.
+
+## What I watch now is the price of a gigawatt
+
+Here is where I land. If the right shape is a large crowd of moderately strong intelligences keeping each other in check, then the bottleneck in this race shifts from "whose single model is strongest" to "who can make distributed compute cheap." A trillion AIs have to run on something, and the stretch of this episode about the compute shortage says a lot about where that something is stuck.
+
+You may have had this experience: the news says memory is short and prices have doubled, and the textbook tells you the solution to high prices is high prices — at these prices, new supply should be flooding in any moment. That is how the host put it: how are we doing on the solutions front? Altman's answer was one word, bad. He says this is the invisible hand's job, and the invisible hand is failing right now.
+
+Why it fails depends on the specifics of each area, and he starts with memory. For a very long time, if you produced DRAM, you invested $20 billion of capex to make $19 billion; in good years $21 billion, in bad years $18 billion. Until right now, he says, making memory had never been a great business over a long period. And then all of a sudden these companies are each going to generate something like $100 billion of free cash flow in a year. But they remember their history — how many times they nearly went bankrupt building too many fabs after being promised that this time was different — which keeps their capex conservative.
+
+![A long row of paired columns of nearly equal height shows memory makers spending and earning back almost the same amount year after year, and at the far right one column suddenly rises far above the rest for today's free cash flow.](/figures/dram-decades-of-flat-returns-then-a-spike-en.svg)
+
+This is the most useful passage in the episode for reading markets, and it lines up with the chokepoint framework I use. The reminder I carry is that a tight supply does not equal pricing power; what shows up here is the reverse case — this layer has pricing power because it chooses not to expand. Judging a layer like that turns less on the size of the gap and more on how much money the people in it lost last cycle: their capex discipline was learned at the edge of bankruptcy, and a quarter or two of cash flow will not loosen it. So when I read a shortage headline, I go looking for that layer's historical accounts rather than inferring from the size of the gap who ought to rise.
+
+Altman raises one counterintuitive allocation point too. Many people want local inference, assuming that once we have open-weight models running on our own computers we will not need all that data-centre stuff. From a global allocation perspective, he says, it is quite terrible for everybody to have a piece of the world's limited DRAM supply sitting in their own computer being used 5% of the time; in a supply-constrained environment, what you want is maximum utilisation in the cloud.
+
+![On the left only one of twenty squares is lit, showing a chip in your own computer is used just five percent of the time, while on the right nearly every square is lit, showing the high utilization of the cloud.](/figures/local-inference-leaves-chips-idle-en.svg)
+
+On price he gives a target. The industry quotes the five-year total cost of ownership for a gigawatt of compute at different numbers, and the host picks $70 billion as an example. Altman says that if the figure dropped from $70 billion to $20 billion we should all be much happier — and we should still demand 10x better performance out of it every year from smarter models. To reach $20 billion, he says, energy has to get cheaper, and a lot of the gross-margin stacking between melting the sand and handing back the token has to get compressed. If it does not come down, he says, he will be very sad.
+
+![On the left a tall column marks today's $70 billion, on the right a column less than a third as tall marks the $20 billion he wants, and the height difference between them is labeled as energy plus margin stacked all along the way.](/figures/one-gigawatt-tco-from-70-to-20-billion-en.svg)
+
+Where I am still unsure, Altman leaves three openings himself. First, the scaling laws for agent teams: when they did Navier-Stokes they understood nothing — should you give them the smartest model, more copies or fewer, longer rollouts or shorter? They understand it a little now, and could understand it much better. Second, AI doing AI research can today take an instruction at the level of "find me a 5% compute efficiency win," while nobody knows how to ask it to go discover a new architecture as big a leap as the transformer. Third and heaviest: he says the pluralist shape is something we have to push for, all of these things are things we have to fight for, and the technology can be pointed in many ways. In the same episode he also says that when one company lets you spend $10,000 and another lets you spend $100,000 on the same problem, it is clear what will happen. Limits on how smart a single model gets have to hold under that pressure.
+
+## Worth a look
+
+- The 29 October 2026 episode of Cheeky Pint, the source for this piece
+- OpenAI's published Navier-Stokes proof and the batch of mathematics around it; the episode puts the count at more than 700 proofs
+- The vulnerability disclosures and patch notices from the PHP week the episode refers to
+- Annual reports and capex records from the three large memory makers, available through the SEC's EDGAR system and each company's investor relations pages
+- OpenAI's model pricing page, as a reference against the token-pricing discussion in the episode
+
+## One Thing Worth Taking With You
+
+**A system that corrects itself does so because something inside it has an incentive to catch your mistakes.**
+
+What made that click for me was the host's question: can you give the models competing incentives, incentives to defect from each other? Altman called it promising, and his reason for preferring that shape is not technical — society is robust because a lot of people keep each other in check. However smart a single thing is, when it is wrong nobody tells it.
+
+One thing I have tried: take a decision this week where you have been the only judge — whether to change jobs, whether to finally say the thing to someone, whether to move that money — and find one person whose job is to find where the decision breaks. Don't ask whether they think it's a good idea. "What do you think?" gets you a polite sentence; "how does this break?" gets you the side you can't see.
