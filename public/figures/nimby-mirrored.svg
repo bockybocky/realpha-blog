@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="左格集中的少數擋住寬箭頭，右格集中的少數推著寬箭頭前進，兩者是鏡像">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .ttl { font-size:27px; font-weight:700; }
+    .grp { font-size:20px; font-weight:700; }
+    .lbl { font-size:16px; fill:var(--dim); }
+    .cc { font-size:22px; font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t ttl" x="60" y="60">同一個機制，反過來用</text>
+
+  <rect x="50" y="94" width="410" height="300" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t grp" x="72" y="130" fill="var(--warn)">今天：擋的人是集中的</text>
+  <path d="M72 230 L250 230 L250 206 L300 244 L250 282 L250 258 L72 258 Z" fill="var(--grey)" opacity="0.6"/>
+  <g fill="var(--warn)">
+    <circle cx="330" cy="212" r="11"/><circle cx="356" cy="244" r="11"/><circle cx="330" cy="276" r="11"/>
+  </g>
+  <line x1="306" y1="180" x2="306" y2="308" stroke="var(--warn)" stroke-width="6"/>
+  <text class="t lbl" x="72" y="344">廣受歡迎的工程，少數人卡住</text>
+
+  <rect x="500" y="94" width="410" height="300" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t grp" x="522" y="130" fill="var(--accent)">摩西斯：推的人也是集中的</text>
+  <g fill="var(--accent)">
+    <circle cx="546" cy="212" r="11"/><circle cx="572" cy="244" r="11"/><circle cx="546" cy="276" r="11"/>
+  </g>
+  <path d="M606 230 L820 230 L820 206 L880 244 L820 282 L820 258 L606 258 Z" fill="var(--accent)" opacity="0.8"/>
+  <text class="t lbl" x="522" y="344">銀行、工會、律師、黨魁會去打電話</text>
+
+  <line x1="60" y1="428" x2="900" y2="428" stroke="var(--line)" stroke-width="2"/>
+  <text class="t cc" x="60" y="472">贏的不是人多的那邊，是組織起來的那邊</text>
+</svg>

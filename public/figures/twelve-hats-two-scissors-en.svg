@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Twelve position boxes are split between mayoral and gubernatorial appointments, and the two dashed frames each cover only half, so no one covers them all.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .ttl { font-size:27px; font-weight:700; }
+    .grp { font-size:20px; font-weight:700; fill:var(--dim); }
+    .lbl { font-size:16px; fill:var(--dim); }
+    .cc { font-size:22px; font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t ttl" x="60" y="62">12 hats, 2 shears</text>
+
+  <rect x="50" y="110" width="420" height="200" rx="10" fill="none" stroke="var(--grey)" stroke-width="3" stroke-dasharray="10 8"/>
+  <text class="t grp" x="70" y="142">Mayor's reach</text>
+  <rect x="490" y="110" width="420" height="200" rx="10" fill="none" stroke="var(--grey)" stroke-width="3" stroke-dasharray="10 8"/>
+  <text class="t grp" x="510" y="142">Governor's reach</text>
+
+  <g fill="var(--accent)" opacity="0.85">
+    <rect x="76" y="170" width="86" height="56" rx="6"/>
+    <rect x="178" y="170" width="86" height="56" rx="6"/>
+    <rect x="280" y="170" width="86" height="56" rx="6"/>
+    <rect x="76" y="240" width="86" height="56" rx="6"/>
+    <rect x="178" y="240" width="86" height="56" rx="6"/>
+    <rect x="280" y="240" width="86" height="56" rx="6"/>
+  </g>
+  <g fill="var(--accent)" opacity="0.5">
+    <rect x="516" y="170" width="86" height="56" rx="6"/>
+    <rect x="618" y="170" width="86" height="56" rx="6"/>
+    <rect x="720" y="170" width="86" height="56" rx="6"/>
+    <rect x="516" y="240" width="86" height="56" rx="6"/>
+    <rect x="618" y="240" width="86" height="56" rx="6"/>
+    <rect x="720" y="240" width="86" height="56" rx="6"/>
+  </g>
+
+  <text class="t lbl" x="60" y="360">Removal needs charges after a formal hearing</text>
+  <text class="t lbl" x="60" y="392">Fights over what to build aren't charges</text>
+
+  <line x1="60" y1="424" x2="900" y2="424" stroke="var(--line)" stroke-width="2"/>
+  <text class="t cc" x="60" y="468">No one cuts them all</text>
+</svg>

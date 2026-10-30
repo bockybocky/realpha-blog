@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="上方辯論長條被修正案拉長並穿出畫面；下方收成一個窄窗，決定全在窄窗之前的後台區完成">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .ttl { font-size:27px; font-weight:700; }
+    .grp { font-size:20px; font-weight:700; fill:var(--dim); }
+    .lbl { font-size:16px; fill:var(--dim); }
+    .cc { font-size:22px; font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t ttl" x="60" y="58">把院會的門收窄</text>
+
+  <text class="t grp" x="60" y="118">默認規則</text>
+  <rect x="60" y="138" width="840" height="36" rx="5" fill="var(--grey)" opacity="0.55"/>
+  <g stroke="var(--grey)" stroke-width="4" fill="none">
+    <path d="M300 174 L340 214"/>
+    <path d="M520 174 L560 214"/>
+    <path d="M740 174 L780 214"/>
+  </g>
+  <rect x="340" y="214" width="560" height="26" rx="5" fill="var(--grey)" opacity="0.4"/>
+  <text class="t lbl" x="60" y="272">辯論無上限，每條修正案再拖一段</text>
+
+  <text class="t grp" x="60" y="332">一致同意協議</text>
+  <rect x="60" y="352" width="640" height="56" rx="6" fill="var(--accent)" opacity="0.16" stroke="var(--accent)" stroke-dasharray="8 6"/>
+  <text class="t lbl" x="80" y="386">後台：衣帽間、走廊、私下算票</text>
+  <rect x="716" y="352" width="110" height="56" rx="6" fill="var(--accent)"/>
+  <text class="t lbl" x="840" y="386">院會</text>
+
+  <line x1="60" y1="450" x2="900" y2="450" stroke="var(--line)" stroke-width="2"/>
+  <text class="t cc" x="60" y="494">戲還沒開演，動作已經做完</text>
+</svg>
