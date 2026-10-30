@@ -1,0 +1,121 @@
+---
+title: "Odd Lots: The Bug Was Reported in 2024 and Left Unfixed, Because Nobody Could Build an Exploit"
+description: "Notes on the 30 October 2026 episode of Odd Lots, where hosts Tracy Alloway and Joe Weisenthal talk with Thai Duong, CEO of the security firm Calif, and Bruce Dang, an engineer there, about PHP2Shell and AI security: the PHP Foundation had already filed the same bug in 2024 and chose not to fix it, and Calif handed over the first working exploit the day after reporting it; Bruce puts Microsoft's monthly update count at around 1,400 today against roughly 20 twenty years ago. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "oddlots-2026-10-30-php2shell-won-t-be-the-last-big-ai-cybersecurity-r"
+lang: "en"
+pubDate: 2026-10-30
+category: "investing"
+kind: "podcast-notes"
+tags: ["cybersecurity", "podcast-notes", "AI agents", "technical debt", "risk judgement"]
+ogImage: "/covers/oddlots-2026-10-30-php2shell-won-t-be-the-last-big-ai-cybersecurity-r-cover.png"
+cover: "/covers/oddlots-2026-10-30-php2shell-won-t-be-the-last-big-ai-cybersecurity-r-cover.png"
+---
+
+![A server-room corridor running deep into the frame, identical metal doors on both sides each left ajar with a line of light showing, a single work lamp in the foreground catching the handle of the nearest door, the doors further in growing darker until they dissolve into black at the end of the hall](/covers/oddlots-2026-10-30-php2shell-won-t-be-the-last-big-ai-cybersecurity-r-cover.png)
+
+> Gongshu Pan deployed nine kinds of siege machinery; Master Mozi repelled all nine. Gongshu Pan's engines of attack were exhausted, while Mozi's means of defence were not yet spent.
+>
+> —— "Mozi, Gongshu" (Warring States period; translation mine)
+
+In the 30 October 2026 episode of Odd Lots (recorded, as mentioned on air, on 29 October), Tracy Alloway and Joe Weisenthal host Thai Duong, CEO of the security firm Calif, and Bruce Dang, an engineer there, to talk about this month's PHP2Shell. The sharpest part is Thai's timeline: after Calif reported the bug to the PHP Foundation, the Foundation told them it had found and filed the same bug back in 2024 and left it unfixed — the fix was expensive, and nobody could prove the bug was actually reachable; asked whether Calif had an exploit, the Foundation got one the next day. Bruce's number for the shift in scale: Microsoft shipped roughly 20 updates a month twenty years ago and ships around 1,400 now. The conclusion carries an expiry date: Thai says the strongest hacker today is a human plus AI, and that phase may have three months left, or three years.
+
+## What the episode is about
+
+Tracy opens with a phrase, Black October, because this month has brought one security event after another, the most visible being the PHP bugs. PHP is a programming language for building websites, and Tracy relays the figure that 70% of the world's websites run on it (she flags it as "apparently", and the show never circles back to check it). How the bugs surfaced is the point: AI was involved.
+
+Both guests are worth introducing. Bruce was at Microsoft's Security Response Center twenty years ago — the people who ship updates on the second Tuesday of every month — and the biggest thing he did there was help reverse engineer Stuxnet, later called the world's first publicly known digital weapon. He went on to work on iOS security at Apple, and it took Thai four years to recruit him. Thai was born and raised in Saigon and spent twelve years doing cryptography at Google, where the job was to hack Gmail and Chrome before they shipped.
+
+Calif is a hacking firm. By Thai's account the engineers go after whatever interests them, and then he and his co-founders work out how to convince somebody to pay for it. PHP2Shell came through OpenAI's Patch the Planet programme, with OpenAI providing money and tokens for the work of finding and fixing bugs in open-source software. Wiz found the bugs independently.
+
+## The bar for fixing moved from the bug to the exploit
+
+The PHP Foundation's 2024 reasoning deserves to be written down line by line: there were only a few possible fixes, each one required changing a great deal of PHP's internal behaviour, and those changes could introduce new bugs or new reliability problems. People get upset when they upgrade PHP and their site stops working. What settled it was the absence of an exploit — nobody could show the bug was genuinely usable.
+
+So when Calif reported it, the first question back was whether they had an exploit. The exploit arrived the next day, showing that somebody with no knowledge at all could take over your website remotely, and the decision flipped.
+
+![Two horizontal lanes run at the same gate; the arrow in the upper lane stops against a closed gate, while the lower lane passes straight through because the gate is open.](/figures/exploit-is-the-gate-en.svg)
+
+Tracy pushed on how much AI really mattered here, and Thai's answer is honest: humans can do the finding, and the 2024 filing proves it; what AI ate was turning the bug into a working exploit. He adds one caveat — without AI, digging through a thirty-year-old code base stacked with features takes an engineer months, and plenty of people quit along the way. Calif started, he thinks, on 30 July and hit the first bug a day or two later.
+
+## How far the clock has been compressed
+
+Twenty updates a month became 1,400, and Bruce says the number keeps climbing. The sharper comparison: work that used to take a team three months now takes one person with a capable model a few days. Building a full exploit chain on the iPhone used to need several people; Calif's team did it with one person in a few days, and they hold several of them.
+
+![Two bars stand side by side; the left one is so short it is almost a single line, while the right one rises past the top of the chart.](/figures/patch-volume-20-to-1400-en.svg)
+
+Bruce supplies the most painful example himself. He co-wrote a textbook on reverse engineering — working out what software or hardware does without any source code — and it took a long time to write. As of about nine months ago, he says, that entire book is deprecating, because one or two prompts will generate something better. Another friend told him he spent $5 on an open-source model and it reverse engineered a printer's firmware and hacked it; that kind of job used to cost him months.
+
+![Three pairs of horizontal bars; each pair has a long grey bar on top and a much shorter blue bar below it.](/figures/time-compression-three-tasks-en.svg)
+
+## The places we thought were clean are also on fire
+
+Tracy offers the script a lot of people are carrying: we're stuck in an awkward phase where AI drags decades of technical debt into the open, and once it starts redesigning the architecture, systems come out more resilient than before. Thai's reply: "That's an optimistic way to look at it."
+
+What surprised him personally is that the places they assumed carried little technical debt turned out to be the same dumpster fire as everywhere else. Point AI at a known bad area and of course bugs crawl out; the problem is that the areas which have absorbed years of attention have just as many, about ten times more than expected. His example is Chrome: finding one more bug in PHP is not news, since PHP was never known for security, but finding a thousand bugs in Chrome is — Thai was at Google, and the whole industry knows how much went into Chrome's security, eliminating bugs and also layering mitigations on top, accepting that bugs exist while making it hard to use them to control your machine. He leaves two possibilities: either security engineers were never good enough, or there is simply too much code for anyone to have read it all.
+
+![Two pairs of bars; in the left pair expected and actual are the same height, while in the right pair expected is low but actual towers above it.](/figures/expected-vs-actual-debt-en.svg)
+
+## Minus-one-day bugs
+
+Thai says the timeline of the whole patch process has been rewritten. There used to be two kinds of bug: zero-days, known only to whoever filed them, and n-days, disclosed and maybe fixed by the vendor and maybe upgraded by users. Now there's a third kind he calls minus-one-day.
+
+The mechanism: PHP is an open-source project, so everything happens on GitHub. The moment a patch starts being developed in public, the information is out, and somebody watching that repository can turn it into an exploit within hours. Attackers used to have to wait for the patch to ship and then spend a long time writing the exploit, which gave users a buffer to upgrade. That window is collapsing, and not only in PHP — Windows and macOS too. Thai says people now run what he calls n-day factories, watching updates from Microsoft, Apple and the important languages, and at the first sign of a new bug they burn tokens getting AI to reproduce it and build the exploit.
+
+![A timeline marks patch development going public, the patch release and the user upgrade; the attacker's starting point moves back from after the release to the moment development goes public, which narrows the users' buffer block.](/figures/minus-one-day-timeline-en.svg)
+
+## An agent that can code is a hacker by definition
+
+Joe asks the sharpest question of the episode. Jensen Huang's position in a recent interview was roughly: what's your problem, just fix the model so it doesn't hack, and if you can't, don't ship it. Joe wants to know where two people who came out of traditional security and moved into AI land on that.
+
+Thai first knocks out the premise that a simple fix exists — there's a line in security that product security and security products are different things, and the firewall you bought has its own bugs, and he says they do. Then he goes to the incentive: AI companies make money selling tokens, and most tokens today go into coding. For an agent to be good at coding it has to understand code, understand technical problems, debug, and control computers — which is the definition of a hacker. So unless you want to sell fewer tokens, or leave the coding business for scientific discovery or physical AI, there is no way out of this.
+
+## When a hundred of them come in at once
+
+The part that made me sit up is the two banks from two weeks ago. They were hacked and called Calif in for incident response. Thai says his own team does the attacking side, so they know the going rate: once you're inside a network, spreading across it takes about a month. These attackers came in on Monday and were everywhere by Tuesday. His phrase was cancer spreading at machine speed.
+
+Then he explains why that breaks the existing defence. The advice they used to give clients was to invest in detection — if you can see it, you can handle it. The hundred comes from the OpenAI incident he describes, where a hundred points inside the network were compromised at once against the usual one or two. When a hundred of them are inside at the same time, what does detection give you? Tracy translates it on the spot: there are a hundred hackers in our system right now, and that's not really helpful. The only move left is shutting everything down, and a bank can't shut down. He says this is forcing them to sit down and redesign the defence, because what they have now isn't working well.
+
+![Two dot grids of the same size; only two dots are lit on the left while the whole grid is lit on the right, and below them the detection arrow leads to containment on the left and to shutting everything down on the right.](/figures/detection-stops-helping-en.svg)
+
+Thai places the moment using chess. IBM's Deep Blue beat Garry Kasparov in 1997, but Deep Blue was a mainframe, and it took another ten years before someone built software that ran on your own computer and beat everybody; through those ten years the strongest player was what Kasparov named a centaur, human plus computer. After AlphaGo beat Lee Sedol, the same stretch took three years. Calif's view is that we're in the era of the centaur hacker: AI can hack anything, but a human expert still has to drive it there. Nobody knows how long the phase lasts — maybe we retire by the end of the year, he says, maybe it's three more years.
+
+## I bought a security product. How do I know it works?
+
+Joe says something honest in the opening: he knows very little about security, he doesn't know what a security company actually sells, and he wouldn't know, if he bought one, whether it was working or whether nobody had bothered attacking him. What that reminded me of is my own problem reading financial statements — good news and nothing happening look identical.
+
+The episode offers a replacement question. When Thai talks about Chrome he leans on mitigations: accept that bugs exist, and make it hard for an attacker to turn a bug into control. So to judge what a company's security (or your own) is worth, ask three questions that come back with numbers: how many days from a patch being published to it being deployed here; once one machine is taken, what it costs the attacker to move sideways; and whether you can shut down part of the thing rather than all of it. All three have answers in numbers. "We're secure" doesn't.
+
+## There's a breach in the news every day, so is defence pointless?
+
+Thai answers this one himself. You see data breaches in the news every day, he says, and that was true before AI, so it can feel like none of this works — but from inside the field you can see twenty-five years of real progress.
+
+What bothers me here is the choice of metric. Breach counts rise with attack volume, so they can't measure how strong the defence is; in a year when attacking gets cheaper, the count goes up even if every individual attack costs more. What measures defence is what the same attack costs an attacker today, in money and in time. Thai described why this is hard: imagine a house with doors everywhere, where security has to keep every one of them safe while the house stays open for business. When a company tells me it has had zero incidents, my first question is how many doors it has.
+
+![A line chart shows two lines both rising to the right, one labelled incidents and one labelled cost per attack, with a note that incidents cannot tell good defence from bad when both rise together.](/figures/wrong-metric-two-lines-en.svg)
+
+## Will my skills go the way of that textbook?
+
+Bruce's book deprecating in nine months will make a lot of people's stomachs drop, mine included. But Thai tells an earlier version of the same story that I think is worth keeping.
+
+He took a cryptography class at Stanford in 2011, and one homework question asked whether you should compress then encrypt, or encrypt then compress. The standard answer was compress first — encryption randomises your data, so compression stops working on it. He wrote that answer and got the marks. Three years later they proved the answer wrong: the size of a compressed file leaks information, and encryption doesn't hide length, so an attacker who repeatedly feeds you a message of their choosing can read the change in compressed length and recover your password piece by piece. That is what the web's encryption protocols were doing at the time, and the fix was to turn compression off. There was no other fix.
+
+![Three guesses each map to a bar for the compressed length; the first two bars are the same length and the one that guessed right is visibly shorter.](/figures/compressed-length-leaks-en.svg)
+
+So on "will my skills go to zero", what I took away is this: answers expire, and what keeps working is the ability to specify and to verify. Thai describes their current workflow exactly that way — an engineer tells the AI how they want the exploit designed, sends it off, and then asks it to prove the thing actually runs. Proving the thing actually runs is the hardest part of that sentence to replace.
+
+## Worth a look
+
+- The 30 October 2026 episode of Odd Lots, the source for this piece (recorded, as mentioned on air, on 29 October)
+- PHP's official security advisories and the release notes for the affected versions
+- OpenAI's description of its Patch the Planet programme
+- Wiz's public write-up of the same set of bugs
+- Calif's own site, and their San Francisco conference talk walking through twenty-five years of PHP bugs
+- Jensen Huang's interview with Ezra Klein
+
+## The one thing to take with you
+
+**A correct answer has a shelf life, and it doesn't notify you when it expires.**
+
+That homework question is the cleanest version: the standard answer in 2011 became, three years later, a bug that let somebody recover your password by repeated probing, and nobody sent a notice to everyone who had written code to the standard answer. The PHP bug works the same way — "no exploit, so not urgent" was defensible in 2024, right up until somebody produced an exploit the next day. The answer itself never changed. What changed was the condition underneath it.
+
+Here's something I've tried that has nothing to do with investing. Pick one "correct answer" you learned five years ago and still follow — how to get a child to sleep, how you save, how you talk to the difficult person in your family, how a CV should read, which exercise to do first. Then write two sentences: which condition made that answer true back then, and whether that condition still holds.
