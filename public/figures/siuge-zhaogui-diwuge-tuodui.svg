@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="五列對照圖：前四列各一支箭頭，預期與實際同向；第五列有兩支反向箭頭，一支虛線向上一支實線向下">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" fill="var(--ink)">四格照推理走，第五格不照</text>
+<text x="300" y="104" font-size="19" fill="var(--dim)">預期</text>
+<text x="520" y="104" font-size="19" fill="var(--dim)">實際</text>
+
+<rect x="60" y="120" width="840" height="76" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="90" y="166" font-size="16" fill="var(--ink)">黃金</text>
+<path d="M320 140 L320 180" stroke="var(--grey)" stroke-width="10" stroke-dasharray="8 6"/>
+<path d="M302 172 L320 194 L338 172 Z" fill="var(--grey)"/>
+<path d="M540 140 L540 180" stroke="var(--accent)" stroke-width="10"/>
+<path d="M522 172 L540 194 L558 172 Z" fill="var(--accent)"/>
+<text x="700" y="166" font-size="16" fill="var(--dim)">合理</text>
+
+<rect x="60" y="206" width="840" height="76" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="90" y="252" font-size="16" fill="var(--ink)">原油</text>
+<path d="M320 266 L320 226" stroke="var(--grey)" stroke-width="10" stroke-dasharray="8 6"/>
+<path d="M302 234 L320 212 L338 234 Z" fill="var(--grey)"/>
+<path d="M540 266 L540 226" stroke="var(--accent)" stroke-width="10"/>
+<path d="M522 234 L540 212 L558 234 Z" fill="var(--accent)"/>
+<text x="700" y="252" font-size="16" fill="var(--dim)">合理</text>
+
+<rect x="60" y="292" width="840" height="76" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="90" y="338" font-size="16" fill="var(--ink)">比特幣</text>
+<path d="M320 312 L320 352" stroke="var(--grey)" stroke-width="10" stroke-dasharray="8 6"/>
+<path d="M302 344 L320 366 L338 344 Z" fill="var(--grey)"/>
+<path d="M540 312 L540 352" stroke="var(--accent)" stroke-width="10"/>
+<path d="M522 344 L540 366 L558 344 Z" fill="var(--accent)"/>
+<text x="700" y="338" font-size="16" fill="var(--dim)">合理</text>
+
+<rect x="60" y="378" width="840" height="76" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="90" y="424" font-size="16" fill="var(--ink)">美元指數</text>
+<path d="M320 438 L320 398" stroke="var(--grey)" stroke-width="10" stroke-dasharray="8 6"/>
+<path d="M302 406 L320 384 L338 406 Z" fill="var(--grey)"/>
+<path d="M540 438 L540 398" stroke="var(--accent)" stroke-width="10"/>
+<path d="M522 406 L540 384 L558 406 Z" fill="var(--accent)"/>
+<text x="700" y="424" font-size="16" fill="var(--dim)">合理</text>
+
+<rect x="60" y="464" width="840" height="76" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+<text x="90" y="510" font-size="16" fill="var(--ink)">10 年期殖利率</text>
+<path d="M320 524 L320 484" stroke="var(--grey)" stroke-width="10" stroke-dasharray="8 6"/>
+<path d="M302 492 L320 470 L338 492 Z" fill="var(--grey)"/>
+<path d="M540 484 L540 524" stroke="var(--warn)" stroke-width="10"/>
+<path d="M522 516 L540 538 L558 516 Z" fill="var(--warn)"/>
+<text x="700" y="510" font-size="16" fill="var(--warn)">脫隊</text>
+
+<text x="60" y="580" font-size="22" fill="var(--ink)">脫隊的那一格才是資訊</text>
+</svg>

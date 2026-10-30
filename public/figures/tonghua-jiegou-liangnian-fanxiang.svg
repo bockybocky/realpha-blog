@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩格對比圖：左格第一年一支粗箭頭向下，右格第二年一支粗箭頭向上，兩格底下是同一個起因">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="62" font-size="27" fill="var(--ink)">同一個結構，先壓低價格，再推高價格</text>
+
+<rect x="60" y="100" width="390" height="300" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="90" y="140" font-size="20" fill="var(--dim)">第一年</text>
+<path d="M255 180 L255 330" stroke="var(--warn)" stroke-width="22" fill="none"/>
+<path d="M215 318 L255 362 L295 318 Z" fill="var(--warn)"/>
+<text x="90" y="392" font-size="16" fill="var(--ink)">肥料需求下滑</text>
+
+<rect x="510" y="100" width="390" height="300" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="540" y="140" font-size="20" fill="var(--dim)">第二年</text>
+<path d="M705 350 L705 200" stroke="var(--accent)" stroke-width="22" fill="none"/>
+<path d="M665 212 L705 168 L745 212 Z" fill="var(--accent)"/>
+<text x="540" y="392" font-size="16" fill="var(--ink)">單位產量下降</text>
+
+<rect x="330" y="430" width="300" height="52" rx="26" fill="var(--page)" stroke="var(--grey)" stroke-width="2"/>
+<text x="480" y="463" font-size="16" fill="var(--dim)" text-anchor="middle">同一個起因：買不起就不訂</text>
+<path d="M255 400 L430 430" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<path d="M705 400 L530 430" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+
+<text x="60" y="528" font-size="22" fill="var(--ink)">只寫結構的人，會在第一年以為自己看錯</text>
+</svg>
