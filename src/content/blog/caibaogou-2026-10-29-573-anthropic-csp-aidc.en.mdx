@@ -1,0 +1,112 @@
+---
+title: "Getting Chips Is Easier Than Getting Power — Notes on Statementdog's Take on Anthropic's S-1 and the Data Center Bottleneck"
+description: "Listening notes on Statementdog podcast episode 573: from the numbers in Anthropic's October 16 S-1 filing to a report that got repackaged as 'GPU oversupply', a look at which layer of the AI data center chain is actually tight, and what would make that read fall apart. Educational discussion of industry structure, not investment advice; no stock recommendations or price targets."
+slug: "caibaogou-2026-10-29-573-anthropic-csp-aidc"
+lang: "en"
+pubDate: 2026-10-30
+category: "investing"
+kind: "podcast-notes"
+tags: ["Statementdog", "Anthropic", "AI data center", "CoWoS", "supply chain"]
+ogImage: "/covers/caibaogou-2026-10-29-573-anthropic-csp-aidc-cover.png"
+cover: "/covers/caibaogou-2026-10-29-573-anthropic-csp-aidc-cover.png"
+---
+
+![A data center hall still under construction at dusk, concrete bays receding into the depth of the frame, with diesel generators and transformers waiting outside the doors](/covers/caibaogou-2026-10-29-573-anthropic-csp-aidc-cover.png)
+
+> Where profit lies, it lies deep in the mountains and the far marshes; none but the powerful can reach it.
+>
+> —— Huan Kuan, *Discourses on Salt and Iron*, ch. 5 "Jin Geng" (Western Han, c. 81 BCE; translation mine)
+
+In the October 29, 2026 episode of *Statementdog* (episode 573, the current-affairs segment), the two hosts worked through two things that happened in the same week: Anthropic filed its S-1 on October 16 with an IPO set for November 16, and a research report started circulating in Chinese-language forums under the headline "GPUs are already in oversupply." As the show relayed the S-1: revenue of US$4.7 billion in Q1 and US$11.6 billion in Q2, US$16.3 billion for the first half, with operating margin crossing into positive territory in Q2; enterprise customers paying over US$100,000 a year went from 950 in September 2025 to 11,900 in September 2026; and the compute cost behind each dollar of revenue fell from US$2.50 last year to under 50 cents. The investment director's read: the near-term constraint sits at the construction end — power, state-by-state battery codes, generators — while the chip end stays tight. That read rests on one number he himself called a rough grab: Taiwan Semiconductor's advanced packaging capacity translating to roughly 20 to 30 gigawatts of chips a year.
+
+## October 16: a filing puts the demand on the table
+
+What I got most out of this episode was his insistence on which numbers to use. Revenue for this company used to come from analyst estimates, closed-door startup briefings, and reverse-engineering third-party data. Now there's a prospectus, so the prospectus is the source, and the estimates go to one side.
+
+Set aside, the numbers form a timeline on their own. US$4.7 billion in Q1, US$11.6 billion in Q2 — more than double in a quarter — and when you map that slope back onto the calendar, the inflection lands in the months when Claude Code and agentic workflows started being adopted at scale inside companies. The customer count moved faster than revenue: 950 a year ago, 11,900 a year later, and the bar there is US$100,000 a year, not a trial account.
+
+The line that made me stop was the compute column. Compute spend per dollar of revenue went from US$2.50 to under 50 cents, which means the same GPU now carries more revenue. The explanation on the show was a change in mix: compute used to go mostly to training, and a large share now goes to inference — users hitting APIs, running applications, paying per token. That column decides something. If revenue per unit of compute keeps climbing, the worry that "these companies will burn cash until they break" needs a different formulation. It also explains the choice of listing window.
+
+![Three sets of bars compared side by side: on the left, quarterly revenue, and in the middle, the number of enterprise customers, both rise sharply, while on the right, the compute cost per dollar of revenue falls sharply.](/figures/anthropic-s1-three-columns-en.svg)
+
+The hosts compared this with the two Chinese model companies that listed in Hong Kong earlier this year. Those took a different path, with no agentic coding tool at the center, and revenue per customer differs by an order of magnitude — roughly a hundred million dollars on one side against tens of billions on the other. Seen through revenue, the claim that Chinese models are about to displace American ones has a long way to travel.
+
+## Two weeks earlier: back from the trade show, lead times are past twenty months
+
+Rewind two weeks. The investment director had been to the PCB industry trade show, and he came back tighter than he went in. Earlier price increases this year, he said, were mostly passive components and some power components; printed circuit boards were known to be decent but had been trading at that level for a while. What exceeded his expectations came after the show — drilling machines of every kind, ABF substrate equipment — where lead times are no longer quoted at 12 months but in the low twenties, with one quote at 30 months. Several foreign brokers published upgrades to the sector outlook in the days that followed.
+
+![Three horizontal bars of different lengths show lead times for the same batch of machines stretching from 12 months to over 20 months and even 30 months.](/figures/lead-time-doubled-en.svg)
+
+In the same stretch he mentioned glass substrates running ahead of his expectation. There are no public numbers there, only supply chain conversations, and the capacity the suppliers are upgrading now serves ABF substrates today and overlaps with glass carriers later.
+
+One line of his is worth copying down: people used to ask a board maker whether it had cracked Apple, and nobody asks that anymore — the question is how many server boards you have. Same industry, different measuring stick.
+
+## That same week: the oversupply in that report sits at the power end
+
+Then the report that got bent out of shape. The version circulating said GPUs are in oversupply now and data centers will be in oversupply by 2028. What the two of them read, after checking, was that the report talks about the facility itself, counted in electricity, possibly running about ten percent long — a different claim from chips exceeding demand.
+
+He took time on the distinction. End demand is demand for tokens, on the customer side. Chips are the front of the supply side. The buildings, the power, the batteries are the back of the supply side. The report matches that back end against chip demand, so what it measures is whether two segments of one chain line up — closer to an equipment-and-capacity mismatch than to end demand disappearing. He also agreed with another line in it: in the short run, getting GPUs is easier than getting power. Getting some power isn't hard; getting enough is. Getting a usable chip isn't hard; getting the strongest one is.
+
+![On the left, two adjacent bars stand side by side with the second about 10% taller than the first, and a bracket above spans just these two bars; on the right, a third bar is separated by a dashed line and sits outside the bracket.](/figures/aidc-mismatch-not-demand-en.svg)
+
+The report's 50 gigawatt figure he called aggressive, because it counts things built early and held in reserve. His own back-of-envelope from foundry capacity lands at 20 to 30 gigawatts a year. Follow it upstream and capacity sits with the foundry, and the foundry sits with advanced packaging. This is the hardest claim he made all episode: without chips, none of the boards, mechanical parts, or power gear get in line at all.
+
+![Two pairs of bars each have a shorter left bar and a taller right bar, showing that some power and usable chips are easy to obtain, while enough power and the most powerful chip are difficult.](/figures/chip-easier-than-power-en.svg)
+
+## On the ground: batteries, generators, and 800-volt DC
+
+The most interesting stretch came from recent conversations he had with people in the business. He had assumed that after this many data centers, the engineering would be routine. What he came away with is that it's much harder than he thought.
+
+The hard part is what goes inside the building; the shell itself is straightforward. A data center holds generators and racks of batteries, and batteries fall under different rules depending on the space they sit in, with requirements differing state by state in the US. The same design, moved to another state, needs its smoke extraction, detectors, and ventilation re-specified to different grades. He drew an analogy to specialty gas monitoring in semiconductor fabs: batteries in thermal runaway release gases, some states require monitoring, some places don't. So every developer moves at a different pace. Add that generators themselves are short, which is why the gas turbine line has grown the way it has. Half joking, he noted you can buy a Rolls-Royce generator if you want one, and pick up the car while you're there.
+
+![One design block branches right along three lines to three compliance stacks of different heights, decreasing from three layers to one.](/figures/one-design-many-states-en.svg)
+
+The second difficulty is electrical. The GPU leader is pushing 800-volt high-voltage DC, and raising voltage carries risk of its own, with safety codes differing by state; change the voltage and the battery capacity you have to install changes too. Going from low-voltage AC to high-voltage DC rewrites the whole design, and that work isn't finished at the chip or rack level, so by the time you get to designing a full data center there's no modular, drop-in approach. His description: everyone is feeling for stones to cross the river, while demand wants it fast — a few containers craned into place, wired up, earning.
+
+He likened the business to solar farms and storage: a crowd of people build it, sell it to you, and you operate it for twenty years. A more complicated version of the same model. Which makes the EPC layer decisive, and that's behind his line that the capacity may not show up on schedule: the demand is there, and a pile of permits and codes sits in front of it.
+
+## What to watch next: this week's cloud calls, and November 16
+
+In the two days after they recorded, the three large cloud providers reported. He flagged two things to read: cash flow, and construction progress, including backlog. These are coincident indicators, and some of them lag.
+
+Anthropic's revenue, once listed, becomes something closer to a leading indicator. His reasoning: cloud providers were never forced to disclose this line, so outsiders guessed from third-party routing platforms covering small users. Now one company puts end revenue on the table, and a second will follow soon. There's a side effect: the first time that revenue misses, the commentary will arrive in volume.
+
+## Going further: the bad news landed on everyone, so why did only this one sell off
+
+The most usable stretch of the episode is his breakdown of what the same piece of bad news does at different valuation levels.
+
+His order of operations: first sort out whether the problem resolves itself. A short-term component mismatch, unless you have conviction it lasts more than a quarter, tends to clear whenever it clears; trading a spread on it carries too much timing risk. Whether it changes overall demand or the supply structure is a question of a different order.
+
+Valuation comes after that. The same delay announcement, if your model already had the numbers filled to the brim, pushes two quarters out and your earnings estimate and price target stop standing up. When valuation is low, the same announcement gets ignored. His own phrasing: at a relatively high valuation, any piece of bad news becomes a round of whipsaw. That's why two companies in one industry can take the same headline and one falls while the other doesn't — the one that fell had already paid in advance for the next several quarters.
+
+![Of two bars, the tall bar on the left has a prepaid-future section at the top that a long arrow cuts deeply, while the same arrow barely moves the short bar on the right.](/figures/same-news-two-valuations-en.svg)
+
+What this hit for me: when I chase news, I check whether the news is true, and I rarely ask first how high the expectation it contradicts had been set. I had the order backwards.
+
+## Going further: the things that haven't moved look safer, but safe how
+
+Near the end a host asked what hasn't been priced in, and the answer was blunt: whatever is flat on the floor isn't dangerous, and the things that haven't moved are what he likes looking at.
+
+It sounds like a throwaway line, and it has structure under it. His examples were what capacity expansion pulls along behind it — fab construction, equipment, process consumables, packaging materials. His reasoning: volume on that end clearly rises, because the expansion is already in the plans. Whether price follows is the uncertain part. Then he asked a concrete question: if capacity goes from one to ten, and consumable volume also goes from one to ten, how far has the stock priced it — one to ten, or only one to three?
+
+![A long axis shows usage rising from one to ten, with only the first 30% filled to mark how far prices have reflected it, leaving the middle gap for research to fill.](/figures/volume-ten-price-three-en.svg)
+
+That hands you a usable check. When you find something that "hasn't moved," ask first whose volume it rides on and how firm that plan is, then ask how far the market has priced along that path. If the volume path is firm and the price has only traveled the first stretch, the gap in the middle is where your research goes. If you can't even say whose volume it rides on, it may be cheap for a reason other than the one you have in mind.
+
+He noted the mirror image too: the themes everyone has worked out and discussed to death tend to be priced, and priced carries risk.
+
+## Where to look yourself
+
+- *Statementdog* episode 573, "Anthropic & CSP shaping AIDC supply and demand," October 29, 2026
+- Anthropic's S-1, filed October 16, 2026 — the original is on the SEC's EDGAR system
+- The SemiAnalysis data center report discussed in the episode; the show notes that the headline circulating in Chinese forums diverges from what the report argues
+- Post-show industry conversations and broker sector reports following the TPCA trade show in Taiwan
+- Q3 2026 results and earnings call transcripts from the three large cloud providers, read for capex, cash flow, and backlog
+
+## The One Thing to Take Away
+
+One sentence: when something in a supply chain is "short," ask which segment it's short in, because the fix and the clock differ wildly by segment. A chip shortage waits on new fabs and advanced packaging, measured in years. A batch of drilling machines is twenty-odd months. A permit might be a few months, or it might outlast your patience. Collapse all three into one word and you'll panic about the third while underreacting to the first.
+
+![Three horizontal bars of different lengths represent the wait for three types of shortages; the first two solid bars indicate eventual delivery, while the third has a short solid section and dashed tail, indicating it may never arrive.](/figures/three-kinds-of-shortage-en.svg)
+
+Something I've tried, and it works outside investing too: next time you feel something is stuck, write it as three lines — what is stuck, how long before it loosens, and who decides the condition for loosening. A stalled project, a friendship that went cold, an injury that won't heal. Write them out and you'll find most stuck things come in two kinds: the ones you can wait out, and the ones you can't. The first kind only needs a slot in your calendar. The second kind won't change no matter how long you wait, so what has to change is the condition itself. I've done this a few times, and my most common finding is that I had filed an unwaitable thing under waitable, then spent half a year waiting for it to fix itself.
