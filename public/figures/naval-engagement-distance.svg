@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="四條長度遞增的橫線，最後一條虛線延伸出畫面外">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+.ttl{font-size:27px;font-weight:700}
+.grp{font-size:20px;font-weight:700}
+.bdy{font-size:16px;fill:var(--dim)}
+.cnc{font-size:22px;font-weight:700}
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="ttl" x="60" y="62">交戰距離</text>
+<text class="bdy" x="60" y="92">左＝我，右＝敵</text>
+
+<text class="grp" x="60" y="166">木船大砲</text>
+<line x1="250" y1="160" x2="320" y2="160" stroke="var(--accent)" stroke-width="7"/>
+<circle cx="250" cy="160" r="9" fill="var(--accent)"/>
+<circle cx="320" cy="160" r="9" fill="var(--ink)"/>
+
+<text class="grp" x="60" y="256">全鋼戰艦</text>
+<line x1="250" y1="250" x2="430" y2="250" stroke="var(--accent)" stroke-width="7"/>
+<circle cx="250" cy="250" r="9" fill="var(--accent)"/>
+<circle cx="430" cy="250" r="9" fill="var(--ink)"/>
+
+<text class="grp" x="60" y="346">航空母艦</text>
+<line x1="250" y1="340" x2="680" y2="340" stroke="var(--accent)" stroke-width="7"/>
+<circle cx="250" cy="340" r="9" fill="var(--accent)"/>
+<circle cx="680" cy="340" r="9" fill="var(--ink)"/>
+
+<text class="grp" x="60" y="436">今天</text>
+<line x1="250" y1="430" x2="820" y2="430" stroke="var(--accent)" stroke-width="7" stroke-dasharray="14 10"/>
+<circle cx="250" cy="430" r="9" fill="var(--accent)"/>
+<line x1="845" y1="396" x2="845" y2="464" stroke="var(--grey)" stroke-width="3" stroke-dasharray="6 6"/>
+<text class="bdy" x="862" y="425">視距</text>
+<text class="bdy" x="862" y="447">邊界</text>
+<circle cx="938" cy="430" r="9" fill="var(--grey)"/>
+
+<text class="cnc" x="60" y="512">距離變長，船不見了</text>
+</svg>

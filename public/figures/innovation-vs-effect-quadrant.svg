@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="四象限，右半邊被打亮，一個點落在左上格">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+.ttl{font-size:27px;font-weight:700}
+.grp{font-size:20px;font-weight:700}
+.bdy{font-size:16px;fill:var(--dim)}
+.cnc{font-size:22px;font-weight:700}
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="ttl" x="60" y="62">兩個問題，兩個軸</text>
+
+<rect x="560" y="120" width="320" height="350" fill="var(--card)"/>
+<rect x="240" y="120" width="640" height="350" fill="none" stroke="var(--line)" stroke-width="2"/>
+<line x1="560" y1="120" x2="560" y2="470" stroke="var(--line)" stroke-width="2"/>
+<line x1="240" y1="295" x2="880" y2="295" stroke="var(--line)" stroke-width="2"/>
+
+<text class="grp" x="60" y="150">是創新</text>
+<text class="grp" x="60" y="455">不是創新</text>
+<text class="grp" x="300" y="505">沒成功</text>
+<text class="grp" x="790" y="505">成功</text>
+
+<circle cx="400" cy="200" r="13" fill="var(--warn)"/>
+<text class="grp" x="424" y="196">馬其諾防線</text>
+<text class="bdy" x="424" y="222">是創新，沒成功</text>
+
+<circle cx="700" cy="200" r="13" fill="var(--grey)"/>
+
+<text class="bdy" x="598" y="150">後果塞進定義</text>
+<text class="bdy" x="598" y="172">只剩這半邊</text>
+
+<text class="cnc" x="60" y="560">問混了，就用結果回推選擇</text>
+</svg>
