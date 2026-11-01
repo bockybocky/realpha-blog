@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="A four-link chain running top to bottom, with the sign for each link on the right and the third link marked as the break point.">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+.h { font-size:27px; fill:var(--ink); font-weight:700; }
+.g { font-size:19px; fill:var(--ink); font-weight:700; }
+.b { font-size:16px; fill:var(--dim); }
+.k { font-size:16px; fill:var(--ink); font-weight:700; }
+.c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="h" x="60" y="68">One sign per node</text>
+<text class="g" x="80" y="120">Node</text>
+<text class="g" x="480" y="120">Sign then</text>
+<line x1="60" y1="134" x2="900" y2="134" stroke="var(--line)" stroke-width="2"/>
+<rect x="80" y="156" width="330" height="72" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="k" x="100" y="200">I did A</text>
+<text class="b" x="480" y="200">Sent, good timing</text>
+<rect x="80" y="266" width="330" height="72" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="k" x="100" y="310">They got B</text>
+<text class="b" x="480" y="310">Read, replied to others</text>
+<rect x="80" y="376" width="330" height="72" fill="var(--page)" stroke="var(--warn)" stroke-width="3" stroke-dasharray="9 7"/>
+<text class="k" x="100" y="420">They want C</text>
+<text class="b" x="480" y="412">Last time, 2 weeks</text>
+<text class="b" x="480" y="438" fill="var(--warn)">Break here</text>
+<rect x="80" y="486" width="330" height="72" fill="var(--page)" stroke="var(--grey)" stroke-width="3"/>
+<text class="k" x="100" y="530" fill="var(--grey)">Outcome D</text>
+<text class="b" x="480" y="530">Didn't happen</text>
+<line x1="245" y1="228" x2="245" y2="266" stroke="var(--accent)" stroke-width="4"/>
+<line x1="245" y1="338" x2="245" y2="376" stroke="var(--warn)" stroke-width="4" stroke-dasharray="9 7"/>
+<line x1="245" y1="448" x2="245" y2="486" stroke="var(--grey)" stroke-width="4" stroke-dasharray="9 7"/>
+</svg>
