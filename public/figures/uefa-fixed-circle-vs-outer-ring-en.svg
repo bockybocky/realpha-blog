@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Left: a fixed-size circle is split in two, with two arrows pushing against each other inside; right: an outer ring is added around the same circle, with arrows expanding outward.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <g style="font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',sans-serif">
+    <text x="40" y="52" font-size="27" font-weight="700" fill="var(--ink)">Compete for the same slice, or add an outer ring</text>
+
+    <circle cx="260" cy="300" r="120" fill="var(--card)" stroke="var(--dim)" stroke-width="2"/>
+    <path d="M260 180 L260 420" stroke="var(--dim)" stroke-width="2"/>
+    <g stroke="var(--warn)" stroke-width="3" fill="none">
+      <path d="M180 300 L240 300"/><path d="M230 293 L240 300 L230 307"/>
+      <path d="M340 300 L280 300"/><path d="M290 293 L280 300 L290 307"/>
+    </g>
+    <text x="260" y="470" font-size="20" font-weight="700" fill="var(--dim)" text-anchor="middle">Core fans</text>
+    <text x="260" y="504" font-size="16" fill="var(--warn)" text-anchor="middle">Share grab</text>
+
+    <circle cx="700" cy="300" r="185" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="9 7"/>
+    <circle cx="700" cy="300" r="120" fill="var(--card)" stroke="var(--dim)" stroke-width="2"/>
+    <g stroke="var(--accent)" stroke-width="3" fill="none">
+      <path d="M700 175 L700 128"/><path d="M692 140 L700 128 L708 140"/>
+      <path d="M825 300 L872 300"/><path d="M860 292 L872 300 L860 308"/>
+      <path d="M700 425 L700 472"/><path d="M692 460 L700 472 L708 460"/>
+      <path d="M575 300 L528 300"/><path d="M540 292 L528 300 L540 308"/>
+    </g>
+    <text x="700" y="307" font-size="19" fill="var(--dim)" text-anchor="middle">Core fans</text>
+    <text x="700" y="110" font-size="19" font-weight="700" fill="var(--accent)" text-anchor="middle">Casual fans</text>
+    <text x="700" y="497" font-size="19" font-weight="700" fill="var(--accent)" text-anchor="middle">Disinterested</text>
+    <text x="480" y="300" font-size="27" fill="var(--grey)" text-anchor="middle">→</text>
+  </g>
+</svg>

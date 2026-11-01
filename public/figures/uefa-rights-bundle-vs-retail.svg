@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊十八條線從六家俱樂部各自連到三個買家，雜亂交錯；右邊六家俱樂部先匯進一個節點，只有一條粗線通到買家。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <g style="font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',sans-serif">
+    <text x="40" y="52" font-size="27" font-weight="700" fill="var(--ink)">一家一家賣，還是打包成一個權利包</text>
+
+    <rect x="32" y="84" width="440" height="420" rx="14" fill="var(--card)" stroke="var(--line)"/>
+    <rect x="496" y="84" width="432" height="420" rx="14" fill="var(--card)" stroke="var(--line)"/>
+    <text x="56" y="122" font-size="20" font-weight="700" fill="var(--dim)">零售</text>
+    <text x="520" y="122" font-size="20" font-weight="700" fill="var(--accent)">集中</text>
+
+    <g stroke="var(--grey)" stroke-width="1.4" fill="none">
+      <path d="M103 180 L300 205"/><path d="M103 180 L300 305"/><path d="M103 180 L300 405"/>
+      <path d="M103 225 L300 205"/><path d="M103 225 L300 305"/><path d="M103 225 L300 405"/>
+      <path d="M103 270 L300 205"/><path d="M103 270 L300 305"/><path d="M103 270 L300 405"/>
+      <path d="M103 315 L300 205"/><path d="M103 315 L300 305"/><path d="M103 315 L300 405"/>
+      <path d="M103 360 L300 205"/><path d="M103 360 L300 305"/><path d="M103 360 L300 405"/>
+      <path d="M103 405 L300 205"/><path d="M103 405 L300 305"/><path d="M103 405 L300 405"/>
+    </g>
+    <g fill="var(--page)" stroke="var(--dim)" stroke-width="1.6">
+      <circle cx="90" cy="180" r="13"/><circle cx="90" cy="225" r="13"/><circle cx="90" cy="270" r="13"/>
+      <circle cx="90" cy="315" r="13"/><circle cx="90" cy="360" r="13"/><circle cx="90" cy="405" r="13"/>
+    </g>
+    <text x="62" y="152" font-size="15" fill="var(--dim)">俱樂部</text>
+    <g fill="var(--page)" stroke="var(--dim)" stroke-width="1.6">
+      <rect x="300" y="180" width="120" height="50" rx="8"/>
+      <rect x="300" y="280" width="120" height="50" rx="8"/>
+      <rect x="300" y="380" width="120" height="50" rx="8"/>
+    </g>
+    <g font-size="15" fill="var(--dim)" text-anchor="middle">
+      <text x="360" y="211">買家</text><text x="360" y="311">買家</text><text x="360" y="411">買家</text>
+    </g>
+    <text x="56" y="478" font-size="16" fill="var(--warn)">十八次談判</text>
+
+    <g stroke="var(--grey)" stroke-width="1.6" fill="none">
+      <path d="M563 180 L672 290"/><path d="M563 225 L676 285"/><path d="M563 270 L680 292"/>
+      <path d="M563 315 L680 300"/><path d="M563 360 L676 307"/><path d="M563 405 L672 302"/>
+    </g>
+    <g fill="var(--page)" stroke="var(--dim)" stroke-width="1.6">
+      <circle cx="550" cy="180" r="13"/><circle cx="550" cy="225" r="13"/><circle cx="550" cy="270" r="13"/>
+      <circle cx="550" cy="315" r="13"/><circle cx="550" cy="360" r="13"/><circle cx="550" cy="405" r="13"/>
+    </g>
+    <text x="522" y="152" font-size="15" fill="var(--dim)">俱樂部</text>
+    <circle cx="700" cy="295" r="30" fill="var(--accent)"/>
+    <text x="700" y="356" font-size="16" fill="var(--accent)" text-anchor="middle" font-weight="700">權利包</text>
+    <path d="M734 295 L812 295" stroke="var(--accent)" stroke-width="14"/>
+    <rect x="818" y="235" width="104" height="120" rx="10" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+    <text x="870" y="301" font-size="16" fill="var(--accent)" text-anchor="middle" font-weight="700">買家</text>
+    <text x="520" y="478" font-size="16" fill="var(--accent)">一次談判</text>
+  </g>
+</svg>
