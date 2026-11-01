@@ -4,6 +4,7 @@ description: "colab-gpu-runner 是一個公開的 GitHub 倉庫：在自己電�
 slug: "colab-gpu-runner-minimax-h3-2026-10"
 lang: "zh-TW"
 pubDate: 2026-10-28
+updatedDate: 2026-11-01
 category: "tech"
 tags: ["Google Colab", "MiniMax H3", "SeedVR2", "RIFE", "ComfyUI", "雲端 GPU", "AI 影片", "GitHub"]
 ogImage: "/covers/colab-gpu-runner-minimax-h3-2026-10.png"
@@ -79,8 +80,8 @@ python check_env.py
 接著照順序裝：
 
 ```powershell
-# 1. 裝 Colab 命令列
-uv tool install google-colab-cli
+# 1. 裝 Colab 命令列（Windows 固定 0.7.4，原因見下面第三件事）
+uv tool install --python 3.12 google-colab-cli==0.7.4
 
 # 2. 裝 gog（Google 雲端硬碟命令列，安裝方式見 github.com/openclaw/gogcli），用自己的帳號登入
 
@@ -105,6 +106,19 @@ pwsh film/run_g4.ps1 -Root ./job -GoogleAccount <你的 Google 帳號>
 一是 Colab 命令列官方寫明目前只支援 Linux 和 macOS，Windows 不在支援範圍。我是在 Windows 上用 uv 裝、實際跑通的，但這代表哪天它改版在 Windows 上壞掉，沒有人欠你一個修正。它本身要 Python 3.12 以上，uv 裝的時候會自備，跟倉庫腳本要的 3.10 是兩回事。
 
 二是裝好了卻找不到指令。uv 預設把 `colab` 放在使用者資料夾下的 `.local/bin`，這個位置常常不在系統路徑上。2026 年 10 月 27 日我寫檢查程式時，在自己的筆電上跑，它第一句就報「找不到 colab 指令」，可是我明明裝過。整理成公開版時我拿掉了寫死的路徑，結果第一個踩到的就是自己。所以現在檢查程式和啟動器都會自己去那個位置找，但如果你手動打 `colab` 沒反應，先別急著重裝。
+
+三是上面那句「哪天它改版在 Windows 上壞掉」，2026 年 11 月 1 日真的發生了。那天我想確認這篇還準不準，順手把命令列從 0.7.4 升到剛出的 0.7.5，結果連試兩次，機器都開好了，腳本一開始跑就斷線，錯誤是 `socket is already closed`。我想退回 0.7.4，它卻連啟動都不行，因為缺一個 Linux 才有的元件 `termios`。翻舊紀錄才想起來，十月在 Windows 上裝的時候，我早就手動改過一個檔把它跳過，升級時整個被蓋掉了，而我自己忘了。
+
+所以在 Windows 上，我現在固定裝 0.7.4，再打開 `%APPDATA%\uv\tools\google-colab-cli\Lib\site-packages\colab_cli\console.py`，把 `import termios` 和 `import tty` 各包成「載不到就跳過」：
+
+```python
+try:
+    import termios
+except ImportError:
+    termios = None
+```
+
+最後在 `~/.config/colab-cli/settings.json` 寫 `{"enable_update_check": false}`，關掉每次跳出來的升級提示，免得哪天又被它勸去升級。改完重測，借到的 G4 運算速度是每秒 422.8 兆次，跟十月量的約 423 一樣，跑完自動還卡、沒扣錢。這個修補只影響互動式主控台，`run`、`sessions`、`stop`、`usage` 都正常。
 
 ## 同類比較：借卡的五條路
 

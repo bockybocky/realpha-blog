@@ -4,6 +4,7 @@ description: "colab-gpu-runner is a public GitHub repo. One command on your own 
 slug: "colab-gpu-runner-minimax-h3-2026-10"
 lang: "en"
 pubDate: 2026-10-28
+updatedDate: 2026-11-01
 category: "tech"
 tags: ["Google Colab", "MiniMax H3", "SeedVR2", "RIFE", "ComfyUI", "Cloud GPU", "AI video", "GitHub"]
 ogImage: "/covers/colab-gpu-runner-minimax-h3-2026-10.png"
@@ -74,7 +75,7 @@ Then install in this order:
 
 ```powershell
 # 1. Install the Colab command line
-uv tool install google-colab-cli
+uv tool install --python 3.12 google-colab-cli==0.7.4   # on Windows, pin 0.7.4 (see the third point below)
 
 # 2. Install gog (a Google Drive command line; see github.com/openclaw/gogcli) and sign in with your own account
 
@@ -99,6 +100,19 @@ Two things the instructions won't tell you.
 The Colab command line officially supports only Linux and macOS; its own page says Windows is not supported. I installed it with uv on Windows and it works, but if a future release breaks on Windows, nobody owes you a fix. The tool itself needs Python 3.12 or newer, which uv brings along on its own; that's separate from the 3.10 the repo's scripts need.
 
 The other one: it installs and then can't be found. uv puts `colab` in `.local/bin` under your user folder, and that folder often isn't on the system path. On October 27, 2026, while writing the check script, I ran it on my own laptop and the very first line said it couldn't find the colab command, even though I had installed it. I had just removed the hardcoded paths for the public version, and the first person to trip over that was me. The check script and launcher now look in that folder themselves. If typing `colab` by hand does nothing, look there before you reinstall.
+
+The third one is the "someday an update breaks it on Windows" I mentioned above. It happened on November 1, 2026. I wanted to check whether this post still held up, so I upgraded the CLI from 0.7.4 to the brand-new 0.7.5. Twice in a row the machine came up fine, then the connection dropped the moment the script started: `socket is already closed`. When I tried to roll back to 0.7.4, it wouldn't even launch, because it imports `termios`, a module that only exists on Linux and macOS. Then I remembered: back in October I had patched one file by hand to skip that import, and the upgrade had quietly wiped the patch. I'd forgotten I ever made it.
+
+So on Windows I now pin 0.7.4, open `%APPDATA%\uv\tools\google-colab-cli\Lib\site-packages\colab_cli\console.py`, and wrap both `import termios` and `import tty` so a missing module is skipped:
+
+```python
+try:
+    import termios
+except ImportError:
+    termios = None
+```
+
+Then I put `{"enable_update_check": false}` in `~/.config/colab-cli/settings.json` so the upgrade nag stops showing up and talking me into it again. After the fix I reran the probe: the G4 measured 422.8 TFLOPS in bf16, the same as the roughly 423 I got in October, and the machine was released with nothing charged. The patch only affects the interactive console; `run`, `sessions`, `stop`, and `usage` all work as before.
 
 ## Five ways to get a GPU, side by side
 
