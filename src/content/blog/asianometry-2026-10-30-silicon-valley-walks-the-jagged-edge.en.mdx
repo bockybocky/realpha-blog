@@ -1,0 +1,108 @@
+---
+title: "Asianometry: Silicon Valley Is Walking the Jagged Edge, and Falling Off Got Easier"
+description: "Notes on the 30 October 2026 episode of Asianometry, where host Jon Y reports back from a month in San Francisco: the Financial Times put Anthropic at $16 billion in revenue with excellent gross margins, the market called it insufficient and AI trade prices churned that week; Lam Research's October 2026 call put 2027 wafer fab equipment spending above $200 billion, Goldman Sachs estimates $218 billion for 2027 and $281 billion for 2028, and patchy word of hiring freezes is circulating inside the equipment makers. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "asianometry-2026-10-30-silicon-valley-walks-the-jagged-edge"
+lang: "en"
+pubDate: 2026-11-01
+category: "investing"
+kind: "podcast-notes"
+tags: ["AI compute", "semiconductor equipment", "podcast-notes", "subscription subsidies", "bullwhip effect"]
+ogImage: "/covers/asianometry-2026-10-30-silicon-valley-walks-the-jagged-edge-cover.png"
+cover: "/covers/asianometry-2026-10-30-silicon-valley-walks-the-jagged-edge-cover.png"
+---
+
+![A climber at dawn standing on a narrow jagged rock ridge, the ridgeline stepping away into the distance, the valley floor below filled with data centre lights receding until the morning haze swallows them](/covers/asianometry-2026-10-30-silicon-valley-walks-the-jagged-edge-cover.png)
+
+> Among benefits, take the greater; among harms, take the lesser.
+>
+> —— *Mozi*, "Da Qu" chapter (Warring States; my translation)
+
+In the 30 October 2026 episode of *Asianometry*, host Jon Y records from Boston what he saw during a month in San Francisco: inside the Valley people keep building, outside it the money has started doing arithmetic. The week he was walking around, the *Financial Times* reported Anthropic at $16 billion in revenue with excellent gross margins, the market called that insufficient, and AI trade prices churned; at the same time Lam Research's October call put 2027 wafer fab equipment spending above $200 billion, Goldman Sachs estimates $218 billion for 2027 and $281 billion for 2028, and industry whispers run to $300 billion. He is explicit that the 2028 figure of "another 40 to 50 gigawatts" is a number he heard, still in flux, and not to be quoted.
+
+## Mid-October in San Francisco: the last West Coast equipment show
+
+He went to give the opening talk at the test symposium alongside Semicon West (North America's largest semiconductor equipment show), covering the automated test equipment industry from the 1950s to today. It wasn't recorded. He landed on the morning of 14 October and walked the floor tired, which he says may have coloured his impression, but what he felt was this: the 2026 show was a different era quietly setting. Last year he was told the show would alternate between Arizona and San Francisco; that plan now looks dead, several people told him this was the final San Francisco show, and Semicon West 2027 moves to March 2027 in Arizona. Six months after the last one — he guesses they want a clearer slot.
+
+The clash was with the OCP Global Summit in San Jose (Open Compute Project, the data centre hardware vendor consortium) running the same week. It sold out and he didn't go, but visitors told him the floor was popping. His read: wafer manufacturing and equipment are seventy-odd years old, the battles have been fought, the tiers are settled; OCP covers the new fights like inference hardware, where the spec-in vendors for cooling and networking are still undecided. Add that the centre of the American semiconductor industry has moved from the Intel-centric Santa Clara era out to new fabs in the hinterlands, and he expects the show to end up in Texas.
+
+## The same week, outside: $16 billion called insufficient
+
+Outside the Valley the mood differs. The finance people are antsy. The Anthropic numbers the *Financial Times* carried that week would look good in any business — $16 billion of revenue plus excellent gross margins — the market judged them insufficient, and AI trade prices churned.
+
+He talked last time about a possible compute glut in the second half of 2027; this time he says the supply chain has to start thinking about 2028. Having 50 gigawatts of compute by the end of 2027 is carryable with existing power infrastructure; the 2028 increment keeps moving, and the vibe he picks up is another 40 to 50 gigawatts, with the number still in flux. Equipment takes a year to a year and a half to build, so the final decisions land mid-2027 or a bit earlier, six to eight months out. He leaves the question open: will what people see in six months be enough to convince the supply chain to add another 50 gigawatts on top?
+
+![A timeline carries two bars: the 50 gigawatts due by the end of 2027 is solid, while the additional 40 to 50 gigawatts for 2028 is a dashed, hollow outline; an arrow runs leftward from the bars back to mid-2027, showing how equipment lead times pull the decision point forward to only six to eight months from now.](/figures/gigawatt-decision-window-en.svg)
+
+Meanwhile the equipment money has already run ahead. On its October 2026 call Lam Research said 2026 wafer fab equipment spending would finish around $150 billion, with 2027 above $200 billion; Goldman Sachs estimates $218 billion for 2027 and $281 billion for 2028; whisper numbers elsewhere reach $300 billion and up. That growth rate sits well above the growth rate in compute.
+
+![Five bars rise from low to high like a staircase, climbing from 150 billion dollars in 2026 all the way to 281 billion in 2028, with the rightmost 300 billion bar drawn as a dashed industry whisper.](/figures/fab-equipment-capex-ladder-en.svg)
+
+The interesting noise he picked up at Semicon West: hiring freezes at the equipment companies. He calls it a patchy signal that hasn't formed, but he heard it. The bullwhip effect is a demand signal getting amplified at every level as it travels up a supply chain — he thinks these equipment spending projections are a bullwhip in the making, and the companies are bracing for it.
+
+![Four wavy lines are stacked from bottom to top: compute demand at the base is almost flat, and each step further upstream amplifies the swing once more, with the topmost line swinging hardest and labelled hiring freeze.](/figures/bullwhip-amplitude-upstream-en.svg)
+
+## The answer from inside: the jagged edge
+
+Inside, nobody is tracking any of that. He asked the builders why they are doing this, and one phrase kept coming back: the jagged edge.
+
+It means today's large language models are far better at some things than others, and which things isn't intuitive. That's the reason a startup should train its own special models — world models, models for handling special cases. The Anthropic and OpenAI models are whizzes at coding, can chew through Navier-Stokes-grade maths problems, and will hack a website; step outside the golden path and performance drops off. He says the same term gets applied to the Chinese open-source models: good at a few certain things, sorely lacking in others.
+
+![A violently jagged line jumps up and down across six neighbouring tasks, with peaks and troughs alternating, while a dashed line through the middle stands for the smooth overall impression people carry in their heads.](/figures/jagged-edge-of-capability-en.svg)
+
+One more judgement underpins them: not all of those gigawatts arrive on time. Power generation shortfalls, American labour, data centre NIMBYism, shifting political winds — all of it looks like slippage. So the model training startups keep going long on compute, and some of the smartest people he gets to talk to are going long too, believing every incremental ounce of compute becomes more valuable than it already is.
+
+How to go long is the part I kept turning over. The sensible route is to raise equity and minimise debt, because missing debt payments is how companies die. But others told him a startup can also die by not buying enough compute, out-scaled by a competitor — so raising $100 million for chips isn't enough; you should take debt out on top of those chips and buy more chips. Anyone who doesn't, in their phrasing, is "structurally short." He laughed at that and says it's meant to be humorous. There is something serious inside the joke: once everyone defines "not pushing all in" as being short, nobody is left standing on the conservative path.
+
+## One layer down: the small companies living on subscription subsidies
+
+This trip he wanted to see the small companies building on top of the frontier labs — the business users Anthropic and the other big labs are selling to — and find out how they run. What strikes him is their dependence on subsidies. SemiAnalysis published research in mid-2026 showing subscription value running well above API pricing: a $200 plan gets you something like $2,000 to $14,000 of API value. Cash-poor startups know this, so they buy several subscriptions, rotate between them, squeeze every allowance dry, and burn especially hard when limit resets are announced. He says this shouldn't surprise him; these are companies hacking their way to stability and they'll take every advantage. But he has also heard of startups wiring customer-facing products straight into these subscriptions, running their outside business on subsidised tokens. His verdict: an absolutely horrible and distorted way to run a business, obviously unsustainable to anyone looking, and he knows it happens.
+
+He thinks of Uber and Lyft. In 2015, when Uber was trying to take over the world, the two spent hundreds of millions on rider subsidies; leaked 2016 financials showed its customers paying only 41% of the actual cost of their trips. He adds the fair caveat: that's a blended figure containing the absurdity then running in mainland China, where Uber China paid driver bonuses up to three times its fares, and taking that out the accounts look less dire. He doesn't think the AI subscriptions are subsidised to that degree, and higher-priced plans leave room for price discrimination — OpenAI has already opened a $500 tier. The startups are preparing for that day too: product economics based on API pricing, plus experiments in orchestration, smart proprietary models as the lead agent, open-source models as sub-agents, sub-agents possibly running locally. His conclusion is one line: we shall see.
+
+![Three dashed boxes of equal height stand for the real cost of the service, and the solid bar inside each shows how much users actually pay: the Uber rider bar fills a bit over four tenths, while the two AI subscription bars leave only a thin sliver at the bottom.](/figures/subsidy-depth-user-share-en.svg)
+
+## What he has been thinking about lately: maths
+
+Outside the San Francisco bubble, what AI has done to maths is being discussed too. Practitioners are reckoning with their world being dynamited over a few months. He thinks of chess and Go after the AIs came: those worlds pivoted into sports and the players became personalities people follow. Maths might go the same way; he doubts it. His guess is the field changes and hits people unevenly — older professors like Tao will be fine, young PhDs will be fine because they have time to adjust, and the ones hit hardest are in the middle, committed to maths as a career without a reputation yet.
+
+![A curve bulges along the stages of a career: graduate students at one end and senior professors at the other both sit low, while working mathematicians in the middle are pushed to the very top.](/figures/impact-peaks-in-the-middle-en.svg)
+
+What he is chewing on is the why. OpenAI and Anthropic are spending real money here; those Navier-Stokes problems cost roughly $6.5 million at API token prices — which he works out as "about three $200 subscriptions," then snorts at himself. Even with an embarrassment of compute at the frontier labs, that's a lot for one marketing blog post. His first explanation is that it is marketing, or the love of the game: if demonstrating capability lifts a valuation by one percent, that in theory pays back the API bill.
+
+But a few people gave him another story: the focus on maths ties to RSI. RSI here means recursive self-improvement. Hearing that you might picture a lights-out factory inside a data centre, a loop running itself and generating new ideas; that's the eventual goal, and the current goalpost is far humbler — get the model to prove a hypothesis right or wrong consistently, like a maths proof. Once that works, you can let it run through a big pile of hypotheses, human-generated for now, judging them true or false, and feed the learning back into the model. On that account, RSI is the automation of training experiments. He leans toward reading the maths spending as part of these two companies' R&D plans, given that the marketing isn't delivering warm feelings anyway. He is also turning over a side theory: that they're leveraging the Lean work (a formal verification language for mathematics) for the formal verification of chip designs. Interesting, he says, but he doesn't know the field well enough to judge.
+
+If the RSI speculation holds, then what next year's wave of compute gets used for has an answer. He did a napkin estimate in an earlier video assuming a 50/50 split between training and inference, and since inference can't economically absorb that many gigawatts, he felt something was off. The way out is the ratio: 75% training, 25% inference, far heavier than an even split, with the extra training volume carried by this automated experimentation.
+
+![Two bars of equal length compare how compute is split: the top one gives training and inference half each, while on the bottom one the dividing line has been pushed right to the three-quarter mark, making the training block visibly thicker.](/figures/training-share-reweighted-en.svg)
+
+## Good news comes out and the stock falls
+
+The best thing in this episode to practise on is the Anthropic headline: $16 billion of revenue with excellent gross margins, and the whole AI trade churns. People reading earnings get confused by this — the numbers are good, aren't they?
+
+My own reading is that the market prices expectations; where the fact lands has exactly one use, which is comparison against what was expected. The $16 billion got judged insufficient because the narrative supporting these valuations has a bigger number written into it, and that number never appears in the press release — you have to work it out yourself. So when good news comes out and the price falls, my first question is whether I know what the market was waiting for. If I can't answer it, my "the numbers look good" judgement had no reference point.
+
+![A tall solid bar rising from the zero line stands for the fact that landed, above its top sits an invisible dashed line for the number the market was already expecting, and the space between the two is labelled as the gap.](/figures/priced-against-expectation-en.svg)
+
+## The obvious trades already ran; what now
+
+He closes on something I suspect a lot of people are thinking: professional investors feel things are expensive. The AI trade is one of the few headline economic trends in the US that still works, and outside technology every sector and every country has warts you can find. Yet the AI trade isn't as easy as it used to be — chips, power, optics, memory, all obvious in hindsight, have done their surges and sit at elevated valuations. He asks what's next and doesn't answer; he doesn't give investment advice.
+
+What I took from it is that this round's "obvious" only became obvious looking back. To stand on it at the time you had to believe some layer of a supply chain would bind, and that the binding layer could collect rent. What this episode leaves is a set of numbers to follow: where equipment spending actually lands, when the gigawatts actually connect, and whether the hiring freeze signal goes from patchy to formed.
+
+On the private side he says funding these startups as they go long on compute costs a pretty penny, the appetite is there, and how long the window stays open isn't clear. I'm keeping that as a falsifiable marker: if by mid-2027 the companies buying compute round after round with equity start buying it with debt, the "structurally short" joke has become this cycle's financing terms.
+
+## Worth a look
+
+- The *Asianometry* episode of 30 October 2026, the source for this piece
+- The *Financial Times* reporting on Anthropic's revenue in October 2026, the piece mentioned in the episode
+- Lam Research's October 2026 earnings call transcript
+- Goldman Sachs estimates for 2027 and 2028 wafer fab equipment spending
+- SemiAnalysis research from mid-2026 on the gap between subscription value and API pricing
+- Official programmes for Semicon West and the OCP Global Summit
+- Reporting on Uber's leaked 2016 financials
+
+## The one thing to take with you
+
+The idea I'm keeping from this episode: capability has a jagged boundary. The same tool, the same person, can be absurdly good at one task and absurdly bad at an apparently adjacent one, and where the boundary runs isn't intuitive — so people who assign work on a whole-package verdict like "it's strong" or "he's reliable" come off the rails in places that make no sense afterwards.
+
+Something I've tried, and it works outside investing too: pick the tool or person you lean on most, take a sheet of paper, and in two columns write three things they do well and three things they do badly, concrete enough to say what happened. Then hunt through those six for a pair that looks similar and came out opposite — the colleague who remembers a year of quotes but not a meeting three days out. Find that pair and you can see where the jag sits, and you know which notch to route around next time you hand something over.

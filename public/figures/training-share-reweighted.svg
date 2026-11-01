@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩條等長橫條，下面那條的訓練與推論分界線被往右推到四分之三處">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<g font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+<text x="40" y="58" font-size="27" fill="var(--ink)">分界線往右推</text>
+<text x="60" y="195" font-size="19" fill="var(--dim)">原本假設</text>
+<rect x="200" y="150" width="330" height="90" fill="var(--accent)" opacity="0.85"/>
+<rect x="530" y="150" width="330" height="90" fill="var(--grey)" opacity="0.5"/>
+<text x="365" y="203" font-size="19" fill="var(--page)" text-anchor="middle">訓練 50</text>
+<text x="695" y="203" font-size="19" fill="var(--ink)" text-anchor="middle">推論 50</text>
+<text x="60" y="395" font-size="19" fill="var(--dim)">改過之後</text>
+<rect x="200" y="350" width="495" height="90" fill="var(--accent)" opacity="0.85"/>
+<rect x="695" y="350" width="165" height="90" fill="var(--grey)" opacity="0.5"/>
+<text x="447" y="403" font-size="19" fill="var(--page)" text-anchor="middle">訓練 75</text>
+<text x="777" y="403" font-size="19" fill="var(--ink)" text-anchor="middle">推論 25</text>
+<line x1="530" y1="140" x2="530" y2="460" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<polyline points="545,295 680,295" fill="none" stroke="var(--warn)" stroke-width="2.5"/>
+<polygon points="694,295 676,287 676,303" fill="var(--warn)"/>
+<text x="620" y="282" font-size="16" fill="var(--warn)" text-anchor="middle">自動化實驗吃掉</text>
+</g>
+</svg>
