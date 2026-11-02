@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="長條圖顯示只有一人或兩人推薦的影片各約一千兩百支，合計越過半數虛線，三人以上的影片為剩下的部分">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="62">首頁 4,654 支，各有幾個人推過</text>
+
+<line x1="150" y1="400" x2="900" y2="400" stroke="var(--line)" stroke-width="2"/>
+
+<rect x="190" y="212" width="150" height="188" rx="6" fill="var(--accent)"/>
+<text class="g" x="212" y="196">1,172</text>
+<text class="b" x="222" y="430">1 個人</text>
+
+<rect x="400" y="204" width="150" height="196" rx="6" fill="var(--accent)"/>
+<text class="g" x="422" y="188">1,226</text>
+<text class="b" x="432" y="430">2 個人</text>
+
+<rect x="610" y="40" width="150" height="360" rx="6" fill="var(--grey)"/>
+<text class="g" x="632" y="28">其餘</text>
+<text class="b" x="628" y="430">3 個人以上</text>
+
+<line x1="150" y1="138" x2="900" y2="138" stroke="var(--ink)" stroke-dasharray="7 6" stroke-width="2"/>
+<text class="b" x="786" y="128">半數線</text>
+
+<text class="c" x="60" y="492">前幾頁是共識，越往下捲越接近「有人提過」</text>
+</svg>

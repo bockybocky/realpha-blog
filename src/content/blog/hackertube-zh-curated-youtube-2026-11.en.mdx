@@ -1,0 +1,97 @@
+---
+title: "Tired of YouTube's Recommendations? I Made a Chinese Version of Karpathy's HackerTube, and Found Three Blind Spots in \"Repeatedly Recommended\""
+description: "On November 1, 2026, Andrej Karpathy released HackerTube: 6,454 YouTube videos that Hacker News commenters kept recommending to each other over twenty years. I built a Traditional Chinese interface for it called 黑客影片 (Hacker Videos). This post takes apart what its ranking actually measures, when it misleads, and how it compares with the YouTube home page and plain Hacker News search. A technical learning note."
+slug: "hackertube-zh-curated-youtube-2026-11"
+lang: "en"
+pubDate: 2026-11-02
+category: "tech"
+tags: ["HackerTube", "Hacker News", "YouTube", "Recommendations", "Karpathy", "Metallurgy"]
+ogImage: "/covers/hackertube-zh-curated-youtube-2026-11.png"
+cover: "/covers/hackertube-zh-curated-youtube-2026-11.png"
+tldr: "Hacker Videos puts the YouTube videos Hacker News has recommended for twenty years behind a Chinese interface. It ranks by how many different months someone recommended a video, not by clicks. It works well, but more than half the videos were recommended by only one or two people, and sorting by keywords can go comically wrong."
+---
+
+![Expressionist oil painting cover: at a riverbank at dusk, a figure seen from behind kneels and swirls a gold pan; the river is made of countless flickering little screens tumbling in the current, and a strong wind blows the sand off the pan, leaving a few gold flakes shining at the bottom](/covers/hackertube-zh-curated-youtube-2026-11.png)
+
+> *Panning and sifting a thousand times is hard work,*<br/>
+> *but once the wild sand is blown away, the gold appears.*<br/>
+> —— Liu Yuxi, *Waves Washing Sand*, No. 8 of 9 (Tang dynasty); translation mine
+
+On November 1, 2026, Andrej Karpathy released HackerTube on X: 6,454 YouTube videos pulled from twenty years of Hacker News comments, picked because people kept recommending them to each other. I built a Traditional Chinese version called 黑客影片, "Hacker Videos" ([tube.getrealpha.com](https://tube.getrealpha.com)). It needs no login, all 17 top-level categories are in Chinese, and the home page shows 4,654 videos by default, with titles, summaries and comments left in the original English. Its ranking counts how many different months someone recommended a video, which I trust far more than click counts. Two caveats are worth knowing up front: more than half of the videos on the home page were recommended by only one or two people, and the taste is the taste of one tech forum.
+
+## The post that got me started
+
+Karpathy's post gets to the point fast: he was fed up with YouTube's recommendations. So he went through twenty years and 43 million Hacker News comments (Hacker News is a tech news forum where engineers and founders hang out), found the YouTube links that kept coming up, and turned them into a site that looks like YouTube. He called out two details. There's no login, and your state lives in your own browser. And the thumbnail is a frame from the middle of the video, not the cover the uploader A/B tested into something loud.
+
+My first thought was that Chinese-speaking readers would want this too, but a full page of English category names is enough to make many of them close the tab. So I made Hacker Videos. The interface, the menus, the 17 categories and the subcategories under them are in Chinese. The videos themselves stay as they are.
+
+After it was built, one question kept bugging me. What kind of ruler is "repeatedly recommended"? Why should it beat the YouTube home page, and when does it lie? This post is only about that.
+
+## It measures time, not clicks
+
+HackerTube's published notes spell out the score. A video gets one point for each month in which someone recommended it, plus half a point for each month that included a strong recommendation.
+
+There's something clever in that. If one person recommends a video ten times in the same month, it counts once. To score high, a video has to come back to mind in many different months, for different people, in different threads. Clicks reward "I want to tap this right now." This score rewards "years later, people still bring it up."
+
+![One tall bar for clicks in a single month contrasts with nine year-cells, only a few lit, showing the same video resurfacing across different months: concentrated in one moment versus spread across years.](/figures/hackertube-month-count-vs-clicks-en.svg)
+
+Number one is the first chapter of 3Blue1Brown's *Essence of Linear Algebra*: 17 different people recommended it, the earliest in 2018 and the latest in 2026, for a score of 25. Number three is a video on how modern computer chips are made, recommended by 19 people from 2016 to 2024. Karpathy's own from-scratch video on neural networks and backpropagation is near the top too, tied for fourth with 17 recommenders.
+
+The flip side is that this ruler has a bias. It counts months, so a video people started mentioning earlier has had more time to pile them up. Among the top 100, only 6 got their first recommendation in 2022 or later, and half were already being recommended in 2017 or earlier. A great video from last year will mostly not rank here yet. The list behaves more like a reading list that time has settled than a chart of new releases.
+
+![One hundred cells represent the top 100 videos; about half are solid, meaning they were recommended by 2017 or earlier, while only six are outlined and empty, meaning they were first recommended after 2022, with the rest in pale colors.](/figures/hackertube-top100-first-mention-age-en.svg)
+
+Browsing it myself, this is how it feels: the YouTube home page repackages what I watched yesterday and serves it again, while Hacker Videos feels more like a bookshelf where every book is one somebody was still pressing on a friend years later. What separates the two is who put a video in front of me, and for what reason.
+
+## When the ruler goes wrong
+
+So far it sounds perfect. When I laid the numbers out, though, I found three blind spots.
+
+The first is that the numbers of people are small. Of the 4,654 videos on the default home page, 1,172 were recommended by one person and 1,226 by two. Together that's more than half. The ranking puts the videos with years of recommendations at the top, so the first few pages are solid. The deeper you scroll, the closer you get to "someone mentioned it" rather than anything like a consensus. The original notes also say about a quarter of the videos were only cited and never recommended. Those, along with videos tied to a single news event, are hidden on the home page by default, and you can turn them back on in Settings.
+
+![Three bars, left to right, show videos recommended by one person, by two people, and by three or more; the first two bars together rise above a dashed line marking the halfway point, so the shape shows that recommendation counts are concentrated among very few recommenders.](/figures/hackertube-recommender-count-longtail-en.svg)
+
+The second is who is doing the recommending. Hacker News is a tech forum, so the taste leans toward engineering and science. Counting each video by its first category, the biggest group on the home page is "Software engineering and programming languages," at 13.4%. What I didn't expect: "Arts, comedy, music and film" sits at 8.5%, almost level with "Engineering, transport and making" at 8.6%. Engineers recommending videos don't only recommend engineering. One more thing: every summary, type and category was written by a language model reading the comments, and the original notes warn that a few percent will be off.
+
+![Three bars compare category shares among homepage videos: software engineering is highest, while engineering, transportation, and making and art, music, and film are nearly equal in height, showing that engineer recommendations are not limited to engineering topics.](/figures/hackertube-category-share-surprise-en.svg)
+
+The third is the most fun, and I only ran into it while putting together the metallurgy section: if you sort by the literal word, you get jokes. In the whole list, 35 videos have the word "rust" in the title, topic or tags. Of those 35, 34 are about the Rust programming language or about programming in general. The only one that actually has to do with corrosion compares which penetrating oil frees a rusted bolt best. Among the 16 with "metal," there's one about running software on bare metal and one music video of dwarven heavy metal.
+
+It fails the other way too. Of the 27 videos from the original list that ended up in the metallurgy section, 19 have none of "metal," "steel," "iron" or "rust" anywhere in their title, topic or tags. One is *Origins of Precision*, about where precision machine tools came from, the most recommended video in the section with 11 people behind it. Another is the one that takes apart the design of the aluminum beverage can, with 9.
+
+So I went through that section one video at a time instead of matching words. It made me think that whether you can trust any list that "sorts things for you" depends on whether the person sorting actually looked at what's inside.
+
+![Two horizontal bars are split highly asymmetrically: of 35 videos containing “rust,” only one is truly about rust, while 19 of 27 manually selected metallurgy videos have no metal-related words in their titles, topics, or tags, showing that literal classification fails in both directions.](/figures/hackertube-keyword-category-miss-en.svg)
+
+I owe you one more piece of honesty. The metallurgy section has 51 videos. Twenty-seven come from the Hacker News list. The other 24, software tutorials for SolidWorks and DEFORM, are ones I added myself. Nobody on Hacker News recommended them, and their pages say "0 recommenders" plainly. They only appear in that section and never mix into the home page. A few are taught in Chinese, like the SolidWorks beginner lessons from Ricky最強電腦製圖 and 阿涼老師, and Forging School's series explaining DEFORM forging simulation in Chinese. When you're learning a piece of software, someone patiently explaining it in your own language beats any recommender count.
+
+## Side by side with other ways to find videos
+
+| | YouTube home page | Searching Hacker News | Original HackerTube | Hacker Videos |
+|---|---|---|---|---|
+| Who decides what I see | The algorithm, tuned by watch history | My own keywords | Repeated recommendations in HN comments | Same, plus a hand-picked metallurgy section |
+| Browse by topic? | Topic chips, but the algorithm fills them | Results are threads and comments; I have to dig the videos out | Has a categories page | 17 categories, each expanding into subcategories |
+| Chinese? | Interface yes | English | English | Interface and categories in Chinese; titles, summaries and comments in English |
+| Login needed? | No, but recommendations follow watch history | No | No; state is kept in the browser | No; likes and history are kept in your own browser |
+
+I opened the original HackerTube, Hacker News search and Hacker Videos on November 2, 2026 to check; the YouTube column comes from ordinary everyday use. If I had to put it in one line: to relax and watch whatever, the YouTube home page is fine; if you already have a keyword, search Hacker News directly; if you want things people come back to recommend after watching, without reading a page of English categories, that's the gap Hacker Videos tries to fill. To be fair, the original has a Longs page just for long videos and can search by meaning. My Chinese version has neither yet, and its search only matches text.
+
+## The day I looked at it on my phone
+
+After the site went up, everything looked fine on my computer. Then, on November 2, 2026, I opened it on my phone and found two problems. The logo at the top of the sidebar was blown up so large it pushed the menu down, and once the menu was open, tapping the empty space beside it didn't close it; I had to press the button again. Both were fixed that day.
+
+What stuck with me is that checking ten times on a computer is worth less than scrolling once on an actual phone. The same day I moved metallurgy to the top of the category list and split it into six subcategories: smelting and refining; forging, casting and forming; welding and joining; machining and machine tools; material properties and testing; and software tutorials.
+
+## A few other things worth knowing
+
+- Likes, Watch later and History live in your own browser. Switch phones or clear your browser data and they're gone. That's the price of no login.
+- Each video page has two rows at the bottom. "Similar videos" are close in content. "Also recommended by the same people" shows what else the people who recommended this one recommended. The second row is built from the recommenders themselves, which the YouTube home page can't give you.
+- Video pages list the original Hacker News comments that recommended them, with links back to the threads. Reading why someone recommended a video is often a better guide than the summary.
+- Thumbnails are a frame from the middle of the video, not a cover the uploader polished. They look plain at first, but they're less likely to trick you into clicking.
+- The source line in the footer is required by the data license, so it stays word for word.
+
+## One thing to take with you
+
+When I hear something recommended now, the first thing I ask is how many different people have said it, and over how long.
+
+Here's what I do, if you want to try it: the next time someone recommends a video, a book or a restaurant to you, write two numbers in your phone's notes. One is how many different people you've heard mention it; the other is how long it's been between the first and the latest time you heard about it. If both boxes only say "1" and "this week," put it on a later list, open it again a week from now, and see whether you still want to click.
