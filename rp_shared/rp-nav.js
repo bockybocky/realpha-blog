@@ -59,6 +59,11 @@
       { id: 'learn',  host: 'learn',         name: '學習站', desc: '' },
       { id: 'piano',  host: 'piano',         name: 'Piano Quest', desc: '' }
     ]},
+    // 2026-11-02 Charles「這2個站都建在我們的主網頁下方連在一起」
+    { id: 'hacker', label: '黑客', sites: [
+      { id: 'tube',   host: 'tube',          name: '黑客影片', desc: 'HN 推薦影片（公開）' },
+      { id: 'books',  host: 'books',         name: '黑客書單', desc: 'HN 推薦書（公開）' }
+    ]},
     { id: 'life', label: '生活', sites: [
       { id: 'health', host: 'health',        name: '健康站', desc: '' },
       { id: 'fitable', host: 'fitable',      name: '健身車', desc: '' }
