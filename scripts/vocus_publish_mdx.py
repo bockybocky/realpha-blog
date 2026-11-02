@@ -557,7 +557,9 @@ def figure_png(name):
         raise ValueError('SVG 讀不到 viewBox：' + svg)
     W, H = int(m.group(1)) * 2, int(m.group(2)) * 2
     os.makedirs(FIG_PNG_DIR, exist_ok=True)
-    tmp = os.path.join(FIG_PNG_DIR, '_conv.html')
+    # 2026-11-02：每張圖一個暫存檔。原本共用 _conv.html，兩條發文同時轉圖會互相覆寫，
+    # hackertube 那篇一張圖被換成 notebooklm 篇的圖（尺寸剛好相同，尺寸檢查擋不到）。
+    tmp = os.path.join(FIG_PNG_DIR, '_conv_%s_%d.html' % (name, os.getpid()))
     with open(tmp, 'w', encoding='utf-8') as fh:
         fh.write('<!doctype html><meta charset="utf-8">'
                  '<style>html,body{margin:0;padding:0;background:#fff}'
@@ -568,6 +570,10 @@ def figure_png(name):
                     '--window-size=%d,%d' % (W, H), '--screenshot=' + png,
                     'file:///' + tmp.replace('\\', '/')],
                    capture_output=True, timeout=180)
+    try:
+        os.remove(tmp)
+    except OSError:
+        pass
     if not os.path.isfile(png):
         raise RuntimeError('SVG 轉 PNG 失敗：' + name)
     pw, ph = png_size(png)
