@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="The top row nets only once a day at the close and its reserve-need bar is tall, while the bottom row nets six times a day and its reserve-need bar is clearly much shorter.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">Netting pace sets the pile</text>
+
+  <rect x="60" y="92" width="840" height="180" rx="10" fill="var(--card)"/>
+  <text class="t" x="84" y="128" font-size="20" font-weight="700" fill="var(--dim)">1x a day</text>
+  <line x1="100" y1="200" x2="640" y2="200" stroke="var(--line)" stroke-width="5"/>
+  <circle cx="640" cy="200" r="11" fill="var(--accent)"/>
+  <text class="t" x="100" y="232" font-size="16" fill="var(--dim)">Fund up front</text>
+  <rect x="760" y="128" width="90" height="110" fill="var(--warn)"/>
+  <text class="t" x="704" y="258" font-size="16" fill="var(--dim)">Reserves</text>
+
+  <rect x="60" y="296" width="840" height="180" rx="10" fill="var(--card)"/>
+  <text class="t" x="84" y="332" font-size="20" font-weight="700" fill="var(--dim)">6x a day</text>
+  <line x1="100" y1="404" x2="640" y2="404" stroke="var(--line)" stroke-width="5"/>
+  <circle cx="190" cy="404" r="11" fill="var(--accent)"/>
+  <circle cx="280" cy="404" r="11" fill="var(--accent)"/>
+  <circle cx="370" cy="404" r="11" fill="var(--accent)"/>
+  <circle cx="460" cy="404" r="11" fill="var(--accent)"/>
+  <circle cx="550" cy="404" r="11" fill="var(--accent)"/>
+  <circle cx="640" cy="404" r="11" fill="var(--accent)"/>
+  <text class="t" x="100" y="436" font-size="16" fill="var(--dim)">Netting</text>
+  <rect x="760" y="404" width="90" height="38" fill="var(--warn)"/>
+  <text class="t" x="704" y="462" font-size="16" fill="var(--dim)">Reserves</text>
+
+  <text class="t" x="60" y="534" font-size="22" font-weight="700" fill="var(--ink)">Less risk, less cash</text>
+</svg>

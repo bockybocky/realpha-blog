@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="四家銀行排成一圈，每一段付款箭頭都標著延後並指向下一家，形成整圈互相等待">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">一家壓住，整圈排隊</text>
+
+  <rect x="60" y="92" width="840" height="368" rx="10" fill="var(--card)"/>
+
+  <circle cx="480" cy="276" r="140" fill="none" stroke="var(--warn)" stroke-width="5" stroke-dasharray="14 12"/>
+  <text class="t" x="420" y="270" font-size="20" font-weight="700" fill="var(--warn)">都在等</text>
+  <text class="t" x="420" y="298" font-size="16" fill="var(--dim)">彼此</text>
+
+  <circle cx="480" cy="136" r="34" fill="var(--accent)"/>
+  <circle cx="620" cy="276" r="34" fill="var(--accent)"/>
+  <circle cx="480" cy="416" r="34" fill="var(--accent)"/>
+  <circle cx="340" cy="276" r="34" fill="var(--accent)"/>
+
+  <text class="t" x="466" y="142" font-size="16" font-weight="700" fill="var(--page)">甲</text>
+  <text class="t" x="606" y="282" font-size="16" font-weight="700" fill="var(--page)">乙</text>
+  <text class="t" x="466" y="422" font-size="16" font-weight="700" fill="var(--page)">丙</text>
+  <text class="t" x="326" y="282" font-size="16" font-weight="700" fill="var(--page)">丁</text>
+
+  <path d="M680 258 l20 18 -20 18" fill="none" stroke="var(--warn)" stroke-width="5"/>
+  <path d="M680 108 h0" fill="none"/>
+  <text class="t" x="536" y="146" font-size="16" fill="var(--dim)">延後 →</text>
+  <text class="t" x="660" y="340" font-size="16" fill="var(--dim)">延後 →</text>
+  <text class="t" x="536" y="422" font-size="16" fill="var(--dim)">延後 →</text>
+  <text class="t" x="236" y="340" font-size="16" fill="var(--dim)">延後 →</text>
+
+  <text class="t" x="60" y="512" font-size="22" font-weight="700" fill="var(--ink)">緩衝被鎖住，誰都不先動</text>
+</svg>

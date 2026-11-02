@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="上方三十天的長時間軸全程平順看不出問題，下方一天的時間軸在中午位置出現一個明顯凹陷">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">三十天看不到的，一天之內發生</text>
+
+  <rect x="60" y="92" width="840" height="150" rx="10" fill="var(--card)"/>
+  <text class="t" x="84" y="128" font-size="20" font-weight="700" fill="var(--dim)">三十天期的測試</text>
+  <line x1="100" y1="196" x2="860" y2="196" stroke="var(--grey)" stroke-width="6"/>
+  <text class="t" x="100" y="226" font-size="16" fill="var(--grey)">整段平均起來，過關</text>
+
+  <rect x="60" y="266" width="840" height="190" rx="10" fill="var(--card)"/>
+  <text class="t" x="84" y="302" font-size="20" font-weight="700" fill="var(--dim)">一天之內</text>
+  <path d="M100 350 h300 L470 416 L540 416 L610 350 h250"
+        fill="none" stroke="var(--accent)" stroke-width="6"/>
+  <line x1="470" y1="350" x2="470" y2="416" stroke="var(--warn)" stroke-width="3" stroke-dasharray="6 6"/>
+  <line x1="610" y1="350" x2="610" y2="416" stroke="var(--warn)" stroke-width="3" stroke-dasharray="6 6"/>
+  <text class="t" x="452" y="446" font-size="19" font-weight="700" fill="var(--warn)">中午縮手</text>
+  <text class="t" x="100" y="336" font-size="16" fill="var(--dim)">早上</text>
+  <text class="t" x="820" y="336" font-size="16" fill="var(--dim)">收盤</text>
+
+  <text class="t" x="60" y="506" font-size="22" font-weight="700" fill="var(--ink)">咬住銀行的是日內口徑</text>
+</svg>

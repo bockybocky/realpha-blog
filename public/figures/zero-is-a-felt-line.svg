@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="同一支垂直刻度在零的位置分成兩種：條文側是可以往下穿過的虛線通道，感覺側是停在零上面的實心擋牆">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">同一條零線，兩種硬度</text>
+
+  <rect x="60" y="92" width="400" height="368" rx="10" fill="var(--card)"/>
+  <rect x="500" y="92" width="400" height="368" rx="10" fill="var(--card)"/>
+  <text class="t" x="84" y="128" font-size="20" font-weight="700" fill="var(--dim)">條文裡</text>
+  <text class="t" x="524" y="128" font-size="20" font-weight="700" fill="var(--dim)">感覺裡</text>
+
+  <path d="M240 170 L240 300" stroke="var(--accent)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M680 170 L680 300" stroke="var(--accent)" stroke-width="12" stroke-linecap="round"/>
+  <text class="t" x="262" y="196" font-size="16" fill="var(--dim)">餘額</text>
+  <text class="t" x="702" y="196" font-size="16" fill="var(--dim)">餘額</text>
+
+  <line x1="110" y1="320" x2="410" y2="320" stroke="var(--grey)" stroke-width="3" stroke-dasharray="10 10"/>
+  <line x1="550" y1="320" x2="850" y2="320" stroke="var(--warn)" stroke-width="9"/>
+  <text class="t" x="110" y="346" font-size="16" fill="var(--grey)">零</text>
+  <text class="t" x="550" y="346" font-size="16" fill="var(--warn)">零</text>
+
+  <path d="M240 312 L240 410" stroke="var(--accent)" stroke-width="6" stroke-dasharray="8 8"/>
+  <path d="M240 424 l-14 -18 h28 z" fill="var(--accent)"/>
+  <text class="t" x="262" y="400" font-size="16" fill="var(--dim)">可以透支</text>
+
+  <path d="M680 302 l-16 -20 h32 z" fill="var(--warn)"/>
+  <text class="t" x="702" y="382" font-size="16" fill="var(--warn)">停住</text>
+  <text class="t" x="702" y="410" font-size="16" fill="var(--grey)">怕監理官</text>
+
+  <text class="t" x="60" y="512" font-size="22" font-weight="700" fill="var(--ink)">沒寫在條文裡的那條，更硬</text>
+</svg>

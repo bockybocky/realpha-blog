@@ -1,0 +1,129 @@
+---
+title: "Macro Musings notes: that morning they had the reserves and still wouldn't lend"
+description: "In the 2 November 2026 episode of Macro Musings, host David Beckworth talks with Stanford finance professor Darrell Duffie about why the Fed's balance sheet won't shrink back: reserve balances broke things at $1.4 trillion in 2019, and the same thing happened again this round at roughly $3 trillion. Duffie ranks four tools by difficulty; tiering interest on reserves is the most powerful and the hardest. Educational notes, not investment advice, no tickers, no price targets, and my reading may be wrong."
+slug: "macromusings-2026-11-02-darrell-duffie-on-the-fed-s-balance-sheet-and-the-"
+lang: "en"
+pubDate: 2026-11-02
+category: "investing"
+kind: "podcast-notes"
+tags: ["Federal Reserve", "bank reserves", "podcast notes", "repo market", "payment systems"]
+ogImage: "/covers/macromusings-2026-11-02-darrell-duffie-on-the-fed-s-balance-sheet-and-the--cover.png"
+cover: "/covers/macromusings-2026-11-02-darrell-duffie-on-the-fed-s-balance-sheet-and-the--cover.png"
+---
+
+![A road crew at first light, a worker in the foreground tipping hot mix into a pothole under a work lamp, the same road running away into the distance until the surface dissolves into fog](/covers/macromusings-2026-11-02-darrell-duffie-on-the-fed-s-balance-sheet-and-the--cover.png)
+
+> The spring waters flow east, day and night without rest; above they are never exhausted, below they are never full. The small becomes great, the heavy becomes light — this is the way of the circle.
+>
+> —— *Lüshi Chunqiu*, "The Circular Way" (Warring States; my own translation)
+
+In the 2 November 2026 episode of *Macro Musings*, David Beckworth brings on Stanford finance professor Darrell Duffie to talk about a wall the Fed hits every few years: it shrinks the balance sheet, and past a certain point market rates jump. Duffie's comparison is the 2017–18 normalization, when reserve balances got down to $1.4 trillion and that proved too little; this round the Fed only got to around $3 trillion, more than twice as much, and hit the wall anyway. His Brookings paper ranks four available tools by difficulty — the easiest, temporary open market operations, saves only a few hundred billion, while tiering interest on reserves is the most powerful and the hardest to sell. One boundary up front: Duffie says his purpose is to make sure the Fed has the tools ready so it doesn't get backed into a political corner. Whether to shrink is the Fed's call.
+
+![Two downward reserve curves, one ending at a lower level and one ending at twice that level, are both stopped by a horizontal line, showing that the wall appears even when the levels differ by a factor of two.](/figures/two-walls-same-place-en.svg)
+
+## That morning they had the reserves and still wouldn't lend
+
+In September 2019, overnight repo rates jumped. Repo is banks lending each other money for a day against Treasury collateral, and that rate normally sits close to the level the Fed sets. For a few days it didn't.
+
+Here's the strange part. The largest dealer banks had reserves on the books — their deposits at the Fed — and in the middle of the day they weren't lending. With rates spiking, lending was profitable. On a later earnings call someone asked JPMorgan's Jamie Dimon about it, and Duffie relays his answer: the post-crisis liquidity regulations have a red line at zero. Go one step below that and you've shown your supervisor you can't fund yourself.
+
+![A vertical scale has a solid horizontal line drawn at zero; on the rulebook side the line is a dashed passage you can cross, while on the perceived side it is a solid blocking wall.](/figures/zero-is-a-felt-line-en.svg)
+
+Then Duffie adds the line I wanted to write down: nothing in the regulations says you shouldn't overdraft. That red line lives in how the banks feel, not in the text.
+
+## Once you go down you can't come back
+
+Why the wall is there at all — Duffie's first answer is the ratchet effect that Acharya and Rajan presented at Jackson Hole a few years back.
+
+The Fed expands its balance sheet by creating reserves. Banks like them: they pay market rates, they solve payment problems, they move instantly. Live with them long enough and banks rebuild their whole operation on the assumption that reserves are plentiful — generous credit lines to counterparties, large demand deposits, less and less use of interbank funding. Channels you stop using atrophy, and your counterparties start leaning their own liquidity on you. When the Fed tries to come back down, banks find they don't have enough immediately available, rates get spiky, and at that moment the Fed throws in the towel and says this is as small as we can get.
+
+![A row of sawtooth steps climbs to the upper right; an upward arrow rides along the teeth and gets through, while a downward arrow is caught on a tooth and stays put.](/figures/ratchet-only-goes-up-en.svg)
+
+Duffie says the prediction is "batting a thousand," and laughs. $1.4 trillion wasn't enough, $3 trillion wasn't enough either, and in late 2025 the Fed started buying Treasury bills to push reserves back up.
+
+I had assumed the binding constraint was the liquidity coverage ratio. Duffie takes it off the table: that's a 30-day test, and what both incidents showed was intraday behaviour — banks holding back in the middle of the day, slowing down payments to each other. What bites is the intraday-flavoured set: Reg YY, internal liquidity stress tests, the stress tests and resolution planning. Those are the ones Dimon named at the time.
+
+![Two timelines are compared: the long thirty-day one on top stays smooth the whole way, while the single-day one below shows a deep dip at noon.](/figures/thirty-days-versus-noon-en.svg)
+
+One layer above that there's no text at all, only perception. What the bank is thinking is: if I overdraft today, what will my supervisor say. And a tool nobody uses loses its muscle memory, so on the day you need it nobody remembers how or when.
+
+The ice is melting a little. Duffie says at least one of the largest banks is now overdrafting in the middle of some days, and $75 billion was drawn from standing repo operations at year-end. The discount window is still untouched; the stigma is too heavy. His read is that if the Fed genuinely wants a smaller balance sheet, it will start encouraging the big banks to use overdrafts and standing repo. It's early days.
+
+## When the wire starts queuing
+
+The core of the paper is the payment system. Fedwire is the Fed's largest, about $4.5 trillion a day. Fedwire Securities is over $2.5 trillion a day, but those payments have little timing discretion — most have to be made early anyway, so banks can't sit on them. Fedwire payments can be delayed.
+
+Delay is contagious. You worry your balance is short, so you postpone what you owe me; I don't receive it, so I postpone what I owe the next bank; they do the same, and everyone is waiting on everyone. It's called receipt-reactive payments, and it shows up whenever reserves are tight. Duffie, with Adam Copeland at the New York Fed and a co-author at the University of Minnesota, showed it empirically: when reserves are tight banks hold back on payments and market rates jump away from where the Fed wants them.
+
+![Four banks sit in a ring, payment arrows pass around the circle but each is deferred to the next bank, so the whole ring waits on itself, with the centre reading that all are waiting.](/figures/everyone-waiting-for-everyone-en.svg)
+
+He quotes an industry phrase for the trap — the last taxi problem. Banks have buffers, but using a buffer might breach the liquidity rules, so the liquidity sits there trapped by regulation.
+
+## The program Tokyo runs six times a day
+
+His fix is to add a piece of software to Fedwire called a liquidity savings mechanism. Most large developed-market central banks have one: Canada, Japan, England, the ECB. What it does is unglamorous. It looks at what each bank plans to pay out and matches it against what others plan to pay in. You owe me $10 billion, I owe you $10 billion, a third bank owes you $15 billion — cancel them against each other and nobody has to move reserves.
+
+![On the left a tall stack of payments due adds up to three hundred and fifty, while on the right only a very short bar of fifty remains after offsetting, leaving a huge height gap between the two bars.](/figures/netting-shrinks-the-pile-en.svg)
+
+Duffie, with Chaojun Wang at Penn and a colleague in computer science at the University of Toronto, found a very simple way to do that matching, and showed that submitting your planned payments is a dominant strategy for banks. Nobody has to be talked into cooperating; they want to use it.
+
+There's a piece of history here I didn't know. Fedwire has run in its current form since about 1980 and was the world's first real-time gross settlement system, a Fed achievement that led other central banks. It solved the credit risk in deferred net settlement, where you wait until the end of the day to offset and might end up holding the bag on money you were owed. The cost is that real-time gross settlement eats reserves — you have to stock up at the start of the day, and netting doesn't do much inside a pure RTGS system. Other central banks found the middle road: run the liquidity savings mechanism several times a day. The Bank of Japan does it six times, so the credit risk stays small while a lot of payments get cancelled, and the quantity of reserves needed drops a long way.
+
+![The top timeline has only one end-of-day netting point and a very tall reserve-need bar beside it, while the bottom timeline has six netting points and a very short reserve-need bar.](/figures/six-times-a-day-en.svg)
+
+## Potholes, and the people who'd rather not go out and fill them
+
+The other tool is humbler still. One of the biggest account holders at the Fed is the federal government, in the Treasury General Account. When the government builds that account up, the money can only come out of reserves — tax season is the classic case. Everyone pays taxes, money leaves the banks, and the banks pay the government out of their reserves at the Fed. The account goes up a dollar, reserves go down a dollar.
+
+Duffie's image is a pothole. The road was smooth, a hole appears, and if nobody fills it ahead of you your wheel drops in. Temporary open market operations are the truck that fills the hole in advance. Bill Nelson and Annette Vissing-Jørgensen proposed this years ago, the Fed used to do it routinely, and the authority is already in hand.
+
+![Two road cross-sections are compared: on the left a pothole sits in the road and the wheel drops into it, while on the right the same pothole has been filled in advance and the wheel rolls through smoothly.](/figures/fill-the-pothole-first-en.svg)
+
+So why not do it? Duffie says the Fed has a demand-driven system in the back of its mind: banks find the pothole themselves and come to the Fed for liquidity, so the Fed doesn't have to go out ahead. But we already know the first half of the story — banks don't want to show they're short, so that aspiration is only half fulfilled. There's also a question of style. He says some people at the Fed prefer a less activist role in money markets: picture the trucks running up and down looking for holes, filling them, scraping off the bumps. That's busy work. Some would rather set the level of the road and watch how it goes.
+
+Then comes my favourite line of the episode: you can have smooth operations or a smooth road, and you can't have both.
+
+## What he's actually worried about
+
+The paper ranks the four tools, and the ranking happens to run from least to most powerful.
+
+![Four steps climb to the upper right, each one higher and harder to push than the last, with temporary operations as the lowest and easiest and tiered interest as the highest and hardest.](/figures/four-tools-climbing-stairs-en.svg)
+
+Easiest is temporary open market operations: the authority exists, the Fed has used them, it's largely an FOMC decision. But the saving is small — tens of billions, maybe one or two hundred billion, nowhere near the trillions people hope for. Second is the liquidity regulation layer, where the hard part is communication: coaching your own supervisory staff not to lean on banks that draw from the Fed, convincing banks you won't slap their fingers, and making clear the rules don't rule out coming to the Fed. Third is the liquidity savings mechanism, which he puts in the hundreds of billions while saying he wants more empirical work before committing to a number. Last and biggest is tiering the interest paid on reserves: once a bank has enough for its business operations, the Fed pays a lower rate on the rest. No bank wants to hold reserves earning below the market rate, so they eject the excess and the total quantity can come down a lot. It's hard because banks won't like it and the rule is complex, though the Fed did use it once.
+
+Then he says the thing I've been chewing on. He isn't proposing that the Fed shrink its balance sheet; what he's doing is making sure the Fed has tools, so it doesn't get backed into a political corner where Congress or the administration tells it to shrink and it has no method to offer — or where, having lost its independence, it gets told to buy assets someone else prefers. The tools are for that day.
+
+One more piece reordered my head. The common perception is that the Fed started paying interest on reserves because of the financial crisis and QE. Duffie says that wasn't the motive. The Fed went to Congress for that authority well before the crisis, to escape the stress that a scarce-reserve regime put on both the banks and itself. The crisis just accelerated the implementation.
+
+## The news says the Fed is shrinking its balance sheet — what does that have to do with my holdings?
+
+My old reflex on a balance-sheet headline was to guess whether it was bullish or bearish. After this episode I think that question is aimed at the wrong layer. Everything Duffie talks about lives in the plumbing: who's willing to lend at midday, whether the wire has started queuing, whether anyone fills the potholes. When the plumbing fails, the first thing that moves is overnight rates.
+
+In 2019 repo rates jumped and the Fed turned around and grew the balance sheet. In late 2025 the same thing happened and the Fed started buying bills. Both times the Fed was forced to change plan, and both triggers sat in the intraday plumbing rather than in anyone's view on inflation.
+
+That gives me something I can actually check against. The headline is noise; how far overnight repo sits from the rate the Fed pays on reserves, and whether anyone is using standing repo operations, are structure. The first moves daily, the second hit $75 billion at year-end. Next time the balance-sheet argument gets loud, I'll look at those two numbers before I go looking for an analysis to pick a side for me.
+
+## The rules allow it, so why does nobody do it?
+
+Nothing in the regulations forbids an overdraft, and the banks still stop short of zero. That made me think about my own investing discipline. I've written down a few rules: add at this level, trim at that valuation. The rules exist. When I last executed one of them is a question I have to stop and think about.
+
+Duffie's word is muscle memory, which I find more useful than discipline. Nobody uses the discount window, so nobody remembers how or when to use it, and the cost of not knowing shows up on the day you need it. What the banks fear isn't the fine either; it's the look on the supervisor's face. For me it's the fear of finding out, when I check, that I was wrong.
+
+So now I ask two separate questions: do I allow myself to do this, and when did I last do it. Plenty of people can answer the first. The second one makes a room go quiet.
+
+## Sources worth reading
+
+- *Macro Musings with David Beckworth*, episode of 2 November 2026 — the source for these notes
+- Darrell Duffie's Brookings paper, "The payment system puts a floor under the Fed's balance sheet"
+- Viral Acharya and Raghuram Rajan's Jackson Hole paper on the ratchet effect
+- Duffie's research with Adam Copeland of the New York Fed and a Minnesota co-author on tight reserves and intraday payments
+- Duffie's research with Chaojun Wang of Penn and a Toronto colleague on matching in a liquidity savings mechanism
+- Stephen Miran, "A user's guide to shrinking the Fed's balance sheet," released the same day as Duffie's paper
+- Lorie Logan and Sam Schulhofer-Wohl's paper on shrinking the Fed's balance sheet
+- The liquidity savings mechanism documentation from the Bank of Japan, Bank of England, ECB and Bank of Canada
+
+## One thing to take with you
+
+"Allowed" and "done once" are two different things. The room a rule gives you only exists after somebody has walked through it — an overdraft facility nobody uses is, on the day you need it, the same as not having one.
+
+Something I've tried: take one thing you keep saying "I'll speak up if I need to" about — asking a friend for help, handing a small task to a colleague, telling your family you're running low this week — and spend a little of it today. Small enough that it doesn't hurt, small enough that you know you don't need the help. Afterwards you'll know what their reaction looks like, and whether your voice shakes when you ask.
