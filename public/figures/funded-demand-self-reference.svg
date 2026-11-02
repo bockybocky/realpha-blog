@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊一條踩在地面線上的短鏈，右邊三個節點繞成閉環，環上有一個鉸鏈">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:19px; font-weight:700; fill:var(--dim); }
+    .b { font-size:16px; }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--dim); }
+    .card { fill:var(--card); stroke:var(--line); stroke-width:2; }
+</style>
+<defs><marker id="arC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--dim)"/></marker></defs>
+<text class="t" x="60" y="56">一條有地面的鏈，一個自己繞回去的圈</text>
+<line x1="482" y1="100" x2="482" y2="490" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<text class="g" x="80" y="140">營運現金流出錢</text>
+<rect class="card" x="90" y="196" width="160" height="60" rx="8"/>
+<text class="b" x="170" y="232" text-anchor="middle">營運現金流</text>
+<line x1="256" y1="226" x2="296" y2="226" stroke="var(--dim)" stroke-width="2" marker-end="url(#arC)"/>
+<rect class="card" x="300" y="196" width="130" height="60" rx="8"/>
+<text class="b" x="365" y="232" text-anchor="middle">採購</text>
+<line x1="90" y1="292" x2="430" y2="292" stroke="var(--ink)" stroke-width="4"/>
+<text class="s" x="90" y="318">地面在外部</text>
+<text class="g" x="520" y="140">融資出錢</text>
+<rect x="640" y="176" width="140" height="54" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="b" x="710" y="210" text-anchor="middle">融資</text>
+<rect class="card" x="790" y="372" width="130" height="54" rx="8"/>
+<text class="b" x="855" y="406" text-anchor="middle">採購</text>
+<rect class="card" x="510" y="372" width="130" height="54" rx="8"/>
+<text class="b" x="575" y="406" text-anchor="middle">樂觀</text>
+<path d="M 782 206 C 868 226, 890 312, 870 366" fill="none" stroke="var(--dim)" stroke-width="2" marker-end="url(#arC)"/>
+<path d="M 786 398 L 648 398" fill="none" stroke="var(--dim)" stroke-width="2" marker-end="url(#arC)"/>
+<path d="M 560 366 C 540 312, 552 226, 636 206" fill="none" stroke="var(--dim)" stroke-width="2" marker-end="url(#arC)"/>
+<rect x="520" y="272" width="104" height="36" rx="6" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+<text class="s" x="572" y="296" text-anchor="middle">信用市場</text>
+<text class="c" x="60" y="528">圈上只有一個鉸鏈</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A chain runs left to right along a timeline, with a middle node on the earlier half-year mark and an endpoint on the later half-year mark that splits into three lines.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:19px; font-weight:700; fill:var(--dim); }
+    .b { font-size:16px; }
+    .s { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--dim); }
+    .card { fill:var(--card); stroke:var(--line); stroke-width:2; }
+</style>
+<defs><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--dim)"/></marker></defs>
+<text class="t" x="60" y="56">Where the money goes next, and how long it takes</text>
+<line x1="70" y1="470" x2="900" y2="470" stroke="var(--grey)" stroke-width="2"/>
+<line x1="345" y1="460" x2="345" y2="480" stroke="var(--grey)" stroke-width="2"/>
+<line x1="660" y1="460" x2="660" y2="480" stroke="var(--grey)" stroke-width="2"/>
+<text class="s" x="345" y="505" text-anchor="middle">2026 H2</text>
+<text class="s" x="660" y="505" text-anchor="middle">2027 H1</text>
+<line x1="345" y1="275" x2="345" y2="458" stroke="var(--grey)" stroke-width="1" stroke-dasharray="5 5"/>
+<line x1="660" y1="275" x2="660" y2="458" stroke="var(--grey)" stroke-width="1" stroke-dasharray="5 5"/>
+<rect class="card" x="60" y="195" width="170" height="76" rx="8"/>
+<text class="b" x="145" y="226" text-anchor="middle">Funding</text>
+<text class="b" x="145" y="252" text-anchor="middle">$40B</text>
+<line x1="236" y1="233" x2="256" y2="233" stroke="var(--dim)" stroke-width="2" marker-end="url(#arA)"/>
+<rect class="card" x="262" y="195" width="166" height="76" rx="8"/>
+<text class="b" x="345" y="226" text-anchor="middle">Long-term contract</text>
+<text class="b" x="345" y="252" text-anchor="middle">Capacity booking</text>
+<line x1="434" y1="233" x2="566" y2="233" stroke="var(--dim)" stroke-width="2" marker-end="url(#arA)"/>
+<rect x="572" y="195" width="176" height="76" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="b" x="660" y="239" text-anchor="middle">GPU purchases</text>
+<path d="M 748 233 C 770 233, 768 148, 788 148" fill="none" stroke="var(--dim)" stroke-width="2" marker-end="url(#arA)"/>
+<path d="M 748 233 L 788 233" fill="none" stroke="var(--dim)" stroke-width="2" marker-end="url(#arA)"/>
+<path d="M 748 233 C 770 233, 768 318, 788 318" fill="none" stroke="var(--dim)" stroke-width="2" marker-end="url(#arA)"/>
+<rect class="card" x="792" y="122" width="150" height="52" rx="8"/>
+<text class="b" x="867" y="154" text-anchor="middle">HBM</text>
+<rect class="card" x="792" y="207" width="150" height="52" rx="8"/>
+<text class="b" x="867" y="239" text-anchor="middle">Optics</text>
+<rect class="card" x="792" y="292" width="150" height="52" rx="8"/>
+<text class="b" x="867" y="324" text-anchor="middle">Networking</text>
+<text class="c" x="60" y="542">Deliveries in H2 are negotiated in H1</text>
+</svg>
