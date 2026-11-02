@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="上方指數先緩緩下跌再小漲一段，下方交易商手上的波動曝險隨下跌一路堆到最高，在指數小漲那一刻垂直掉到零，後面留下一塊空白等新供給進來">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="62">用兩年的部位，代理五年的風險</text>
+
+<text class="g" x="60" y="118">指數</text>
+<path d="M100 170 L300 196 L520 236 L660 206" stroke="var(--grey)" stroke-width="4" fill="none"/>
+<text class="b" x="300" y="166">緩緩往下</text>
+<text class="b" x="676" y="200">小漲一段</text>
+
+<text class="g" x="60" y="300">交易商手上的 Vega</text>
+<line x1="100" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+<path d="M100 400 L260 400 L420 360 L560 330 L660 330 L660 440 L900 440" stroke="var(--accent)" stroke-width="5" fill="none"/>
+<path d="M100 400 L260 400 L420 360 L560 330 L660 330 L660 440 L100 440 Z" fill="var(--accent)" opacity="0.14"/>
+
+<line x1="660" y1="300" x2="660" y2="460" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+<circle cx="660" cy="330" r="8" fill="var(--warn)"/>
+<text class="g" x="678" y="318">敲出</text>
+<text class="b" x="678" y="344">三個月後就走</text>
+
+<text class="b" x="200" y="388">按兩年賣</text>
+<text class="b" x="470" y="326" text-anchor="middle">真的要走滿五年</text>
+<text class="b" x="780" y="420" text-anchor="middle">空的避險部位</text>
+<text class="b" x="780" y="398" text-anchor="middle">新供給還沒進來</text>
+
+<text class="c" x="60" y="518">現貨漲、波動也漲，就長在這個落差裡</text>
+</svg>

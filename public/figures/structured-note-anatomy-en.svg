@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A $100 bill is cut into two pieces: the large principal piece stays untouched but carries the issuer's credit risk, while the small interest piece is spent buying and selling options, then forks into an upside-participation path above and a coupon path below.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="62">Your $100, cut into two pieces</text>
+
+<rect x="60" y="120" width="150" height="290" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="135" y="255" text-anchor="middle">$100</text>
+<text class="b" x="135" y="285" text-anchor="middle">You hand it over</text>
+
+<path d="M214 265 L268 265" stroke="var(--grey)" stroke-width="3" fill="none"/>
+
+<rect x="272" y="150" width="210" height="190" rx="10" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+<text class="g" x="377" y="230" text-anchor="middle">Principal</text>
+<text class="b" x="377" y="262" text-anchor="middle">stays untouched</text>
+<text class="b" x="377" y="312" text-anchor="middle">issuer credit risk</text>
+
+<rect x="272" y="356" width="210" height="54" rx="10" fill="var(--accent)" opacity="0.18" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="377" y="390" text-anchor="middle">That interest</text>
+
+<path d="M486 383 L548 383" stroke="var(--accent)" stroke-width="3" fill="none"/>
+<polygon points="548,377 562,383 548,389" fill="var(--accent)"/>
+
+<rect x="566" y="352" width="150" height="62" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="641" y="390" text-anchor="middle">buys and sells options</text>
+
+<path d="M720 370 C790 370 790 215 836 215" stroke="var(--accent)" stroke-width="3" fill="none"/>
+<polygon points="836,209 850,215 836,221" fill="var(--accent)"/>
+<path d="M720 396 C790 396 790 452 836 452" stroke="var(--accent)" stroke-width="3" fill="none"/>
+<polygon points="836,446 850,452 836,458" fill="var(--accent)"/>
+
+<text class="g" x="856" y="200">Upside</text>
+<text class="b" x="856" y="226">Gain extra</text>
+<text class="g" x="856" y="437">Coupon</text>
+<text class="b" x="856" y="463">Sold a put</text>
+
+<text class="c" x="60" y="492">The interest you give up is the budget for every part of the note</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="One path carries three shape features: the volatility line above falls from high to low, the price in the middle drifts slowly lower, and the protection line at the bottom is never touched; a branching path heads down and hits the protection line, and on that path only the price is left.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="62">That number needs three things at once</text>
+
+<text class="g" x="60" y="124">Volatility</text>
+<path d="M150 132 L220 190 L340 206 L560 212 L860 214" stroke="var(--accent)" stroke-width="4" fill="none"/>
+<text class="b" x="150" y="112">high at entry</text>
+<text class="b" x="600" y="196">then quiets down</text>
+
+<text class="g" x="60" y="300">Price</text>
+<path d="M150 282 L360 316 L600 348 L860 366" stroke="var(--accent)" stroke-width="4" fill="none"/>
+<text class="b" x="380" y="304">drifting slowly lower</text>
+
+<line x1="150" y1="452" x2="900" y2="452" stroke="var(--grey)" stroke-width="3" stroke-dasharray="10 8"/>
+<text class="b" x="150" y="480">Protection line</text>
+<text class="b" x="780" y="480">never hit</text>
+
+<path d="M600 348 L720 410 L800 452" stroke="var(--warn)" stroke-width="4" fill="none"/>
+<circle cx="800" cy="452" r="9" fill="var(--warn)"/>
+<text class="b" x="640" y="414">One condition short</text>
+<text class="g" x="818" y="438">it hits</text>
+
+<rect x="60" y="150" width="4" height="302" fill="var(--line)"/>
+<text class="c" x="60" y="528">One condition is negotiable; three conditions are just the price</text>
+</svg>

@@ -1,0 +1,93 @@
+---
+title: "The $300 Billion Structured Notes Market: Who Pays That Coupon"
+description: "Notes from listening to Odd Lots, 2026-11-02, on the US structured notes market — market size, auto-callables, and the hedging pressure on dealers. Educational only; no investment advice, price targets, or stock recommendations."
+slug: "oddlots-2026-11-02-the-300-billion-structured-notes-market-is-booming"
+lang: "en"
+pubDate: 2026-11-02
+category: investing
+kind: "podcast-notes"
+tags: ["structured products", "options", "volatility", "market structure", "podcast"]
+ogImage: "/covers/oddlots-2026-11-02-the-300-billion-structured-notes-market-is-booming-cover.png"
+cover: "/covers/oddlots-2026-11-02-the-300-billion-structured-notes-market-is-booming-cover.png"
+---
+
+![A derivatives trading desk late at night, a long row of desks receding into darkness, an index line drifting down on the nearest screen](/covers/oddlots-2026-11-02-the-300-billion-structured-notes-market-is-booming-cover.png)
+
+> The pearl worth a thousand pieces of gold lies in the deepest abyss, beneath the chin of the black dragon. If you came away with it, it was because the dragon happened to be asleep. Had it been awake, what would be left of you?
+>
+> —— Zhuangzi, "Lie Yukou" (Warring States period; my own translation)
+
+On the Bloomberg Odd Lots episode of 2026-11-02, Tracy Alloway and Joe Weisenthal spoke with Alex Michelizzi of Nomura, who runs international equity structured notes. His number: SEC-registered structured notes in the US are on track for roughly $300 billion this year, against about $200 billion last year, and the fastest-growing slice pays off on the worst performer of three indices — S&P 500, NASDAQ and Russell 2000. That figure holds only while markets keep rising: each note knocks out and a new one gets written, which is what compounds the volume. Go sideways or down and new issuance fades on its own, while the hedges already on dealers' books stay exactly where they are.
+
+## Taking the note apart first
+
+Michelizzi's own description is plain: you hand the issuer $100, give up the interest that money would have earned, take on the issuer's credit risk, and the issuer spends that forgone interest on options for you. You can take it as participation — more upside if the market rallies — or as yield, which means selling a put through the note and receiving the premium back as a coupon. Want a bigger coupon? Bolt on more parts.
+
+![A $100 bill is cut into two pieces: the large principal piece stays untouched but carries the issuer's credit risk, while the small interest piece is spent buying and selling options, then forks into an upside-participation path above and a coupon path below.](/figures/structured-note-anatomy-en.svg)
+
+Joe borrowed Emanuel Derman's analogy: the bank is a kitchen that buys fruit wholesale and chops it into whatever fruit salad the client orders, charging a small margin. Because there's no limit on how you chop, any view and any hedge can be built. The buyers are mostly high-net-worth individuals through private bank channels, people who can't assemble this in the listed market themselves.
+
+The most common part is the auto-callable. Take a three-year note observed every three months: if the index sits above where you started, the note disappears that day and you get your principal back plus a final coupon. Why does that pay more than simply selling a three-year put? Because once the index has rallied, the put is worth less and the issuer no longer has to worry about it — so it will price that contingent bet generously. The cost shows up elsewhere: when you get called away, volatility has already come down, so the next note's coupon is lower than this one's.
+
+![On a three-year note's timeline an observation point falls every three months, and at the third observation the index sits above the entry level, so the note is called away and ends on the spot, the rest of the timeline greyed out, while a note on the right points out that volatility has already come down and the next note will pay a lower coupon.](/figures/auto-callable-timeline-en.svg)
+
+The protection deserves a close look too. His typical example is a 60% knock-in put: down 20% and you're still protected, through down 40% and you take the full downside as though you owned the index, with $100 that can go to zero. Sell a plain 60% put instead and the worst case is losing 40%. That extra stretch of risk is where the extra coupon comes from.
+
+![Two payoff curves compared: the knock-in put drops off a vertical cliff once the index is down 40%, falling straight to minus 40% and then sliding on toward zero, while a plain short put declines gently from the same point and stops at minus 40% with a floor; the wedge between the two lines is the extra coupon.](/figures/knockin-cliff-vs-plain-put-en.svg)
+
+## Early 2026: knock out, write another
+
+Through the first part of the year the machine ran smoothly. Markets rose, index notes knocked out every three months, and on the single-stock side some notes are observed daily, so they churned faster. Michelizzi calls this the virtuous cycle: one trades out, one comes in, your day-one hedge works, you don't have to think much. Russell 2000 had gone sideways for years and then ran in a straight line from last year's Liberation Day, so notes written on it kept knocking out — a five-year contract that behaves like a three-month one, over and over, and volumes pile up.
+
+## By August: the ones that don't knock out
+
+Then came the turbulence. Stocks and indices drifted down, notes that should have vanished in three months extended, and the issuer's Vega — the put's sensitivity to implied volatility — grew, which means more volatility to sell. At the same moment, the buyers who had been purchasing calls to protect portfolios stopped, because those portfolios had shrunk, and market makers and off-exchange counterparties pulled back as the supply arrived all at once. Tracy summed it up precisely: dealers have far more Vega to offload exactly when fewer people want it.
+
+![The left panel shows a ring turning the right way, knock-out leading to a new note leading to day-one hedging being enough; in the right panel the ring is cut, the dealers' bar of volatility to offload stands tall while the bar for buyers willing to take it is very short.](/figures/virtuous-loop-then-jam-en.svg)
+
+There's a risk pointing the other way as well. On worst-of-three notes he says maturities run three to five years with an expected life around two, so dealers hedge the two-year point. If markets fall, the note really does go out to five years and all the Vega is there; but let the indices rally a little and the note knocks out in three months, leaving the dealer short hedges with no new supply yet. His colleague Charlie McElligott's "spot up, vol up" regime, Michelizzi says, is visible in the longer-dated part and stronger still in single stocks.
+
+![Above, the index drifts slowly lower and then rallies a little; below, the dealers' volatility exposure piles up to its peak through the decline and drops vertically to zero the moment the index ticks up, leaving a blank stretch behind it waiting for new supply.](/figures/two-year-proxy-five-year-risk-en.svg)
+
+## The single-stock end: observed daily
+
+On single names the complexity goes up another level. On top of worst-of you can add contingent coupons — no coupon this period if the worst performer has fallen too far — and shift observation from quarterly to daily. His typical build lets the stocks breathe for a month, then observes every day, with maturities from six months to two years. The result is an on-off market: on any given day he may hold no option at all, or suddenly carry a year's worth of put value because one of the names dropped.
+
+The product he called the most creative took me two passes. Three stocks, daily observations: one rallies 20% on day one and is considered knocked out, leaving two. That first stock can later fall 40% or 50% and it no longer matters. The put left inside goes deep in the money and looks valuable, yet a small rally in the last remaining name ends the whole note and that value evaporates. That, he says, is a huge vol-of-vol position, and there's a lot of it now in the front end of semis and hyperscaler names. The Asian example is CoreWeave — Bloomberg columnist Shuli Ren wrote about one at a 40% annualized yield. Joe's reaction: that's pretty sick.
+
+![On the left are three thin price lines: one rises on day one, exits and greys out, while the other two stay in and one of them falls deeply; on the right a tall bar of put value is carried by an arrow down to zero the moment the last name ticks up.](/figures/vol-of-vol-value-to-zero-en.svg)
+
+## What to watch next
+
+Tracy closed with a good question: which hurts more, the slow decline or the big overnight gap? Michelizzi's answer is that the grind is harder to handle — you hedged two years as a proxy for five, volatility falls, skew flattens, and the hedge is wrong on every axis. The gap hurts differently: your put spread or call spread only pays up to a point, while the thing you sold keeps paying beyond it.
+
+The other thing to watch is the neighborhood of the barriers. Near a knock-out or knock-in level dealers flip to short gamma — buying as the market rises, selling as it falls, amplifying the move themselves. Knock-outs happen quarterly, so everyone has seen them; the downside barriers haven't really been tested in a falling market. Dealers were hurt in a 2018 grind down, which produced a no-knock-in, knock-out structure instead — and in his words, each fix creates secondary issues.
+
+## "So who pays me this big coupon?"
+
+This is the part I care about most. You see 8% annualized, you see 40%, and the first instinct is to check the issuer's credit. The episode makes the real answer clear: the coupon comes from the put you sold. You collect the premium; the payer is you, in some future state of the world where the market is down.
+
+Michelizzi's description of the buyer's ideal scenario shows it best: enter when volatility is high so the coupon prices rich, then have the world calm down, with the index drifting lower without touching the protection, so the fat coupon lives as long as possible. That's volatility high then low, with direction gently down. The scenario exists, but it needs three conditions at once. So when something advertises a yield, the question I ask now is how many conditions have to hold together for me to collect it. One condition, let's talk. Three, and the number is just a price tag.
+
+![One path carries three shape features: the volatility line above falls from high to low, the price in the middle drifts slowly lower, and the protection line at the bottom is never touched; a branching path heads down and hits the protection line, and on that path only the price is left.](/figures/three-conditions-one-path-en.svg)
+
+## "The index is near a record — why does this feel off?"
+
+Joe raised that gap twice: everyone is debating volatility and whether the AI trade gets repriced, while the index sits about one and a half percent from an all-time high, the semiconductor ETF is down roughly 10% from its peak, and NVIDIA credit default swaps have inched up. His framing was a plane rattling at high speed without losing altitude.
+
+Tracy's mechanism connected that feeling to something concrete for me: once this market gets big enough, technical flows start to drive prices — somebody has to sell into weakness and buy into strength, and the tail starts wagging the dog. So "the index looks fine" and "market structure is tightening" can both be true, because they measure different things: one is a price level, the other is who still has capacity to take risk. What I do now is keep two columns. Price goes in one. Structure goes in the other: whether market makers will take the other side, whether credit default swaps are moving, whether spot and vol are rising together. None of that forecasts direction; it tells me how big a surprise this market can absorb.
+
+![Two columns side by side: on the left is the price level, with the index only a little below its high and the SOX down about 10% from its high; on the right is market structure, where the bar for capacity to take risk is visibly shorter, credit default swaps have moved up, and spot and volatility move the same way — the two columns measure different things.](/figures/price-column-vs-structure-column-en.svg)
+
+## Sources worth checking
+
+- Bloomberg Odd Lots, 2026-11-02, hosts Tracy Alloway and Joe Weisenthal, guest Alex Michelizzi, international head of equity structured notes at Nomura
+- Shuli Ren's Bloomberg column on structured notes, referenced in the episode for an Asian note on CoreWeave at a 40% annualized yield
+- Charlie McElligott (Nomura) on the "spot up, vol up" regime
+- Emanuel Derman's fruit-salad-kitchen analogy for an investment bank, quoted by Joe
+
+## The One Thing to Take Away
+
+One idea: every cash flow above the risk-free rate corresponds to something you sold. A structured note writes that down in the contract — the coupon comes from a put you sold, and the protection stops at 60%. Most deals in life have no contract, so you have to go find the thing you sold yourself. Not finding it doesn't mean it isn't there; it means the bill hasn't arrived.
+
+Something I've tried: take a sheet of paper and list the good things that came your way this month — a raise, a discount, the hassle someone absorbed for you, those two unexpected free evenings. Next to each one, write what you traded away: which hours, whose expectations, which thing that will get harder later. The ones you can fill in, you understand the trade you made. The ones you can't are worth another look.

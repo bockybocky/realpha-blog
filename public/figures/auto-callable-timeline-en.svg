@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="On a three-year note's timeline an observation point falls every three months, and at the third observation the index sits above the entry level, so the note is called away and ends on the spot, the rest of the timeline greyed out, while a note on the right points out that volatility has already come down and the next note will pay a lower coupon.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="62">3-yr note, 3 months?</text>
+
+<line x1="90" y1="430" x2="900" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="90" y1="270" x2="900" y2="270" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 6"/>
+<text class="b" x="90" y="258">Strike</text>
+
+<circle cx="150" cy="430" r="5" fill="var(--grey)"/>
+<circle cx="230" cy="430" r="5" fill="var(--grey)"/>
+<circle cx="310" cy="430" r="5" fill="var(--grey)"/>
+<circle cx="390" cy="430" r="5" fill="var(--grey)"/>
+<circle cx="470" cy="430" r="5" fill="var(--grey)"/>
+<circle cx="550" cy="430" r="5" fill="var(--grey)"/>
+<circle cx="630" cy="430" r="5" fill="var(--grey)"/>
+<circle cx="710" cy="430" r="5" fill="var(--grey)"/>
+<circle cx="790" cy="430" r="5" fill="var(--grey)"/>
+<circle cx="870" cy="430" r="5" fill="var(--grey)"/>
+<text class="b" x="150" y="462" text-anchor="middle">Every 3 mo</text>
+<text class="b" x="870" y="462" text-anchor="middle">Yr 3</text>
+
+<path d="M90 300 L150 320 L230 296 L310 232" stroke="var(--accent)" stroke-width="4" fill="none"/>
+<path d="M310 232 L390 250 L470 300 L550 270 L630 320 L710 240 L790 290 L870 250" stroke="var(--grey)" stroke-width="3" fill="none" stroke-dasharray="7 7" opacity="0.6"/>
+
+<line x1="150" y1="320" x2="150" y2="430" stroke="var(--grey)" stroke-width="1"/>
+<line x1="230" y1="296" x2="230" y2="430" stroke="var(--grey)" stroke-width="1"/>
+<line x1="310" y1="232" x2="310" y2="430" stroke="var(--accent)" stroke-width="2"/>
+
+<circle cx="310" cy="232" r="11" fill="var(--accent)"/>
+<text class="g" x="334" y="200">Out</text>
+<text class="b" x="334" y="226">Note ends</text>
+<text class="b" x="334" y="252">Par + coupon</text>
+
+<text class="b" x="150" y="156" text-anchor="middle">Low</text>
+<text class="b" x="230" y="156" text-anchor="middle">Low</text>
+<text class="b" x="150" y="182" text-anchor="middle">On</text>
+<text class="b" x="230" y="182" text-anchor="middle">On</text>
+
+<rect x="600" y="120" width="300" height="100" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="620" y="156">At call</text>
+<text class="b" x="620" y="186">Vol fell</text>
+<text class="b" x="620" y="208">Next pays less</text>
+
+<text class="c" x="60" y="512">High coupon = terms</text>
+</svg>

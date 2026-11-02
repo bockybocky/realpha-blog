@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two columns side by side: on the left is the price level, with the index only a little below its high and the SOX down about 10% from its high; on the right is market structure, where the bar for capacity to take risk is visibly shorter, credit default swaps have moved up, and spot and volatility move the same way — the two columns measure different things.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="62">Two things can be true at once</text>
+
+<line x1="480" y1="100" x2="480" y2="470" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="60" y="124">The price column</text>
+<text class="g" x="530" y="124">The structure column</text>
+
+<line x1="100" y1="180" x2="420" y2="180" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 6"/>
+<text class="b" x="100" y="168">Record high</text>
+<rect x="130" y="192" width="84" height="230" rx="6" fill="var(--accent)" opacity="0.8"/>
+<rect x="290" y="236" width="84" height="186" rx="6" fill="var(--accent)" opacity="0.5"/>
+<line x1="100" y1="422" x2="420" y2="422" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="172" y="450" text-anchor="middle">Index 1.5% away</text>
+<text class="b" x="332" y="450" text-anchor="middle">SOX about 10% off</text>
+<text class="b" x="100" y="482">measures the level</text>
+
+<rect x="540" y="300" width="78" height="122" rx="6" fill="var(--card)" stroke="var(--grey)" stroke-width="3"/>
+<rect x="540" y="372" width="78" height="50" rx="6" fill="var(--grey)" opacity="0.8"/>
+<line x1="540" y1="422" x2="900" y2="422" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="579" y="450" text-anchor="middle">Capacity to take risk</text>
+<text class="b" x="579" y="284" text-anchor="middle">room left</text>
+
+<path d="M680 400 L720 356 L760 340" stroke="var(--warn)" stroke-width="4" fill="none"/>
+<polygon points="754,332 768,336 760,348" fill="var(--warn)"/>
+<text class="b" x="680" y="450">CDS wider</text>
+
+<path d="M820 400 L860 352" stroke="var(--warn)" stroke-width="4" fill="none"/>
+<path d="M838 400 L878 352" stroke="var(--warn)" stroke-width="4" fill="none"/>
+<text class="b" x="820" y="450">Spot=vol up</text>
+<text class="b" x="530" y="482">measures who can still absorb it</text>
+
+<text class="c" x="60" y="528">These signals only say how big a shock the market can absorb</text>
+</svg>

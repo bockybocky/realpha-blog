@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two payoff curves compared: the knock-in put drops off a vertical cliff once the index is down 40%, falling straight to minus 40% and then sliding on toward zero, while a plain short put declines gently from the same point and stops at minus 40% with a floor; the wedge between the two lines is the extra coupon.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="62">Protected to 60%, then a cliff</text>
+
+<line x1="100" y1="160" x2="900" y2="160" stroke="var(--line)" stroke-width="2"/>
+<line x1="100" y1="160" x2="100" y2="450" stroke="var(--line)" stroke-width="2"/>
+<text class="b" x="106" y="150">P&amp;L 0</text>
+<text class="b" x="100" y="482">Index flat</text>
+<text class="b" x="412" y="482" text-anchor="middle">Down 40%</text>
+<text class="b" x="890" y="482" text-anchor="end">To zero</text>
+
+<line x1="412" y1="160" x2="412" y2="450" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<text class="b" x="424" y="440">Knock-in barrier</text>
+
+<path d="M412 160 L412 268 L880 430 L880 268 Z" fill="var(--warn)" opacity="0.16"/>
+
+<path d="M100 160 L412 160 L412 268 L880 430" stroke="var(--warn)" stroke-width="5" fill="none"/>
+<path d="M100 160 L412 160 L880 268" stroke="var(--accent)" stroke-width="4" fill="none" stroke-dasharray="10 7"/>
+
+<circle cx="412" cy="160" r="7" fill="var(--warn)"/>
+<circle cx="412" cy="268" r="7" fill="var(--warn)"/>
+
+<text class="g" x="700" y="408">Knock-in put</text>
+<text class="b" x="700" y="434">all the way to zero</text>
+<text class="g" x="700" y="246">Plain short put</text>
+<text class="b" x="700" y="222">floored at -40%</text>
+
+<text class="g" x="446" y="214">Cliff</text>
+<text class="b" x="446" y="240">one step into owning the index</text>
+
+<rect x="600" y="86" width="300" height="48" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="620" y="118">Gap = extra coupon</text>
+
+<text class="c" x="60" y="528">The protection is not free; it is part of the price</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Above, the index drifts slowly lower and then rallies a little; below, the dealers' volatility exposure piles up to its peak through the decline and drops vertically to zero the moment the index ticks up, leaving a blank stretch behind it waiting for new supply.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="62">Two-year positions proxying five-year risk</text>
+
+<text class="g" x="60" y="118">Index</text>
+<path d="M100 170 L300 196 L520 236 L660 206" stroke="var(--grey)" stroke-width="4" fill="none"/>
+<text class="b" x="300" y="166">drifting lower</text>
+<text class="b" x="676" y="200">a small rally</text>
+
+<text class="g" x="60" y="300">Dealer Vega</text>
+<line x1="100" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+<path d="M100 400 L260 400 L420 360 L560 330 L660 330 L660 440 L900 440" stroke="var(--accent)" stroke-width="5" fill="none"/>
+<path d="M100 400 L260 400 L420 360 L560 330 L660 330 L660 440 L100 440 Z" fill="var(--accent)" opacity="0.14"/>
+
+<line x1="660" y1="300" x2="660" y2="460" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 6"/>
+<circle cx="660" cy="330" r="8" fill="var(--warn)"/>
+<text class="g" x="678" y="318">Knock-out</text>
+<text class="b" x="678" y="344">gone in 3 months</text>
+
+<text class="b" x="200" y="388">Sold as 2-year</text>
+<text class="b" x="470" y="326" text-anchor="middle">but must run the full 5 years</text>
+<text class="b" x="780" y="420" text-anchor="middle">Empty hedge book</text>
+<text class="b" x="780" y="398" text-anchor="middle">new supply not in yet</text>
+
+<text class="c" x="60" y="518">Spot up and vol up grows out of exactly this gap</text>
+</svg>
