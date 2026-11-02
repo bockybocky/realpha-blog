@@ -1,0 +1,87 @@
+---
+title: "No Textbooks Button in NotebookLM Outside the US? I Picked the Chapters Myself, and Liked It Better"
+description: "On October 29, 2026, Google added a free textbook catalog to Gemini Notebook (formerly NotebookLM), but only for accounts in the US and India. This post makes the strongest case for the catalog, then looks at its limits for learners elsewhere, and shares what happened when I added OpenStax and LibreTexts chapter links to a notebook by hand on November 2: 13 of 14 links worked, and the one that failed taught me something. A learning-tools write-up, not commercial advice."
+slug: "notebooklm-open-textbooks-2026-11"
+lang: "en"
+pubDate: 2026-11-02
+category: "tech"
+tags: ["NotebookLM", "Gemini Notebook", "OpenStax", "open textbooks", "self-study", "learning"]
+ogImage: "/covers/notebooklm-open-textbooks-2026-11.png"
+cover: "/covers/notebooklm-open-textbooks-2026-11.png"
+tldr: "The textbook catalog is convenient, but accounts outside the US and India can't see it, and its shelf may not hold the book you need. OpenStax and LibreTexts are free to read anyway. Paste the chapter links you actually want, and you can mix publishers in a way the catalog doesn't encourage."
+---
+
+![Surrealist oil painting cover: a wall-less library bookshelf stands on a beach at night, books fly off it like birds and settle page by page into a small notebook lying open on the sand, while a half-open door on the horizon spills light](/covers/notebooklm-open-textbooks-2026-11.png)
+
+> *I once spent a whole day thinking, and it was worth less than a moment of learning.*<br/>
+> —— Xunzi, *An Exhortation to Learning* (Warring States period; translation mine)
+
+On October 29, 2026, Google gave Gemini Notebook (the tool most of us still call NotebookLM) a "Textbooks" catalog: one click and a free open textbook lands in your notebook. The catch is that the button only shows up for accounts in the US and India, and mine is in Taiwan. So on November 2 I did it the slow way and pasted OpenStax and LibreTexts chapter links into a notebook one at a time. Thirteen of fourteen links went in cleanly. Picking chapters by hand also let me stitch several publishers into a single "textbook of my own," which is something the catalog doesn't really do.
+
+## The case for the button
+
+Let me argue for the new feature first, because it earns it.
+
+Getting an AI to read a textbook used to mean finding an open-textbook site, hunting down the download page, pulling a PDF that weighs tens of megabytes, then uploading it. Just figuring out whether a legitimate free edition existed could eat an evening. The catalog collapses all that into one move: open "Add sources," click "Textbooks," search by subject, tick the box.
+
+The shelf isn't small, either. Someone published a full snapshot of the catalog on October 30: 665 titles, split into 163 in arts and humanities, 146 in sciences and math, 135 in social sciences and law, 126 in engineering and technology, and 95 in business and economics. The providers include Ontario's open library, India's S Chand, the Open Textbook Library, and OpenStax.
+
+And these are vetted course texts. Ask a question and every answer points back to the passage it came from. You can generate a study guide, practice quizzes, flashcards, even a two-host audio walkthrough. For someone who wants to learn on their own but freezes in front of a 900-page book, it's like having a TA skim it for you first.
+
+## The case against
+
+Now the other side.
+
+The obvious problem: no button outside the US and India. Some people suggest a VPN plus switching your account language to US English. I didn't. An account that suddenly hops regions can get flagged as an unusual sign-in, and even if the menu appears, you've only unlocked a shelf that wasn't chosen with you in mind.
+
+The less obvious problem is what's on that shelf. Count the 665 titles by provider and the biggest group is Ontario's open library at 247, then S Chand at 149. OpenStax, the name most people know, has only 41. LibreTexts has 8. A lot of the S Chand titles are Indian primary and secondary school books, which won't help most readers outside India.
+
+![Horizontal bar chart: the Ontario open library and India's S Chand bars run far longer than the rest, while the OpenStax and LibreTexts bars are so short they are barely visible, showing that the shelf holds many books but the familiar sources make up only a tiny share.](/figures/textbook-shelf-source-mix-en.svg)
+
+The third problem is thinking in whole books. I'm brushing up on metals and materials. Searching the catalog for materials titles turned up about five, mostly strength-of-materials texts. The LibreTexts materials science book I actually wanted isn't in the catalog at all. Even if it were, I only needed a handful of chapters, and the catalog hands you the whole thing.
+
+![Three books from different publishers on the left, each with a row of chapter cells where only some are highlighted; arrows carry the chosen cells into one notebook on the right](/figures/whole-book-versus-picked-chapters-en.svg)
+
+## What happened when I tried it
+
+On the morning of November 2 I opened a fresh notebook to build a starter kit for the materials basics I'm relearning. I pulled from three places:
+
+- Chapters 1 to 7 of a LibreTexts materials science book (crystal structure, defects, phase diagrams, mechanical behavior, corrosion), plus its first machine-design chapter and its glossary
+- OpenStax *Chemistry 2e*, sections 10.5 and 10.6 (solids and lattices)
+- OpenStax *University Physics Vol. 1*, sections 12.3 and 12.4 (stress and strain, elasticity and plasticity)
+- A full materials science textbook PDF from a US university
+
+Fourteen links, thirteen successes. The failure was the PDF, and the cause sat on the university's side: its site puts a "prove you're human" check in front of downloads, so any automated fetch just gets the check page. In that case you download it in your own browser and use "Upload file." When I looked into it afterward, the 2019 PDF turned out to be by the same author as the LibreTexts book I'd already added; the LibreTexts one is his 2024 course adaptation. So most of the missing book was already in my notebook. The same instructor often posts versions of a book on several open platforms, and checking the author first saves you from adding duplicates.
+
+I opened each of the thirteen to make sure it held the actual chapter. The phase diagrams chapter, for instance, came in at about 3,600 words, which matches the length of the web page itself. That check is worth the minute it takes: a web source marked "ready" only tells you NotebookLM read *something*. Whether that something is the chapter, you have to open it to see. I also skipped the book's landing page on purpose. It's mostly a list of chapter links, so pasting it in would give the AI a table of contents and little else.
+
+![Two panels side by side: the left "homepage" panel holds only a few short link lines with a note that the AI reads just the table of contents, while the right "chapter page" panel is filled with dense body-text lines labelled as roughly 3,600 words of course text.](/figures/homepage-versus-chapter-page-en.svg)
+
+## The three routes side by side
+
+| | Catalog button | Paste chapter links | Download PDF, then upload |
+|---|---|---|---|
+| Works outside US/India | Not yet | Yes | Yes |
+| What you can pick from | ~665 catalog titles | Any public web page | Any file you can get |
+| Unit | Whole book | Section by section | Whole book |
+| Mixing publishers | One book at a time | Natural | One book at a time |
+| Where it breaks | Region lock | Bot checks; pasting only a contents page | File size (most guides cite 500,000 words or 200MB per source) |
+| Time | Least | Moderate, you choose chapters first | Most |
+
+Most guides put the free plan at 50 sources per notebook. At one link per section, that holds the key chapters of three or four books, which is plenty for one course.
+
+## Where I land
+
+Put the two sides together and the catalog wins on "no searching," while hand-picked links win on "you got what you needed."
+
+If you're a student in the US or India who needs OpenStax calculus or biology, the button is the fastest route, no contest. But for someone like me, studying a professional field after work from outside those two countries, the slow part was never dropping the book in. It was deciding which chapters matter. The catalog can't make that call for you.
+
+![Three bars compared by length: the "getting it" bar for finding books yourself is medium, the "getting it" bar for the shelf button shrinks to very short, and the bar for choosing which chapters to read is the longest and is not shortened at all.](/figures/fetching-time-versus-choosing-time-en.svg)
+
+Picking chapters has a side benefit, too: you read the table of contents first, so you see the shape of the subject before you start. When the AI writes you a quiz, you already know which questions are foundations and which are extensions. So don't wait for the button. OpenStax and LibreTexts are free and open, and you can read them today; the button just shortens a road you could already walk.
+
+## One thing to take with you
+
+**The idea**: tools can cut the time it takes to *get* the material. They can't cut the time it takes to *choose* it, and choosing is where learning starts.
+
+**Try this today**: pick a subject you've been meaning to learn. Spend fifteen minutes finding one open textbook, read only its table of contents, and circle the three sections you need most. Paste those three links into a new notebook, ask it for a five-question quiz, and decide after the quiz whether to keep going.
