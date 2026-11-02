@@ -1,0 +1,118 @@
+---
+title: "Asianometry: Zhipu Gives Away Its Best Models — What Does It Get Back?"
+description: "Notes on the 2 November 2026 Asianometry episode profiling the Chinese AI lab Zhipu (Z.ai) and its GLM models. The video says R&D spending runs at more than twice revenue while the frontier models are released as open weights; market cap peaked at $170 billion in June 2026 and had settled to roughly $50 billion as of the video. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "asianometry-2026-11-02-the-rise-of-glm-and-china-s-zhipu-ai"
+lang: "en"
+pubDate: 2026-11-02
+category: "investing"
+kind: "podcast-notes"
+tags: ["China AI", "open-weight models", "podcast-notes", "business models", "valuation discipline"]
+ogImage: "/covers/asianometry-2026-11-02-the-rise-of-glm-and-china-s-zhipu-ai-cover.png"
+cover: "/covers/asianometry-2026-11-02-the-rise-of-glm-and-china-s-zhipu-ai-cover.png"
+---
+
+![A university lecture hall converted into a machine room, rows of server racks wedged between the old wooden desks, their dark unlit panels receding into the depth of the hall until they disappear, a single lamp burning over the door, its light falling on the nearest rack and the chalk dust left on the floor](/covers/asianometry-2026-11-02-the-rise-of-glm-and-china-s-zhipu-ai-cover.png)
+
+> What you would draw in, first stretch out; what you would weaken, first strengthen; what you would discard, first raise up; what you would take, first give.
+>
+> —— Laozi, "Dao De Jing," chapter 36 (Spring and Autumn period; my translation)
+
+The 2 November 2026 episode of Asianometry profiles Zhipu (Z.ai), a Chinese AI lab that grew out of a Tsinghua University laboratory, was founded in 2019, and listed in Hong Kong in January 2026, and that builds the open-weight GLM series of models. The video saves the hardest question for last: Zhipu spends more than twice its revenue on R&D, most of it on training compute, and then gives the resulting frontier models away. The stock rose roughly tenfold after listing, peaked at a $170 billion market cap in June 2026, and has settled to about $50 billion as of the video. The path that co-founder and CEO Zhang Peng describes holds together only if the switch now underway lands — revenue moving from on-premise deployment to a cloud API.
+
+## Who this episode is about
+
+Zhipu's roots run into a Tsinghua lab called the Knowledge Engineering Group, or KEG, which has been around since 1996 doing semantic web and data processing work. In 2006 a team led by Tang Jie built AMiner, a research-intelligence system running on a single desktop computer, close in concept to Google Scholar: machine learning pulled emails and researcher profiles out of messy web pages and assembled a searchable knowledge graph and ranking of researchers.
+
+The lab had a slogan, P2P — "Paper to Product." In 2015 AMiner started earning money from partnerships with Microsoft, Elsevier, Google, ExxonMobil and IBM, and the US dollars landing in a research lab were encouraging enough that Zhang Peng began thinking about turning it into a company. The obstacle was institutional: it took until 2018, when China's Department of Education issued guidance permitting commercialization of certain work done at research institutions, before Zhipu could be formally founded in June 2019. Tsinghua transferred the AMiner product across and remains one of Zhipu's larger shareholders. I liked the analogy the video opens with: if DeepSeek is China's OpenAI, does that make Zhipu its Anthropic?
+
+## A fill-in-the-blank method that splices GPT and BERT together
+
+GPT-3 arrived in 2020 with 175 billion parameters. Zhang Peng read it as a paradigm shift. Traditional natural language processing ran a sentence through a long pipeline to tag its nouns and verbs and break it into a tree; that worked on some sentences, but it was brittle and did not scale, and GPT-3 showed none of it had been necessary.
+
+The paper Tang Jie put out in March 2021 was originally titled "All NLP Tasks Are Generation Tasks"; a year later it was resubmitted as just GLM. The framework sits between GPT and BERT. GPT predicts left to right, one token at a time. BERT blanks out the middle of a text and fills it back in from the context on either side. GLM fills in a blank from surrounding context, but does it token by token. Zhang said that approach was more stable during training. Past a hundred billion parameters the team noticed capabilities they had not expected, and his example is a grade-school question: a newborn's head is one quarter of its body length, the baby is 50 centimetres long at birth, how long is the head? There is no trick in it. What interested him is how the model got there — it did not multiply 50 by one quarter, it divided by four. He took that as a sign the model had understood the intent behind the question.
+
+![Three rows of boxes standing for a sentence: in the first row the boxes fill in one by one from left to right with arrows pointing only rightward; in the second row the middle box is left empty and arrows on both sides point inward to it; in the third row the middle box is again left empty, but that gap is split into two smaller cells that are generated in order from left to right.](/figures/glm-fill-in-the-blank-three-ways-en.svg)
+
+## A $1.5 million training run, given away when it finished
+
+In December 2021 Zhang and the research team at KEG resolved to go for their next big model. The government-backed WuDao 2.0 of the previous year had 1.75 trillion parameters, but it was a sparse mixture-of-experts model — only a fraction activates on any query — so it never performed at that full count. This time they chose a dense model, like GPT-3, using all of its parameters on every pass: simpler architecture, more consistent output, easier to deploy. The target was concrete — it had to run on a single A100 GPU server.
+
+![On the left a large grid has only a few cells lit; on the right a smaller grid is lit all over, contrasting a sparse architecture that activates only part of its parameters with a dense one in which the whole block is working.](/figures/sparse-vs-dense-activation-en.svg)
+
+Training began in January 2022 and ran into random hardware failures, exploding gradients and unexpected memory usage. The final, successful run kicked off in May on 96 A100 servers and finished in July. Compute cost 4 million RMB (about $600,000); all-in cost was 10 million RMB (about $1.5 million).
+
+Having fought through all of that, they open-sourced the model. Zhang's reason was dry: keeping it closed would not have earned them money at that point, and they wanted to share it, which was the air everyone breathed before ChatGPT.
+
+## The same result, priced two ways either side of ChatGPT
+
+In November 2022 Stanford released a report benchmarking 30 prominent models from 12 providers. GLM-130B was the only Chinese model in it, and Zhang was proud of that. The authors noted it underperformed the closed models, while crediting how far open models had come.
+
+Around the same time Zhang was in Shenzhen raising money and signing customer contracts. Investors were unmoved by "we trained a GPT-3-class model," and one of them, citing the weak economy, asked straight up to cut the valuation in half. ChatGPT launched on 30 November and the whole thing flipped. The model had not changed and the benchmark had not changed; what changed was how much outsiders would pay for it.
+
+![Two identical score cards sit side by side, with a price bar under each: short on the left, tall on the right, a dashed line separating them.](/figures/same-score-two-prices-en.svg)
+
+In late December 2022 Tang Jie held an online lecture titled "Reflections on the Journey from 100-Billion-Parameter Models to ChatGPT." Over a thousand Tsinghua alumni attended, asking about data, applications and robotics. Internally the company worked through the Lunar New Year holiday to finish its own chatbot, and open-sourced a smaller model, ChatGLM-6B, so that Chinese users then poking at ChatGPT could put their hands on a real one.
+
+## The consumer fight they could not keep fighting
+
+In 2023 the number of Chinese models exploded. At the start of the year only four or five outfits besides Zhipu had GPT-3-class models — Baidu, Huawei, ByteDance, and Alibaba's DAMO Academy — and all of them trailed GPT-3.5 by a generation. Over the following months startups and models poured out in what became known as the battle of the hundred models; a September brokerage survey counted more than 130, not counting industry-specific variants. The companies founded that year include Baichuan AI, Kai-fu Lee's 01.AI, Moonshot AI (co-founder and CEO Yang Zhilin studied under Tang Jie at Tsinghua), and DeepSeek, founded by Liang Wenfeng in July and shipping its first coding model in November.
+
+Zhipu's consumer product, Zhipu Qingyan, launched in August 2023 among the first wave, and never took off. Baidu's Ernie bot and ByteDance's Doubao had pre-existing distribution; Doubao went on to an estimated 324 million monthly active users, while Qingyan never broke 11 million at its peak. Zhipu tried buying users, but ordinary Chinese consumers were not willing to pay for premium chatbot features. The video puts it plainly: a bunch of academics, temperamentally unsuited to a rock fight inside the consumer octagon.
+
+![Two horizontal bars compare monthly active users: the top bar stretches almost the full width of the chart, while the bottom bar is only a short stub.](/figures/mau-doubao-vs-zhipu-qingyan-en.svg)
+
+So the weight went back onto the enterprise, onto the "model-as-a-service" business they had announced in 2021, letting customers choose a cloud API or an on-premise deployment. Zhang explained that enterprise buyers get price-cut too, but less than consumers, because the client wants a product that works and gets suspicious of a bid priced too low. The video also notes this smells like the system-integrator model the earlier generation of Chinese AI dragons took on — Megvii, SenseTime — which never made much real impact and dampened investor appetite for later startups selling "AI breakthroughs."
+
+## The 2025 turn: the lab that closed its model open-sourced a frontier one
+
+Two things landed early in 2025. First the United States added Zhipu to the Entity List, presumably over links to the Chinese military, which limited its access to certain US-origin software tools and products. A week later DeepSeek's R1 hit the markets, sending one crowd to rethink what Nvidia stock was worth and another to look up Jevons paradox.
+
+R1 changed Zhipu's direction. Zhang recalled that before it, people doubted a mixture-of-experts structure could reach GPT-4 level; DeepSeek showed the way, so Zhipu studied the model, made its own modifications, and on 28 July 2025 released GLM-4.5, its first MoE model — and the first time it opened the weights of a frontier model.
+
+I will hold onto the reversal. GLM-4, from January 2024, was closed: 200 billion parameters, the "Chat" dropped from the name to signal general intelligence, shipping with agentic tools like Python, web browsing and image generation, available to developer customers through an API only, and evaluated at roughly 90% of GPT-4 with better Chinese-language and alignment performance. Eighteen months later Zhipu put its strongest model out in the open.
+
+![Two stacked panels each hold a wall: in the upper panel the strongest circle sits inside the wall while the entry and mid circles sit outside; in the lower panel all three circles are outside, with an arrow carrying the strongest one from inside the wall to outside.](/figures/frontier-tier-crosses-the-wall-en.svg)
+
+Most people's first reaction to 4.5 was "oh, another open source Chinese model," but the quality surprised several observers, it reached first place in Hugging Face's rankings within 48 hours, and then American companies started offering it inside their own products. Zhang took a lesson from that: new models no longer need a flashy announcement. GLM-4.6 and 4.7 went out with a simple post on the socials, and the coding ability drew good reviews, usually attached to the phrase "for the price."
+
+## The money question: R&D at twice revenue
+
+Revenue has been growing roughly 100–150% a year off a low base. The company listed in January 2026, the stock rose about tenfold, and by June its market cap peaked at $170 billion — bigger than Xiaomi or BYD, more than half of Alibaba. The video calls that far too high; it has since settled to something like $50 billion. In July the company sold shares to institutional investors, and the video doubts that will be the last time.
+
+The video is blunt about the spending side: R&D runs at over twice revenue, the bulk of it compute, and what the compute produces is handed out. The video ends on a question mark — how long can a business model this dilutive go on?
+
+![On the left two bars stand side by side, the R&D bar more than twice the revenue bar; on the right a chain of arrows sends the R&D money into compute and then out through a box that is open on its right edge, leaving the image.](/figures/rd-twice-revenue-and-given-away-en.svg)
+
+One more thing. The September figures in the video are two numbers at once: six-month revenue up 400% to $140 million, and ARR of about $1.6 billion. Those differ by more than tenfold and the video does not say what the difference in basis is. I do not know either, so I note both, mark where they came from, and refuse to reason from them until the basis is clear. The video also notes the revenue model is shifting from on-premise deployment toward cloud API, which is perceived as more scalable.
+
+## How do I account for a company that gives its product away?
+
+When I see "open source" and "free," my valuation toolkit has nowhere to sit. What I do is put open source in the distribution-spend column: Zhipu spends compute to train a model, gives the weights away, and gets back leaderboard placings, American companies shipping it in their products, and developers getting used to its API. Turning that into money depends on what sits downstream — cloud API usage and enterprise contract renewals. So with a company like this I ask first where the revenue mix stands: on-premise deployment is one sale at a time, cloud API accumulates with usage, the video says Zhipu is in the middle of the switch, and how smoothly that goes is the main variable in the whole story.
+
+![A stack of solid blocks on the left stands for what was given away, and a stack on the right for what came back, its topmost slot an empty dashed outline that leaves the whole stack shorter than the left one.](/figures/given-away-versus-got-back-en.svg)
+
+The second question is time. In a company spending twice its revenue on R&D, today's price buys a business-model switch succeeding at some future moment. I write the falsification condition down first: if the cloud API share of revenue has not moved in two years, or the R&D-to-revenue ratio has not come in, then the story did not happen. The mistake I have made is the reverse — looking at the price first and then finding a reason, and that time the reason I found read beautifully and turned out to be wrong.
+
+![On the left three separate blocks of equal height; on the right five bars rising from low to high form a staircase going up.](/figures/one-off-deals-versus-usage-stack-en.svg)
+
+## It hit number one — how much does that number weigh?
+
+"Model X tops the leaderboard" used to register as big news for me. This episode pushed it down a layer: a leaderboard placing is attention, while "American companies started offering it in their products" is switching cost — somebody has built a product on top of it, and ripping it out means rewriting code, retesting, retraining a team.
+
+So the order I read news in has changed: first find out whether anyone has wired it in, then look at the score. The 2022 Stanford benchmark works the same way. Being listed got Zhipu seen, and it did not change the price investors would pay, until ChatGPT let everyone feel in their own hands what the thing could do.
+
+![In the upper half three blocks rest crookedly on a thin plate with nothing holding them; in the lower half three blocks are each driven into a thick base by two bolts.](/figures/attention-sits-on-top-adoption-bolts-in-en.svg)
+
+Being used as a component has a cost too. The Entity List landed exactly on that layer: whose tools you use, and who is allowed to use yours, becomes a political question.
+
+## Further reading
+
+- The Asianometry video of 2 November 2026 profiling Zhipu (Z.ai); much of the early history comes from Zhang Peng's interview on Zhang Xiaojun's Chinese-language podcast
+- Stanford's November 2022 report benchmarking 30 models from 12 providers, where you can check GLM-130B's placing and the authors' wording for yourself
+- Zhipu's Hong Kong listing documents and periodic disclosures, which is where R&D spend, revenue mix, and the on-premise versus cloud API split have to be read
+
+## One thing to take away
+
+What you give away has to be booked against the column of what you want back, and every gift needs a line beside it: what am I trying to get in return, and how will I know I got it? Zhipu gave away trained frontier models and got back placings, an ecosystem and other people's products built on its weights, and none of that has yet become revenue large enough to cover the R&D. Giving is an action you can take and observe; getting back is a separate thing that has to be verified on its own, and the gap between the two is where Zhipu's risk currently lives.
+
+Here is something I have tried. Take a sheet of paper and list three things you gave away for free in the last three months — the report you quietly finished for a colleague, the notes you shared with a club, the afternoon you spent helping a friend move. Write two lines under each: the first says what you want back (goodwill, someone there when you need them, being noticed), the second says what sign will tell you it arrived. For the one where I cannot write the second line, I treat it as a plain gift, and then decide for myself whether to keep giving it.
