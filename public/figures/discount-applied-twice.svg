@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="三根遞減柱子，九點被壓到兩點再被扣到零">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+    .ti{font-size:27px;font-weight:700}
+    .g{font-size:20px;font-weight:700}
+    .b{font-size:16px;fill:var(--dim)}
+    .n{font-size:20px;font-weight:700}
+    .c{font-size:22px;font-weight:700}
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t ti" x="60" y="56">緬因那份民調，折扣被打了兩次</text>
+<line x1="60" y1="452" x2="900" y2="452" stroke="var(--grey)" stroke-width="2"/>
+<rect x="110" y="182" width="150" height="270" fill="var(--accent)" opacity="0.85"/>
+<text class="t n" x="110" y="166" fill="var(--accent)">領先 9 點</text>
+<text class="t b" x="110" y="486">登記選民</text>
+<rect x="420" y="392" width="150" height="60" fill="var(--accent)" opacity="0.5"/>
+<text class="t n" x="420" y="376">領先 2 點</text>
+<text class="t b" x="420" y="486">可能投票者模型</text>
+<rect x="730" y="444" width="150" height="8" fill="var(--warn)"/>
+<text class="t n" x="730" y="428" fill="var(--warn)">不剩了</text>
+<text class="t b" x="730" y="486">我再扣兩點</text>
+<path d="M275 250 L405 390" stroke="var(--dim)" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+<path d="M585 410 L715 440" stroke="var(--warn)" stroke-width="2" fill="none" marker-end="url(#w2)"/>
+<text class="t g" x="286" y="300" fill="var(--dim)">第一折</text>
+<text class="t g" x="598" y="398" fill="var(--warn)">第二折</text>
+<defs>
+<marker id="a2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--dim)"/></marker>
+<marker id="w2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--warn)"/></marker>
+</defs>
+<text class="t c" x="60" y="530">民調機構已經先替我打過折了</text>
+</svg>

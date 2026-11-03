@@ -1,0 +1,83 @@
+---
+title: "Odd Lots: The Pollsters Already Applied the Discount for You. Applying It Again Is Double-Counting"
+description: "Notes on the Odd Lots Election Day special published 3 November 2026 and recorded on 29 October, where Tracy Alloway and Joe Weisenthal talk with Nate Silver of Silver Bulletin about polling error: Trump's approval at about 37% with only 19% strong approval, Democrats up roughly nine points on the generic ballot, a Marist poll of Maine that goes from D+9 among registered voters to D+2 after a likely-voter model, and a 0.995 correlation between prediction markets and his own model at the state level. Every number is a snapshot from the recording date. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "oddlots-2026-11-03-an-election-day-special-with-nate-silver"
+lang: "en"
+pubDate: 2026-11-03
+category: "investing"
+kind: "podcast-notes"
+tags: ["polling", "podcast-notes", "prediction markets", "midterms", "forecasting models"]
+ogImage: "/covers/oddlots-2026-11-03-an-election-day-special-with-nate-silver-cover.png"
+cover: "/covers/oddlots-2026-11-03-an-election-day-special-with-nate-silver-cover.png"
+---
+
+![An empty telephone survey centre at dusk, one cubicle in the foreground still lit by a desk lamp with a headset hanging on the partition, rows of empty seats receding behind it until they disappear into darkness](/covers/oddlots-2026-11-03-an-election-day-special-with-nate-silver-cover.png)
+
+> What makes people most confused must be the resemblance between things. What the jade-worker fears is the stone that looks like jade; what the sword-appraiser fears is the blade that looks like a Wu Gan sword.
+>
+> —— "Lüshi Chunqiu", chapter "On Resemblance" (Warring States period; my own translation)
+
+The Odd Lots Election Day special published on 3 November 2026 has Tracy Alloway and Joe Weisenthal talking with Nate Silver of Silver Bulletin; the episode was recorded on 29 October. As of that day, he says, Trump's approval was around 37% with only 19% of it strong approval, Democrats were up about nine points on the generic ballot, his model put their odds of taking the Senate in the high 70s, and Polymarket and Kalshi were around 68%. The line that landed hardest on me: pollsters now apply the discount themselves before you ever see the number — a Marist poll of Maine had the Democrat up nine among registered voters and up two after the likely-voter model. Every figure here is a reading from the recording date, and once the results are in they are only a snapshot of what was known then.
+
+## I believed "the polls lean Democratic" for eight years
+
+Since 2016 I have had a habit: whenever a poll showed Democrats ahead by a few points, I mentally subtracted two or three and felt clear-headed about it. The habit had a source — in 2016, 2020 and 2024, the polls underestimated Trump. I filed it as a rule and applied the discount to every American election after that.
+
+I also held a second belief: prediction markets are smarter than polls. The argument sounds solid, since people put money behind their views and pay for being wrong, while a pollster who misses just takes a season of abuse. The French whale who got 2024 right on Polymarket nailed that impression down further.
+
+This episode spends an hour taking both of those apart.
+
+## The miss only shows up in the years he is personally on the ballot
+
+He has a name for this election: the rock versus the hard place election. Background conditions could not be better for Democrats — the historical pattern in midterms, voter anxiety about the economy, the war with Iran, a lame-duck president who is eighty, good early voting numbers, and the 2025 wins in New Jersey and Virginia. The rock is that some Democratic candidates are seen as too far left. The hard place is Senate arithmetic: the map requires them to win in states as red as Texas, Kansas, Alaska and South Carolina. He says this makes life hard for models and polls, and he refuses to retreat into calling it a toss-up, because that is hedging rather than an honest answer.
+
+His first cut is to define the range over which "the polls lean Democratic" actually holds. Yes, polls underestimated Trump in 2016, 2020 and 2024, with a smaller margin the last time but the same direction. In the Trump-era elections where he was not personally on the ballot, though, that error disappears: in the 2025 governors' races in New Jersey and Virginia, the polls badly underestimated Democrats.
+
+![A horizontal truth line: on the left, the errors from all three elections where he was on the ballot fall below the line, while on the right the errors from the two elections where he was not on the ballot flip above the line, pointing the opposite way.](/figures/poll-bias-only-when-he-is-on-the-ballot-en.svg)
+
+The mechanism holds up. Trump can pull out people who do not normally vote, and those people happen to be the hardest for pollsters to reach — they do not pick up the phone, and when they do, a likely-voter model tends to screen them out as unlikely to show up. The thing is, those voters will not turn out for Roger Marshall in Kansas or Ken Paxton in Texas. His version is blunt: conveniently, these missing voters stop being a problem if they do not vote. He leaves himself an exit too, noting it could all be noise — have a language model code up a simulation of what random polling error looks like across the past twenty elections, and it is hard to tell apart from the real record.
+
+His second cut lands on polls themselves. Marist put out a Maine poll last week with Democrat Troy Jackson up nine among registered voters, against his own average of D+3 in that state. Marist then applied a likely-voter model, and the nine became two; in the same poll, the governor's race went from eleven to zero. Nate says the maths simply does not add up, and his read is that they decided on a result they were comfortable publishing and reverse-engineered their way there. Which is why he calls a poll a data-informed opinion.
+
+The turn here is the part I keep thinking about. Finding out that pollsters discount themselves should, by instinct, make you trust polls less — but from a modeller's seat it is good news. It shows pollsters are rational actors who know their worst fear is missing high on Democrats, so they have a strong incentive not to be systematically biased in one direction. Polls are imprecise instruments with symmetric errors; aggregating a pile of imprecise, symmetric readings, working out the correlations between states and turning that into probabilities is exactly what his model, Flipper, does. He also admits that with elections every two or four years he will never have the data to prove that symmetry — his confidence comes from the incentive structure.
+
+![On the left, many readings scatter on both sides of the truth line in roughly equal numbers; on the right, those same readings stack into a symmetric bell shape whose center lands on the truth.](/figures/symmetric-error-becomes-probability-en.svg)
+
+So what about my discount rule? The pollsters already ran it once. Subtracting another two points is double-counting.
+
+## I now read a poll as a document that contains an opinion
+
+My first question about any number is now whether the people producing it get corrected by reality. Election polls get an answer key every two years and misses are remembered — Ann Selzer, whose Iowa poll had Kamala Harris ahead just before the 2024 election, retired from the business after it. Consumer confidence surveys, Nate says, are much worse, and the reason is the missing feedback loop: after the University of Michigan survey shifted its sample composition online, the sample has far too many Democrats in it. The complaint people have been making about election pollsters for years is true of consumer sentiment surveys.
+
+![On the left, a closed loop runs from survey to election day to scoring the answer and back to revising the method; on the right, the same loop is missing the scoring segment, leaving its mouth hanging open.](/figures/the-correction-loop-that-closes-en.svg)
+
+The same thread explains why he will not accept outsourcing polling to AI. Digital twins sound like a fix for nobody answering the phone; his objection is that polling is one of the few sources of ground truth left. The models also hand you an ideal type: ask one to generate synthetic Hispanic respondents and 99% of them love soccer, in the same way that asking Claude to pick a number from zero to ten gets you seven every time. Hispanic voters are among the swingiest groups in the country — Cuban, Puerto Rican, Mexican and Dominican Americans, people newly arrived and people here for decades, who do not all agree with each other — and compressing them into one average persona measures away the thing you wanted to measure.
+
+![On the left, four groups of Hispanic voters sit far apart from one another, spread across two directions; on the right they are collapsed into a single point and the spread itself disappears.](/figures/collapsing-the-spread-destroys-the-signal-en.svg)
+
+He is just as clear about the other side of AI. A max plan at a hundred or two hundred dollars a month, he says, is like hiring two world-class programmers. The NFL's playoff tiebreakers are purely algorithmic; last year he coded them himself over two and a half days, missed a couple, and ended up with something slow. Now a model does it in the fifteen minutes he spends at the gym, and the code runs ten times faster. The price is that models introduce bugs and hide them — one version of their soccer model had the ratings looping back on themselves, so a 2026 rating informed a 1900 rating. His position: he understands model architecture and probability, coding was always his weak point, and what the models do best is exactly where he is weakest.
+
+I changed my mind about prediction markets too. His model and Polymarket correlate at 0.995 on individual states, and the markets are reading both polls and his model — the day his model launched on 11 August, the markets moved several points. His proposed test: build a laboratory where prediction markets are not allowed to look at polls, and his expectation is that they would be extremely terrible. Their strength is that they force a view into a price and they absorb news fast, since a scandal reported on a Thursday morning takes days to show up in polling. But they eat the same raw material as the polls rather than forming a second, independent signal.
+
+![A single upstream source, the polls, splits into two lines — one to his model and one to the prediction market — and the model and the market are also linked to each other, so what looks like two signal sources is really one shared input.](/figures/prediction-market-shares-the-same-input-en.svg)
+
+Readers may have had the same question I have had — the news sounds this good, should I believe it — and my approach now starts with the direction of the incentive. On campaign ads, Nate says everyone in the system has an incentive to claim advertising works, while he thinks the returns diminish sharply. He wrote in his book about Sam Bankman-Fried spending roughly ten million dollars on a candidate in an Oregon House primary without the candidate's permission; that candidate, once ahead in the polls, lost badly, and later told Nate that voters got so much mail and kept asking who this odd crypto billionaire funding his campaign was. Joe then describes watching a University of Texas football game with his seven-year-old when an ad from the Abbott side claimed the opponent's income tax plan would cost his family thousands of dollars. His son turned to him: Dad, we're not voting for her, right? Joe's reaction was that he was precisely the target of that ad.
+
+A few things I have not worked out. Polling errors are correlated, so a miss in Iowa probably comes with a miss in the same direction in Kansas and Nebraska, which means states cannot be rolled as independent dice; he says the correlation is lower in midterms because each state has different candidates, but it is still there. In a state like Florida, where red voters keep moving in, benchmarking to the last election means the benchmark itself is moving. And in a state like South Carolina, which Trump won by eighteen and which he describes as low-elasticity, he admits he has more trouble believing the polling there than in Kansas.
+
+## Worth a look
+
+- The Odd Lots Election Day special of 3 November 2026, the source for this piece (the episode mentions it was recorded on 29 October)
+- Nate Silver's Silver Bulletin newsletter and his election model, Flipper
+- Polymarket and Kalshi state-level Senate prices at the time
+- The October 2026 Marist poll of Maine, with both its registered-voter and likely-voter numbers
+- Joel Wertheimer's guest piece in Silver Bulletin on the composition of consumer confidence surveys
+- The University of Michigan consumer survey's methodology notes on its move to online interviews
+
+## The one thing to take with you
+
+**When a rule starts missing, ask under what conditions it holds, instead of throwing it out or widening the discount.**
+
+What I got from Nate's cut was not which side the conclusion falls on. He neither discarded "the polls lean Democratic" nor doubled down on it. He asked when that pattern appears, and the answer was: in the years Trump is personally on the ballot. The same rule, once a condition is attached, goes from "always discount" to "discount only in those years" — and this year is not one of them.
+
+Here is something I have tried that works outside investing. Take a rule you built from experience — he's always late, this place always has a queue at weekends, when my mother says that sentence she's annoyed — then go back over the last five instances. What do the times it held have in common, and what do the misses have in common? Find that, and rewrite the rule with the condition in it: he's late to things after work, on time at lunch. Write that sentence down, and use the new version next time.
