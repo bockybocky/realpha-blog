@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The same workload branches down to five pieces of silicon, each with a cost bar of a different length.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<g font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+<text x="60" y="62" font-size="27" fill="var(--ink)">One workload, five places to land</text>
+
+<rect x="240" y="96" width="480" height="52" fill="var(--accent)"/>
+<text x="266" y="129" font-size="20" fill="var(--page)">The same workload</text>
+
+<rect x="140" y="182" width="680" height="40" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="164" y="209" font-size="19" fill="var(--dim)">Scheduling layer: compares performance and cost, decides where it lands</text>
+
+<path d="M 480 148 L 480 182" stroke="var(--dim)" stroke-width="2"/>
+<path d="M 200 222 L 200 268 M 340 222 L 340 268 M 480 222 L 480 268 M 620 222 L 620 268 M 760 222 L 760 268" stroke="var(--dim)" stroke-width="2"/>
+
+<rect x="140" y="268" width="120" height="54" fill="var(--grey)"/>
+<text x="156" y="301" font-size="16" fill="var(--page)">Nvidia</text>
+<rect x="280" y="268" width="120" height="54" fill="var(--grey)"/>
+<text x="292" y="301" font-size="16" fill="var(--page)">Trainium</text>
+<rect x="420" y="268" width="120" height="54" fill="var(--grey)"/>
+<text x="446" y="301" font-size="16" fill="var(--page)">TPU</text>
+<rect x="560" y="268" width="120" height="54" fill="var(--grey)"/>
+<text x="588" y="301" font-size="16" fill="var(--page)">AMD</text>
+<rect x="700" y="268" width="120" height="54" fill="var(--grey)"/>
+<text x="712" y="301" font-size="16" fill="var(--page)">In-house chips</text>
+
+<text x="140" y="368" font-size="15" fill="var(--dim)">Each with its own cost curve</text>
+<rect x="140" y="384" width="96" height="16" fill="var(--accent)"/>
+<rect x="280" y="384" width="62" height="16" fill="var(--accent)"/>
+<rect x="420" y="384" width="110" height="16" fill="var(--accent)"/>
+<rect x="560" y="384" width="78" height="16" fill="var(--accent)"/>
+<rect x="700" y="384" width="46" height="16" fill="var(--accent)"/>
+
+<text x="60" y="470" font-size="22" fill="var(--ink)">If it can move, an accelerator is not just an asset but an option</text>
+</g>
+</svg>

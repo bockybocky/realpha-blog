@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Two bars of equal height; the cost block in the right one is twice the left one's, thinning the gross margin above it.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<g font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+<text x="60" y="62" font-size="27" fill="var(--ink)">That margin was computed on a discounted price</text>
+
+<text x="150" y="116" font-size="19" fill="var(--dim)">Today: compute at about half price</text>
+<rect x="150" y="134" width="240" height="196" fill="var(--accent)"/>
+<text x="172" y="236" font-size="16" fill="var(--page)">Gross margin</text>
+<rect x="150" y="330" width="240" height="70" fill="var(--grey)"/>
+<text x="172" y="372" font-size="16" fill="var(--page)">Compute cost</text>
+
+<text x="570" y="116" font-size="19" fill="var(--warn)">The day the discount ends</text>
+<rect x="570" y="134" width="240" height="126" fill="var(--accent)"/>
+<text x="592" y="202" font-size="16" fill="var(--page)">Gross margin</text>
+<rect x="570" y="260" width="240" height="140" fill="var(--warn)"/>
+<text x="592" y="336" font-size="16" fill="var(--page)">Compute cost</text>
+
+<line x1="150" y1="400" x2="810" y2="400" stroke="var(--line)" stroke-width="2"/>
+<path d="M 420 266 L 540 266" stroke="var(--dim)" stroke-width="2"/>
+<path d="M 540 266 l -13 -7 l 0 14 z" fill="var(--dim)"/>
+<text x="150" y="438" font-size="15" fill="var(--dim)">Both bars have the same revenue</text>
+<text x="60" y="490" font-size="22" fill="var(--ink)">Same revenue: thicken the cost and the pretty margin goes thin</text>
+</g>
+</svg>

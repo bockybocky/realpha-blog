@@ -1,0 +1,98 @@
+---
+title: "The Circuit: The Moment Anthropic Opened Its Books, It Stopped Being an Asset-Light Company"
+description: "Notes on the 2 November 2026 episode of The Circuit, where Ben Bajarin and Jay Goldberg read Anthropic's S-1 end to end: the company was profitable and cash-flow positive in Q2 with gross margin estimated at 70-80%, yet Jay puts its compute purchase commitments over the next five years somewhere between $500bn and $800bn — while both labs may be paying roughly half the market rate for compute today. The episode also covers Intel's weak Q4 guide and the reported Marvell-Lumentum deal. All figures are readings as of the recording date, 30 October. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "circuit-2026-11-02-what-a-week-anthropic-opens-the-books-intel-raises"
+lang: "en"
+pubDate: 2026-11-03
+category: "investing"
+kind: "podcast-notes"
+tags: ["Anthropic", "podcast-notes", "capital expenditure", "semiconductors", "vertical integration"]
+ogImage: "/covers/circuit-2026-11-02-what-a-week-anthropic-opens-the-books-intel-raises-cover.png"
+cover: "/covers/circuit-2026-11-02-what-a-week-anthropic-opens-the-books-intel-raises-cover.png"
+---
+
+![The interior of a compute hall still under construction, a surveyor's tripod and an unrolled blueprint on the floor in the foreground, the aisle receding deep into the building where the far racks are already powered and glowing cold white](/covers/circuit-2026-11-02-what-a-week-anthropic-opens-the-books-intel-raises-cover.png)
+
+> All things have something from which they are born, yet only one knows to hold fast to the root; all affairs have something from which they issue, yet only one knows to hold fast to the gate.
+>
+> —— "Huainanzi", chapter "Tracing the Way" (Western Han; my own translation)
+
+On the 2 November 2026 episode of The Circuit, Ben Bajarin and Jay Goldberg read Anthropic's S-1 from front to back; the episode was recorded on 30 October. What Jay took out of it is a change of constitution: the company was profitable and cash-flow positive in Q2, with gross margin he estimates at 70-80%, and yet he puts its compute purchase commitments over the next five years somewhere between $500bn and $800bn. That contrast carries one large caveat he raises himself — Anthropic and OpenAI may both be paying about half the market rate for compute, so the profit is computed on a discounted input. Every number below is a reading from that date.
+
+![A short bar on the left represents last quarter's income statement, while a bar several times taller on the right represents the next five years of purchase commitments; both stand on the same baseline, making the height gap stark.](/figures/income-statement-vs-fixed-commitments-en.svg)
+
+## I had been filing it under software companies
+
+This is something I kept getting wrong. A model company sells subscriptions and API calls, runs on somebody else's cloud, and looks like SaaS — asset-light, high margin, cheap to scale. So every time I saw a headline about an AI lab building data centres, my reaction was that this is growth-phase acceleration and the margin structure will settle back into software economics once scale arrives.
+
+Jay gave a comparison in this episode I had not used before, and I changed the filing.
+
+## The capital efficiency was rented
+
+Start with why it was so cheap until now. Anthropic had not raised much relative to how fast it grew, because all of its training ran on third-party clouds, starting with Amazon. Renting someone else's machines means someone else carried the depreciation, the power contracts, the land and the substations, and your balance sheet reads like software.
+
+![Two panels contrast who contains what: on the left, depreciation, power, land and substations all sit inside the cloud provider's large box, with Anthropic only a thin line inside it; on the right, those same four blocks have moved into Anthropic's own box.](/figures/rented-capital-efficiency-moves-inside-en.svg)
+
+The filing says they are changing that. The episode describes a programme called Anthropic Direct, under which they start signing long-term leases and taking various forms of control — not necessarily outright ownership, but direct control down to the data centre layer. Jay's read is that they concluded they can no longer be a cloud customer.
+
+With that change, the model goes from minimum-capital software to heavily capital-intensive. The comparison he reaches for is a leading-edge foundry: research that has to be funded very deep, and then an enormous capital outlay to monetise the research. He points at TSMC — $50bn of capex a year plus three thousand PhDs, and that is how you stay ahead. I think the analogy holds, and it explains more than "growth-phase investment" does, because it accounts for two things at once: why R&D intensity never comes down, and why capex has to climb while R&D intensity stays up.
+
+That $500-800bn commitment figure was a blank in the filing. Jay explains the blank: the final value of those commitments is tied to the share price, because part of it is paid in stock, and the offer price is set at the last minute. So that field gets filled on pricing day. His own arithmetic lands near $800bn, which he calls the top of the range.
+
+## Five chip suppliers, and not the same warmth from each
+
+The multi-silicon section is the part I enjoyed most. Anthropic uses Nvidia, Amazon Trainium, Google TPU and AMD, plus its own chip being developed with Broadcom — five. Jay says he read closely this week, comparing the language the filing uses for each of those five relationships, and the depth differs: with Nvidia it is collaboration on design and engineering to optimise future hardware for their workloads; with AMD it is a multi-year engineering partnership; with Trainium it is the ability to influence future generations; and for Google, collaboration is simply not mentioned.
+
+![A four-step staircase descends from high to low: the top step is Nvidia's design and engineering collaboration, below it AMD's multi-year engineering partnership, then Trainium's ability to shape future generations, and the lowest step, Google, is blank, with a side note that Broadcom co-develops in-house chips.](/figures/five-chip-suppliers-wording-depth-en.svg)
+
+He says the language is vague, but you can see that they get different amounts of love from different suppliers. Ben pushes it one step further: this is proof of interchangeability. The same workload moves across different pieces of silicon, each with its own performance and cost profile, and the orchestration layer upstream decides where it is economic to run. He thinks Anthropic is the best current example of this.
+
+![A single workload bar at the top branches downward into five pieces of silicon, each with a cost bar of a different length beneath it, and a middle layer marking that scheduling decides where the work lands.](/figures/interchangeable-workload-across-silicon-en.svg)
+
+The turn after that is what stayed with me. If workloads are interchangeable, Ben's question becomes: is the accelerator itself still an asset? Is owning your own accelerator a strategic advantage at all?
+
+Jay's answer puts a condition on it. The bar for custom silicon is that you extract some strategic advantage from it, and saving money does not clear that bar — you need a workload your competitors cannot run as well. They both go back to a conclusion from a very early episode of their own about Apple and vertical integration: Apple builds custom silicon only where the workload is differentiated. Translated to today, the test becomes how much power you have, how much infrastructure you have, and which workloads you put inside your own buildings. You cannot put them all in, so you choose.
+
+Jay adds a ceiling: nobody gets to own all of their own compute, some of it has to be outsourced, and he does not expect anyone to reach full self-supply. Ben's line for the current state is that during a hurricane even turkeys fly. Everyone grabs everything because everything is short. What the steady state looks like, he says he does not know; his guess is that it stays fragmented and gets more fragmented.
+
+## What about the objection that AI companies are obviously capital-intensive
+
+That was my first argument against the thesis. Everyone knows data centres are expensive. But the two framings lead to very different readings.
+
+"Spending more during growth" predicts capex converging with scale, unit economics improving, and the margin structure returning to software. "Foundry constitution" predicts capex never stopping, because process nodes keep advancing and skipping one generation puts you a generation behind; and it predicts that owning capacity is itself part of the moat, so competition shifts from products to capital and scheduling. Mark those two predictions against the next three years and you see very different things.
+
+![A chart of capex over time in which two lines diverge from the same point, one curving up and then flattening out to show heavier spending during a growth phase, the other climbing without ever turning back down to show fab-like economics.](/figures/capex-two-diverging-expectations-en.svg)
+
+Where does the thesis break? Two places. The first is the sentence Anthropic put in its own filing: the company was founded on the empirical belief that scaling laws are the fundamental engine of AI progress. Jay calls that very pure language; Ben jabs that he does not quite see how a belief can be empirical. If that belief is overturned and bigger models stop producing better results, every inference built on capacity goes with it. The second is the discount: if part of the profit comes from compute bought at half of market, then the day these companies reach steady state and the discount is withdrawn, the margin structure gets recalculated. Ben asks exactly this, and Jay's answer is that bulk buyers get a discount anyway, that Amazon may well have traded extra terms for equity, and that every compute cost estimate he has built comes out too high for precisely this reason.
+
+![Two revenue bars of equal height sit side by side: the left bar has a thin compute cost block at its base and a thick gross margin above it, while the right bar's cost block is twice as thick and the margin above it is squeezed flat.](/figures/discounted-compute-margin-recalc-en.svg)
+
+One quote worth copying down. Describing the relationship with the cloud providers, the filing says their relationships with these CSPs are multifaceted and complex. Jay calls it the statement of the year — your largest supplier is also your largest potential competitor and customer. It becomes a running joke in the episode, and comes back when they get to Intel's supply chain.
+
+## A few other things worth keeping
+
+- Ben had just published the second round of their CTO survey: of two hundred respondents, 6% see a return on their AI investment. The number looks awful, but his point is the denominator — the large majority are not tracking returns at all. Among the 33 who do track, 67% see a clear return, and the size of the return scales with breadth of deployment: roll it into two or three business units and you see more than with one.
+- The filing mentions shadow IT. Ben's observation is that shadow AI is being formalised: business units book AI as their own expense line, outside the IT budget, because their people come to them asking for more. He says it is untrackable, and that it shows up in every case they follow.
+- Another quote: model architecture decisions factor the economics of inference in as a priority.
+- Anthropic has five share classes, going to four after listing, with seven co-founders holding control by voting as a bloc. Jay spent two hours on those pages and had to hand them to Claude for an explanation. He reads the structure as a reaction to the OpenAI coup, and thinks seven people voting as a bloc is a source of drama to come.
+- Intel printed a strong Q3 and a weak Q4 guide. Jay's frame is allocation under a capacity limit: they gave more capacity to a PC market in its worst downturn in fifteen years, and did not make enough silicon for AI servers. Ben's number is PCs tracking down 14% this year, the worst since 2022. Both say the shape matches what happened two years ago — a warning, a quarter that looks fine, then a bad quarter. What gives Jay confidence now is that survival is no longer the question: 18A works, 14A looks good, and the balance sheet is far healthier than two years ago, so the problem narrows to near-term execution and scheduling.
+- Marvell is reported to be acquiring Lumentum in a stock deal. Ben's theory is that Lumentum sees the writing on the wall: if Broadcom's lasers are as good as theirs, a pure component supplier's leverage disappears, so you sell at the top. Jay's counter-question is why only Marvell could buy it, and what about Nvidia — then he answers himself, Nvidia is under a Justice Department antitrust investigation and would not get this one through.
+
+![Within a grid of 200 cells, a small block of 33 cells is outlined to mark the people who actually track returns, and two proportion bars beside it compare 6% for everyone against 67% for those who track.](/figures/cto-survey-the-denominator-en.svg)
+
+## Sources worth checking
+
+- The Circuit, episode of 2 November 2026, the source for this piece (the hosts note it was recorded on 30 October)
+- Anthropic's S-1 filing, including the risk factors, share structure and supplier relationship sections
+- Ben Bajarin's second CTO survey round, referred to in the episode as the EA index
+- Intel's Q3 2026 results and Q4 guidance, plus the earnings call remarks on capacity allocation and substrates
+- Bloomberg's report on Marvell's advanced talks to acquire Lumentum
+- Reuters' piece this week revisiting the Justice Department's antitrust investigation of Nvidia
+
+## The one thing to take away
+
+**To judge what something is now, look at where its fixed commitments are growing, not at its current income statement.**
+
+Anthropic was profitable in Q2, cash-flow positive, with 70-80% gross margin. On those numbers alone it is a beautiful software company. But sitting in the same document is a purchase commitment stretching five years out, possibly into the hundreds of billions, along with a plan to sign long-term leases and run data centres directly. The income statement describes last quarter. The fixed commitments describe what you have no choice but to do for the next five years. When the two disagree, the second one tells you what the company is turning into.
+
+Here is something I tried myself, and it works outside investing too. Take a sheet of paper and write down the fixed commitments for your next twelve months that are already signed and cannot be changed — rent, insurance, instalments, the hours you have to show up for every week, the things you promised people. Then look at the sheet and ask: if a stranger saw only this, what kind of person would they say I am becoming? The first time I did it, the person on the paper and the person I thought I was were not the same one, and the gap was the thing to work on next.
