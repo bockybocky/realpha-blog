@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two bill columns of the same height, one with data centers and one without, both rising the same way.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="62">Control</text>
+
+<text class="g" x="230" y="130" text-anchor="middle">With DCs</text>
+<text class="b" x="230" y="158" text-anchor="middle">PJM</text>
+<rect x="150" y="200" width="160" height="250" fill="var(--card)" stroke="var(--line)"/>
+<path d="M230 200 L230 178 M218 192 L230 176 L242 192" stroke="var(--warn)" stroke-width="3" fill="none"/>
+<text class="g" x="230" y="483" text-anchor="middle" fill="var(--warn)">Bills↑</text>
+
+<text class="g" x="730" y="130" text-anchor="middle">No DCs</text>
+<text class="b" x="730" y="158" text-anchor="middle">NE</text>
+<rect x="650" y="200" width="160" height="250" fill="var(--card)" stroke="var(--line)"/>
+<path d="M730 200 L730 178 M718 192 L730 176 L742 192" stroke="var(--warn)" stroke-width="3" fill="none"/>
+<text class="g" x="730" y="483" text-anchor="middle" fill="var(--warn)">Bills↑</text>
+
+<line x1="150" y1="450" x2="810" y2="450" stroke="var(--line)"/>
+<text class="b" x="480" y="268" text-anchor="middle">HPs</text>
+<text class="b" x="480" y="300" text-anchor="middle">EVs</text>
+<text class="b" x="480" y="332" text-anchor="middle">Mfg</text>
+
+<text class="c" x="60" y="535">Same rise, no cause</text>
+</svg>
