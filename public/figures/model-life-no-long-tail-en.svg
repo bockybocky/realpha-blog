@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two decay curves: legacy software has a long tail stretching right, while the model falls to zero in three to six months.">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .g { font-size:20px; font-weight:700; }
+    .l { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="58">The tail is gone</text>
+<text class="s" x="60" y="88">Usage curve after launch</text>
+<line x1="150" y1="420" x2="890" y2="420" stroke="var(--line)" stroke-width="2"/>
+<line x1="150" y1="140" x2="150" y2="420" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="104" y="150">Usage</text>
+<text class="l" x="142" y="448">0</text>
+<text class="l" x="296" y="448">6</text>
+<text class="l" x="476" y="448">12</text>
+<text class="l" x="656" y="448">18</text>
+<text class="l" x="836" y="448">24</text>
+<text class="l" x="836" y="474">Mo.</text>
+<path d="M150 160 C300 200 420 300 560 350 C680 390 800 404 890 410" fill="none" stroke="var(--grey)" stroke-width="3"/>
+<text class="g" x="600" y="330" fill="var(--dim)">Legacy software</text>
+<text class="l" x="700" y="392">Long tail still used</text>
+<path d="M150 160 C200 180 240 280 290 418" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<circle cx="290" cy="418" r="7" fill="var(--accent)"/>
+<text class="g" x="200" y="146" fill="var(--accent)">Models</text>
+<text class="l" x="306" y="414">Three to six months</text>
+<text class="c" x="150" y="506">Ship late and the market may be gone</text>
+</svg>
