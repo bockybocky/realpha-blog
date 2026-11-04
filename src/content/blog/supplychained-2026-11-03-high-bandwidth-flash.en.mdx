@@ -1,0 +1,114 @@
+---
+title: "There Are Only So Many Spots on the Shoreline — Notes on Supply Chained on High-Bandwidth Flash"
+description: "Listening notes on Supply Chained, 3 November 2026, \"High-Bandwidth Flash\": John of Asianometry and Tim Culpan of Culpium start from the fact that HBM stacking stops around twenty dies, then take apart what HBF — flash packaged like HBM next to the compute die — is trying to solve and where it gets stuck: enormous capacity, but a write endurance of only ten to a hundred thousand cycles, which a KV cache would burn through in a month or two. The piece lays out the conditions the argument depends on, and where Taiwan sits in metrology and test. Educational discussion of research method, not investment advice; no stock recommendations or price targets."
+slug: "supplychained-2026-11-03-high-bandwidth-flash"
+lang: "en"
+pubDate: 2026-11-04
+category: "investing"
+kind: "podcast-notes"
+tags: ["Supply Chained", "HBM", "HBF", "KV cache", "semiconductor supply chain"]
+ogImage: "/covers/supplychained-2026-11-03-high-bandwidth-flash-cover.png"
+cover: "/covers/supplychained-2026-11-03-high-bandwidth-flash-cover.png"
+---
+
+![A harbour at night, the camera low on a narrow jetty looking into the depth of the frame, the deck crowded with small carts lined up nose to tail, a lit low-roofed shed at the near end throwing light only over the first stretch of the jetty, and far off a wall of stacked containers rising past the top of the frame as silhouette, everything beyond sinking into mist](/covers/supplychained-2026-11-03-high-bandwidth-flash-cover.png)
+
+> Men live apart and the land yields differently in each place; it is the going back and forth, the trading and the carrying, that makes a world. If each stayed where he was and died there, what would be the use of having a kind?
+>
+> —— Song Yingxing, *The Works of Heaven and the Inception of Things*, chapter on Boats and Carts (Ming dynasty, 1637; translated here by the author)
+
+In the 3 November 2026 episode of Supply Chained, "High-Bandwidth Flash", John of Asianometry and Tim Culpan of Culpium talk about high-bandwidth flash — flash memory packaged the way HBM is packaged, right beside the compute die. Tim passes along what a senior executive at SK hynix said about HBM: it is the best we have got for now. Their starting point is that HBM stacking stops at around twenty dies with no visible path past it, while flash offers far more capacity at a write endurance of only ten to a hundred thousand cycles — enough to be worn out in a month or two if it holds a KV cache. The episode reaches no conclusion, and every number in it is industry talk relayed by the hosts or their own estimate, not a figure off a datasheet.
+
+## Tell him this fifteen years ago and he would have asked how it makes sense
+
+John describes a scene he finds absurd himself. You send in an agentic query, the model starts running its own tasks, and what happens down at the hardware level is this: data gets sucked out of memory in bulk, swept into the GPU, swept back out, swept back in, once per token produced.
+
+Fifteen years ago the contest was clock speed, then core count. Before that the conversation was CPU pipelines and branches, with a lot of people working hard to get instructions lined up and fed in. Nobody talks about any of it now. One question is left: how fast can you get at memory. The two of them touch on Intel never getting Itanium to win and being stuck with x86 — an underrated part of what constrained it later — while today's chip is a whole lot of memory, a pile of accumulators and multipliers, and TSMC works the rest out.
+
+## Something built eight years before anyone wanted it
+
+Tim asks John what he makes of HBM: good, bad or ugly. John's answer is one word long. It is expensive. Being expensive is no bad thing.
+
+He calls HBM the ultimate case of building something incredible and then seeing whether anyone buys it — nobody did for about eight years, and now it prints money for a couple of companies. One line from the episode stayed with me: this is a square peg being banged into a round hole, because that is all they have got.
+
+In the late 2010s Samsung had HBM3 and was arguably ahead, yet by John's account even they felt the thing was not working and did not know what to do with it, so they went off into logic and compute-in-memory. He explains the idea plainly. Normally you move the data out of memory and over to the logic; compute-in-memory turns that around and moves the logic into the memory module. Today's base die at the bottom of an HBM stack is built on something like N4 or N3, and the idea back then was to put processors right there, compute up and down, and skip the trip from shoreline to shoreline into the GPU altogether. It is an attempt to get around the von Neumann bottleneck.
+
+![The two panels contrast logic outside memory, with a long arrow carrying data back and forth, against logic enclosed within memory, with no arrow because the distance has become zero.](/figures/hbf-logic-moves-into-memory-en.svg)
+
+Good concept, hard execution. John says he spoke to people from Samsung whose answer came down to this: it is a lot of programming, a lot of software work. He adds that people underestimated how strong the CUDA framework was at the time. Samsung never got it to fall, and then it just sat there.
+
+## Stacking stops at twenty, so flash comes back out of the drawer
+
+So what comes after HBM? One theory gives it another five years. The part of the episode that made me stop was the attitude inside the memory makers: we keep stacking, we keep adding dies. There are physical reasons that fails. John says he sees no path beyond twenty stacks — maybe somebody comes up with something smart, but twenty is the limit.
+
+![Twenty thin memory dies are stacked into a single column, a dashed ceiling line above blocks the way, and an upward arrow on the right slams into the underside of that ceiling and stops.](/figures/hbf-twenty-layer-ceiling-en.svg)
+
+And after twenty? That is why HBF is being discussed. The concept fits in a sentence: flash has immense capacity, so package it like HBM and see whether people can use it. SanDisk's posture is that they can pull this off; John's comment is that he would hope so, but you never know.
+
+Why crowd it next to the core? The analogy in the episode is a highway: the further away, the longer it takes, and a shorter highway gets the cars down it quicker. The strip of space around the edges of the GPU is what the industry calls the shoreline, that is where data goes in and out, and there is very little of it. HBF wants to put far more capacity on that same shoreline while keeping the throughput.
+
+Tim puts the practical question: of eight shoreline slots, keep six HBM and turn two into HBF — best of both worlds, or worst of both? John says the papers are full of hybrid schemes, and the sticking point is implementing it in software. Get that far and you have to understand how the model works before you can balance anything between the two kinds of memory. At which point the whole thing turns very custom.
+
+![A compute die sits at the center with room for only eight surrounding slots: six filled HBM slots and two outlined HBF slots, while a gray outer region marks capacity that cannot reach the shoreline.](/figures/hbf-shoreline-eight-slots-en.svg)
+
+## A million tokens does not hold one human life
+
+Flash is not fast, whatever the name suggests, and worse than that, it wears out. The one thing you can say about DRAM, John says, is that it goes and stops and starts and never wears down. Flash cells start failing after ten to a hundred thousand cycles, and it gets worse from there.
+
+The next stretch is the reasoning I took away. John wants to bring it back to the KV cache — the state a model keeps while it generates — which he thinks is an underrated source of today's limitations. Models crap out somewhere around a million tokens of context before you start compacting, or playing tricks about what gets into the window. A million tokens sounds like a lot, and spread out it is a couple of thousand books, but as audio it is a few hours. Measured against a human life, that is not much experience. Get it to a billion tokens and suddenly you have twenty or thirty years of it.
+
+![Along a bar representing one human lifetime, one million tokens appear as an almost invisible line at the beginning, while one billion tokens form a block spanning roughly one quarter of the bar.](/figures/hbf-context-on-a-lifespan-en.svg)
+
+Then his next line: HBM does not reach that, because DRAM is already at its limit. So what is left? Flash.
+
+Tim puts the knife straight back in. Use HBF for a KV cache and you have a write-heavy workload, so a hundred thousand cycles is gone in a month or two. What then? He says he does not know — build in redundancy, or call it planned obsolescence.
+
+John asked SanDisk about it. The answer is that the recipe can be tweaked: thicker walls, a range of measures to make the endurance a little more enduring. The physics does not go away, but it can be traded. Flash was built to compete with hard drives, and competing with hard drives means holding data for ten years. Agentic work runs long, but nowhere near hard-drive long. So give up retention and take back cycles and heat resistance. That is a trade where you can name who pays.
+
+![Two pairs of bars show the trade-off: retention is long and cycle life is short before the formulation changes, then their lengths reverse as retention is sacrificed for more cycles and greater heat tolerance.](/figures/hbf-endurance-tradeoff-en.svg)
+
+Tim offers two places HBF might fit better. One is custom inference silicon: put weights, or parts of weights, and the KV cache in there, read often and write rarely, and you know exactly what your model looks like — a GPU is a generalist by comparison and fits worse. The other is edge AI: a model in a factory, on a robot, inside a webcam. If it does not need updating every couple of months, HBF gives you fast access and still lets you update it, which beats hard-wiring the model into ROM.
+
+## The other line he spotted at the trade show booths
+
+The last stretch concerns Taiwan. Tim's read is that HBM has been very good for Taiwan — HBM is packaging at the end of the day, which put TSMC and others at the front. Whether HBF is as good, he does not know. But wandering the metrology and test booths at Semicon Taiwan, he found company after company excited about metrology and test solutions built specifically for HBF, and several told him they were verifying theirs for Micron, expecting to hit the fabs next year. The other piece Taiwan can take is the microcontrollers that govern how it all works.
+
+The episode ends with the two of them announcing an HBF microcontroller company, name to be determined, seeking venture capital. John says wire a hundred million right now and he will give you one; Tim corrects him, since they had agreed the minimum cheque would be fifty million so more people could come in. I laughed, and I also wrote it down — the part of this episode that holds up is their willingness to call a thing unknown.
+
+## Memory prices are up, so who is actually making the money
+
+My guess is that someone listening is wondering whose pocket all of this is going into. I got that question wrong once myself, by treating shortage as pricing power. This episode filled in a piece. Nobody bought HBM for those eight years, and across those eight years it was still hard to make, still expensive, still something few could build — and there was no money in it. The spread comes from that layer becoming the thing the whole system cannot get past, and has nothing to do with how hard it is to build.
+
+So the order I work in now is to draw the stack from the end system upward, then ask which layer breaks first when demand doubles. HBM is that layer today because the twenty-stack ceiling is physical. But a ceiling cuts both ways: it makes HBM scarce now and it announces when the scarcity ends. Hit the top and the bottleneck moves somewhere else, and the spread on the old layer leaves with it. HBF is queueing up as one candidate.
+
+![Two matching supply-chain stacks stand side by side: one layer narrows into a bottleneck on the left with the margin marked there, while on the right the narrow point moves elsewhere and the margin marker follows it.](/figures/hbf-bottleneck-moves-en.svg)
+
+The other use I took away is that a bottleneck spills over to the people selling shovels. The metrology and test companies Tim found at those booths are eating the same wave of demand from further away from the technical outcome — HBF works and they have business; HBF gets replaced by some other packaging problem and they still have business. That position is rarely cheap on valuation, but its failure conditions are much wider than a bet on one technology.
+
+![On the left, a bet on one technology sends one branch to the destination while the other reaches a dead end; on the right, both branches lead to the same metrology and inspection box.](/figures/hbf-picks-and-shovels-position-en.svg)
+
+## The story always sounds coherent, so which line can I believe
+
+The other familiar position: every new-technology narrative hangs together, so how do I know which part to trust.
+
+What I took from this episode is to go looking for the sentence containing a trade. In the HBF story, the believable part is SanDisk saying the recipe can be tweaked, trading retention for cycles and heat tolerance — concrete, painful, with someone named who pays. What does the unbelievable part look like? "We just keep stacking." No trade, only extension, and John's response to it is that he sees no path.
+
+Second, check whether the hard part has been pushed onto somebody else. The HBM-plus-HBF hybrid sounds efficient until John names the obstacle: how you implement it in software, which means understanding how models run. Any plan that moves the whole difficulty over to the software side has a schedule set by when somebody else's software is ready. Samsung's compute-in-memory died there. The concept was sound; CUDA was stronger.
+
+Third, check when the money arrives. HBM's gap was eight years. Between a technology being right and that technology starting to pay, a whole cycle can fit, and whether what I hold survives the gap is a separate question from whether the technology was right. My own losses all sit in that box: direction right, time unaccounted for.
+
+![On a timeline, a long gray gap separates making the technology from earning money, while the short orange bar showing how long one can hold out ends before the dashed line marking the arrival of revenue.](/figures/hbf-eight-year-gap-en.svg)
+
+## Where to look yourself
+
+- Supply Chained, "High-Bandwidth Flash", 3 November 2026, John of Asianometry in conversation with Tim Culpan of Culpium
+- The Asianometry video on HBF that the episode refers to; the context-window and token comparisons come from there
+- JEDEC's HBM specifications, for where the stack count and the base die boundaries are written down
+- SanDisk and Micron technical material and earnings call transcripts, for how the retention-for-cycles trade gets described
+- The Semicon Taiwan programme and exhibitor list; the metrology and test vendors are the Taiwanese opening this episode points at
+
+## The One Thing to Take Away
+
+One idea: the shoreline is finite, so putting things closer beats making the machine faster. That is what the whole episode circles. Clock speed stopped being the question, core count stopped being the question, and what is left is how far data sits from the place that computes. What is scarce is the position of being near: capacity can be stacked and speed can be tuned, while the width of that strip around the GPU is fixed, so who gets a spot on the shoreline and who gets pushed out decides what a whole generation of systems looks like.
+
+Something I have tried that works today: count the three things you reach for most in a day — keys, a water glass, a file you open every morning, or three people you go looking for several times a day — then look at how far away each one currently is. Every trip pays the distance, and you pay it dozens of times a day. Pick one and move it within arm's reach; give it the shoreline. The one I moved was a charging cable sitting in another room, which saved me around eight trips a day.

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊邏輯在記憶體外、靠長箭頭來回搬資料；右邊邏輯被包進記憶體內部，不需要搬" font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="60" y="62" font-size="27" fill="var(--ink)">把邏輯搬進記憶體裡</text>
+<text x="60" y="118" font-size="20" fill="var(--dim)">原本</text>
+<text x="520" y="118" font-size="20" fill="var(--accent)">運算記憶體</text>
+<rect x="60" y="150" width="170" height="270" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="145" y="290" font-size="19" fill="var(--ink)" text-anchor="middle">記憶體</text>
+<rect x="320" y="245" width="140" height="90" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text x="390" y="297" font-size="19" fill="var(--ink)" text-anchor="middle">邏輯</text>
+<line x1="235" y1="278" x2="312" y2="278" stroke="var(--ink)" stroke-width="2"/>
+<polygon points="312,272 326,278 312,284" fill="var(--ink)"/>
+<line x1="315" y1="308" x2="238" y2="308" stroke="var(--ink)" stroke-width="2"/>
+<polygon points="238,302 224,308 238,314" fill="var(--ink)"/>
+<text x="275" y="252" font-size="15" fill="var(--dim)" text-anchor="middle">來回</text>
+<rect x="520" y="150" width="380" height="270" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="710" y="196" font-size="19" fill="var(--ink)" text-anchor="middle">記憶體</text>
+<rect x="600" y="235" width="220" height="110" rx="10" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<text x="710" y="298" font-size="19" fill="var(--ink)" text-anchor="middle">邏輯</text>
+<text x="710" y="392" font-size="15" fill="var(--dim)" text-anchor="middle">原地算完</text>
+<text x="60" y="490" font-size="22" fill="var(--ink)">難的不是概念，是搬完以後誰來寫軟體</text>
+</svg>
