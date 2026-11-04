@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="濃縮度隨燃燒下降的三條線，底部一條虛線代表維持不住臨界，小爐心配低濃縮最早觸線，起點拉高後才撐到五到十年">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    svg { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; } /* 字型：繁體中文無襯線 */
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" font-weight="700" fill="var(--ink)">燒下去，濃縮度往下掉</text>
+<line x1="120" y1="120" x2="120" y2="460" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="460" x2="900" y2="460" stroke="var(--line)" stroke-width="2"/>
+<text x="60" y="130" font-size="16" fill="var(--dim)">濃縮度</text>
+<text x="840" y="492" font-size="16" fill="var(--dim)">時間</text>
+<line x1="120" y1="420" x2="900" y2="420" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 7"/>
+<text x="124" y="446" font-size="17" fill="var(--warn)">維持不住臨界</text>
+<path d="M120,230 C260,250 360,290 470,420" fill="none" stroke="var(--grey)" stroke-width="5"/>
+<text x="250" y="246" font-size="19" font-weight="600" fill="var(--dim)">大爐心・低濃縮</text>
+<text x="400" y="400" font-size="16" fill="var(--dim)">18～24 個月換料</text>
+<path d="M120,230 C170,268 200,330 236,420" fill="none" stroke="var(--warn)" stroke-width="5"/>
+<text x="196" y="330" font-size="17" font-weight="600" fill="var(--warn)">小爐心・低濃縮</text>
+<path d="M120,140 C380,180 600,300 820,420" fill="none" stroke="var(--accent)" stroke-width="6"/>
+<text x="400" y="200" font-size="20" font-weight="600" fill="var(--ink)">小爐心・19.75%</text>
+<text x="640" y="330" font-size="16" fill="var(--accent)">5～10 年才換一次</text>
+<text x="60" y="100" font-size="22" font-weight="600" fill="var(--ink)">爐心愈小，掉得愈急，所以起點要拉高</text>
+</svg>
