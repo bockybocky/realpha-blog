@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="四根由左到右越來越高的柱子，中間夾著灰色虛線空檔，階差一次比一次大">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" fill="var(--ink)">每一步都跨兩個世代，中間的節點全被跳過</text>
+<line x1="100" y1="450" x2="880" y2="450" stroke="var(--line)" stroke-width="2"/>
+<rect x="120" y="390" width="140" height="60" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="3"/>
+<text x="190" y="428" font-size="19" fill="var(--dim)" text-anchor="middle">自家 DRAM</text>
+<text x="190" y="478" font-size="16" fill="var(--dim)" text-anchor="middle">HBM1～3</text>
+<rect x="320" y="310" width="140" height="140" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="3"/>
+<text x="390" y="388" font-size="20" fill="var(--ink)" text-anchor="middle">12 奈米</text>
+<text x="390" y="478" font-size="16" fill="var(--dim)" text-anchor="middle">海力士、美光</text>
+<rect x="520" y="220" width="140" height="230" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="3"/>
+<text x="590" y="344" font-size="20" fill="var(--ink)" text-anchor="middle">4 奈米</text>
+<text x="590" y="478" font-size="16" fill="var(--dim)" text-anchor="middle">三星</text>
+<rect x="720" y="120" width="140" height="330" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="4"/>
+<text x="790" y="300" font-size="20" fill="var(--accent)" text-anchor="middle">3 奈米</text>
+<text x="790" y="478" font-size="16" fill="var(--dim)" text-anchor="middle">NVIDIA 要求</text>
+<line x1="265" y1="388" x2="315" y2="312" stroke="var(--grey)" stroke-width="3" stroke-dasharray="7 7"/>
+<line x1="465" y1="308" x2="515" y2="222" stroke="var(--grey)" stroke-width="3" stroke-dasharray="7 7"/>
+<line x1="665" y1="218" x2="715" y2="122" stroke="var(--grey)" stroke-width="3" stroke-dasharray="7 7"/>
+<text x="490" y="160" font-size="19" fill="var(--grey)" text-anchor="middle">虛線＝被跳過的世代</text>
+<text x="60" y="528" font-size="22" fill="var(--ink)">複雜度跳躍式上升，製程只能跟著跳</text>
+</svg>

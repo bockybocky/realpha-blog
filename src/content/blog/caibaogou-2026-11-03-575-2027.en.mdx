@@ -1,0 +1,101 @@
+---
+title: "Water Fills the Upper Basin Before It Flows On — Notes on Statementdog on Why Foundry Stays Short Through 2027"
+description: "Listening notes on Statementdog podcast episode 575: Statementdog's chief analyst Xiaozhen uses TSMC's third quarter split — high performance computing up 83% year on year while smartphone growth fell to 4.3% — to explain why leading-edge capacity stays short through 2027, and how HBM base dies and server support chips push the shortage down into mature nodes. The piece also takes apart the weakest links in that reasoning and names two conditions you can track. Educational discussion of research method, not investment advice; no stock recommendations or price targets."
+slug: "caibaogou-2026-11-03-575-2027"
+lang: "en"
+pubDate: 2026-11-04
+category: "investing"
+kind: "podcast-notes"
+tags: ["Statementdog", "foundry", "HBM", "mature nodes", "TSMC"]
+ogImage: "/covers/caibaogou-2026-11-03-575-2027-cover.png"
+cover: "/covers/caibaogou-2026-11-03-575-2027-cover.png"
+---
+
+![A stepped irrigation channel at dusk, the upper basin nearest the camera brimming full with water spilling over a notch in the stone lip, the lower basins receding step by step into the depth of the frame still holding only a shallow film, side light catching the full basin while the farthest steps sit in shadow](/covers/caibaogou-2026-11-03-575-2027-cover.png)
+
+> The spring water gushes up, never resting day or night; it fills each hollow before it moves on, and so it reaches the four seas. That which has a source is like this.
+>
+> —— *Mencius*, Book IV Part B (Warring States period; translated here by the author)
+
+Statementdog episode 575, released on 3 November 2026, has host Weiyu and Statementdog's chief analyst Xiaozhen walking through their foundry industry update. Xiaozhen's call is that leading-edge capacity stays short through at least 2027, while mature nodes — the part he was worried about at the start of the year — flipped in the second half into rising volumes and rising prices. He frames the split with TSMC's third quarter: high performance computing revenue up 83% year on year against 46% in the first half, while the smartphone platform grew only 4.3% against 19% in the first half. The call holds only if two new sources of demand carry the weight — HBM base dies and server support chips — and he says plainly that those volumes are his own estimates, with the timing of adoption still being revised.
+
+## The strongest version of the episode's case: the shortage is not converging, it is spreading downward
+
+Start with that 4.3%. The smartphone platform going from 19% growth in the first half to roughly flat was something Xiaozhen flagged back in January. Memory and a long list of components were rising in price, so anyone expecting further increases bought their materials early — which means the first-half consumer numbers carried a slug of pulled-forward orders, and pull-forward cannot run a full year. In his eyes the third quarter numbers are a reconciliation: AI is strong enough to hide how ordinary the consumer side looks.
+
+![Two lines run from the first half on the left to the third quarter on the right: the upper line, high-performance computing, climbs steeply from 46% to 83%, while the lower line, phones, falls from 19% to 4.3% near the baseline, so the gap between them opens into a wide mouth on the right.](/figures/tsmc-hpc-mobile-divergence-en.svg)
+
+Leading-edge demand used to rest on two legs: AI accelerators, and CPUs, which only showed up in the first half of this year. The CPU leg did not exist last year. It arrived with agentic AI — once the model starts scheduling its own tasks, the orchestration work runs on CPUs, and those CPUs are built on 5nm, 3nm and 2nm.
+
+The third leg is the most interesting stretch of the episode: the HBM base die. HBM is the high-speed memory that sits next to the GPU, perhaps eight memory dies stacked vertically, with one more layer underneath that translates signals between the memory and the GPU. That bottom layer is the base die — a logic chip that happens to be packaged inside a memory product. From HBM1 through HBM3 the memory makers built it themselves on their own DRAM processes; the logic was simple enough that an in-house line could handle it.
+
+![On the right is a stack of thin memory dies, eight layers in all, resting on one noticeably thicker base die drawn in the accent color, and an arrow runs sideways from that layer to the GPU block on the left, showing that signals must pass through the bottom layer.](/figures/hbm-base-die-position-en.svg)
+
+With HBM4 that stops working. Xiaozhen breaks the pressure into three parts: transfer rates have to climb with each generation, power is a hard cost inside an AI system so consumption has to fall, and the next step is to move the memory controller out of the GPU and into this layer. Stack those three requirements and a DRAM process no longer suffices. So SK hynix and Micron moved their HBM4 base dies to TSMC's 12nm, while Samsung chose to keep it in house and jumped straight to a 4nm logic process. Looking further out, what NVIDIA is asking for is TSMC 3nm.
+
+Weiyu asks a good question here: that is a big jump. From a memory maker's own process to 12nm, then to 3nm, each step crosses two generations and skips every node in between. Xiaozhen's explanation is that the complexity of this layer itself rises in jumps, so the process has to jump with it.
+
+![Four bars rise higher from left to right to stand for process nodes, stepping from a memory maker's own process to 12nm, 4nm and 3nm, with a gray dashed gap between each pair marking the generations that were skipped, and each step taller than the one before.](/figures/base-die-node-jumps-en.svg)
+
+How large is the demand? By his own estimate, looking at NVIDIA alone, base dies will consume about 27,000 twelve-inch wafers a month in 2027, rising to 38,000–39,000 in 2028; he puts TSMC's 3nm monthly capacity in 2027 at above 190,000 wafers. So if all of those base dies ran on 3nm, they would take more than a tenth of that capacity. Then he pulls the claim back in: adoption is only beginning next year, 2028 gets to something above 3%, and it takes until 2029 for the shift to leading-edge nodes to be broad enough to reach a tenth.
+
+![One long horizontal bar stands for monthly 3nm capacity, only a small piece at the left end is filled, and three ticks of increasing length mark 3% in 2028, a tenth in 2029, and the ceiling case where everything runs on 3nm, showing the ceiling is just a short segment at the left of the bar.](/figures/base-die-share-of-3nm-en.svg)
+
+This matters more when you put it next to an anomaly. The old pattern was that once a new node ramps, the previous one loses momentum within about a year — that is what happened to 7nm after 5nm arrived. 2nm is ramping this year, so 3nm should be rolling over, and instead Xiaozhen sees it still growing strongly, because a stream of new chips skip the most advanced node and come back for 3nm or 5nm. The base die is one of them.
+
+![A vertical line marks when a new node enters volume production, the gray curve bends down and flattens after that line, the accent-color curve keeps climbing to the upper right, and the two curves separate into a clear gap in height on the right of the line.](/figures/node-decay-rule-broken-en.svg)
+
+The mature-node half flipped too. The worry in January was that consumer chips use a lot of mature capacity, so weak consumer demand would weigh on it. Two forces pushed the other way. First, supply was pulled away: leading edge was short enough to need expansion, there were no new fab shells, so TSMC and Samsung converted some mature capacity to leading edge. Demand did not grow; supply shrank first. Second, from the second half onward, the AI-driven server build needs a pile of power management chips, optical communication chips and analog chips, all of which sit on mature nodes.
+
+Xiaozhen uses Vanguard as the example. It has two main product lines: display driver ICs for panels, and power ICs. Consumer is weak, panel volumes are down, driver IC demand fell — while power ICs were pulled by servers into shortage. So the company converted capacity from driver ICs to power ICs, and after the conversion it is still short. SMIC, GlobalFoundries, Infineon and Texas Instruments all look the same: consumer is soft, and the server pull is enough to offset it.
+
+![Two capacity bars of equal width sit one above the other: the upper one is driver ICs on the left half and power ICs on the right half, while in the lower one the driver part shrinks to a short piece and power ICs take most of the width, and both bars are labeled as undersupplied at the right end.](/figures/wsemi-capacity-switch-en.svg)
+
+There is one more piece: the silicon interposer. It sits under advanced packaging but is built on roughly 65nm mature processes. TSMC cannot fit it all, so the demand is spilling over — UMC expects silicon interposer foundry work to contribute meaningful revenue in 2027, and TSMC has signed a five-year agreement worth around 2 billion US dollars with GlobalFoundries.
+
+He closes with a contrarian line: second-tier foundries now trade at higher multiples than TSMC, because the market reads those mature-node players as having more upside from a low base now that AI finally reaches them — and he thinks TSMC's growth is not as weak as people assume, and will not lose to the second-tier foundries next year.
+
+## The other side: where this reasoning is thinnest
+
+What stays with me is that "tenth". In the episode it arrives attached to a condition — if all base dies run on 3nm — and in the same breath he gives the actual adoption path as above 3% in 2028 and a tenth only by 2029. What falls away in retelling is always the condition, and once it falls away, 2027 acquires an extra tenth of 3nm demand out of nowhere, which is not something he said. He marks his own uncertainty with words like "estimate" and "I'm grabbing at it" — that marking is worth keeping.
+
+The Samsung stretch deserves more thought. Its turnaround this year hinged on jumping to 4nm in house at the moment SK hynix and Micron went to TSMC 12nm; NVIDIA then raised the base die transfer rate requirement from 8–9 Gbps to 10–11 Gbps, only Samsung's design met it, and the other two had to redesign, re-tape-out and re-qualify. That took Samsung from behind Micron to plausibly level with SK hynix on volume. Xiaozhen is honest about it: "I don't know whether that was luck or whether Samsung saw it coming."
+
+Which means admitting the other side: a position won by one spec change can be taken away by the next, and the next is already in motion — NVIDIA wants Samsung's later base dies on TSMC 3nm as well. Xiaozhen's answer is that only NVIDIA insists on TSMC's leading edge; Google, AMD and Amazon also use HBM in their accelerators, their base dies will face similar performance requirements, TSMC has no room, and Samsung's 4nm can still pick that up. The reasoning is sound, but it is a projection: those customers' sourcing lists are not public, Samsung's foundry division is running at a loss, and whether a customer gets more conservative when choosing the second-best option is not something the episode answers.
+
+The two forces behind the mature-node shortage have different lifespans. "Supply pulled away" is a human decision, and human decisions can be reversed — let the AI pull ease, or let new fab shells open, and that converted capacity goes back, so this kind of gap evaporates faster than a demand-driven one. Vanguard's move reads the same way in reverse: shifting driver IC capacity to power ICs shortens its own retreat, and when panel demand returns it has to convert again, which costs money in process and equipment.
+
+There is also a clue in the time horizons. Xiaozhen is willing to talk about leading edge through 2027 and into 2028 and 2029; on mature nodes he only says the shortage lasts "at least into the first half of next year". That difference marks his own confidence in each leg — and the leg trading at the higher multiple is the shorter one.
+
+![On the left, two horizontal bars stand for how far visibility reaches, with advanced nodes running out to 2029 and mature nodes reaching only the first half of next year, while on the right the matching P/E blocks are the other way round, the short bar paired with a tall block and the long bar with a short one.](/figures/confidence-length-vs-valuation-en.svg)
+
+The pull-forward lesson is worth carrying across, too. Consumer buyers front-loaded orders in the first half on price expectations and gave it back in the second, and that whole arc just played out in front of us. Server support chips now have stretching lead times and rising prices, which puts their customers in exactly the position consumer customers were in earlier: buying early feels safer. How much of that order book is double ordering and safety stock only shows up once it rolls over, and when it does, nobody will be calling it pull-forward.
+
+As for the 7nm pattern failing this time, the mechanism he gives — new chips coming back for relatively advanced nodes — is coherent, but it is still an unverified anomaly, and the control group is right in front of us: 2nm ramps this year, and how 3nm behaves over the next four to six quarters will write the answer. Intel, meanwhile, gets a single line in the episode: short of capacity even for its own CPUs, no successful external foundry case yet, customers staying conservative. Yet external foundry succeeding at scale would loosen the tension on both the leading-edge and mature sides, and no probability is attached to that branch.
+
+## Which side I think holds, and on what condition
+
+When I read an industry update like this, my first thought is usually "so do I chase the leader or the second tier". What blocks me is how much discount to apply when someone says shortage.
+
+My read is that the leading-edge leg holds, and the reason has nothing to do with forecasting the cycle. NVIDIA wrote the base die transfer rate into a specification; a supplier that misses it has to redesign, re-tape-out and re-qualify, and qualification runs in quarters. What gets used in 2027 has to be committed to a node now. Demand that reliable comes from switching cost, which is harder than any demand estimate.
+
+The mature-node leg I would split in two. The demand-driven half — server support chips, silicon interposers — holds, because it tracks AI server shipments and there is a physical correspondence. The supply-driven half is borrowed: it comes from a decision that can be reversed, and in the financial statements it looks identical to the demand-driven half, since both show up only as full utilisation and firm pricing. The two sit inside the same phrase, "supply cannot meet demand", and that is the part of this episode I would most want pulled apart.
+
+So what does it turn on? Two conditions, both trackable. First, whether customers other than NVIDIA also push base dies onto 3nm. If they do, that upper-bound tenth arrives earlier; if NVIDIA stays alone, this new demand stalls near the 3% he describes and barely moves the overall 3nm balance. What to watch is HBM4E design finalisation and tape-out lists, which leak through memory makers' calls and the supply chain.
+
+Second, whether the second-tier foundries are willing to convert capacity back to where it came from. This one needs nobody's disclosure: when panel demand recovers, if Vanguard converts capacity back to driver ICs, the power IC shortage was never tight enough to stop it; if it would rather make driver IC customers queue, that is a real shortage. How a company allocates its scarcest resource is more credible than how it describes demand on a call.
+
+On the valuation question. Second-tier foundry multiples above TSMC's can be read as the market overpricing their growth elasticity, or as the market pricing TSMC's base effect and rising depreciation — both readings fit the same numbers, and Xiaozhen picks the first. My own habit is to turn it into two falsifiable numbers: write down the growth-rate gap as one figure and the multiple gap as another, then ask which one gets knocked out first over the next four quarters. When I skip writing them down, I always end up feeling I knew it all along.
+
+## Where to look yourself
+
+- Statementdog episode 575, "Foundry: soft consumer markets have not stopped upward revisions, shortage continues through 2027", 3 November 2026
+- TSMC's quarterly earnings calls and revenue-by-platform breakdown; the year-on-year growth of high performance computing and smartphone is where every inference in this episode starts
+- JEDEC's HBM specifications, for what the base die is asked to carry from HBM4 onward
+- Earnings call transcripts from Vanguard, UMC and GlobalFoundries, for how "moving capacity between product lines" gets described
+
+## The One Thing to Take Away
+
+One idea: a shortage has two possible sources — somebody bought more, or somebody moved the supply away. Both come out of people's mouths as the same sentence, and their lifespans differ by years; the second one ends the day the decision is reversed, and no announcement goes out. The most useful line in this episode is Xiaozhen splitting the mature-node shortage into "supply indirectly reduced" and "demand genuinely increased", because the time horizons attached to those two were never meant to match.
+
+Something I have tried that works outside investing too: pick one thing that recently struck you as suddenly hard to get — a spot in your kid's after-school class, an appointment with the doctor you want, a kind of person your field is suddenly short of — and write down two versions of why. One version is that supply was pulled away (fewer classes opened, the doctor left, people your age changed careers); the other is that more people want it. Then go find one fact that separates the two: asking "how many classes ran at this time last year" is usually enough. I have asked a few times, and about half of the scarcity turned out to be the first kind — and a queue of the first kind gets short again on some unannounced day.

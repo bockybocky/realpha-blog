@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="After one vertical line the gray curve bends down and flattens while the accent curve keeps climbing to the upper right, leaving a gap in height between them.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" fill="var(--ink)">Old rule: a new node dulls the last one</text>
+<text x="60" y="90" font-size="16" fill="var(--dim)">Y axis growth momentum, X axis time</text>
+<line x1="140" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="140" y1="130" x2="140" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="470" y1="120" x2="470" y2="430" stroke="var(--line)" stroke-width="3" stroke-dasharray="8 8"/>
+<text x="470" y="108" font-size="19" fill="var(--dim)" text-anchor="middle">Next node ramps</text>
+<path d="M160 400 C 280 300, 400 230, 470 220 C 560 212, 640 300, 860 380" fill="none" stroke="var(--grey)" stroke-width="5"/>
+<path d="M160 405 C 280 320, 400 250, 470 235 C 580 215, 700 190, 860 150" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<text x="872" y="386" font-size="19" fill="var(--dim)">7nm</text>
+<text x="872" y="146" font-size="19" fill="var(--accent)">3nm</text>
+<text x="620" y="330" font-size="16" fill="var(--dim)">Rule says down</text>
+<text x="620" y="178" font-size="16" fill="var(--accent)">Still climbing</text>
+<text x="60" y="500" font-size="22" fill="var(--ink)">New chips come back to 3nm, so the rule fails</text>
+</svg>
