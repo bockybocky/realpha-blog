@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="三條線從低點往上收回，一條線持續走平偏下">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<text class="t" x="60" y="76">財報之後那幾天的軌跡</text>
+
+<line x1="200" y1="150" x2="200" y2="440" stroke="var(--line)" stroke-width="2"/>
+<line x1="200" y1="190" x2="860" y2="190" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<text class="b" x="200" y="176">財報前的價位</text>
+
+<text class="b" x="214" y="470">盤後</text>
+<text class="b" x="470" y="470">開盤</text>
+<text class="b" x="800" y="470">收盤</text>
+
+<path d="M 230 400 L 480 400 L 840 220" stroke="var(--accent)" stroke-width="3.5" fill="none"/>
+<path d="M 230 400 L 480 330 L 840 232" stroke="var(--accent)" stroke-width="3.5" fill="none" opacity="0.7"/>
+<path d="M 230 330 L 480 300 L 840 244" stroke="var(--accent)" stroke-width="3.5" fill="none" opacity="0.5"/>
+<path d="M 230 400 L 480 412 L 840 424" stroke="var(--warn)" stroke-width="4" fill="none"/>
+
+<text class="g" x="862" y="226" fill="var(--accent)">收回</text>
+<text class="g" x="862" y="430" fill="var(--warn)">沒反彈</text>
+<text class="b" x="640" y="150">三檔走上面那組，一檔走下面那條</text>
+
+<text class="c" x="60" y="520">第一天的價格講的是誰手上有貨，不是市場的意見</text>
+</svg>

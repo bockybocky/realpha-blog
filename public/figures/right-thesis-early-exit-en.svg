@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A price path rises sharply then falls back, with the exit marker at the lowest point.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<text class="t" x="60" y="76">Thesis right, trade still wrong</text>
+
+<line x1="160" y1="140" x2="160" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="160" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+
+<path d="M 200 390 C 330 380 460 250 600 170 C 680 200 740 260 840 290" stroke="var(--accent)" stroke-width="4" fill="none"/>
+
+<circle cx="200" cy="390" r="9" fill="var(--warn)"/>
+<text class="g" x="178" y="420" fill="var(--warn)">Sold at 180</text>
+<circle cx="600" cy="170" r="8" fill="var(--accent)"/>
+<text class="g" x="572" y="150">400</text>
+<circle cx="840" cy="290" r="8" fill="var(--accent)"/>
+<text class="g" x="862" y="296">280</text>
+
+<line x1="200" y1="390" x2="200" y2="196" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 5"/>
+<text class="b" x="214" y="196">The worry only landed this quarter</text>
+<text class="b" x="214" y="222">More than a year in between</text>
+
+<text class="c" x="60" y="500">Keep two books: thesis and trade, neither endorsing the other</text>
+</svg>

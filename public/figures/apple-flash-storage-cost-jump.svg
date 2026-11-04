@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="兩格對比，右邊的柱子是左邊的四倍多高">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<text class="t" x="60" y="76">同一批快閃儲存，兩年的帳</text>
+
+<rect x="90" y="120" width="360" height="300" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<rect x="510" y="120" width="360" height="300" rx="10" fill="var(--card)" stroke="var(--line)"/>
+
+<line x1="120" y1="390" x2="420" y2="390" stroke="var(--line)" stroke-width="2"/>
+<rect x="220" y="342" width="100" height="48" rx="3" fill="var(--grey)"/>
+<text class="g" x="212" y="326">60 億美元</text>
+<text class="b" x="248" y="176">去年</text>
+
+<line x1="540" y1="390" x2="840" y2="390" stroke="var(--line)" stroke-width="2"/>
+<rect x="640" y="190" width="100" height="200" rx="3" fill="var(--warn)"/>
+<text class="g" x="628" y="174" fill="var(--warn)">250 億美元</text>
+<text class="b" x="668" y="150">今年</text>
+
+<path d="M 452 300 L 500 300" stroke="var(--warn)" stroke-width="3" fill="none"/>
+<path d="M 492 292 L 502 300 L 492 308 Z" fill="var(--warn)"/>
+
+<text class="c" x="60" y="478">不買算力的那家，帳單寫在零組件上</text>
+</svg>
