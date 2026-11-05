@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="All three forecast points cluster on the right half of the axis while the actual result lands on the left half.">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="50" y="58" font-size="27" font-weight="700" fill="var(--ink)">Forecasts all one side, result the other</text>
+
+<rect x="60" y="130" width="840" height="190" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<line x1="100" y1="300" x2="860" y2="300" stroke="var(--line)" stroke-width="3"/>
+<line x1="480" y1="150" x2="480" y2="300" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="480" y="326" font-size="15" fill="var(--dim)" text-anchor="middle">Coin flip</text>
+<text x="160" y="170" font-size="20" font-weight="700" fill="var(--dim)">Lula side</text>
+<text x="800" y="170" font-size="20" font-weight="700" fill="var(--dim)" text-anchor="end">Flavio side</text>
+
+<circle cx="593" cy="300" r="13" fill="var(--accent)"/>
+<text x="593" y="256" font-size="16" fill="var(--ink)" text-anchor="middle">64%</text>
+<text x="593" y="236" font-size="15" fill="var(--dim)" text-anchor="middle">Bosworth</text>
+<circle cx="714" cy="300" r="13" fill="var(--accent)"/>
+<text x="714" y="256" font-size="16" fill="var(--ink)" text-anchor="middle">80%</text>
+<text x="714" y="236" font-size="15" fill="var(--dim)" text-anchor="middle">Prediction markets</text>
+<circle cx="767" cy="300" r="13" fill="var(--accent)"/>
+<text x="790" y="212" font-size="16" fill="var(--ink)" text-anchor="middle">87%</text>
+<text x="790" y="192" font-size="15" fill="var(--dim)" text-anchor="middle">Intraday high</text>
+<line x1="767" y1="288" x2="782" y2="224" stroke="var(--grey)" stroke-width="1.5"/>
+
+<rect x="196" y="272" width="56" height="56" rx="8" fill="var(--warn)"/>
+<text x="224" y="366" font-size="16" font-weight="700" fill="var(--ink)" text-anchor="middle">Actual count</text>
+
+<text x="480" y="470" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">Three points sitting close is not three independent points</text>
+</svg>

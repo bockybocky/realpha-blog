@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="同一條時間軸，一方把選舉日往前拉、一方往後拉">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="50" y="58" font-size="27" font-weight="700" fill="var(--ink)">投票日被往兩端拉</text>
+
+<text x="60" y="150" font-size="19" font-weight="700" fill="var(--accent)">華府方案</text>
+<polygon points="330,176 290,176 290,164 252,186 290,208 290,196 330,196" fill="var(--accent)"/>
+<circle cx="340" cy="186" r="16" fill="var(--accent)"/>
+<text x="340" y="146" font-size="16" fill="var(--ink)" text-anchor="middle">明年七月</text>
+
+<rect x="60" y="248" width="840" height="14" rx="6" fill="var(--grey)" opacity="0.4"/>
+<line x1="120" y1="236" x2="120" y2="274" stroke="var(--line)" stroke-width="3"/>
+<text x="120" y="304" font-size="16" fill="var(--dim)" text-anchor="middle">2026</text>
+<line x1="340" y1="236" x2="340" y2="274" stroke="var(--line)" stroke-width="3"/>
+<text x="340" y="304" font-size="16" fill="var(--dim)" text-anchor="middle">2027</text>
+<line x1="600" y1="236" x2="600" y2="274" stroke="var(--line)" stroke-width="3"/>
+<text x="600" y="304" font-size="16" fill="var(--dim)" text-anchor="middle">2028</text>
+<line x1="840" y1="236" x2="840" y2="274" stroke="var(--line)" stroke-width="3"/>
+<text x="840" y="304" font-size="16" fill="var(--dim)" text-anchor="middle">2029</text>
+
+<text x="900" y="400" font-size="19" font-weight="700" fill="var(--warn)" text-anchor="end">卡拉卡斯方案</text>
+<polygon points="590,364 630,364 630,352 668,374 630,396 630,384 590,384" fill="var(--warn)"/>
+<circle cx="580" cy="374" r="16" fill="var(--warn)"/>
+<text x="560" y="436" font-size="16" fill="var(--ink)" text-anchor="middle">再等兩年</text>
+
+<text x="480" y="486" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">同一條軸，兩種拖法</text>
+</svg>
