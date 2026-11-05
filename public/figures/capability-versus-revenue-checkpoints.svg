@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="同一條線上兩個相距很遠的記號，中間是一段空白">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">兩個驗證點，距離很遠</text>
+
+  <path d="M 90 300 L 890 300" stroke="var(--line)" stroke-width="4"/>
+  <path d="M 876 288 L 896 300 L 876 312 Z" fill="var(--line)"/>
+
+  <circle cx="230" cy="300" r="14" fill="var(--accent)"/>
+  <path d="M 230 286 L 230 214" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="230" y="196" font-size="20" font-weight="700" fill="var(--accent)" text-anchor="middle">能力驗證</text>
+  <text class="t" x="230" y="166" font-size="15" fill="var(--dim)" text-anchor="middle">演訓場</text>
+  <text class="t" x="230" y="344" font-size="16" fill="var(--ink)" text-anchor="middle">九到十倍</text>
+  <text class="t" x="230" y="370" font-size="16" fill="var(--ink)" text-anchor="middle">十二小時</text>
+  <text class="t" x="230" y="396" font-size="16" fill="var(--ink)" text-anchor="middle">零次被找到</text>
+
+  <circle cx="760" cy="300" r="14" fill="none" stroke="var(--warn)" stroke-width="4"/>
+  <path d="M 760 286 L 760 214" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 5"/>
+  <text class="t" x="760" y="196" font-size="20" font-weight="700" fill="var(--warn)" text-anchor="middle">營收驗證</text>
+  <text class="t" x="760" y="166" font-size="15" fill="var(--dim)" text-anchor="middle">編配的量</text>
+  <text class="t" x="760" y="344" font-size="16" fill="var(--dim)" text-anchor="middle">下一個軍團</text>
+  <text class="t" x="760" y="370" font-size="16" fill="var(--dim)" text-anchor="middle">下一次演訓</text>
+
+  <path d="M 258 440 L 732 440" stroke="var(--grey)" stroke-width="2" stroke-dasharray="8 6"/>
+  <path d="M 258 430 L 258 450" stroke="var(--grey)" stroke-width="2"/>
+  <path d="M 732 430 L 732 450" stroke="var(--grey)" stroke-width="2"/>
+  <text class="t" x="495" y="424" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">這段還沒對答案</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="上方衛星路徑中斷打叉，下方無線電路徑接通，兩車相距一千五百公尺">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">出口有好幾個</text>
+
+  <rect x="80" y="250" width="130" height="80" rx="8" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+  <text class="t" x="145" y="297" font-size="16" fill="var(--ink)" text-anchor="middle">節點前半</text>
+  <rect x="750" y="250" width="130" height="80" rx="8" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+  <text class="t" x="815" y="297" font-size="16" fill="var(--ink)" text-anchor="middle">節點後半</text>
+
+  <ellipse cx="480" cy="118" rx="52" ry="26" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <text class="t" x="480" y="124" font-size="15" fill="var(--dim)" text-anchor="middle">低軌衛星</text>
+  <path d="M 160 246 L 440 140" stroke="var(--grey)" stroke-width="3" stroke-dasharray="7 5"/>
+  <path d="M 800 246 L 522 140" stroke="var(--grey)" stroke-width="3" stroke-dasharray="7 5"/>
+  <g stroke="var(--warn)" stroke-width="5">
+    <path d="M 276 182 L 318 212"/><path d="M 318 182 L 276 212"/>
+  </g>
+  <text class="t" x="297" y="248" font-size="16" font-weight="700" fill="var(--warn)" text-anchor="middle">接收器掛了</text>
+
+  <path d="M 210 330 C 360 440, 600 440, 750 330" stroke="var(--accent)" stroke-width="6" fill="none"/>
+  <text class="t" x="480" y="432" font-size="19" font-weight="700" fill="var(--accent)" text-anchor="middle">無線電頻率</text>
+  <text class="t" x="480" y="470" font-size="15" fill="var(--dim)" text-anchor="middle">軟體先自己繞好</text>
+
+  <path d="M 210 356 L 750 356" stroke="var(--grey)" stroke-width="1"/>
+  <text class="t" x="480" y="378" font-size="15" fill="var(--dim)" text-anchor="middle">一千五百公尺</text>
+  <text class="t" x="145" y="226" font-size="15" fill="var(--dim)" text-anchor="middle">電腦變慢</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="三層寬度由上而下收窄，替代來源點數隨之減少，最窄那層被標為先斷的位置">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">哪一層窄到有定價權</text>
+
+  <path d="M 60 120 L 60 500" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="80" y="150" font-size="16" fill="var(--dim)">需求往下壓</text>
+
+  <rect x="120" y="140" width="560" height="100" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="150" y="186" font-size="20" font-weight="700" fill="var(--ink)">應用程式</text>
+  <text class="t" x="150" y="214" font-size="15" fill="var(--dim)">一個週末寫得出來</text>
+  <g fill="var(--grey)">
+    <circle cx="712" cy="190" r="9"/><circle cx="742" cy="190" r="9"/><circle cx="772" cy="190" r="9"/>
+    <circle cx="802" cy="190" r="9"/><circle cx="832" cy="190" r="9"/><circle cx="862" cy="190" r="9"/>
+  </g>
+  <text class="t" x="787" y="226" font-size="15" fill="var(--dim)" text-anchor="middle">替代來源很多</text>
+
+  <rect x="120" y="266" width="360" height="100" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="150" y="312" font-size="20" font-weight="700" fill="var(--ink)">資料層</text>
+  <text class="t" x="150" y="340" font-size="15" fill="var(--dim)">整合工程，合約長</text>
+  <g fill="var(--grey)">
+    <circle cx="520" cy="316" r="9"/><circle cx="550" cy="316" r="9"/><circle cx="580" cy="316" r="9"/>
+  </g>
+  <text class="t" x="550" y="352" font-size="15" fill="var(--dim)" text-anchor="middle">換手成本高</text>
+
+  <rect x="120" y="392" width="190" height="100" rx="8" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+  <text class="t" x="150" y="438" font-size="20" font-weight="700" fill="var(--ink)">傳輸層</text>
+  <text class="t" x="150" y="466" font-size="15" fill="var(--dim)">物理限制最硬</text>
+  <circle cx="350" cy="442" r="9" fill="var(--warn)"/>
+  <text class="t" x="430" y="448" font-size="16" font-weight="700" fill="var(--warn)">先斷的位置</text>
+  <text class="t" x="430" y="474" font-size="15" fill="var(--dim)">冗餘度綁採購量</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左格人員聚攏到一點，右格人員散開但面前畫面相同">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">同一個畫面，取代同一個地點</text>
+
+  <rect x="60" y="100" width="390" height="370" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="84" y="134" font-size="20" font-weight="700" fill="var(--dim)">之前</text>
+  <circle cx="255" cy="290" r="34" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <text class="t" x="255" y="296" font-size="15" fill="var(--warn)" text-anchor="middle">一個點</text>
+  <g fill="var(--grey)">
+    <circle cx="120" cy="190" r="11"/><circle cx="390" cy="190" r="11"/>
+    <circle cx="110" cy="390" r="11"/><circle cx="400" cy="390" r="11"/>
+    <circle cx="255" cy="430" r="11"/>
+  </g>
+  <g stroke="var(--grey)" stroke-width="2">
+    <path d="M 131 201 L 222 266"/><path d="M 379 201 L 288 266"/>
+    <path d="M 121 379 L 222 314"/><path d="M 389 379 L 288 314"/>
+    <path d="M 255 419 L 255 328"/>
+  </g>
+  <text class="t" x="255" y="452" font-size="15" fill="var(--dim)" text-anchor="middle">十四小時的會議</text>
+
+  <rect x="510" y="100" width="390" height="370" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="534" y="134" font-size="20" font-weight="700" fill="var(--accent)">之後</text>
+  <g>
+    <rect x="540" y="170" width="78" height="52" rx="5" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+    <path d="M 552 212 L 572 186 L 590 206 L 606 180" stroke="var(--accent)" stroke-width="2" fill="none"/>
+    <rect x="792" y="170" width="78" height="52" rx="5" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+    <path d="M 804 212 L 824 186 L 842 206 L 858 180" stroke="var(--accent)" stroke-width="2" fill="none"/>
+    <rect x="540" y="330" width="78" height="52" rx="5" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+    <path d="M 552 372 L 572 346 L 590 366 L 606 340" stroke="var(--accent)" stroke-width="2" fill="none"/>
+    <rect x="792" y="330" width="78" height="52" rx="5" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+    <path d="M 804 372 L 824 346 L 842 366 L 858 340" stroke="var(--accent)" stroke-width="2" fill="none"/>
+    <rect x="666" y="250" width="78" height="52" rx="5" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+    <path d="M 678 292 L 698 266 L 716 286 L 732 260" stroke="var(--accent)" stroke-width="2" fill="none"/>
+  </g>
+  <g fill="var(--grey)">
+    <circle cx="630" cy="196" r="9"/><circle cx="780" cy="196" r="9"/>
+    <circle cx="630" cy="356" r="9"/><circle cx="780" cy="356" r="9"/>
+    <circle cx="705" cy="320" r="9"/>
+  </g>
+  <text class="t" x="705" y="452" font-size="15" fill="var(--dim)" text-anchor="middle">各在原地，畫面相同</text>
+</svg>

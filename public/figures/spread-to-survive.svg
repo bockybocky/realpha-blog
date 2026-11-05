@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="車輛彼此拉開距離並各自位移，整個虛線框再整體搬往新區域">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">散得開才活得久</text>
+
+  <rect x="60" y="110" width="520" height="360" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2" stroke-dasharray="10 7"/>
+  <text class="t" x="84" y="142" font-size="20" font-weight="700" fill="var(--accent)">一個節點</text>
+
+  <g fill="var(--ink)">
+    <rect x="140" y="200" width="26" height="18" rx="3"/>
+    <rect x="430" y="188" width="26" height="18" rx="3"/>
+    <rect x="160" y="390" width="26" height="18" rx="3"/>
+    <rect x="450" y="372" width="26" height="18" rx="3"/>
+  </g>
+  <g stroke="var(--accent)" stroke-width="2">
+    <path d="M 180 206 L 240 200"/><path d="M 232 194 L 243 200 L 232 207 Z" fill="var(--accent)"/>
+    <path d="M 428 212 L 380 240"/><path d="M 386 232 L 376 243 L 382 231 Z" fill="var(--accent)"/>
+    <path d="M 176 384 L 230 356"/><path d="M 222 350 L 234 354 L 226 362 Z" fill="var(--accent)"/>
+    <path d="M 448 366 L 400 340"/><path d="M 406 334 L 396 338 L 404 346 Z" fill="var(--accent)"/>
+  </g>
+  <text class="t" x="320" y="178" font-size="16" fill="var(--dim)" text-anchor="middle">每二十四小時換位置</text>
+
+  <path d="M 172 218 L 448 206" stroke="var(--grey)" stroke-width="1" stroke-dasharray="4 4"/>
+  <text class="t" x="310" y="300" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">一千五百公尺</text>
+  <path d="M 190 320 L 420 320" stroke="var(--grey)" stroke-width="2"/>
+  <path d="M 190 312 L 190 328" stroke="var(--grey)" stroke-width="2"/>
+  <path d="M 420 312 L 420 328" stroke="var(--grey)" stroke-width="2"/>
+
+  <path d="M 600 290 L 700 290" stroke="var(--ink)" stroke-width="4"/>
+  <path d="M 690 278 L 706 290 L 690 302 Z" fill="var(--ink)"/>
+  <text class="t" x="653" y="268" font-size="16" fill="var(--dim)" text-anchor="middle">每四十八小時</text>
+  <text class="t" x="653" y="322" font-size="16" fill="var(--dim)" text-anchor="middle">整組搬家</text>
+
+  <rect x="730" y="190" width="170" height="200" rx="12" fill="var(--card)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="10 7"/>
+  <text class="t" x="815" y="222" font-size="16" fill="var(--dim)" text-anchor="middle">新區域</text>
+  <g fill="var(--grey)">
+    <rect x="756" y="262" width="24" height="16" rx="3"/>
+    <rect x="852" y="252" width="24" height="16" rx="3"/>
+    <rect x="762" y="348" width="24" height="16" rx="3"/>
+    <rect x="856" y="336" width="24" height="16" rx="3"/>
+  </g>
+  <text class="t" x="480" y="512" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">散開，要用時集中，用完再散開</text>
+</svg>
