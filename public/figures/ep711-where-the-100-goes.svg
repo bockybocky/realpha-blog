@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="兩根等寬長條對比：左邊整根實色代表 100 塊全付給模型商；右邊只剩底部一小段是小模型成本、上面一段是整合商抽成、最上方一大塊虛線空白是客戶省下的錢">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="56">那 100 塊後來分給了誰</text>
+  <text class="g" x="120" y="128">原本</text>
+  <rect x="120" y="150" width="150" height="300" fill="var(--accent)"/>
+  <text class="b" x="120" y="480">全付給大型模型商</text>
+  <text class="b" x="286" y="300">100</text>
+  <text class="g" x="520" y="128">之後</text>
+  <rect x="520" y="420" width="150" height="30" fill="var(--accent)"/>
+  <text class="b" x="686" y="442">小模型 10</text>
+  <rect x="520" y="360" width="150" height="60" fill="var(--grey)"/>
+  <text class="b" x="686" y="396">整合商抽一份</text>
+  <rect x="520" y="150" width="150" height="210" fill="none" stroke="var(--line)" stroke-width="3" stroke-dasharray="8 6"/>
+  <text class="b" x="686" y="258">客戶省下</text>
+  <text class="b" x="520" y="480">同一筆預算，三個人都說划算</text>
+  <text class="c" x="60" y="540">抽成來自省下來的那一段，不是客戶多付的</text>
+</svg>

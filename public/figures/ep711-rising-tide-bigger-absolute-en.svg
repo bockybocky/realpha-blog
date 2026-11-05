@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" width="960" height="570" role="img" aria-label="Two bars compared: the right one is much taller overall, its grey top segment for everyone else takes a bigger proportion, and its bright bottom segment for closed-source share is a smaller proportion yet taller in absolute terms than the left bar's.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="570" fill="var(--page)"/>
+  <text class="t" x="60" y="56">Smaller share, and still more money</text>
+  <text class="g" x="140" y="150">Today</text>
+  <rect x="140" y="250" width="160" height="190" fill="var(--accent)"/>
+  <rect x="140" y="250" width="160" height="70" fill="var(--grey)"/>
+  <text class="b" x="316" y="292">Everyone else</text>
+  <text class="b" x="316" y="392">Closed-source take</text>
+  <text class="b" x="140" y="476">Total market</text>
+  <text class="g" x="600" y="150">Later</text>
+  <rect x="600" y="180" width="160" height="260" fill="var(--accent)"/>
+  <rect x="600" y="180" width="160" height="130" fill="var(--grey)"/>
+  <text class="b" x="776" y="252">Everyone else</text>
+  <text class="b" x="776" y="382">Closed-source take</text>
+  <text class="b" x="600" y="476">The market gets bigger</text>
+  <line x1="100" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <path d="M360 300 L540 250" stroke="var(--accent)" stroke-width="3" fill="none"/>
+  <text class="b" x="366" y="340">Share shrinks, height still grows</text>
+  <text class="c" x="60" y="536">So "open or closed wins" is the wrong question</text>
+</svg>

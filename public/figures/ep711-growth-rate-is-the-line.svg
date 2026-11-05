@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一條成長率曲線由高處往右下走平，中間一條垂直線把圖分成左邊淺底的高速成長區與右邊警示虛框的零成長區">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:20px; font-weight:700; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="56">要盯的是成長率那條線，不是份額的消息</text>
+  <rect x="80" y="120" width="420" height="280" fill="var(--card)"/>
+  <rect x="500" y="120" width="380" height="280" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 6"/>
+  <path d="M80 150 C 260 170, 400 250, 500 330 C 620 390, 760 398, 880 400" stroke="var(--accent)" stroke-width="6" fill="none"/>
+  <line x1="500" y1="110" x2="500" y2="420" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="80" y1="400" x2="900" y2="400" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="60" y="106">成長率</text>
+  <text class="g" x="110" y="330">高速成長</text>
+  <text class="b" x="110" y="362">份額被誰吃掉都無傷大雅</text>
+  <text class="g" x="540" y="180">成長率不見了</text>
+  <text class="b" x="540" y="212">產能過剩、彼此砍價</text>
+  <text class="b" x="820" y="440">時間</text>
+  <text class="b" x="470" y="462">這條線才是失效點</text>
+  <text class="c" x="60" y="528">份額的壞消息，過了那條線才算壞消息</text>
+</svg>

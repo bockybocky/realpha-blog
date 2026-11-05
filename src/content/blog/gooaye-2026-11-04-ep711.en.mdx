@@ -1,0 +1,97 @@
+---
+title: "Gooaye EP711: You Don't Need a Cow in the Yard to Drink Milk"
+description: "Notes on Gooaye EP711 (4 November 2026): host Hsieh Meng-kung's read on Palantir's Q3 call — L3Harris fine-tuning an open-weight model on its own data and beating its incumbent frontier model inside 48 hours at 95% lower cost, and a 30-billion-parameter post-trained model outperforming a three-trillion-parameter general model on narrow tasks — plus why he thinks the money lands with system integrators, AMD's Q3 numbers, where the term value trap actually applies, and margin debt as a panic gauge. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "gooaye-2026-11-04-ep711"
+lang: "en"
+pubDate: 2026-11-05
+category: "investing"
+kind: "podcast-notes"
+tags: ["Gooaye", "podcast-notes", "open-weight models", "system integrators", "edge computing"]
+ogImage: "/covers/gooaye-2026-11-04-ep711-cover.png"
+cover: "/covers/gooaye-2026-11-04-ep711-cover.png"
+---
+
+![An engineering room inside a factory at dusk, one small AI workstation glowing warm on the foreground bench, rows of racks running deep behind it toward a wash of cold blue light at the far end of the corridor](/covers/gooaye-2026-11-04-ep711-cover.png)
+
+> The hundred craftsmen stay in their workshops to get their work done; the gentleman studies to reach his way.
+>
+> —— *Analects*, Book 19 "Zizhang" (Spring and Autumn period; my own translation)
+
+In Gooaye EP711, published 4 November 2026, host Hsieh Meng-kung spent most of the episode on Palantir's Q3 earnings call, and he relayed two cases from it: defence electronics maker L3Harris fine-tuned an open-weight model on its own data and passed the frontier model it had been using within 48 hours, at 95% lower cost; in another deployment a 30-billion-parameter post-trained model — small enough to sit on a single AI desktop — outperformed a three-trillion-parameter general model on specific tasks. His conclusion is that the saved money flows to the system integrators who install this for enterprises and stay on to maintain it, and that edge devices have gone from a slogan to something shippable. All of those figures are his relay of the call, and they hold only where the task is narrow, repetitive and fixed in scope.
+
+## The line he picked out of that call
+
+He started with sovereign AI: the customer's own operating data gets post-trained inside the platform, and the resulting weights stay in the customer's hands. He said the fiercest argument in the industry right now is about who owns the data, because everyone has worked out that the model is not the valuable part — models drift toward being a commodity — the data is, and customers do not want to hand it over. So the question changed: from "whose model is stronger" to "how do we leave the data with the customer while someone wires up the service and the workflow."
+
+![Two panels compared side by side: before, data crosses out of the company's dashed boundary to feed an outside model; after, the boundary is solid, data and weights stay inside, a thick pipe stands for the wiring, and the model shrinks and turns grey.](/figures/ep711-data-stays-inside-en.svg)
+
+Every internal rollout I have been near got stuck at exactly that point. Whether the data can leave the building, and who can see it once it does, eats the whole conversation; which vendor's model to use never reaches the agenda. That is why I was nodding through this part — unlock that question and the rest becomes discussable.
+
+## A 95% saving sounds too good. What is holding it up?
+
+Your first reaction to "costs drop to a twentieth" should be doubt. Mine was. Lay out the conditions he gave and the number is standing on three legs.
+
+The first is a narrow task. His examples were translation, speech recognition, cleaning up spreadsheets, one domain's repeated judgement calls. A general model has to fit tens of thousands of jobs into one set of weights; a narrow task fits one, which is why 30 billion parameters go into a high-end laptop while the three-trillion one stays in a data centre.
+
+![On the left, a twelve-by-eight grid stands for a three-trillion-parameter general model with only the middle cell lit; on the right, a small square stands for a thirty-billion-parameter narrow-task model, about the size of that one cell.](/figures/ep711-one-cell-of-the-grid-en.svg)
+
+The second is that the data has to be the customer's own. Here he borrowed from trading, and it is the sharpest piece of reasoning in the episode: a general model's answer is a vote count — it tells you what most people say — so if you ask it what to buy right now, the answer is either wrong or already consensus, and there is no edge left in it. He said people who trade well are mostly oddballs who think unlike everyone else. Same logic downstream: pour your own data into a model that does one job, and the output finally differs from everybody else's.
+
+The third is that the cost structure gets swapped out. The model runs locally, so what disappears is the round trip to the cloud and the per-token bill. Put the three legs together and you can see what the 95% is: it is the money you were paying for general capability you never used.
+
+## So why do the system integrators collect?
+
+By now you are probably asking the obvious thing — if small models are this cheap, why not do it in-house? His answer is the most memorable line of the episode: everyone thinks that to drink milk they have to keep a cow, but you don't need a cow in the yard; you can find a local dairy farmer and have him bring the milk over.
+
+He broke the in-house path down honestly. Follow a tutorial and you get version one. Version two is the problem: nobody can maintain it, something new comes in to be wired up and the whole thing breaks and starts over. Below that sits liability — when the system you hacked together leaks, who answers for it? A company cannot just shrug; a hole in a company's systems gets it sued, so there has to be a counterparty to sign with.
+
+![On the left, five steps climb higher and higher, with the fifth in a warning color and a line pulling upward to mean it can no longer be maintained and has to be rebuilt; on the right, a flat bar with a signature circle means the outsourced version does not break as versions climb.](/figures/ep711-which-version-breaks-en.svg)
+
+The arithmetic follows. The customer was paying 100 to a large model vendor; the integrator says it will cut 90 of that, keeps a margin in the middle, and the customer still comes out ahead, so the deal closes. The rent sits in five things: selecting what to buy, deploying it, wiring it together, maintaining it, and carrying the blame on the bad day. As for when other firms notice this meat — his guess is six months to a year, and he flagged it as a guess.
+
+## Where this argument breaks
+
+He supplied the first failure condition himself, and it is the part worth copying down: while the market is still growing fast, it does not matter much whose share gets eaten, because everyone is still earning more; the trouble starts when growth disappears, which is when you get the overcapacity and price-cutting now visible in China. So the line to watch is the growth rate. Share-loss headlines all read like bad news during a fast-growth phase and change nothing.
+
+![A growth-rate curve falls from a high point and flattens toward the right, with a vertical line splitting the chart into a lightly shaded high-growth zone on the left and a dashed warning box of zero growth on the right.](/figures/ep711-growth-rate-is-the-line-en.svg)
+
+The second he did not say, but this is how I read it: the cases were picked by the seller. The baseline for that 95% — what the frontier model used to cost — is defined by the same seller. Change the baseline and the ratio changes. To harden the number you want a second and a third customer, in different industries, naming a similar order of magnitude themselves.
+
+Third, widen the task and the small model collapses. Every use case he named was fixed and repetitive; the day the customer wants "tell me whether to sign this contract" instead of "translate this," the cheap road ends.
+
+Fourth, and hardest to observe: if the barrier to integration gets flattened by tooling, the rent returns to the software. Watch whether the integrators' gross margin and share of long-term contracts hold up, rather than their revenue line.
+
+## Is this the big models losing?
+
+He ruled that reading out on the air, using an argument he has made many times: a rising tide lifts the boats. Closed models will give up some share while the whole machine keeps climbing, so they still earn more. He said arguing over whether open or closed wins is beside the point right now, and the question to ask is which side's stock goes up.
+
+![Two bars compared: the right one is much taller overall, its grey top segment for everyone else takes a bigger proportion, and its bright bottom segment for closed-source share is a smaller proportion yet taller in absolute terms than the left bar's.](/figures/ep711-rising-tide-bigger-absolute-en.svg)
+
+One more reading to rule out: none of this says enterprises should staff up their own AI teams. The way the 95% got saved was by contracting the work out. On the in-house route his comment was different — you would have to maintain a team on top of everything else, it is too hard, and the incident is still yours.
+
+## A few other things worth keeping
+
+- **AMD's third quarter**: the figures he relayed were non-GAAP earnings of US$2.09 per share, ahead of expectations, GAAP gross margin at 54%, the data centre segment up 27% sequentially and 97% year on year, MI450 starting to ship, and a consumer segment guided down roughly 20% next quarter. His observation was that the after-hours reaction did not care about the consumer decline, which is his standing point that a stock's drop often has nothing to do with the headline being shouted about.
+- **"Value trap" has a domain**: a listener asked whether buying now means walking into one. He said save the term for cyclicals, whose signature is that the cheapest-looking P/E is frequently the top, because that earnings level does not persist. For long-term growers, or names where no clear turn in the supply chain is visible yet, he does not use the phrase. His method is to take a crash year's multiple and derive a floor from it, as a stress test.
+- **Margin debt as a panic gauge**: the previous session flushed over NT$20bn of margin debt, which he said was more like it. Without that last week he only added a little; this week's intraday acceleration lower followed by a long lower shadow is what made him act. The shape he likes is an intraday break, then a lower shadow, then volume.
+- **How you enter decides how you hold**: he cut last week's attempt, because the mindset was wrong going in. He reached for the legal principle that illegally obtained evidence cannot be used as evidence, then added his own: you plan to go eat your money's worth at a buffet, you even drink black coffee beforehand to prime your stomach, and when you get there the food is mediocre — but you prepped, so you eat a pile of it anyway and spend the next few days on the toilet. This time he put the position in the index instead, kept it heavier and calmer, and will wait for margin debt to blow out before touching individual names.
+- **He finished a 10K**: resting heart rate down from the 80s and 90s to the low 60s, pace just over seven minutes a kilometre. He said that return beats catching a hot stock, because a stock you miss comes round again and you only get one body.
+
+## Worth a look
+
+- Gooaye EP711 (4 November 2026), the source for these notes
+- Palantir's Q3 2026 results and earnings-call transcript on the company's investor relations site, to check the cases and the cost ratio relayed in the episode
+- AMD's Q3 2026 results and earnings deck, to check gross margin and data centre growth
+- L3Harris press releases and public statements, to see whether that 48-hour case has a second-party description
+- Licence terms and parameter-size notes for open-weight models on Hugging Face, to judge how far small models currently reach
+- Daily margin-debt statistics from the Taiwan Stock Exchange and the Taipei Exchange, to track that panic gauge yourself
+
+## One thing to take with you
+
+**Before deciding whether to do something yourself or hand it off, work out who cleans up on the day it goes wrong.**
+
+What makes his cow analogy good is that it moves the question from "am I capable of this" to "who answers when it breaks." A company can build version one and cannot survive version five, and somebody has to sign for the incident — those two together are the case for handing it off. I keep treating "I could learn this" as "I should do this myself," and then stalling at maintenance.
+
+![A four-quadrant chart with "can learn it" versus "cannot learn it" on the horizontal axis and "I clean up the mess" versus "someone else signs for it" on the vertical axis, with the top-left cell shaded in a warning color as the grind-it-out trap people fall into most.](/figures/ep711-who-cleans-up-quadrant-en.svg)
+
+Here is something I have tried that has nothing to do with investing: find three things you are carrying alone this week — fixing something at home, handling a spreadsheet, getting a kid signed up for something — and write one sentence after each, naming who deals with the consequences if it goes wrong. Then leave it there.
