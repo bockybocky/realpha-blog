@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two panels show the same gap between estimates and actual earnings: the left panel has a trough in actual earnings, while the right panel has no trough.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<text class="t" x="60" y="58">Same gap, different source</text>
+<rect x="60" y="92" width="390" height="400" rx="10" fill="var(--card)"/>
+<rect x="510" y="92" width="390" height="400" rx="10" fill="var(--card)"/>
+<text class="g" x="84" y="128">Past: just out of recession</text>
+<text class="g" x="534" y="128">This time</text>
+<line x1="84" y1="480" x2="430" y2="480" stroke="var(--line)" stroke-width="2"/>
+<line x1="534" y1="480" x2="880" y2="480" stroke="var(--line)" stroke-width="2"/>
+<polyline points="90,360 160,400 230,468 300,432 380,402 430,395" fill="none" stroke="var(--grey)" stroke-width="5"/>
+<polyline points="540,422 620,404 700,382 780,356 860,335" fill="none" stroke="var(--grey)" stroke-width="5"/>
+<circle cx="430" cy="230" r="9" fill="var(--accent)"/>
+<circle cx="860" cy="170" r="9" fill="var(--accent)"/>
+<line x1="408" y1="230" x2="408" y2="395" stroke="var(--accent)" stroke-width="4"/>
+<line x1="838" y1="170" x2="838" y2="335" stroke="var(--accent)" stroke-width="4"/>
+<text class="b" x="300" y="300">Gap</text>
+<text class="b" x="730" y="245">Gap</text>
+<text class="b" x="248" y="508" text-anchor="middle">Denominator compressed</text>
+<text class="b" x="698" y="508" text-anchor="middle">No trough in the denominator</text>
+<text class="b" x="90" y="340">Estimate</text>
+<text class="b" x="540" y="398">Actual</text>
+<text class="c" x="60" y="548">The right-hand segment is added on top of net income</text>
+</svg>

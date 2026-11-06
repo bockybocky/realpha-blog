@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Top-down dance-floor view: the person in the center is far from the exit, while the person by the exit is only a few steps away.">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<text class="t" x="60" y="58">Same song, different distance</text>
+<rect x="150" y="100" width="700" height="340" rx="16" fill="var(--card)" stroke="var(--line)" stroke-width="3"/>
+<rect x="138" y="230" width="24" height="90" fill="var(--accent)"/>
+<text class="g" x="60" y="262" fill="var(--accent)">Exit</text>
+<text class="b" x="60" y="288" fill="var(--accent)">Here</text>
+<circle cx="560" cy="270" r="18" fill="var(--warn)"/>
+<text class="g" x="560" y="232" text-anchor="middle" fill="var(--warn)">Center of dance floor</text>
+<circle cx="220" cy="270" r="18" fill="var(--accent)"/>
+<text class="g" x="236" y="330" fill="var(--accent)">By the exit</text>
+<line x1="166" y1="270" x2="540" y2="270" stroke="var(--warn)" stroke-width="3" stroke-dasharray="10 8"/>
+<line x1="166" y1="398" x2="200" y2="398" stroke="var(--accent)" stroke-width="6"/>
+<text class="b" x="212" y="404" fill="var(--accent)">A few steps</text>
+<text class="b" x="360" y="246" fill="var(--warn)">Many steps</text>
+<circle cx="700" cy="180" r="10" fill="var(--grey)" opacity="0.6"/>
+<circle cx="760" cy="330" r="10" fill="var(--grey)" opacity="0.6"/>
+<circle cx="640" cy="370" r="10" fill="var(--grey)" opacity="0.6"/>
+<circle cx="480" cy="160" r="10" fill="var(--grey)" opacity="0.6"/>
+<text class="c" x="60" y="500">You cannot decide when the music stops, but you can choose where to stand</text>
+</svg>

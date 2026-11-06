@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="殖利率軸上的翻轉點：左側股債反向互相保護，右側股債同向一起下跌">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<text class="t" x="60" y="58">過了那個點，保護就沒了</text>
+<rect x="60" y="96" width="400" height="300" rx="12" fill="var(--card)"/>
+<rect x="500" y="96" width="400" height="300" rx="12" fill="var(--card)"/>
+<text class="g" x="84" y="134">低殖利率的年代</text>
+<text class="g" x="524" y="134">殖利率站上那條線之後</text>
+<line x1="180" y1="340" x2="180" y2="200" stroke="var(--grey)" stroke-width="14"/>
+<polygon points="180,176 162,208 198,208" fill="var(--grey)"/>
+<text class="b" x="180" y="370" text-anchor="middle">債</text>
+<line x1="330" y1="200" x2="330" y2="340" stroke="var(--grey)" stroke-width="14"/>
+<polygon points="330,364 312,332 348,332" fill="var(--grey)"/>
+<text class="b" x="330" y="190" text-anchor="middle">股</text>
+<line x1="620" y1="200" x2="620" y2="340" stroke="var(--warn)" stroke-width="14"/>
+<polygon points="620,364 602,332 638,332" fill="var(--warn)"/>
+<text class="b" x="620" y="190" text-anchor="middle">債</text>
+<line x1="770" y1="200" x2="770" y2="340" stroke="var(--warn)" stroke-width="14"/>
+<polygon points="770,364 752,332 788,332" fill="var(--warn)"/>
+<text class="b" x="770" y="190" text-anchor="middle">股</text>
+<line x1="80" y1="444" x2="900" y2="444" stroke="var(--line)" stroke-width="3"/>
+<circle cx="480" cy="444" r="12" fill="var(--accent)"/>
+<text class="g" x="480" y="486" text-anchor="middle" fill="var(--accent)">翻轉點</text>
+<text class="b" x="80" y="486">殖利率低</text>
+<text class="b" x="900" y="486" text-anchor="end">殖利率高</text>
+<text class="c" x="60" y="528">兩支箭頭同向，避震器就失效了</text>
+</svg>
