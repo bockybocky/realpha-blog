@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" role="img" aria-label="開票後路徑分岔圖：指數路徑幾乎走平並微揚，灰色虛線的選前劇本沒發生，下方三條個股路徑大幅下彎">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="620" fill="var(--page)"/>
+<defs>
+<marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+<marker id="w1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--warn)"/></marker>
+</defs>
+<text class="t" x="60" y="58" font-size="27" fill="var(--ink)" font-weight="700">開票後被重新定價的，不是政策方向</text>
+<text class="t" x="60" y="118" font-size="19" fill="var(--dim)">指數層：政策方向</text>
+<circle cx="120" cy="250" r="13" fill="var(--accent)"/>
+<text class="t" x="96" y="300" font-size="15" fill="var(--dim)">11/5 開票</text>
+<path d="M170,250 L300,200 L900,200" fill="none" stroke="var(--accent)" stroke-width="4" marker-end="url(#a1)"/>
+<text class="t" x="600" y="182" font-size="16" fill="var(--ink)" text-anchor="middle">標普 500 ＋1.5%</text>
+<path d="M170,250 L300,272 L620,272" fill="none" stroke="var(--grey)" stroke-width="3" stroke-dasharray="8 7"/>
+<text class="t" x="330" y="296" font-size="15" fill="var(--grey)">選前劇本 −10%：沒發生</text>
+<text class="t" x="60" y="352" font-size="19" fill="var(--dim)">個股層：政治曝險</text>
+<path d="M170,250 L330,390 L660,390" fill="none" stroke="var(--warn)" stroke-width="4" marker-end="url(#w1)"/>
+<path d="M170,250 L330,460 L660,460" fill="none" stroke="var(--warn)" stroke-width="4" marker-end="url(#w1)"/>
+<path d="M170,250 L330,530 L660,530" fill="none" stroke="var(--warn)" stroke-width="4" marker-end="url(#w1)"/>
+<text class="t" x="690" y="396" font-size="16" fill="var(--ink)">Tesla −10%</text>
+<text class="t" x="690" y="466" font-size="16" fill="var(--ink)">SpaceX −7.5%</text>
+<text class="t" x="690" y="536" font-size="16" fill="var(--ink)">Sterling 1,000 → 255</text>
+<text class="t" x="60" y="594" font-size="22" fill="var(--ink)" font-weight="700">指數被僵局抵銷，個股被條件重算</text>
+</svg>

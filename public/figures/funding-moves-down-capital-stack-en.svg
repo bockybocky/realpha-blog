@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Three capital-stack layers from top to bottom are cash, corporate bonds and new equity, and a downward arrow on the right shows the funding source stepping lower.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<defs>
+<marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>
+</defs>
+<text class="t" x="60" y="56" font-size="27" fill="var(--ink)" font-weight="700">Same capex, funded further down</text>
+<text class="t" x="118" y="186" font-size="16" fill="var(--dim)">1.</text>
+<text class="t" x="118" y="296" font-size="16" fill="var(--dim)">Then</text>
+<text class="t" x="118" y="406" font-size="16" fill="var(--dim)">Now</text>
+<rect x="210" y="140" width="520" height="80" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="240" y="188" font-size="19" fill="var(--ink)">Cash</text>
+<rect x="210" y="250" width="520" height="80" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="240" y="298" font-size="19" fill="var(--ink)">Bonds</text>
+<rect x="210" y="360" width="520" height="80" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="240" y="408" font-size="19" fill="var(--ink)">Equity</text>
+<circle cx="800" cy="180" r="9" fill="var(--accent)"/>
+<circle cx="800" cy="290" r="9" fill="var(--accent)"/>
+<circle cx="800" cy="400" r="9" fill="var(--accent)"/>
+<path d="M800,180 L800,460" fill="none" stroke="var(--accent)" stroke-width="4" marker-end="url(#a4)"/>
+<text class="t" x="826" y="300" font-size="16" fill="var(--accent)">Down</text>
+<text class="t" x="210" y="526" font-size="22" fill="var(--ink)" font-weight="700">Lower down, costlier</text>
+</svg>
