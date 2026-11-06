@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一倍、三倍、五倍三根橫條長度遞增，但都在同一條交割日虛線上結束">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+</style>
+<text x="80" y="60" font-size="27" font-weight="700">同一天交割，價格差三到五倍</text>
+<line x1="222" y1="120" x2="222" y2="420" stroke="var(--line)" stroke-width="2"/>
+<rect x="222" y="150" width="120" height="50" fill="var(--accent)"/>
+<text x="356" y="184" font-size="20" font-weight="700" fill="var(--accent)">×1</text>
+<text x="80" y="184" font-size="19">第一批</text>
+<rect x="222" y="240" width="360" height="50" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+<text x="596" y="274" font-size="20" font-weight="700" fill="var(--warn)">×3</text>
+<text x="80" y="274" font-size="19">追進的人</text>
+<rect x="222" y="330" width="600" height="50" fill="var(--warn)"/>
+<text x="836" y="364" font-size="20" font-weight="700" fill="var(--warn)">×5</text>
+<text x="80" y="364" font-size="19">追進的人</text>
+<line x1="880" y1="120" x2="880" y2="440" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="770" y="470" font-size="16" fill="var(--dim)">同一天交割</text>
+</svg>
