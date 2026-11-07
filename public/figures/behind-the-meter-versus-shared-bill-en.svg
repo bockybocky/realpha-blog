@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="In the left panel both kinds of demand merge into one flow that lands on the household bill, while in the right panel they split into two flows and the household bill is unaffected.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">Visible bill, invisible bill</text>
+
+  <rect x="60" y="110" width="400" height="320" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="84" y="148" font-size="20" font-weight="700" fill="var(--warn)">one line</text>
+  <text class="t" x="84" y="188" font-size="16" fill="var(--dim)">data ctr</text>
+  <text class="t" x="84" y="232" font-size="16" fill="var(--dim)">home</text>
+  <path d="M190 182 L280 206" stroke="var(--warn)" stroke-width="5" fill="none"/>
+  <path d="M190 226 L280 206" stroke="var(--warn)" stroke-width="5" fill="none"/>
+  <path d="M280 206 L368 206" stroke="var(--warn)" stroke-width="7" fill="none"/>
+  <rect x="236" y="276" width="160" height="92" rx="8" fill="var(--page)" stroke="var(--warn)" stroke-width="3"/>
+  <text class="t" x="256" y="310" font-size="19" font-weight="700" fill="var(--ink)">Bill</text>
+  <text class="t" x="256" y="342" font-size="19" font-weight="700" fill="var(--warn)">up</text>
+  <path d="M316 212 L316 270" stroke="var(--warn)" stroke-width="5"/>
+
+  <rect x="500" y="110" width="400" height="320" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="524" y="148" font-size="20" font-weight="700" fill="var(--accent)">split</text>
+  <text class="t" x="524" y="188" font-size="16" fill="var(--dim)">DC</text>
+  <text class="t" x="524" y="232" font-size="16" fill="var(--dim)">res</text>
+  <path d="M630 182 L812 182" stroke="var(--grey)" stroke-width="7" fill="none"/>
+  <path d="M630 226 L756 226" stroke="var(--accent)" stroke-width="7" fill="none"/>
+  <rect x="676" y="276" width="160" height="92" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t" x="696" y="310" font-size="19" font-weight="700" fill="var(--ink)">Bill</text>
+  <text class="t" x="696" y="342" font-size="19" font-weight="700" fill="var(--accent)">n/c</text>
+  <path d="M756 232 L756 270" stroke="var(--accent)" stroke-width="5"/>
+
+  <text class="t" x="60" y="486" font-size="22" font-weight="700" fill="var(--ink)">It starts on the bill, not the DC</text>
+</svg>
