@@ -1,0 +1,100 @@
+---
+title: "The Bottleneck Moved From the Machine Room to the Ballot Box — Notes on Statementdog on the Midterms, AI Data Centres and Marvell Buying Lumentum"
+description: "Listening notes on Statementdog podcast episode 576: chief analyst Sky puts this week's drawdown down to a timing deferral caused by politics blocking the supply side, while on demand he cites Palantir's latest call, where sovereign AI commercial revenue has passed government revenue; the other half of the episode is Marvell buying Lumentum for what the inside of the rack looks like three to five years out. The piece takes apart the weakest links in that reasoning and names the conditions you can track. Educational discussion of research method, not investment advice; no stock recommendations or price targets."
+slug: "caibaogou-2026-11-05-576-x-aidc-marvell-lumentum"
+lang: "en"
+pubDate: 2026-11-06
+category: "investing"
+kind: "podcast-notes"
+tags: ["Statementdog", "AI data centres", "Marvell", "optical interconnect", "power bottleneck"]
+ogImage: "/covers/caibaogou-2026-11-05-576-x-aidc-marvell-lumentum-cover.png"
+cover: "/covers/caibaogou-2026-11-05-576-x-aidc-marvell-lumentum-cover.png"
+---
+
+![A river valley construction site at dusk, in the foreground a newly erected substation still unconnected, its busbars catching the low raking light, at its feet coils of fibre not yet laid along an open trench whose line runs deep into the frame toward the pale outline of a row of data halls](/covers/caibaogou-2026-11-05-576-x-aidc-marvell-lumentum-cover.png)
+
+> Favourable weather matters less than favourable ground; favourable ground matters less than people in accord.
+>
+> —— *Mencius*, Gongsun Chou II (Warring States period; translated here by the author)
+
+Statementdog episode 576, released on 5 November 2026, has host Weiyu and Statementdog's chief analyst Sky going through this week's market correction, what the midterm elections imply for AI regulation, and Marvell's acquisition of Lumentum. Sky's read is that demand has not weakened — he cites Palantir's call this week, where sovereign AI commercial revenue has overtaken government revenue — and that what sold off is a timing deferral created when politics blocked the supply side: look out five or ten years and nothing changes, pull the window in by six months and you are a quarter short. The call holds only if power and land approvals are delayed rather than permanently closed, and on optical interconnect his horizon is three to five years, with both sides of the deal taking near-term pain.
+
+## A theme with no visible downside, and the downside came from politics
+
+Sky opens by saying his phone has been busier, everyone asking how he sees it from here, and his answer is "there is no seeing it — let's have a drink." Under the joke sits the drawdown of the past few days: measured in percentage terms, giving back ten or twenty points after a 70% run is still inside the range, but Taiwan's over-the-counter index lost a lot of points, and anyone holding small and mid caps felt it far more. Weiyu mentions a statistic going around the market — there is an anime about currency trading, FX Fighter Kurumi, and every episode that airs is followed by a 500-point drop in the Taiwan index, with the 1 October premiere the only up day. When the search for a culprit gets that far, nobody has a better explanation to hand.
+
+Sky's explanation is politics. The market read the results in several states as a confidence vote on data centres: if you think one should not be built here, you vote Democrat; if you think data centres are wonderful, you vote Republican. Even Texas produced a version of "space is our real frontier", with Musk folded into the story. His view is that pre-election language is mostly promotion, and that an opposition party wanting to check the governing party is understandable — Trump is no longer asking for AI, he is asking for super intelligence, so the other side has to push back. After the election a compromise usually gets worked out, while the market reacts first to the more dramatic version. Election years are volatile, he says, which was visible in previous cycles too; this time it happened to land on AI.
+
+## The six things I wrote down
+
+### One: demand has not loosened, the growth rate has
+
+Sky says he does not doubt demand; he doubts whether the growth rate is exciting enough, which is what gets revised. He cites two things in the episode: Anthropic's filing, where a single customer's revenue has grown by a factor of more than ten, and Palantir's call this week, where sovereign AI commercial revenue has passed government revenue. Sovereign AI is the version a country can control itself, with the data staying in its own hands and an official customer behind much of it. Commercial money overtaking government money says enterprises have started buying the services built on top.
+
+### Two: the enterprise AI adoption business looks like the old cloud migration business
+
+Weiyu says he has been to several product and AI events lately and noticed a whole new category of work in Taiwan: helping enterprises use AI. Sky's verdict is blunt — this is the cloud migration business again, and largely the same people. Weiyu asks whether the revenue is durable or one-off, and Sky splits it: project shops earn one-off money, while the ones who turn it into recurring revenue have to take on data cleaning and ongoing maintenance. He offers a test you can run in a meeting: ask what numerical precision their compute runs at, and if the answer involves V100s or 16- and 32-bit, "well, good luck with that." Standing up a retrieval system that answers questions is not hard. Turning decades of handwritten quotations and fault reports into structured data with a workable ontology is a different job; they have interviewed one of the largest systems integrators, which does international banks, and even they called it hard.
+
+### Three: land, power and permits are the block, so existing compute gains pricing power
+
+What worries people this time is the supply side. Sky lists what a data centre project needs, in order: land, the right zoning, power lines, water, fire and public safety sign-off, government approval, and only then the ability to get GPUs. He compares it with Taiwan's battery storage projects — grid interconnection agreement, lines, substation, land use rights — the same playbook, the difference being whether you are queuing for GPUs or for cells. Any one of those items stalling means no new site, and the compute inside existing data centres gains room to raise prices. US indices have already been moving on this, he says, and owners of existing capacity benefit.
+
+![A pipeline running from land, zoning, power, water, fire protection and permits to GPUs is severed at the power stage, so everything downstream turns grey; below it the path splits in two, with new sites halted and the price of existing compute rising.](/figures/datacenter-chain-break-point-en.svg)
+
+### Four: power plants may get flipped into data centres, otherwise the money goes outside the US
+
+Since there is a conversion rate between electricity and compute, whoever owns the power assets will pick whichever earns more; with a short-term compute gap, converting some generation assets into data centres starts happening. The other route is outside the US: compute needs no shipping, it needs communication, and whether you move it over fibre or copper changes only the speed, so the output can sit overseas and the externality stays overseas too. Asia offers Malaysia, Taiwan and Japan, with Japan more expensive; in Taiwan the visible project is the national computing centre, with second and third phases in progress. On cost he has not run precise numbers, but the order of magnitude is this: fold the cost of pulling in power into a build cost of two to three million US dollars per megawatt, spread it over twenty years, and you add something in the low tens of percent. If the payback periods being quoted publicly really are little over a year, that cost stops nobody.
+
+![A stream of power splits into three branches on the left, with three bars of differing height on the right: selling power outright is the shortest, moving it overseas is in the middle, and turning it into a data center is the tallest.](/figures/where-electricity-goes-three-branches-en.svg)
+
+### Five: the same deferral looks different on different time scales
+
+This is the most useful stretch in the episode for me. Demand does not disappear, but sites slip, so volume moves from next year into the year after. Look out ten years and nothing changes, look out five and nothing changes, look at next year and it is less — pull the window in by six months and you are a quarter short. The impact differs by link in the chain. Companies selling cloud compute on order books can see a deferral hit cash flow if they are levered; existing data centres instead enjoy pricing in a tight compute market; semiconductors run on planned production, so cutting orders means thinking first about whether you can get supply later, which is why he puts the odds of TSMC getting cut as low.
+
+![Four identical rows of blocks stand for ten years, five years, next year and six months, with the scale growing shorter further down, and the last block framed by a dashed line and moved aside so the gap becomes more obvious.](/figures/same-delay-four-time-scales-en.svg)
+
+### Six: Marvell buying Lumentum is a purchase of the inside of the rack three to five years out
+
+Marvell's own framing is that the fundamental architecture of the AI server shifts to optical connectivity. Optical links between racks are already happening; open up a rack and the inside is still mostly copper. Marvell has already bought its way into optical and high-speed interconnect, and this adds high-power lasers. Near term it is price and volume rising together: few suppliers can make high-power lasers, so it is a memory-like stretch of good times. The long term is what he is watching. Today's market is still scale-out, while the big one is scale-up, and if signals between CPU and GPU inside the rack go optical, something has to sit in between converting electrical signals into light, which is optical input and output. Co-packaged optics has not landed yet, the current argument is about near-package optics, and friends back from the optical trade show say that is what everyone is excited about. His horizon is three to five years, and discounting a market of more than five hundred billion US dollars, he thinks the deal price looks reasonable. He leaves one warning in the episode: optical interconnect has been talked about for twenty or thirty years, whoever made money in the 2000 round did not make money in the 2010 round, and this round is harder still. One detail stuck with me — circuit boards will have light running inside them, and on air they wondered aloud whether to call the thing an optical board or an opto-electrical board. Nobody has an answer yet.
+
+![Three racks on the left are already linked by thin blue light paths, while inside the single enlarged rack on the right the CPU and GPU are still joined by thick grey copper, with a dashed empty slot left between them.](/figures/optics-between-racks-copper-inside-en.svg)
+
+## The good news is still there, so why did my holdings fall first
+
+I was stuck on this one for a long time. The distinction in this episode opened it up for me: the good news you hear and the period you hold over are not on the same time scale. A deferral moves both sides at once — a bite is taken out of next year's earnings estimate while higher rates push the discount rate up, and two independent moves landing in the same week produce a fall larger than your intuition about any single piece of bad news.
+
+![A large fraction has a bite taken out of its numerator so it shrinks, while an arrow pushes the denominator up to make it larger, and the result on the right is shown as two downward arrows marking a fall steeper than intuition suggests.](/figures/numerator-bitten-denominator-pushed-en.svg)
+
+So the follow-up question needs a different shape. Instead of asking whether a piece of news is good or bad, ask which year's numbers it changes. Power approvals stalling changes the shipment cadence of 2027, and if you intend to hold until 2030 it costs you the mood and the cost of capital in between. If your multiple rests on next year's earnings growth, though, it changes your reason for owning the thing. My habit is to write beside each judgement which time scale it leans on, and when I cannot write one down, I know I am following a mood.
+
+## Which layer of this theme should I stand on
+
+The theme is huge and the list of names is long, which is the hard part. The distinction I took from this episode: ask first whether scarcity at that layer is borrowed or grown.
+
+High-power lasers rising in price and volume right now is borrowed, and Sky says it himself — pricing that good will pull others in, and supply opening brings the price down. Borrowed scarcity pays well, and the day it ends comes without an announcement, so you chase it through quotes and the list of new qualified suppliers. The grown kind is a position written into the architecture: optical input and output needs the whole ecosystem designing around it, and only once someone pushes it and volume arrives do the components get their shot, so you verify it in specifications and design freezes rather than in this quarter's pricing. What Marvell bought is the second kind, which is also why it hurts near term — buyers and whoever receives the stock both take pain, as Sky puts it plainly.
+
+![Two price curves are compared: one spikes high then falls back as new suppliers arrive, while the other climbs slowly and steadily from the moment the specification is locked in.](/figures/borrowed-scarcity-versus-grown-en.svg)
+
+The three directions he names at the end share one parent idea: electricity is constrained. That makes power consumption matter in chip selection; money goes where building is allowed, so beneficiaries of AI data centres outside the US and China will keep producing news; and if compute prices rise, on-premise AI gains another reason to exist. All three are derived from the same constraint, and if that constraint loosens all three weaken at once. That is the failure condition I keep in the margin.
+
+## Getting the direction right and still getting washed out
+
+On portfolio adjustment, Sky's first line is "stop buying the double-leveraged product." He has seen leveraged vehicles trading at a premium even while the market falls, which says people are adding inside them, and he follows it with: do not size it too big.
+
+That line connects to everything before it. His conclusion for the episode is that demand is there, deferral happens, next year's numbers come down, and the long run is intact — which means anyone who is right about direction has to carry a stretch of headwind in the middle. Right about direction and too large in size, and you get washed out during that stretch, losing money on a correct conclusion. So the question "should I cut or hold what I am underwater on" usually gets asked in the wrong order: measure the position first, and only once it is small enough to survive the deferral does direction become worth discussing. I learned this one the hard way — the judgement was right, and I was forced to deal with half of it in the middle.
+
+![A path dips first and then climbs, crossed by two horizontal tolerance lines: the large position's line is pierced by the dip and marked with an exit, while the small position's line sits below the low and holds through safely.](/figures/position-size-decides-if-you-survive-en.svg)
+
+## Where to look yourself
+
+- Statementdog episode 576, "Midterm elections x AI data centres & Marvell buying Lumentum", 5 November 2026
+- Palantir's latest earnings call, for the split between sovereign AI commercial revenue and government revenue
+- Public discussion of US interconnection queues and transmission cost allocation, including the bill that stalled in the Senate in September, which the episode mentions
+
+## The One Thing to Take Away
+
+One idea: a delay and a cancellation look identical on the day the news lands, and what separates them is the time scale you put your conclusion on. The same "the land has not been approved yet" is noise on a five-year scale and a whole missing quarter of shipments on a next-quarter scale. Most arguments are about mismatched scales, and nobody says out loud which one they are using.
+
+Something I have tried that works outside investing too: pick one thing that recently felt like a disaster or a breakthrough — your kid's latest report card, the project stuck at work, a family member's test results — and write one conclusion on each of three scales: one quarter, one year, five years. Then circle which of those three sentences the decision in front of you actually rests on. When I circle mine, I often find I am using five-year optimism to comfort myself about a decision that belongs to this quarter.
+
+![Three boxes for one quarter, one year and five years sit side by side, with two arrows crossing in the middle: the comfort comes from the five-year box while the decision in front of you falls in the one-quarter box.](/figures/three-scales-crossed-arrows-en.svg)
