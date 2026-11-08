@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Two points from last year and now form an upward-sloping line; a steeper gray line beside it represents someone else, and only your own line’s slope belongs to you.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="68">Two numbers in one row</text>
+  <line x1="200" y1="150" x2="200" y2="420" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="700" y1="150" x2="700" y2="420" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="b" x="150" y="455">Same time last year</text>
+  <text class="b" x="668" y="455">Now</text>
+  <line x1="200" y1="400" x2="700" y2="290" stroke="var(--accent)" stroke-width="6"/>
+  <circle cx="200" cy="400" r="11" fill="var(--accent)"/>
+  <circle cx="700" cy="290" r="11" fill="var(--accent)"/>
+  <text class="g" x="720" y="296" fill="var(--accent)">Your slope</text>
+  <line x1="200" y1="400" x2="700" y2="175" stroke="var(--grey)" stroke-width="4" stroke-dasharray="10 7"/>
+  <circle cx="700" cy="175" r="9" fill="var(--grey)"/>
+  <text class="g" x="720" y="181" fill="var(--grey)">Someone passing you</text>
+  <text class="c" x="60" y="495">The only line you can compare is your own</text>
+</svg>

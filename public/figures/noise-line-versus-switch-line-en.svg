@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The jagged line fluctuates throughout but ends at the same height, while the flat permit line has one step drop midway before changing color.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:19px; fill:var(--ink); font-weight:600; }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:600; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="68">Two kinds of news</text>
+  <text class="g" x="60" y="185">Rhetoric</text>
+  <polyline points="170,190 200,145 230,235 260,150 290,230 320,155 350,235 380,145 410,230 440,160 470,225 500,150 530,230 560,155 590,230 620,150 650,225 680,160 710,190" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <line x1="170" y1="190" x2="710" y2="190" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="g" x="740" y="198" fill="var(--grey)">No move</text>
+  <text class="g" x="60" y="365">Permit</text>
+  <polyline points="170,355 430,355 430,425 710,425" fill="none" stroke="var(--accent)" stroke-width="5"/>
+  <polyline points="430,425 710,425" fill="none" stroke="var(--warn)" stroke-width="5"/>
+  <text class="g" x="740" y="433" fill="var(--warn)">Moves</text>
+  <text class="b" x="448" y="398">One step down</text>
+  <text class="c" x="60" y="490">Only a conditional statement counts as a signal</text>
+</svg>
