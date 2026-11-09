@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一條時間線上，左邊的落點站在虛線段也就是規則還不存在的那一側，右邊的落點站在實線段上，兩者之間標著五六年的距離">
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+.t{font-size:27px;font-weight:700}
+.g{font-size:20px;font-weight:700}
+.b{font-size:16px;fill:var(--dim)}
+.c{font-size:22px;font-weight:700}
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="60" y="62">同一個形狀，站在規則線的兩側</text>
+<line x1="100" y1="300" x2="620" y2="300" stroke="var(--grey)" stroke-width="5" stroke-dasharray="10 8"/>
+<line x1="620" y1="300" x2="880" y2="300" stroke="var(--accent)" stroke-width="5"/>
+<text class="b" x="150" y="340">規則不存在</text>
+<text class="b" x="660" y="340">規則存在</text>
+<circle cx="168" cy="300" r="16" fill="var(--warn)"/>
+<text class="g" x="128" y="262" fill="var(--warn)">Libra</text>
+<circle cx="824" cy="300" r="16" fill="var(--accent)"/>
+<text class="g" x="770" y="262" fill="var(--accent)">OpenUSD</text>
+<line x1="168" y1="398" x2="620" y2="398" stroke="var(--dim)" stroke-width="2"/>
+<polygon points="168,390 146,398 168,406" fill="var(--dim)"/>
+<polygon points="620,390 642,398 620,406" fill="var(--dim)"/>
+<text class="b" x="352" y="386">五六年</text>
+<line x1="620" y1="300" x2="620" y2="398" stroke="var(--line)" stroke-width="2"/>
+<line x1="168" y1="316" x2="168" y2="398" stroke="var(--line)" stroke-width="2"/>
+<text class="c" x="60" y="470">創新多半是好的，時機決定它有沒有東西可以對話</text>
+</svg>
