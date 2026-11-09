@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="原本指向中間供應商的箭頭被打叉，轉向右側兩家獨立供應商">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="56" y="66">光源的去向，一天內轉彎</text>
+<rect x="56" y="140" width="170" height="60" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="80" y="178">競爭者 A</text>
+<rect x="56" y="250" width="170" height="60" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="80" y="288">競爭者 B</text>
+<rect x="56" y="360" width="170" height="60" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="80" y="398">競爭者 C</text>
+<rect x="370" y="200" width="230" height="160" rx="14" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="10 8"/>
+<text class="b" x="370" y="192" fill="var(--warn)">買方旗下</text>
+<rect x="400" y="250" width="170" height="60" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="424" y="288">原本的光源</text>
+<line x1="232" y1="170" x2="392" y2="262" stroke="var(--grey)" stroke-width="4" stroke-dasharray="8 6"/>
+<line x1="232" y1="280" x2="392" y2="280" stroke="var(--grey)" stroke-width="4" stroke-dasharray="8 6"/>
+<line x1="232" y1="390" x2="392" y2="300" stroke="var(--grey)" stroke-width="4" stroke-dasharray="8 6"/>
+<line x1="286" y1="256" x2="326" y2="304" stroke="var(--warn)" stroke-width="5"/>
+<line x1="326" y1="256" x2="286" y2="304" stroke="var(--warn)" stroke-width="5"/>
+<path d="M232 160 C 440 90 600 110 740 176" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<polygon points="740,176 722,160 754,156" fill="var(--accent)"/>
+<path d="M232 400 C 440 470 600 450 740 390" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<polygon points="740,390 752,408 722,410" fill="var(--accent)"/>
+<rect x="744" y="150" width="160" height="60" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="768" y="188">第二來源</text>
+<rect x="744" y="360" width="160" height="60" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="g" x="768" y="398">第三來源</text>
+<text class="c" x="56" y="510">沒有人去改設計，大家去找第二家</text>
+</svg>

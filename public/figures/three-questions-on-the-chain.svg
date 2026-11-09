@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="一條下游到上游的鏈，三個問號分別落在客戶側、這一層與上游，另有一條箭頭顯示租金往上游漏出">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<text class="t" x="56" y="62">三個問號，三個位置</text>
+<rect x="150" y="100" width="300" height="80" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="182" y="148">下游客戶</text>
+<rect x="150" y="240" width="300" height="80" rx="12" fill="var(--accent)"/>
+<text class="g" x="182" y="288" fill="var(--page)">這一層</text>
+<rect x="150" y="380" width="300" height="80" rx="12" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="182" y="428">上游基板與設備</text>
+<line x1="300" y1="180" x2="300" y2="236" stroke="var(--grey)" stroke-width="4"/>
+<line x1="300" y1="320" x2="300" y2="376" stroke="var(--grey)" stroke-width="4"/>
+<text class="g" x="500" y="134" fill="var(--warn)">替代成本</text>
+<text class="b" x="500" y="164">能不能認證第二家</text>
+<text class="g" x="500" y="274" fill="var(--warn)">毛利率</text>
+<text class="b" x="500" y="304">緊張有沒有變成價格</text>
+<text class="g" x="500" y="414" fill="var(--warn)">調價前</text>
+<text class="b" x="500" y="444">漲價留不留得住</text>
+<path d="M130 280 C 70 280 70 420 130 420" fill="none" stroke="var(--warn)" stroke-width="5"/>
+<polygon points="130,420 108,434 110,404" fill="var(--warn)"/>
+<text class="b" x="36" y="490">租金往這邊漏</text>
+<text class="c" x="56" y="548">順序不能顛倒</text>
+</svg>

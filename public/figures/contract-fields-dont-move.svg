@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="上方股價鋸齒下墜，下方四條合約欄位是筆直水平線，簽訂點都落在價格開始崩之前">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<text class="t" x="56" y="62">同一週，兩種刻度</text>
+<rect x="56" y="88" width="848" height="150" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<polyline points="90,130 160,170 230,138 300,196 370,160 440,224 510,186 580,246 650,206 720,262 790,222 870,210" fill="none" stroke="var(--warn)" stroke-width="5"/>
+<text class="g" x="90" y="120" fill="var(--warn)">報價</text>
+<line x1="470" y1="270" x2="470" y2="520" stroke="var(--grey)" stroke-width="3" stroke-dasharray="9 7"/>
+<text class="b" x="484" y="292">價格開始崩</text>
+<line x1="90" y1="330" x2="880" y2="330" stroke="var(--accent)" stroke-width="5"/>
+<circle cx="270" cy="330" r="9" fill="var(--accent)"/>
+<text class="g" x="90" y="316">預付比例</text>
+<line x1="90" y1="390" x2="880" y2="390" stroke="var(--accent)" stroke-width="5"/>
+<circle cx="200" cy="390" r="9" fill="var(--accent)"/>
+<text class="g" x="90" y="376">年限</text>
+<line x1="90" y1="450" x2="880" y2="450" stroke="var(--accent)" stroke-width="5"/>
+<circle cx="330" cy="450" r="9" fill="var(--accent)"/>
+<text class="g" x="90" y="436">價格地板</text>
+<line x1="90" y1="510" x2="880" y2="510" stroke="var(--accent)" stroke-width="5"/>
+<circle cx="390" cy="510" r="9" fill="var(--accent)"/>
+<text class="g" x="90" y="496">供應範圍</text>
+<text class="c" x="56" y="572">簽死在崩之前，所以它們不跟著動</text>
+</svg>

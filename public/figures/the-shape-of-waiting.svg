@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="年份軸上今年只有倉位所在的位置，其餘三個節點全部落在後面幾年">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="56" y="66">框架的日期，倉位的日期</text>
+<line x1="90" y1="300" x2="890" y2="300" stroke="var(--line)" stroke-width="4"/>
+<circle cx="150" cy="300" r="14" fill="var(--warn)"/>
+<text class="g" x="110" y="262" fill="var(--warn)">倉位在這裡</text>
+<text class="b" x="122" y="348">2026 年 11 月</text>
+<circle cx="400" cy="300" r="14" fill="var(--accent)"/>
+<text class="g" x="366" y="262">基板首年</text>
+<text class="b" x="378" y="348">2027</text>
+<circle cx="620" cy="300" r="14" fill="var(--accent)"/>
+<text class="g" x="586" y="262">併購走完</text>
+<text class="b" x="598" y="348">2028</text>
+<circle cx="840" cy="300" r="14" fill="var(--accent)"/>
+<text class="g" x="790" y="262">產能賣到滿</text>
+<text class="b" x="818" y="348">2029</text>
+<line x1="150" y1="400" x2="400" y2="400" stroke="var(--grey)" stroke-width="3" stroke-dasharray="9 7"/>
+<text class="b" x="166" y="432">這一段上面什麼都沒有</text>
+<text class="c" x="56" y="490">對了也要等</text>
+</svg>

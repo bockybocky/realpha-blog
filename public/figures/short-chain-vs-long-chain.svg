@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="上方短鏈只有消息與結論兩點，中間空白；下方長鏈有合約、條款、數量、日期、財報確認五點">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<text class="t" x="56" y="66">兩種推論鏈的長度</text>
+<circle cx="120" cy="170" r="16" fill="var(--warn)"/>
+<text class="g" x="90" y="214" fill="var(--warn)">消息</text>
+<line x1="136" y1="170" x2="824" y2="170" stroke="var(--warn)" stroke-width="5" stroke-dasharray="14 12"/>
+<circle cx="840" cy="170" r="16" fill="var(--warn)"/>
+<text class="g" x="806" y="214" fill="var(--warn)">結論</text>
+<text class="b" x="420" y="146">中間沒有東西</text>
+<line x1="120" y1="350" x2="840" y2="350" stroke="var(--accent)" stroke-width="5"/>
+<circle cx="120" cy="350" r="14" fill="var(--accent)"/>
+<circle cx="300" cy="350" r="14" fill="var(--accent)"/>
+<circle cx="480" cy="350" r="14" fill="var(--accent)"/>
+<circle cx="660" cy="350" r="14" fill="var(--accent)"/>
+<circle cx="840" cy="350" r="14" fill="var(--accent)"/>
+<text class="g" x="92" y="394">合約</text>
+<text class="g" x="272" y="394">條款</text>
+<text class="g" x="452" y="394">數量</text>
+<text class="g" x="632" y="394">日期</text>
+<text class="g" x="776" y="394">財報確認</text>
+<text class="c" x="56" y="476">鏈越短，標題越大，資訊越少</text>
+</svg>
