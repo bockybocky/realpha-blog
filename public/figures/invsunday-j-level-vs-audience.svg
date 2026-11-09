@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一張以觀眾為橫軸、水準為縱軸的座標圖，左上角有一個小點標大學足球，右邊有一個大點標高中足球，兩點之間一支虛線箭頭往右推。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .n { font-size:22px; font-weight:700; fill:var(--accent); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62">水準高不等於有人看</text>
+
+  <line x1="200" y1="470" x2="880" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <line x1="200" y1="110" x2="200" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="880" y="500" text-anchor="end">觀眾（少 → 多）</text>
+  <text class="b" x="200" y="100">水準（低 → 高）</text>
+
+  <circle cx="330" cy="170" r="14" fill="var(--accent)"/>
+  <text class="g" x="356" y="166">大學足球</text>
+  <text class="b" x="356" y="192">水準更高</text>
+  <text class="b" x="356" y="216">沒人看</text>
+
+  <circle cx="300" cy="300" r="12" fill="none" stroke="var(--grey)" stroke-width="3" stroke-dasharray="5 5"/>
+  <path d="M330 300 L700 300" stroke="var(--accent)" stroke-width="3" stroke-dasharray="9 7"/>
+  <path d="M686 288 L706 300 L686 312" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <text class="g" x="500" y="278" text-anchor="middle">幾十年的故事</text>
+
+  <circle cx="740" cy="300" r="20" fill="var(--accent)"/>
+  <text class="g" x="740" y="352" text-anchor="middle">高中足球</text>
+  <text class="n" x="740" y="384" text-anchor="middle">近 7 萬人</text>
+</svg>

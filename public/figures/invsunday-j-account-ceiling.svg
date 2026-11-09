@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左右兩格對比：左格有一條低的水平天花板線與一支往下的補貼箭頭，右格的箭頭往上、上方的虛線標沒有上限，顯示科目不同天花板高度就不同。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .n { font-size:22px; font-weight:700; fill:var(--accent); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62">科目決定天花板</text>
+
+  <rect x="60" y="100" width="400" height="420" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="500" y="100" width="400" height="420" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="g" x="260" y="140" text-anchor="middle">記成廣告宣傳費</text>
+  <text class="g" x="700" y="140" text-anchor="middle">記成一門事業</text>
+
+  <line x1="100" y1="380" x2="420" y2="380" stroke="var(--grey)" stroke-width="4"/>
+  <text class="b" x="260" y="406" text-anchor="middle">天花板：淨資產</text>
+  <path d="M260 180 L260 360" stroke="var(--grey)" stroke-width="4"/>
+  <path d="M248 348 L260 364 L272 348" fill="none" stroke="var(--grey)" stroke-width="4"/>
+  <text class="b" x="260" y="172" text-anchor="middle">自己掏錢補</text>
+  <rect x="200" y="380" width="120" height="60" rx="6" fill="var(--grey)" opacity="0.5"/>
+  <text class="b" x="260" y="470" text-anchor="middle">球隊</text>
+
+  <path d="M700 440 L700 180" stroke="var(--accent)" stroke-width="4"/>
+  <path d="M688 196 L700 176 L712 196" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <text class="b" x="700" y="166" text-anchor="middle">營收、利潤</text>
+  <path d="M540 150 L860 150" stroke="var(--line)" stroke-width="3" stroke-dasharray="8 8"/>
+  <text class="s" x="860" y="142" text-anchor="end">沒有上限</text>
+  <rect x="640" y="440" width="120" height="60" rx="6" fill="var(--accent)" opacity="0.5"/>
+  <text class="b" x="700" y="516" text-anchor="middle">同一支球隊</text>
+</svg>

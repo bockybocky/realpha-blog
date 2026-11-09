@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="One extremely tall bar labeled 2 trillion yen stands beside a nearly flat short bar labeled 300 million yen, with a dashed line between them reading “same business,” showing how the same team can be assigned prices thousands of times apart by height.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .s { font-size:15px; fill:var(--dim); }
+    .n { font-size:22px; font-weight:700; fill:var(--accent); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="62">Same business, two prices</text>
+  <text class="s" x="60" y="92">Vertical scale truncated; only the height gap matters</text>
+
+  <rect x="150" y="130" width="180" height="340" rx="6" fill="var(--accent)" opacity="0.85"/>
+  <text class="n" x="240" y="118" text-anchor="middle">2 trillion yen</text>
+  <text class="g" x="240" y="505" text-anchor="middle">Lakers</text>
+  <text class="b" x="240" y="532" text-anchor="middle">100 billion annual revenue</text>
+  <text class="b" x="240" y="556" text-anchor="middle">About 20×</text>
+
+  <rect x="630" y="455" width="180" height="15" rx="3" fill="var(--grey)"/>
+  <text class="c" x="720" y="438" text-anchor="middle">300 million yen</text>
+  <text class="g" x="720" y="505" text-anchor="middle">Omiya</text>
+  <text class="b" x="720" y="532" text-anchor="middle">About equal to net assets</text>
+  <text class="s" x="720" y="556" text-anchor="middle">(Reported)</text>
+
+  <line x1="60" y1="470" x2="900" y2="470" stroke="var(--line)" stroke-width="2"/>
+  <path d="M60 300 L900 300" stroke="var(--line)" stroke-width="2" stroke-dasharray="10 8"/>
+  <text class="s" x="900" y="292" text-anchor="end">Truncated scale</text>
+
+  <path d="M370 250 L590 250" stroke="var(--dim)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="g" x="480" y="228" text-anchor="middle">Same business</text>
+  <text class="b" x="480" y="282" text-anchor="middle">Players, stadium, fans</text>
+</svg>
