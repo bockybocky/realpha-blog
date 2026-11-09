@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Four rising bars each start with the same true-demand base, while gray blocks above add duplicate echoes, increasing from one to four.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" font-weight="700" fill="var(--ink)">One demand becomes four orders</text>
+<text x="60" y="90" font-size="16" fill="var(--dim)">True demand: 1 unit; each markup layer adds one echo</text>
+<line x1="100" y1="460" x2="880" y2="460" stroke="var(--line)" stroke-width="2"/>
+<rect x="130" y="404" width="120" height="56" fill="var(--accent)"/>
+<rect x="320" y="404" width="120" height="56" fill="var(--accent)"/>
+<rect x="320" y="348" width="120" height="56" fill="var(--grey)"/>
+<rect x="510" y="404" width="120" height="56" fill="var(--accent)"/>
+<rect x="510" y="348" width="120" height="56" fill="var(--grey)"/>
+<rect x="510" y="292" width="120" height="56" fill="var(--grey)"/>
+<rect x="700" y="404" width="120" height="56" fill="var(--accent)"/>
+<rect x="700" y="348" width="120" height="56" fill="var(--grey)"/>
+<rect x="700" y="292" width="120" height="56" fill="var(--grey)"/>
+<rect x="700" y="236" width="120" height="56" fill="var(--grey)"/>
+<text x="190" y="388" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">1 copy</text>
+<text x="380" y="332" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">2 copies</text>
+<text x="570" y="276" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">3 copies</text>
+<text x="760" y="220" font-size="20" font-weight="700" fill="var(--warn)" text-anchor="middle">4 copies</text>
+<text x="190" y="488" font-size="16" fill="var(--dim)" text-anchor="middle">End demand</text>
+<text x="380" y="488" font-size="16" fill="var(--dim)" text-anchor="middle">Customer orders twice</text>
+<text x="570" y="488" font-size="16" fill="var(--dim)" text-anchor="middle">Three distributors</text>
+<text x="570" y="510" font-size="16" fill="var(--dim)" text-anchor="middle">Each orders once</text>
+<text x="760" y="488" font-size="16" fill="var(--dim)" text-anchor="middle">Sales adds a buffer</text>
+<rect x="130" y="528" width="20" height="20" fill="var(--accent)"/>
+<text x="160" y="544" font-size="15" fill="var(--dim)">True demand (same batch)</text>
+<rect x="330" y="528" width="20" height="20" fill="var(--grey)"/>
+<text x="360" y="544" font-size="15" fill="var(--dim)">Echo (duplicate count)</text>
+</svg>

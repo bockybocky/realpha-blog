@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="訂單簿的線往上翹且密布每日查看的圓點，真需求的線轉而下彎，兩條線的缺口向右放大">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" font-weight="700" fill="var(--ink)">同一件錯事，每天確認一次</text>
+<text x="60" y="90" font-size="16" fill="var(--dim)">儀表越即時，被放大的訊號送到上游越快</text>
+<line x1="140" y1="440" x2="880" y2="440" stroke="var(--line)" stroke-width="2"/>
+<line x1="470" y1="150" x2="470" y2="440" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="470" y="140" font-size="15" fill="var(--dim)" text-anchor="middle">分岔開始</text>
+<path d="M 150 300 L 470 300 C 600 300 700 360 860 418" fill="none" stroke="var(--grey)" stroke-width="4"/>
+<path d="M 150 300 C 400 262 650 220 860 182" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<circle cx="210" cy="291" r="6" fill="var(--warn)"/>
+<circle cx="280" cy="281" r="6" fill="var(--warn)"/>
+<circle cx="350" cy="271" r="6" fill="var(--warn)"/>
+<circle cx="420" cy="260" r="6" fill="var(--warn)"/>
+<circle cx="490" cy="249" r="6" fill="var(--warn)"/>
+<circle cx="560" cy="237" r="6" fill="var(--warn)"/>
+<circle cx="630" cy="225" r="6" fill="var(--warn)"/>
+<circle cx="700" cy="212" r="6" fill="var(--warn)"/>
+<circle cx="770" cy="199" r="6" fill="var(--warn)"/>
+<circle cx="840" cy="186" r="6" fill="var(--warn)"/>
+<text x="700" y="178" font-size="19" font-weight="700" fill="var(--warn)" text-anchor="middle">訂單簿（看到的）</text>
+<text x="700" y="412" font-size="19" font-weight="700" fill="var(--dim)" text-anchor="middle">終端真需求</text>
+<text x="140" y="478" font-size="15" fill="var(--dim)">每個圓點＝一次每日銷售日報</text>
+<text x="60" y="524" font-size="22" font-weight="700" fill="var(--ink)">從錯的那個量測開始，看得越勤錯得越快</text>
+</svg>
