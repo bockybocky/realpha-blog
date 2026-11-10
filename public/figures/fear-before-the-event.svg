@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="上下兩條時間軸，核能那條在事件點之後才下墜，AI 那條沒有事件點卻一開始就在低位">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="58" font-size="27" fill="var(--ink)" font-weight="700">恐懼長在事件之前，還是之後</text>
+<text x="60" y="90" font-size="16" fill="var(--dim)">觀感曲線（示意）</text>
+<text x="60" y="150" font-size="20" fill="var(--ink)" font-weight="700">核能</text>
+<line x1="130" y1="260" x2="890" y2="260" stroke="var(--line)" stroke-width="2"/>
+<text x="60" y="350" font-size="20" fill="var(--ink)" font-weight="700">AI</text>
+<line x1="130" y1="460" x2="890" y2="460" stroke="var(--line)" stroke-width="2"/>
+<polyline points="130,170 300,165 480,175 520,175 560,235 700,250 890,248" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<circle cx="520" cy="175" r="9" fill="var(--warn)"/>
+<text x="520" y="148" font-size="16" fill="var(--warn)" text-anchor="middle">三哩島、車諾比</text>
+<text x="180" y="150" font-size="16" fill="var(--dim)">受支持</text>
+<text x="760" y="228" font-size="16" fill="var(--dim)">恐懼</text>
+<polyline points="130,440 300,443 480,438 700,441 890,439" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text x="180" y="420" font-size="16" fill="var(--dim)">一開始就在低位</text>
+<text x="700" y="420" font-size="16" fill="var(--warn)">沒有事件點</text>
+<text x="60" y="530" font-size="22" fill="var(--ink)" font-weight="700">強度一樣，來源不一樣</text>
+</svg>
