@@ -1,0 +1,124 @@
+---
+title: "The Circuit: The Day of the Semi-Apocalypse, and Nobody Could Find the News"
+description: "Notes on the 9 November 2026 episode of The Circuit, recorded on 6 November, where Ben Bajarin and Jay Goldberg look back at one of the worst days on record for the SOX index: good companies and bad ones sold off together and Jay could not find a single piece of news to explain it. His counter-evidence is that every hyperscaler held or raised next year's capital spending, while Anthropic's updated S-1 shows $10bn of Q3 compute spending with only $5.5bn of it contracted. What is actually fermenting is the 2028 glut — a cell analysts have only just started filling in. All figures are readings as of the recording date, 6 November. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "circuit-2026-11-09-the-semi-apocalypse-market-panic-enterprise-ai-and"
+lang: "en"
+pubDate: 2026-11-11
+category: "investing"
+kind: "podcast-notes"
+tags: ["semiconductors", "podcast-notes", "market sentiment", "enterprise AI", "data centres"]
+ogImage: "/covers/circuit-2026-11-09-the-semi-apocalypse-market-panic-enterprise-ai-and-cover.png"
+cover: "/covers/circuit-2026-11-09-the-semi-apocalypse-market-panic-enterprise-ai-and-cover.png"
+---
+
+![A trading floor late at night with one row of screens still lit, the whole quote wall red, a finished paper cup and a notebook open to a blank page in the foreground, the aisle receding deep into the room where the far racks still blink in a steady rhythm](/covers/circuit-2026-11-09-the-semi-apocalypse-market-panic-enterprise-ai-and-cover.png)
+
+> There was a man of Qi who feared that heaven and earth would collapse and that his body would be left with nowhere to rest, and so he stopped sleeping and eating. And there was another who feared the first man's fear, and went to enlighten him.
+>
+> —— "Liezi", chapter "Tian Rui" (Warring States; my own translation)
+
+The 9 November 2026 episode of The Circuit was recorded on 6 November, and Ben Bajarin and Jay Goldberg spend the first half on the day before it: on 5 November the Philadelphia Semiconductor Index (SOX) finished one of the ugliest stretches on record, good companies and bad ones, pretty prints and ugly ones all falling together, double-digit drops everywhere — and Jay says he cannot find one piece of news that accounts for it. His counter-evidence comes in two parts. The hyperscalers all held or raised next year's capital spending in the prior week's results, and the companies he talks to have healthy order books. Meanwhile Anthropic's updated S-1 shows $10bn of compute bought in Q3 with only $5.5bn of that under contract. He flags all of this as a reading from that week, and notes that the 2028 GPU glut is a cell analysts have only just filled in.
+
+## What the episode is about
+
+The Circuit is a weekly conversation between two semiconductor analysts, Ben Bajarin and Jay Goldberg — one leaning towards devices and the enterprise, the other towards chips and earnings. This one opens on a polishing cloth. Ben has new hardware that shows fingerprints, and found that nothing would lift the marks except Apple's own thick cloth: no other microfibre, no water, not someone's T-shirt. His conclusion is that Apple has built a billion-dollar business out of giving you screens you want to touch and then selling you the only thing that cleans them; he guesses the supplier is Toray, which makes the Alcantara-style microfibre. Then they get to the subject, which they christen the semi-apocalypse.
+
+The back half is earnings: AMD, Arm, Qualcomm, plus a timing-chip company called SiTime.
+
+## A crash with no cause attached
+
+Jay's description is that everything was falling apart and falling hard. He restarted the stock app on his phone several times because he refused to believe some of those names were down too. One story going round was data centre moratoriums, and he rules that out — you are not going to ban data centres in the United States. So he files the day under animal spirits: people got scared, and at some point the fear became self-reinforcing.
+
+![Two panels of bar charts side by side: on the left the bars run both up and down, scattered in both directions, while on the right every bar points down and reaches deeper, showing that the dispersion vanished that day and only one direction was left.](/figures/semi-selloff-spread-collapsed-en.svg)
+
+He adds two amplifiers. One is automated trading: he screenshotted AMD the second the print landed, and the stock was already up 7%, which no human does. The other is his suspicion that a fair number of funds now use AI to generate strategies rather than merely to execute them, producing complicated structured positions that lever returns on the way up and lever them identically on the way down. His line is that we have all become too smart for our own good.
+
+## 2028 is a cell people only started filling in this month
+
+This is the part I most wanted to write down. Jay points out that this is the season when analysts add a new year to their models, and the year being added now is 2028. Six months ago nobody had a model that thought seriously about it; now everyone is typing numbers into those columns, and 2028 turns from a vague distance into a year you have to state assumptions about.
+
+He thinks 2028 matters because several lines land on it at once: a wave of memory fabs comes up, the data centres under construction today start running, and the energy constraints look likely to loosen. Hence the last thirty days, in which people have started coming to him to talk about GPU oversupply. He does not think we are at that point, but some are positioning ahead of it. One of his own reports is titled around next year being peak constraint — capacity starts arriving from 2028, so the open question becomes whether demand is big enough to fill it. The fear is coming out of that cell, not out of this quarter's numbers.
+
+![Three curves start apart on the left and bend down to the right, converging on the single point marked 2028 on the timeline, while the two boxes at lower left contrast an empty column labeled six months ago with a filled one showing that assumptions must now be stated.](/figures/three-lines-converge-2028-en.svg)
+
+## Anthropic's slowdown may be a supply problem
+
+The updated filing gave Q3, and sequential growth dropped from 150% to 40%. The market read it as everyone who wanted to code having already coded, an argument Jay says he has made himself. But reading into the document he sees another line.
+
+Around March and April the service simply did not work during the day, and the filing says the reason was a lack of compute. Then the spending: $10bn on compute in Q3, of which only $5.5bn was contracted. Jay's subtraction leaves $4.5bn bought on the spot market, and he reckons he could point to roughly the day it started from the price data. A company weeks away from pricing an IPO does not want a visible outage, so it pays up. Follow that through and you get a company that ran out of capacity, had to rate-limit users and defer signups, and took the hit in revenue and growth. He says he does not know for certain, but there is a lot in the S-1 pointing that way.
+
+![A single bar standing for $10 billion is split in two, the left 55 percent at contract prices and the right 45 percent bought on the spot market, with a bracket under the right segment marking it as the portion filled at expensive prices just before the listing.](/figures/anthropic-compute-contract-vs-spot-en.svg)
+
+## Cloudflare added 158,000 paying customers in a quarter
+
+The second piece of counter-evidence is Cloudflare. Jay says what it does is hard to explain: it pulls your remote container workloads, scattered across offices and regions, under one network roof so distributed machines behave like one system, and it does the security layer on the way. That layer turns out to matter for running agent workloads.
+
+The numbers: through last year it was adding roughly 20,000 to 30,000 paying customers a quarter, and in Q3 alone it added 158,000. Enthusiasts use Cloudflare, but most people use it for work, so that curve is enterprise demand. It lines up with the survey data Ben was talking about the week before.
+
+![On the same baseline, the left shows a very low gray band standing for the 20,000 to 30,000 added each quarter in the past, while the right shows a bar rising far higher for the 158,000 added in a single quarter.](/figures/cloudflare-paying-customers-jump-en.svg)
+
+## Where enterprises are stuck is permissions and data
+
+Ben spent part of the week at an event for a large OEM that supplies enterprise infrastructure, and every conversation with executives landed on the same sentence: we are still at the beginning. They are still defining the processes. Security, data, storage, software services, management — each one has a gap to close before agents go live. His survey ran in two rounds, CIOs and CTOs first and then CSOs, and the conclusion is that security is the wall you have to get over first.
+
+He splits enterprises in two. Roughly 20% are the first followers, pushing the boundary and already able to name what they need to shore up. The other 80% are still running pilots, still staging it, still waiting to learn from whoever goes first. He argues this demands more process rewriting than any digital transformation before it, because the dull governance questions — permissions, oversight, observability — now have to apply to agents.
+
+![An upright wall divides the picture in two, with twenty gray dots packed on the left standing for 80 percent of enterprises and only five blue dots on the right standing for the 20 percent that have already crossed it.](/figures/enterprise-ai-security-wall-en.svg)
+
+The data part is the bit I found most interesting. Around 80% of the corporate data created at the edge is unstructured, and he has heard of several of the more advanced companies pointing agents at that pile to structure it, index it and give it semantics, so the business suddenly sees things it had no visibility into. Ben says he does not find enterprise software exciting but he does love a hard problem, and this is one he cannot yet see the solution to.
+
+## If you have capacity you win, and if you lack it you lose
+
+That is Jay's summary of the earnings season. AMD's quarter and guide were both strong, and Lisa Su sounded optimistic enough on the call that Jay takes it as a signal, since overstating things is not her habit. The Instinct parts are landing in hyperscalers, and on paper he reads MI455 as competitive with Nvidia's Rubin, with AMD ahead in a few categories. Working off the guide, Ben gets growth going from the 70% they previously signalled to 80%, and extrapolates that AMD could touch $100bn of revenue next year — then notes he still remembers AMD as a $6bn-a-year company that went three years without growth.
+
+What both of them circled was something else: Lisa Su volunteered the supply chain, saying they have the power, the substrates and the memory they need. Ben's read is that this was the worry nobody wanted to ask out loud — your numbers are lovely, but can you get the parts? It is where Intel got hurt, and AMD closed it pre-emptively. Arm showed the same shift: earlier in the year its CEO and CFO were spending more time on securing supply than on anything else, and this quarter they sounded relieved, like a weight had come off.
+
+![Three horizontal lanes run toward the same upright supply gate: the top one passes far through, the middle one has just cleared it, and the bottom one is blocked in front of the gate by a cross mark.](/figures/supply-gate-who-got-through-en.svg)
+
+The other shared narrative is a change of centre of gravity. AMD declared itself a data centre company; Arm and Qualcomm both asked people to look past mobile and client at their other lines. Jay does not think those segments are going anywhere, since client and mobile are still well over half the revenue at Arm and Qualcomm, and CPUs still matter more to AMD than GPUs. What moved is where the growth sits.
+
+## SiTime: from quartz to a programmable clock
+
+Jay says he has admired SiTime for a long time, but explaining why means going down to how computers work at a very low level. All computing depends on reliable timing, and for decades that has meant quartz crystals — not a semiconductor at all, just a resonant material that does nothing clever and does it reliably. SiTime's move was to build the function as an active MEMS component: you give up some precision, make it back in other ways, and what you buy is programmability.
+
+![Two cards side by side compare two kinds of timing component: the left card has all five precision dots filled and no programmability dots at all, while the right card has one fewer precision dot but a full row of programmability, the two profiles exactly inverted.](/figures/sitime-precision-for-programmability-en.svg)
+
+The consequence of programmability is that the part can go in many more places. Jay puts ten to twenty of them on a server board and a dozen-plus in a phone, tiny things costing tens of cents to a few dollars — and the prices disclosed on the call were higher than he expected. Ben's addition is why it matters now: as compute density rises, a whole rack has to stay in sync, with no timing-induced stalls between networking, CPUs and accelerators, so timing content grows and moves towards the higher-frequency, higher-ASP end of the roadmap. SiTime has just bought Renesas's timing division, absorbing its largest competitor, and leaves quartz to the satellite-grade end where a part costs a thousand dollars.
+
+Ben says the company is worth spending time on. Jay immediately says he will not comment on the valuation, that he has no idea. I like that gap: two people on the same company, one sizing the market, the other leaving the price question deliberately blank.
+
+## No news, and it fell like that — do I get out?
+
+This is the question I was actually asking myself while staring at the red list that day. What the episode gives me is a way to separate two kinds of decline: one where something broke, and one where sentiment is running in reverse. Separating them needs a short list written in advance and pulled out on the day.
+
+Jay's list that day was exactly this: have the hyperscalers cut their capital spending guides, have the order books at the companies he talks to shrunk, has the language about supply on the earnings calls turned. None of the three had moved, so he landed on sentiment. My own version adds a fourth line: price. Whether spot compute is rising or falling is harder to fake than anyone's tone of voice. The point is to write that list while things are calm, because on a down-10% day you will try to read the answer out of the drop itself, and the drop does not answer.
+
+![Three horizontal lines standing for the fundamentals run perfectly flat from left to right, while a fourth line standing for the price plunges on the right, opening a gap between them.](/figures/checklist-flat-price-fell-en.svg)
+
+## Growth slowed — is nobody buying, or can you not deliver?
+
+The Anthropic section is worth more to me than its own subject. Sequential growth went from 150% to 40%, and someone looking at the chart writes down demand has peaked — an explanation that draws exactly the same curve as supply running short and the company pushing customers away itself.
+
+To separate them, look at the traces on the cost side. Is the company topping up at spot prices (the $4.5bn is that shape), were there outages, is it rate-limiting and deferring signups, is contract coverage falling. A company losing demand leaves the opposite traces: purchasing turns conservative, contracted share rises, inventory builds. Put the two sets side by side and they are hard to confuse — but neither of them lives on the growth chart, so you have to go into the documents to find them.
+
+![A downward-bending curve at the top forks into two arrows that land on a card on each side, and on the two cards the triangles beside the same items point in opposite directions, one up and one down.](/figures/same-curve-two-causes-en.svg)
+
+Jay does not close the question either; he says he is not sure. I take that as the second thing to carry out: whether a piece of reasoning is willing to be labelled uncertain is a separate matter from whether it is worth listening to.
+
+## Sources worth checking
+
+- The Circuit, episode of 9 November 2026, the source for this piece (the hosts note it was recorded on 6 November)
+- Anthropic's updated S-1 filing, the Q3 revenue, compute spending and early-year outage sections
+- AMD's Q3 2026 results and earnings call, including the data centre guide and the supply chain remarks
+- Arm's and Qualcomm's results for the same quarter, and what both said about the non-mobile share of revenue
+- Cloudflare's Q3 2026 results and net paying customer additions
+- SiTime's Q3 2026 results and the announcement of its acquisition of Renesas's timing business
+- Ben Bajarin's CIO and CSO survey rounds, referred to in the episode as their enterprise survey
+
+## The one thing to take away
+
+**For any curve bending down, ask first whether fewer people want it, or whether you cannot deliver it.**
+
+The two causes look identical and call for opposite responses: the first means changing the product and the pricing, the second means going and buying supply — and whoever mistakes the second for the first pulls back at the moment they should be leaning in. Anybody reading Anthropic's 40% off the curve alone writes down peak demand; Jay turned to the spending page and found $4.5bn of spot purchases and a service that went down during the day. Same curve, different cause. The difference was never on the curve, it was on the pages next to it.
+
+Here is something I tried myself, and it works outside investing too. Pick one thing that has been sitting uncomfortably with you lately — a friend replying more slowly, a colleague delivering later, a family member talking less — and write two lines in your notes: if it is that they do not want to, what traces would that leave; if it is that they have nothing left, what traces would that leave. Then hold the judgement, and go and see which line's traces you can find. I have done this a few times, and twice the line the traces pointed to was not the line I had already settled on in my head.
