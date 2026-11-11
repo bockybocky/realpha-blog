@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="三行自我介紹各配一欄誰會替你說，兩行有名字站得住，第三行空白被劃掉拿掉">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .d { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="52">你說的，與別人會替你說的</text>
+
+  <text class="d" x="60" y="110">我會提的身分</text>
+  <text class="d" x="470" y="110">誰會主動替我說</text>
+  <text class="d" x="800" y="110">站不站得住</text>
+
+  <rect x="60" y="130" width="380" height="80" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="470" y="130" width="280" height="80" rx="8" fill="var(--accent)" opacity="0.2" stroke="var(--accent)" stroke-width="2"/>
+  <text class="g" x="86" y="178">身分一</text>
+  <text class="g" x="496" y="178">有名字</text>
+  <circle cx="846" cy="170" r="16" fill="var(--accent)"/>
+
+  <rect x="60" y="240" width="380" height="80" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="470" y="240" width="280" height="80" rx="8" fill="var(--accent)" opacity="0.2" stroke="var(--accent)" stroke-width="2"/>
+  <text class="g" x="86" y="288">身分二</text>
+  <text class="g" x="496" y="288">有名字</text>
+  <circle cx="846" cy="280" r="16" fill="var(--accent)"/>
+
+  <rect x="60" y="350" width="380" height="80" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="470" y="350" width="280" height="80" rx="8" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="10 8"/>
+  <text class="g" x="86" y="398">身分三</text>
+  <text class="g" x="496" y="398" fill="var(--warn)">空著</text>
+  <line x1="60" y1="430" x2="440" y2="350" stroke="var(--warn)" stroke-width="3"/>
+  <text class="g" x="800" y="398" fill="var(--warn)">拿掉</text>
+
+  <text class="c" x="60" y="506">只有你自己同意的那條，資訊量是零</text>
+</svg>

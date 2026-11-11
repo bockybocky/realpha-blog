@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Manufacturing bar: parts and modules take up most of the length, final assembly is a short slice at the end, and outside impressions land only on that slice.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--ink); }
+    .d { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="52">Hard part vs seen part</text>
+
+  <rect x="60" y="200" width="560" height="96" fill="var(--accent)"/>
+  <rect x="620" y="200" width="160" height="96" fill="var(--accent)" opacity="0.55"/>
+  <rect x="780" y="200" width="120" height="96" fill="var(--grey)"/>
+  <rect x="60" y="200" width="840" height="96" fill="none" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="g" x="80" y="256" fill="var(--page)">Parts</text>
+  <text class="b" x="640" y="256" fill="var(--ink)">Modules</text>
+  <text class="b" x="792" y="256" fill="var(--page)">Assembly</text>
+
+  <text class="d" x="60" y="330">Material, precision</text>
+  <text class="d" x="780" y="330">Last</text>
+
+  <line x1="840" y1="400" x2="840" y2="310" stroke="var(--ink)" stroke-width="3"/>
+  <polygon points="840,300 833,316 847,316" fill="var(--ink)"/>
+  <text class="b" x="700" y="428">Seen only here</text>
+
+  <line x1="60" y1="170" x2="780" y2="170" stroke="var(--dim)" stroke-width="2"/>
+  <text class="d" x="60" y="156">One device, pre-build</text>
+
+  <text class="c" x="60" y="492">Skill is inside</text>
+</svg>

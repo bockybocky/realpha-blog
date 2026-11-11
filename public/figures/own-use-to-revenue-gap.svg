@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="軸上三節點：做得出來與自家產線相連，到營收線之間有一段斷開的缺口">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .d { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="52">做得出來，到賣得出去</text>
+
+  <line x1="120" y1="250" x2="470" y2="250" stroke="var(--accent)" stroke-width="8"/>
+  <line x1="470" y1="250" x2="760" y2="250" stroke="var(--grey)" stroke-width="8" stroke-dasharray="14 16"/>
+
+  <circle cx="120" cy="250" r="18" fill="var(--accent)"/>
+  <circle cx="470" cy="250" r="18" fill="var(--accent)"/>
+  <circle cx="760" cy="250" r="18" fill="none" stroke="var(--grey)" stroke-width="6"/>
+
+  <text class="g" x="80" y="214">做得出來</text>
+  <text class="g" x="412" y="214">自家產線</text>
+  <text class="g" x="706" y="214">營收線</text>
+
+  <text class="d" x="104" y="300">奈米級加工</text>
+  <text class="d" x="432" y="300">吃自己的狗食</text>
+  <text class="d" x="718" y="300">不外賣</text>
+
+  <line x1="470" y1="366" x2="760" y2="366" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="470" y1="356" x2="470" y2="376" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="760" y1="356" x2="760" y2="376" stroke="var(--warn)" stroke-width="3"/>
+  <text class="g" x="540" y="406" fill="var(--warn)">這段還沒跨過</text>
+
+  <text class="c" x="60" y="486">技術存在，不等於生意存在</text>
+</svg>
