@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一條比例條，左邊一小段是看得見的自付額，右邊一大段是看不見的稅金與薪資，客戶在大段那側">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<text class="t" x="40" y="58">同一筆醫療費，病人感覺到的只有最左邊那截</text>
+<rect x="60" y="150" width="840" height="80" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="60" y="150" width="96" height="80" fill="var(--accent)"/>
+<rect x="156" y="150" width="744" height="80" fill="var(--grey)" opacity="0.45"/>
+<line x1="156" y1="138" x2="156" y2="242" stroke="var(--ink)" stroke-width="3"/>
+<text class="g" x="60" y="128">看得見</text>
+<text class="g" x="170" y="128">看不見</text>
+<text class="b" x="60" y="268">自付額</text>
+<text class="b" x="170" y="268">稅金</text>
+<text class="b" x="240" y="268">被壓低的薪資</text>
+<polygon points="520,300 548,348 492,348" fill="var(--accent)"/>
+<line x1="520" y1="400" x2="520" y2="348" stroke="var(--accent)" stroke-width="4"/>
+<text class="g" x="420" y="432">金流在這一側</text>
+<text class="c" x="60" y="486">誰控制購買那一刻的金流，誰就是客戶</text>
+</svg>
