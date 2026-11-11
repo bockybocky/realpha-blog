@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Three bars rise from short to tall, from five units a day to a hundred and fifty a day and then to a dashed one-million target, with the height gaps showing three orders of magnitude.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .num { font-size:20px; font-weight:700; fill:var(--ink); }
+    .lab { font-size:16px; fill:var(--dim); }
+    .end { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">Capacity is units per day, not a story</text>
+  <line x1="100" y1="470" x2="860" y2="470" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="130" y="410" width="170" height="60" rx="4" fill="var(--accent)" opacity="0.35"/>
+  <text class="num" x="215" y="396" text-anchor="middle">5–10 units</text>
+  <text class="lab" x="215" y="500" text-anchor="middle">A month ago</text>
+  <text class="lab" x="215" y="524" text-anchor="middle">By hand</text>
+
+  <rect x="350" y="300" width="170" height="170" rx="4" fill="var(--accent)" opacity="0.7"/>
+  <text class="num" x="435" y="286" text-anchor="middle">100–150 units</text>
+  <text class="lab" x="435" y="500" text-anchor="middle">At recording time</text>
+  <text class="lab" x="435" y="524" text-anchor="middle">Cleanroom · still by hand</text>
+
+  <rect x="570" y="140" width="170" height="330" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="num" x="655" y="126" text-anchor="middle">One million</text>
+  <text class="lab" x="655" y="500" text-anchor="middle">Not there yet</text>
+  <text class="lab" x="655" y="524" text-anchor="middle">Manual line → automated line</text>
+
+  <text class="end" x="60" y="566">Same tech story; these three bars are three different companies</text>
+</svg>

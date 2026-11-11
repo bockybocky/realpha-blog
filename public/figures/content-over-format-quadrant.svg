@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="四格圖，縱軸內容由薄到厚、橫軸形式由難看到漂亮；二十頁與一兩頁都在上半，投影片三個字孤立在右下角">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:19px; font-weight:700; fill:var(--ink); }
+    .lab { font-size:16px; fill:var(--dim); }
+    .end { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">一份文件只有一個軸是重要的</text>
+
+  <rect x="200" y="110" width="620" height="340" fill="var(--card)"/>
+  <line x1="200" y1="280" x2="820" y2="280" stroke="var(--line)" stroke-width="2"/>
+  <line x1="510" y1="110" x2="510" y2="450" stroke="var(--line)" stroke-width="2"/>
+
+  <text class="lab" x="190" y="130" text-anchor="end">內容厚</text>
+  <text class="lab" x="190" y="444" text-anchor="end">內容薄</text>
+  <text class="lab" x="200" y="478">形式難看</text>
+  <text class="lab" x="820" y="478" text-anchor="end">形式漂亮</text>
+
+  <circle cx="300" cy="170" r="14" fill="var(--accent)"/>
+  <text class="grp" x="324" y="166">二十頁</text>
+  <text class="lab" x="324" y="190">讀一個半小時</text>
+
+  <circle cx="360" cy="236" r="14" fill="var(--accent)"/>
+  <text class="grp" x="384" y="232">一頁、兩頁</text>
+  <text class="lab" x="384" y="256">改過尺寸再用</text>
+
+  <circle cx="740" cy="400" r="14" fill="var(--warn)"/>
+  <text class="grp" x="716" y="396" text-anchor="end">投影片三個字</text>
+  <text class="lab" x="716" y="420" text-anchor="end">漂亮，但沒有內容</text>
+
+  <text class="end" x="60" y="546">內容對先，漂亮以後再說</text>
+</svg>

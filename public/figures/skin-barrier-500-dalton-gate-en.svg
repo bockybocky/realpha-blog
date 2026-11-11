@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A wall with a narrow gap in the middle lets small molecules through while a collagen molecule ten times larger is blocked and bounces back, and the long bar below is filled only at its far left end.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:19px; font-weight:700; fill:var(--ink); }
+    .lab { font-size:16px; fill:var(--dim); }
+    .end { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">Skin's job is to keep you out</text>
+
+  <rect x="470" y="110" width="34" height="150" fill="var(--grey)"/>
+  <rect x="470" y="300" width="34" height="150" fill="var(--grey)"/>
+  <text class="grp" x="487" y="98" text-anchor="middle">Stratum corneum</text>
+  <text class="lab" x="520" y="276">Gap ≈ 500 daltons</text>
+
+  <circle cx="300" cy="180" r="50" fill="var(--warn)" opacity="0.65"/>
+  <text class="grp" x="180" y="120" text-anchor="middle">Collagen</text>
+  <text class="lab" x="180" y="146" text-anchor="middle">5,000–10,000</text>
+  <path d="M352 180 L452 196" stroke="var(--warn)" stroke-width="3" fill="none"/>
+  <path d="M452 196 L420 150" stroke="var(--warn)" stroke-width="3" fill="none" stroke-dasharray="7 5"/>
+  <text class="lab" x="398" y="136" text-anchor="end">Bounced back</text>
+
+  <circle cx="300" cy="285" r="13" fill="var(--accent)"/>
+  <text class="lab" x="266" y="330" text-anchor="middle">Small formula molecules</text>
+  <path d="M322 285 L700 285" stroke="var(--accent)" stroke-width="3" fill="none"/>
+  <circle cx="700" cy="285" r="13" fill="var(--accent)"/>
+  <text class="grp" x="700" y="342" text-anchor="middle">Gets through</text>
+
+  <text class="grp" x="120" y="468">What topicals actually deliver</text>
+  <rect x="120" y="486" width="600" height="26" rx="4" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="120" y="486" width="6" height="26" fill="var(--accent)"/>
+  <text class="lab" x="736" y="506">~1% in; rest off</text>
+
+  <text class="end" x="60" y="548">Past this line is where it gets interesting</text>
+</svg>

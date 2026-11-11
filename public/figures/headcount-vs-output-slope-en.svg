@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two small charts compare headcount on the horizontal axis against output on the vertical axis; output shoots up almost vertically in the left chart, while in the right chart output rises in a straight diagonal line in step with headcount.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:20px; font-weight:700; fill:var(--ink); }
+    .lab { font-size:16px; fill:var(--dim); }
+    .end { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">Watch the slope, not the market size</text>
+
+  <rect x="80" y="130" width="360" height="290" fill="var(--card)"/>
+  <line x1="120" y1="390" x2="420" y2="390" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="160" x2="120" y2="390" stroke="var(--line)" stroke-width="2"/>
+  <path d="M120 386 C180 380 216 300 240 180" stroke="var(--accent)" stroke-width="4" fill="none"/>
+  <text class="grp" x="80" y="112">A platform</text>
+  <text class="lab" x="268" y="200">Headcount barely moves</text>
+  <text class="lab" x="420" y="416" text-anchor="end">Headcount</text>
+  <text class="lab" x="112" y="152" text-anchor="end">Output</text>
+
+  <rect x="520" y="130" width="360" height="290" fill="var(--card)"/>
+  <line x1="560" y1="390" x2="860" y2="390" stroke="var(--line)" stroke-width="2"/>
+  <line x1="560" y1="160" x2="560" y2="390" stroke="var(--line)" stroke-width="2"/>
+  <path d="M560 390 L820 180" stroke="var(--warn)" stroke-width="4" fill="none"/>
+  <text class="grp" x="520" y="112">Not a platform</text>
+  <text class="lab" x="600" y="232">Grows only by adding people</text>
+  <text class="lab" x="860" y="416" text-anchor="end">Headcount</text>
+  <text class="lab" x="552" y="152" text-anchor="end">Output</text>
+
+  <text class="end" x="60" y="500">Both end the same height, very different machines</text>
+</svg>

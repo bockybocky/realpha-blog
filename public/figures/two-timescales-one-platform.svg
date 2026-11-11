@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="同一起點出發的兩條橫條，化妝品那條很短，合格疫苗那條長了約十倍">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:20px; font-weight:700; fill:var(--ink); }
+    .lab { font-size:16px; fill:var(--dim); }
+    .end { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">同一套技術，兩種時間尺度</text>
+
+  <line x1="180" y1="120" x2="180" y2="400" stroke="var(--line)" stroke-width="3"/>
+  <text class="lab" x="180" y="106" text-anchor="middle">今天</text>
+
+  <rect x="180" y="170" width="86" height="44" rx="4" fill="var(--accent)"/>
+  <text class="grp" x="286" y="200">化妝品・明年夏天上市</text>
+  <text class="lab" x="286" y="226">沒有藥證門檻，整條價值鏈走一遍</text>
+
+  <rect x="180" y="300" width="660" height="44" rx="4" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <rect x="180" y="300" width="86" height="44" rx="4" fill="var(--warn)" opacity="0.5"/>
+  <text class="grp" x="286" y="286">合格疫苗・十年</text>
+  <text class="lab" x="836" y="372" text-anchor="end">終點在下一個世代</text>
+
+  <text class="end" x="60" y="462">公告講技術，進度看的是哪一條</text>
+</svg>

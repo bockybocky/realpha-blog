@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Two horizontal bars start from the same point: the cosmetics bar is very short, while the licensed vaccine bar is about ten times longer.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; font-weight:700; fill:var(--ink); }
+    .grp { font-size:20px; font-weight:700; fill:var(--ink); }
+    .lab { font-size:16px; fill:var(--dim); }
+    .end { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="ttl" x="60" y="58">One platform, two timescales</text>
+
+  <line x1="180" y1="120" x2="180" y2="400" stroke="var(--line)" stroke-width="3"/>
+  <text class="lab" x="180" y="106" text-anchor="middle">Today</text>
+
+  <rect x="180" y="170" width="86" height="44" rx="4" fill="var(--accent)"/>
+  <text class="grp" x="286" y="200">Cosmetics · launches next summer</text>
+  <text class="lab" x="286" y="226">No drug approval; the whole value chain in one pass</text>
+
+  <rect x="180" y="300" width="660" height="44" rx="4" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <rect x="180" y="300" width="86" height="44" rx="4" fill="var(--warn)" opacity="0.5"/>
+  <text class="grp" x="286" y="286">Licensed vaccine · 10 years</text>
+  <text class="lab" x="836" y="372" text-anchor="end">Finish line is a generation away</text>
+
+  <text class="end" x="60" y="462">Press releases talk tech; progress is which bar</text>
+</svg>
