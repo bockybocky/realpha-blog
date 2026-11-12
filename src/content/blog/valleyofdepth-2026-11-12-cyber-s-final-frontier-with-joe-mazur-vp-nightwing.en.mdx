@@ -1,0 +1,127 @@
+---
+title: "Valley of Depth: You Can't Shoot Down Five Thousand Satellites, and You Don't Have To"
+description: "Notes on the Valley of Depth episode of 12 November 2026, in which the host talks with Joe Mazur, Nightwing's VP of space systems, about the cyber threat to America's space architecture: he says the ground segment is the biggest vulnerability, and that the window to patch a vulnerability has gone from two weeks to hours or minutes. The phrase space Pearl Harbor was circulating at the Pentagon in 2005; 21 years on it hasn't happened, and he thinks the odds are rising. The episode is presented in partnership with Nightwing and the guest works there, so his assessments of his own company and of government progress are attributed as such. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "valleyofdepth-2026-11-12-cyber-s-final-frontier-with-joe-mazur-vp-nightwing"
+lang: "en"
+pubDate: 2026-11-12
+category: "investing"
+kind: "podcast-notes"
+tags: ["space", "cybersecurity", "podcast-notes", "defense budgets", "resilience"]
+ogImage: "/covers/valleyofdepth-2026-11-12-cyber-s-final-frontier-with-joe-mazur-vp-nightwing-cover.png"
+cover: "/covers/valleyofdepth-2026-11-12-cyber-s-final-frontier-with-joe-mazur-vp-nightwing-cover.png"
+---
+
+![A field of dish antennas at dusk, an equipment cabinet in the foreground standing open with its cable runs and connectors exposed, a work lamp lighting the lower half, the dishes receding one after another along a dirt track into the failing light](/covers/valleyofdepth-2026-11-12-cyber-s-final-frontier-with-joe-mazur-vp-nightwing-cover.png)
+
+> Water over fire: the crossing completed. The wise consider what may go wrong and guard against it in advance.
+>
+> —— Book of Changes, Hexagram Jiji, Commentary on the Images (pre-Qin; my own translation)
+
+In the Valley of Depth episode of 12 November 2026, the host talks with Joe Mazur, Nightwing's vice president of space systems. He spent twenty years in the Air Force and retired a lieutenant colonel, including five years at the National Reconnaissance Office, and after retiring he worked at DARPA as a civilian. He worked on the X-37B — the uncrewed spaceplane — back when it was still a black program. His through-line is this: the softest part of America's space architecture sits on the ground, and the time you get to fix a vulnerability has gone from two weeks down to hours or minutes. The episode is presented in partnership with Nightwing and he works there, so when something sounds like "it comes back within a day or two" or "they're taking it seriously now," that's an insider's assessment, and I'll say whose it is.
+
+## What the episode is about
+
+They recorded in October, which is cybersecurity awareness month in the US, and both of his opening examples are domestic. Some stores in France had their refrigeration systems knocked out, and a few weeks before recording the storage systems at US military commissaries were switched into defrost mode from outside. His point is that this gets more common from here, and you can either shrug or start running vulnerability assessments and closing your exposed attack surfaces one at a time.
+
+Nightwing is a cybersecurity company of about 2,000 people, headquartered in Sterling, Virginia, two and a half years old, with close to $2 billion in revenue, mostly serving the intelligence community and the defense department, doing both offensive and defensive work. It used to be part of Raytheon before Blackstone bought it out. Mazur says the separation opened up business they couldn't touch before: Raytheon had a separate space and intelligence unit that held all the space contracts, and now they can bid on those themselves.
+
+There's an X-37B model on his desk. His own space career started in 1993 with a phone call from Los Angeles asking him to come work a classified program at the space systems center, with nothing about it disclosable — he had to take the job first.
+
+## The way in is on the ground, the money goes up
+
+The host asks where he'd go if he were the adversary, and his answer goes around the satellite. The National Reconnaissance Office director who just retired after seven and a half years was asked what worried him most in the job, and he said one word: cyber. What he was worried about was the mission being taken down, with the spacecraft itself further down the list. Getting in through the command and control networks, or into the ground-based mission processing systems, is easier than reaching the metal in orbit.
+
+![Three layers stacked vertically: the satellite on top is drawn as a closed, thick-walled shell marked hard to get into, the ground system at the bottom is drawn as a box with an open door marked easy to get into, and one thick arrow runs up from the bottom layer through the whole stack.](/figures/ground-is-the-soft-layer-en.svg)
+
+So why has the ground segment gone chronically underfunded? He answers from his own time at the NRO, where he had a ground processing system for a low-earth-orbit program and a new LEO spacecraft going at the same time, and the money went to the spacecraft. The reason hides in the schedule: the spacecraft has to make its launch slot or lose it, while the ground you can always go back and fix. So the understood deal is get the launch out and fix the mission processing later. His line here is the one I'll remember: you can't launch the spacecraft with an engineer up there writing code — and not with a wrench either.
+
+![A timeline: the upper half shows a launch window drawn as a box too narrow to miss, followed by a solid line that seals it off; the lower half shows a long band of ground work with three curved arrows looping back to the left.](/figures/launch-window-vs-ground-en.svg)
+
+## The unplug-it era is over
+
+Ten years ago, he says, the first move when you were hit was to pull the cable and take the system down. That move is gone, because you can't take down a war fighting system. He quotes an Army lieutenant general running defense information systems, from a conference: the mindset now is that you fight through it and keep the network up.
+
+He's specific about the tempo. You used to find a vulnerability and have two weeks to hold meetings, write a plan of action and push out a fix; frontier AI models now find zero-days — holes nobody knows about and nobody has patched — and exploit them, so those two weeks become days, then hours, then minutes. What that forces is pushing patches straight out without the full test cycle, and rolling back if one breaks something. His words: your network is under attack, you can't be looking at the patch and admiring it.
+
+![Four horizontal bars running from long to very short, labelled in order two weeks, days, hours, minutes, with the last one shrunk down to little more than a tick mark.](/figures/patch-window-collapsing-en.svg)
+
+The window that matters opens after the first step. An adversary gets into your network and then starts moving laterally, machine to machine, hunting for something worth more. That lateral movement is what you have to shut down, and he says the scale of it now is hours or even minutes.
+
+![A row of machine boxes running left to right, the first labelled entry and the last labelled the valuable thing, with the three in the middle circled by a dashed box labelled choke this stretch.](/figures/lateral-movement-window-en.svg)
+
+## Five thousand satellites are unshootable; a corrupted boot image is unfixable
+
+The Space Force's proliferated architecture buys survivability with numbers. He says the design target there is kinetic attack: with one spacecraft up, there are plenty of ways for an adversary to take it out; with a thousand or five thousand, kinetic means run out, and even a laser going one after another runs into the same wall: that magazine has real depth, he says, and it would still be hard to do.
+
+Run the same arithmetic for a cyber attack and it stops working. Every new satellite, every new cross-link, every new commercial partner is another door. He names the worst case: they get into the ground systems, or into the cross-links, and the last layer down is a spacecraft's boot — and at that layer, that satellite can't be fixed.
+
+![The left half is a dense field of satellite dots with a few kinetic arrows knocking out just three of them; the right half is the same field, with one line fanning up from a ground station to cover all of it, ending at a label saying the boot process can't be restored.](/figures/numbers-help-only-one-attack-en.svg)
+
+## A forty-person startup flying a defense payload — who checks?
+
+The host asks the question I'd have asked: a forty-person startup is flying a DoD payload, so who actually checks its cyber architecture. His answer has two halves. The institutional half is that the program manager carries requirements, and has to confirm the company meets basic cyber hygiene. The counterintuitive half is the threat side: a nation-state actor isn't going to develop an exploit against one spacecraft, they ask what that spacecraft's mission is and whether it matters, and if it's a research spacecraft they lose interest.
+
+What about satellites launched ten years ago that still matter? He says ten years means you're late, though maybe not too late, and the gate is size, weight and power: does the bird carry a software defined radio, can it take an upload, and whatever goes up can't disturb its timing or its downlink, because nobody accepts a delay to their mission. So his order of operations is to stop agonising over the bird, spend the money on ground resilience and harden the command and control links, then go look at whether the spacecraft's code has room for an upload at all.
+
+## What calling it a war fighting domain actually buys is budget
+
+The department has conceded it treated cybersecurity as a back-office IT function for too long. Asked whether that's a fair assessment, he sidesteps fairness: the practical effect of the war fighting domain label is money. War fighters carry requirements, and requirements equal funding.
+
+That chain is running now. Executive orders come down to the defense department and on to the services, and he says they're starting with their most critical weapon systems, doing the analysis and funding the fixes. They recorded in October, with the federal government living inside a continuing resolution that runs to 11 December; his assessment is that this is not how you want the department run — the money has to arrive before the contracts can be let.
+
+Who defends a Space Force satellite? He says the Guardians do. The progress he points to is the space systems center building out operational test and training infrastructure, something like a top gun for space, with virtual ranges to practise maneuvering and how to react to brute force and smart jamming.
+
+## Space Pearl Harbor: in circulation since 2005, still hasn't come
+
+When he was a program element monitor for space control at the Pentagon, the colonel he worked for was carrying the phrase space Pearl Harbor up and down the building. That was 2005, and 21 years on it hasn't happened. He thinks the probability is rising.
+
+![A long timeline running from 2005 to 2026 with no events anywhere along it, and a curve tilting upward at the far end.](/figures/space-pearl-harbor-21-years-en.svg)
+
+The host's guess is that the first shot in a real space conflict comes from cyber, and Mazur agrees. He splits the adversary's aims in two. One is taking out the US kill chain, through jamming and attacks on spacecraft, ground systems and command and control networks. The other is touching things ordinary people feel, and his list there is domestic: GPS, the banking system, water treatment, electricity, gas. If you're a US citizen, he says, it's going to be a bad day, because people are used to pulling out a phone and seeing their balance, and the pump won't fill your car because it's GPS enabled.
+
+Then he gives the other half: these networks are fairly resilient, and within a day or two or a week they come back — the power comes back, the pumps come back, GPS comes back. His comparison is the cyber attack on Viasat in the opening days of the Russia-Ukraine war in 2022, one of the first times a commercial space capability was treated as a military target, after which the company brought its service back and Starlink is still up.
+
+## A defense cyber contract — is that a moat?
+
+I used to look at the revenue number first. This episode gave me two questions that come earlier.
+
+The first is what kind of money it is. He says the defensive and resilience side is mostly bought as labor hours, because you're manning a 24/7 operations center; a research award they just won for offensive and defensive work runs on a different contract type, where what you deliver is a product. Those two kinds of money have different lifespans, though the host raises the other side of it: cyber bought as labor hours often outlasts the capability itself.
+
+The second is which stage of the money it is. The requirements-equal-funding path runs from an executive order to the services to a program manager writing it into some weapon system, with a continuing resolution sitting in the middle. So when a company announces a win, I go back and ask which stage it came from: a patch plan already written into a critical weapon system and a research award still waiting on a budget are differently shaped risks. He makes the point himself that holding a contract today says nothing about holding it four or five years out, because industry is constantly recompeting.
+
+![A thick pipeline running left to right, visibly pinched at one point in the middle labelled continuing resolution, with money before the pinch stalled inside the pipe and money after it flowing on to a weapons-system patch program.](/figures/which-stage-is-the-money-en.svg)
+
+## Something got breached — cut or hold?
+
+This episode swapped out a habit of mine. When a security incident hits the news I used to look at the size of the incident; now I look for the recovery time first.
+
+![The left panel shows one very large circle standing for the size of the event, while the right panel shows a service-level curve that drops and then climbs back up, plus a dashed line that never recovers and keeps running to the right.](/figures/recovery-not-magnitude-en.svg)
+
+He expects that in a genuinely large attack, power and GPS come back inside a day to a week. That's his judgement, and he adds an honest line right next to it — until we experience it we don't know, and Ukraine and Russia, who fight cyber attacks daily, have more experience. I file it under assumptions.
+
+The use on a holding looks like this: when a company gets hit, go find whether its recovery path has ever been publicly demonstrated — is there a failover, how long does cutting over take, when was it last exercised. If those three have answers, I treat it as an incident. If they don't, I assume the next outage lasts just as long.
+
+## Would owning more names make me safe?
+
+What the proliferated architecture section made me think about was diversification. Five thousand satellites are unshootable, and that protection covers exactly one kind of attack; they share ground stations, and once you come in through the ground, the count stops helping.
+
+I've had this shape in my own portfolio. The number of names looks diversified enough, and what they share still makes a list of its own — one brokerage account, one country's tax code, several software names selling into the same data center budget. Those are my ground stations.
+
+![Six separate holding boxes along the top look independent of each other, while every connecting line converges downward into one wide box listing shared infrastructure, shared money and shared regulation.](/figures/my-own-ground-station-en.svg)
+
+What I do is write out three items: which infrastructure my holdings share, whose money they share, and which regulation they share. The one I most often miss is the second, because it isn't written on any sector label.
+
+## Further reading
+
+- The Valley of Depth episode of 12 November 2026, the source for this piece
+- Public reporting and post-mortems on the 2022 Viasat cyber attack at the opening of the Russia-Ukraine war
+- US Space Force public material on proliferated architecture and on operational test and training infrastructure
+- The public record of X-37B missions
+
+## The one thing worth taking with you
+
+**Whether you're resilient is only measurable while the thing is gone, so you have to take it away yourself.**
+
+His line about space Pearl Harbor — until we experience it we don't know — made me stop. It's the same thing the whole episode keeps circling: the vulnerability assessment got done, the plan got written, the requirements got listed, and whether a system holds is answered when it's hit. An exercise is you hitting it first.
+
+Here's something I've tried that holds outside investing too. Pick one thing you use daily that would jam you up if it vanished — phone navigation, a cloud drive, an auto-payment, dinner arriving by delivery — switch it off for a whole day, and write down three things: what you actually used instead, how long it cost you, and which step you assumed had a backup and didn't.
