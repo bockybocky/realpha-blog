@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一週七欄，週一到週五切成密密小格排滿，週六週日整片空白">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+</style>
+<defs>
+<pattern id="slots" width="112" height="26" patternUnits="userSpaceOnUse">
+<rect x="0" y="2" width="112" height="22" fill="var(--accent)" opacity="0.8"/>
+</pattern>
+</defs>
+<g font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+<text x="80" y="62" font-size="27" fill="var(--ink)">他的一週</text>
+<text x="136" y="150" font-size="19" fill="var(--dim)" text-anchor="middle">一</text>
+<text x="256" y="150" font-size="19" fill="var(--dim)" text-anchor="middle">二</text>
+<text x="376" y="150" font-size="19" fill="var(--dim)" text-anchor="middle">三</text>
+<text x="496" y="150" font-size="19" fill="var(--dim)" text-anchor="middle">四</text>
+<text x="616" y="150" font-size="19" fill="var(--dim)" text-anchor="middle">五</text>
+<text x="736" y="150" font-size="19" fill="var(--dim)" text-anchor="middle">六</text>
+<text x="856" y="150" font-size="19" fill="var(--dim)" text-anchor="middle">日</text>
+<rect x="80" y="182" width="112" height="286" fill="url(#slots)"/>
+<rect x="200" y="182" width="112" height="286" fill="url(#slots)"/>
+<rect x="320" y="182" width="112" height="286" fill="url(#slots)"/>
+<rect x="440" y="182" width="112" height="286" fill="url(#slots)"/>
+<rect x="560" y="182" width="112" height="286" fill="url(#slots)"/>
+<rect x="680" y="182" width="112" height="286" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="800" y="182" width="112" height="286" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text x="736" y="330" font-size="16" fill="var(--dim)" text-anchor="middle">自由</text>
+<text x="736" y="354" font-size="16" fill="var(--dim)" text-anchor="middle">思考</text>
+<text x="856" y="330" font-size="16" fill="var(--dim)" text-anchor="middle">自由</text>
+<text x="856" y="354" font-size="16" fill="var(--dim)" text-anchor="middle">思考</text>
+<text x="80" y="508" font-size="22" fill="var(--ink)">五天排滿 15 到 30 分鐘一格，兩天留白</text>
+</g>
+</svg>

@@ -1,0 +1,102 @@
+---
+title: "Cheeky Pint: Seven Years With No Marketing Budget, Then He Made a Ruler Out of a Hundred Old Bets"
+description: "Notes on the Cheeky Pint episode of 10 November 2026, where Stripe co-founder John Collison talks with Revolut co-founder and CEO Nik Storonsky: the first seven years ran on word of mouth with no marketing budget, and today around 100,000 retail customers and about 1,500 business customers join each day. The company has run roughly 100 new bets, and a new product's first months of gross profit are ranked against those hundred — top quartile gets more teams, bottom quartile loses its team. He also wants lending held under 10% of the balance sheet, with the rest securitised. Every figure is as he stated it on the show; Revolut is private. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "cheekypint-2026-11-10-nik-storonsky-the-most-uncompromising-banking-ceo"
+lang: "en"
+pubDate: 2026-11-12
+category: "investing"
+kind: "podcast-notes"
+tags: ["Revolut", "podcast-notes", "neobanks", "product development", "performance management"]
+ogImage: "/covers/cheekypint-2026-11-10-nik-storonsky-the-most-uncompromising-banking-ceo-cover.png"
+cover: "/covers/cheekypint-2026-11-10-nik-storonsky-the-most-uncompromising-banking-ceo-cover.png"
+---
+
+![The far end of a long office table late at night, a stack of monthly reports covered in trend lines and a red pen spread across it in the foreground, a laptop turned side-on showing only backlight, the table receding into the distance with each empty chair darker than the last and a single pendant lamp at the end](/covers/cheekypint-2026-11-10-nik-storonsky-the-most-uncompromising-banking-ceo-cover.png)
+
+> Only when the year turns cold do you learn that the pine and the cypress are the last to shed their leaves.
+>
+> —— Analects, "Zi Han" (Spring and Autumn period; my own translation)
+
+In the Cheeky Pint episode of 10 November 2026, host John Collison (co-founder of Stripe) talks with Revolut co-founder and CEO Nik Storonsky. Two sets of numbers stayed with me. For the first seven years the company had no marketing budget and grew on word of mouth; today roughly 100,000 retail customers and about 1,500 business customers join every day. And the company has now run around 100 "new bets", so when a product launches, its gross profit from month one through month twelve gets ranked against those hundred — top quartile and the team grows, bottom quartile and the team gets moved elsewhere. These are his own figures as given on the show; Revolut is private, and there are no third-party accounts to check them against.
+
+## Seven years with no marketing spend — how do you reach 100,000 sign-ups a day?
+
+The answer is flat: word of mouth plus PR, and nothing else. He describes starting with one to ten customers a day, then a hundred, five hundred, a thousand. Only in 2022 did they have a real growth budget, and that is when they built the payback and lifetime-value models and shipped a referral product. Business accounts ran the same path, from ten a day to around 1,500 a day now, of which about 30% comes from paid marketing.
+
+![A five-step staircase rising in equal steps from left to right, each step labelled with the number of customers joining per day — from one to ten, then 100, 500, 1,000, and on to about 100,000 — with a note beneath the whole staircase saying there was no marketing budget for the first seven years.](/figures/revolut-growth-staircase-no-marketing-en.svg)
+
+What I found interesting is that he doesn't treat the starting product as the key. The first product that worked was a multi-currency card with zero FX fees, and when Collison pointed out that both Revolut and Wise scaled on consumer anger about FX fees, Nik pushed the question away: most bank products are bad — credit, business products, acquiring, wealth and trading all included, and Robinhood picked the trading one. His criterion is a single line: build something much better than the banks and much cheaper, and the rest is not hard.
+
+Collison pressed on the structural advantage financial products have. A payment has two legs, and PayPal could send money to an email address that hadn't signed up yet, which is a textbook acquisition loop. Why wasn't that Revolut's engine? Nik's answer was the know-your-customer gate: friction is high and drop-off is heavy. Before 2017 small transfers could be onboarded without full KYC, and there was real virality in that window until the rule closed it. He then said that across twelve years, everything they tried came out with a K-factor (new users brought in per user) below 1, and Collison summed it up for him: you're in the K-is-less-than-1 business.
+
+## How can one company keep shipping new products without chaos?
+
+Through a line that is written down from proposal all the way to shutting a team. Anyone inside the company can raise a new bet. It first goes to a team that checks the unit economics and the financials — he says nine cases out of ten clear this, because a small team costs so little against a product customers pay for that can generate tens of millions of dollars. Then it goes to people who have built new bets before, and to general managers, for a common-sense pass. If it clears, they split out a team of about ten; from the decision to launch it is usually twelve to eighteen months, spent hiring, building, and getting through the internal approval process on the banking side, which they call NPAP.
+
+Launch goes to one test country, Ireland or the UK, then country by country, and the product gets added to the automated cross-sell engine. That engine is the piece I most wanted to copy. A machine learning model reads customer profile and events to decide which product fits right now — his example was someone with a UK account landing in Ireland and spending on a travel-SIM merchant, which triggers an eSIM offer. On top of it sits a large language model acting as an account manager, reading all the products, all the events and the machine learning model's suggestions, and choosing what to push at that moment. Beyond conversion, the model weighs gross profit and the negative value of bothering the customer at all.
+
+So a new product has no distribution problem, which leaves it no excuses either. Rank in the top quartile on gross profit at month one, two, three, twelve, and one team becomes two, three, four. Bottom quartile, the team is redistributed. The middle sometimes keeps its team and sometimes doesn't. For products not meant to produce revenue, they carry two numbers, direct gross profit and indirect gross profit, the second derived from a churn model. RevPoints, their rewards system, is small on accounting gross profit and very high on the indirect figure. Where customers already rely on a product and shutting it would cause detriment, they stop investing and maintain it.
+
+![About a hundred older bets drawn as a row of bars descending from high to low gross margin, divided into a top quartile, a middle and a bottom quartile, with an arrow inserting the new product into a position in the front section.](/figures/hundred-bets-ranking-quartiles-en.svg)
+
+Two details make the machine credible. One is a failure: Revolut Lite went live in 100-plus countries as an international Venmo, pure money transfer with no licence, on the assumption that distribution costs would be far lower. Organic growth wasn't fast enough, performance marketing had to be bought, and the payback no longer worked. The other is a call he got wrong: the subscriptions team proposed Ultra at about €50 a month, and he thought the idea was okay and the business probably wouldn't be large. It became a very large business — Collison's comparison was an Amex premium card. He says he has had too many failures of judgement in the past, so now he says yes to new ideas by default: ideas matter, execution decides the outcome, and a strong team can carry an average idea.
+
+Collison asked about slow burners, products that start slowly because the team is still learning and then take off. Nik couldn't recall one: what grows fast in the first twelve months keeps growing fast, and the trend is your friend. The big-company line — this isn't working yet but there's a good reason — counts as an excuse here. His explanation for why other firms don't run this way was just as blunt: most of them don't make many bets at all, maybe seven or eight, the feedback loop is delayed, management turns over, and so no strict process on new bets ever gets built.
+
+## With deposits and a licence in hand, why not lend heavily?
+
+He wants the lowest-risk model: even where they lend, the target is under 10% of the balance sheet, with the rest securitised. He gave two reasons. The regulatory one is that a simpler model is better. The second was multiples: a tech business can get a 40-50 PE, a bank is lucky to get 10, and the moment you move into lending your multiple drifts toward the bank's.
+
+![A rectangular block standing for the balance sheet, with only a narrow lending slice at its left end labelled under ten percent and the rest given to other assets, while an arrow carries the surplus lending outside the block, labelled securitisation.](/figures/loans-under-ten-percent-balance-sheet-en.svg)
+
+Collison hit the second reason on the spot. He said he is always sceptical of multiple-based arguments: when Stripe started, payments businesses were considered horrendous and deserving of low multiples, and the market came around later. Had they been fixated on the multiple others ascribed to them, they might have been scared off the path. The question to answer is whether the profit pool is high or low quality; investor hang-ups are a separate matter.
+
+Pushed there, Nik switched to mechanism, and this is the hardest piece of reasoning in the episode. Every loan or credit line requires provisions, and the size of those provisions depends heavily on the models you use and on economic conditions. Whether the money comes back in three or five years is unknowable, so you model it. A bank can print a lot of profit from its credit book today, and two or three years later unemployment goes from 3% to 6%, the profit is gone and losses start. Then came his analogy: it is like selling options, collecting premium for ten years and giving it all back in year eleven. Collison supplied the other half — in a downturn some subscribers cancel, but subscriptions can't earn negative money, the book just shrinks a little.
+
+He was candid about where the model came from. Revolut started in the UK and Europe, where interchange is low and credit is heavily regulated, so you can't charge the rates available in Mexico or Brazil, and they were forced to make the transactional business profitable. Founded in Brazil, he says, he would have gone into credit, because it is less regulated and pays well. The line I wrote down came next: out of some fifty digital banks in Europe, three or four survived, and surviving that competition is what makes them fitter for other markets.
+
+![Ten small bars of equal height above the zero line stand for ten years of premium, and one much deeper bar below the zero line gives back the whole combined height of those ten.](/figures/selling-options-ten-years-of-premium-en.svg)
+
+## AI is this capable now — so why is he still running the old framework?
+
+His description of AI inside the company is not conservative. It started two years ago with customer support and translation, it is now across engineering, marketing and every area, and they are trying to build an end-to-end AI employee. He says the whole apparatus built over ten years around human strengths and weaknesses — KPIs, roadmaps, processes, hiring, performance management — may be redundant in two or three years, so they are rethinking how the company should work. Technically one person covers far more now: no need for separate Android and iOS developers, one frontend developer can do backend and possibly data science, design included, and a team could be two people.
+
+Yet the size of a new-bet team hasn't changed. Asked whether that is old-fashioned, he answered plainly: it is old-fashioned, but he prefers to keep doing what works while experimenting with new things, and once the new way has a proven track record at Revolut they will start changing. His reason carries more information than the line itself: Revolut's processes are built around specialisation, where the iOS developer knows how that system operates, then Android, backend, data science, an ops manager. Hiring one person who gets access to every system and produces all the code with AI would be very hard, so the process has to change first.
+
+What I most noticed here is that he keeps two things apart: believing AI will shrink teams to two people, and shrinking teams to two people now, with a standard of evidence in between. He accepts that automation isn't done, and that hiring less comes after it is.
+
+## The KPIs are all green — how do I tell whether that's good enough?
+
+This is the question I wanted answered. When a company's numbers all read green and the news flow is all positive, how do you tell whether it is coasting?
+
+His weekdays are cut into 15 or 30 minute slots, filled with business reviews, product reviews and one-on-ones, with Saturday and Sunday left for free thinking, external meetings held to a minimum, 95% of his time spent internally and two or three conferences a year. Collison's joke made me laugh: Revolut's work-from-home policy is that you can work from home two days a week, Saturday and Sunday.
+
+![Seven columns for the week: Monday to Friday are each sliced by horizontal lines into densely packed small cells with no gaps, while Saturday and Sunday are left entirely blank, so the difference in density is obvious at a glance.](/figures/week-grid-five-days-packed-en.svg)
+
+He says he does two things in those reviews: product direction and features, and detecting bullshit. A KPI can be met through external factors or luck, so you dive deeper, into the product, the features, the speed of development. His example was wealth and trading: two or three years ago it grew 60-80% year on year, he thought that wasn't enough and it should have been 300%, he dug in and found the product quality and features weren't good, the team was changed, and it now grows 300%.
+
+He didn't dodge the boundary either. Asked about domains that resist measurement — you can count what a salesperson sold, but a lawyer? — he said commercial lawyers have metrics too: are they keeping to their SLAs, how many deficiencies are in the contracts. At team level there are KPIs; at individual level he wasn't sure, possible but not built. Then he closed it himself: you can't quantify everything, and where you can't, you need leading indicators.
+
+![Two bars of very different heights: the short one is labelled with the 60 to 80 percent growth of the time, the tall one with the 300 percent he thought it should be, and a blank gap is left between them.](/figures/sixty-percent-versus-three-hundred-en.svg)
+
+Here is how I use it. I used to judge a company's new-business announcement by whether the story held together, and this episode reversed my order: first ask whether the company has a comparable curve at all. How many new things has it launched before, what did those look like at month three and month twelve, and where does this one rank. With no ranking available, a phrase like "growing 60%" can only be taken on feel. I hang this on two frameworks I already use. One is the split between noise and structure: announcing a product is noise, whether it gets into the cross-sell engine and where it ranks internally is structure. The other is verification: after hearing a company talk up a new business, I now write down where I think that curve should be in three months, and come back to check the answer.
+
+The second borrowable piece is review frequency. He says performance management has to be quarterly, that once a year is too long because managers are inherently biased against exiting underperformers, and an annual cycle lets them push the problem back. I take that to my own holdings review: if I only re-run the numbers on a stock once a year, for the other eleven months I am deferring on my own behalf.
+
+## Further reading
+
+- The Cheeky Pint episode of 10 November 2026, the source for this piece
+- Revolut's own pages for Ultra pricing and benefits, and its country-by-country product list
+- The US OCC's public material on bank charter applications and conditional approvals
+- Public filings from Nubank and Kaspi, useful as a contrast with credit-driven neobank economics
+- The benefits pages for the Amex Platinum and Chase Sapphire cards, which he says the US proposition will go up against
+
+## The one thing worth taking with you
+
+**Whether a new thing is working is judged against the other new things you have done, not against zero.**
+
+Revolut's scorecard is hard to argue with because those hundred old bets are still on the table, so a new product's month-three gross profit gets ranked into the queue automatically. A company without that table can only reassure itself with "growing 60%", and whether 60% is good or bad is exactly where Nik's answer was: it should have been 300%.
+
+One thing I've tried myself, and it holds outside investing. Dig out three new things you started in the last three years — learning a language, taking up running, changing jobs, sitting with a kid through an instrument. For each one write down the real progress of the first three months, as numbers or specific events, not as feelings. Those three lines are your baseline table. Next time you start a fourth thing, rank it into that table at month three and see where it lands.
+
+![Three grey lines run from month one to month three and each reaches a different height, with one dark new line placed among them in the middle, and the ranking of all four lines at month three marked on the right.](/figures/your-own-baseline-table-three-lines-en.svg)
