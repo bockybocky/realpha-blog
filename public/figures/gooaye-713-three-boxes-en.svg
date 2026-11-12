@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A two-row, three-box comparison shows one news item filling only the sentiment box and the other filling all three boxes.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text class="t" x="60" y="58" font-size="27" fill="var(--ink)">Three-box test: filled boxes set the rank</text>
+<text class="t" x="455" y="128" font-size="19" fill="var(--dim)" text-anchor="middle">Changes cash flow</text>
+<text class="t" x="640" y="128" font-size="19" fill="var(--dim)" text-anchor="middle">Changes buyers</text>
+<text class="t" x="825" y="128" font-size="19" fill="var(--dim)" text-anchor="middle">Sentiment only</text>
+<text class="t" x="60" y="200" font-size="20" fill="var(--ink)">Personnel news</text>
+<rect x="370" y="155" width="170" height="86" fill="var(--card)" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 6" rx="6"/>
+<rect x="555" y="155" width="170" height="86" fill="var(--card)" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 6" rx="6"/>
+<rect x="740" y="155" width="170" height="86" fill="var(--grey)" rx="6"/>
+<text class="t" x="60" y="330" font-size="20" fill="var(--ink)">Demand delayed 20%</text>
+<rect x="370" y="285" width="170" height="86" fill="var(--accent)" rx="6"/>
+<rect x="555" y="285" width="170" height="86" fill="var(--accent)" rx="6"/>
+<rect x="740" y="285" width="170" height="86" fill="var(--accent)" rx="6"/>
+<line x1="60" y1="420" x2="900" y2="420" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="60" y="478" font-size="22" fill="var(--ink)">Sensational news cannot fill empty boxes</text>
+</svg>
