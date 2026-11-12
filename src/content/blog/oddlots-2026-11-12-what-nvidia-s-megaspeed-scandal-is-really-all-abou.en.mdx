@@ -1,0 +1,124 @@
+---
+title: "Odd Lots: Fifty Thousand Chips Didn't Add Up, and the People Sent to Count Them Number Twelve"
+description: "Notes on the Odd Lots episode of 12 November 2026, where Joe Weisenthal and Tracy Alloway talk with Bloomberg's Hong Kong-based tech reporter Mackenzie Hawkins about NVIDIA and the Singaporean company Megaspeed: Megaspeed bought $4.6 billion of NVIDIA hardware, and when Bloomberg matched Malaysian and Indonesian trade records against the count NVIDIA reported to the US government, roughly 50,000 chips were unaccounted for, most of them Blackwell. Megaspeed denies smuggling and Bloomberg found no concrete evidence of it; the US has about a dozen export control officers posted overseas, going to 25 this year. Every number is as stated at the time of recording. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "oddlots-2026-11-12-what-nvidia-s-megaspeed-scandal-is-really-all-abou"
+lang: "en"
+pubDate: 2026-11-12
+category: "investing"
+kind: "podcast-notes"
+tags: ["export controls", "podcast-notes", "NVIDIA", "data centers", "supply chain verification"]
+ogImage: "/covers/oddlots-2026-11-12-what-nvidia-s-megaspeed-scandal-is-really-all-abou-cover.png"
+cover: "/covers/oddlots-2026-11-12-what-nvidia-s-megaspeed-scandal-is-really-all-abou-cover.png"
+---
+
+![A bonded warehouse aisle at night, a stack of unopened shipping paperwork and a box cutter lying beside a forklift in the foreground, carton seals still intact on the pallets, the aisle running away into darkness as the overhead lights fail one by one](/covers/oddlots-2026-11-12-what-nvidia-s-megaspeed-scandal-is-really-all-abou-cover.png)
+
+> To look for the dog after seeing the hare is not yet too late; to mend the pen after losing the sheep is not yet too late either.
+>
+> —— Zhanguo Ce, "Strategies of Chu IV" (compiled by Liu Xiang, Western Han, from Warring States material; my own translation)
+
+In the Odd Lots episode of 12 November 2026, Joe Weisenthal and Tracy Alloway talk with Bloomberg's Hong Kong-based tech reporter Mackenzie Hawkins about NVIDIA and the Singaporean company Megaspeed. The hardest number is this one: Megaspeed bought $4.6 billion of NVIDIA hardware, and when Bloomberg matched the Malaysian and Indonesian trade records it had obtained against the count NVIDIA reported to the US government, roughly 50,000 chips were unaccounted for, most of them Blackwell, then the newest hardware NVIDIA made. Megaspeed denies smuggling and Bloomberg's reporting found no concrete evidence of it; the US has, in Hawkins's words, about a dozen export control officers posted overseas, going to 25 this year. What follows runs in the order things happened, with a note where something happened early and surfaced late. Every number is as stated at the time of recording.
+
+## Spring 2025: buildings that were finished, with no chips inside
+
+Hawkins got onto this story through a cluster of data center operators in China's western deserts. She and colleagues found procurement filings and local government tender notices adding up to 115,000 restricted NVIDIA chips, an order of magnitude more than anyone thought was in China. Putting up buildings is one thing and putting chips inside them is another, so what the piece really wanted to answer was whether those operators had the black market supply chain to get the GPUs. That round didn't answer it. When she asked around the Southeast Asian supply chain, everyone said the same thing: go look at a company called Megaspeed.
+
+Laid out, Megaspeed looks like this. It is the single largest Southeast Asian buyer of NVIDIA chips, it rents compute to Alibaba, it was spun out of a Chinese gaming company, passed through a British Virgin Islands shell, incorporated in Singapore, and became an official NVIDIA cloud partner four days later, having bought $4.6 billion of hardware. The US investigation into it had been running for at least a year by the time of recording.
+
+## The line to get straight first
+
+A Chinese company renting NVIDIA compute from a Southeast Asian data center and running models remotely is legal in the vast majority of cases. Hawkins says the band of restrictions is narrow — for instance, if you know the compute is for intelligence work by a foreign adversary military. Johor in Malaysia is effectively the backyard of Chinese compute, and this arrangement is everywhere in the Southeast Asian data center ecosystem.
+
+What put Megaspeed in front of the US government is something else: whether physical hardware was moved into mainland China. Its ownership structure was examined at the same time, because even as a Singaporean entity, if it were owned by a Chinese company then selling advanced NVIDIA chips to it without a US licence would also be illegal. On paper it is 100% owned by a Singaporean CEO, with a shell company in between. Singapore ran its own probe, and Megaspeed says that one closed this year with no adverse findings.
+
+![A vertical dashed line down the middle stands for the national border: in the top row a line runs from a Southeast Asian data center straight across the border to users in China, while in the bottom row an arrow representing physical hardware reaches the border and is stopped by a short thick bar.](/figures/megaspeed-border-signal-vs-box-en.svg)
+
+The real method lives in the paperwork. Placing an order means declaring which customer and which data center the chips are going to, and the half-dozen or so cases now in prosecution share one theme: the stated destination and the intended destination don't match, and in several indictments the data center is alleged never to have existed. Customs descriptions get worked over too; in one case where the defendant has already pleaded guilty, restricted NVIDIA hardware was declared as "adapter modules." Hawkins's follow-up made me laugh out loud: adapter modules weighing 2,000 pounds.
+
+## November to December 2025: 50,000 missing, and then warehouses appeared
+
+This is the hardest stretch of reasoning in the episode, so here it is in order.
+
+The US government asked NVIDIA to go check Megaspeed's facilities. NVIDIA went several times, tabulated the chips across more than 12 data centers owned by eight companies in three countries, and reported back. In mid-November 2025 the statement Bloomberg got was that everything shipped to their partners is where it should be. Hawkins matched that against the Malaysian and Indonesian trade records, and the gap was about 50,000 chips, most of them Blackwell. She went back and said the missing volume is a significant proportion of everything Megaspeed had purchased, not one or two chips. NVIDIA then returned to Malaysia and said it had found warehouses holding what was missing.
+
+So she did a subtraction: total from the trade records, minus the count you told the US government you found in the data centers, and the remainder should be what sits in these warehouses — warehouses nobody knew existed a week earlier. Is that the number? NVIDIA declined to comment. In December it filed an updated statement saying it had identified "substantially all" of the chips Megaspeed had purchased through its hardware partners, and would run additional checks in the near future.
+
+![A tall column is cut into two parts: the larger lower part is what was counted inside the data centers, and the upper part is the gap of roughly fifty thousand chips; an arrow runs from that upper part to a dashed box with a question mark on the right, standing for warehouses that were only mentioned a week later.](/figures/megaspeed-missing-50k-subtraction-en.svg)
+
+Over the following year she asked ten to twelve times whether those checks happened. No answers. Some of the data centers she cares about also changed status. Megaspeed's largest data center dropped it as a tenant a couple of months after Bloomberg's investigation and the New York Times story that first broke news of the US probe. She says she doesn't know why, but if a significant portion of the GPUs NVIDIA told the US government it found were sitting there and the tenant is now gone, where that hardware is becomes a question. Two of the eight data center operators contradicted on the record NVIDIA's account of the hardware as described to the US government.
+
+Then there is that one page in the investor deck. The 2024 presentation describes five data centers across three countries: two in Indonesia, two in Malaysia, and one in a specific area of an unnamed third country which, on another slide of the same deck, is the only one marked as not in Southeast Asia. The rendering used to represent that facility is of a sprawling project in Shanghai, where Megaspeed's Chinese corporate twin has been hiring engineers to work on restricted NVIDIA hardware. She asked what that image was about and got no answer either.
+
+![A large box on the left labeled Southeast Asia holds four data center blocks, two in Indonesia and two in Malaysia; on the right, standing alone outside the box, is a single dashed block labeled as an unnamed third country, with a note that the briefing's illustrative slide shows a Shanghai site.](/figures/megaspeed-five-sites-one-outside-en.svg)
+
+## Whose job is it to know
+
+Hawkins says this is the argument that has actually been running all year. NVIDIA doesn't sell to end users; it sells to server makers like Supermicro, Dell and HP, who sell to distributors, who may sell to another distributor, and the hardware then lands in a data center and gets rented out. The allocation, though, comes from NVIDIA, which is why she says it sits in the kingmaker's seat.
+
+Responsibility therefore lands along a very long chain. Supermicro's co-founder was indicted in early 2026, accused of selling $2.5 billion of hardware to a Southeast Asian intermediary that then diverted most of it to China, and the indictment alleges that intermediary never had the data centers to install it. Plenty of people asked whether Supermicro checked — per the indictment, it did, because the volumes that company was buying were so significant, and it audited, and then it allowed the shipments to continue.
+
+NVIDIA's version is that in 2025 it asked the US government whether to cut Megaspeed off and was told no. Hawkins's read is that companies will always say tell us what the law is and we will follow it, and the live question is whether some red flags are obvious enough that any competent due diligence programme should have caught them. After the Supermicro indictment, NVIDIA cleaved a batch of companies from its internal whitelist, which is the due diligence some Washington regulators want to see and which also raises a question: on what basis did you remove them, and why were they on the list to begin with?
+
+![Six blocks sit in a row from left to right, shrinking in height and fading in color until they are almost invisible, showing how visibility drops the further downstream you look from the end where quotas are granted; a single arrow drops down only onto the leftmost block, marking that quotas are issued at the very front.](/figures/megaspeed-quota-front-cargo-back-en.svg)
+
+## The enforcement end: twelve people
+
+The number that made me stop is here. The US export control officers posted overseas, Southeast Asia included, are in Hawkins's words "a handful," about a dozen, going to 25 this year. Her comparison is good: when Bloomberg was investigating Megaspeed, she alone was on a single email chain with 50 Bloomberg people on it.
+
+![Twelve filled dots on the left, followed by thirteen dashed empty circles standing for the planned increase to twenty-five; on the right, fifty filled dots are packed tightly together, so the right-hand block is clearly larger than the left one.](/figures/megaspeed-twelve-vs-fifty-en.svg)
+
+The rule end isn't any steadier. The Biden administration wrote a global regime called the AI diffusion rule, due to take effect in May 2025, covering Singapore, Malaysia, Thailand and Indonesia — the places the smuggling cases are coming from — and the Trump administration isn't enforcing it. Then came a draft covering only Malaysia and Thailand, reported in June or July 2025 and scrapped amid diplomatic pressure from the Malaysian government. Then a replacement that would have done global export controls, which surfaced in March 2026 and was withdrawn shortly after it went to other agencies. Her line is that the US government is a bit of a boy who cried wolf here, and the side effect is countable: some of the companies suspected of involvement in smuggling ramped shipments to a peak right before restrictions that never took effect.
+
+![Three rule boxes hang above a timeline, and the dashed line dropping from each one is cut off by a cross before it reaches the timeline; below the timeline an illustrative zigzag line pushes up into a peak just before each of the three dates.](/figures/megaspeed-three-rules-never-landed-en.svg)
+
+## The call in late summer 2025, seen only in the past few weeks
+
+This call was placed before that November 2025 statement, and was reported two days before the recording. NVIDIA's general counsel phoned the Commerce Department bureau that writes and enforces export controls (BIS) to ask whether BIS was involved in Alice being held in Singapore — the executive tied to Megaspeed, who had been brought in for questioning and restricted from leaving as part of Singapore's probe, and only in the past few weeks did it become known that she had an extramarital relationship with Jensen Huang. NVIDIA says the general counsel did not know of the relationship at the time of the call. He later emailed BIS staff working the case asking to meet one of them, invoking a senior official's name, and the staff forwarded those emails up; that official's instruction was to keep doing things by the book. Hawkins says this is not normal practice in an export enforcement investigation, and a Commerce spokesperson said everything had been above board. Still, in the weeks and months after, enforcement agents had less room to act: requesting information directly from NVIDIA now required that official's approval, a policy unique to NVIDIA, and external communications were not to mention Megaspeed or its Malaysian subsidiary. Later the Department of Justice asked BIS to stop its efforts, and the case now sits with DOJ.
+
+![A large box on the left stands for the room enforcement officers had to act before the phone call, the same room on the right shrinks into a visibly much smaller box, an arrow in the middle points from the big one to the small one, and the three constraints that were added are listed under the small box.](/figures/megaspeed-enforcement-room-shrank-en.svg)
+
+She says much of what everyone is discussing now was reported long ago by the New York Times and by Bloomberg, and these past weeks have given it a new life. She timestamped the segment herself: 10:38 p.m. Hong Kong time on Wednesday, this is what I know.
+
+## What to watch next
+
+Hawkins is watching three things. First, what DOJ does, and what NVIDIA's board does with its independent investigation. Second, legislation: the China hawks want the rules written down — no further rollback, and unambiguous executive authority to restrict Chinese access to cloud compute — and those measures have to ride the annual must-pass defense package.
+
+Third, Huawei. Its own executives say it will take until 2030 to satiate domestic demand, which sets the scale; DeepSeek ordered 160,000 of Huawei's best 950DT chips for a new cluster in Inner Mongolia and Huawei can't fill that for more than a year, and nobody has yet seen a frontier pre-training run completed on Huawei silicon. The export attempts have started, though: Huawei bid on an Egyptian government tender to build AI compute for Egyptian defence companies — only about 2,000 chips, and it was prepared to offer its best. Hawkins's footnote stuck with me: this is the playbook from the telecom era, the one that won 3G and 4G.
+
+![On the left a very tall dashed empty column stands for an order of a hundred and sixty thousand chips that could not be delivered, while on the right, on the same baseline, there is only a barely visible thin filled bar standing for the two thousand chips offered in the bid for Egypt.](/figures/megaspeed-huawei-160k-vs-2k-en.svg)
+
+## Everyone is scrambling for these — so why not be picky about customers
+
+Tracy's question got a nod out of me: if demand is this strong, NVIDIA can be selective, so why take the chance? Hawkins's answer is market share. NVIDIA treats Huawei as an existential competitor and argues that NVIDIA's interests are US interests, and many of those Southeast Asian data centers wouldn't exist without offtake demand from Chinese companies. The regulators' pushback is that Huawei can't supply the world's data centers, so how existential is the threat you're offsetting.
+
+Joe added a counter-data point. They've had the Hudson River Trading guest on twice, and he said getting GPUs isn't the hard part — finding places to plug them in is. If the bottleneck is sockets, Southeast Asian customers carry weight, because the sockets are there.
+
+![Two full rows of blocks at the top stand for the chips you can buy, the middle narrows into a very tight funnel mouth labeled the places you can plug in, and only two blocks fall out below the funnel.](/figures/megaspeed-bottleneck-is-the-socket-en.svg)
+
+What I take from it: a company's behaviour is more reliable than its narrative. A claim of scarcity has to be matched by an action — picking customers, refusing orders, raising prices, hardening contract terms, any one of them. When a company says it can't meet demand and takes all comers at the same time, one of the two is false, and it's usually the claim.
+
+## How do I put this kind of regulatory risk into a judgement
+
+My old approach was to read what the rule said. This episode inverted my order: look first at whether anyone is enforcing it. Three rules between May 2025 and March 2026 and not one of them in force, companies ramping shipments ahead of deadlines that evaporated — together those say that over that stretch, the text mattered less to cash flow than enforcement capacity did. So now I ask for three numbers: how many people do the counting, when was the last count, and who reads the result. If I can't get them, I treat it as tail risk rather than as something already managed.
+
+The second layer is the shape of this risk. It doesn't touch revenue in normal times, and when it fires, it fires politically: Hawkins mentioned that Oracle's cloud arrangement with Tencent was legal and the Trump administration stepped in and killed it anyway. That won't show up in the financials first, so what you watch is whether the people enforcing the rule changed, grew in number, or had their hands tied.
+
+![A flat line hugs the bottom for a long stretch, then at one point jumps vertically up to a high level and stays flat there, while below it another line stays flat all the way across as a dashed line standing for the signal visible in the financials.](/figures/megaspeed-risk-is-vertical-en.svg)
+
+## Further reading
+
+- The Odd Lots episode of 12 November 2026, the source for this piece
+- Bloomberg's investigative reporting on Megaspeed, and the company's denial of the smuggling allegations
+- The US indictment of Supermicro's co-founder
+- The text of the Biden administration's AI diffusion rule and the two replacement drafts that never took effect
+- Eva Dou, House of Huawei, and the earlier Odd Lots conversation with her
+
+## The one thing worth taking with you
+
+**Whether a rule is operating comes down to whether someone counts on a schedule, and whether anyone reads the count.**
+
+Those two actions never appear in any summary of a regulation, which is why reading the rule won't show them to you. What this episode showed me: a count was done and the number reported differs from the trade records by 50,000, a year of asking whether it would be done again produced no answer, and an audit was done after which the shipments continued.
+
+![A ring made of three arcs: the arcs for writing the rule and going out to count are solid lines, while the third arc returning to the start is dashed and has a piece missing in the middle, with a cross drawn over the gap.](/figures/megaspeed-broken-loop-en.svg)
+
+Here's something I've tried that holds outside investing too. Pick one rule you assume is operating — your company's expense policy, the recycling rules in your building, whose turn it is to take out the rubbish, your kid's bedtime — and write three answers: when did someone last actually check, who checked, and who saw the result. If two of the three come back blank, that rule is a sentence in your house and nothing more.

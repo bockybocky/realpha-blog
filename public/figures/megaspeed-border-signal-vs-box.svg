@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="中央一條垂直虛線代表國界：上排一條線從東南亞機房一路穿過界線到中國用戶，下排一個實體硬體的箭頭走到界線前被一道粗短的橫槓擋住">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="58">過得去的是訊號，不是箱子</text>
+  <line x1="540" y1="108" x2="540" y2="368" stroke="var(--ink)" stroke-width="2" stroke-dasharray="9 8"/>
+  <text class="n" x="540" y="96" text-anchor="middle" fill="var(--ink)">國界</text>
+  <rect x="70" y="150" width="200" height="64" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="170" y="189" text-anchor="middle">東南亞機房</text>
+  <line x1="280" y1="182" x2="736" y2="182" stroke="var(--accent)" stroke-width="4"/>
+  <polygon points="750,182 732,172 732,192" fill="var(--accent)"/>
+  <text class="n" x="408" y="166" text-anchor="middle">遠端租用算力</text>
+  <text class="n" x="408" y="210" text-anchor="middle" fill="var(--accent)">多數合法</text>
+  <rect x="760" y="150" width="150" height="64" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="835" y="189" text-anchor="middle">中國用戶</text>
+  <rect x="70" y="262" width="200" height="64" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="170" y="301" text-anchor="middle">實體硬體</text>
+  <line x1="280" y1="294" x2="494" y2="294" stroke="var(--warn)" stroke-width="4"/>
+  <polygon points="508,294 490,284 490,304" fill="var(--warn)"/>
+  <line x1="534" y1="254" x2="534" y2="334" stroke="var(--warn)" stroke-width="8"/>
+  <text class="n" x="390" y="278" text-anchor="middle">運進中國</text>
+  <text class="n" x="390" y="322" text-anchor="middle" fill="var(--warn)">要美國許可</text>
+  <text class="c" x="60" y="508">界線畫在國界上，不在機櫃上</text>
+</svg>

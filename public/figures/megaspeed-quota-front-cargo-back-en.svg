@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Six blocks sit in a row from left to right, shrinking in height and fading in color until they are almost invisible, showing how visibility drops the further downstream you look from the end where quotas are granted; a single arrow drops down only onto the leftmost block, marking that quotas are issued at the very front.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="56">Quota front, box end</text>
+  <text class="g" x="50" y="112" text-anchor="start">Quota here</text>
+  <line x1="116" y1="130" x2="116" y2="222" stroke="var(--accent)" stroke-width="4"/>
+  <polygon points="116,238 106,220 126,220" fill="var(--accent)"/>
+  <rect x="50" y="240" width="132" height="110" rx="6" fill="var(--accent)"/>
+  <text class="n" x="116" y="378" text-anchor="middle" fill="var(--ink)">Chips</text>
+  <rect x="202" y="252" width="132" height="98" rx="6" fill="var(--accent)" opacity="0.78"/>
+  <text class="n" x="268" y="378" text-anchor="middle">Server</text>
+  <rect x="354" y="264" width="132" height="86" rx="6" fill="var(--accent)" opacity="0.58"/>
+  <text class="n" x="420" y="378" text-anchor="middle">Dist</text>
+  <rect x="506" y="276" width="132" height="74" rx="6" fill="var(--accent)" opacity="0.4"/>
+  <text class="n" x="572" y="378" text-anchor="middle">Resell</text>
+  <rect x="658" y="288" width="132" height="62" rx="6" fill="var(--accent)" opacity="0.26"/>
+  <text class="n" x="724" y="378" text-anchor="middle">DC</text>
+  <rect x="810" y="300" width="132" height="50" rx="6" fill="var(--accent)" opacity="0.15"/>
+  <text class="n" x="876" y="378" text-anchor="middle">User</text>
+  <line x1="50" y1="416" x2="906" y2="416" stroke="var(--grey)" stroke-width="3"/>
+  <polygon points="922,416 904,406 904,426" fill="var(--grey)"/>
+  <text class="n" x="50" y="444" text-anchor="start">Visible from here</text>
+  <text class="n" x="876" y="444" text-anchor="middle">Unseen</text>
+  <text class="c" x="60" y="506">Quota front, cargo later</text>
+</svg>

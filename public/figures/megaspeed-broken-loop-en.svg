@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A ring made of three arcs: the arcs for writing the rule and going out to count are solid lines, while the third arc returning to the start is dashed and has a piece missing in the middle, with a cross drawn over the gap.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="56">Rule working?</text>
+  <path d="M 420 140 A 150 150 0 0 1 549.9 365" fill="none" stroke="var(--accent)" stroke-width="14"/>
+  <path d="M 549.9 365 A 150 150 0 0 1 290.1 365" fill="none" stroke="var(--accent)" stroke-width="14"/>
+  <path d="M 290.1 365 A 150 150 0 0 1 272.3 263.9" fill="none" stroke="var(--grey)" stroke-width="14" stroke-dasharray="12 10"/>
+  <path d="M 323.6 175.1 A 150 150 0 0 1 420 140" fill="none" stroke="var(--grey)" stroke-width="14" stroke-dasharray="12 10"/>
+  <line x1="272" y1="196" x2="308" y2="234" stroke="var(--warn)" stroke-width="6"/>
+  <line x1="308" y1="196" x2="272" y2="234" stroke="var(--warn)" stroke-width="6"/>
+  <circle cx="420" cy="140" r="11" fill="var(--ink)"/>
+  <circle cx="549.9" cy="365" r="11" fill="var(--ink)"/>
+  <circle cx="290.1" cy="365" r="11" fill="var(--ink)"/>
+  <text class="g" x="596" y="222" text-anchor="start">Write</text>
+  <text class="g" x="596" y="398" text-anchor="start">Count</text>
+  <text class="g" x="60" y="196" text-anchor="start" fill="var(--warn)">Recount and read</text>
+  <text class="n" x="60" y="228" text-anchor="start">Year, no answer</text>
+  <text class="n" x="60" y="256" text-anchor="start">Audit, ship on</text>
+  <text class="c" x="60" y="500">Open loop, just words</text>
+</svg>
