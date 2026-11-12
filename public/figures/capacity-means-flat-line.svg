@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="日間與夜間兩個錯開的波峰，中間低谷被淺色區塊填滿，上方一條水平直線橫貫">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .n { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="58">調度者說的容量，是一條平線</text>
+  <line x1="100" y1="400" x2="890" y2="400" stroke="var(--line)" stroke-width="2"/>
+  <path d="M100 400 L100 200 L890 200 L890 400 Z" fill="var(--grey)" opacity="0.18"/>
+  <path d="M100 400 C 220 400 230 230 340 230 C 450 230 470 400 580 400 C 700 400 710 250 820 250 C 860 250 875 300 890 330" fill="none" stroke="var(--accent)" stroke-width="5"/>
+  <line x1="100" y1="200" x2="890" y2="200" stroke="var(--ink)" stroke-width="4"/>
+  <text class="g" x="286" y="206">光</text>
+  <text class="g" x="760" y="226">風</text>
+  <text class="n" x="430" y="320">儲能把谷填起來</text>
+  <text class="n" x="100" y="436">白天</text>
+  <text class="n" x="500" y="436">傍晚</text>
+  <text class="n" x="830" y="436">深夜</text>
+  <text class="c" x="60" y="494">一天二十四小時、一年三百六十五天都在</text>
+</svg>
