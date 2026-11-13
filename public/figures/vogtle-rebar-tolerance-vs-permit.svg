@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="公差帶中央一條許可寫死的虛線，白天與夜裡兩個點都在帶內但偏離那條線">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text class="t" x="60" y="62" font-size="27" fill="var(--ink)">在公差裡，卻不在紙上那個數字</text>
+
+<rect x="200" y="180" width="660" height="180" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+<text class="t" x="200" y="165" font-size="19" fill="var(--accent)">技術容許公差</text>
+
+<line x1="200" y1="270" x2="860" y2="270" stroke="var(--warn)" stroke-width="3" stroke-dasharray="12 8"/>
+<text class="t" x="870" y="264" font-size="19" fill="var(--warn)">許可寫死的數字</text>
+
+<circle cx="400" cy="215" r="14" fill="var(--ink)"/>
+<text class="t" x="400" y="198" font-size="16" fill="var(--dim)" text-anchor="middle">白天熱脹</text>
+
+<circle cx="640" cy="325" r="14" fill="var(--ink)"/>
+<text class="t" x="640" y="356" font-size="16" fill="var(--dim)" text-anchor="middle">夜裡收縮</text>
+
+<path d="M400 229 Q520 300 640 311" stroke="var(--grey)" stroke-width="2" fill="none" stroke-dasharray="6 5"/>
+
+<text class="t" x="60" y="430" font-size="20" fill="var(--ink)">鋼筋間距一整天都在跑</text>
+<text class="t" x="60" y="470" font-size="22" fill="var(--ink)">圖面上五分鐘的數字，到現場要回頭動許可</text>
+</svg>

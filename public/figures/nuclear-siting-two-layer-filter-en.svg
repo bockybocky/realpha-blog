@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="A funnel from wide to narrow: exclusion criteria rule some cells out entirely, avoidance criteria only add cost, and a small set of sites remains at the bottom.">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text class="t" x="60" y="62" font-size="27" fill="var(--ink)">Two filters: one kills, one raises the price</text>
+
+<rect x="200" y="110" width="440" height="60" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="420" y="148" font-size="19" fill="var(--ink)" text-anchor="middle">The US map, hundreds of millions of cells</text>
+
+<path d="M200 190 L640 190 L560 300 L280 300 Z" fill="var(--card)" stroke="var(--warn)" stroke-width="3"/>
+<text class="t" x="420" y="235" font-size="20" fill="var(--ink)" text-anchor="middle">Exclusion criteria</text>
+<text class="t" x="420" y="265" font-size="15" fill="var(--dim)" text-anchor="middle">Seismic zones, communities that say no</text>
+
+<path d="M640 230 L860 230" stroke="var(--warn)" stroke-width="3" fill="none" marker-end="url(#a3)"/>
+<defs><marker id="a3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--warn)"/></marker></defs>
+<text class="t" x="870" y="222" font-size="19" fill="var(--warn)" text-anchor="end">Out</text>
+
+<path d="M280 320 L560 320 L470 430 L370 430 Z" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+<text class="t" x="420" y="360" font-size="20" fill="var(--ink)" text-anchor="middle">Avoidance criteria</text>
+<text class="t" x="420" y="390" font-size="15" fill="var(--dim)" text-anchor="middle">Soil, bedrock, transport, distance to lines</text>
+
+<path d="M560 360 L860 360" stroke="var(--accent)" stroke-width="3" fill="none" marker-end="url(#a4)"/>
+<defs><marker id="a4" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker></defs>
+<text class="t" x="870" y="352" font-size="19" fill="var(--accent)" text-anchor="end">Priced in</text>
+
+<circle cx="420" cy="490" r="46" fill="var(--accent)"/>
+<text class="t" x="420" y="568" font-size="20" fill="var(--ink)" text-anchor="middle">Sites you can draw a circle around</text>
+<text class="t" x="640" y="500" font-size="16" fill="var(--dim)">The owner still has to sell</text>
+</svg>
