@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="上半每一批硬體各自回本向上，下半累積現金線因不斷投入下一批而持續往下"> 
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="70" font-size="27" font-weight="700" fill="var(--ink)">單批回本，總帳流出</text>
+
+  <text class="t" x="60" y="118" font-size="19" font-weight="700" fill="var(--accent)">一批一批看</text>
+  <rect x="180" y="150" width="160" height="46" rx="6" fill="var(--accent)" opacity="0.2" stroke="var(--accent)"/>
+  <rect x="400" y="150" width="160" height="46" rx="6" fill="var(--accent)" opacity="0.2" stroke="var(--accent)"/>
+  <rect x="620" y="150" width="160" height="46" rx="6" fill="var(--accent)" opacity="0.2" stroke="var(--accent)"/>
+  <text class="t" x="260" y="180" font-size="16" fill="var(--ink)" text-anchor="middle">第一批</text>
+  <text class="t" x="480" y="180" font-size="16" fill="var(--ink)" text-anchor="middle">第二批</text>
+  <text class="t" x="700" y="180" font-size="16" fill="var(--ink)" text-anchor="middle">第三批</text>
+  <path d="M 260 150 L 260 118" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="260,108 253,122 267,122" fill="var(--accent)"/>
+  <path d="M 480 150 L 480 118" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="480,108 473,122 487,122" fill="var(--accent)"/>
+  <path d="M 700 150 L 700 118" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="700,108 693,122 707,122" fill="var(--accent)"/>
+  <text class="t" x="820" y="180" font-size="16" fill="var(--dim)">各自回本</text>
+
+  <line x1="120" y1="250" x2="900" y2="250" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="60" y="256" font-size="16" fill="var(--dim)">零</text>
+  <text class="t" x="60" y="330" font-size="19" font-weight="700" fill="var(--warn)">總帳</text>
+
+  <path d="M 140 250 L 260 320 L 380 300 L 500 390 L 620 365 L 740 450 L 860 425" fill="none" stroke="var(--warn)" stroke-width="4"/>
+  <circle cx="860" cy="425" r="6" fill="var(--warn)"/>
+  <text class="t" x="300" y="285" font-size="16" fill="var(--dim)">投下一批</text>
+  <text class="t" x="545" y="355" font-size="16" fill="var(--dim)">再投更多</text>
+  <text class="t" x="790" y="410" font-size="16" fill="var(--warn)">利息越疊越重</text>
+
+  <text class="t" x="480" y="520" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">哪天不再流出，先別高興</text>
+</svg>

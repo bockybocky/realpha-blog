@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="In the upper half each batch of hardware pays back on its own and points up, while in the lower half the cumulative cash line keeps falling because the next batch is always being funded."> 
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="70" font-size="27" font-weight="700" fill="var(--ink)">Batch up, cash out</text>
+
+  <text class="t" x="60" y="118" font-size="19" font-weight="700" fill="var(--accent)">Per batch</text>
+  <rect x="180" y="150" width="160" height="46" rx="6" fill="var(--accent)" opacity="0.2" stroke="var(--accent)"/>
+  <rect x="400" y="150" width="160" height="46" rx="6" fill="var(--accent)" opacity="0.2" stroke="var(--accent)"/>
+  <rect x="620" y="150" width="160" height="46" rx="6" fill="var(--accent)" opacity="0.2" stroke="var(--accent)"/>
+  <text class="t" x="260" y="180" font-size="16" fill="var(--ink)" text-anchor="middle">W1</text>
+  <text class="t" x="480" y="180" font-size="16" fill="var(--ink)" text-anchor="middle">W2</text>
+  <text class="t" x="700" y="180" font-size="16" fill="var(--ink)" text-anchor="middle">W3</text>
+  <path d="M 260 150 L 260 118" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="260,108 253,122 267,122" fill="var(--accent)"/>
+  <path d="M 480 150 L 480 118" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="480,108 473,122 487,122" fill="var(--accent)"/>
+  <path d="M 700 150 L 700 118" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="700,108 693,122 707,122" fill="var(--accent)"/>
+  <text class="t" x="820" y="180" font-size="16" fill="var(--dim)">Repaid</text>
+
+  <line x1="120" y1="250" x2="900" y2="250" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="60" y="256" font-size="16" fill="var(--dim)">0</text>
+  <text class="t" x="60" y="330" font-size="19" font-weight="700" fill="var(--warn)">Book</text>
+
+  <path d="M 140 250 L 260 320 L 380 300 L 500 390 L 620 365 L 740 450 L 860 425" fill="none" stroke="var(--warn)" stroke-width="4"/>
+  <circle cx="860" cy="425" r="6" fill="var(--warn)"/>
+  <text class="t" x="300" y="285" font-size="16" fill="var(--dim)">Buy +1</text>
+  <text class="t" x="545" y="355" font-size="16" fill="var(--dim)">More</text>
+  <text class="t" x="790" y="410" font-size="16" fill="var(--warn)">Interest</text>
+
+  <text class="t" x="480" y="520" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">Stops? Don't cheer yet</text>
+</svg>

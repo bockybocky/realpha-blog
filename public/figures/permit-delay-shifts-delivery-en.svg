@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The first batch, already permitted, delivers on its original schedule; the second batch is pushed right by a permit-waiting block, so its entire delivery bar lands later.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <defs>
+    <pattern id="hatch" width="10" height="10" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="var(--warn)" stroke-width="3"/>
+    </pattern>
+  </defs>
+  <text class="t" x="60" y="70" font-size="27" font-weight="700" fill="var(--ink)">Start line, not demand</text>
+
+  <line x1="200" y1="160" x2="200" y2="400" stroke="var(--line)" stroke-width="2"/>
+  <line x1="560" y1="160" x2="560" y2="400" stroke="var(--line)" stroke-width="2"/>
+  <line x1="860" y1="160" x2="860" y2="400" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="200" y="148" font-size="16" fill="var(--dim)" text-anchor="middle">Now</text>
+  <text class="t" x="860" y="148" font-size="16" fill="var(--dim)" text-anchor="middle">2028</text>
+
+  <text class="t" x="60" y="213" font-size="19" font-weight="700" fill="var(--ink)">Wave 1</text>
+  <text class="t" x="60" y="236" font-size="15" fill="var(--dim)">Permit</text>
+  <rect x="200" y="186" width="330" height="48" rx="8" fill="var(--accent)" opacity="0.85"/>
+  <text class="t" x="365" y="216" font-size="19" font-weight="700" fill="var(--page)" text-anchor="middle">Build/ship</text>
+
+  <text class="t" x="60" y="323" font-size="19" font-weight="700" fill="var(--ink)">Wave 2</text>
+  <text class="t" x="60" y="346" font-size="15" fill="var(--dim)">Queued</text>
+  <rect x="200" y="296" width="360" height="48" rx="8" fill="url(#hatch)" stroke="var(--warn)"/>
+  <text class="t" x="380" y="326" font-size="19" font-weight="700" fill="var(--warn)" text-anchor="middle">Review/queue</text>
+  <rect x="560" y="296" width="300" height="48" rx="8" fill="var(--accent)" opacity="0.35" stroke="var(--accent)"/>
+  <text class="t" x="710" y="326" font-size="19" font-weight="700" fill="var(--ink)" text-anchor="middle">Starts</text>
+
+  <path d="M 530 268 L 560 268" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="568,268 556,262 556,274" fill="var(--warn)"/>
+  <text class="t" x="640" y="273" font-size="16" fill="var(--warn)">Pushed</text>
+
+  <text class="t" x="480" y="462" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">Next wave slows, not this</text>
+</svg>

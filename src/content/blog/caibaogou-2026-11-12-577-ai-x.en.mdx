@@ -1,0 +1,112 @@
+---
+title: "AI's Bottleneck Moved From Chips to Power: Notes on Business Today Podcast Ep. 577"
+description: "A listener's breakdown of the November 12, 2026 episode of Taiwan's Business Today (財報狗) podcast: how the claim 'demand is growing faster than infrastructure delivery' is derived, where it breaks, and how a deferral gets amplified upstream. Educational commentary, no stock recommendations or price targets."
+slug: "caibaogou-2026-11-12-577-ai-x"
+lang: "en"
+pubDate: 2026-11-13
+category: "investing"
+kind: "podcast-notes"
+tags: ["AI infrastructure", "power bottleneck", "bullwhip effect", "Business Today podcast", "supply chain"]
+ogImage: "/covers/caibaogou-2026-11-12-577-ai-x-cover.png"
+cover: "/covers/caibaogou-2026-11-12-577-ai-x-cover.png"
+---
+
+![A half-finished hyperscale data center at dusk: empty concrete pads and coiled cable in front, a single lit substation mid-ground, lattice transmission towers shrinking toward the horizon](/covers/caibaogou-2026-11-12-577-ai-x-cover.png)
+
+> Conduct has its constant worthies; office has no constant fortune. Worthy or not is talent; met with fortune or not is timing.
+>
+> —— Wang Chong, *Lunheng*, "On Meeting Fortune" (Eastern Han, c. 1st century; my own translation)
+
+The 577th episode of Taiwan's *Business Today* (財報狗) podcast, recorded on November 12, 2026, starts with the Jensen Huang affair story and ends up somewhere more durable. Host Wei-yu and investment director Sky quote CoreWeave's CEO from the company's earnings call: demand is growing faster than infrastructure can be delivered. Two numbers anchor the hour — older-generation GPUs renewing at roughly 25% higher rents this quarter and another 10% next, and short contracts recovering their hardware capex in six to eighteen months. Sky's read is that power and permitting will push compute delivery out, with the pressure landing on projects that need approvals around 2028, and the biggest swings showing up upstream in Taiwan rather than at the cloud operators themselves. The claim rests on one condition: already-permitted builds proceed, and it is the next round of permits that slows down. It is an argument about timing, with no claim that demand disappears.
+
+## From a tabloid story to a supply chain
+
+The first stretch of the episode is funny, and I laughed along. The private news about Jensen Huang broke, the stock dropped after hours, Nvidia's board was meeting, and Taiwan's AI supply chain got nervous. Wei-yu's line stuck with me: you never know which stick is going to knock you out.
+
+Then they say something more interesting than the gossip. A large part of Huang's value to the Asian supply chain sits in those banquet tables. Getting the owners of an entire chain to sit down for one dinner is hard, and those dinners make the deals that follow faster and smoother. Sky's framing: business runs on local rules, and Intel never played this game. Put a different CEO in the seat, speaking English rather than Taiwanese, and that relationship capital gets a haircut.
+
+Here's how I read it. The personnel story changes the friction coefficient of cooperation. The second half of the episode is about how many racks actually get delivered. The second one is bigger, so that's where most of this post goes.
+
+## The question that didn't get answered
+
+CoreWeave's call opened with the debt picture and then moved to good numbers: revenue doubling, and even last-generation GPUs renewing at higher rents. Taken alone, it reads as a tailwind story.
+
+Then an analyst asked about regulation. Both hosts noticed the same thing: the question was whether permits are getting harder to obtain, and the CEO answered that their power is either already online or already permitted and under construction, and that he doesn't see an impact on the company.
+
+Those two sentences sit a whole time dimension apart. The question was about what can still be obtained; the answer was about what is already in hand. Sky's take is that this amounts to a roundabout "we don't know," and I came away the same way — the mismatch is itself a piece of information. A company that details what it already holds while routing around the future has marked the location of its own pressure.
+
+![A timeline is cut by a "now" marker into a left half and a right half; the CEO's answer arrow points to the left half, the power already in hand, while the analyst's question arrow points to the right half, the capacity not yet built, so the two arrows cross and miss each other.](/figures/question-answer-time-mismatch-en.svg)
+
+This also speaks to a familiar frustration: the report looks good, the call sounds fine, and the stock falls anyway. Read the content of the answer and it looks contradictory. Read whether the answer matches the question and it stops being contradictory.
+
+## How permits became the bottleneck, and how a deferral gets amplified
+
+Three steps hold this argument up.
+
+First, projects already permitted and under construction don't stop. Stopping would have to be self-inflicted, and nobody halts a funded build while the demand is visible. The episode puts it bluntly: doing that would be suicide. So you won't see broad order cuts in the next quarter or two, and the near-term numbers stay good.
+
+Second, the pressure lands on the batch without permits yet. Now the questions are buildings, substations, available power capacity, and how long the next approval round takes. An election just ended, policy drifts toward the center, people sit down to talk — and the talking is the delay. Several outside reports put the timing around 2028; the episode's own read is that the consensus has settled on "later," with no consensus on how much later.
+
+![Two Gantt bars sit one above the other; the top bar delivers on its original schedule, while the start of the lower bar is pushed right by a hatched waiting block so the whole bar slides out to 2028.](/figures/permit-delay-shifts-delivery-en.svg)
+
+Third, how slower delivery travels to Taiwan. This is the bullwhip effect. A customer who wants five orders fifty to get in line, then trims ten or twenty when the queue doesn't move — trimming the duplicated part. The episode's illustration: a 20% cut downstream can land as a 50% drop at the top of the chain, and the people at the top can't see the amplification happening. They just see orders vanish. Most of Taiwan's industry sits upstream, so the same event swings harder here.
+
+Fourth, the middle of the chain holds up better. The reasoning: if US compute supply genuinely tightens, existing compute can raise prices, or builders go offshore and route the results back — and whether offshore sites and submarine cable capacity can support that is a separate set of problems.
+
+![Four bars rise from left to right, showing how one order cut is amplified from a small dip downstream into a much larger drop upstream, with the tallest bar on the right labelled as the furthest upstream layer.](/figures/bullwhip-amplification-upstream-en.svg)
+
+## Why this shouldn't be read as weakening demand
+
+This is the part worth copying down. The same set of numbers supports two stories: AI capex is cooling, or the hardware can't be delivered. The episode takes the second, and the evidence sits in the rent on old cards.
+
+![One set of earnings numbers branches right into two paths; the upper path, demand weakening, is blocked by a gate and crossed out, while the lower path, supply cannot deliver, stays open.](/figures/two-stories-one-closed-en.svg)
+
+Last-generation GPUs renewing at higher prices doesn't work in a world of cooling demand. Buyers have better new silicon available, so paying more for the previous generation says that compute you can plug in today is short. Same with the six-to-eighteen-month payback on hardware capex — Musk has claimed three to six months, Google's framing is more conservative — lease pricing wouldn't support that payback if demand were retreating.
+
+So those two observations narrow the explanation: what's missing is power, buildings, and approvals, and not customer appetite. How long supply stays behind, the episode doesn't claim to know. Sky's line is that nobody knows where demand ends up, and what everyone is doing is gathering information.
+
+That clears up another puzzle: why every company you ask says there's no problem. The episode's explanation rings true — to answer you, a company has to gather information and see two or three customers actually move, and that takes time. In the weeks when things shift fast and the turn hasn't formed, companies are filling blanks with imagination too, with the direction flipping from "penetration goes to 100%" to "this all gets deferred." The "no problem" you collect is a lag, not an assurance.
+
+## Where this argument breaks
+
+A judgment with no failure condition is a mood. The episode offers several things to track.
+
+Power contract pricing. The episode mentions a new Google power agreement on terms unlike the past ones, which could become the new benchmark. Higher power costs would loosen those six-month payback math — though Sky adds that the cost increase doesn't look like a doubling, so the impact exists without obviously being unbearable. That sentence is the brake on the whole thesis.
+
+Permits themselves. After the election, policy gets negotiated, and the outcome could be loosening. Loosen them and the deferral never happens; the argument breaks at step two.
+
+How they build. Large projects face hard approvals, so do smaller data centers move faster? If yes, a batch of small sites fills part of the gap and the upstream swing shrinks.
+
+The chip layer. The episode's view is that leading foundries face a lower chance of impact, maybe none, conditional on the downward revision or deferral being small. Last week's rumor about TSMC order cuts struck Sky as odd, for two reasons: everyone has been scared once already, and if capacity were genuinely released, plenty of people would be fighting for it.
+
+So the watch list is concrete: power contract terms, the progress of the next permit round, the count of small-site builds, and which equipment lead times have failed to loosen. Lead times are the most honest indicator in that list.
+
+## Six-month payback alongside cash that keeps flowing out
+
+I sat with this part for a minute. The two numbers look like they're fighting: hardware pays back in a bit over six months, while free cash flow looks worse.
+
+The episode untangles it. The payback math covers one batch of hardware against its rent, while the company's cash is going into the next batch and the one after. Revenue doubling and cash flowing out coexist, because heavy spend comes first and heavier spend comes next, with increasingly expensive interest stacked on top. "Profitable next year" means accounting profit; the cash line likely still runs negative.
+
+![In the upper half, three batches of hardware each carry a small upward arrow showing each one paying back; in the lower half, a cumulative cash line runs steadily downward, so the two point in opposite directions.](/figures/payback-up-cash-down-en.svg)
+
+Then the counterintuitive close. Sky says the day it stops flowing out is the day to worry — because that signals the end of high growth, and much of this kind of company's value rests on the imagination of growth. Reach the end of the imagination and the multiple compresses. That one stays with me: cash turning positive means opposite things in different business models.
+
+## A few other things worth keeping
+
+- TSMC's board approved taking stakes in OpenAI and Anthropic, alongside a separate semiconductor-ecosystem strategic investment vehicle. The hosts read this as skipping several layers to sit next to end demand — the bullwhip's underlying disease is information asymmetry, and investing across layers is one way around it. One detail listeners may not know: plenty of Taiwanese supply chain companies invested in these AI firms much earlier through funds or SPVs, with disclosure arriving late.
+- Sky attended a university materials-department industry forum, now in its eleventh year, on advanced packaging. It was built for alumni and students, and the room was full of industry people.
+- On CPO (co-packaged optics), the assumption that TSMC would absorb everything looks wrong — as with CoWoS, testing and parts of the packaging flow still need outside houses once volume arrives. The direction hasn't converged, several solutions coexist, and test methods haven't converged either.
+- Someone at that forum noted that specs now change fast enough that a new part disturbs other people's designs, and the old testing flow can't keep up. So the chain is building mechanisms for sharing data continuously, closer to agile development. I find that more important than any single materials headline.
+
+## Sources worth checking
+
+- *Business Today* (財報狗) podcast episode 577, recorded November 12, 2026 — the source of everything discussed here
+- CoreWeave's Q3 2026 earnings call transcript and slides — the payback period, rent figures, and the power answer all come from there
+- TSMC's public material-information filings on strategic investments and its ecosystem fund
+- Outside research on 2028 power and permitting, which the episode notes has been appearing over the last few days
+
+## The one thing to take away
+
+What this episode taught me is to set someone's answer next to the question I actually asked. The analyst asked whether permits are getting harder; the CEO answered with the power he already holds. The answer wasn't wrong — it was to a different question. And the place where the answer stops matching is often where the pressure lives.
+
+Something I've tried, and it works outside investing too: next time you ask someone close to you a specific question — whether a drug affects sleep, whether a project will slip, what the family plans to do with a sum of money — don't reply right away. Write their answer down as a single line beginning "the question he answered was," and set it beside the question you asked. When the two lines match, you have your answer. When they don't, you have more than that.
