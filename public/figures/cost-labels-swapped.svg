@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="推論成本隨營收成長幾乎持平，訓練成本隨營收同步陡升，形狀與成本屬性的標籤相反">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text x="60" y="62" font-size="27" fill="var(--ink)">標籤像是貼反了</text>
+<rect x="60" y="100" width="840" height="340" fill="var(--card)" stroke="var(--line)"/>
+<line x1="140" y1="400" x2="860" y2="400" stroke="var(--grey)" stroke-width="2"/>
+<line x1="140" y1="140" x2="140" y2="400" stroke="var(--grey)" stroke-width="2"/>
+<text x="140" y="430" font-size="16" fill="var(--dim)">營收</text>
+<text x="820" y="430" font-size="16" fill="var(--dim)">十倍</text>
+<text x="76" y="150" font-size="16" fill="var(--dim)">成本</text>
+<path d="M140 380 C 360 374, 620 368, 860 362" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<path d="M140 372 C 380 330, 620 240, 860 170" fill="none" stroke="var(--warn)" stroke-width="5"/>
+<text x="640" y="345" font-size="20" fill="var(--accent)">推論成本</text>
+<text x="640" y="325" font-size="16" fill="var(--dim)">銷貨成本・該是變動</text>
+<text x="600" y="152" font-size="20" fill="var(--warn)">訓練成本</text>
+<text x="600" y="132" font-size="16" fill="var(--dim)">研發費用・該是固定</text>
+<text x="60" y="500" font-size="22" fill="var(--ink)">平的那條是變動成本，陡的那條是固定成本</text>
+<text x="60" y="530" font-size="16" fill="var(--dim)">往後兩條線怎麼走：擴大規模有沒有用、加錢換不換得到好模型、模型之間做不做出差異——三題無解</text>
+</svg>

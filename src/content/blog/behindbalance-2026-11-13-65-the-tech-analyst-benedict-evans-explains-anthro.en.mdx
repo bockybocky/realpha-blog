@@ -1,0 +1,121 @@
+---
+title: "Behind the Balance Sheet: The People Who Build It and the People Who Get Paid"
+description: "Notes on episode 65 of Behind the Balance Sheet, 13 November 2026, where Stephen Clapham and tech analyst Benedict Evans read Anthropic's IPO prospectus together: revenue grew roughly tenfold in a year while inference cost stayed flat, and training cost rose in line with revenue; 80% of revenue comes from models built in the last six months; in Ramp's customer data the top 1% spend $10,000 to $15,000 per employee per month against an average of $15. Evans sets it against the 110-120 billion euros European operators paid for 3G licences in 2000: every forecast came true and the operators earned no return. Every number is as stated at the time of recording. Educational listening notes only - no investment advice, no price targets, and the judgements here may be wrong."
+slug: "behindbalance-2026-11-13-65-the-tech-analyst-benedict-evans-explains-anthro"
+lang: "en"
+pubDate: 2026-11-14
+category: "investing"
+kind: "podcast-notes"
+tags: ["AI economics", "podcast-notes", "Anthropic", "capital expenditure", "value capture"]
+ogImage: "/covers/behindbalance-2026-11-13-65-the-tech-analyst-benedict-evans-explains-anthro-cover.png"
+cover: "/covers/behindbalance-2026-11-13-65-the-tech-analyst-benedict-evans-explains-anthro-cover.png"
+---
+
+![A vast data hall aisle at dusk, a half-stripped server rack in the foreground with construction drawings and a torque wrench laid out beside it, the aisle running away into darkness where only rows of status lights remain visible](/covers/behindbalance-2026-11-13-65-the-tech-analyst-benedict-evans-explains-anthro-cover.png)
+
+> Over flat ground and mountain peak alike, the boundless blossom is all taken in.
+> And after a hundred flowers are gathered into honey — for whom the labour, for whom the sweetness?
+>
+> —— Luo Yin, "The Bee" (Tang, c. 9th century; my own translation)
+
+In episode 65 of Behind the Balance Sheet, recorded 13 November 2026, host Stephen Clapham sits down with tech analyst Benedict Evans to read Anthropic's IPO prospectus. Two numbers do most of the work: revenue grew roughly tenfold in a year while the inference cost of serving those answers stayed flat, and training cost rose in line with revenue instead. On top of that, 80% of revenue comes from models built in the last six months. Evans's conclusion is that the filing cannot answer the question that matters most — who ends up capturing the value AI creates. That rests on one condition: today's prices are held up by a compute shortage, and when the shortage eases, commoditisation shows.
+
+## What the episode covers
+
+Evans has written a weekly newsletter on the tech industry for years and was previously strategy director at the venture firm Andreessen Horowitz. His particular skill is reading the technology and the financial consequences at the same time. Clapham, who comes from forensic accounting, opens by asking how long the filing took him.
+
+Evans's first move is to call it a Rorschach blot — the kind of image where what you see depends on the question you brought. If you came for the debt, the debt is in there. Circular revenue, operating detail, same. An accelerationist can point to revenue growing tenfold in a year and a rising share of the research being done by Claude. The shrinking band of people who think the whole thing is nonsense can point at an $80 billion loss.
+
+What he cares about is what the document leaves out: the depth and spread of usage. Revenue and customer counts are there. How well this works outside a narrow slice of people is not.
+
+## Two lines on the P&L with the labels on the wrong way round
+
+This is my favourite observation in the episode. Evans says he was discussing it with a friend the day before: on Anthropic's P&L, the fixed cost looks like marginal cost and the marginal cost looks fixed.
+
+Inference sits in cost of revenue. Revenue grew tenfold and that line is roughly flat, because efficiency gains in operations kept pace. Training cost sits in R&D, where it ought to behave like a fixed cost, and instead it has climbed in line with revenue. Take the labels off the chart, Evans says, and you would read the two lines backwards.
+
+![A two-line chart in which, as revenue grows tenfold, inference cost stays almost flat while training cost climbs just as steeply, so the "variable" and "fixed" labels on the two lines look swapped.](/figures/cost-labels-swapped-en.svg)
+
+The trouble is that nobody knows where either line goes next. Whether scaling continues, whether better models keep costing more, whether the model companies can differentiate at all — three open questions.
+
+## Whether shortage pricing holds depends on which side runs faster
+
+Selling tokens, Evans says, is rather like selling bits in 1998. Right now there is a once-in-a-generation shortage: the software industry wants to buy far more than it can get. So you can price at the customer's ROI — his line is that if you aren't making a profit in these conditions, your CFO isn't doing their job.
+
+Then both sides start running. On one side, more capex plus better chips plus better models drops the cost by an order of magnitude a year or more. On the other, agentic usage pushes token demand up by one or two orders of magnitude. Which of those runs faster sets the price. His position is that he doesn't know, which is a different claim from being bearish.
+
+![Two arrows pushing in opposite directions: cost falling an order of magnitude a year pushes price down, while agent demand pushing usage up one or two orders of magnitude pulls price up, with today's shortage price caught in between.](/figures/two-forces-race-en.svg)
+
+## A few people use it hard, a lot of people use it lightly
+
+The number that stopped me comes from the payments data company Ramp: among their customers, the top 1% spend $10,000 to $15,000 per employee per month on these tools, while the average is $15. Evans flags that Ramp's base skews to startups and early-adopting technology companies, so the data runs high to begin with.
+
+![A very steep long-tail distribution: the leftmost 1% of companies spend $10,000-15,000 per person per month, while the vast majority on the right sit flat at the $15 average.](/figures/broad-but-shallow-en.svg)
+
+His phrase is "broad but very shallow." Plenty of people touch it; the intense usage sits in a small pocket, and that pocket is concentrated in software development. The contrast is Instagram: there is no billion people using this hard every day. He cites Mark Zuckerberg saying on a quarterly call that Muse has product market fit — at ten million users, with 25% using it on any given day, which by definition is not daily active users. Evans's read: when someone declines to give a number, or gives you something that looks like a number but isn't that number, the substitution is itself signal. Zuckerberg also said costs have to fall tenfold before it can scale.
+
+## 3G licences: the forecasts were right and the money went elsewhere
+
+Evans started his career in 1999 and became a telecoms analyst in 2000. European mobile operators, he says, spent somewhere around 110 to 120 billion euros on 3G licences, and years later it turned out that all the things they thought people would do with mobile, people did. Mobile internet became a big deal. Those operators earned no return on the investment.
+
+Where did the money go? Uber, Amazon, Instagram. The infrastructure became low-margin commodity capacity with no pricing power, and the value moved up the stack. Evans brings the structure over and asks why this time differs. Then he adds a blunter possibility: the model providers and the data centre providers both fail to make money, because both are in commodity businesses.
+
+![A three-layer stack in which money goes into licences and cell towers at the bottom, while the value skips past the middle carrier layer and travels up to the applications at the top.](/figures/value-skips-the-layer-en.svg)
+
+## A model from six months ago is a cheap good
+
+That 80%-from-the-last-six-months figure has two causes. People want the newest model, and the model from a year ago has become such a commodity, cheap enough to run on-premise, that there is little money in it.
+
+The price-performance curve is steep, Evans says: the latest full-fat model is expensive, while the model from six months ago gets 90% of the benchmark at 10% of the price. He says outright that he made those two figures up, but that is the shape. So the question for a buyer is where their use cases sit on the curve. Summarising what was said in the call centre doesn't need a frontier model that won't exist for ten years. But "go look at all our customer emails and every recording of a customer call and all our usage telemetry, and tell me why our churn is changing" — that keeps getting better answers from better models for some time.
+
+![A curve that rises steeply then flattens: the model from six months ago sits at 90% of the performance for 10% of the price, while the newest model sits at the steep far end, 100% performance for 100% price.](/figures/price-performance-curve-en.svg)
+
+And a thing like that, he says, is not a copy of Claude running on the CFO's laptop, any more than a ten-thousand-person company ran inventory out of a copy of Excel on the CFO's laptop. Someone has to build it carefully, and those people may not work for you. Accenture, Bain, a startup, SAP. Not Anthropic.
+
+## Once capex outgrows cash flow, the lender and the shareholder see different risks
+
+Five years ago the big hyperscalers spent on the order of $100 billion a year on capex. This year Meta, Google, Amazon and Microsoft plan to spend about $750 billion between them. The structural change, Evans says, is that capex has outgrown these companies' free cash flow, so they have had to go to the capital markets — which is why tech analysts suddenly find themselves asking credit analysts' questions.
+
+Here he offers a split I find useful. To a credit investor, it hardly matters if Google earns zero from all these data centres: the ad revenue is still there, there is no debt, the cash flow is enormous. To an equity investor, that money went into a hole in the ground. One set of assets, two different risks.
+
+![An empty data centre in the middle: on the left, lenders see zero debt and enormous cash flow, so it looks safe; on the right, shareholders see money buried in the ground.](/figures/same-asset-two-risks-en.svg)
+
+There is also the depreciation detail — chip lives stretched from three years out to five or six, which flatters reported earnings. Evans won't take the "how long does a chip last" question; ask a data centre analyst, he says. But he states the condition clearly: if you can get power, you leave old chips in as long as they earn an economic return on their own; if you are power-constrained, you put in new chips with a higher return per watt. The binding constraint now is that we can't build data centres fast enough, which raises the odds that the old chips get binned.
+
+## Anselm's proof, and the circularity in the accelerationist case
+
+This part made me grin. Evans recounts the medieval theologian Anselm proving God exists. Step one: God is defined as the greatest thing imaginable, because if you could imagine something greater, that would be God. Step two: something that exists is greater than something that doesn't. Step three: therefore God exists. Every other theologian in the room says this obviously doesn't work, and Anselm says, prove it. It takes philosophers eight or nine hundred years to explain where it fails. Evans quotes Bertrand Russell: working out why it doesn't hold is more interesting than the proposition itself.
+
+Talk about AGI, he says, often has that shape. The models keep getting better, so if they keep getting better indefinitely they will be far cleverer than us, and then of course they will have the domain knowledge and can do what the lawyer does. Except there are two giant ifs in that sentence, and you got there by defining the future of AI as something that can do anything and then concluding that it can do anything.
+
+He has a slide saying all AI questions have one of two answers: nobody knows, or how did we answer this last time.
+
+## "If AI changes everything, who do I buy"
+
+This is the question I get stuck on. I accept the premise the news and the earnings calls hand me — this changes a lot of things. The jump from that premise to "so buy this company" is missing a whole middle section.
+
+The episode filled it in for me: value creation and value capture are two separate questions, and the answers often sit at different companies. 3G is the cleanest example — every forecast right, the money in someone else's pocket. Cloud is a different shape: Amazon never expected to build all the software services, AWS earns well, and it doesn't capture the value of the software industry. Chips are a third: each generation of fab got more expensive and harder, dozens of companies at the leading edge narrowed to TSMC alone, and now it can charge what it likes.
+
+So what I now ask myself is which shape I'm backing. Backing the model companies means backing a narrowing toward the TSMC outcome. Backing the application layer means backing a world where the law firm buys Harvey and the model company collects a commodity fee underneath. Those two bets fail under different conditions, and I used to run them together and call the blend "bullish on AI."
+
+![Three funnels of differing width sit side by side: the chip layer narrows to a single company and therefore holds the strongest pricing power, the cloud layer narrows only partway, and the model layer has yet to show whether it will converge or stay spread out.](/figures/three-shapes-of-capture-en.svg)
+
+## "This TAM number looks enormous — can I trust it"
+
+Clapham mentions Damodaran valuing Anthropic at $1.5 trillion, with a large pharma business inside the assumptions. Evans answers with an example worth copying down: in 2014 Damodaran wrote that Uber was massively overvalued, reasoning from the size of the taxi market and Uber's likely share — a 2024 addressable market of $183 billion and 10% of it, so $18 billion. Actual 2024 gross mobility was $83 billion, delivery another $75 billion, freight $5 billion on top.
+
+![Two horizontal bars of starkly different lengths: the top one is the $18B estimated in 2014, the bottom one is the actual $163B, and the actual bar is made up of three segments — ride-hailing, delivery, and freight.](/figures/tam-estimate-vs-actual-en.svg)
+
+Evans says he isn't running a gotcha; his point is that you can't value things this way, because you don't know what the new things will be. The three counterexamples he gives next are the ones I like more: accounting work was automated throughout the twentieth century and the number of accountants rose every decade; PwC employs more people today than it did before spreadsheets; a third of Goldman's staff are now software engineers. Where, he asks, was that in the TAM you calculated for PCs in 1980?
+
+The value PwC got from spreadsheets is not in PwC's P&L, nor in Microsoft's, nor in the productivity statistics. So when I see a deck listing global professional services, global marketing and global retail and multiplying each by a percentage, my first move is to ask where that percentage came from. Usually there's no answer.
+
+Some of the value dissipates as consumer surplus that nobody collects. Some becomes new or redirected spending, and who captures that is the open question — Evans says plainly that they could be completely wrong and it could all go to the model companies.
+
+## The one thing worth taking with you
+
+**Getting the thing built and getting paid for it are two separate events, and in the same story they often land on different people.**
+
+The episode lays the structure out: every 3G forecast came true and the operators collected nothing; spreadsheets remade accounting and the value never showed up in Microsoft's P&L; AI tokens sell dear today because of a shortage, and shortages end. Split any claim into "will this happen" and "who gets paid when it does," and a lot of airtight-sounding reasoning breaks on the second half.
+
+Here's something I've tried that holds outside investing too. Take a sheet of paper and write down three things you solved for someone else last week — a colleague's, something at home, a friend's. Next to each, two columns: who saved time or trouble because of it, and what came back to you (money, reputation, goodwill, a skill that got sharper, or a blank). Then look at where the blanks sit. The first time I did this, two of the three blanks lined up and pointed at the same person.
