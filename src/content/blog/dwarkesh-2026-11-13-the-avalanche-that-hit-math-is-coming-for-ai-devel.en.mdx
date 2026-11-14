@@ -1,0 +1,96 @@
+---
+title: "The Avalanche Hit Math First, and AI Research Is Next — Notes on Dwarkesh Podcast"
+description: "Notes on the Dwarkesh Podcast episode of 13 November 2026, \"The avalanche that hit math is coming for AI development\": Dwarkesh Patel puts his median year for AI matching the best human AI researchers at 2028, while leaving over 25% probability for after 2032. His two September data points are METR's finding, after three months embedded at Anthropic, that progress on well-bounded tasks runs at twice last year's rate, and Anthropic's own post saying Claude now leads 26% of its AI R&D. This piece takes apart which condition the argument rests on and where the strongest objection sits. Educational listening notes, not investment advice; no stock calls and no price targets, and most figures in the episode are the speaker's spoken estimates."
+slug: "dwarkesh-2026-11-13-the-avalanche-that-hit-math-is-coming-for-ai-devel"
+lang: "en"
+pubDate: 2026-11-14
+category: "investing"
+kind: "podcast-notes"
+tldr: "Problems you can cheaply check answers for improve like an avalanche; choosing which hill to climb still has no score attached to it. Both the bet and the objection in this episode land on that seam."
+tags: ["Dwarkesh Podcast", "podcast notes", "automated AI research", "superintelligence", "verifiability"]
+ogImage: "/covers/dwarkesh-2026-11-13-the-avalanche-that-hit-math-is-coming-for-ai-devel-cover.png"
+cover: "/covers/dwarkesh-2026-11-13-the-avalanche-that-hit-math-is-coming-for-ai-devel-cover.png"
+---
+
+![A high mountain valley at dawn: in the foreground a wooden bench with an open notebook covered in hand-drawn geometry, mid-frame a line of snow stakes marching up the slope one by one, and further into the depth a fresh avalanche track scarring the far face](/covers/dwarkesh-2026-11-13-the-avalanche-that-hit-math-is-coming-for-ai-devel-cover.png)
+
+> Whoever masters this book will find nothing he cannot master; whoever studies it gladly will find nothing he cannot study.
+>
+> —— Xu Guangqi, *Miscellaneous Remarks on the Elements of Geometry* (Ming, 1607; my own translation)
+
+In the Dwarkesh Podcast episode of 13 November 2026, "The avalanche that hit math is coming for AI development," Dwarkesh Patel speaks alone for the whole hour. He puts his median year for AI matching the very best humans at AI research at 2028, and at the same time leaves over 25% probability that it waits until after 2032. Both of his new data points come from September: METR, an independent evaluation outfit, spent three months embedded at Anthropic and concluded that the company's rate of progress on well-bounded tasks is twice what it was a year ago, with most of that acceleration attributable to Anthropic's own heavy use of AI for R&D; Anthropic posted the same month that Claude now leads 26% of its AI R&D work, up from under 1% in February. The whole argument rests on one condition: that most progress in AI research can be caught by a cheap score.
+
+## His case: anything you can check gets eaten whole
+
+He opens with mathematics, and laid out in order the timeline makes you go quiet. The 2023 models could not reliably add four-digit numbers; in 2024 they could barely solve a high-school competition problem; in 2025 they took a gold medal at the International Mathematical Olympiad; earlier this year they began cracking niche open problems; a month ago, he says, an OpenAI model solved a Millennium Prize problem in 88 hours. He reaches for a line from *East of Eden* to describe that rhythm — when gods fall, they do not fall a little; they crash and shatter.
+
+![A staircase rising from left to right, with the first two steps very low and the last two jumping up sharply, showing how math ability climbed from four-digit addition to a Millennium problem in three years.](/figures/math-avalanche-staircase-en.svg)
+
+Then he moves the experience over to AI research, and this is the part of the episode I find most solid. Mathematics wants new concepts: topology, group theory, further back the Cartesian grid. Grinding out long lists of conjectures ranks below the concepts. An AI lab's priorities run the other way round — it wants a recipe that empirically makes training cheaper or models smarter, nobody is buying theory for its own sake, and a decade and a half of deep learning progress has not leaned on much new theory anyway. So grinding through a long list of near-random conjectures is worth far more in machine learning than in mathematics.
+
+![Two stacked bars side by side: on the math bar the big block on top is new concepts and the small block below is grinding conjectures, while the AI-lab bar has exactly the opposite top and bottom, showing the order of value inverted.](/figures/value-order-inverted-en.svg)
+
+His example is the Transformer, the architecture holding up today's large language models. His friend Sholto Douglas has a blog post stuck forever at half-finished, arguing that you could have invented the Transformer two years earlier; Dwarkesh adds that maybe this video will finally get him to finish it. Before the 2017 paper, plenty of researchers had already identified attention as a way to parallelise training better and move information across longer sequences. Chris Olah, active in the field at the time, later said the architecture was a natural combination of ideas that had each independently worked, taken to aggressive lengths. The missing piece was the combination: to beat the state of the art, you first had to bolt on half a dozen extra tweaks that had been sitting in the literature for years, and nobody knew how they fitted together. Assembling them took research taste and an enormous number of small experiments. Hence his inference: if Chris Olah had had Claude 7 back then and told it to try really hard to make this attention thing work better, it would have got there.
+
+So how do you make a model practise that? He splits AI R&D into three buckets, each with a cheap score attached. Pre-training is the cleanest: hold out a corpus the model has never seen and measure loss on it. That number is easy to compute and easy to compare, and you can set GPT-7 the task of using less compute to train a GPT-2-sized model to a fixed loss. Post-training measures how fast something learns: drop the model into an environment it was never trained on and watch how long it takes to orient and start scoring. Inference efficiency is the most concrete of the three — GPU utilisation, cache size per token, all of it numbers.
+
+What surprised me most is that he turns research taste itself into a task: have GPT-7 predict whether an improvement it found at the hundred-million-parameter scale still holds at ten billion. Expensive, but affordable at frontier-lab scale.
+
+![Three buckets stand side by side, each with a ruler hanging above it — loss for pretraining, time to first score for post-training, and utilization for inference efficiency — showing that all three buckets can carry a score.](/figures/three-buckets-with-scores-en.svg)
+
+Then three multipliers. Today's models work at roughly ten times human speed and an automated researcher takes no nights or weekends, so each calendar week it packs in about fifty times a person's work. The second multiplier is level: he estimates that 80% of algorithmic progress at a frontier lab comes from its top fifty researchers, which is why Zuckerberg was willing to put hundreds of millions of dollars on the table for talent, and in this scenario every automated researcher sits at that level. The third is count, and here he offers a test: a swarm of agents will not write a better novel, but formalising a theorem breaks into thousands of modular pieces that can each be done independently and checked locally, and AI research sits closer to formalising a theorem than to writing a novel.
+
+He drops one small number I keep coming back to: the final model in that 2017 paper trained for three days on eight P100s, which would cost about fifty dollars to rent today, around one hundred-thousandth of the compute used to train GPT-3.
+
+![Three blocks grow larger from left to right — 50× from ten-times speed plus never sleeping, the caliber of the top 50 people, and the sheer count of thousands of agents — showing multipliers compounding.](/figures/three-multipliers-stack-en.svg)
+
+## The other side: the hill already chosen, and whoever chooses it
+
+The hardest blow he hands over himself. AI companies have to quadruple their R&D compute and double their headcount every year just to hold the same rate of progress. That number describes how fast ideas get harder to find, and it is already happening — recursive self-improvement has to beat that slope, not beat zero. He also concedes the outcome is a coin flip: the spark (three to six years of progress squeezed into one calendar year, then a lull while more compute gets built) and the software-only singularity (compute flat, the swarm making smarter versions of itself round after round until it scrapes the physical limits of current chips) each get 50%. A man whose median year is 2028 says he splits the two endings down the middle.
+
+![A slope chart where the grey line is the rising input needed just to hold progress steady, so self-acceleration only wins if it is steeper than that line — the benchmark is not a flat zero line.](/figures/slope-to-beat-en.svg)
+
+Continual learning deserves closer watching. By continual learning he means a model keeping what it picked up on the job and remembering it the next day. This was his main reason for doubt for a year and a half; last December he wrote that an automated researcher figuring out an algorithm humans have banged their heads against for half a century, while lacking the basic learning capabilities children have, struck him as implausible. His reason for changing his mind is that scaling up in-context learning will be enough, with no breakthrough in self-updating weights required. That is a bet still to be settled. His image is lovely — these models are doing cartwheels down the track and still keeping pace with Usain Bolt, so imagine them running — yet the same image concedes the leg is still tied, and his new reason amounts to other people having published promising ideas.
+
+![A probability bar split in half sits on top, and two curve thumbnails sit below it: the spark rises steeply then flattens, while the software-only singularity keeps climbing until it hits a ceiling.](/figures/coin-two-shapes-en.svg)
+
+Choosing the hill is also unresolved. Before 2018 hardly anyone would have said that minimising next-token loss was the most tractable route to AI, so nobody would have built the speedrun environments for it. Picking which hill GPT-7 climbs is itself research work. His answer is that the Transformer was invented to beat existing translation benchmarks and reasoning models to beat existing coding and maths benchmarks, so old scores do catch large step changes. That answer holds only if the next paradigm shift is likewise visible to old scores, and that cannot be checked in advance. The paradigm-agnostic outer-loop proxies he offers — how many Millennium Prize problems a model solves, how long it takes to discover general relativity from a corpus cut off at 1905 — are elegant, but a handful of such problems a year is too sparse to train against.
+
+He also leaves a counterexample in the episode by hand: OpenAI has not dissolved its research department, even though by his account its model can autonomously solve Millennium Prize problems. He uses this to say some parts of AI research are less verifiable than maths, and how large those parts are is precisely what the argument turns on — the episode gives no figure for it. The maths side runs the same way: progress skews to the verification-heavy end, and Toby Ord's observation is that there is very little evidence these systems can ask powerful questions or open up new fields of inquiry. Dwarkesh rewrites the same sentence as: it solved a Millennium Prize problem without any of that ability. Both are true and they do different jobs, one marking the ceiling and one marking how high the floor already is, and his conclusion needs the ceiling.
+
+Transfer is the weakest stretch. To get from verifiable practice to feeling your way through the real world, his evidence is that you can go talk to a new model and compare it with an old one, plus Napoleon beating the great powers' far larger armies at 27 and Rockefeller running one of the world's largest refineries at 25. The twenty-somethings who won are drawn from the survivors; how many of their contemporaries lost playing the same way is a list in no book. The evolution argument has the same flaw: it ran for hundreds of millions of years and killed off uncountable generations, and using it to prove that a crude verifier grows general ability quietly hides the bill.
+
+The experiment-compute objection is the one he blocks hardest. More agents means less compute each; his reply is that frontier labs have been more than quadrupling compute every year, so on trend, by the end of 2027 OpenAI could give ten thousand agents each enough compute to run a GPT-3-sized training run every day. That reply trades a software problem for one involving fabs, power and supply chains — a fair trade, except that after it the timeline stops being set by how smart the models are.
+
+![A funnel whose top is a dense grey cloud of everyone in the same cohort running the same playbook, with only two or three dots at the bottom named in the books, and the big grey mass labelled as names that appear in no book.](/figures/survivor-funnel-missing-names-en.svg)
+
+## My read: it turns on whether the next hill can be marked cheaply
+
+With both sides out, I judge that he holds his ground on well-bounded problems and the objection holds its ground on who picks the next hill, and the line between them fits in a sentence: can the next paradigm be marked in advance by a cheap score? If yes, the spark half gets more likely. If no, automated researchers become the best hill-climbers in history, standing on a hill somebody else chose.
+
+![A four-quadrant chart with cheapness of checking the answer on the horizontal axis and difficulty on the vertical, placing a Millennium problem top right and continual learning and a family's financial decision on the left, showing that difficulty and speed are two separate axes.](/figures/hard-vs-cheap-to-score-en.svg)
+
+That line is useful for reading the news, and it answers the question I get asked most — there is so much good AI news, which of it should I believe? Sort the items into two piles. In one, the progress can be checked against an internal score (code, maths, inference efficiency, cost per token); that pile gets extrapolated quickly and valuations run ahead of the facts. In the other, progress needs real-world feedback to grow at all (winning court cases, building a business, helping a candidate win), and it is slow, slow outside the data centre. When a story lands, ask which pile it belongs to before touching a position.
+
+![One headline splits into two arrows: the short fast one is marked as checkable on a company's internal scores, the long slow one as needing real-world feedback, and the difference in length is the difference in how fast it extrapolates.](/figures/two-piles-of-news-en.svg)
+
+The other question comes up more often: will my line of work get taken? The test this episode offers says nothing about degrees or years served. It asks whether your output has a cheap way of checking the answer. A piece of code that runs unit tests, yes. The next financial decision for a household, no — the answer shows up in three years. I ran this test over my own work, and some stretches scored badly.
+
+That fifty-fifty coin is itself information: the man making the argument gives each ending half the probability, so a position leaning on one side should be small enough that you survive being wrong.
+
+## Further reading
+
+- Dwarkesh Podcast, 13 November 2026, "The avalanche that hit math is coming for AI development" — the source for this piece
+- METR's published conclusions after three months embedded at Anthropic, the source of the doubled rate of progress and of most acceleration coming from internal AI use
+- The September 2026 posts from Anthropic and OpenAI on internal AI usage, the source of the 26%, the under 1%, and daily spend going from about $1,000 to over $7,000
+- Toby Ord's recent essay on AI and mathematical research, the source of the line about little evidence for asking powerful questions
+- Ajeya Cotra's blog post on the METR report, the source of the naive implication of extreme superintelligence within a year, which Dwarkesh declines to adopt
+- DeepSeek's recent paper on post-training, quoted in the episode for the claim that scale, diversity and verifiability of synthesised data and environments account for the great bulk of observed gains
+
+## One thing to take away
+
+**The pace of progress is set by whether you can check the answer cheaply, not by how hard the problem is.**
+
+Every thread in the episode comes back here. The avalanche in maths fell on the checkable side. AI research looks good to him because all three buckets have scores attached. The 25% tail he keeps sits entirely on the parts with no score. Difficulty and speed are two separate axes — in the same month a Millennium Prize problem fell in 88 hours, nobody has built a model that remembers what happened yesterday on the job.
+
+Here is something I tried myself, and it works outside investing too. Pick one thing that has been stuck for three months or more: sleep that won't settle, a guitar part that won't come, the argument with a family member that replays every few weeks. Before reaching for causes, write one check you can settle tonight — swap "I'll sleep earlier" for "phone goes in the living room at eleven, and tomorrow morning I write down what time I fell asleep," swap "I'll communicate better" for "today I ask one question, give no advice, and note how many minutes he talked." Then go do that one round, and tomorrow you have a number to look at. You will find that half of what is stuck is stuck for want of a way to check, not for difficulty.

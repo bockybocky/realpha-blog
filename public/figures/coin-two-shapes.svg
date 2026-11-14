@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="對半的機率條，下接陡升走平與持續上升撞天花板兩張曲線">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .n { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<text class="t" x="60" y="62">一枚對半的硬幣</text>
+
+<rect x="70" y="96" width="410" height="54" fill="var(--accent)" opacity="0.2"/>
+<rect x="70" y="96" width="410" height="54" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text class="n" x="92" y="132">50%</text>
+<rect x="480" y="96" width="410" height="54" fill="var(--grey)" opacity="0.25"/>
+<rect x="480" y="96" width="410" height="54" fill="none" stroke="var(--grey)" stroke-width="2"/>
+<text class="n" x="502" y="132">50%</text>
+
+<g>
+  <rect x="70" y="190" width="410" height="300" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="94" y="230">火花</text>
+  <line x1="110" y1="440" x2="450" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <path d="M110 430 L200 300 L260 268 L450 262" stroke="var(--accent)" stroke-width="4" fill="none"/>
+  <text class="s" x="110" y="470">一年擠出三到六年</text>
+  <text class="s" x="300" y="300">等算力蓋好</text>
+</g>
+
+<g>
+  <rect x="510" y="190" width="380" height="300" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="534" y="230">純軟體奇點</text>
+  <line x1="550" y1="440" x2="860" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <line x1="550" y1="262" x2="860" y2="262" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 6"/>
+  <text class="s" x="550" y="252">晶片的物理上限</text>
+  <path d="M550 432 L680 410 L780 330 L830 266" stroke="var(--accent)" stroke-width="4" fill="none"/>
+  <circle cx="832" cy="264" r="7" fill="var(--warn)"/>
+  <text class="s" x="550" y="470">幾個月內撞上</text>
+</g>
+</svg>

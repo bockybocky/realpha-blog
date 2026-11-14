@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="難度與可否便宜對答案的四象限，難題落在右上，沒分數可打的落在左側">
+<rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="62">難度與速度，是兩個軸</text>
+<rect x="130" y="100" width="380" height="210" fill="var(--card)" opacity="0.6"/>
+<rect x="510" y="100" width="380" height="210" fill="var(--accent)" opacity="0.12"/>
+<rect x="130" y="310" width="380" height="210" fill="var(--card)" opacity="0.6"/>
+<rect x="510" y="310" width="380" height="210" fill="var(--accent)" opacity="0.12"/>
+<line x1="130" y1="310" x2="890" y2="310" stroke="var(--line)" stroke-width="2"/>
+<line x1="510" y1="100" x2="510" y2="520" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="130" y="556">便宜對答案：難</text>
+<text class="s" x="770" y="556">容易</text>
+<text class="s" x="60" y="118">難</text>
+<text class="s" x="60" y="512">易</text>
+
+<circle cx="700" cy="170" r="9" fill="var(--accent)"/>
+<text class="g" x="720" y="162">千禧年難題</text>
+<text class="s" x="720" y="188">88 小時</text>
+
+<circle cx="700" cy="430" r="9" fill="var(--accent)"/>
+<text class="b" x="720" y="424">能跑單元測試的程式</text>
+
+<circle cx="300" cy="200" r="9" fill="var(--warn)"/>
+<text class="g" x="320" y="192">持續學習</text>
+<text class="s" x="320" y="218">同一個月，還沒有人做出來</text>
+
+<circle cx="300" cy="420" r="9" fill="var(--warn)"/>
+<text class="b" x="320" y="414">一個家庭的下一步財務決定</text>
+<text class="s" x="320" y="440">答案三年後才揭曉</text>
+
+<text class="s" x="130" y="90">下一座山挑在哪一邊，決定自我加速贏不贏</text>
+</svg>

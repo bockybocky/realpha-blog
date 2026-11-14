@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="自我加速那條線必須比灰色的投入需求線更陡">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<text class="t" x="60" y="62">要贏的不是零，是這條斜線</text>
+<line x1="110" y1="430" x2="900" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="110" y1="110" x2="110" y2="430" stroke="var(--line)" stroke-width="2"/>
+<text class="s" x="110" y="464">時間</text>
+<text class="s" x="40" y="104">投入</text>
+
+<line x1="110" y1="430" x2="880" y2="430" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+<text class="s" x="700" y="456">想像中的零線</text>
+
+<path d="M110 420 L880 180" stroke="var(--grey)" stroke-width="4" fill="none"/>
+<text class="g" x="660" y="160">想法變難找</text>
+<text class="s" x="660" y="186">算力 ×4／年</text>
+<text class="s" x="660" y="212">人力 ×2／年</text>
+
+<path d="M110 420 L500 330 L880 112" stroke="var(--accent)" stroke-width="4" fill="none"/>
+<circle cx="880" cy="112" r="7" fill="var(--accent)"/>
+<text class="g" x="400" y="306">自我加速</text>
+
+<text class="c" x="110" y="520">同一個斜率下，追平只是原地</text>
+</svg>

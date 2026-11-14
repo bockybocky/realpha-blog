@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="三個並列的桶各自掛著一支量尺">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .b { font-size:16px; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<text class="t" x="60" y="62">三桶工作，三支尺</text>
+
+<g>
+  <rect x="70" y="110" width="250" height="72" fill="var(--accent)" opacity="0.16"/>
+  <rect x="70" y="110" width="250" height="72" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <text class="b" x="88" y="154">留一份沒看過的語料</text>
+  <line x1="195" y1="182" x2="195" y2="250" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 6"/>
+  <rect x="70" y="250" width="250" height="190" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="88" y="300">預訓練</text>
+  <text class="s" x="88" y="336">誤差</text>
+  <text class="s" x="88" y="366">固定分數比算力</text>
+</g>
+
+<g>
+  <rect x="355" y="110" width="250" height="72" fill="var(--accent)" opacity="0.16"/>
+  <rect x="355" y="110" width="250" height="72" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <text class="b" x="373" y="154">丟進沒訓練過的環境</text>
+  <line x1="480" y1="182" x2="480" y2="250" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 6"/>
+  <rect x="355" y="250" width="250" height="190" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="373" y="300">後訓練</text>
+  <text class="s" x="373" y="336">多久開始拿分</text>
+  <text class="s" x="373" y="366">學得多快</text>
+</g>
+
+<g>
+  <rect x="640" y="110" width="250" height="72" fill="var(--accent)" opacity="0.16"/>
+  <rect x="640" y="110" width="250" height="72" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <text class="b" x="658" y="154">機器本身的讀數</text>
+  <line x1="765" y1="182" x2="765" y2="250" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 6"/>
+  <rect x="640" y="250" width="250" height="190" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="658" y="300">推論效率</text>
+  <text class="s" x="658" y="336">GPU 使用率</text>
+  <text class="s" x="658" y="366">每個詞的快取</text>
+</g>
+
+<text class="c" x="70" y="494">掛不上尺的那部分，是那條 25% 的尾巴</text>
+</svg>

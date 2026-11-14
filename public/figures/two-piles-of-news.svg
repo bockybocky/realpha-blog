@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一則消息分成一條短快箭頭與一條長慢箭頭">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); font-weight:700; }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); font-weight:700; }
+</style>
+<text class="t" x="60" y="62">同一則消息，兩種到站時間</text>
+<rect x="60" y="210" width="150" height="90" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="80" y="262">一則消息</text>
+
+<path d="M210 230 L300 150" stroke="var(--grey)" stroke-width="2" fill="none"/>
+<path d="M210 280 L300 360" stroke="var(--grey)" stroke-width="2" fill="none"/>
+
+<path d="M310 150 L560 150" stroke="var(--accent)" stroke-width="10" fill="none"/>
+<path d="M548 132 L578 150 L548 168" fill="var(--accent)"/>
+<text class="g" x="310" y="128">內部分數就能驗</text>
+<text class="s" x="310" y="186">程式 · 數學 · 推論效率 · 每個詞的成本</text>
+<text class="s" x="600" y="156">外推得快</text>
+
+<path d="M310 360 L820 360" stroke="var(--warn)" stroke-width="10" fill="none" stroke-dasharray="26 18"/>
+<path d="M808 342 L838 360 L808 378" fill="var(--warn)"/>
+<text class="g" x="310" y="338">要真實世界回饋</text>
+<text class="s" x="310" y="396">打官司 · 做生意 · 幫候選人贏選舉</text>
+<text class="s" x="600" y="338">慢在資料中心外面</text>
+
+<text class="c" x="60" y="470">估值跑在事實前面，通常只跑在上面那一條</text>
+</svg>
