@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two stock-and-bond allocation bars aim at the same return target: the upper one is mostly equities with a long volatility range on the right, the lower one is more evenly split with a far shorter range.">
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .gd { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+    .w { font-size:19px; fill:var(--warn); }
+    .a { font-size:19px; fill:var(--accent); }
+  </style>
+  <text class="t" x="60" y="66">Same goal, less vol</text>
+  <text class="gd" x="60" y="124">Target return 7%</text>
+  <text class="g" x="120" y="172">Eq 85</text>
+  <text class="b" x="650" y="172">Bd 15</text>
+  <rect x="120" y="184" width="527" height="60" fill="var(--accent)"/>
+  <rect x="647" y="184" width="93" height="60" fill="var(--grey)"/>
+  <text class="b" x="120" y="272">Old mix aims 7%</text>
+  <text class="g" x="120" y="316">Eq 65</text>
+  <text class="b" x="530" y="316">Bd 35</text>
+  <rect x="120" y="328" width="403" height="60" fill="var(--accent)"/>
+  <rect x="523" y="328" width="217" height="60" fill="var(--grey)"/>
+  <text class="b" x="120" y="416">Close is on offer</text>
+  <line x1="800" y1="140" x2="800" y2="288" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="792 142 808 142 800 128" fill="var(--warn)"/>
+  <polygon points="792 286 808 286 800 300" fill="var(--warn)"/>
+  <text class="w" x="820" y="220">Hi vol</text>
+  <line x1="800" y1="336" x2="800" y2="380" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="792 338 808 338 800 324" fill="var(--accent)"/>
+  <polygon points="792 378 808 378 800 392" fill="var(--accent)"/>
+  <text class="a" x="820" y="366">Lo vol</text>
+  <text class="c" x="60" y="480">Return or vol?</text>
+</svg>

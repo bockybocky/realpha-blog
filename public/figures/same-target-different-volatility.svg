@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩條股債比例長條瞄著同一個報酬目標，上面那條股票占掉絕大部分、右側波動區間拉得很長，下面那條股債較平均、波動區間短得多">
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .gd { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+    .w { font-size:19px; fill:var(--warn); }
+    .a { font-size:19px; fill:var(--accent); }
+  </style>
+  <text class="t" x="60" y="66">同一個目標，吞的波動不同</text>
+  <text class="gd" x="60" y="124">目標報酬 7%</text>
+  <text class="g" x="120" y="172">股 85</text>
+  <text class="b" x="650" y="172">債 15</text>
+  <rect x="120" y="184" width="527" height="60" fill="var(--accent)"/>
+  <rect x="647" y="184" width="93" height="60" fill="var(--grey)"/>
+  <text class="b" x="120" y="272">舊配置瞄 7%</text>
+  <text class="g" x="120" y="316">股 65</text>
+  <text class="b" x="530" y="316">債 35</text>
+  <rect x="120" y="328" width="403" height="60" fill="var(--accent)"/>
+  <rect x="523" y="328" width="217" height="60" fill="var(--grey)"/>
+  <text class="b" x="120" y="416">現在拿得到接近的數字</text>
+  <line x1="800" y1="140" x2="800" y2="288" stroke="var(--warn)" stroke-width="3"/>
+  <polygon points="792 142 808 142 800 128" fill="var(--warn)"/>
+  <polygon points="792 286 808 286 800 300" fill="var(--warn)"/>
+  <text class="w" x="820" y="220">波動大</text>
+  <line x1="800" y1="336" x2="800" y2="380" stroke="var(--accent)" stroke-width="3"/>
+  <polygon points="792 338 808 338 800 324" fill="var(--accent)"/>
+  <polygon points="792 378 808 378 800 392" fill="var(--accent)"/>
+  <text class="a" x="820" y="366">波動小</text>
+  <text class="c" x="60" y="480">先問你要解決報酬還是波動</text>
+</svg>

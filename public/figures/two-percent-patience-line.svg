@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一條往下的殖利率線跌破 2% 的虛線後，一個箭頭跳到票面 9% 到 12% 的高價位區塊，再由警示色的虛線一路掉回底部">
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .gd { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+    .w { font-size:19px; fill:var(--warn); }
+    .a { font-size:19px; fill:var(--accent); }
+  </style>
+  <text class="t" x="60" y="66">2% 以下，錢會自己去找替代品</text>
+  <line x1="60" y1="430" x2="900" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <line x1="60" y1="352" x2="900" y2="352" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="gd" x="60" y="340">忍耐線 2%</text>
+  <path d="M110 288 L200 310 L280 334 L352 376" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="312" cy="352" r="6" fill="var(--accent)"/>
+  <text class="a" x="110" y="268">本地存款</text>
+  <path d="M372 372 C470 362 486 230 540 198" fill="none" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="538 190 556 200 536 208" fill="var(--dim)"/>
+  <rect x="570" y="148" width="270" height="78" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="586" y="182">中美洲與南美洲鐵路債</text>
+  <text class="b" x="586" y="210">票面 9%–12%</text>
+  <line x1="700" y1="226" x2="700" y2="424" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 6"/>
+  <polygon points="692 420 708 420 700 434" fill="var(--warn)"/>
+  <text class="w" x="716" y="420">四五年後倒帳</text>
+  <text class="c" x="60" y="494">跌破忍耐線，資金就外移</text>
+</svg>

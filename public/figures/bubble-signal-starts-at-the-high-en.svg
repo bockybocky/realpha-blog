@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="On the left a line doubles off a low yet still stops below the dashed prior-high level; on the right a line doubles from the prior high and crosses above that dashed level.">
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .gd { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+    .w { font-size:19px; fill:var(--warn); }
+    .a { font-size:19px; fill:var(--accent); }
+  </style>
+  <text class="t" x="60" y="66">Highs, not lows</text>
+  <rect x="60" y="100" width="400" height="330" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="500" y="100" width="400" height="330" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <line x1="80" y1="410" x2="440" y2="410" stroke="var(--line)" stroke-width="2"/>
+  <line x1="520" y1="410" x2="880" y2="410" stroke="var(--line)" stroke-width="2"/>
+  <line x1="80" y1="290" x2="440" y2="290" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="b" x="86" y="282">Old high</text>
+  <path d="M110 370 L220 358 L320 344 L410 330" fill="none" stroke="var(--grey)" stroke-width="3"/>
+  <circle cx="110" cy="370" r="6" fill="var(--grey)"/>
+  <text class="b" x="126" y="392">Low</text>
+  <text class="gd" x="250" y="318">2x</text>
+  <text class="gd" x="86" y="140">2x off low: no</text>
+  <line x1="520" y1="330" x2="880" y2="330" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="b" x="526" y="362">High</text>
+  <line x1="520" y1="250" x2="880" y2="250" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="a" x="526" y="242">+2x</text>
+  <path d="M550 330 L660 310 L760 278 L860 242" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="550" cy="330" r="6" fill="var(--accent)"/>
+  <circle cx="860" cy="238" r="7" fill="var(--accent)"/>
+  <text class="a" x="760" y="212">Lit</text>
+  <text class="b" x="526" y="396">2 yrs</text>
+  <text class="c" x="60" y="492">Start decides</text>
+</svg>

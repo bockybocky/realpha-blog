@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="On a basis-point ruler the pointer at today's 196 sits almost flush against the warning-colored 200 threshold line, and an inset below pulls the small gap between them apart.">
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .gd { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+    .w { font-size:19px; fill:var(--warn); }
+    .a { font-size:19px; fill:var(--accent); }
+  </style>
+  <text class="t" x="60" y="66">BB spread: 4 bp to go</text>
+  <rect x="120" y="190" width="700" height="44" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="120" y="190" width="490" height="44" fill="var(--accent)" opacity="0.18"/>
+  <line x1="120" y1="248" x2="820" y2="248" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="112" y="274">0 bp</text>
+  <line x1="620" y1="160" x2="620" y2="248" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 6"/>
+  <text class="w" x="636" y="152">Line: 200 bp</text>
+  <polygon points="602 178 618 178 610 192" fill="var(--accent)"/>
+  <text class="a" x="596" y="170" text-anchor="end">Now 196</text>
+  <rect x="300" y="330" width="360" height="122" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="gd" x="320" y="362">Gap, zoomed</text>
+  <line x1="430" y1="384" x2="430" y2="424" stroke="var(--accent)" stroke-width="4"/>
+  <line x1="560" y1="384" x2="560" y2="424" stroke="var(--warn)" stroke-width="4"/>
+  <line x1="436" y1="404" x2="554" y2="404" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="436 398 436 410 424 404" fill="var(--dim)"/>
+  <polygon points="554 398 554 410 566 404" fill="var(--dim)"/>
+  <text class="b" x="452" y="396">4 bp</text>
+  <text class="b" x="396" y="444">196</text>
+  <text class="b" x="542" y="444">200</text>
+  <text class="c" x="60" y="484">At the line</text>
+</svg>

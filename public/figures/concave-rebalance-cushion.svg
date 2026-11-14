@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊一組柱子股票佔比被漲勢推大、弧線箭頭把它搬回原來的比例；右邊一組在修正後股票佔比縮小、弧線箭頭把它搬回去，兩組都靠債券那一截完成搬運">
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; fill:var(--ink); }
+    .gd { font-size:19px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+    .w { font-size:19px; fill:var(--warn); }
+    .a { font-size:19px; fill:var(--accent); }
+  </style>
+  <text class="t" x="60" y="66">墊子是跌的時候用的</text>
+  <text class="gd" x="100" y="128">漲的時候</text>
+  <text class="gd" x="560" y="128">跌的時候</text>
+  <rect x="100" y="180" width="130" height="240" fill="var(--grey)"/>
+  <rect x="100" y="180" width="130" height="144" fill="var(--accent)"/>
+  <text class="b" x="100" y="450">60／40</text>
+  <rect x="300" y="180" width="130" height="240" fill="var(--grey)"/>
+  <rect x="300" y="180" width="130" height="168" fill="var(--accent)"/>
+  <text class="b" x="300" y="450">70／30</text>
+  <rect x="560" y="180" width="130" height="240" fill="var(--grey)"/>
+  <rect x="560" y="180" width="130" height="156" fill="var(--accent)"/>
+  <text class="b" x="560" y="450">65／35</text>
+  <rect x="760" y="180" width="130" height="240" fill="var(--grey)"/>
+  <rect x="760" y="180" width="130" height="120" fill="var(--accent)"/>
+  <text class="b" x="760" y="450">50／50</text>
+  <line x1="244" y1="300" x2="282" y2="300" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="280 292 298 300 280 308" fill="var(--dim)"/>
+  <line x1="704" y1="300" x2="742" y2="300" stroke="var(--dim)" stroke-width="2"/>
+  <polygon points="740 292 758 300 740 308" fill="var(--dim)"/>
+  <path d="M410 164 C370 134 230 134 196 164" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <polygon points="190 156 182 174 202 172" fill="var(--accent)"/>
+  <text class="a" x="238" y="122">賣股搬回去</text>
+  <path d="M870 164 C830 134 690 134 656 164" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <polygon points="650 156 642 174 662 172" fill="var(--accent)"/>
+  <text class="a" x="698" y="122">買股搬回去</text>
+  <text class="b" x="100" y="484">上面是股、下面是債</text>
+  <text class="c" x="60" y="528">沒有墊子，就沒有東西可搬</text>
+</svg>
