@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two bars of equal height are each split into an upper and a lower block, the right bar's upper block far thicker than the left's, and only the upper block is the one being pushed.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="60" y="62" font-size="27" font-weight="700">Same multiple, different mix of the two blocks</text>
+
+  <line x1="100" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="3"/>
+
+  <rect x="180" y="250" width="200" height="190" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="180" y="190" width="200" height="60" fill="none" stroke="var(--warn)" stroke-width="4" stroke-dasharray="8 7"/>
+  <text x="280" y="352" font-size="19" text-anchor="middle">Orders in hand</text>
+  <text x="280" y="478" font-size="20" font-weight="700" text-anchor="middle">The one you can see</text>
+
+  <rect x="620" y="370" width="200" height="70" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="620" y="190" width="200" height="180" fill="none" stroke="var(--warn)" stroke-width="4" stroke-dasharray="8 7"/>
+  <text x="720" y="414" font-size="19" text-anchor="middle">Orders in hand</text>
+  <text x="720" y="282" font-size="19" fill="var(--warn)" text-anchor="middle">Will win the next round too</text>
+  <text x="720" y="478" font-size="20" font-weight="700" text-anchor="middle">The one held up by a story</text>
+
+  <path d="M420 220 L580 220" fill="none" stroke="var(--warn)" stroke-width="6"/>
+  <polygon points="580,206 580,234 614,220" fill="var(--warn)"/>
+  <text x="500" y="196" font-size="16" fill="var(--dim)" text-anchor="middle">Moved this week</text>
+
+  <text x="60" y="528" font-size="22" font-weight="700">Only the dashed block gets shaken</text>
+</svg>
