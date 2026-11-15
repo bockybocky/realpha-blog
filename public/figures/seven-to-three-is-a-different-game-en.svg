@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Four share bars: the first two are close to even, the third is clearly lopsided and marked in a warning colour, and the last one is flipped the other way.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t  { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g  { font-size:19px; fill:var(--dim); font-weight:700; }
+    .b  { font-size:16px; fill:var(--ink); }
+    .c  { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="40" y="54">70/30 isn't a small gap — it's a different game</text>
+  <text class="g" x="200" y="104">Us</text>
+  <text class="g" x="880" y="104" text-anchor="end">Them</text>
+
+  <text class="g" x="180" y="162" text-anchor="end">50/50</text>
+  <rect x="200" y="140" width="340" height="30" fill="var(--accent)"/>
+  <rect x="540" y="140" width="340" height="30" fill="var(--grey)"/>
+  <text class="b" x="900" y="162">Live</text>
+
+  <text class="g" x="180" y="232" text-anchor="end">60/40</text>
+  <rect x="200" y="210" width="272" height="30" fill="var(--grey)"/>
+  <rect x="472" y="210" width="408" height="30" fill="var(--grey)"/>
+  <text class="b" x="900" y="232">Live</text>
+
+  <text class="g" x="180" y="302" text-anchor="end">70/30</text>
+  <rect x="200" y="280" width="204" height="30" fill="var(--warn)"/>
+  <rect x="404" y="280" width="476" height="30" fill="var(--grey)"/>
+  <text class="b" x="900" y="302" fill="var(--warn)">Gone</text>
+
+  <line x1="200" y1="346" x2="880" y2="346" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="g" x="180" y="402" text-anchor="end">3+ yrs on</text>
+  <rect x="200" y="380" width="476" height="30" fill="var(--accent)"/>
+  <rect x="676" y="380" width="204" height="30" fill="var(--grey)"/>
+  <text class="c" x="40" y="490">Same price, twice the customers walk in next door</text>
+</svg>

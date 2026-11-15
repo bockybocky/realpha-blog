@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="曲線在門檻前貼地、過門檻後陡升，門檻左邊整片被標成換不到東西">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t  { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g  { font-size:19px; fill:var(--dim); font-weight:700; }
+    .b  { font-size:16px; fill:var(--ink); }
+    .c  { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="40" y="54">量級之前，沒有中間狀態</text>
+
+  <rect x="150" y="100" width="370" height="330" fill="var(--warn)" opacity="0.08"/>
+  <line x1="150" y1="100" x2="150" y2="430" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="150" y1="430" x2="900" y2="430" stroke="var(--grey)" stroke-width="2"/>
+  <text class="g" x="40" y="150">換得到的</text>
+  <text class="g" x="40" y="174">價值</text>
+  <text class="g" x="880" y="466" text-anchor="end">月活人數</text>
+
+  <path d="M150 424 C 300 422, 440 418, 520 410 C 620 396, 740 300, 890 130"
+        fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <line x1="520" y1="100" x2="520" y2="430" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 7"/>
+  <text class="g" x="534" y="130" fill="var(--warn)">月活一千萬</text>
+  <text class="b" x="200" y="400">沒有小而美</text>
+  <text class="c" x="40" y="500">撐不到這條線，什麼都換不到</text>
+</svg>

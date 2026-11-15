@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩軸定位圖，左下角是又遠又輕的那一點，箭頭往右上推到又近又重的那一點">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t  { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g  { font-size:19px; fill:var(--dim); font-weight:700; }
+    .b  { font-size:16px; fill:var(--ink); }
+    .c  { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="40" y="54">貼得更近，就背得更重</text>
+
+  <rect x="160" y="100" width="730" height="330" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="160" y1="430" x2="890" y2="430" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="160" y1="100" x2="160" y2="430" stroke="var(--grey)" stroke-width="2"/>
+  <text class="g" x="160" y="464">離生活場景　遠</text>
+  <text class="g" x="890" y="464" text-anchor="end">近</text>
+  <text class="g" x="40" y="150">營運人力</text>
+  <text class="g" x="144" y="118" text-anchor="end">重</text>
+  <text class="g" x="144" y="424" text-anchor="end">輕</text>
+
+  <circle cx="300" cy="380" r="12" fill="var(--grey)"/>
+  <text class="b" x="326" y="376">Craigslist</text>
+  <text class="b" x="326" y="400">約五十人</text>
+  <circle cx="760" cy="180" r="12" fill="var(--accent)"/>
+  <text class="b" x="736" y="176" text-anchor="end">Jimoty</text>
+  <text class="b" x="736" y="200" text-anchor="end">時代變了</text>
+  <line x1="330" y1="362" x2="716" y2="206" stroke="var(--accent)" stroke-width="3" stroke-dasharray="8 6"/>
+  <polygon points="730,200 712,200 722,216" fill="var(--accent)"/>
+  <text class="c" x="40" y="512">單位經濟的空間，比那個五十人的版本窄</text>
+</svg>
