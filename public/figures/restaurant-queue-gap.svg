@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="餐廳座位數不變，門外三十個排隊小點走掉五個，隊伍仍然很長" font-family="&quot;Noto Sans TC&quot;,&quot;Microsoft JhengHei&quot;,&quot;PingFang TC&quot;,sans-serif">
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+  </style>
+  <text x="60" y="56" font-size="27" fill="var(--ink)">走掉五個，桌子不會多出來</text>
+
+  <rect x="60" y="110" width="300" height="300" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="80" y="144" font-size="19" fill="var(--ink)">餐廳：已經坐滿</text>
+  <g fill="var(--accent)">
+    <rect x="86" y="170" width="54" height="54" rx="8"/>
+    <rect x="156" y="170" width="54" height="54" rx="8"/>
+    <rect x="226" y="170" width="54" height="54" rx="8"/>
+    <rect x="86" y="244" width="54" height="54" rx="8"/>
+    <rect x="156" y="244" width="54" height="54" rx="8"/>
+    <rect x="226" y="244" width="54" height="54" rx="8"/>
+    <rect x="86" y="318" width="54" height="54" rx="8"/>
+    <rect x="156" y="318" width="54" height="54" rx="8"/>
+    <rect x="226" y="318" width="54" height="54" rx="8"/>
+  </g>
+  <text x="80" y="398" font-size="16" fill="var(--dim)">桌子數量＝供給</text>
+
+  <text x="420" y="144" font-size="19" fill="var(--ink)">門外排隊＝需求</text>
+  <g fill="var(--grey)">
+    <circle cx="440" cy="190" r="12"/><circle cx="478" cy="190" r="12"/><circle cx="516" cy="190" r="12"/>
+    <circle cx="554" cy="190" r="12"/><circle cx="592" cy="190" r="12"/><circle cx="630" cy="190" r="12"/>
+    <circle cx="668" cy="190" r="12"/><circle cx="706" cy="190" r="12"/><circle cx="744" cy="190" r="12"/>
+    <circle cx="782" cy="190" r="12"/>
+    <circle cx="440" cy="236" r="12"/><circle cx="478" cy="236" r="12"/><circle cx="516" cy="236" r="12"/>
+    <circle cx="554" cy="236" r="12"/><circle cx="592" cy="236" r="12"/><circle cx="630" cy="236" r="12"/>
+    <circle cx="668" cy="236" r="12"/><circle cx="706" cy="236" r="12"/><circle cx="744" cy="236" r="12"/>
+    <circle cx="782" cy="236" r="12"/>
+    <circle cx="440" cy="282" r="12"/><circle cx="478" cy="282" r="12"/><circle cx="516" cy="282" r="12"/>
+    <circle cx="554" cy="282" r="12"/><circle cx="592" cy="282" r="12"/>
+  </g>
+  <g fill="none" stroke="var(--warn)" stroke-dasharray="4 4">
+    <circle cx="668" cy="282" r="12"/><circle cx="706" cy="282" r="12"/><circle cx="744" cy="282" r="12"/>
+    <circle cx="782" cy="282" r="12"/><circle cx="820" cy="282" r="12"/>
+  </g>
+  <text x="640" y="326" font-size="16" fill="var(--warn)">走掉五個</text>
+  <text x="420" y="326" font-size="16" fill="var(--dim)">還在排</text>
+
+  <text x="420" y="398" font-size="19" fill="var(--ink)">缺口＝排隊 減 桌子，仍然是正的</text>
+  <text x="60" y="476" font-size="22" fill="var(--ink)">資本支出放緩動的是右邊，不是左邊。</text>
+</svg>

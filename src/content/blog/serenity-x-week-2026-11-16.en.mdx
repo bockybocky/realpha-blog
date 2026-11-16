@@ -1,0 +1,119 @@
+---
+title: "A Week of Serenity's Public Posts, Lined Up: The Same Class of Laser, a New Architecture, a New Price Band"
+description: "Serenity, an independent researcher on X, posted a batch of public notes between 9 and 14 November 2026. I read them along four lines: the price ladder for optical lasers, the bottleneck TSMC named on stage, a restaurant-queue metaphor that puts a capex slowdown and price hikes in the same picture, and the invisible position distribution occupies. Notes on industry structure: no tickers, no recommendations, no price targets."
+slug: "serenity-x-week-2026-11-16"
+lang: "en"
+pubDate: 2026-11-16
+category: "investing"
+kind: "podcast-notes"
+tags: ["optics", "CW lasers", "co-packaged optics", "AI infrastructure", "distribution", "how to read information"]
+ogImage: "/covers/serenity-x-week-2026-11-16-cover.png"
+cover: "/covers/serenity-x-week-2026-11-16-cover.png"
+tldr: "A laser die went from tens of cents in the telecom era to $50-75 for co-packaged optics, and what moved the price was which architecture it gets designed into; doubling the units does nothing comparable. In a supply chain like that, the timing of an architecture transition is worth watching more closely than the demand headlines."
+---
+
+![Inside an optical chip test floor, the nearest station glowing red and running, a long row of identical stations receding into the depth of the building past where the eye can follow](/covers/serenity-x-week-2026-11-16-cover.png)
+
+> There is a saying among the men of Qi: though you have wisdom, it is better to ride the moment; though you have the hoe, it is better to wait for the season.
+>
+> — Mencius, Gongsun Chou I, quoting a saying of Qi (my own rendering)
+
+Across the public posts Serenity put on X between 9 and 14 November 2026, one line comes out clearer than the rest: the continuous-wave laser used in optical networking has gone from 20-50 cents a die in the telecom era to $50-75 for the 400mW part that co-packaged optics needs, and it stepped up a band at every architecture transition along the way. In the same week, asked on a public panel whether demand was slowing, TSMC said it saw no sign of it, and named the two bottlenecks customers were running into: power and substrates. Here is the limit on all of this: that price table comes from channel checks and two broker estimates, and ties back to no filing anywhere, so it is good for reading direction and useless for computing anyone's earnings.
+
+## What This Week's Posts Are About
+
+Serenity writes about the upstream of AI infrastructure, concentrated in four areas: optics, memory, packaging and power. His angle sits on components and materials, and he rarely talks about end applications.
+
+He posted a couple of dozen notes over these seven days, against a loud tape: Taiwan's AI names limit-up in a single session, the CEO of the dominant accelerator maker tangled in a run of press leaks, and a market that heard capacity-cut rumours and customers shouting shortage in the same breath. Weeks like this are the hard ones to read, because the sentiment signal and the structural signal sit on one timeline, and the sentiment posts always get the better engagement. So I gave up on reading in order and regrouped the posts by subject, which let the noise float to the surface on its own.
+
+Everything here comes from posts he published openly, the kind anyone can click through to; whatever sits behind his paywall is not part of my material. The numbers come from public filings, public talks and public news, and they fall into three tiers of hardness: statements from TSMC and SoftBank executives come from live Q&A at a public forum and an earnings call, which is the hardest tier; the laser price bands come from channel checks and broker estimates; the distributor share of a large vendor's revenue, and the margin outlook, are his own estimates, and the vendor stopped naming its distributors in filings after a certain year. Five posts also break off mid-sentence. I used only the part I can see and did not finish his sentences for him.
+
+## 1. The Price Ladder: The Price Steps Up When the Architecture Does
+
+His 10 November post lines the continuous-wave laser up into a ladder. A CW laser is the die that puts out a steady beam of light; a data centre uses it to modulate electrical signals onto light and push them into fibre.
+
+The bands: 70mW at roughly $3-4; 100mW at roughly $4-6, with some deals reportedly reaching $7-9 during the recent pluggable shortage; 120-150mW for near-package optics at roughly $15-20; a 350mW high-power part at roughly $40; and the 400mW part co-packaged optics calls for at $50-75. In the same post he sets the old reference beside it: communication laser dies used to sell for 20-50 cents.
+
+![From left to right, six ascending steps rise from nearly ground level, representing tens of cents in the communications era, to a towering final step representing $50–75 for co-packaged lasers.](/figures/cw-laser-price-ladder-en.svg)
+
+Near-package and co-packaged optics, in plain words, mean moving the optical parts closer to the compute die, in the second case into the same package. The shorter the signal has to travel, the less power it burns, but the light source has to be brighter and steadier, so the power requirement on the laser jumps.
+
+![Three side-by-side panels show the laser blocks moving progressively closer to the compute chip, while the power bars above grow taller; in the rightmost panel, the laser is enclosed within the same package by a dashed outline.](/figures/laser-architecture-distance-power-en.svg)
+
+Two things he adds strike me as more useful than the prices themselves. First, selling price and gross margin step up with every architectural shift, and margin on co-packaged lasers can run above 60%. Second, going one layer downstream and selling the laser as a module-level product was roughly 2.5x — his sentence breaks off right there, so the multiple is all I have, and I cannot tell whether 2.5x refers to price or to some other field.
+
+Stack those three and the line reads: the profit engine on this layer hangs on the schedule of architecture transitions, with a much looser tie to how many data centres got built. Double the units and the die is still $4; move one architecture forward and the same part is $50. So the fields to watch here are when a given architecture goes into volume, and whether a vendor's product is on the list for that generation.
+
+![A right-angle shape shows a long horizontal line that stays completely flat as it moves right, while a short vertical line jumps sharply upward, indicating that price stays unchanged with shipment volume but jumps with an architecture change.](/figures/volume-flat-architecture-jump-en.svg)
+
+## 2. The Two Words TSMC Named: Power and Substrates
+
+On 11 November he quoted TSMC's live Q&A at a Nikkei forum. Asked whether demand was slowing: no sign of a slowdown. Asked how demand compared with its ability to supply: demand is still far above what it can supply today. The word used for leading-node silicon was insatiable.
+
+Those sentences are tone. The one after them carries information: TSMC identified power and substrates as the bottlenecks customers were hitting. Coming from a foundry, that lands differently than it would from a company selling materials — a foundry describing its customers' bottleneck is describing someone else's problem, with one layer of self-interest removed.
+
+The same post carries a cloud provider's line that compute demand runs ten times supply. I left that multiple out, because nothing can check it. What can be followed are the two named words. Both share a trait: expansion lead times measured in years, and the queue to beat sits outside the industry, a utility's interconnection schedule being the obvious one. He never specifies which kind of substrate he means, and I have not filled that in for him.
+
+## 3. The Restaurant Queue: One Sentence That Holds Two Contradictions
+
+On 13 November he quoted a Korean memory executive on how tight supply and a capex slowdown coexist: thirty people are lined up outside a restaurant that is already full, and five of them leaving does not create a table.
+
+I think that is the line worth copying out of this week. It separates two numbers I usually run together: the queue is demand, the tables are supply, and the shortage equals one minus the other. When the market argues about a capex slowdown, it argues about the queue; as long as the gap stays positive, prices on the bottleneck layer hold. He attached conditions himself: the number of tables will grow, yet shortages and price hikes in the bottlenecks can persist through a capex slowdown and through capacity buildout. The next sentence is mine, and he never wrote it — the shelf life of this frame is set by when capacity actually starts shipping, and sentiment about demand does not get a vote.
+
+The frame can be misused, so I added a rule for myself: it holds only on layers where tables are hard to add. On a layer that can double capacity within a year, five people leaving is simply five people leaving.
+
+![A fully seated restaurant stands beside a line of thirty small dots, five of which have faded as they leave, while the number of seats inside remains completely unchanged.](/figures/restaurant-queue-gap-en.svg)
+
+## 4. Distribution: Invisible on the Invoice, Collecting All the Same
+
+On 11 November he wrote about a Taiwanese distributor introducing its first CW distributed-feedback laser line card, and said it matters more than people think. His argument runs along revenue paths: one chip company puts 74% of its revenue through distributors, and for another vision-chip company roughly 60-70% of revenue went through this one distributor. As for that distributor specifically, even for a large networking vendor its share went from 13% of revenue in 2020 to 18%, 20%, 21%, 28%, and possibly near 46% now — he notes the vendor stopped naming distributors after a certain year, so the last figure is an estimate.
+
+What follows is my own inference; he never wrote it this way. The first line says the same laser jumps a price band at each architecture transition; this line says a large share of those goods reach the customer through a distributor's hands. Put them together and the question becomes whose books the spread lands on. A distributor earns a percentage of the spread, so when the same part goes from $4 to $50, its absolute profit scales with it, without building a fab or betting on a process node. What makes this layer interesting is that it shows up on nobody's statements — an agent's name never appears in a product spec, yet it decides who gets allocation. I cannot verify the inference, because neither side publishes the detail; I filed it as a position to watch, some distance short of a conclusion.
+
+![Three suppliers’ product flows converge into a narrow central node before fanning out to customers, while the box on the right representing the product specification sheet has a blank dashed space where that node should be.](/figures/distributor-invisible-middle-en.svg)
+
+## 5. Right Technology, Late Window, Someone Else Collects
+
+On 13 November he answered a question about a Nordic photonics company, and that post has the strongest structure of the week. Before 2026 the company targeted custom co-packaged deployments, and most of those designs got pushed out to 2028. Only in the third quarter of 2025 did it pivot to mass-commercialisation products, picking up seven pluggable customers. His verdict: because the weight sat on custom co-packaged work, it missed deployment windows others are capitalising on.
+
+I read that one twice. None of it is about whether the technology is good: the company is sampling 200mW near-package lasers and hints at 400mW for co-packaged optics later, and the roadmap is sound. What went wrong is timing — resources parked at a window three years out while somebody else takes the demand of the next two years.
+
+The control group sits in his 11 November post. A company making indium phosphide substrates (indium phosphide is a compound semiconductor substrate material; most laser dies are grown on wafers of it) ran gross margin from 20.9% in the fourth quarter of 2025 to 29.6%, 44.9% and 56.0% through 2026, with the fourth quarter estimated above 60%; he notes that a year ago the market treated it as a dying company and indium phosphide as a commodity. One supply chain, one company early on the window and one late, and two years later the filings look nothing alike, with neither company's technology at fault.
+
+![A line chart climbs quarter by quarter from just above 20% to 56.0%, with the final segment marked as an estimate by a dashed line.](/figures/inp-substrate-gross-margin-climb-en.svg)
+
+## 6. Key Person and Single-Ecosystem Exposure, as a Supply Chain Variable
+
+A large block of his week covers the governance turmoil around the dominant accelerator maker. I take only the structural part: he argues one executive's leadership is a negative for the ecosystems and the financing centred on that company, while a photonics supplier that sells to everyone and has long-term visibility is far more insulated.
+
+That test travels beyond the case. If a supplier has one customer, or its expansion plan is tied to one buyer's purchasing and financing, then that buyer's governance, personnel and policy risk pass through to its order book untouched. A supplier that sells to everyone gets hurt when the whole industry's capex turns. This line describes the shape of the exposure, and says nothing about company quality.
+
+![On the left, one supplier connects by a single thick line to a lone customer, so risk travels straight down that line; on the right, a supplier fans out along many thin lines to a broad set of customers.](/figures/exposure-shape-single-vs-many-en.svg)
+
+The same week offers a small lesson about source hardness. Someone on social media alleged that SoftBank was defaulting on turbine orders; asked about it on an earnings call, SoftBank's CFO denied it outright, saying no such default exists, and the CEO of a heavy-equipment maker separately said he was seeing no procurement cancellations or counterparty financing trouble. Serenity left himself a line in the post: he wonders whether there is more nuance to the claims or whether they are simply false. An accusation on a timeline and an answer on an earnings call differ by an order of magnitude in accountability, and the two look identical as you scroll.
+
+## Once It Is All Lined Up, What Is the Reader's Problem
+
+My guess is that plenty of people are stuck where I am: dozens of individual posts in a week, every one of them plausible, and no way to tell which has structural meaning.
+
+The first filter I worked out is to ask whether a post changes the price or the capacity schedule of some layer. TSMC's "power and substrates" does, because it names two layers whose expansion runs in years. "Demand is ten times supply" does not, because no later event can overturn it. If a piece of news cannot move my expectation on any field, it is background noise for the tape; reading it costs nothing, and writing it down costs something.
+
+The second filter separates tight supply from pricing power. They look alike and need splitting: in a shortage everyone shouts tight, and only the layer that can raise prices, sign long-term agreements and show the margin following has actually taken the bargaining power. Last week I used "who has paid money for it" as the filter; this week I am swapping in a field that is easier to look up, which is gross margin. That substrate maker ran gross margin from 20.9% to 56.0% over four quarters, and gross margin goes into the filings, so there is a ledger behind the claim.
+
+The third one picks up from last week. Last week I wrote about giving every judgement a date; this week the Nordic company showed me what a missing date costs: the roadmap is sound, the window is late, and the orders of the next two years land in somebody else's book, while both cases read as equally convincing at the time. So I have tightened that sentence into a quarter by which I should see a first order or a first dollar of revenue. I often cannot write it, and the judgements where I could not were mostly the ones that later got stuck on time.
+
+## Taking the Ladder Somewhere Else
+
+One last shape that travels. The price ladder shows up cleanly in optics because the architecture names are written into the product itself: pluggable, near-package, co-packaged — three generations, three price bands. Yet "the same part lands in a different price band depending on where it gets installed" holds in a lot of industries.
+
+The same ceramic capacitor is one price in a toy and another in a data centre power module; the same bearing is one price on a bicycle and another in a robot joint. Another of his posts this week notes the overlap between humanoid and AI data centre constraints, naming MLCCs in power and drivers, PCBs for joint controllers, lasers for LiDAR, and DRAM paired with compute. I read that one as a list: the same basket of parts about to be designed into a new architecture.
+
+So when a component question reaches me now, my first question has changed to this: which generation of architecture is it installed in today, when does the next one start shipping, and is it on the list for that generation. Those are harder to look up than a unit growth rate, and the payoff for getting them right is a band apart — the band between $4 and $50.
+
+## One Thing to Take With You
+
+Which price band a part lands in is decided by the architecture it gets designed into.
+
+Next time you finish building the case for a component question, add two boxes on the same sheet: which architecture generation it sits in today, and when the next generation starts shipping. If either box stays empty, park the judgement there instead of pushing it further. I filled in a round of these myself, and the second box was empty most of the time; what I had been using in its place was a unit growth rate, which is the habit this whole piece is trying to fix.
+
+If you want the raw material behind this piece, Serenity's account is on X, and the original threads from 9 to 14 November are still up, including the laser price table and the source of the restaurant line.
