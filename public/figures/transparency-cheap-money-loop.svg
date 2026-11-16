@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="四個節點組成的順時針閉環，環線一段比一段粗，表示這個回饋圈每轉一圈就更有力">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="66" font-size="27" font-weight="700" fill="var(--ink)">越轉越粗的那個圈</text>
+
+  <path d="M480 150 A 150 150 0 0 1 630 300" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <path d="M630 300 A 150 150 0 0 1 480 450" fill="none" stroke="var(--accent)" stroke-width="6"/>
+  <path d="M480 450 A 150 150 0 0 1 330 300" fill="none" stroke="var(--accent)" stroke-width="9"/>
+  <path d="M330 300 A 150 150 0 0 1 480 150" fill="none" stroke="var(--accent)" stroke-width="12"/>
+  <path d="M470 141 L 492 150 L 470 159 Z" fill="var(--accent)"/>
+
+  <circle cx="480" cy="150" r="9" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="630" cy="300" r="9" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="480" cy="450" r="9" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="330" cy="300" r="9" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+
+  <text class="t" x="480" y="124" font-size="20" font-weight="700" text-anchor="middle" fill="var(--ink)">市民成了債主</text>
+  <text class="t" x="664" y="306" font-size="20" fill="var(--ink)">帳攤得開</text>
+  <text class="t" x="480" y="492" font-size="20" font-weight="700" text-anchor="middle" fill="var(--ink)">借得便宜</text>
+  <text class="t" x="296" y="306" font-size="20" text-anchor="end" fill="var(--ink)">本錢更多</text>
+
+  <text class="t" x="480" y="296" font-size="16" text-anchor="middle" fill="var(--dim)">威尼斯</text>
+  <text class="t" x="480" y="320" font-size="16" text-anchor="middle" fill="var(--dim)">荷蘭．英國</text>
+</svg>
