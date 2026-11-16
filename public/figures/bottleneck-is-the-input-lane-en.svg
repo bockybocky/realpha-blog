@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Shortening the long input segment shortens the total time while the compute segment stays the same.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62">Not compute</text>
+  <text class="g" x="60" y="152">Old</text>
+  <rect x="180" y="128" width="540" height="40" rx="4" fill="var(--grey)"/>
+  <rect x="720" y="128" width="100" height="40" rx="4" fill="var(--accent)"/>
+  <text class="b" x="200" y="155" fill="var(--page)">Load data</text>
+  <text class="b" x="740" y="200">Run</text>
+  <text class="g" x="60" y="302">New</text>
+  <rect x="180" y="278" width="340" height="40" rx="4" fill="var(--grey)"/>
+  <rect x="520" y="278" width="100" height="40" rx="4" fill="var(--accent)"/>
+  <text class="b" x="200" y="305" fill="var(--page)">Auto input</text>
+  <line x1="520" y1="268" x2="720" y2="268" stroke="var(--warn)" stroke-width="3"/>
+  <text class="b" x="620" y="254" fill="var(--warn)" text-anchor="middle">Saves 20 to 40%</text>
+  <line x1="820" y1="118" x2="820" y2="178" stroke="var(--line)" stroke-width="2"/>
+  <line x1="620" y1="268" x2="620" y2="328" stroke="var(--line)" stroke-width="2"/>
+  <text class="c" x="60" y="420">Peak same, faster</text>
+  <text class="b" x="60" y="460">100 ops/sec: ugly on a spec sheet</text>
+</svg>

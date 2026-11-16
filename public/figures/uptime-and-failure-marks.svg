@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="可用率約四分之三的長條，下方是密集等距的故障記號">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); font-weight:700; }
+    .g { font-size:20px; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62">規格表上看不到的那一欄</text>
+  <text class="g" x="60" y="126">一年</text>
+  <rect x="60" y="142" width="840" height="48" rx="5" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="60" y="142" width="613" height="48" rx="5" fill="var(--accent)"/>
+  <text class="b" x="80" y="172" fill="var(--page)">可用 73%</text>
+  <text class="b" x="693" y="172" fill="var(--warn)">停機</text>
+  <text class="g" x="60" y="276">一週</text>
+  <line x1="60" y1="320" x2="900" y2="320" stroke="var(--line)" stroke-width="2"/>
+  <g stroke="var(--warn)" stroke-width="3">
+    <path d="M86 306 l20 28 M106 306 l-20 28"/>
+    <path d="M178 306 l20 28 M198 306 l-20 28"/>
+    <path d="M270 306 l20 28 M290 306 l-20 28"/>
+    <path d="M362 306 l20 28 M382 306 l-20 28"/>
+    <path d="M454 306 l20 28 M474 306 l-20 28"/>
+    <path d="M546 306 l20 28 M566 306 l-20 28"/>
+    <path d="M638 306 l20 28 M658 306 l-20 28"/>
+    <path d="M730 306 l20 28 M750 306 l-20 28"/>
+    <path d="M822 306 l20 28 M842 306 l-20 28"/>
+  </g>
+  <text class="b" x="60" y="368">每 18.5 小時一次故障</text>
+  <text class="b" x="60" y="420">兩年：3,096 支真空管、5,700 顆二極體</text>
+  <text class="c" x="60" y="476">這也是瓶頸，而它不寫在規格表上</text>
+</svg>

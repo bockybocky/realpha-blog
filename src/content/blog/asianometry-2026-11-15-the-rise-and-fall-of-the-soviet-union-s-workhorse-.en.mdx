@@ -1,0 +1,140 @@
+---
+title: "The Rise and Fall of the Soviet Union's Workhorse Computer: the Urals and the 8-Bit Byte"
+description: "Notes from Asianometry's 2026-11-15 episode on the Soviet Ural computers: 183 machines built, 73% availability, 18.5 hours between failures, and the 1966–67 committee that chose to clone the IBM System/360. Educational tech history; no investment advice and no stock discussion."
+slug: "asianometry-2026-11-15-the-rise-and-fall-of-the-soviet-union-s-workhorse-"
+lang: "en"
+pubDate: 2026-11-16
+category: "investing"
+kind: "podcast-notes"
+tags: ["tech history", "Soviet Union", "computing industry", "standards", "Asianometry"]
+tldr: "The Urals put the first usable computers into 128 Soviet cities, then got routed around in a standards fight decided by software and interoperability rather than clock speed."
+ogImage: "/covers/asianometry-2026-11-15-the-rise-and-fall-of-the-soviet-union-s-workhorse--cover.png"
+cover: "/covers/asianometry-2026-11-15-the-rise-and-fall-of-the-soviet-union-s-workhorse--cover.png"
+---
+
+![A dim 1960s computing hall, rows of glass-doored cabinets with orange glowing vacuum tubes and blinking indicator lamps receding into the distance, one engineer crouched at an open cabinet door repairing the machine](/covers/asianometry-2026-11-15-the-rise-and-fall-of-the-soviet-union-s-workhorse--cover.png)
+
+> She knew the frown was beautiful, and did not know why the frown was beautiful.
+> (*Pin* means to knit the brows. The homely woman saw Xi Shi press her aching chest and frown, copied it at home, and her neighbours shut their doors and fled.)
+>
+> —— *Zhuangzi*, "The Turning of Heaven" (Warring States; my own translation)
+
+Asianometry's 15 November 2026 episode, "The Rise and Fall of the Soviet Union's Workhorse Computer," traces the Soviet Ural series. The host cites a 1962 account of one Ural-1 that gave programmers roughly 73% availability over a year and averaged 18.5 hours between failures — and still, 183 of them were built between 1957 and 1961, running in over 128 Soviet cities by the early 1960s. The hinge of the story falls in 1966 and 1967, when a committee decided that Soviet machines needed the 8-bit byte to talk to Western computers; once the 8-bit byte was in, going the rest of the way to IBM System/360 compatibility — and inheriting its mature software libraries — cost little extra. One limit worth stating up front: these figures are the episode's own citations, and the claim that cloning would "bring the development of computer technology in our nation to an end" is designer Bashir Rameev's contemporary argument, which the episode presents as his warning rather than as a verified outcome.
+
+![A horizontal timeline from 1946 to 1972 in which the Ural nodes climb steadily to their highest point in 1965, and after a committee decision marked in a warning colour across 1966 to 1967 the line turns downward and breaks off at 1972.](/figures/ural-timeline-rise-and-cut-en.svg)
+
+## 1946 to 1954: a letter nobody answered, and the first machines
+
+In 1946 the American press turned ENIAC into a "gigantic mathematical robot," a "mechanical Einstein" that could do a hundred years of work in two weeks. Two months after the announcement, the Soviet Union's Government Purchasing Commission in the United States wrote to the University of Pennsylvania asking for a robot calculator of its own. The request was never formally answered, so the Soviets started building.
+
+One of the builders was Bashir Iskandarovich Rameev, born in May 1918 into a Tatar family in Bashkortostan. His grandfather was a wealthy gold miner, arts patron and poet; his father studied mining in Germany and worked the local mines as an engineer. As a schoolboy Rameev built a radio-controlled model train sophisticated enough to draw press attention. In 1938 his father was arrested as a political criminal — perhaps for the foreign education and liberal views — and died in the camps in 1943, reportedly ten days before his scheduled release. As the "son of the enemy of the people," Rameev had to leave his institute as a sophomore and never finished his degree. He found work as a technician at Moscow's Central Research Institute of Communications, volunteered for a communications battalion during the war, and ran radio links for soldiers in the liberation of Kyiv.
+
+How he got interested in computers is murky. Boris Malinovsky's *Pioneers of Soviet Computing* says Rameev heard a 1947 BBC broadcast about ENIAC; the host finds that hard to swallow, since the son of an enemy of the people tuning into the BBC at the height of the Stalin era is not a likely scene. Either way he learned a great deal about foreign machines, reached Isaak Brook, joined his laboratory as a design engineer, and the two proposed the Soviet Union's first digital computer: the ATsVM, a general-purpose machine at 2,000 operations per second, with input/output, two adders, a multiplier, a divider, storage for inputs and intermediate results, a program controller, and a small "interpolator" that acted as a lookup table to shortcut awkward calculations. While writing it, Rameev was living in borrowed rooms around Moscow with everything he owned in three paper bags, burning pages from a book of Czarist legislation to keep warm.
+
+Special Design Bureau No. 245, founded in December 1948, took parts of the ATsVM design into the STRELA series. Yuri Bazilevsky was chief designer, Rameev his deputy, running the arithmetic unit and the magnetic drum. The two argued often, the tubes were unreliable, and they worked nights and weekends against Sergei Lebedev's rival BESM. STRELA won the first round: the Stalin Prize in 1954 and a recommendation for mass production. Seven were built, no two of them alike. Rameev remembered a visitor at the Institute of Applied Mathematics watching the first one run and exclaiming that five to seven such computers would put the Soviet Union in great shape. Then BESM got the cathode ray storage tubes it had earlier been denied through political manoeuvring, hit 8,000 to 10,000 operations per second, and pulled ahead to become one of the better computers in Europe.
+
+## 1956: the slow machine is the main character
+
+Rameev's next project at SKB-245, the M-53, became the Ural-1 — a nod to the mountains, and an acronym for "Universal Electronic Digital Machine for Engineering Research." He wanted a workhorse for everything from artillery sighting to crystallography, designed from the ground up for industrial production.
+
+It had a magnetic drum working memory of about 1,024 words plus 40,000 words of auxiliary memory, over 870 vacuum tubes and 3,000 germanium diodes. Input came on 35-millimetre cinema tape: programmers punched holes into strips up to 300 metres long, divided into numbered zones, glued into a loop and read by a germanium photodiode. At 100 operations per second it was an order of magnitude slower than STRELA or BESM — neither of which was its peer class. Its peer was the IBM 650, a cheaper machine mass-produced for mid-sized businesses.
+
+![Two pairs of horizontal bars cross each other: the top machine has a long speed bar but an extremely short production bar, while the bottom machine has an extremely short speed bar and a long production bar.](/figures/speed-versus-reach-crossing-en.svg)
+
+At the Soviet Union's first computer conference in 1956, Rameev argued that judging computers by raw operations per second misleads, because entering new data and new programs is the larger bottleneck to productivity. He built to that belief: extra automation on the Ural-1's data input, and an extended instruction set with two instructions that repeat a calculation as it moves through a list of numbers. The host compares them to the modern for-loop, his go-to back when he programmed by hand. Rameev wrote that the loop cut problem-solving time by 20 to 40%.
+
+![Two stacked bars of total time to solve a problem: in the upper bar the input segment is long and the compute segment short, and in the lower bar the input segment has been shortened so the whole bar is clearly shorter while the compute segment is unchanged.](/figures/bottleneck-is-the-input-lane-en.svg)
+
+## 1955 to 1962: the man on the factory floor
+
+In 1955 the prototype design moved to a factory in Penza, about 400 miles southeast of Moscow on the Sura River — a former frontier fortress turned machinery, engine and bicycle town. Rameev relocated to oversee production and debug, of which there was plenty: photodiodes leaked, the magnetic drum broke down, and he could often be found on the factory floor fixing things himself.
+
+In late 1956 the first machines passed final tests and shipped to computer centres, where they often broke down on arrival; they were sensitive to temperature and humidity. Beyond the 73% and 18.5-hour figures, the same era records one system consuming 3,096 tubes and 5,700 diodes in two years.
+
+![A long bar representing one year is about three quarters filled to show available time with the remainder left blank, and below it a timeline is densely marked with evenly spaced failure crosses.](/figures/uptime-and-failure-marks-en.svg)
+
+Even so, the Ural-1 was the first computer made available to the Soviet people. Unit two went to the Baikonur Cosmodrome in Kazakhstan; setup took months, and once running, programmers wrote ten specialised programs automating ballistics and trajectory calculations — experience that became one of the first programming textbooks published in the Soviet Union, *Programming for Digital Computing Machine, URAL-1*. Voronezh University received theirs in 1959, opened new programming classes, and used it for weather prediction, surveying and mapping, Monte Carlo algorithms and quantum physics. Spinoffs followed: STANOK as a metal-cutting controller, Pogoda for monthly weather forecasts. Export versions ran in Bulgaria, East Germany, Czechoslovakia, Norway, Turkey, Egypt and India.
+
+## 1959 to 1964: ferrite cores and the flashing room
+
+In 1957, with the Ural-1 spreading across the country, Rameev proposed a second machine reusing much of its hardware work. The Ural-2's biggest change was ferrite core memory: random access with no moving parts, and the main contributor to a fiftyfold jump from 100 to 5,000 operations per second. It also added floating point arithmetic — a sore point on the Ural-1 — a new instruction set and larger memory words. Unveiled in 1959 while the Ural-1 was still in production, it stood with the BESM-II and the M-20 as one of the era's three major Soviet digital computers; the five-year run produced a recorded 139 units, with machines first used in Soviet Russia later passed down to the rest of the Eastern Bloc.
+
+Charles Simonyi, the Hungarian-American who worked on early versions of Microsoft Office, recalled in a Computer History Museum oral history seeing a Ural-2 at the Hungarian Central Statistical Bureau as a teenager in 1964:
+
+> I visited this machine once and I was blown away by the grandeur of it. It's bigger than anything that I've seen before. It's as big as a 6600 and it certainly has more lights... The tube was sticking out from a unit, and next to it there was a light that was indicating the state of the flip-flop, and the tubes were of course glowing constantly in a very nice orange color, and then the little light was blinking. And if you can think of a thousand of these in glass cabinets... as the machine was running the whole room was flashing in intricate patterns, very much like the cheap science fiction movie.
+
+Filmmakers of the era had the same instinct. A Ural-2 appears in the 1964 Polish thriller *Meeting with a Spy*, where counter-intelligence agents decode the spy's signals with it — a symbol of a competent, technologically sophisticated state.
+
+## 1958 to 1965: into accounting, and a raid
+
+The next machine pivoted. Rameev had heard about IBM's burgeoning 700 series, the first large-scale stored-program mainframes Big Blue became known for — FORTRAN was invented for them. Inspired, in 1958 he steered the next computer, the Ural-4 (the reason for skipping 3 is unclear), towards accounting, statistics and economic planning, proposing more external memory plus support for an alphanumeric printer and punch cards.
+
+It looked identical to the Ural-2 and cost almost twice as much: 850,000 roubles against 450,000. It was not small either — a ridiculous component count, 15 tons, a room the size of a tennis court, 18 maintenance staff. Rameev's superiors disagreed with the direction and wanted the institute to pivot to "control" systems, which the host reckons meant guiding machine tools or trains. Rameev pushed back by reading "control" to cover banking transactions, construction material information and other economic activity, and it seems to have worked. Then in October 1959 the Main Directorate of the State Committee for Radioelectronics tried to transfer a substantial chunk of his team elsewhere — a raid. He kept most of his people and delivered the Ural-4, of which only 30 were built, perhaps because it still used vacuum tubes in a transistor world. A Ukrainian, Vladimir Ivanovich Prusov, recalled learning to program on one in tenth grade: terrifying and huge, with performance that left much to be desired.
+
+In June 1961 Rameev began transistorising the Ural-4 under the code name Ural-14. When that work proved substantial, he widened the scope to a whole standardised family — Urals-11 through 15 — sharing design elements and component volumes to cut costs. The 11 and 12 handled data processing for smaller administrative offices and factory planning divisions, the 13 did real-time simulation for laboratories, and the core 14 and 15 served computer centres with data processing and scientific work; each number came in A and B variants. His team also presented a higher-level language called ARMU, the Autocode for the Ural series, aiming at the kind of portability the System/360 would be known for: source code moved to another Ural should, in theory, run.
+
+In May 1963 the radioelectronics committee's interdepartmental technical council approved all five designs and recommended prioritising the Urals-11 and 14 in 1964–65 to replace older tube machines. That was an endorsement from a technical review body; actual production needed a higher-level executive organ to back it and assign other institutes and factories to the work. The assignment never came. Production of the Urals-11 and 14 at Penza finally began in 1965, and a Ural-16 prototype was not assembled until 1968.
+
+## 1965 to 1972: the machines arrived, the software did not
+
+Software obstacles matched the hardware ones. Having come late to general purpose computers, the Soviets came late to software, and between the country's educational problems and the pull of the military, good programmers stayed scarce. Penza had a few dozen of them covering operating systems, the ARMU translator, service programs, test programs and custom project software. Things fell through the cracks, and it hurt adoption.
+
+![A small block on the left stands for a few dozen programmers, and five lines branch rightward to five deliverables, one of which fails to connect and falls into a gap below.](/figures/one-team-five-demands-en.svg)
+
+An East German professor in Dresden wrote in his memoirs that the Ural-14 delivered to their computing centre arrived with almost no system software and sat underused beside a more useful East German Robotron 300. An East German chemical company had been running American CDC machines for data processing; in 1967 factory management was reshuffled to reinforce the "leading role of the working class," so in 1968 the new management brought in a good socialist Ural-14 to replace the evil capitalist computers and reorient towards the Soviet Union. Workers soon found their new machine had neither an operating system nor a higher-level language, and with shoddily made peripherals it was scrapped by 1972.
+
+The host notes such incidents were not unique — Soviet computers were frequently delivered without software. It did the Ural series no favours while the Communist Party weighed its answer to the widening gap.
+
+The transistor numbers are worth copying down. Bell Labs announced the first point-contact transistor in 1948 and the Soviets replicated it in 1949, a remarkable turnaround. Mass production was the problem: in 1957 American companies made and sold 28.7 million transistors against Soviet output of roughly 2 to 2.7 million. Seven years later, in 1964, the Soviets made 200 million and the Americans some 1.36 billion semiconductor devices — a figure the episode flags as possibly including non-transistor devices. The gap, stemming partly from the absence of a sizable commercial market, was never closed, and it followed the Soviet computer industry through every attempt to transistorise its ageing tube machines.
+
+![Two paired sets of bars for 1957 and 1964: both sides grow longer, but the gap between the pair on the right is far wider than the gap on the left.](/figures/transistor-output-gap-widens-en.svg)
+
+## 1966 to 1972: the 8-bit byte settles everything
+
+By the mid-1960s dozens of Soviet institutes and factories were building computers, earlier hostility to cybernetics had been ameliorated, and computerising the economy was a high priority. The gap persisted and by some measures accelerated. After IBM unveiled the System/360, the Soviet government began exploring its own line of different-sized machines sharing an architecture, components and peripherals: the Unified Computer System, ES-EVM, also called Ryad.
+
+The country had the BESM series, the M-series, Minsk and Dnepr, yet only the Urals had attempted a true family of differently sized machines on similar — though not truly compatible — architectures with shared components. So why not the Urals? The ostensible reason was speed at the top end; the committee wanted 10,000 to 1 million operations per second. There were others. The Urals lacked full software portability: the same ARMU source could move, with no guarantee a program written on one machine would run as well on another, which is partial portability. And timing — through 1966 and 1967, while the committee was deciding what ES-EVM would be, the Ural line was unfinished and Penza was still working on it, which also explains their thin participation in the debate.
+
+![Two panels side by side: on the left one body of source code connects by solid arrows to three machines, while on the right the same source code connects only by dashed lines that end in question marks.](/figures/half-a-portability-en.svg)
+
+So the committee resolved to build something new, and in doing so gravitated towards adopting — copying — the System/360 architecture. By then the 360 was a few years old with a mature software ecosystem, and several of its innovations had already been taken up by other Soviet machines, with one large exception: the 8-bit byte. A byte did not always mean eight bits; Soviet computers used six or seven. The committee saw that without the 8-bit byte their machines would struggle to communicate with computers in the West, and even behind the Iron Curtain that was undesirable. Having swallowed the 8-bit byte, going whole hog for IBM compatibility and the software libraries that came with it was a small additional step. That is largely how the decision to clone the System/360 came about.
+
+In October of that year Rameev and Glushkov, the only dissenting member, submitted a letter arguing that the System/360 was already an older system, that copying it made domestic learnings impossible to include, and that it would bring the development of computer technology in their nation to an end. Rameev later negotiated an alternative: a partnership with Britain's ICL around their System-4, similar to the 360, which would have transferred a significant portion of ICL's technology to the Soviet Union. In the end the other Eastern Bloc countries — East Germany above all, already committed to copying the 360 — decided to stick with what was then a global standard and delay no further.
+
+![A stepped slope running from upper left to lower right, with a one-way arrow pointing down at each of the five steps, no arrow pointing back, and the last step landing at the bottom.](/figures/eight-bit-one-way-slope-en.svg)
+
+ES-EVM did not immediately kill the country's other computers. The BESM-6, Minsk and Ural lines continued; Belorussian Minsk production ran until 1975, and the Minsk-32 was the most widely produced second-generation computer in the whole Soviet Union. But resources flowing to ES-EVM meant less for the old domestic machines, and competition for programmers delayed the high-end Ural-16 until buyers began cancelling, leaving a very small run delivered. In 1968 Rameev left Penza for Moscow to lead software development for the ES, spending the rest of his career on national computer design projects. After he left, Penza never produced another Ural.
+
+With many older Urals still running in factories and administrative offices, Penza secured funding from the Soviet State Bank in 1971 for an updated Ural-16 called the Ural-25: new integrated circuits, support for both ES-EVM and legacy Ural architectures. The project took too long. When real ES-EVM hardware like the ES-1020 and ES-1030 began to emerge in 1972, the State Bank changed its mind about the value of retaining old Ural software and stopped the work.
+
+## Extension one: why the winning spec is rarely the fastest
+
+If you hold a company whose technology looks better than its rivals' while the share of the market goes the other way, this history will make you shift in your seat. The committee's reasoning is on the record: they chose eight bits so their machines could talk to everyone else's. Once that step was taken, each following step slid the same way — compatibility became cheap, compatibility brought mature libraries, and the libraries saved the next buyer the cost of rewriting everything.
+
+Hearing it, I thought about a mistake I keep making with my own holdings: treating "whose spec is better" as the question that decides the outcome. Partial portability still reads as a feature on a comparison table. When the real question became whether to wire into the world's software libraries, half of it bought nothing.
+
+I now ask three things instead. How much of what a customer already owns — code, process, training — gets thrown away by switching. Whether the thing can talk to what already exists, since interoperability decides adoption earlier than peak performance does. And whether it was finished while the standard was being set: the Ural family was still being built in 1966, which is why its people were absent from the debate.
+
+## Extension two: the number you watch may not be the bottleneck
+
+A second common trap: you track revenue growth, or margins, or operations per second, diligently, and your read is still off. Rameev's 1956 paper has the shape of a fix. He argued that ranking computers by speed misleads because the real drag on productivity is getting new data and new programs into the machine. Since the bottleneck sat at the input, he put the automation there and extended the instruction set, cutting problem-solving time by 20 to 40%. That machine ran 100 operations per second — a bad look on peak specs — and it was the first computer ordinary Soviet users could get their hands on, in more than 128 cities.
+
+Then there are the numbers from the other side: 73% availability, 18.5 hours between failures, 3,096 tubes in two years. Those are bottlenecks too, and no spec sheet carries them. Further back sits the headcount at Penza — a few dozen programmers owing an operating system, a translator, test programs and custom project work. That single number predicted the software gap earlier than any architecture diagram.
+
+Here is what I do, and it may be wrong. Before looking at a company I write one sentence naming the layer where the business is stuck, then go find numbers that measure that layer. Stuck on capacity, count tools and lead times. Stuck on people, count heads and attrition. Stuck on software and integration, count engineers and delivery dates. When I cannot write that sentence, more data just means measuring something that will not decide the result.
+
+![Three stacked blocks stand for capacity, people, and software and integration, with an arrow pointing at the one layer that is stuck, and only that layer has the things to count listed beside it while the other two are left blank.](/figures/measure-the-layer-that-is-stuck-en.svg)
+
+## Sources worth reading
+
+- The Russian Virtual Computer Museum, which the host credits for its resources on Soviet computing
+- Gennadii S. Smirnov, *The Ural family of computers* (2005, in Russian) — the author was on the engineering team, and the host calls it basically the only inside source available
+- Boris Malinovsky, *Pioneers of Soviet Computing*, for the biographical material on Rameev
+- The Computer History Museum oral history with Charles Simonyi
+- Asianometry, "The Rise and Fall of the Soviet Union's Workhorse Computer," 15 November 2026
+
+## The one thing to take with you
+
+Things that can be plugged into survive; things that cannot get routed around. The Urals led on hardware for a while, reached mass production, and reached 128 cities — and the half-built portability and missing software left them with nothing to bargain with on the day the standard was chosen.
+
+Something I have tried: take one half-finished thing you own — a work report, the storage in your kitchen, a club's process, a script you wrote — and write two lines. First, what someone taking it over would have to discard or relearn. Second, whether it can talk to what everyone already uses: the same file format, the same calendar, the same naming. The one where you cannot write either line is the one about to be routed around.
