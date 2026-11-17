@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="自建的時間長條被環評、水電、整治三段佔滿約三十個月，現成廠房長條從零開始投產，差距就是買掉的時間">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="62">價格裡那一塊，買的是已經過關</text>
+
+  <path d="M200 120 L200 420" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="186" y="446">今天</text>
+  <path d="M200 420 L900 420" stroke="var(--line)" stroke-width="2"/>
+  <text class="b" x="470" y="470">時間（月）</text>
+
+  <text class="b" x="380" y="446">12</text>
+  <path d="M386 120 L386 420" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 6"/>
+  <text class="b" x="560" y="446">24</text>
+  <path d="M566 120 L566 420" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 6"/>
+  <text class="b" x="740" y="446">36</text>
+  <path d="M746 120 L746 420" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 6"/>
+
+  <text class="g" x="60" y="196">買地自建</text>
+  <rect x="200" y="170" width="150" height="46" fill="none" stroke="var(--grey)" stroke-width="2"/>
+  <text class="b" x="216" y="199">環評</text>
+  <rect x="350" y="170" width="170" height="46" fill="none" stroke="var(--grey)" stroke-width="2"/>
+  <text class="b" x="366" y="199">用電・用水申請</text>
+  <rect x="520" y="170" width="200" height="46" fill="none" stroke="var(--grey)" stroke-width="2"/>
+  <text class="b" x="536" y="199">土壤・地下水整治</text>
+  <path d="M720 193 L790 193" stroke="var(--grey)" stroke-width="3"/>
+  <path d="M790 193 l-14 -8 l0 16 z" fill="var(--grey)"/>
+  <text class="b" x="796" y="199">才動工</text>
+
+  <text class="g" x="60" y="316">現成廠房</text>
+  <rect x="200" y="290" width="180" height="46" rx="6" fill="var(--accent)"/>
+  <text class="b" x="222" y="319" fill="var(--page)" font-weight="700">直接投產</text>
+  <text class="b" x="398" y="319" fill="var(--accent)">明年中可以</text>
+
+  <path d="M200 358 L720 358" stroke="var(--warn)" stroke-width="3"/>
+  <path d="M200 358 l14 -8 l0 16 z" fill="var(--warn)"/>
+  <path d="M720 358 l-14 -8 l0 16 z" fill="var(--warn)"/>
+  <text class="b" x="380" y="384" fill="var(--warn)" font-weight="700">這段被買掉</text>
+
+  <text class="c" x="60" y="518">他付的錢裡，有一段是別人已經走完的兩三年</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Price slides down to the lower right as the time until you can start work grows longer, with ready-to-run plants at the high end and panel fabs idled for five or six years at the deeply discounted low end.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:15px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="62">The discount prices distance, not age</text>
+
+  <path d="M180 110 L180 420 L880 420" stroke="var(--line)" stroke-width="2" fill="none"/>
+  <text class="b" x="60" y="150">Price</text>
+  <text class="b" x="60" y="176">High</text>
+  <text class="b" x="60" y="410">Low</text>
+  <text class="b" x="700" y="466">Time until you can start work</text>
+  <text class="b" x="180" y="446">Now</text>
+  <text class="b" x="430" y="446">2-3 yrs</text>
+  <text class="b" x="700" y="446">5-6 yrs</text>
+
+  <path d="M200 160 C360 180, 520 300, 800 384" stroke="var(--grey)" stroke-width="4" fill="none"/>
+
+  <circle cx="212" cy="164" r="11" fill="var(--accent)"/>
+  <text class="g" x="236" y="156">Ready-to-run plant</text>
+  <text class="b" x="236" y="182">Age or buy-vs-lease isn't the point</text>
+
+  <circle cx="450" cy="250" r="9" fill="var(--grey)"/>
+  <text class="b" x="474" y="246">Old site: soil cleanup + inspections</text>
+
+  <circle cx="792" cy="382" r="11" fill="var(--warn)"/>
+  <text class="g" x="560" y="350" fill="var(--warn)">Idled panel fab</text>
+  <text class="b" x="560" y="376">Land and plant both newish</text>
+  <text class="b" x="560" y="400">Move kit, clear site, resell</text>
+
+  <text class="c" x="60" y="518">Same plant, same land — price gap = years till startup</text>
+</svg>
