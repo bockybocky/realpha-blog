@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A completion curve that rises steeply through the first 80% and then flattens out, with the long flat stretch on the right labelled as the last mile.">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .t { font-size:27px; font-weight:700; }
+    .g { font-size:19px; font-weight:600; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:600; }
+    .ac { font-size:19px; font-weight:600; fill:var(--accent); }
+</style>
+<text class="t" x="60" y="62">80% is fast; right every time is hard</text>
+<line x1="120" y1="420" x2="890" y2="420" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="120" x2="120" y2="420" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="188" x2="890" y2="188" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+<path d="M120 420 C 215 420 285 232 380 196 C 520 170 700 152 880 143" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<circle cx="380" cy="196" r="8" fill="var(--accent)"/>
+<text class="g" x="108" y="195" text-anchor="end">80%</text>
+<text class="g" x="108" y="136" text-anchor="end">Perfect</text>
+<text class="g" x="152" y="320">Prototype · v1</text>
+<path d="M380 444 L380 456 L880 456 L880 444" fill="none" stroke="var(--grey)" stroke-width="2"/>
+<text class="ac" x="630" y="482" text-anchor="middle">The last mile</text>
+<text class="b" x="152" y="482">Time and resources invested</text>
+<text class="c" x="60" y="524">Stability here is trust: time buys it, copying can't</text>
+</svg>
