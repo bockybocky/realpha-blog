@@ -1,0 +1,94 @@
+---
+title: "The Next Thing to Run Short Is a Weaving Loom — Notes on Supply Chained on AI Bottlenecks"
+description: "Listening notes on Supply Chained, 17 November 2026, \"Bottlenecks: You Don't Even Know What's Missing. Yet\": Tim Culpan of Culpium traces the next AI server bottleneck to the low-Dk glass fabric inside printed circuit boards, then to the air-jet looms that weave it and to Toyota Industries, which builds the looms; Jon of Asianometry says the shortage he sees is a shortage of demand. The piece takes apart how the walk-upstream-until-you-hit-a-machine method is derived, where it fails, and what facts would settle the two hosts' disagreement. Educational discussion of research method, not investment advice; no stock recommendations or price targets."
+slug: "supplychained-2026-11-17-bottlenecks-you-don-t-even-know-what-s-missing-yet"
+lang: "en"
+pubDate: 2026-11-18
+category: "investing"
+kind: "podcast-notes"
+tldr: "The next chokepoint in AI servers runs back to glass fabric, and from there to the looms — and what Tim Culpan hears is that Toyota builds about 2,500 a year."
+tags: ["Supply Chained", "PCB", "glass fabric", "AI supply chain", "bottlenecks"]
+ogImage: "/covers/supplychained-2026-11-17-bottlenecks-you-don-t-even-know-what-s-missing-yet-cover.png"
+cover: "/covers/supplychained-2026-11-17-bottlenecks-you-don-t-even-know-what-s-missing-yet-cover.png"
+---
+
+![One continuous shot looking into the depth of a glass-fabric weaving mill: in the foreground an air-jet loom strung with translucent glass fibre yarn, the fine filaments on the bobbin catching a low side light, dust hanging in the air; mid-frame identical machines receding in a row under overhead lamps that shrink one by one; at the far end the looms sink into darkness and keep only their outlines](/covers/supplychained-2026-11-17-bottlenecks-you-don-t-even-know-what-s-missing-yet-cover.png)
+
+> In the lesser east and the greater east, shuttle and loom-beam stand empty.
+> —— *Book of Songs*, "Lesser Odes · Da Dong" (pre-Qin; my own translation)
+
+Those lines complain about the eastern domains being drained dry by tribute, until the shuttle and the beam on every household loom sat empty and the looms simply stood there. Two thousand years later looms are a chokepoint again, and this time the thing they are holding up sits inside AI servers.
+
+In the 17 November 2026 episode of Supply Chained, "Bottlenecks: You Don't Even Know What's Missing. Yet", Tim Culpan of Culpium talks with Jon of Asianometry about the thread he has been pulling on: the next AI server bottleneck is the low-Dk glass fabric used in printed circuit boards, and the air-jet looms that weave it. Tim says server boards have been running ten to twelve layers lately, the Vera Rubin generation needs twenty to thirty, and some makers are showing seventy-two layers inside a stack under three or four millimetres thick; on the loom side, from what he has heard, Toyota Industries builds only around 2,500 machines a year. The boundary on all of it is Jon's counter-question: a materials shortage assumes the demand shows up, and the shortage Jon himself sees is demand — people can name uses for the compute coming online in 2027, and nobody can for 2028.
+
+## He got obsessed with something boring at a Taipei trade show
+
+Tim's new obsession is printed circuit boards, the green slab inside every electronic device that all the chips plug into. He went to the PCB show in Taipei and fell down the hole — and in passing, he says Taipei has a good trade show every week, a seafood-supply show gets named as a favourite in passing, and the one he picks himself is the gifts and stationery show, where he recommends everybody open a calendar, look up the dates and book a flight.
+
+He starts by killing an assumption he had been rather pleased with: why are the boards all green? Convention, it turns out — the plastics back then were green. There was a purple board at Hon Hai Tech Day, he went and asked, and the answer was that it looks good; there are black boards with gold on them too, and he prefers the purple.
+
+Then the structure, which he describes as a sandwich: copper, then a resin-impregnated cloth called prepreg, then copper, then cloth, going from a standard sandwich to a Big Mac to one of those absurd multi-decker things. Three or four layers was the old spec, ten to twelve is recent, the Vera Rubin servers want twenty to thirty, and some companies are already showing off seventy-two, in a stack under three or four millimetres, with single layers as thin as fifty microns.
+
+![Four bars rise from short to tall, each one striped with thin horizontal lines standing for stacked layers; the rightmost bar reaches the top, while an arrow on the right notes that thickness has not grown with it.](/figures/pcb-layer-count-stack-en.svg)
+
+## The signal does not travel down the copper
+
+This is the part of the episode that stuck with me. The Dk Tim keeps mentioning is the dielectric constant, which measures how fast a signal moves through a given medium — he gets his own joke in first, that everybody knows what Donkey Kong is. Then the counterintuitive bit: the signal does not run inside the copper traces on the motherboard. It travels around them like a wave, like a tube wrapped around the copper, and the trace is a guide wire; what the signal actually passes through is the prepreg between the copper layers. So the speed ceiling of the whole board belongs to that dielectric.
+
+![A board cross-section: two copper layers sandwich a resin-impregnated cloth in the middle, the trace appears as a small circle, and the signal is a sleeve wrapped around that trace, sitting in the dielectric layer.](/figures/signal-travels-in-dielectric-en.svg)
+
+Old electronic-grade glass fibre has a high Dk and a slower signal; T-glass is quicker; the fastest so far is low-Dk glass, which Tim calls L-glass, the L coming from low Dk. The name was coined by the American company AGY and seems to be proprietary to it, so Japan's Nittobo makes the same class of material and calls it NE-glass instead. Tim guesses hardly anyone listening has heard of AGY, and puts out an open call: if anyone from AGY is listening, email him.
+
+![A four-step ladder climbs from electronic-grade glass fiber at the lower left to quartz glass fiber at the upper right, signals getting faster with each step up, and the top step marked as still years away.](/figures/glass-fiber-speed-ladder-en.svg)
+
+Here is where the shortage comes from. The fabric used to go only into automotive driver assistance systems — those need a signal fast enough to tell you that you are about to crash — and server boards did not need that speed before. Now they do. The magnitudes Tim gives: a server PCB is eight to fifteen times the area of the one in an ADAS unit, times the layer count, times the number of servers shipping, and that is how demand measured in square inches gets there. In his words, it makes the shortages in CoWoS packaging and rack rails look like child's business, and it makes even the Ajinomoto build-up film squeeze look easy to solve.
+
+## Follow it upstream and you arrive at a loom
+
+The glass is melted in a furnace and spun into filament, which on the bobbin looks like yarn, and the yarn then has to be woven into fabric. The loom section is where he gets most excited: these machines skip the traditional shuttle and use compressed gas to fire the thread from one side of the loom to the other. The weave itself is a craft — thread count the way high-end hotel sheets talk about thread count, round weave versus flat weave, each with its own case — and it has to stay consistent throughout, because the consistency of the whole board rests on it. The woven cloth gets a load of resin, a press down to very thin, a bake, and a stack between copper layers, and then it is a PCB.
+
+The company that makes those looms is in Japan: Toyota Industries, an affiliate of Toyota Motor. Jon laughs when the answer lands — the company that began by making looms now makes looms for the material inside Nvidia servers. Tim says, from what he has heard, Toyota turns out only about 2,500 a year, nowhere near the appetite of this AI build-out; some makers that landed orders announced proudly that they will take 300 looms this year, Chinese companies say they can build them too, and Tim's description of the reception is "yeah, okay, sure, whatever." One line of his I wrote down: he thinks there are people who would trade in their EUV machines for a couple of these looms.
+
+His prediction is that by early to mid 2027 people will be screaming about the lack of low-Dk glass and Toyota looms. Behind that sits quartz glass, where the closer you get to pure silicon dioxide the faster the signal goes; he says that is a few years out and he is confident it will be short too. So Jon asks whether there will ever be a time with no bottleneck in the AI supply chain. No, he says: shortage, fix, overbuild, stop making it because of the overbuild, and two years later discover you should not have stopped. He adds that the other thing which will never be in short supply is opinions — opinions about the supply chain, and opinions about which bottleneck to put your money on.
+
+## The other host says the shortage is demand
+
+Asked what he sees running short, Jon answers: demand. He says he was only halfway joking. Coming back from the States, the line among finance people on the east coast — this was before the elections — was that the compute arriving in 2027 has visible uses, and 2028 is anyone's guess.
+
+He met someone who used to be at OpenAI, who said one of the things the labs are racing on is finding sinks of intelligence: which tasks need a smarter model to crack. The new eval Dylan at SemiAnalysis has put out, whose name Jon cannot quite recall on air, points at the categories everyone agrees will be big: materials design, biology, cyber, semiconductor manufacturing and design. The models have to get good at those for the next model to have a reason to exist.
+
+On coding, both of them think the curve is flattening. Jon says it will not be a trillion-dollar market; Tim says growth already felt like it was running out of steam in late 2026, more software will still get written, and the shift to coding via AI has stalled as a shift. Jon's supporting observation is that companies like Apple have started cutting daily token spend, which admits two readings: they cannot measure enough value, or it is simply too much money — you hire a programmer for $250k and then hand them another $50k of token budget. Claude Code was cool, he says, and Claude Code was last year, so they need something new; this is what worries him more since the trip.
+
+## How do I find the next bottleneck myself
+
+Every time a shortage story breaks, I have never heard of the name in it, and by the time I have looked up what it is, the people who were going to react have reacted. Chasing the keywords in the news gets you nowhere, because the news reports the layer that is already short. Tim's thread offers a path worth copying: walk upstream from the end product, ask at each layer what that layer is made with, and keep going until you hit a machine that somebody has to build. Above the board sits glass fabric, above the fabric sits glass fibre, turning fibre into fabric takes a loom, and above the loom sits a company that makes around 2,500 a year. The chain stops at the machine, because machine capacity cannot be expanded fast — expanding needs machines, and the machines are the bottleneck.
+
+![Five trapezoids narrow as they stack upward, from the circuit board all the way up to a single box for the loom maker, with a horizontal line capping the top to show there is no path further up.](/figures/trace-upstream-until-a-machine-en.svg)
+
+The path needs one test alongside it to be usable: a tight supply and real pricing power are two different things. Whether the short layer has long-term contracts, can push prices through, and sees margins follow — the episode gives no numbers at all, not for AGY, Nittobo, or Toyota Industries, so I am filing it as a direction to check. Tim names the failure case himself: quartz glass is queued up behind, and if some layer's design routes around this fabric (different material, fewer layers, signals over light), the squeeze moves elsewhere.
+
+## This sounds settled, so how do I check my answer
+
+I nearly bought Tim's case whole, and then the same episode has Jon saying flatly that the shortage he sees is demand. Two people at one table pointing in opposite directions used to make me want to pick one to believe. What I do now is write each side as a sentence that reality can contradict, and then wait. Tim's side: in the first half of 2027, the low-Dk glass and loom shortage becomes a topic of open discussion. Jon's side: the compute arriving in 2028 has no specific use anyone can name by then, or a second and third company start cutting token spend. Both have dates on them, both will get answered by events, and I do not have to choose today.
+
+![Two dated timelines branch from the same starting point: the upper one leads to a materials shortage in the first half of 2027, the lower one to compute with no story for 2028, and each ends at a point where facts will land.](/figures/two-falsifiable-forecasts-en.svg)
+
+Tim's bullwhip cycle has a second use. Everyone orders at once during the squeeze, and by the time the machines are installed demand may have turned. So when I read a shortage story I ask one more question: how long does this round of capacity expansion take to arrive. Toyota's roughly 2,500 looms a year is the number that answers it.
+
+![Two offset curves show demand rising first and then turning downward, while capacity rises later and overtakes demand, leaving an overshoot area between them.](/figures/capacity-arrives-after-demand-turns-en.svg)
+
+## Where to look yourself
+
+- Supply Chained, "Bottlenecks: You Don't Even Know What's Missing. Yet", 17 November 2026, Tim Culpan of Culpium in conversation with Jon of Asianometry
+- Tim Culpan's column at Culpium; he says on air that this low-Dk glass thread is going to become a piece of writing
+- AGY and Nittobo product literature, for the specs and Dk values of low-Dk glass and NE-glass
+- Toyota Industries annual reports and product lines, for air-jet loom capacity and customer mix
+- SemiAnalysis public reports and evals, against Jon's point about which tasks need a smarter model
+
+## The One Thing to Take Away
+
+One idea: the real ceiling of a chain sits where expanding means buying a machine, and the machine itself has a queue. That layer is invisible day to day, it shows up first when demand doubles, and once it shows up it resolves slowly, because the fix is stuck at the same link: the fabric is short because looms are short, looms are short because the company that builds them can only build so many a year, and that company originally built textile machinery, with nobody ever sizing its capacity for AI.
+
+Something I have tried that works today: take one thing you do well and want to do more of — freelance work, meal prep, reading with your kid — and follow it three layers upstream, asking at each step what that step needs, until you reach something you cannot increase within a week. It might be one particular person, one fixed slot of time, the single machine in the house. Whatever you land on is the first thing that breaks when you try to double the work. I followed my own writing routine and stopped at "a quiet morning," of which I get three a week, so the ceiling on my output was written long before I asked about it.
+
+![A personal three-layer funnel narrows from the thing you want to do more of up to the quiet mornings you only get three of in a week, with seven boxes above the narrowest tier and only three of them marked.](/figures/personal-bottleneck-three-layers-en.svg)
