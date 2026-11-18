@@ -1,0 +1,94 @@
+---
+title: "Spring Has Left the Valley, and the Mountain Peach Is Only Now in Bloom — Notes on Statementdog on Hard Drives in 2027"
+description: "Listening notes on Statementdog podcast episode 579: chief analyst Xiaozhen sets Toshiba's early-October Philippines expansion (fiscal 2027 hard drive exabyte supply at twice the 2025 level) against his own estimates of 75% to 82% two-year growth at Seagate and about 70% at Western Digital, and argues that the doubling adds only about two percentage points to industry supply. The piece takes apart the weakest links in that arithmetic and names three conditions worth tracking. Educational discussion of research method, not investment advice; no stock recommendations or price targets."
+slug: "caibaogou-2026-11-17-579-hdd-2027"
+lang: "en"
+pubDate: 2026-11-18
+category: "investing"
+kind: "podcast-notes"
+tags: ["Statementdog", "hard disk drives", "HAMR", "Toshiba", "data centers"]
+ogImage: "/covers/caibaogou-2026-11-17-579-hdd-2027-cover.png"
+cover: "/covers/caibaogou-2026-11-17-579-hdd-2027-cover.png"
+---
+
+![A stone-stepped courtyard at a high mountain temple, early morning side light catching a single peach tree in full bloom in the near foreground, the steps descending terrace by terrace into the depth of the frame toward a valley whose trees have already turned the dark green of early summer, the farthest slopes sunk in mist](/covers/caibaogou-2026-11-17-579-hdd-2027-cover.png)
+
+> In the world below, the fourth month's blossoms are all spent; up at the mountain temple the peach is only now in full bloom. I had long grieved that spring departs with nowhere left to find it — never knowing it had turned aside and come in here.
+>
+> —— Bai Juyi, *Peach Blossoms at Dalin Temple* (Tang dynasty, around 817; translated here by the author)
+
+Statementdog episode 579, released on 17 November 2026, has host Weiyu and chief analyst Xiaozhen going through the latest quarterly results from Seagate and Western Digital — though most of the episode goes to Toshiba's early-October announcement that it will expand its plant in the Philippines. Toshiba's stated target is for fiscal 2027 supply of total shipped storage capacity — drive count multiplied by capacity per drive, which the industry calls exabyte shipments — to reach twice the 2025 level, and the group sold off hard on the day of the news. Xiaozhen converts that doubling into roughly 40% a year, sets it beside his own estimates for the same window — 75% to 82% two-year growth at Seagate, about 70% at Western Digital — and, with Toshiba holding roughly a tenth of exabyte shipments, arrives at an industry supply increase of about two percentage points. From there he judges that three conditions hold through at least the first half of 2027: demand running ahead of supply, rising exabyte shipments, and rising prices, provided the supply shortfall is the ten percentage points or more that he works with — a figure he says each house estimates for itself, with answers ranging from five to fifteen.
+
+## The strongest version of the episode's case: growth comes from fitting more into each drive
+
+Earlier this year the market had a complaint about these two companies: you are not expanding capacity, so where is the revenue growth going to come from? Xiaozhen's answer then was that their way of expanding does not look like what people picture. Expansion usually means a new building, new lines, more units out the door. Seagate and Western Digital instead push the process node: unit shipments stay roughly flat, and each drive holds more.
+
+![Ten equally short bars on the left stand for more units, while the five bars on the right are twice as tall, standing for the same unit count with more packed into each one.](/figures/two-ways-to-expand-en.svg)
+
+That is what the customers want. The largest buyers of hard drives now are data centers, and what a data center cares about is how much capacity fits into a given floor area. Machine room space is expensive, and operators would rather spend that volume on compute. What sits on these drives is mostly data nobody will read for a long time and nobody can throw away either, so it ranks low in the queue for space. Xiaozhen also mentioned a worry circulating in the market — that after the change in political winds, new data centers may find land harder to get. He puts that at 2028 or later and calls it an open question, but if it happens, every cubic meter of existing machine room gets more valuable and per-drive capacity matters more.
+
+This is also why the yardstick for the industry is a different one. Contracts with data centers are priced by exabytes, not by units, so growth has to be read as unit shipments multiplied by capacity per drive. Xiaozhen notes that revenue and gross margin both hit records, and what drove them was that total capacity, with drive counts flat.
+
+The price line is the strange one. Price per unit of capacity has fallen for more than a decade, because hard drives have to stay cheap relative to solid state drives — an SSD is better on speed and most other dimensions, so the hard drive keeps customers by keeping the price per terabyte far below. Xiaozhen says that even through the pandemic shortage, quoted prices still drifted down. Not this time: price per unit of capacity has risen two to three quarters in a row, and the third quarter came in 17% to 23% higher. He points out how rare a move like that is in any industry, and adds in passing that a company like TSMC could never raise quotes that way, and sometimes chooses not to.
+
+![A price line that has drifted slowly downward for over a decade suddenly kicks upward at the far right, labelled with a 17% to 23% rise in the third quarter.](/figures/price-direction-flips-en.svg)
+
+On the supply side the main character is HAMR, a process that uses a laser to heat a small patch of the platter during writing so the data can be packed in more densely. Xiaozhen stresses that this is a once-in-a-decade generational change — the industry sat on the previous generation for a very long time, and the move from conventional perpendicular recording to HAMR is a far bigger step than TSMC going from 3nm to 2nm, with the technology having cooked in the lab for well over ten years. Seagate ramps first this year, Western Digital follows in the first half of next year, and he estimates two-year exabyte shipment growth of 70% to 80% for the pair.
+
+So why can hard drives add 40% or more a year when memory manages around 25%? His answer is that they went years without expanding: the consumer market moved to solid state drives long ago, that volume shrank for a good while, so there is building space and there are people to hire. Neither Seagate nor Western Digital is putting up a new plant in this round; both are raising capacity inside buildings they already have. Memory is already packed, and going higher there means breaking ground.
+
+My favorite stretch of the episode is Xiaozhen on the pace of adoption. Without the AI demand surge, he says, HAMR would have been phased in slowly — 10% this year, 15% next, 20% the year after — because his own worry was that a single large step would tip the industry into oversupply. Demand turned out strong enough to retire that worry, so they went with one big ramp instead. A little earlier than that, one view in the market was that Toshiba would shut the hard drive business down after years of losses. It is now the company announcing a doubling.
+
+![Two fab outlines of the same size: the left one is only half filled with plenty of room left, the right one is nearly full, labelled below with forty percent and twenty-five percent.](/figures/room-left-in-the-fab-en.svg)
+
+As for how short supply actually is, Xiaozhen's first thermometer is lead time: the research house figures he cites put hard drive lead times past 50 weeks, meaning an order today arrives a year from now, against 18 weeks for DRAM, which everyone already treats as tight. His second method is estimation — start from the scale of data center buildout and work back to how much storage each unit of it needs. Different houses land anywhere between five and fifteen percentage points of shortfall, and he works with ten or more. Toshiba's doubling adds two, so even on the most conservative five, two to three points of shortfall remain. His conclusion is that Toshiba is no lunatic who appeared out of nowhere, since the two big incumbents have also added 70% to 80% across these two years.
+
+![On the left a three-step staircase climbs upward labelled this year, next year and the year after, while on the right it is replaced by a single bar far taller than the staircase.](/figures/ramp-plan-vs-one-jump-en.svg)
+
+## From the other side: where this arithmetic is thinnest
+
+What stayed with me afterwards is that the attention all went to Toshiba's two percentage points, while the largest supply number in the episode came from Xiaozhen himself — 70% to 80% more industry exabyte supply across two years. Toshiba's doubling is one member of that queue. So the question that matters points elsewhere: has data center demand for exabytes grown by eighty percent over two years? No corresponding demand growth rate appears anywhere in the episode. Only the shortfall estimate does.
+
+![On the left a solid bar marks a seventy to eighty percent rise in two-year supply, while on the right the same spot holds only a dashed empty box with a question mark in it.](/figures/supply-measured-demand-assumed-en.svg)
+
+And on that number, the speaker says outright that everyone is guessing. The method is to count planned data center capacity, apply a storage-per-unit coefficient, and work back to drive demand — every link is an assumption, and a small change in the coefficient moves the answer a lot. If the shortfall sits near the low end of five points, another two or three eats more than half the cushion. The whole "Toshiba's impact is limited" conclusion hangs its robustness on a figure he himself says cannot be pinned down.
+
+![Two horizontal buffer troughs, one above the other: the bite taken out is the same width in both, but it covers only a small corner of the long trough and more than half of the short one.](/figures/same-points-different-buffer-en.svg)
+
+The second thin spot is in the mechanism: process advance is the enemy of price. Xiaozhen has said it himself — for more than a decade the model here was volume up, price down, with rising shipments offsetting falling prices. The source of that falling price was process advance, which brings cost per bit down and takes the selling price with it. HAMR is a once-in-a-decade step of larger magnitude, and it is being counted at the same time as the engine of growth and as part of the backdrop for rising prices. For both to hold, demand has to keep growing faster than supply, and the supply side has a concrete number attached, 70% to 80%, with more certainty behind it than the demand side has.
+
+The third is the other face of 2027 contracts being done. Xiaozhen reads it as evidence that prices have consensus and will not fall, which is fair; but a locked price also locks the upside. That 17% to 23% will not repeat on volume already under contract, and he says himself he expects a return to single-digit increases. Which means 2027 earnings growth comes mostly from volume, and volume comes from process advance on the supply side. Of the three legs, the pricing leg has its 2027 contribution sealed inside a narrow band.
+
+The last point is my own question, and the episode does not take it up: a 50-week lead time proves the queue is long, and it cannot separate real demand from ordering early out of fear. In a shortage year, customers pull the same requirement forward by six months, or place the same order at several suppliers, and lead times stretch either way. Lead time is a blended reading of sentiment and demand, and using it to support a conclusion stated in precise percentage points borrows more precision than it has. Following that thread, three suppliers each expanding rationally is the textbook shape of a cyclical industry's collective error — Xiaozhen reassures the market by saying Toshiba is being rational rather than losing its mind, and rationality here assumes the demand forecast in hand is right. I have no evidence that it is wrong; it is just as much an assumption as the shortfall is.
+
+![A steeply rising price line reaches 2027 and enters a very narrow dashed corridor, after which it only ripples gently inside that corridor.](/figures/contract-locks-the-corridor-en.svg)
+
+There is one more layer that the episode's own good news creates. Empty buildings and spare labour make expansion cheap, and they make exit expensive. Depreciation on those buildings finished long ago, so idling a line saves very little, which means on the day pricing weakens nobody has a reason to be the first to shut machines down. Xiaozhen uses that slack to explain why hard drives can add more than 40% a year while memory manages 25%, and I accept the explanation; carried one step further, the same condition says that once this industry does tip into oversupply, the adjustment will be slower than memory's.
+
+## Which side I think holds, and on what condition
+
+For the first half of 2027 the case holds, and the reason has little to do with any of those percentage points: the contracts are signed and the lead time is a year. Drives shipping in the first half of next year were booked in the first half of this one, and supply cannot flip inside six months. The most informative line in the episode, to me, is that Xiaozhen stops at "at least the first half of 2027" rather than the full year — he drew his own boundary, and the boundary is worth copying down more than the conclusion is.
+
+Which leads to where a lot of people are stuck right now: if the industry is this good and 2027 is settled, why has the stock fallen this hard? He answers it in the episode — the worry is about 2028, and 2027 is already decided. The market trades the next unknown, and the good part of 2027 is written into contracts and into the price. So when a conclusion arrives as "2027 is fine," I ask one follow-up: which part of that sentence is not yet in the price? Most of the time the answer is none of it, which leaves the conclusion useful only for not being afraid of the next few quarters.
+
+![A timeline whose left half is a clear solid line labelled through the first half of 2027, fading past the divider into dashes and haze labelled 2028 onward.](/figures/priced-in-through-2027-en.svg)
+
+The more common sticking point is panic at a phrase like "double in two years." The move this episode demonstrates is to put the multiple back in the queue and rank it: Toshiba 100%, Seagate 80%, Western Digital 70%. Lined up that way, it sits close to everybody else.
+
+As for the condition it turns on, I would track three things. First, whether the growth rate of exabyte demand keeps up with that 70% to 80% of added supply; earnings calls report shipments and pricing, so the demand side has to be assembled yourself from data center operators' capital spending and public statistics. Second, pricing on new 2028 contracts, which is direct evidence on whether the pricing condition is still there, available without waiting for an earnings report. Third, the shipment rhythm one layer down the supply chain, which Xiaozhen sketches near the end of the episode: sputtering targets, the glass platter substrate replacing aluminum, and the suspension spring. Glass substrate rides along with HAMR replacing aluminum wholesale, and the suspension spring is the piece inside the drive that holds the read head — his image for it is a vinyl record, the platter spinning with a needle reading off the top. Rising capacity and flat unit counts pull those two layers in different directions; he says the report takes it up while the episode gives no direction, so I plan to read shipments at both layers as circumstantial evidence on how the expansion is actually progressing.
+
+![Three bars of similar height stand side by side labelled 100%, 80% and 70%, with the first only a little taller than the second.](/figures/put-the-multiple-in-line-en.svg)
+
+## Where to look yourself
+
+- Statementdog episode 579, "HDD industry: supply ramp drives faster growth in 2027, limited negative impact from Toshiba's expansion," 17 November 2026
+- The last two quarters of Seagate and Western Digital earnings calls, watching how price per unit of capacity and exabyte shipments are broken out
+- Toshiba's early-October announcement on the Philippines expansion, to check the base period yourself — fiscal 2027 against 2025
+- Technical explainers on HAMR versus conventional perpendicular recording, for why the platter substrate has to move from aluminum to glass
+- Public statistics on data center buildout, as a check on whether exabyte demand growth keeps pace with supply
+
+## The One Thing to Take Away
+
+One idea: a multiple means nothing without something to compare it against. Whether a number is large comes down to where it ranks once you put it back in a queue of the same period and the same unit. Toshiba's doubling floored the market that day, and in the queue it is merely first, twenty points ahead of second place.
+
+Something I have tried that works outside investing too: take one number that has been making your pulse jump — how much the rent went up, the flagged line on your health check, your kid's class average, your own raise this year — and go find two or three other numbers from the same period in the same unit, then line them up. The rent on the other units in the building, your own reading from last year and the year before, the average in the class next door, the adjustment for people at your level elsewhere in the industry. I have done this a few times, and about half the numbers go from "something is wrong" to "about the same as everyone else," which leaves the other half as the ones actually worth handling; the step that takes the longest is getting the base period and the unit aligned.

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="A price line declining for over a decade turns sharply upward at the far right end, marked with a third-quarter increase of 17% to 23%.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:15px; fill:var(--dim); }
+    .n { font-size:34px; font-weight:700; fill:var(--ink); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62">A decade down, now up</text>
+  <text class="b" x="60" y="94">Price per unit flips up</text>
+  <path d="M60 400 L900 400" stroke="var(--line)" stroke-width="2"/>
+  <path d="M60 196 L160 232 L260 256 L360 294 L460 312 L560 340 L660 356 L740 372" stroke="var(--grey)" stroke-width="4" fill="none"/>
+  <path d="M740 372 L860 212" stroke="var(--accent)" stroke-width="6" fill="none"/>
+  <circle cx="740" cy="372" r="7" fill="var(--grey)"/>
+  <circle cx="860" cy="212" r="9" fill="var(--accent)"/>
+  <text class="n" x="560" y="180" fill="var(--accent)">+17~23%</text>
+  <text class="b" x="560" y="206">Q3, third rise</text>
+  <text class="b" x="60" y="436">A decade: undercut SSD by cutting price</text>
+  <text class="b" x="60" y="460">Even in shortages, prices fell</text>
+  <text class="c" x="60" y="506">Rising price is rare here</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="上下兩條緩衝橫槽，被咬掉的那塊寬度一樣，在長槽裡只佔一小角，在短槽裡佔掉一半以上。">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:15px; fill:var(--dim); }
+    .n { font-size:34px; font-weight:700; fill:var(--ink); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="62">同樣兩三個百分點，咬掉的比例差很多</text>
+  <text class="b" x="60" y="94">缺口各家自己估，從五到十五都有</text>
+  <text class="g" x="60" y="166">缺口十五個百分點</text>
+  <rect x="300" y="144" width="600" height="46" fill="var(--card)" stroke="var(--line)" stroke-width="3"/>
+  <rect x="300" y="144" width="100" height="46" fill="var(--warn)"/>
+  <text class="b" x="300" y="216">東芝那一倍只吃掉一小角</text>
+  <text class="g" x="60" y="312">缺口五個百分點</text>
+  <rect x="300" y="290" width="200" height="46" fill="var(--card)" stroke="var(--line)" stroke-width="3"/>
+  <rect x="300" y="290" width="100" height="46" fill="var(--warn)"/>
+  <text class="b" x="300" y="362">同樣那一塊，吃掉一半以上</text>
+  <path d="M60 406 L900 406" stroke="var(--line)" stroke-width="2"/>
+  <text class="c" x="60" y="454">結論的穩健度，掛在講者自己說估不準的那個數字上</text>
+  <text class="b" x="60" y="490">推法是數新建規模再乘一個係數，係數動一點，答案差很多</text>
+</svg>
