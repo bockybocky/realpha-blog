@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左側柱子高度掉到約一半，右側一個方塊分岔出兩條箭頭，往下那條上色、往上那條用虛線">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .d { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="58">一邊掉下來，另一邊被餵飽</text>
+
+  <rect x="60" y="92" width="360" height="390" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="84" y="130">電動車月銷量</text>
+  <rect x="120" y="230" width="90" height="190" fill="var(--grey)"/>
+  <rect x="260" y="320" width="90" height="100" fill="var(--warn)"/>
+  <line x1="84" y1="420" x2="396" y2="420" stroke="var(--line)" stroke-width="3"/>
+  <text class="d" x="165" y="218" text-anchor="middle">18～19 萬台</text>
+  <text class="d" x="305" y="308" text-anchor="middle">約 10 萬台</text>
+  <text class="d" x="165" y="446" text-anchor="middle">抵減還在</text>
+  <text class="d" x="305" y="446" text-anchor="middle">抵減消失</text>
+
+  <rect x="470" y="92" width="430" height="390" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="494" y="130">蓋到一半的電池廠</text>
+  <rect x="494" y="258" width="120" height="86" fill="var(--grey)"/>
+  <line x1="614" y1="290" x2="740" y2="200" stroke="var(--grey)" stroke-width="5" stroke-dasharray="8 6"/>
+  <polygon points="740,200 722,200 736,216" fill="var(--grey)"/>
+  <text class="d" x="756" y="196">車用電池</text>
+  <text class="d" x="756" y="220">沒走這條</text>
+  <line x1="614" y1="312" x2="740" y2="392" stroke="var(--accent)" stroke-width="6"/>
+  <polygon points="742,394 724,382 726,398" fill="var(--accent)"/>
+  <text class="g" x="756" y="388">固定式儲能</text>
+  <text class="d" x="756" y="414">抵減延續到下個十年</text>
+  <text class="d" x="756" y="438">條件：電池不能是中國製</text>
+
+  <text class="c" x="60" y="528">同一條產線，轉向還拿得到的那個抵減</text>
+</svg>
