@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Each of two panels contains two curves: the parallel curves in the left panel maintain a fixed gap, while in the right panel the lower curve rises to catch up as the upper curve pulls ahead, steadily narrowing the gap.">
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <text x="60" y="66" font-size="27" font-weight="700" fill="var(--ink)">Is the lead fixed, or does it feed the rival?</text>
+  <rect x="60" y="100" width="400" height="320" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <text x="84" y="134" font-size="19" font-weight="700" fill="var(--ink)">Two independent tracks</text>
+  <path d="M90 360 L430 180" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <path d="M90 400 L430 220" fill="none" stroke="var(--grey)" stroke-width="4"/>
+  <line x1="430" y1="180" x2="430" y2="220" stroke="var(--dim)" stroke-width="2" stroke-dasharray="4 4"/>
+  <line x1="150" y1="328" x2="150" y2="368" stroke="var(--dim)" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="84" y="166" font-size="16" fill="var(--dim)">Pause six months, then remain tied</text>
+  <rect x="500" y="100" width="400" height="320" rx="12" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
+  <text x="524" y="134" font-size="19" font-weight="700" fill="var(--ink)">Catch-up growth</text>
+  <path d="M530 360 L870 180" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <path d="M530 400 Q740 360 870 196" fill="none" stroke="var(--warn)" stroke-width="4"/>
+  <line x1="870" y1="180" x2="870" y2="196" stroke="var(--dim)" stroke-width="2" stroke-dasharray="4 4"/>
+  <line x1="590" y1="328" x2="590" y2="388" stroke="var(--dim)" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="524" y="166" font-size="16" fill="var(--dim)">Distillation and diffusion: a wider lead speeds pursuit</text>
+  <text x="60" y="478" font-size="22" font-weight="700" fill="var(--ink)">He thinks the latter is already substantial: inputs differ greatly, speed only slightly</text>
+</svg>

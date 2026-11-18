@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Three layers narrow from top to bottom: a wide top layer represents raw internal metrics, a dark solid block in the middle represents the redacted report itself, and a very thin strip at the bottom represents the single statement released to the public.">
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <text x="60" y="66" font-size="27" font-weight="700" fill="var(--ink)">The strongest claim rests on redactions</text>
+  <rect x="60" y="110" width="840" height="86" rx="10" fill="var(--card)" stroke="var(--line)"/>
+  <text x="84" y="142" font-size="19" font-weight="700" fill="var(--ink)">Raw internal metrics</text>
+  <text x="84" y="172" font-size="16" fill="var(--dim)">Pretraining perplexity　RL compute efficiency　input production function</text>
+  <polygon points="460,206 452,226 468,226" fill="var(--grey)"/>
+  <line x1="460" y1="196" x2="460" y2="212" stroke="var(--grey)" stroke-width="3"/>
+  <rect x="200" y="232" width="560" height="96" rx="10" fill="var(--ink)"/>
+  <text x="480" y="276" font-size="20" font-weight="700" text-anchor="middle" fill="var(--page)">The report: fully redacted</text>
+  <text x="480" y="306" font-size="16" text-anchor="middle" fill="var(--grey)">No public methods, samples, or charts</text>
+  <polygon points="460,362 452,342 468,342" fill="var(--grey)"/>
+  <line x1="460" y1="328" x2="460" y2="348" stroke="var(--grey)" stroke-width="3"/>
+  <rect x="330" y="372" width="300" height="46" rx="8" fill="var(--warn)"/>
+  <text x="480" y="402" font-size="17" font-weight="700" text-anchor="middle" fill="var(--page)">What remains: their claim</text>
+  <text x="60" y="490" font-size="22" font-weight="700" fill="var(--ink)">Without raw data, the honest answer is unknown</text>
+</svg>
