@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Each company's revenue bar has two layers: baseline demand below and rush orders above; the upper layer is much thicker for the company on the right, creating a much larger drop when it disappears.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<defs><style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style></defs>
+<text x="70" y="70" font-size="27" fill="var(--ink)">How Much Was Rushed? (Illustrative)</text>
+<line x1="110" y1="450" x2="900" y2="450" stroke="var(--line)" stroke-width="3"/>
+<rect x="160" y="290" width="160" height="160" rx="8" fill="var(--accent)" opacity="0.9"/>
+<rect x="160" y="230" width="160" height="60" rx="8" fill="var(--warn)" opacity="0.9"/>
+<text x="188" y="486" font-size="19" fill="var(--ink)">Company A</text>
+<line x1="344" y1="230" x2="344" y2="286" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="334,282 354,282 344,300" fill="var(--warn)"/>
+<text x="360" y="266" font-size="16" fill="var(--dim)">Small Drop</text>
+<rect x="520" y="350" width="160" height="100" rx="8" fill="var(--accent)" opacity="0.9"/>
+<rect x="520" y="200" width="160" height="150" rx="8" fill="var(--warn)" opacity="0.9"/>
+<text x="548" y="486" font-size="19" fill="var(--ink)">Company B</text>
+<line x1="704" y1="200" x2="704" y2="346" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="694,342 714,342 704,360" fill="var(--warn)"/>
+<text x="720" y="276" font-size="16" fill="var(--dim)">Big Drop</text>
+<rect x="800" y="208" width="26" height="26" rx="5" fill="var(--warn)"/>
+<text x="836" y="229" font-size="16" fill="var(--dim)">Rush Orders</text>
+<rect x="800" y="252" width="26" height="26" rx="5" fill="var(--accent)"/>
+<text x="836" y="273" font-size="16" fill="var(--dim)">Baseline</text>
+<text x="70" y="524" font-size="22" fill="var(--ink)">Same Rush-Order Loss, Different Drop</text>
+</svg>
