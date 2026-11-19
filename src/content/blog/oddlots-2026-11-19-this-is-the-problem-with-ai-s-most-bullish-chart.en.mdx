@@ -1,0 +1,110 @@
+---
+title: "Odd Lots: GPU Rental Rates Are Going Up, and Part of That Is Credit Getting Harder"
+description: "Notes on the Odd Lots episode of 19 November 2026 (recorded 18 November), where Joe Weisenthal and Tracy Alloway talk first with Stanley Lee, Chief Product Officer at Liquid Compute, then with Paul Kedrosky of SK Ventures. The bulls' favourite chart is the GPU rental index — Weisenthal reads the Silicon Data B200 index at $7.10 an hour, up from the mid-$5s in August — and Lee's reading is that a chunk of that price is the buyers' cost of capital, because mid-market operators can no longer sell term contracts, pushing buyers who want term back into spot. The argument holds while buyers are paying with venture equity. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "oddlots-2026-11-19-this-is-the-problem-with-ai-s-most-bullish-chart"
+lang: "en"
+pubDate: 2026-11-19
+category: "investing"
+kind: "podcast-notes"
+tags: ["AI capex", "podcast-notes", "private credit", "cost of capital", "data centers"]
+ogImage: "/covers/oddlots-2026-11-19-this-is-the-problem-with-ai-s-most-bullish-chart-cover.png"
+cover: "/covers/oddlots-2026-11-19-this-is-the-problem-with-ai-s-most-bullish-chart-cover.png"
+---
+
+![An open field at night, a single streetlamp in the foreground casting one circle of light on the grass, a person crouching inside the circle feeling around, a set of keys glinting faintly in the grass outside the light, and the silhouette of a row of data centre halls on the far horizon with a few windows lit](/covers/oddlots-2026-11-19-this-is-the-problem-with-ai-s-most-bullish-chart-cover.png)
+
+> The river roars below; the cliffs rise a thousand feet. The hills are high and the moon small; the water falls and the rocks come out.
+>
+> —— Su Shi, "Second Rhapsody on Red Cliff" (Northern Song, 1082; my own translation)
+
+In the Odd Lots episode of 19 November 2026 — recorded, as the hosts say, on the morning of the 18th — Joe Weisenthal and Tracy Alloway run two interviews: first Stanley Lee, Chief Product Officer at Liquid Compute, then Paul Kedrosky, a partner at SK Ventures. The strongest chart the bulls have is the GPU rental index, and Weisenthal reads one out: the Silicon Data B200 index at $7.10 per hour, up from the mid-$5s as recently as August. Lee's reading is that part of that price is the buyers' cost of capital, because mid-market operators can no longer sell term contracts, which pushes anyone who wants term back into the spot and short-term market. For that reading to hold, buyers have to be paying for compute mostly out of venture equity; once they pay out of revenue, the same chart goes back to being a demand signal.
+
+## What the chart is actually measuring
+
+The rental index tracks the price at which compute is rented. The bull reading is direct: rates going up means AI demand is still there, and if data centre construction slows, the compute that already exists becomes worth more. Tracy Alloway opened with the right question — what is this chart showing, and does it take in the cost of actually securing these GPUs?
+
+Lee's answer gives the chart an identity. Any index worth looking at excludes hyperscaler pricing, which leaves the prices at which mid-market neoclouds — the newer operators who buy chips, build halls and rent capacity out — are transacting. So the chart measures clearing prices in the weakest-credit slice of the compute market.
+
+![Three horizontal bands represent the three supply tiers of the compute market: the top tier, hyperscalers, is excluded because its pricing is internal, and the bottom tier is small operators dumping capacity, while only the middle tier of mid-sized compute providers is boxed in blue and linked by an arrow to the rent index on the right, showing that the index samples exactly the weakest-credit slice.](/figures/gpu-rent-index-samples-weakest-credit-en.svg)
+
+## How lending terms tightened over six months
+
+Lee's background matters here. He traded high yield bonds and credit default swaps at Barclays for five years, then moved to the buy side in high yield and distressed, and joined Liquid Compute earlier this year. He says he arrived expecting a marketplace of buyers and sellers and found a credit and financing ecosystem instead.
+
+A vanilla mid-market deal looks like this: a few hundred million dollars, three years, fully amortising, lent to a mid-market neocloud. Lee's timeline is the hardest material in the episode. Over the summer, lenders wrote 80% loan-to-value — the share of the asset's value covered by debt. After Labor Day it was closer to 70%. Now they are asking for 50% to 60%. Over the summer those loans priced at 12%; the structures he sees now pair 50% LTV with rates in the mid-to-high teens.
+
+![Two lines cross on a shared time axis: loan-to-value slides from 80% down to 50–60% while the interest rate climbs from 12% toward nearly 20%, and the crossing point marks financing terms tightening on both fronts at once.](/figures/ltv-down-rate-up-crossing-en.svg)
+
+And the equity under those loans is often not the operator's own money. Many mid-market neoclouds fund it with prepayments collected from their customers, which is the source of all the complaining in Silicon Valley about prepayments climbing. Lee also describes the underwriting focus moving. Early on, lenders looked only at the offtaker — the party signing the long contract to buy compute — and treated these loans as offtaker credit wrappers. Once hundreds of smaller neoclouds were borrowing, the operator started getting underwritten too. He quotes a large private credit lender who told him last week: stop showing me loans where it's the neocloud's first or second deployment, only experienced operators.
+
+The reason follows. A take-or-pay contract is worth something only if the offtaker has to pay, and the offtaker only has to pay if the operator keeps the machines up and meets the service levels. So what was 100% offtaker profile six months ago is now split.
+
+![Two vertical bars contrast where lenders focus their underwriting: six months ago the whole bar read tenant credit, and now the same bar is split into tenant credit and operator capability.](/figures/underwriting-focus-moved-en.svg)
+
+Push that one step further and you get the argument in the episode's title. When lenders cut LTV from 70 to 50 and ask for bigger prepayments at the same time, the mid-market operator can no longer sell a term contract. The customer may want to sign; the operator takes that contract to a lender and cannot get financed against it. People who want three-year compute therefore cannot buy it, and they land in spot and short-term instead. Spot prices get pushed up, and the chart goes up and to the right.
+
+![A path toward a three-year contract runs into a gate marked no financing and is struck through, so the flow reroutes into the narrow opening of spot and short-term deals, and the spot price line on the right tilts up to the right as a result.](/figures/long-term-gate-closed-spot-up-en.svg)
+
+## One pricing choice that holds off the pure-demand reading
+
+Lee's example made me sit up. He put two quotes in front of the same buyer: B300 capacity for three years at $4.40 per GPU hour with 30% down, or zero prepay in the mid-to-high $5s. They took the zero-prepay, higher-rate one. He says they are not arbing themselves — they care that much about the cash on their balance sheet and their cost of capital.
+
+![Two bars compare two quotes: the cheaper $4.40 one carries a 30% prepayment and is struck out, while the pricier high-$5 one with zero prepayment is circled and labeled the buyer picked this, with an arrow pointing to the cash kept on hand.](/figures/buyer-pays-more-for-no-prepay-en.svg)
+
+If the chart were rising purely on end demand, buyers would be happy to lock in term and lock in the lower price. Paying a quarter more per hour to avoid handing over cash today says something different: for these companies, cash staying on the balance sheet beats unit price. Lee adds the second loop — the more low-prepay contracts they sign, the faster their contracted compute and revenue grow, and the easier the next venture round becomes. The money comes back around to where it started.
+
+One more detail makes the risk concrete. Offtakers now go to their operator's lenders for non-disturbance agreements, because the scenario they fear is this: they signed at $3.80 per GPU hour a year ago, the going rate is $4.30, and if the operator fails the lender will not honour the old contract and will re-let the capacity to someone else. Lee says re-letting is minutes of engineering — you transfer SSH keys — and the hard part is having the legal structure right in the term sheet. Recovery, once it actually happens, is a clause.
+
+## When the argument stops working
+
+Lee never calls the demand fake. He says demand is there, and that venture firms have kept deploying this year. He also gives the number that cuts the other way: VCs deployed about 25% less in the third quarter than in the first. His split is clean — the demand side is the willingness and the ability of buyers to pay, willingness has not been the problem, and ability is funded by venture equity.
+
+![A stacked bar splits demand into a solid lower block for willingness to pay and a dashed upper block for ability to pay, the dashed block labeled venture equity, and an arrow points to a second bar that is solid all the way up and labeled paid out of revenue, at which point the chart again stands for end demand.](/figures/willing-versus-able-to-pay-en.svg)
+
+So the failure condition is writable. Once buyers are paying for compute out of revenue, the chart goes back to meaning demand. Weisenthal mentions that Anthropic's compute bill has come down as a share of revenue, which is a sample moving that way. That hands you the ratio to follow: how much of a company's compute is bought with revenue versus freshly raised equity. The hosts close the episode on exactly that ratio.
+
+One thing in the other direction I am unsure about, and the episode doesn't cover it: if lending terms loosen again and term contracts start selling, spot prices should fall back, and that fall would get read as demand weakening.
+
+## How thin the spot market is
+
+Lee compares compute to a commodity like oil: a small minority of the capacity procured and traded goes through the spot market, and spot is what everyone quotes as the reference rate. A large private credit firm asked him a good question — how many bids have to get hit for the floor to fall out of these graphs? His answer: a lot less than people think.
+
+![A large square stands for all compute purchasing, only a small blue patch in its lower right corner is volume that actually trades on the spot market, and an arrow shows that the reference price everyone quotes comes from exactly that small patch.](/figures/thin-spot-market-sets-the-reference-en.svg)
+
+That lands properly once you add his own worry. What made this asset class financeable over the past year is the chart going up and to the right; lenders believe the chips keep earning more. He says a single article about GPU residual values falling — even if what's falling is distressed capacity people are happy to buy — could make private credit stop and re-evaluate its priors. He has already had larger neoclouds call to say that when they see distressed purchase orders from smaller operators, they want to buy on the cheap.
+
+Kedrosky is blunter about the same chart. People conflate the number going up and to the right with the viability of the business and its ability to pay off the underlying financing, and those two can move apart. His image for it: you lost your keys in the field, and you're looking under the lamppost because it's easier to look there. He calls it an availability bias problem.
+
+## What I now ask of my own indicators
+
+The high-frequency numbers I follow have to clear three questions after this episode. First, how much volume clears at this price — a thin market draws a line that doesn't take many orders to break. Second, whose money the buyers are paying with: earnings, or the last round. Third, which way lending terms moved over the same stretch — when rates, collateral requirements and prepayments all tighten together, part of the price rise was put there by financing.
+
+A number that can't answer all three I treat as a sentiment gauge from now on. I used to read a price index rising as demand strengthening, without asking how much supply had been pulled out over that period or whose money the buyers were spending. This episode named that gap for me.
+
+## A few other things worth keeping
+
+- Kedrosky's arithmetic: with capex in the $10 trillion range, earning a reasonable return means supporting something like $3 to $6 trillion of annual revenue by around 2032. People comfort themselves with framings like "that's 18% of global white-collar work", and he answers with copper: reprice 15% of the copper market and you have repriced the whole market. Treat white-collar work as a market you'll take a big share of, and the moment you take it the market shrinks — so you need a bigger share, and so on.
+- His point about ground truth is the best thing in the second half. Software lets a model iterate on itself because the code either works or it doesn't; the feedback is hard. Hand a model a slide deck, let it run for twelve hours, and what comes back is not better, because nothing can say what better means. Loop a model on tasks without ground truth and you get exploding errors.
+- One tenet of venture capital, he says, is that your early customers look nothing like your later ones, so projecting a business off early adopters is a serious mistake. The people who would pay any price were coders. Normal users are content with a model that is good enough, because it got them a restaurant reservation.
+- Numbers he gave from memory, and flags as such: critical software vulnerabilities found in the first three weeks of October were about 8% of all the critical vulnerabilities ever found, and the first half of this year accounted for half of them. The people making money, he says, are reinsurers, because nobody can price this risk — and Anthropic's S-1 risk section says the exposure may be larger than the global insurance market.
+- Oversubscription carries no information. It's a non-binding indication: institutions name a big number knowing they'll get a fraction, and bankers leak the multiple. His comparison is the Chinese IPOs this summer that were 8,000 times oversubscribed and then fell by half.
+- NVIDIA gets called the central bank of AI, and he unpacks it as a fractional reserve system: it uses its own balance sheet to create money on the other side, and the companies it extends credit to spend it back with NVIDIA, levered as it circulates. Fractional systems run in reverse geometrically, not linearly. He then picks out two lines from acting CEO Colette Kress on the earnings call — we remain huge supporters of neoclouds, and we're going to be much more discerning — and notes that being more discerning about neoclouds leaves you with no neoclouds.
+- Lee's analogy is aircraft finance. After 2008 everyone thought aircraft weren't financeable, and what made the asset class financeable again was the infrastructure around it: a liquid re-let market, regular appraisals. He argues Silicon Valley should embrace this credit crunch, because that infrastructure gets built now.
+
+![On the left a closed ring of arrows shows credit created on balance sheets flowing to compute providers and returning as orders, with leverage marked outside the ring; on the right a steeply falling geometric curve after reversal stands in contrast to the ring.](/figures/fractional-reserve-loop-and-reversal-en.svg)
+
+## Further reading
+
+- The Odd Lots episode of 19 November 2026, the source for this piece
+- Silicon Data's GPU rental indices, where the B200 and B300 prices quoted in the episode come from
+- Anthropic's S-1, cited in both halves of the episode for its risk section and its compute commitments
+- The transcript of NVIDIA's latest earnings call, and Colette Kress's comments on neoclouds
+- Kedrosky's writing at SK Ventures, alongside the capex payback estimates from Columbia Business School and from Bain
+
+## The one thing worth taking with you
+
+**A price going up can mean more people want the thing, or it can mean the channels for paying got narrower — and the second one makes the chart look better.**
+
+This episode demonstrates it once, end to end: term financing jams, buyers get squeezed into spot, spot rises, and spot is the reference rate everyone quotes. Separating willingness to pay from ability to pay is the most portable tool in Lee's half of the conversation.
+
+Here's something I've tried that holds outside investing too. Pick something you've recently decided is "picking up" — pay in your line of work, what houses in your area are closing at, applications at your kid's school, the resale price of second-hand instruments — and write two lines: who is paying, and where their money comes from. Then write down one number you'll be able to look up a month from now (next round of volume, applicant count, days on the market) and come back to it. You'll find out whether that rise was more people, or a changed channel for paying.
