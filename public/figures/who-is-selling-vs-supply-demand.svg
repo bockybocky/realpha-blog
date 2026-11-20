@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左邊一條下跌的價格線分出兩條箭頭，分別指向上方寫著誰在賣的卡片與下方寫著供需變了嗎的卡片，兩張卡片裡的小長條一組往下、一組往上">
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+    .t{font-size:27px;font-weight:700}
+    .g{font-size:19px}
+    .b{font-size:15px;fill:var(--dim)}
+    .c{font-size:22px}
+  </style>
+  <text class="t" x="40" y="58">先問誰在賣，再問世界變了沒</text>
+  <rect x="50" y="210" width="280" height="170" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="76" y="252">價格在跌</text>
+  <path d="M80 282 L300 352" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="338" y1="262" x2="382" y2="222" stroke="var(--line)" stroke-width="3"/>
+  <polygon points="376,214 390,214 384,230" fill="var(--line)"/>
+  <line x1="338" y1="330" x2="382" y2="400" stroke="var(--line)" stroke-width="3"/>
+  <polygon points="374,398 388,392 386,410" fill="var(--line)"/>
+  <rect x="400" y="140" width="510" height="160" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="424" y="180">誰在賣</text>
+  <text class="b" x="424" y="212">部位資料</text>
+  <text class="b" x="424" y="238">淨多單 −77%，指數 −10%</text>
+  <rect x="700" y="196" width="26" height="86" fill="var(--accent)"/>
+  <rect x="744" y="226" width="26" height="56" fill="var(--accent)"/>
+  <rect x="788" y="262" width="26" height="20" fill="var(--accent)"/>
+  <rect x="400" y="350" width="510" height="170" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="424" y="390">供需變了嗎</text>
+  <text class="b" x="424" y="422">庫存、現貨升水、下游報價</text>
+  <text class="b" x="424" y="448">這些才是供需在說話</text>
+  <rect x="700" y="476" width="26" height="24" fill="var(--warn)"/>
+  <rect x="744" y="444" width="26" height="56" fill="var(--warn)"/>
+  <rect x="788" y="410" width="26" height="90" fill="var(--warn)"/>
+  <text class="c" x="40" y="546">兩個答案可以相反</text>
+</svg>

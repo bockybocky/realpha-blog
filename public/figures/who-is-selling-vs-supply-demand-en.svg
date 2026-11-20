@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="On the left a falling price line splits into two arrows, one pointing to an upper card asking who is selling and one to a lower card asking whether supply and demand changed, with small bars pointing down in one card and up in the other.">
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;fill:var(--ink)}
+    .t{font-size:27px;font-weight:700}
+    .g{font-size:19px}
+    .b{font-size:15px;fill:var(--dim)}
+    .c{font-size:22px}
+  </style>
+  <text class="t" x="40" y="58">Ask who is selling, then ask if the world changed</text>
+  <rect x="50" y="210" width="280" height="170" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="76" y="252">Price is falling</text>
+  <path d="M80 282 L300 352" fill="none" stroke="var(--warn)" stroke-width="3"/>
+  <line x1="338" y1="262" x2="382" y2="222" stroke="var(--line)" stroke-width="3"/>
+  <polygon points="376,214 390,214 384,230" fill="var(--line)"/>
+  <line x1="338" y1="330" x2="382" y2="400" stroke="var(--line)" stroke-width="3"/>
+  <polygon points="374,398 388,392 386,410" fill="var(--line)"/>
+  <rect x="400" y="140" width="510" height="160" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="424" y="180">Who is selling</text>
+  <text class="b" x="424" y="212">Positioning data</text>
+  <text class="b" x="424" y="238">Net longs −77%, index −10%</text>
+  <rect x="700" y="196" width="26" height="86" fill="var(--accent)"/>
+  <rect x="744" y="226" width="26" height="56" fill="var(--accent)"/>
+  <rect x="788" y="262" width="26" height="20" fill="var(--accent)"/>
+  <rect x="400" y="350" width="510" height="170" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="424" y="390">Did supply and demand change</text>
+  <text class="b" x="424" y="422">Stocks, cash premiums, downstream quotes</text>
+  <text class="b" x="424" y="448">That is supply and demand talking</text>
+  <rect x="700" y="476" width="26" height="24" fill="var(--warn)"/>
+  <rect x="744" y="444" width="26" height="56" fill="var(--warn)"/>
+  <rect x="788" y="410" width="26" height="90" fill="var(--warn)"/>
+  <text class="c" x="40" y="546">The two answers can disagree</text>
+</svg>
