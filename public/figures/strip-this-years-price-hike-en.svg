@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="A three-part stacked bar is clearly shorter once the top price-hike part is removed.">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .h { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--dim); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t h" x="60" y="70">Strip out this year's price hike first</text>
+<line x1="60" y1="460" x2="900" y2="460" stroke="var(--line)" stroke-width="2"/>
+<rect x="200" y="300" width="160" height="160" fill="var(--accent)"/>
+<text class="t g" x="248" y="392">Volume</text>
+<rect x="200" y="190" width="160" height="110" fill="var(--grey)"/>
+<text class="t g" x="226" y="252">Original price</text>
+<rect x="200" y="110" width="160" height="80" fill="var(--warn)"/>
+<text class="t b" x="382" y="156">This year's price hike</text>
+<text class="t b" x="200" y="492">Earlier version</text>
+<polygon points="560,250 640,250 640,236 676,257 640,278 640,264 560,264" fill="var(--dim)"/>
+<rect x="700" y="300" width="160" height="160" fill="var(--accent)"/>
+<rect x="700" y="190" width="160" height="110" fill="var(--grey)"/>
+<line x1="700" y1="110" x2="860" y2="110" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 5"/>
+<text class="t b" x="700" y="492">Re-estimated</text>
+<text class="t c" x="60" y="540">Strong is what still holds up after</text>
+</svg>
