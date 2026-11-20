@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="溫度刻度上四百度一條天花板，矽只能在天花板上方，天花板下方只有氧化物進得去">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text x="48" y="58" font-size="27" fill="var(--ink)">卡住的是溫度，不是設計</text>
+
+  <line x1="150" y1="110" x2="150" y2="470" stroke="var(--line)" stroke-width="3"/>
+  <text x="48" y="132" font-size="16" fill="var(--dim)">約 1000 度</text>
+  <line x1="140" y1="126" x2="160" y2="126" stroke="var(--grey)" stroke-width="2"/>
+  <text x="56" y="268" font-size="16" fill="var(--warn)">400 度</text>
+  <text x="68" y="464" font-size="16" fill="var(--dim)">室溫</text>
+  <line x1="140" y1="458" x2="160" y2="458" stroke="var(--grey)" stroke-width="2"/>
+
+  <rect x="190" y="110" width="700" height="140" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="214" y="152" font-size="20" fill="var(--ink)">前段</text>
+  <text x="214" y="186" font-size="16" fill="var(--dim)">矽電晶體</text>
+  <text x="214" y="214" font-size="16" fill="var(--dim)">熱氧化、活化退火</text>
+  <text x="700" y="186" font-size="16" fill="var(--ink)">高溫沒問題</text>
+
+  <line x1="190" y1="262" x2="890" y2="262" stroke="var(--warn)" stroke-width="4"/>
+  <text x="190" y="292" font-size="19" fill="var(--warn)">銅導線的上限</text>
+
+  <rect x="190" y="310" width="700" height="160" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text x="214" y="350" font-size="20" fill="var(--ink)">後段</text>
+  <text x="214" y="384" font-size="16" fill="var(--dim)">鋪銅導線</text>
+  <text x="440" y="384" font-size="16" fill="var(--grey)">矽電晶體　進不來</text>
+  <path d="M700 370 l24 24 M724 370 l-24 24" stroke="var(--grey)" stroke-width="3"/>
+  <text x="440" y="430" font-size="16" fill="var(--accent)">氧化物半導體　低溫就能做</text>
+  <circle cx="712" cy="422" r="12" fill="none" stroke="var(--accent)" stroke-width="3"/>
+
+  <text x="48" y="528" font-size="22" fill="var(--ink)">能不能往上疊，取決於那一層怕不怕熱。</text>
+</svg>
