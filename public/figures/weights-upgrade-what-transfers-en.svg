@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="Three layers compared: the weight upgrade goes through, the arrow for fine-tuning results is broken, and the arrow for the dataset passes intact.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">Swap in new weights: what carries over</text>
+
+  <rect x="110" y="120" width="230" height="86" rx="6" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <text class="t" x="132" y="172" font-size="20" font-weight="700" fill="var(--ink)">Kimi 3 weights</text>
+  <rect x="620" y="120" width="230" height="86" rx="6" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <text class="t" x="640" y="172" font-size="20" font-weight="700" fill="var(--ink)">Kimi 3.1 weights</text>
+  <line x1="350" y1="163" x2="600" y2="163" stroke="var(--grey)" stroke-width="2.5"/>
+  <path d="M600 163 l-14 -7 v14 z" fill="var(--grey)"/>
+  <text class="t" x="400" y="146" font-size="16" fill="var(--dim)">Lab ships a new version</text>
+
+  <rect x="110" y="270" width="230" height="86" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <text class="t" x="132" y="312" font-size="19" font-weight="700" fill="var(--accent)">Fine-tuning results</text>
+  <text class="t" x="132" y="338" font-size="16" fill="var(--dim)">Grip</text>
+  <line x1="350" y1="313" x2="600" y2="313" stroke="var(--grey)" stroke-width="2.5" stroke-dasharray="8 8"/>
+  <line x1="455" y1="294" x2="493" y2="332" stroke="var(--warn)" stroke-width="4"/>
+  <line x1="493" y1="294" x2="455" y2="332" stroke="var(--warn)" stroke-width="4"/>
+  <text class="t" x="520" y="306" font-size="19" font-weight="700" fill="var(--warn)">Does not carry over</text>
+  <text class="t" x="520" y="332" font-size="16" fill="var(--dim)">Has to be redone</text>
+
+  <rect x="110" y="420" width="230" height="86" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <text class="t" x="132" y="462" font-size="19" font-weight="700" fill="var(--accent)">Graded dataset</text>
+  <text class="t" x="132" y="488" font-size="16" fill="var(--dim)">Experts, process</text>
+  <line x1="350" y1="463" x2="600" y2="463" stroke="var(--accent)" stroke-width="3"/>
+  <path d="M600 463 l-16 -8 v16 z" fill="var(--accent)"/>
+  <rect x="620" y="420" width="230" height="86" rx="6" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <text class="t" x="640" y="470" font-size="19" font-weight="700" fill="var(--accent)">Fine-tune again</text>
+
+  <text class="t" x="60" y="552" font-size="22" font-weight="700" fill="var(--ink)">Results depreciate; data is what stays</text>
+</svg>

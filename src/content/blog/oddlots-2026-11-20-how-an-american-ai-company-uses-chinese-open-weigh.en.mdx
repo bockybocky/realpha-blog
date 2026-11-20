@@ -1,0 +1,113 @@
+---
+title: "Odd Lots: How an American Company Actually Uses Chinese Open-Weight Models"
+description: "Notes on the Odd Lots episode released 20 November 2026, in which Tracy Alloway and Joe Weisenthal talk with Dan Saidi, co-founder of the marketing AI company Minerva: frontier closed models while building the product, a self-fine-tuned Chinese open-weight model for the repeatable work once it ships. He cites Harvey spending roughly $6 million of compute to push its own legal model to the frontier of legal tasks, two to three orders of magnitude away from what running a frontier model costs, and notes that a fine-tune does not carry over to the next release of weights. Recorded 3 November; every number is as stated then. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "oddlots-2026-11-20-how-an-american-ai-company-uses-chinese-open-weigh"
+lang: "en"
+pubDate: 2026-11-20
+category: "investing"
+kind: "podcast-notes"
+tldr: "One American company's split: buy the most expensive model while writing the code, swap in a fine-tuned Chinese open-weight model for the repeatable work once it ships, and count cost per completed task. Every new release of weights means paying for the fine-tune again."
+tags: ["open weights", "podcast-notes", "AI costs", "fine-tuning", "data moat"]
+ogImage: "/covers/oddlots-2026-11-20-how-an-american-ai-company-uses-chinese-open-weigh-cover.png"
+cover: "/covers/oddlots-2026-11-20-how-an-american-ai-company-uses-chinese-open-weigh-cover.png"
+---
+
+![A workbench at first light, a stack of query examples marked up and ticked in red pen lying in the foreground beside an open laptop catching the light, the server aisle behind the bench running away into depth until only a row of indicator lights remains](/covers/oddlots-2026-11-20-how-an-american-ai-company-uses-chinese-open-weigh-cover.png)
+
+> If you truly mean to learn poetry, the work lies outside poetry.
+>
+> —— Lu You, "Shown to My Son Yu" (Southern Song, early 13th century; my own translation)
+
+In the Odd Lots episode released on 20 November 2026 and recorded on 3 November, Tracy Alloway and Joe Weisenthal talk with Dan Saidi, co-founder of the marketing AI company Minerva, who spent five and a half years at Bridgewater before starting it. The split he describes: while building the product, pay for the most frontier closed models; once it ships, run the tasks that repeat a thousand times on a Chinese open-weight model he has fine-tuned himself. His comparison point is the legal AI company Harvey, which spent around $6 million of compute to push its own legal model to the frontier of legal tasks — set against what it costs to run a new frontier model, he says, you are off by two or three orders of magnitude. He states the condition too: the data you hold has to be graded and validated, and if it is noise the whole thing collapses; every number below is as stated at the recording.
+
+## What the episode is asking
+
+The hosts open by restating the question behind the DeepSeek scare of January 2025: will frontier or near-frontier intelligence be commodified, such that no premium can be charged for it, and how do the American closed-source companies then justify all that capex. Two rebuttals get aired — that the Chinese models are distilling Western ones, and that they are benchmark specialists that fall apart in general deployment.
+
+So this episode brings on someone who spends money on these models daily. Minerva does marketing automation: the repetitive workflow between planning a campaign and running it live goes to agents, and the humans go back to stories and slogans. They use closed and open-weight models side by side.
+
+## Open weight and open source are different things
+
+Tracy pins the terminology down first, and this is the most useful block in the hour. Open source means disclosing the code, the data, the exact training recipe; what the Chinese labs release is the weights — the end artifact. His comparison is concrete: with OpenAI and Anthropic, data goes into an endpoint and data comes back, and how it got there he has no idea; the Chinese labs at least let you download the model and host it yourself.
+
+The recipe stays dark either way. Beyond the papers they publish, he says, he has no idea how they went from a slop of data and an architecture to that artifact.
+
+## The expensive one builds, the cheap one runs
+
+For writing code and building the product they use Claude, Astra, that whole frontier row — the reason being engineer time, since he does not want his developers spending their hours in loops and cleaning up mistakes. Once something becomes repeatable, where getting the task to a level the customer is happy with is enough, the accounting changes books: now he watches cost per completed task, while the number everyone quotes in the press is cost per million tokens. The line I wrote down: get the minimum acceptable task completion for the lowest cost, and everything outside that is the margin.
+
+Joe later compresses the structure into one question — frontier closed for capex, cheap open weights for the opex intelligence? Saidi says yes.
+
+![A tall narrow bar and a short wide bar stand side by side with roughly equal area; the left one represents the development phase, where the unit cost is high but the work is done only once, and the right one represents life after launch, where the unit cost is low but the task repeats thousands of times.](/figures/two-ledgers-capex-opex-en.svg)
+
+## Fine-tuning is where the application layer's edge sits today
+
+The primary benefit at the application layer right now, he says, is the ability to fine-tune on top of those open weights. The chain: what makes the models good in the first place is the hosts of data the labs buy, and a startup has some data from its customers and nothing resembling billions of dollars of it, so it has to get crafty.
+
+Their example is easy to follow. A user types "find everyone who works at OpenAI and likes football and build me an audience." The old way was an OpenAI model to read the request, turn it into SQL, pull from the database, show the result — slow, and it needed an expensive model. Qwen out of the box performs about as well as the OpenAI model, and loses to Astra or Sol. So they took a few thousand labeled examples — a complicated query against a correct result — graded them, and fine-tuned Qwen on them, telling the model to focus on this set of results and reproduce them as closely as it can. The outcome is faster than the closed models and better at taking complicated queries and producing what their customers want. He calls it "a very small advantage."
+
+![A scatter plot of cost against performance in which three grey points sit at cheap but mediocre, expensive and mediocre, and most expensive with good performance, while only the fine-tuned model lands in the top-left cell that is both cheap and good.](/figures/finetune-quality-cost-quadrant-en.svg)
+
+The pricing lands too. Through a service like Fireworks, fine-tuning runs about $7 to $9 per million input and output tokens, the output tokens here being the changes made to the model's weights; he says there are people whose final training run cost as little as $90 and whose models perform well. A year ago you needed a team of inference engineers to handle concurrency and the serving software running on the GPUs, which is why Llama has been open for two years with research examples and a few large companies like Uber as the only attempts.
+
+## A fine-tune does not move to the next version
+
+Tracy asks what I would have asked: how durable is a fine-tune? That, he says, is the biggest decision point for founders right now. Work done on top of Kimi 3 does not transfer itself to Kimi 3.1 — and Kimi 3.1's weights, he mentions, were landing that week. What does carry is the data set; if that pile of expertly graded answers is reliable, you can at least fine-tune again.
+
+![A solid arrow runs between the two weight versions on the top row, the dashed arrow from the fine-tuning results hanging below the old version to the new version is crossed out, and on the bottom row the dataset has one unbroken solid line reaching the new version.](/figures/weights-upgrade-what-transfers-en.svg)
+
+What does not carry is confidence. He reaches back for his earlier line: he has no idea how they arrived at those weights, so whether the same training data converges to an equally good set of weights on the new release, he does not know. That unknown goes into the calculation as a risk term.
+
+## What is actually being paid for is data and evals
+
+Over three years, he says, anything touching the chips or the power draws players in and competition follows. The middle layer that serves these models has been turned into a standard product, and yet Fireworks and Modal each sit on a billion dollars of annual recurring revenue, with unit economics he guesses are good. What separates a good fine-tune from a bad one is the data and the evals put in there — the questions and graded answers you score the model against — which is why the labs pay data companies billions.
+
+One detail: someone is paying $250,000 to $500,000 for a complete data set from a company, and $50,000 to $100,000 merely for the referral. What makes data good is the example that stopped me — the teacher who used to say "I don't care about your answer, I need you to show your work." That is what the AI needs. Marketing is easy ground because the call logs, the ads, and the creative process behind the ads are all sitting there; construction is hard, because the blueprints exist and the back-and-forth between architect, general contractor and client that changed those blueprints was never kept.
+
+![Two stacks of blocks sit side by side: on the left, all three layers of the marketing stack are solid and complete, while on the right the construction stack keeps only its bottom blueprint layer solid, the two layers above it drawn as empty dashed boxes because nobody kept them.](/figures/data-moat-process-not-answer-en.svg)
+
+## Obliteration: switching off the neurons that say no
+
+Asked about the security risk, he says he spent time before this episode playing with the newest DeepSeek model in uncensored form, and that this is the biggest risk he sees in having frontier-grade open weights in the wild. What someone did to the released model was turn off the neurons that tell the model to say no; the word used on the show is an obliterated model, which the three of them enjoy for a while — Joe says he wants to get his hands on one.
+
+Then the numbers: it runs at about 30 cents per million blended tokens, roughly 10x cheaper than Sonnet, which is roughly 10x cheaper than Fable, putting it near a hundredth of the cost of running Fable — and you can tell it to do anything. He points the labs' concern away from the obvious places: the worry about your data reaching China he asks everyone to set aside, model vulnerabilities are off the list too, and what stays on the list is that anyone can change a few parameters and keep a thousand PhD-level attackers running in the cloud. He has no good policy answer — maybe KYC before you can download the weights — and wants a middle ground where a company like his can still download and fine-tune.
+
+![A three-step staircase descending to the right, each step labeled as a division by ten, from frontier models down to uncensored open weights, for a total gap of one hundred times.](/figures/cost-ladder-two-orders-en.svg)
+
+## The distillation argument is unresolved, and the test has already changed
+
+Joe asks him straight: how much of this is subsidized by distillation? Had nobody violated terms of service, open weights would never have landed six months behind the frontier. Saidi offers a by-the-book American control group: Reflection AI shipped a flagship model with NVIDIA money behind it and a cluster of twelve to fourteen thousand Blackwells, and it came out six to nine months behind the frontier, three to six months behind the Chinese open-weight models. Joe challenges on the spot — an American company owned by NVIDIA would of course play it by the book. Saidi revises: had the Chinese labs played by the book, they would land near Reflection, so distillation is real and how much credit it deserves is up for debate. Then he adds the independent half of the evidence: researchers in San Francisco talking about the Chinese labs mention distillation and also how prolifically they publish, and the compute saved by sparse rather than dense models; DeepSeek published its entire inference framework weeks before the recording, and Fireworks and Modal are using it to serve more efficiently.
+
+Tracy asks what the next DeepSeek moment would look like, and his answer sweeps the benchmarks aside. He cannot tell a 5 from a 5.1 himself, so how is he meant to tell a 5 from a Kimi 3.1; a higher terminal bench score means what to him, exactly. The test moves to substitution: drop Kimi 3.2 into the chatbot process he already serves customers, into his coding day, and see whether performance holds. His own measure — am I yelling expletives into the terminal anymore? If not, it has caught up.
+
+## The news says the Chinese models caught up. Do I change my view?
+
+The benchmark section sent me back to my own news-reading habit. Scores can be gamed, and the man who uses these models daily cannot separate two adjacent versions; so when I pick up a benchmark table and adjust my view of the entire AI chain with it, that signal is far weaker than I treat it as.
+
+His replacement test travels, and it needs no technical knowledge: look for someone actually swapping the cheap one in for daily work. That line has a shape in public disclosure — when a company talks about its model advantage, does it hand you benchmark scores, or retention, task completion rates, and a unit cost curve bending down. The closing exchange between Joe and Tracy is the same class of signal: ask around and plenty of large American firms will say privately that they run Qwen and Kimi while saying nothing publicly, and when they do speak up it tends to be about what the fine-tuning achieved.
+
+That gives me the line between noise and structure. A Chinese lab topping a benchmark is noise. The unit price of a whole class of repeatable tasks falling ninety percent at a quality customers accept is structure. Benchmark news arrives monthly, and a ninety percent drop in unit price rewrites somebody's margin.
+
+## A company claims a moat. Which column do I check first?
+
+This episode split "we use AI" into three boxes for me: whose cost is it taking out, does it hold data nobody else has, and how much does the advantage cost to re-buy each year.
+
+The third box is the one I used to miss, and the fifth point above already laid out the mechanism: this is operating expense, payable every year. When I look at these stories now I move the line out of capex and into opex and value it again, and what I come out with is usually a notch lower.
+
+The other box he named and I had never counted as revenue is leverage. Even if you never serve your own fine-tuned model to customers, holding one lets you go to OpenAI and Anthropic and say you have it, and the conversation shifts from whether to automate at all into a choice between two kinds of automation. That benefit lands in the price you pay for tokens, where the revenue line never shows it — and Joe's guess is that plenty of companies are still paying the tax to the two big labs.
+
+## Further reading
+
+- The Odd Lots episode released 20 November 2026 (recorded 3 November), the source for this piece
+- The public pricing pages of fine-tuning and hosting services such as Fireworks and Modal
+- DeepSeek's published inference framework and the accompanying papers
+- Reflection AI's recently released flagship open-weight model and its benchmark results
+- The pricing models of the two legal AI companies mentioned, Harvey and Legora (per seat versus usage)
+
+## The one thing worth taking with you
+
+**Spend on the expensive tool for the thing you will do once, and on the cheap tool for the thing you will do a thousand times; the line is how many more times you still have to do it.**
+
+The company in this episode buys frontier models while building the product, then swaps the same batch of tasks onto a cheap good-enough model once it ships, and the slice it saves is its margin.
+
+Here's something I've tried that holds outside investing too. Pick one thing you did three or more times this week — reconciling accounts, answering the same kind of message, the school run, prepping food, tidying one spreadsheet every day. From memory, write down what one round costs: minutes, money, and how long the cleanup takes. Next time you do it, run a timer and come back to compare. The step where the gap is widest is the one worth buying a good tool for, or handing to someone else.

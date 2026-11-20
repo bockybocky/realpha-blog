@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Four points on a cost-versus-performance plane, with the only point in the cheap-and-good top-left corner circled.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">Which cell holds that "small edge"</text>
+
+  <rect x="170" y="110" width="290" height="150" fill="var(--card)"/>
+  <line x1="170" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <line x1="170" y1="110" x2="170" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="60" y="104" font-size="16" fill="var(--dim)">Good performance</text>
+  <text class="t" x="60" y="436" font-size="16" fill="var(--dim)">Poor performance</text>
+  <text class="t" x="176" y="470" font-size="16" fill="var(--dim)">Low cost</text>
+  <text class="t" x="840" y="470" font-size="16" fill="var(--dim)">High cost</text>
+
+  <circle cx="260" cy="330" r="9" fill="var(--grey)"/>
+  <text class="t" x="278" y="336" font-size="16" fill="var(--dim)">Qwen as-is</text>
+
+  <circle cx="700" cy="325" r="9" fill="var(--grey)"/>
+  <text class="t" x="600" y="364" font-size="16" fill="var(--dim)">Closed general models</text>
+
+  <circle cx="830" cy="185" r="9" fill="var(--grey)"/>
+  <text class="t" x="722" y="166" font-size="16" fill="var(--dim)">Astra / Sol</text>
+
+  <circle cx="262" cy="178" r="12" fill="var(--accent)"/>
+  <circle cx="262" cy="178" r="24" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text class="t" x="296" y="184" font-size="19" font-weight="700" fill="var(--accent)">Fine-tuned Qwen</text>
+  <text class="t" x="296" y="210" font-size="16" fill="var(--dim)">Thousands of graded query examples</text>
+
+  <text class="t" x="60" y="528" font-size="22" font-weight="700" fill="var(--ink)">Moving top-left on one task is enough to start a moat</text>
+</svg>

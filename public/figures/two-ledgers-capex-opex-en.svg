@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two rectangles of similar area, one tall and one wide: the left is high unit cost with few repetitions, the right is low unit cost with many repetitions.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">Same work, two ledgers</text>
+
+  <line x1="120" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="130" x2="120" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="60" y="124" font-size="16" fill="var(--dim)">Unit cost</text>
+  <text class="t" x="860" y="470" font-size="16" fill="var(--dim)">Runs</text>
+
+  <rect x="150" y="160" width="90" height="280" rx="4" fill="var(--card)" stroke="var(--grey)" stroke-width="2"/>
+  <text class="t" x="150" y="146" font-size="20" font-weight="700" fill="var(--ink)">Development</text>
+  <text class="t" x="150" y="476" font-size="16" fill="var(--dim)">Frontier closed model</text>
+  <text class="t" x="150" y="500" font-size="16" fill="var(--dim)">Run once</text>
+  <text class="t" x="258" y="300" font-size="16" fill="var(--dim)">Engineer hours</text>
+
+  <rect x="420" y="372" width="470" height="68" rx="4" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"/>
+  <text class="t" x="420" y="352" font-size="20" font-weight="700" fill="var(--accent)">After launch</text>
+  <text class="t" x="420" y="476" font-size="16" fill="var(--dim)">Fine-tuned open weights</text>
+  <text class="t" x="420" y="500" font-size="16" fill="var(--dim)">Same job, a thousand times</text>
+  <text class="t" x="640" y="414" font-size="16" fill="var(--ink)">Cost per task</text>
+
+  <text class="t" x="60" y="536" font-size="22" font-weight="700" fill="var(--ink)">Similar areas; the costly ledger is paid only once</text>
+</svg>
