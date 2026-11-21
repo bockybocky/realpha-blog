@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="兩個開機槽只動右邊一個，下方電腦保留原版，箭頭顯示可雙向還原">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="480" y="58" text-anchor="middle" font-size="27" font-weight="700" fill="var(--ink)">只動一個槽，原版留在電腦</text>
+
+  <rect x="90" y="170" width="300" height="140" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="240" y="228" text-anchor="middle" font-size="20" font-weight="700" fill="var(--dim)">槽 A</text>
+  <text class="t" x="240" y="263" text-anchor="middle" font-size="16" fill="var(--dim)">沒動過</text>
+
+  <rect x="520" y="170" width="360" height="140" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t" x="700" y="228" text-anchor="middle" font-size="20" font-weight="700" fill="var(--accent)">槽 B</text>
+  <text class="t" x="700" y="263" text-anchor="middle" font-size="16" fill="var(--ink)">已修補</text>
+
+  <path d="M620 310 L620 384" stroke="var(--dim)" stroke-width="2.5"/>
+  <path d="M620 396 L614 382 L626 382 Z" fill="var(--dim)"/>
+  <text class="t" x="560" y="358" text-anchor="middle" font-size="16" fill="var(--dim)">拉回</text>
+
+  <path d="M786 396 L786 322" stroke="var(--accent)" stroke-width="2.5"/>
+  <path d="M786 310 L780 324 L792 324 Z" fill="var(--accent)"/>
+  <text class="t" x="846" y="358" text-anchor="middle" font-size="16" fill="var(--accent)">寫回</text>
+
+  <rect x="520" y="398" width="360" height="86" rx="12" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="700" y="432" text-anchor="middle" font-size="19" font-weight="700" fill="var(--ink)">電腦</text>
+  <text class="t" x="700" y="462" text-anchor="middle" font-size="16" fill="var(--dim)">原版備份</text>
+
+  <text class="t" x="240" y="444" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)">留一份原版</text>
+  <text class="t" x="240" y="476" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)">才叫可還原</text>
+</svg>

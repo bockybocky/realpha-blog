@@ -1,0 +1,131 @@
+---
+title: "多看電紙書 Pro II 改機教學：繁體中文、Google Play、HyRead 一次到位"
+description: "一步一步把大陸版多看電紙書 Pro II（Android 11）改成台灣能用的閱讀器：備份分區、用 Magisk 取得管理權限、把 Google Play 裝成系統元件、改繁體中文、換電子紙專用桌面、裝 KOReader 與 HyRead。附每一步的指令、我實際踩到的三個坑與解法，以及四種改法的風險比較。個人實作紀錄，照做請自行承擔風險。"
+slug: "duokan-pro2-mod-2026-11"
+lang: "zh-TW"
+pubDate: 2026-11-22
+category: "tech"
+tags: ["電紙書", "電子紙", "Android", "Magisk", "HyRead", "KOReader", "改機教學"]
+ogImage: "/covers/duokan-pro2-mod-2026-11.png"
+cover: "/covers/duokan-pro2-mod-2026-11.png"
+tldr: "多看 Pro II 改成台灣閱讀器分六步：備份、Magisk、Google 套件做成擴充套件、改語言、換桌面、裝閱讀程式。最關鍵的兩件事是先備份電子紙顯示參數分區，以及 Google Play 一定要裝成系統元件。"
+---
+
+![巴洛克油畫風格封面：昏暗書房裡，一束金色光從斜上方照在木桌上一塊泛白的石板，一位工匠俯身用細刀在石板邊緣撬開一道縫，身後書架隱沒在深影中](/covers/duokan-pro2-mod-2026-11.png)
+
+> *君子生非異也，善假於物也。*<br/>
+> —— 荀子《勸學》（戰國）
+
+這篇教你把多看電紙書 Pro II（Android 11）改成台灣能用的閱讀器：繁體中文、Google Play、乾淨的文字桌面，再裝上能用借書證借電子書的 HyRead。我在 2026 年 11 月 22 日凌晨照這套步驟改完一台，前後大約三小時。整套做得到，但有兩個前提：動手前要先備份電子紙的顯示參數分區，以及 Google Play 必須裝成系統元件，當一般程式裝會讓背景服務不停當掉。HyRead 會不會偵測到機器被改過，我寫這篇時還沒測完，文末會照實交代。
+
+## 先講風險
+
+改機會動到開機用的分區，做錯可能讓機器開不了機，也可能失去保固。下面每一步我都實際做過，但每台機器的狀況不一定相同，照做出事要自己承擔。
+
+最怕弄壞的是一顆叫 `waveform` 的分區，它存的是這片電子紙怎麼顯示灰階、怎麼翻頁的參數，每台出廠時各自校過。系統壞了可以重刷，這顆壞了，網路上找不到你那台的檔案。所以第一步一定是備份。
+
+![六顆分區各有一條箭頭從上方「官方映像」指下來，最右邊的 waveform 只有一條虛線指向已經過去的出廠校準，沒有來源可以再取得。](/figures/duokan-partition-has-no-source.svg)
+
+## 準備工作
+
+1. 在電腦上裝好 `adb`（Google 官方的 Platform Tools，用來從電腦對機器下指令）。
+2. 在電紙書打開「設定 → 關於 → 連點版本號」叫出開發人員選項，再打開「USB 偵錯」。
+3. 下載 Magisk 31.1 安裝檔（到它的官方 GitHub 頁）。
+4. 下載 MindTheGapps 11.0 的 arm 版（32 位元）。這台機器的程式環境是 32 位元，下載 arm64 版會裝不上。
+
+接上傳輸線後，跑 `adb devices`，看到一行序號後面寫 `device` 就是連上了。
+
+## 第 1 步：備份
+
+1. 備份整個內部儲存空間：`adb pull /sdcard/ D:/backup_sdcard/`。
+2. 逐個備份分區，至少要有 `boot_a`、`boot_b`、`vbmeta`、`waveform`。
+3. 每個分區在機器上和電腦上各算一次雜湊值（一種檔案指紋，差一個位元指紋就不同），兩邊一致才算備份成功。
+
+我備份了二十個分區，全部比對過才往下走。`waveform` 我比對了兩次。
+
+## 第 2 步：用 Magisk 取得管理權限
+
+1. 查目前用的是哪一個開機槽：`adb shell getprop ro.boot.slot_suffix`。我的回 `_b`，代表要修補的是 `boot_b`。
+2. 把 `boot_b` 的備份檔推到機器上，用 Magisk 程式的「安裝 → 選擇並修補檔案」修補。
+3. 把修補完的檔案拉回電腦，寫回同一個槽，然後重開機。
+4. 記下原版 `boot_b` 的雜湊值。哪天要還原，把原版寫回去就好。
+
+**坑一：從電腦要管理權限會被直接拒絕，連詢問視窗都不跳。** 系統紀錄裡只有一行 `su: request rejected (2000)`，Magisk 設定頁也找不到相關選項。
+
+解法：打開 Magisk →「超級使用者」頁 → 按左上角「＋」→ 選「殼層」（com.android.shell）。加完後跑 `adb shell su -c id`，回 `uid=0(root)` 就成功了。我卡在這裡最久，因為它不給任何提示。
+
+![左右兩個開機槽，左邊沒動過、右邊已修補，右槽下方的電腦保留一份原版，兩條箭頭顯示可以拉回與隨時寫回。](/figures/duokan-one-slot-one-original.svg)
+
+## 第 3 步：把 Google Play 裝成系統元件
+
+**坑二：千萬不要把 Play 商店和 Google 服務框架當一般程式裝。** 我一開始圖方便這樣裝，服務框架每幾秒當掉一次，因為它需要系統權限。移除它們時，系統還卡在開機動畫重啟不了，最後用 `adb reboot` 冷開機才恢復。從那之後我的規矩是：動到 Google 套件，一律冷開機。
+
+正確做法：
+
+1. 把 MindTheGapps 重新打包成 Magisk 擴充套件。可以順手拿掉用不到的元件，例如開機精靈、Google 助理、語音朗讀，省空間也少一點出錯機會。
+2. 如果之前裝過一般程式版，先移除：`adb shell pm uninstall com.google.android.gms`。
+3. 安裝擴充套件並重開機：
+   ```
+   adb push gapps_module.zip /data/local/tmp/gm.zip
+   adb shell su -c 'magisk --install-module /data/local/tmp/gm.zip'
+   adb reboot
+   ```
+4. 開機後檢查：`/product/priv-app` 裡要有 `Phonesky` 和 `PrebuiltGmsCore`，`/system_ext/priv-app` 裡要有 `GoogleServicesFramework`。三個都在、而且沒再跳當機訊息，才算裝好。
+
+我試過在 Magisk 畫面裡選檔安裝，擴充套件列表一直顯示沒裝；改用上面那行指令就成功了。
+
+![同樣三個 Google 元件放在上方系統層時標示穩定，放在下方使用者層時旁邊是一條反覆跳動的鋸齒線，代表每幾秒重啟。](/figures/duokan-system-layer-vs-user-layer.svg)
+
+## 第 4 步：改成繁體中文
+
+在設定裡改語言沒有用，會被系統蓋回簡體。要用管理權限改系統屬性：
+
+```
+adb shell su -c 'setprop persist.sys.locale zh-TW'
+adb reboot
+```
+
+重開後介面和 Play 商店都會是繁體。
+
+## 第 5 步：換成適合電子紙的桌面
+
+1. 從 F-Droid 裝 Olauncher，一個只有文字清單的極簡桌面，設成預設桌面。
+2. 停用原本的多看桌面和微信讀書：`adb shell pm disable-user com.duokan.einkreader`、`adb shell pm disable-user com.tencent.weread.eink`。想復原就把 `disable-user` 換成 `enable`。
+
+**坑三：Olauncher 預設是深色主題，白字配電子紙的白底，整個桌面看起來像一張空白的紙。** 長按桌面，把主題改成淺色就好。
+
+![兩個電紙書畫面並列，左邊深色主題在白底上只剩幾道幾乎看不見的淡痕，右邊淺色主題有清楚的五行深色程式清單。](/figures/duokan-white-text-on-white-paper.svg)
+
+設定主畫面那幾格程式，最省事的方法是長按那一格、從清單裡選。我最後留五格：HyRead、KOReader、Mihon、Play 商店、設定，每一格都實際點過能打開。
+
+## 第 6 步：裝閱讀程式
+
+這台是 32 位元環境，下載時一律挑 arm 或 armv7 的版本：
+
+- **KOReader**：arm 版，看 epub 和 PDF 都很穩，排版選項多。
+- **Readest**：armv7 版，介面比較新。
+- **Mihon**：armeabi-v7a 版，看漫畫用，第一次打開要選一個存檔資料夾。
+- **HyRead**：從 Play 商店裝，用各地圖書館的借書證登入，就能免費借電子書。
+
+## 四種改法比一比
+
+| 做法 | Google Play | 動到開機分區 | 出錯風險 | 適合誰 |
+|---|---|---|---|---|
+| 不改，自己找安裝檔裝 | 裝得上但服務常當掉 | 不會 | 很低 | 只看本機電子書的人 |
+| 刷整套第三方系統 | 可以 | 整個換掉 | 高，電子紙驅動可能不合 | 熟刷機、願意賭的人 |
+| Magisk＋Google 擴充套件（本篇） | 可以，且穩定 | 只改開機映像，可還原 | 中，有備份就救得回 | 願意先備份、照步驟走的人 |
+| 不裝 Google，只用 F-Droid 開源程式 | 不需要 | Magisk 這步仍要 | 中 | 不用 HyRead 和 Play 的人 |
+
+我選第三種，是因為它改的東西最少：原廠系統留著，只多了管理權限和一包 Google 套件，原版開機映像也在電腦裡，隨時能寫回去。
+
+![四個同樣大小的框代表整台機器，依改法填滿不同高度：不改幾乎全空、刷整套系統全滿、Magisk 只填底部兩小塊、只用開源程式填一小塊。](/figures/duokan-how-much-gets-replaced.svg)
+
+## 還沒驗完的部分
+
+寫這篇時，我的 Play 商店還停在登入頁，HyRead 借書證也還沒登入，所以 HyRead 會不會因為偵測到機器被改過而拒絕開書，我還不知道。如果會，Magisk 有一份「對特定程式隱藏」的名單可以試，測完我會回來補上。完整指令和一支能照畫面文字自動點擊的小工具，放在我的 GitHub：https://github.com/bockybocky/duokan-pro2-mod
+
+## 帶得走的一件事
+
+動手改任何東西之前，先找出「壞了就救不回來」的那一樣，把它單獨備份好。
+
+這次我整晚出錯好幾次，系統也卡在開機畫面一次，但因為最怕的那顆分區早就安全了，每次出錯都只是多花幾分鐘。練習：今天挑一件你一直想動、但怕弄壞的東西，可能是手機、一份共用的試算表，或家裡的路由器設定，先花五分鐘寫下「出錯時哪一樣最難復原」，然後只把那一樣備份起來，再放手去試。

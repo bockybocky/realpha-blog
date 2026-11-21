@@ -1,0 +1,131 @@
+---
+title: "Modding the Duokan E-Reader Pro II: Google Play, Traditional Chinese, and HyRead, Step by Step"
+description: "A step-by-step guide to turning a mainland-China Duokan E-Reader Pro II (Android 11) into a reader that works in Taiwan: back up partitions, get root with Magisk, install Google Play as a system component, switch the language, swap in an e-ink-friendly launcher, and add KOReader and HyRead. Includes every command, the three traps I hit and how I got out, and a risk comparison of four approaches. A personal build log; follow it at your own risk."
+slug: "duokan-pro2-mod-2026-11"
+lang: "en"
+pubDate: 2026-11-22
+category: "tech"
+tags: ["E-reader", "E-ink", "Android", "Magisk", "HyRead", "KOReader", "Modding guide"]
+ogImage: "/covers/duokan-pro2-mod-2026-11.png"
+cover: "/covers/duokan-pro2-mod-2026-11.png"
+tldr: "Six steps turn the Duokan Pro II into a Taiwan-friendly reader: back up, Magisk, Google apps as a Magisk module, change the locale, swap the launcher, install readers. The two things that matter most: back up the e-ink display partition first, and install Google Play as a system component."
+---
+
+![Baroque oil painting cover: in a dim study, a shaft of golden light falls diagonally onto a pale stone tablet on a wooden table; a craftsman bends over it, prying open a seam at its edge with a fine blade while the bookshelves behind him sink into deep shadow](/covers/duokan-pro2-mod-2026-11.png)
+
+> *The gentleman is not different by birth; he is simply good at making use of things.*<br/>
+> —— Xunzi, *An Exhortation to Learning* (Warring States period); translation mine
+
+This guide turns a Duokan E-Reader Pro II (Android 11) into a reader that works in Taiwan: Traditional Chinese, Google Play, a clean text-only home screen, and HyRead, the app that lets you borrow e-books with a public library card. I followed these steps on one unit in the early hours of November 22, 2026, and it took about three hours. It all works, with two conditions: back up the e-ink display partition before you touch anything, and install Google Play as a system component, because installed as a normal app its background service crashes over and over. Whether HyRead refuses to open books on a rooted device, I hadn't finished testing when I wrote this; I say so plainly at the end.
+
+## The risk, first
+
+Modding touches the partitions the device boots from. A mistake can leave it unable to start, and it may void the warranty. I've done every step below myself, but devices differ, and if something goes wrong it's on you.
+
+The partition to fear most is `waveform`. It holds how this particular e-ink panel renders grayscale and refreshes pages, calibrated per unit at the factory. A broken system can be reflashed; a broken waveform can't be downloaded anywhere, because nobody else has yours. That's why step one is always a backup.
+
+![Six partitions each have an arrow pointing down from the official image above, while the rightmost one, waveform, has only a dashed line pointing back to a factory calibration that has already passed, with no source left to obtain.](/figures/duokan-partition-has-no-source-en.svg)
+
+## What you need
+
+1. `adb` on your computer (Google's Platform Tools, for sending commands to the device).
+2. Developer options on the reader (Settings → About → tap the build number repeatedly), then turn on USB debugging.
+3. The Magisk 31.1 APK, from its official GitHub page.
+4. MindTheGapps 11.0 for arm (32-bit). This device runs a 32-bit userland, so the arm64 build won't install.
+
+Plug in the cable and run `adb devices`. A serial number followed by `device` means you're connected.
+
+## Step 1: Back up
+
+1. Pull all internal storage: `adb pull /sdcard/ D:/backup_sdcard/`.
+2. Back up partitions one by one, at minimum `boot_a`, `boot_b`, `vbmeta`, and `waveform`.
+3. Hash each partition on the device and on the computer (a hash is a file fingerprint; change one bit and it changes). Only matching hashes count as a successful backup.
+
+I backed up twenty partitions and checked every one before moving on. I checked `waveform` twice.
+
+## Step 2: Get root with Magisk
+
+1. Find the active boot slot: `adb shell getprop ro.boot.slot_suffix`. Mine returned `_b`, so `boot_b` is the one to patch.
+2. Push the `boot_b` image to the device and patch it in the Magisk app (Install → Select and Patch a File).
+3. Pull the patched file back, write it to the same slot, and reboot.
+4. Write down the hash of the original `boot_b`. To undo everything, you just write the original back.
+
+**Trap one: root requests from the computer are silently refused, with no prompt on screen.** The log shows only `su: request rejected (2000)`, and Magisk's settings have no obvious option for it.
+
+The fix: open Magisk → the Superuser tab → tap the "+" in the top-left → pick Shell (com.android.shell). Then `adb shell su -c id` should return `uid=0(root)`. This is where I lost the most time, because nothing tells you.
+
+![Two boot slots sit side by side, the left one untouched and the right one patched, and the computer below the right slot keeps an original copy, with two arrows showing that it can be pulled back and written back at any time.](/figures/duokan-one-slot-one-original-en.svg)
+
+## Step 3: Install Google Play as a system component
+
+**Trap two: don't install the Play Store and Google Services Framework as ordinary apps.** I did at first, for convenience, and the services framework crashed every few seconds because it needs system privileges. Removing them then left the system stuck on the boot animation; a cold reboot with `adb reboot` brought it back. My rule since: whenever you touch Google packages, cold reboot.
+
+The right way:
+
+1. Repack MindTheGapps as a Magisk module. You can drop pieces you won't use, like the setup wizard, Google Assistant, and text-to-speech, which saves space and removes things that can break.
+2. If you installed the ordinary-app version earlier, remove it first: `adb shell pm uninstall com.google.android.gms`.
+3. Install the module and reboot:
+   ```
+   adb push gapps_module.zip /data/local/tmp/gm.zip
+   adb shell su -c 'magisk --install-module /data/local/tmp/gm.zip'
+   adb reboot
+   ```
+4. After boot, check that `/product/priv-app` contains `Phonesky` and `PrebuiltGmsCore`, and `/system_ext/priv-app` contains `GoogleServicesFramework`. All three present and no more crash pop-ups means you're done.
+
+Picking the zip inside the Magisk app left the module list empty for me; the command above worked.
+
+![The same three Google components are marked stable when they sit in the system layer above, but in the user layer below they sit beside a repeatedly spiking jagged line that stands for a restart every few seconds.](/figures/duokan-system-layer-vs-user-layer-en.svg)
+
+## Step 4: Switch to Traditional Chinese
+
+Changing the language in Settings doesn't stick; the system flips it back to Simplified. Set the system property with root instead:
+
+```
+adb shell su -c 'setprop persist.sys.locale zh-TW'
+adb reboot
+```
+
+After the reboot, both the interface and the Play Store are in Traditional Chinese.
+
+## Step 5: Use a launcher made for e-ink
+
+1. Install Olauncher from F-Droid, a minimalist text-list launcher, and make it the default.
+2. Disable the stock Duokan launcher and WeChat Reading: `adb shell pm disable-user com.duokan.einkreader` and `adb shell pm disable-user com.tencent.weread.eink`. Swap `disable-user` for `enable` to undo.
+
+**Trap three: Olauncher defaults to a dark theme, so you get white text on a white e-ink background, and the home screen looks like a blank page.** Long-press the home screen and switch the theme to Light.
+
+![Two e-reader screens sit side by side, the dark theme on the left leaving only a few barely visible pale traces on the white paper, while the light theme on the right shows a clear five-line list of programs in dark text.](/figures/duokan-white-text-on-white-paper-en.svg)
+
+The easiest way to set the home-screen slots is to long-press a slot and pick from the list. I kept five: HyRead, KOReader, Mihon, Play Store, and Settings, and tapped each one to confirm it opens.
+
+## Step 6: Install reading apps
+
+This is a 32-bit environment, so always download the arm or armv7 build:
+
+- **KOReader**: arm build; solid for epub and PDF, with lots of layout options.
+- **Readest**: armv7 build; a newer interface.
+- **Mihon**: armeabi-v7a build, for comics; pick a storage folder on first launch.
+- **HyRead**: from the Play Store; sign in with a library card and borrow e-books for free.
+
+## Four approaches compared
+
+| Approach | Google Play | Touches boot partitions | Risk | Who it suits |
+|---|---|---|---|---|
+| No mod, sideload APKs | Installs, but services keep crashing | No | Very low | People who only read local files |
+| Flash a whole third-party system | Yes | Replaces everything | High; e-ink drivers may not match | Experienced flashers willing to gamble |
+| Magisk + Google module (this guide) | Yes, and stable | Only the boot image, reversible | Medium; recoverable with backups | People willing to back up and follow steps |
+| Skip Google, use F-Droid apps only | Not needed | Magisk step still needed | Medium | People who don't need HyRead or Play |
+
+I went with the third because it changes the least: the stock system stays, plus root and a bundle of Google apps, and the original boot image sits on my computer, ready to be written back.
+
+![Four boxes of the same size each stand for the whole device, filled to different heights by how much each approach replaces: no mod leaves it almost empty, flashing a full ROM fills it completely, Magisk fills only two small blocks at the bottom, and using open-source apps only fills a small part.](/figures/duokan-how-much-gets-replaced-en.svg)
+
+## What I haven't verified yet
+
+As I write this, my Play Store is still at the sign-in screen and HyRead isn't logged in with a library card, so I don't yet know whether HyRead detects the modified device and refuses to open books. If it does, Magisk has a deny list that hides root from specific apps; I'll come back with the result. The full commands, plus a small tool that taps the screen by on-screen text, are on my GitHub: https://github.com/bockybocky/duokan-pro2-mod
+
+## The one thing to take with you
+
+Before you modify anything, find the one piece that can't be recovered if it breaks, and back up that piece on its own.
+
+I made several mistakes that night, and the system hung on the boot screen once, but because the partition I feared most was already safe, each mistake cost minutes rather than a device. Try this today: pick something you've wanted to change but were afraid to break, whether a phone, a shared spreadsheet, or your home router settings. Spend five minutes writing down which part would be hardest to restore if things go wrong, back up just that part, and then go ahead.
