@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="同比例的長短兩條時間軸，長的那條裝得下一段凹陷，短的那條裝不下">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text class="t" x="48" y="62" font-size="27" font-weight="700" fill="var(--ink)">同一段退步期，放進兩個不同的鐘</text>
+
+<text class="t" x="80" y="150" font-size="20" font-weight="700" fill="var(--ink)">北京的鐘：十年</text>
+<rect x="80" y="170" width="800" height="76" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="80" y="170" width="120" height="76" rx="10" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+<path d="M86 184 C116 240 164 240 194 184" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text class="t" x="140" y="286" font-size="16" fill="var(--accent)" text-anchor="middle">退步期</text>
+<text class="t" x="880" y="286" font-size="16" fill="var(--dim)" text-anchor="end">剩下的時間都還在前面</text>
+
+<text class="t" x="80" y="390" font-size="20" font-weight="700" fill="var(--ink)">企業的鐘：下一代模型，三個月</text>
+<rect x="80" y="410" width="20" height="76" rx="4" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="80" y="410" width="120" height="76" rx="10" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="10 8"/>
+<text class="t" x="216" y="456" font-size="16" fill="var(--accent)">退步期放不進去</text>
+
+<line x1="48" y1="512" x2="912" y2="512" stroke="var(--line)" stroke-width="2"/>
+</svg>

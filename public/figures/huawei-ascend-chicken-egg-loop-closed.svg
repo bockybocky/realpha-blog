@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊一個斷掉的循環，右邊同一個循環被外力接上變成閉合的環">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<defs>
+<marker id="aC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+<path d="M0 0 L10 5 L0 10 z" style="fill:var(--accent)"/>
+</marker>
+<marker id="gC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+<path d="M0 0 L10 5 L0 10 z" style="fill:var(--grey)"/>
+</marker>
+</defs>
+<text class="t" x="48" y="62" font-size="27" font-weight="700" fill="var(--ink)">同一個迴圈：轉不起來，與被接上</text>
+
+<rect x="48" y="96" width="400" height="330" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="248" y="136" font-size="20" font-weight="700" fill="var(--dim)" text-anchor="middle">轉不起來</text>
+<rect x="88" y="170" width="150" height="56" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="163" y="205" font-size="16" fill="var(--ink)" text-anchor="middle">使用者</text>
+<rect x="258" y="320" width="150" height="56" rx="10" fill="var(--page)" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="333" y="355" font-size="16" fill="var(--ink)" text-anchor="middle">函式庫</text>
+<path d="M238 206 L300 206 L320 310" fill="none" stroke="var(--grey)" stroke-width="4" stroke-dasharray="14 12" marker-end="url(#gC)"/>
+<path d="M258 348 L190 348 L170 240" fill="none" stroke="var(--grey)" stroke-width="4" stroke-dasharray="14 12" marker-end="url(#gC)"/>
+<line x1="196" y1="268" x2="248" y2="304" stroke="var(--grey)" stroke-width="6"/>
+<line x1="248" y1="268" x2="196" y2="304" stroke="var(--grey)" stroke-width="6"/>
+
+<rect x="512" y="96" width="400" height="330" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="712" y="136" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">被外力接上</text>
+<rect x="552" y="170" width="150" height="56" rx="10" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<text class="t" x="627" y="205" font-size="16" fill="var(--ink)" text-anchor="middle">使用者</text>
+<rect x="722" y="320" width="150" height="56" rx="10" fill="var(--page)" stroke="var(--accent)" stroke-width="2"/>
+<text class="t" x="797" y="355" font-size="16" fill="var(--ink)" text-anchor="middle">函式庫</text>
+<path d="M702 206 L764 206 L784 310" fill="none" stroke="var(--accent)" stroke-width="4" marker-end="url(#aC)"/>
+<path d="M722 348 L654 348 L634 240" fill="none" stroke="var(--accent)" stroke-width="4" marker-end="url(#aC)"/>
+<line x1="512" y1="286" x2="618" y2="286" stroke="var(--accent)" stroke-width="4" marker-end="url(#aC)"/>
+<text class="t" x="512" y="266" font-size="16" fill="var(--dim)">管制＋推自主</text>
+
+<line x1="48" y1="462" x2="912" y2="462" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="480" y="504" font-size="22" font-weight="700" fill="var(--ink)" text-anchor="middle">缺的不是誰先，是把環閉上的那股外力</text>
+</svg>

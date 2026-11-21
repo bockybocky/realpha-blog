@@ -1,0 +1,97 @@
+---
+title: "Odd Lots: Beijing Is Telling Its Own AI Companies to Buy Fewer NVIDIA Chips"
+description: "Notes on the Odd Lots episode of 21 November 2026, where Joe Weisenthal and Tracy Alloway talk with Brookings fellow Kyle Chan, author of the High Capacity newsletter, about how AI is forcing China to rewrite industrial policy: after Trump allowed the H200 to be exported, Chinese AI companies rushed to order while Beijing told them to slow down and partner with domestic chip makers like Huawei instead. Chan says Huawei's Ascend chips are good enough for inference but not yet for training two- to three-trillion-parameter models, the next DeepSeek model is rumoured to be pre-trained entirely on Huawei silicon, and domestic HBM is two to three years from good enough. Every number is as stated at the time of recording. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "oddlots-2026-11-21-how-ai-is-forcing-china-to-reshape-industrial-poli"
+lang: "en"
+pubDate: 2026-11-21
+category: "investing"
+kind: "podcast-notes"
+tags: ["industrial policy", "podcast-notes", "Huawei", "semiconductor self-reliance", "China tech"]
+ogImage: "/covers/oddlots-2026-11-21-how-ai-is-forcing-china-to-reshape-industrial-poli-cover.png"
+cover: "/covers/oddlots-2026-11-21-how-ai-is-forcing-china-to-reshape-industrial-poli-cover.png"
+---
+
+![The far end of a railway platform at night, a toolbox and a coiled tape measure set down on the concrete in the foreground, the tail of a high-speed train already accelerating away, the track narrowing into two thin lines in deep perspective as the platform lights grow dimmer one by one](/covers/oddlots-2026-11-21-how-ai-is-forcing-china-to-reshape-industrial-poli-cover.png)
+
+> Your servant has heard the common saying: "Better to be the beak of a rooster than the rump of an ox." Now Your Majesty faces west, folds his arms and serves Qin — how is that different from being the rump of an ox?
+>
+> —— Zhanguo Ce, "Strategies of Han I" (compiled by Liu Xiang, Western Han, from Warring States material; my own translation)
+
+In the Odd Lots episode of 21 November 2026, Joe Weisenthal and Tracy Alloway talk with Kyle Chan, a fellow at Brookings and the author of the newsletter High Capacity, about how AI is forcing China to rewrite its industrial policy. The sharpest stretch is a trade-off: after Trump allowed the H200 to be exported to China, Chinese AI companies put in their orders and negotiated for more, and Beijing told them to slow down and tie themselves to domestic chip makers like Huawei instead. Chan says Huawei's Ascend chips are already good enough for inference but not for training two- to three-trillion-parameter models, and the next DeepSeek model is rumoured to be pre-trained entirely on Huawei silicon. For the bet to pay off, two things have to hold: no cliff of recursive self-improvement in models, and a ceiling on how much intelligence an economy can absorb. Every number is as stated at the time of recording.
+
+## Laying the trade-off out
+
+The same situation looks like three different things depending on who you are. China's AI companies — DeepSeek, Z.ai, Alibaba — want better models. They grew up inside NVIDIA and CUDA, staying on that platform costs them no extra work, so they buy NVIDIA whenever they can. Beijing wants long-run supply chain sovereignty, and how good today's models are ranks below that. China's chip makers, meanwhile, like the export controls and like Beijing's self-reliance push, because they are seeing demand that did not exist before.
+
+Three forces pulling different ways produce the scene: companies filling in their orders while the government says hold on, go partner with the domestic chip makers, close that loop and help them make their chips better.
+
+## What Beijing is betting: the goal swaps from GDP to high-tech self-reliance
+
+Chan offers what he himself calls a controversial take: Xi Jinping does not care about the economy, about consumers, about households in the sense a Western frame assumes he does.
+
+What that line is good for is dissolving a question. The market has spent years asking why China isn't boosting consumption, and when the stimulus is coming now that the property collapse left a hole in demand. Chan's move is to swap the premise: set the goal as high-tech self-reliance and winning the industries of the future, and everything that made no sense under a GDP-growth goal falls into place. The property bubble was popped on purpose and resources were pivoted elsewhere; demand stimulus sits downstream of the high-tech push, lower in the queue.
+
+The official vocabulary is clunky and the logic in it is clear: new quality productive forces, a complete industrial system. Win those high-tech sectors, build out the supply chains behind them, and the growth and the jobs follow. Chan says the jobs change shape too, moving up from blue-collar factory work to what gets called purple-collar — roles needing a degree and technical know-how, maintaining and repairing robots rather than making widgets on the line.
+
+What I keep coming back to is that this claim cannot be falsified over any short horizon. Households not feeling wealthier, thin margins, a flat stock market: inside this frame none of them counts as failure, because none of them was the target. Judge Beijing's policy by household consumption data and you are measuring something else.
+
+## Where Huawei is: quantity for quality, then two walls
+
+Capability first. Ascend's early problem was software. CUDA had accumulated a whole cabinet of optimised libraries, Huawei had no equivalent, and that locked into a chicken-and-egg: no user base to build the libraries, no libraries to hold a user base.
+
+Export controls broke the knot. With NVIDIA GPUs restricted and Beijing pushing, Chinese AI companies were pushed into closing the loop with the chip makers, to the point of almost co-designing the hardware. DeepSeek and Huawei are close enough to station personnel inside each other's companies, with intensive technical back and forth, all to get inference running. New model launches now come with an announcement that they run on Huawei and other domestic chips on day one.
+
+Training is the next gate. Ascend is less efficient and less powerful per chip, so Huawei reached for its own core business — it is a networking company, so it bundles more chips together and connects them more tightly into super pods, making up in quantity what it lacks in quality, concentrating enough compute to carry a large pre-training run. Chan calls this the tipping point we are seeing now.
+
+Then capacity, which is another story. Trading quality for quantity requires that you actually have the quantity, and this is where Huawei is constrained. It leans heavily on SMIC, which is limited by the lithography machines it has and by its own supply chains, and a large share of that capacity is already allocated to Huawei; Huawei's own network of fabs is still ramping. Go further up and the immersion DUV machines still come mostly from ASML in the Netherlands.
+
+HBM is the other wall. Chinese memory makers are moving from DRAM into HBM, and Chan says they are trying to get to good enough within two to three years so it can be paired with Huawei's chips, still behind SK Hynix, Samsung and Micron today. There has been reporting that Huawei tells customers: we can make the NPUs, bring your own HBM.
+
+Here is where Chan says the chip business is both wonderful and frustrating. Pick any one layer of the stack, say lithography, and that layer has supply chains numbering in the hundreds or thousands. Behind every ASML machine there is Trumpf making the lasers and Zeiss grinding the best lenses in the world, and each of those is itself a choke point. Replicating the entire global semiconductor supply chain means growing those choke points one at a time, and Chan says no country has ever done it.
+
+As for whether the export controls ended up helping China, Chan's answer is yes, with a massively galvanising effect. The case against is that China had national chip programmes back in the 2010s, so the controls didn't create this. Chan grants the fact and points to the change in kind: what is being built now is the equipment, the materials, the photoresists, the etch and deposition tools — the whole chain. The clearest tell is lithography, which China deprioritised for years and barely invested in, because it expected the machines to stay available; the effective ban on EUV machines during the first Trump administration capped the process nodes Chinese chip makers could reach. The long-term effort dates from there, including a rumoured EUV prototype somewhere in Shenzhen. Chan's summary is that China switched from "we should probably make our own chips" to "we must at all costs", and it sits at number one on the five-year plan.
+
+## The conditions under which this road is the wrong one
+
+Joe asks the best question of the episode: the fight for the frontier is measured in months, people talk about being six months or three months behind, so if you take the self-reliance road and find yourself nine or twelve months back, are those sacrifices still worth making?
+
+The question turns on one if: whether models can recursively improve themselves. If that day arrives and models start accelerating the improvement of models, whoever is twelve months behind cannot close it, and no model maker can afford the "slower on domestic silicon but good for the nation" trade. Joe himself says nobody knows whether that is real.
+
+The condition on the other side gets stated better by Tracy and Joe at the close than I would have put it. Tracy asks what these models are for: running businesses more efficiently, producing things more efficiently, the occasional technological breakthrough. Seen that way, China's focus on diffusing AI through the whole economy has its priorities right. Joe follows with a line from people he knows in finance: there is a point where AI is good enough for us, and you could make it ten times smarter and we could not use it. That, he says, is the bull case for the commodification of intelligence — most economically productive activity can only absorb so much intelligence, the American closed-source labs may have fat margins right at the frontier, and that market is small, while the rest gets commodified down to no money. He says it is merely plausible and he doesn't know whether it happens.
+
+So whether the bet is right turns on a technical fact not yet in evidence, which is why I discount flat claims that export controls succeeded or failed: the sign of their effect flips between those two worlds, and we don't know which world we're in. Chan's image is the one I'll remember — catching up to the chip frontier is like chasing a bullet train, running flat out while the finish line accelerates away, and there is no line you cross to say you made it.
+
+## "They build it well and the stock goes nowhere" is the same thing from the other side
+
+The question I most wanted asked here: Chinese manufacturing is this strong, first in the world in EVs, batteries, drones, so why has owning Chinese equities for the past several years felt like putting money into a flat line? Joe says it has been a brutal year for Chinese stocks, and every year someone says this is finally the year.
+
+Chan's answer is about moats. Sustained profits are hard in China because the barrier to entry is low: talent moves, including your own engineers jumping ship next door, and local governments have financing to hand out. Declare a sector a priority and suddenly there are a billion chip developers and a billion EV makers, with overcapacity and redundancy. What that road produces is a globally formidable industry — once China starts exporting, Chan says, good luck to the rest of the world — and for shareholders, profits that don't justify high valuations.
+
+His exception is DJI: why aren't there a bazillion Chinese drone companies? Joe asks why, and Chan says plainly that he doesn't know, that it could be a quirk of timing, and that new players are emerging. I trust an "I don't know" like that more than an explanation that merely hangs together.
+
+The use I make of this section is to keep two questions apart: whether an industry is globally competitive, and whether the companies inside it have pricing power. Ask the wrong one and you buy the right national trend and collect the wrong return. The footnote is Joe's observation at the close: the sell-off has gone far enough that Moutai is once again the largest member of the CSI 300, with the battery company second, while the Shanghai Composite since 2000 is roughly a horizontal line with a few hype cycles in it.
+
+## A few other things worth keeping
+
+- Chan's signature is a Venn diagram. A normal one has two circles; his has more than a dozen — EVs, batteries, robotics, smartphones, consumer electronics, AI, all overlapping, with specific companies sitting on the intersections. BYD started as a battery maker, makes its own chips, and has moved into autonomous driving and robotics.
+- He tells the Xiaomi story with restraint: outsiders read Lei Jun's jump into EVs as vision and a big bet, and what he sees is a supply chain foundation and a pool of talent that other sectors built first. Tracy connects it to Ricardo Hausmann's monkeys swinging between trees — industries don't leap to something as far off as quantum, they jump to the adjacent, overlapping tree.
+- Big US tech is going full-stack too, with Alphabet doing self-driving cars and its own TPUs. Chan says the difference is in two places: the sheer number of Chinese companies doing it, down to food delivery firms building their own foundation models; and how far the stack extends into hardware manufacturing, with Meta's VR goggles largely outsourced while the Chinese firms control the factories and build down to the components.
+- The ByteDance agentic phone with ZTE got blocked: it was supposed to operate the apps on your phone the way a person would, and the major Chinese platforms like Tencent wouldn't let it in, because nobody wants to be a passive door for someone else. Joe notes that agentic commerce in the US is the same knife fight.
+- One Silicon Valley view is that there will only be an AI industry and AI will find all the biotech. Chan says Beijing doesn't treat AI as the last technology; the policy blueprints still lay out each technology sector as a future pillar industry.
+- The open stretch turned into a product review: Joe bought a pair of headphones for the equivalent of about $25 that he thought were as good as Beats, and they broke; the running shoes he bought squeak. Chan later added that he used to have a Xiaomi air purifier, it was okay, and it might have squeaked too.
+
+## Worth a look
+
+- The Odd Lots episode of 21 November 2026, the source for this piece
+- Kyle Chan's newsletter High Capacity and his many-circled industry overlap diagram
+- The priority and future industry lists in China's five-year plan
+- Ricardo Hausmann's product space research, where the monkeys-between-trees image comes from
+- Earlier Odd Lots episodes on NVIDIA and Megaspeed, and on Chinese biotech
+
+## The one thing to take with you
+
+**Switching something from depending on others to doing it yourself buys you a stretch of being worse at it; whether that's worth paying depends on whether a date you can't afford to miss falls inside that stretch.**
+
+The whole tension of this episode sits on that sentence. Beijing wants its companies to eat the worse stretch because the deadline it watches is a decade out; the companies don't want to, because their deadline is the next model release three months from now. Neither side has done the arithmetic wrong. They're reading different clocks.
+
+Something I've tried myself, and it works outside investing. Pick one thing you're moving from "get help with" to "do myself" — your own tax return, your own video edits, cooking dinner, a kid doing their own homework — and write two lines. First line: how much worse the first three months will be than handing it over, in specific terms, how many hours slower, how many mistakes, how many bad dinners. Second line: whether a date you can't get wrong falls inside those three months. Blank second line, make the switch; a date on the second line, wait until it passes. The first time I did this, one of the two things had next month's tax deadline on the second line, and I pushed it to year-end.

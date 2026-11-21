@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="同樣三支箭射兩塊不同的靶，左靶全落空、右靶全命中，另外三個記號根本不在靶上">
+<rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<defs>
+<marker id="aB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+<path d="M0 0 L10 5 L0 10 z" style="fill:var(--accent)"/>
+</marker>
+<marker id="wB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+<path d="M0 0 L10 5 L0 10 z" style="fill:var(--warn)"/>
+</marker>
+</defs>
+<text class="t" x="48" y="62" font-size="27" font-weight="700" fill="var(--ink)">換一塊靶，原本解釋不通的事就排得進來</text>
+
+<circle cx="250" cy="280" r="110" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="250" cy="280" r="72" fill="none" stroke="var(--line)" stroke-width="2"/>
+<circle cx="250" cy="280" r="34" fill="none" stroke="var(--grey)" stroke-width="3"/>
+<text class="t" x="250" y="434" font-size="20" font-weight="700" fill="var(--dim)" text-anchor="middle">瞄 GDP 成長</text>
+
+<line x1="40" y1="130" x2="150" y2="178" stroke="var(--warn)" stroke-width="4" marker-end="url(#wB)"/>
+<line x1="40" y1="396" x2="152" y2="392" stroke="var(--warn)" stroke-width="4" marker-end="url(#wB)"/>
+<line x1="262" y1="110" x2="372" y2="156" stroke="var(--warn)" stroke-width="4" marker-end="url(#wB)"/>
+<text class="t" x="250" y="470" font-size="16" fill="var(--warn)" text-anchor="middle">三支都落在靶外</text>
+
+<circle cx="710" cy="280" r="110" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="710" cy="280" r="72" fill="none" stroke="var(--line)" stroke-width="2"/>
+<circle cx="710" cy="280" r="34" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="710" cy="280" r="9" fill="var(--accent)"/>
+<text class="t" x="710" y="434" font-size="20" font-weight="700" fill="var(--ink)" text-anchor="middle">瞄 高科技自主</text>
+
+<line x1="520" y1="130" x2="690" y2="262" stroke="var(--accent)" stroke-width="4" marker-end="url(#aB)"/>
+<line x1="520" y1="400" x2="688" y2="296" stroke="var(--accent)" stroke-width="4" marker-end="url(#aB)"/>
+<line x1="900" y1="140" x2="730" y2="264" stroke="var(--accent)" stroke-width="4" marker-end="url(#aB)"/>
+<text class="t" x="500" y="118" font-size="16" fill="var(--dim)" text-anchor="end">晶片</text>
+<text class="t" x="500" y="412" font-size="16" fill="var(--dim)" text-anchor="end">供應鏈</text>
+<text class="t" x="912" y="128" font-size="16" fill="var(--dim)" text-anchor="end">產業體系</text>
+<text class="t" x="710" y="470" font-size="16" fill="var(--accent)" text-anchor="middle">三支都進靶心</text>
+
+<line x1="48" y1="506" x2="912" y2="506" stroke="var(--line)" stroke-width="2"/>
+<text class="t" x="48" y="544" font-size="19" fill="var(--grey)">不在任何一塊靶上：家庭所得・企業利潤・股市指數</text>
+</svg>
