@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="由寬到窄的三層過濾漏斗，站方標記、關鍵字、黑名單逐層收窄，旁邊標出兩個來源在最上層就缺一塊">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">三層過濾：每一層都在等網站或書名把字寫出來</text>
+
+  <rect x="170" y="92" width="620" height="54" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="480" y="126" font-size="20" fill="var(--dim)" text-anchor="middle">來源網站的搜尋結果</text>
+
+  <rect x="240" y="176" width="480" height="54" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="480" y="210" font-size="20" fill="var(--ink)" text-anchor="middle">① 站方成人標記</text>
+  <text class="t" x="745" y="206" font-size="15" fill="var(--dim)">成人分類・限制欄位・R18 開關</text>
+
+  <rect x="315" y="260" width="330" height="54" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="480" y="294" font-size="20" fill="var(--ink)" text-anchor="middle">② 標題與簡介關鍵字</text>
+  <text class="t" x="670" y="290" font-size="15" fill="var(--dim)">工口・成人・R18・紳士</text>
+
+  <rect x="375" y="344" width="210" height="54" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="t" x="480" y="378" font-size="20" fill="var(--ink)" text-anchor="middle">③ 遠端黑名單</text>
+  <text class="t" x="610" y="374" font-size="15" fill="var(--dim)">看到一本加一本</text>
+
+  <polygon points="480,406 492,424 468,424" fill="var(--grey)"/>
+  <rect x="375" y="430" width="210" height="54" rx="8" fill="var(--accent)"/>
+  <text class="t" x="480" y="464" font-size="20" fill="var(--page)" text-anchor="middle">小孩看到的列表</text>
+
+  <line x1="60" y1="203" x2="232" y2="203" stroke="var(--warn)" stroke-width="2" stroke-dasharray="6 5"/>
+  <text class="t" x="60" y="190" font-size="16" fill="var(--warn)">我愛漫畫・GoDa</text>
+  <text class="t" x="60" y="232" font-size="15" fill="var(--warn)">沒分級、書名也乾淨</text>
+  <text class="t" x="60" y="256" font-size="15" fill="var(--warn)">①②都用不上</text>
+
+  <text class="t" x="60" y="542" font-size="22" font-weight="700" fill="var(--ink)">字沒寫出來，三層都抓不到</text>
+</svg>

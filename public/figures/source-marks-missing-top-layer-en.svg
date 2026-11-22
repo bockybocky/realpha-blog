@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two three-block stacks; the right one is missing its top block, and the outcomes differ">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="56" font-size="27" font-weight="700" fill="var(--ink)">The only difference is the top block</text>
+
+  <text class="t" x="290" y="110" font-size="20" fill="var(--accent)" text-anchor="middle">Site flags it</text>
+  <text class="t" x="670" y="110" font-size="20" fill="var(--warn)" text-anchor="middle">Site doesn't</text>
+
+  <rect x="140" y="140" width="300" height="72" rx="8" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="t" x="290" y="184" font-size="19" fill="var(--ink)" text-anchor="middle">① Site flag</text>
+  <rect x="140" y="224" width="300" height="72" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="290" y="268" font-size="19" fill="var(--dim)" text-anchor="middle">② Keywords</text>
+  <rect x="140" y="308" width="300" height="72" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="290" y="352" font-size="19" fill="var(--dim)" text-anchor="middle">③ Blocklist</text>
+
+  <rect x="520" y="140" width="300" height="72" rx="8" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="8 6"/>
+  <text class="t" x="670" y="184" font-size="19" fill="var(--warn)" text-anchor="middle">Missing</text>
+  <rect x="520" y="224" width="300" height="72" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="670" y="268" font-size="19" fill="var(--dim)" text-anchor="middle">② Keywords</text>
+  <rect x="520" y="308" width="300" height="72" rx="8" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="670" y="352" font-size="19" fill="var(--dim)" text-anchor="middle">③ Blocklist</text>
+
+  <line x1="140" y1="404" x2="440" y2="404" stroke="var(--line)" stroke-width="2"/>
+  <line x1="520" y1="404" x2="820" y2="404" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="290" y="440" font-size="20" fill="var(--accent)" text-anchor="middle">Clean block</text>
+  <text class="t" x="670" y="440" font-size="20" fill="var(--warn)" text-anchor="middle">Chasing leaks</text>
+
+  <text class="t" x="60" y="500" font-size="22" font-weight="700" fill="var(--ink)">Without the site's flag, the rest only patch after the fact</text>
+</svg>
