@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="Four similar gray bars on the left are hard to tell apart; two bars on the right differ clearly">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="68" font-size="27" font-weight="700" fill="var(--ink)">On grayscale, a point or two is no difference</text>
+
+  <text class="t" x="80" y="124" font-size="20" font-weight="700" fill="var(--dim)">Four sizes</text>
+  <rect x="80" y="144" width="360" height="250" rx="10" fill="var(--card)"/>
+  <g fill="var(--grey)">
+    <rect x="110" y="186" width="300" height="30"/>
+    <rect x="110" y="236" width="270" height="27"/>
+    <rect x="110" y="283" width="250" height="25"/>
+    <rect x="110" y="328" width="230" height="23"/>
+  </g>
+  <text class="t" x="80" y="434" font-size="16" fill="var(--dim)">No visible hierarchy; small text smears</text>
+
+  <polygon points="470,268 520,268 520,250 556,277 520,304 520,286 470,286" fill="var(--grey)"/>
+
+  <text class="t" x="600" y="124" font-size="20" font-weight="700" fill="var(--ink)">Two sizes</text>
+  <rect x="600" y="144" width="300" height="250" rx="10" fill="var(--card)"/>
+  <rect x="630" y="184" width="240" height="52" fill="var(--ink)"/>
+  <rect x="630" y="268" width="200" height="28" fill="var(--ink)"/>
+  <rect x="630" y="320" width="200" height="28" fill="var(--ink)"/>
+  <text class="t" x="600" y="434" font-size="16" fill="var(--dim)">Titles and everything else</text>
+</svg>

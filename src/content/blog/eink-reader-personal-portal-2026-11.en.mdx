@@ -1,0 +1,101 @@
+---
+title: "My E-Reader Didn't Need More Features. It Needed Fewer Doors."
+description: "An Android E Ink reader with a minimal launcher becomes a reading and research hub through one small home-made app: search for ebooks, download them, hand them to the reader app, plus a \"My Sites\" page with three big buttons for a learning site, a weekly business-cycle report and this blog. Tested on November 22, 2026: one Google sign-in on the device opened all three access-protected sites. A personal build log about why less works better on a slow black-and-white screen."
+slug: "eink-reader-personal-portal-2026-11"
+lang: "en"
+pubDate: 2026-11-22
+category: "tech"
+tags: ["E-reader", "E Ink", "Android", "KOReader", "Minimal launcher", "Personal tools"]
+ogImage: "/covers/eink-reader-personal-portal-2026-11.png"
+cover: "/covers/eink-reader-personal-portal-2026-11.png"
+tldr: "E Ink screens are grayscale and slow to refresh, so a normal browser is painful on them. I wrote a small app that turns book search, downloads and my three most-read sites into a few big buttons, with only two font sizes and one shared login. The win came from cutting steps, not adding features."
+draft: false
+---
+
+![Impressionist oil painting cover: a wooden table by a window at dawn, a pale gray reading slate beside a steaming cup of tea, soft morning light falling across its page-like screen](/covers/eink-reader-personal-portal-2026-11.png)
+
+> *Books are old friends with feeling;*<br/>
+> *morning and night, in joy or worry, they stay close.*<br/>
+> —— Yu Qian, "Reading Books" (Ming dynasty, c. 15th century; translation mine)
+
+On November 22, 2026, I finished turning my Android e-reader into the front door for most of my reading. A small app I wrote, which I call Yujian Bookshelf, now handles searching for ebooks, downloading them and opening them in KOReader. It also has a page with three big buttons for the sites I check every day: my learning site, a weekly business-cycle report and this blog. That same day I signed in once with my Google account on the device and got into all three access-protected sites. My takeaway is that an e-reader gets better when you narrow its entrances until a slow grayscale screen can cope with them. The catch is that this only suits people who do the same few things every day. If you want to do anything and everything on it, a phone is still the better tool.
+
+## Cut the doors, not the features
+
+First, the device. It's an Android E Ink reader running Olauncher, a minimal launcher with no icons and no wallpaper, just a list of text labels. I keep seven of them. When I pick it up, those seven things are all I see, and there's nothing to swipe into by accident.
+
+Books aren't the only thing I read on it, though. I also want my learning site, the weekly cycle report and older posts from this blog. The e-reader has a browser, so in theory I could just type the addresses. In practice that's miserable.
+
+An E Ink screen behaves almost opposite to a phone screen. A phone redraws sixty-plus times a second and keeps up with your thumb. An e-reader has to flash black and white on every page change before the image settles, and it only shows black, white and gray. Thin gray text, tiny buttons and pop-up menus that you'd never notice on a phone each cost a refresh and a wait. Typing a URL on the on-screen keyboard alone takes several flashes.
+
+![Top row is a phone timeline with fine, continuous ticks; bottom row is an e-reader with only five wide slots, each followed by a black-and-white waiting band that stretches the row out.](/figures/refresh-rhythm-phone-vs-eink-en.svg)
+
+So here's the point I want to dig into: **on a slow screen every action is expensive, which means you should cut steps, not features.** Adding features doesn't make it nicer. It just adds more refreshes on the way to whatever you were looking for.
+
+### How I got there
+
+I didn't reason my way to this first. I got it wrong first.
+
+In the first version of the app I laid out search the way you would on a phone: a text box, a button next to it, results further down the page. Then on the e-reader I tapped search, the screen flashed, nothing seemed to change, and I tapped again. The results had loaded fine. They were just below the bottom edge of the screen. Scrolling on E Ink is one more refresh, so it never occurred to me to scroll.
+
+That's when it clicked. On a phone, scrolling is free, so nobody minds putting things far down the page. On an e-reader scrolling has a cost, so people skip it, and whatever is off-screen might as well not exist. I moved the results directly under the search button. Now they show up right where my eyes already are, and the "it's not responding" feeling went away.
+
+![Two screen frames side by side: on the left the results block is cut off by the bottom edge; on the right it sits right under the search button, fully on screen.](/figures/result-below-the-button-not-offscreen-en.svg)
+
+Fonts followed the same logic. The page used to have several sizes for headings, subheadings, captions and notes. On a grayscale screen a one- or two-point difference doesn't read as hierarchy, and small gray text just turns to mush. I cut it to two sizes: 36 for titles and 22 for everything else. I lost some visual nuance. In return every word is legible and every button is easy to hit.
+
+![On the left, four gray bars of nearly equal height crowd together; on the right, just two bars, one clearly taller, one clearly shorter.](/figures/two-font-sizes-instead-of-four-en.svg)
+
+### Three ways to do the same thing
+
+Here's what narrowing actually saves, laid out against the other two ways of reading those sites:
+
+| | Browser on the e-reader | Dedicated page on the e-reader (three buttons) | Phone |
+|---|---|---|---|
+| Steps to open a site | Open browser, tap address bar, type, submit: four or five refreshes at least | Tap slot four on the launcher, tap a button: two steps | Two or three, and you don't notice them |
+| Readability | Depends on the site; light gray text often smears | Two fixed font sizes, big buttons | Sharp |
+| Login | Fine if the browser remembers it, which it often doesn't | App keeps the session; one sign-in covers all three | The phone browser usually remembers |
+| Eye strain | Low | Low | Builds up over long sessions |
+| Gets you sidetracked? | Yes, a browser can open anything | No, there are only three buttons | Constantly, notifications keep coming |
+
+The last two rows are the ones I care about. The phone wins on speed and sharpness and loses on distraction. The e-reader's browser is easy on the eyes and fairly calm, but it takes too many steps. The dedicated page keeps the calm, low-strain part of the e-reader and gets the step count close to a phone's.
+
+![Two-axis chart: horizontal is steps to reach a site, vertical is how easily you get pulled away. Phone is top left, e-reader browser bottom right, dedicated page bottom left, with an arrow pushing the bottom-right point left.](/figures/fewer-steps-without-being-pulled-away-en.svg)
+
+### When this stops working
+
+Narrowing assumes your routine is fixed. Mine is: books, the learning site, the cycle report, the blog. Three buttons cover it. If you often need to look up some new site on the spot, or reply to messages, the narrow entrance turns into a wall, and the browser or your phone is the practical choice.
+
+It also depends on the content. My three sites are mostly text, so grayscale costs them nothing. Pages full of charts where color carries the meaning won't be rescued by any amount of narrowing. That was never what E Ink is for.
+
+### Why not just say e-readers are bad at the web
+
+That was my assumption going in: e-readers are for books, and browsing is forcing them. I changed my mind. They're bad at browsing *the way a phone browses*. The same learning site is a chore when I type its address into a browser and pleasant when I reach it through one big button at a fixed font size. My eyes don't get tired and nothing interrupts me. The site is identical in both cases. Only the way in changed.
+
+## What I actually built
+
+For anyone who wants to try something similar, here's roughly what the app looks like.
+
+Yujian Bookshelf is an Android app written in Kotlin. Most of the screen is a WebView, the component that shows a web page inside an app. Originally it did one job: search for ebooks, download them onto the e-reader and pass them to KOReader, an open-source reader app that E Ink fans like because its layout and page turns suit the screen.
+
+This time I added a "My Sites" page with three large buttons:
+
+- **Reading**: my learning site, learn.getrealpha.com
+- **Cycle**: the weekly business-cycle report
+- **Blog**: the one you're reading now
+
+Then I pointed slot four of my seven Olauncher slots straight at that page. In the morning I pick up the e-reader, tap slot four, and the three buttons are there.
+
+Login was the part I worried about most. All three sites sit behind Cloudflare Access and need a Google sign-in. I expected to sign in three separate times, typing on an E Ink keyboard, and I was already tired thinking about it. It went better than that. The WebView keeps the session, so on November 22, 2026 I signed in once on the e-reader and all three sites opened. Restarting the app didn't ask me to sign in again.
+
+## A few other things worth noting
+
+- **Guard your list of addresses against bad entries.** Book search once failed completely. After a lot of poking I found that the app's list of addresses had picked up a few junk entries, fake addresses without a single dot in them, and trying to connect to those hung everything. I added a rule that drops any address whose hostname has no dot, and it hasn't happened since. Bugs like this are quiet. Nothing crashes loudly; the whole feature just looks broken.
+- **If something "doesn't respond," check whether it's off-screen.** This illusion is specific to slow screens and almost never happens on a phone. Now, whenever I build a screen for E Ink, the first thing I check is that results appear near the button that triggered them.
+- **Fewer font sizes matter more than the right font sizes.** Two sizes looked a bit flat at first. After a few days my eyes felt more relaxed, because I wasn't constantly working out whether a line was a heading or a note.
+
+## The one thing to take with you
+
+What I learned is that how usable something feels often has less to do with how many features it has and more to do with how expensive each step is. Where every step costs something, the best fix is fewer steps, not more features.
+
+If you'd like to try it, here's what I did. Pick one thing you do every day that always feels slightly annoying: opening a form you use a lot, finding a certain folder, getting to a site you check often. Today, while you do it, count how many steps and how many waits it takes from deciding to do it to actually doing it. Then ask whether it could be one step instead: a bookmark, a home-screen shortcut, a fixed place to keep the thing. Do it again tomorrow and count how many steps you saved.
