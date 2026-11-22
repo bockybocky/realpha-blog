@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="左為一個大方塊同時容納收集與販售；右為多個小方塊只做收集，細線連向一個單獨的販售方塊">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; font-weight:700; }
+    .bd  { font-size:16px; fill:var(--dim); }
+    .cc  { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t ttl" x="60" y="62">把兩件事拆開，面積就不必那麼大</text>
+
+  <rect x="60" y="95" width="400" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="500" y="95" width="400" height="360" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t grp" x="90" y="135" fill="var(--dim)">之前</text>
+  <text class="t grp" x="530" y="135" fill="var(--accent)">之後</text>
+
+  <rect x="110" y="165" width="300" height="250" rx="8" fill="var(--grey)" opacity="0.35" stroke="var(--grey)" stroke-width="3"/>
+  <text class="t bd" x="140" y="230">收集</text>
+  <text class="t bd" x="140" y="262">販售</text>
+  <text class="t bd" x="140" y="390">50～100 坪</text>
+
+  <rect x="530" y="175" width="62" height="52" rx="6" fill="var(--accent)" opacity="0.45"/>
+  <rect x="530" y="245" width="62" height="52" rx="6" fill="var(--accent)" opacity="0.45"/>
+  <rect x="530" y="315" width="62" height="52" rx="6" fill="var(--accent)" opacity="0.45"/>
+  <text class="t bd" x="530" y="395">只收東西</text>
+
+  <rect x="740" y="215" width="130" height="130" rx="8" fill="var(--grey)" opacity="0.35" stroke="var(--grey)" stroke-width="3"/>
+  <text class="t bd" x="770" y="285">販售</text>
+
+  <path d="M592,201 L740,258" stroke="var(--accent)" stroke-width="3" fill="none"/>
+  <path d="M592,271 L740,280" stroke="var(--accent)" stroke-width="3" fill="none"/>
+  <path d="M592,341 L740,302" stroke="var(--accent)" stroke-width="3" fill="none"/>
+
+  <text class="t cc" x="60" y="505">瓶頸在收得進來多少，不在店有多大</text>
+</svg>

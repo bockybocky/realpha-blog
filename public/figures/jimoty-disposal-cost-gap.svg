@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左柱高、頂端還疊一段代表等待的區塊；右柱幾乎貼地，箭頭把東西導向另一側">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; font-weight:700; }
+    .bd  { font-size:16px; fill:var(--dim); }
+    .cc  { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t ttl" x="60" y="62">丟掉這件事，要先付出去</text>
+
+  <rect x="60" y="95" width="840" height="340" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="100" y1="400" x2="860" y2="400" stroke="var(--line)" stroke-width="2"/>
+
+  <rect x="200" y="230" width="150" height="170" rx="6" fill="var(--warn)" opacity="0.75"/>
+  <rect x="200" y="160" width="150" height="62" rx="6" fill="var(--warn)" opacity="0.32"/>
+  <text class="t bd" x="212" y="198">等一個月</text>
+  <text class="t bd" x="212" y="322">貼紙費</text>
+  <text class="t grp" x="200" y="140" fill="var(--warn)">丟掉</text>
+
+  <rect x="620" y="382" width="150" height="18" rx="4" fill="var(--accent)" opacity="0.8"/>
+  <text class="t grp" x="620" y="140" fill="var(--accent)">讓出去</text>
+  <text class="t bd" x="620" y="366">0</text>
+
+  <path d="M400,250 L560,250" stroke="var(--accent)" stroke-width="4" fill="none"/>
+  <path d="M560,250 L544,240 L544,260 Z" fill="var(--accent)"/>
+  <text class="t bd" x="406" y="235">轉向</text>
+  <circle cx="695" cy="300" r="26" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <text class="t bd" x="648" y="352">有人正好要</text>
+
+  <text class="t cc" x="60" y="485">成本差這麼大的時候，東西就會自己換方向</text>
+</svg>

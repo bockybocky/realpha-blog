@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two price distribution curves, one peaking at the zero-yen end and the other peaking in the mid-to-high price range, with the peaks completely offset from each other.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ttl { font-size:27px; fill:var(--ink); font-weight:700; }
+    .grp { font-size:20px; font-weight:700; }
+    .bd  { font-size:16px; fill:var(--dim); }
+    .cc  { font-size:22px; fill:var(--ink); font-weight:700; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t ttl" x="60" y="62">Two mindsets, two peaks on one price axis</text>
+
+  <rect x="60" y="95" width="840" height="355" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <line x1="120" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <line x1="120" y1="140" x2="120" y2="430" stroke="var(--line)" stroke-width="2"/>
+
+  <path d="M120,430 C142,430 162,150 192,150 C222,150 242,380 322,415 C452,432 700,430 880,428"
+        fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <path d="M120,428 C300,425 420,400 520,320 C570,280 600,252 652,252 C704,252 742,300 792,372 C824,414 850,426 880,428"
+        fill="none" stroke="var(--grey)" stroke-width="4" stroke-dasharray="9 7"/>
+
+  <text class="t grp" x="196" y="132" fill="var(--accent)">Give away</text>
+  <text class="t bd"  x="196" y="156">¥0–several hundred</text>
+  <text class="t grp" x="636" y="232" fill="var(--dim)">Sell</text>
+  <text class="t bd"  x="636" y="256">¥1,000s–10,000s</text>
+
+  <text class="t bd" x="120" y="458">0</text>
+  <text class="t bd" x="790" y="458">High price</text>
+  <text class="t bd" x="60"  y="128">Listings</text>
+
+  <text class="t cc" x="60" y="505">The vast majority of listings pile up at the near-zero end</text>
+</svg>
