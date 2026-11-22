@@ -4,6 +4,7 @@ description: "一步一步把大陸版多看電紙書 Pro II（Android 11）改�
 slug: "duokan-pro2-mod-2026-11"
 lang: "zh-TW"
 pubDate: 2026-11-22
+updatedDate: 2026-11-22
 category: "tech"
 tags: ["電紙書", "電子紙", "Android", "Magisk", "HyRead", "KOReader", "改機教學"]
 ogImage: "/covers/duokan-pro2-mod-2026-11.png"
@@ -16,7 +17,7 @@ tldr: "多看 Pro II 改成台灣閱讀器分六步：備份、Magisk、Google �
 > *君子生非異也，善假於物也。*<br/>
 > —— 荀子《勸學》（戰國）
 
-這篇教你把多看電紙書 Pro II（Android 11）改成台灣能用的閱讀器：繁體中文、Google Play、乾淨的文字桌面，再裝上能用借書證借電子書的 HyRead。我在 2026 年 11 月 22 日凌晨照這套步驟改完一台，前後大約三小時。整套做得到，但有兩個前提：動手前要先備份電子紙的顯示參數分區，以及 Google Play 必須裝成系統元件，當一般程式裝會讓背景服務不停當掉。HyRead 會不會偵測到機器被改過，我寫這篇時還沒測完，文末會照實交代。
+這篇教你把多看電紙書 Pro II（Android 11）改成台灣能用的閱讀器：繁體中文、Google Play、乾淨的文字桌面，再裝上能用借書證借電子書的 HyRead。我在 2026 年 11 月 22 日凌晨照這套步驟改完一台，前後大約三小時。整套做得到，但有兩個前提：動手前要先備份電子紙的顯示參數分區，以及 Google Play 必須裝成系統元件，當一般程式裝會讓背景服務不停當掉。HyRead 我也實測過：改過的機器照樣能開借來的書，但要用 Play 商店的新版。
 
 ## 先講風險
 
@@ -120,9 +121,9 @@ adb reboot
 
 ![四個同樣大小的框代表整台機器，依改法填滿不同高度：不改幾乎全空、刷整套系統全滿、Magisk 只填底部兩小塊、只用開源程式填一小塊。](/figures/duokan-how-much-gets-replaced.svg)
 
-## 還沒驗完的部分
+## 實測：HyRead 能不能開書
 
-寫這篇時，我的 Play 商店還停在登入頁，HyRead 借書證也還沒登入，所以 HyRead 會不會因為偵測到機器被改過而拒絕開書，我還不知道。如果會，Magisk 有一份「對特定程式隱藏」的名單可以試，測完我會回來補上。完整指令和一支能照畫面文字自動點擊的小工具，放在我的 GitHub：https://github.com/bockybocky/duokan-pro2-mod
+11 月 22 日早上，我用桃園市立圖書館的借書證借了一本漫畫，一開始書櫃一直停在「載入中」。查了才發現，機器上的 HyRead 是先前從第三方下載站裝的 3.2.1 舊版。改從 Play 商店更新到 3.2.5 後，書櫃馬上載入，借來的書也能正常翻頁。HyRead 沒有因為機器有管理權限而拒絕開書，所以不需要另外設定隱藏。重點只有一個：HyRead 一定要從 Play 商店裝，並保持最新版。完整指令和一支能照畫面文字自動點擊的小工具，放在我的 GitHub：https://github.com/bockybocky/duokan-pro2-mod
 
 ## 帶得走的一件事
 

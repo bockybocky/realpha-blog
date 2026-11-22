@@ -4,6 +4,7 @@ description: "A step-by-step guide to turning a mainland-China Duokan E-Reader P
 slug: "duokan-pro2-mod-2026-11"
 lang: "en"
 pubDate: 2026-11-22
+updatedDate: 2026-11-22
 category: "tech"
 tags: ["E-reader", "E-ink", "Android", "Magisk", "HyRead", "KOReader", "Modding guide"]
 ogImage: "/covers/duokan-pro2-mod-2026-11.png"
@@ -16,7 +17,7 @@ tldr: "Six steps turn the Duokan Pro II into a Taiwan-friendly reader: back up, 
 > *The gentleman is not different by birth; he is simply good at making use of things.*<br/>
 > —— Xunzi, *An Exhortation to Learning* (Warring States period); translation mine
 
-This guide turns a Duokan E-Reader Pro II (Android 11) into a reader that works in Taiwan: Traditional Chinese, Google Play, a clean text-only home screen, and HyRead, the app that lets you borrow e-books with a public library card. I followed these steps on one unit in the early hours of November 22, 2026, and it took about three hours. It all works, with two conditions: back up the e-ink display partition before you touch anything, and install Google Play as a system component, because installed as a normal app its background service crashes over and over. Whether HyRead refuses to open books on a rooted device, I hadn't finished testing when I wrote this; I say so plainly at the end.
+This guide turns a Duokan E-Reader Pro II (Android 11) into a reader that works in Taiwan: Traditional Chinese, Google Play, a clean text-only home screen, and HyRead, the app that lets you borrow e-books with a public library card. I followed these steps on one unit in the early hours of November 22, 2026, and it took about three hours. It all works, with two conditions: back up the e-ink display partition before you touch anything, and install Google Play as a system component, because installed as a normal app its background service crashes over and over. I also tested HyRead: it opens borrowed books on the rooted device, as long as you use the current version from the Play Store.
 
 ## The risk, first
 
@@ -120,9 +121,9 @@ I went with the third because it changes the least: the stock system stays, plus
 
 ![Four boxes of the same size each stand for the whole device, filled to different heights by how much each approach replaces: no mod leaves it almost empty, flashing a full ROM fills it completely, Magisk fills only two small blocks at the bottom, and using open-source apps only fills a small part.](/figures/duokan-how-much-gets-replaced-en.svg)
 
-## What I haven't verified yet
+## Tested: does HyRead open books?
 
-As I write this, my Play Store is still at the sign-in screen and HyRead isn't logged in with a library card, so I don't yet know whether HyRead detects the modified device and refuses to open books. If it does, Magisk has a deny list that hides root from specific apps; I'll come back with the result. The full commands, plus a small tool that taps the screen by on-screen text, are on my GitHub: https://github.com/bockybocky/duokan-pro2-mod
+On the morning of November 22, I borrowed a comic with a Taoyuan Public Library card, and at first the bookshelf just sat on "Loading." It turned out the HyRead on the device was an old 3.2.1 build I had installed from a third-party download site. After updating to 3.2.5 through the Play Store, the bookshelf loaded right away and the borrowed book paged normally. HyRead did not refuse to open books because the device has root, so no hiding setup was needed. The one thing that matters: install HyRead from the Play Store and keep it current. The full commands, plus a small tool that taps the screen by on-screen text, are on my GitHub: https://github.com/bockybocky/duokan-pro2-mod
 
 ## The one thing to take with you
 
