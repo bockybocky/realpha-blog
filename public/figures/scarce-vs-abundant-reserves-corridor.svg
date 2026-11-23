@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="左右兩格走廊圖：隔夜利率一個懸在走廊中段、一個貼在下緣；下方短橫條與超長橫條對比準備金需求規模">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .a { font-size:16px; font-weight:700; fill:var(--accent); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="56">利率落在走廊哪裡</text>
+
+  <rect x="60" y="92" width="400" height="258" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="500" y="92" width="400" height="258" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="82" y="128">稀缺準備金</text>
+  <text class="g" x="522" y="128">充裕準備金</text>
+
+  <line x1="110" y1="186" x2="430" y2="186" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+  <line x1="110" y1="312" x2="430" y2="312" stroke="var(--dim)" stroke-width="3"/>
+  <line x1="110" y1="236" x2="430" y2="236" stroke="var(--accent)" stroke-width="5"/>
+  <circle cx="270" cy="236" r="8" fill="var(--accent)"/>
+  <text class="s" x="112" y="176">政策上限</text>
+  <text class="s" x="112" y="336">存款利率</text>
+  <text class="a" x="344" y="226">隔夜利率</text>
+  <line x1="150" y1="236" x2="150" y2="312" stroke="var(--accent)" stroke-width="2"/>
+  <text class="a" x="160" y="284">代價</text>
+
+  <line x1="550" y1="186" x2="870" y2="186" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 6"/>
+  <line x1="550" y1="312" x2="870" y2="312" stroke="var(--dim)" stroke-width="3"/>
+  <line x1="550" y1="304" x2="870" y2="304" stroke="var(--accent)" stroke-width="5"/>
+  <circle cx="710" cy="304" r="8" fill="var(--accent)"/>
+  <text class="s" x="552" y="176">政策上限</text>
+  <text class="s" x="552" y="336">存款利率</text>
+  <text class="a" x="784" y="292">隔夜利率</text>
+
+  <text class="g" x="60" y="430">準備金需求</text>
+  <rect x="60" y="452" width="9" height="36" fill="var(--accent)"/>
+  <text class="s" x="84" y="478">350 億美元（稀缺）</text>
+  <rect x="60" y="508" width="840" height="36" fill="var(--accent)" fill-opacity="0.32" stroke="var(--accent)"/>
+  <text class="s" x="76" y="532">3 兆美元（充裕）</text>
+</svg>

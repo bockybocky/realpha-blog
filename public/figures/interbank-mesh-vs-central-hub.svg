@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="左圖銀行彼此連成網、央行只管總量；右圖網線不見，央行居中放射到每一家，每家各留一塊準備金">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .b { font-size:15px; fill:var(--ink); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="56">分配由誰做</text>
+  <text class="g" x="70" y="104">稀缺：銀行間互相對</text>
+  <text class="g" x="540" y="104">充裕：央行逐家送</text>
+
+  <g stroke="var(--grey)" stroke-width="2">
+    <line x1="370" y1="330" x2="315" y2="425"/>
+    <line x1="315" y1="425" x2="205" y2="425"/>
+    <line x1="205" y1="425" x2="150" y2="330"/>
+    <line x1="150" y1="330" x2="205" y2="235"/>
+    <line x1="205" y1="235" x2="315" y2="235"/>
+    <line x1="315" y1="235" x2="370" y2="330"/>
+    <line x1="370" y1="330" x2="205" y2="425"/>
+    <line x1="150" y1="330" x2="315" y2="235"/>
+    <line x1="205" y1="235" x2="315" y2="425"/>
+  </g>
+  <g fill="var(--card)" stroke="var(--line)" stroke-width="2">
+    <circle cx="370" cy="330" r="22"/>
+    <circle cx="315" cy="425" r="22"/>
+    <circle cx="205" cy="425" r="22"/>
+    <circle cx="150" cy="330" r="22"/>
+    <circle cx="205" cy="235" r="22"/>
+    <circle cx="315" cy="235" r="22"/>
+  </g>
+  <rect x="60" y="138" width="110" height="44" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="b" x="98" y="166">央行</text>
+  <line x1="150" y1="182" x2="196" y2="222" stroke="var(--accent)" stroke-width="3"/>
+  <text class="s" x="160" y="212">總量</text>
+  <text class="s" x="196" y="500">尾差互相軋</text>
+
+  <g stroke="var(--accent)" stroke-width="3">
+    <line x1="740" y1="330" x2="866" y2="330"/>
+    <line x1="740" y1="330" x2="829" y2="419"/>
+    <line x1="740" y1="330" x2="740" y2="456"/>
+    <line x1="740" y1="330" x2="651" y2="419"/>
+    <line x1="740" y1="330" x2="614" y2="330"/>
+    <line x1="740" y1="330" x2="651" y2="241"/>
+    <line x1="740" y1="330" x2="740" y2="204"/>
+    <line x1="740" y1="330" x2="829" y2="241"/>
+  </g>
+  <g fill="var(--card)" stroke="var(--line)" stroke-width="2">
+    <circle cx="866" cy="330" r="20"/>
+    <circle cx="829" cy="419" r="20"/>
+    <circle cx="740" cy="456" r="20"/>
+    <circle cx="651" cy="419" r="20"/>
+    <circle cx="614" cy="330" r="20"/>
+    <circle cx="651" cy="241" r="20"/>
+    <circle cx="740" cy="204" r="20"/>
+    <circle cx="829" cy="241" r="20"/>
+  </g>
+  <g fill="var(--accent)" fill-opacity="0.45">
+    <rect x="884" y="322" width="16" height="16"/>
+    <rect x="847" y="411" width="16" height="16"/>
+    <rect x="732" y="478" width="16" height="16"/>
+    <rect x="629" y="411" width="16" height="16"/>
+    <rect x="590" y="322" width="16" height="16"/>
+    <rect x="629" y="233" width="16" height="16"/>
+    <rect x="732" y="176" width="16" height="16"/>
+    <rect x="847" y="233" width="16" height="16"/>
+  </g>
+  <rect x="686" y="306" width="108" height="48" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="b" x="722" y="336">央行</text>
+  <text class="s" x="600" y="524">每家都要留著</text>
+</svg>

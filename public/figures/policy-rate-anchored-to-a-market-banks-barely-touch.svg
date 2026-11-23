@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="大方塊是附買回市場成交量、角落一小塊是銀行對尾差的量；箭頭從大方塊指向上方政策目標利率，小塊標著沒有影響力">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="52">誰在決定那個利率</text>
+
+  <rect x="600" y="78" width="300" height="52" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="g" x="624" y="112">政策目標利率</text>
+  <line x1="750" y1="178" x2="750" y2="136" stroke="var(--accent)" stroke-width="4"/>
+  <polygon points="750,126 742,144 758,144" fill="var(--accent)"/>
+
+  <rect x="80" y="178" width="820" height="300" rx="14" fill="var(--accent)" fill-opacity="0.14" stroke="var(--accent)" stroke-width="2"/>
+  <text class="g" x="108" y="218">附買回市場成交量</text>
+  <rect x="108" y="420" width="72" height="30" fill="var(--warn)" fill-opacity="0.6" stroke="var(--warn)"/>
+  <text class="s" x="196" y="442">銀行對尾差</text>
+  <text class="s" x="330" y="442">沒有影響力</text>
+</svg>

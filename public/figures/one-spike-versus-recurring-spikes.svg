@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左圖單一尖刺跳完就回到平線，右圖同高度尖刺在同一位置重複三次，每次下方都有央行伸手的箭頭">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .w { font-size:16px; font-weight:700; fill:var(--warn); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="56">同一種跳動，兩種來源</text>
+  <rect x="60" y="92" width="400" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="500" y="92" width="400" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <text class="g" x="82" y="130">外生</text>
+  <text class="g" x="522" y="130">分配不動</text>
+  <text class="s" x="140" y="130">季底、繳稅</text>
+  <text class="s" x="624" y="130">同一位置</text>
+
+  <line x1="90" y1="340" x2="430" y2="340" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <polyline points="90,340 180,340 210,186 240,340 430,340" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <text class="s" x="258" y="200">跳完就回去</text>
+
+  <line x1="530" y1="340" x2="880" y2="340" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <polyline points="530,340 580,340 606,186 632,340 700,340 726,186 752,340 810,340 836,186 862,340 880,340" fill="none" stroke="var(--warn)" stroke-width="4"/>
+  <g stroke="var(--warn)" stroke-width="3">
+    <line x1="606" y1="372" x2="606" y2="348"/>
+    <line x1="726" y1="372" x2="726" y2="348"/>
+    <line x1="836" y1="372" x2="836" y2="348"/>
+  </g>
+  <text class="w" x="560" y="420">央行伸手</text>
+  <text class="s" x="560" y="452">每次都要</text>
+</svg>
