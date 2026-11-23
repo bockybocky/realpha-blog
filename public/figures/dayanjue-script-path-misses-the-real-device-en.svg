@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="The script's path carries its own origin and passes the gate, while the real device's path has an empty origin and breaks off before the gate.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .d { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--dim); }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="60" font-size="27" font-weight="700">Script coverage</text>
+
+  <rect x="60" y="96" width="840" height="330" rx="16" fill="var(--card)" stroke="var(--line)"/>
+
+  <rect x="596" y="130" width="14" height="262" fill="var(--grey)" opacity="0.6"/>
+  <text class="d" x="572" y="122" font-size="19">Check</text>
+
+  <text class="d" x="100" y="196" font-size="19">Red-team script</text>
+  <rect x="100" y="214" width="480" height="30" rx="8" fill="var(--accent)"/>
+  <text class="d" x="120" y="236" font-size="15" fill="var(--page)">Origin set</text>
+  <polygon points="660,229 638,216 638,242" fill="var(--accent)"/>
+  <rect x="676" y="212" width="200" height="34" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="d" x="700" y="235" font-size="16" fill="var(--accent)">All 60 pass</text>
+
+  <text class="d" x="100" y="314" font-size="19">Real phone sends</text>
+  <rect x="100" y="332" width="300" height="30" rx="8" fill="var(--warn)" opacity="0.85"/>
+  <text class="d" x="120" y="354" font-size="15" fill="var(--page)">No origin</text>
+  <rect x="400" y="332" width="180" height="30" rx="8" fill="var(--page)" stroke="var(--line)" stroke-dasharray="8 8"/>
+  <text class="d" x="420" y="354" font-size="15" fill="var(--warn)">Never gets here</text>
+  <line x1="596" y1="310" x2="610" y2="384" stroke="var(--warn)" stroke-width="5"/>
+  <text class="d" x="676" y="354" font-size="16" fill="var(--warn)">Blocked 3x</text>
+
+  <text class="d" x="60" y="476" font-size="22" fill="var(--ink)">Scripts test only paths you thought of</text>
+</svg>

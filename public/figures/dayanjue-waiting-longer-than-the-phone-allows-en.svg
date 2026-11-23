@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The reply-time bar runs past the phone's waiting limit, and after the work moves to the background several short polls take over.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .d { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--dim); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="60" font-size="27" font-weight="700">Wait that overruns</text>
+
+  <text class="d" x="60" y="116" font-size="20">Was: phone waits</text>
+  <rect x="60" y="138" width="840" height="150" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <text class="d" x="90" y="178" font-size="16">Max wait</text>
+  <rect x="240" y="162" width="150" height="26" rx="6" fill="var(--grey)"/>
+  <text class="d" x="400" y="182" font-size="15">Drops</text>
+  <rect x="390" y="156" width="6" height="38" fill="var(--warn)"/>
+
+  <text class="d" x="90" y="238" font-size="16">AI replies</text>
+  <rect x="240" y="222" width="600" height="26" rx="6" fill="var(--accent)"/>
+  <text class="d" x="700" y="272" font-size="15" fill="var(--warn)">Rest unseen</text>
+
+  <text class="d" x="60" y="346" font-size="20">Now: PC runs it, page polls</text>
+  <rect x="60" y="368" width="840" height="150" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <text class="d" x="90" y="408" font-size="16">PC side</text>
+  <rect x="240" y="392" width="600" height="26" rx="6" fill="var(--accent)"/>
+  <text class="d" x="856" y="412" font-size="15">Done</text>
+
+  <text class="d" x="90" y="470" font-size="16">Web side</text>
+  <g fill="var(--accent)">
+    <circle cx="252" cy="462" r="7"/><circle cx="312" cy="462" r="7"/><circle cx="372" cy="462" r="7"/>
+    <circle cx="432" cy="462" r="7"/><circle cx="492" cy="462" r="7"/><circle cx="552" cy="462" r="7"/>
+    <circle cx="612" cy="462" r="7"/><circle cx="672" cy="462" r="7"/><circle cx="732" cy="462" r="7"/>
+    <circle cx="792" cy="462" r="7"/><circle cx="840" cy="462" r="7"/>
+  </g>
+  <text class="d" x="240" y="500" font-size="15">Every 3s; phone can sleep</text>
+</svg>

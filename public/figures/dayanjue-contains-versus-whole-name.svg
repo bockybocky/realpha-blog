@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="包含比對誤中夾在參數裡的同名片段，整段相同比對只命中真正那支程式">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .d { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--dim); }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="60" font-size="27" font-weight="700">停錯程式的那一步</text>
+
+  <text class="d" x="60" y="116" font-size="20">比對方式：包含就算</text>
+  <rect x="60" y="140" width="840" height="156" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <text class="d" x="90" y="180" font-size="16">要停的那支</text>
+  <rect x="300" y="160" width="170" height="28" rx="6" fill="var(--accent)"/>
+  <rect x="470" y="160" width="300" height="28" rx="6" fill="var(--grey)" opacity="0.5"/>
+  <text class="d" x="790" y="181" font-size="15" fill="var(--accent)">命中</text>
+
+  <text class="d" x="90" y="246" font-size="16">別支的參數裡</text>
+  <rect x="300" y="226" width="120" height="28" rx="6" fill="var(--grey)" opacity="0.5"/>
+  <rect x="420" y="226" width="170" height="28" rx="6" fill="var(--warn)"/>
+  <rect x="590" y="226" width="180" height="28" rx="6" fill="var(--grey)" opacity="0.5"/>
+  <text class="d" x="790" y="247" font-size="15" fill="var(--warn)">也命中</text>
+  <text class="d" x="300" y="282" font-size="15" fill="var(--warn)">夾在中間一樣算</text>
+
+  <text class="d" x="60" y="356" font-size="20">改成：整段相同才算</text>
+  <rect x="60" y="380" width="840" height="124" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <text class="d" x="90" y="420" font-size="16">要停的那支</text>
+  <rect x="300" y="400" width="170" height="28" rx="6" fill="var(--accent)"/>
+  <rect x="470" y="400" width="300" height="28" rx="6" fill="var(--grey)" opacity="0.5"/>
+  <text class="d" x="790" y="421" font-size="15" fill="var(--accent)">命中</text>
+
+  <text class="d" x="90" y="476" font-size="16">別支的參數裡</text>
+  <rect x="300" y="456" width="120" height="28" rx="6" fill="var(--grey)" opacity="0.5"/>
+  <rect x="420" y="456" width="170" height="28" rx="6" fill="var(--grey)" opacity="0.5" stroke="var(--line)"/>
+  <rect x="590" y="456" width="180" height="28" rx="6" fill="var(--grey)" opacity="0.5"/>
+  <text class="d" x="790" y="477" font-size="15">不算</text>
+</svg>

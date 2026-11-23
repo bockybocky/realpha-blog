@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="回話時間長條超出手機等待上限；改成背景執行後由多次短輪詢接手">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .d { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--dim); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="60" font-size="27" font-weight="700">等不到的那段時間</text>
+
+  <text class="d" x="60" y="116" font-size="20">原本：手機開著等</text>
+  <rect x="60" y="138" width="840" height="150" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <text class="d" x="90" y="178" font-size="16">手機願意等</text>
+  <rect x="240" y="162" width="150" height="26" rx="6" fill="var(--grey)"/>
+  <text class="d" x="400" y="182" font-size="15">斷線</text>
+  <rect x="390" y="156" width="6" height="38" fill="var(--warn)"/>
+
+  <text class="d" x="90" y="238" font-size="16">AI 回一句話</text>
+  <rect x="240" y="222" width="600" height="26" rx="6" fill="var(--accent)"/>
+  <text class="d" x="700" y="272" font-size="15" fill="var(--warn)">超出的部分看不到</text>
+
+  <text class="d" x="60" y="346" font-size="20">改成：電腦背景跑，網頁自己回來看</text>
+  <rect x="60" y="368" width="840" height="150" rx="14" fill="var(--card)" stroke="var(--line)"/>
+
+  <text class="d" x="90" y="408" font-size="16">電腦這邊</text>
+  <rect x="240" y="392" width="600" height="26" rx="6" fill="var(--accent)"/>
+  <text class="d" x="856" y="412" font-size="15">好了</text>
+
+  <text class="d" x="90" y="470" font-size="16">網頁這邊</text>
+  <g fill="var(--accent)">
+    <circle cx="252" cy="462" r="7"/><circle cx="312" cy="462" r="7"/><circle cx="372" cy="462" r="7"/>
+    <circle cx="432" cy="462" r="7"/><circle cx="492" cy="462" r="7"/><circle cx="552" cy="462" r="7"/>
+    <circle cx="612" cy="462" r="7"/><circle cx="672" cy="462" r="7"/><circle cx="732" cy="462" r="7"/>
+    <circle cx="792" cy="462" r="7"/><circle cx="840" cy="462" r="7"/>
+  </g>
+  <text class="d" x="240" y="500" font-size="15">每 3 秒看一次，手機不必開著</text>
+</svg>

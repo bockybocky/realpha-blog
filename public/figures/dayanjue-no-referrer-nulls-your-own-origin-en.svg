@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="With the origin never sent, even your own site's request arrives with an empty origin and is stopped at the gate; sending the origin only to your own site lets your own traffic through.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--ink); }
+    .d { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; fill:var(--dim); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="60" font-size="27" font-weight="700">Locks you out</text>
+
+  <rect x="56" y="92" width="400" height="402" rx="16" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t" x="86" y="130" font-size="20" font-weight="700">Set: no referrer</text>
+
+  <text class="d" x="86" y="186" font-size="16">To your site</text>
+  <line x1="86" y1="206" x2="300" y2="206" stroke="var(--warn)" stroke-width="4"/>
+  <rect x="300" y="186" width="76" height="40" rx="8" fill="var(--page)" stroke="var(--warn)" stroke-width="3"/>
+  <text class="d" x="316" y="212" font-size="15" fill="var(--warn)">Empty</text>
+  <rect x="396" y="170" width="10" height="190" fill="var(--warn)" opacity="0.55"/>
+  <text class="d" x="86" y="252" font-size="15" fill="var(--warn)">You get blocked</text>
+
+  <text class="d" x="86" y="318" font-size="16">To other sites</text>
+  <line x1="86" y1="338" x2="300" y2="338" stroke="var(--grey)" stroke-width="4"/>
+  <rect x="300" y="318" width="76" height="40" rx="8" fill="var(--page)" stroke="var(--grey)" stroke-width="3"/>
+  <text class="d" x="316" y="344" font-size="15">Empty</text>
+  <text class="d" x="86" y="384" font-size="15">No code leak</text>
+  <text class="d" x="86" y="450" font-size="16" fill="var(--warn)">No path shows who</text>
+
+  <rect x="504" y="92" width="400" height="402" rx="16" fill="var(--card)" stroke="var(--line)"/>
+  <text class="t" x="534" y="130" font-size="20" font-weight="700">Now: own site only</text>
+
+  <text class="d" x="534" y="186" font-size="16">To your site</text>
+  <line x1="534" y1="206" x2="748" y2="206" stroke="var(--accent)" stroke-width="4"/>
+  <rect x="748" y="186" width="96" height="40" rx="8" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+  <text class="d" x="762" y="212" font-size="15" fill="var(--accent)">Ours</text>
+  <polygon points="872,206 856,196 856,216" fill="var(--accent)"/>
+  <text class="d" x="534" y="252" font-size="15" fill="var(--accent)">Passes</text>
+
+  <text class="d" x="534" y="318" font-size="16">To other sites</text>
+  <line x1="534" y1="338" x2="748" y2="338" stroke="var(--grey)" stroke-width="4"/>
+  <rect x="748" y="318" width="96" height="40" rx="8" fill="var(--page)" stroke="var(--grey)" stroke-width="3"/>
+  <text class="d" x="762" y="344" font-size="15">Empty</text>
+  <text class="d" x="534" y="384" font-size="15">Still no code leak</text>
+  <text class="d" x="534" y="450" font-size="16" fill="var(--accent)">Insider vs outsider</text>
+</svg>

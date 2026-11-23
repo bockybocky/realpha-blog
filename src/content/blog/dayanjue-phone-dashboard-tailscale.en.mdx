@@ -1,0 +1,95 @@
+---
+title: "Out with only a phone, how do I know what the AI on my home PCs is doing? I built a tiny web page, then locked myself out with my own security fix"
+description: "My two home PCs often run AI jobs in the background all day, and once I'm out with just a phone it's hard to know what's going on. This post walks through, in order, how I built Dayanjue: a single-file, standard-library-only Python page reachable only over Tailscale, for checking jobs, logs, reports and screenshots and chatting with the AI on each PC. I had another AI red-team it and patched three holes, after which my iPhone couldn't send a single message. The cause sits in a little-noticed rule in the web's Fetch spec. The code is open source. A technical learning note."
+slug: "dayanjue-phone-dashboard-tailscale"
+lang: "en"
+pubDate: 2026-11-23
+category: "tech"
+tags: ["Tailscale", "Python", "mobile", "AI agents", "web security", "open source"]
+ogImage: "/covers/dayanjue-phone-dashboard-tailscale.png"
+cover: "/covers/dayanjue-phone-dashboard-tailscale.png"
+tldr: "You don't need to type shell commands on a tiny screen to watch the AI jobs on your home PCs; a small page reachable only over Tailscale is enough. But watch your security fixes: a 'send no referrer' policy makes browsers label even same-site form posts as coming from origin null."
+---
+
+![](/covers/dayanjue-phone-dashboard-tailscale.png)
+
+> *Among a thousand plans of a wise man, one is bound to fail; among a thousand plans of a fool, one is bound to succeed.*<br/>
+> —— Sima Qian, *Records of the Grand Historian*, Biography of the Marquis of Huaiyin (Western Han); translation mine
+
+On November 23, 2026, I open-sourced Dayanjue, a small phone-first web page, on GitHub (bockybocky/dayanjue, MIT license). It's one Python file using only the standard library, reachable only inside my Tailscale network, and with one tap it shows the background jobs, logs, reports and screenshots on my two PCs and lets me talk to the AI running on each. The same day I had another AI red-team it and patched three holes. After the patch, every message my iPhone sent got rejected. The page used a "no-referrer" policy, and under the Fetch spec that makes the browser send `Origin: null` on form posts, even when the post goes back to the same site.
+
+## The starting point: three questions I couldn't shake when I left the house
+
+I have two PCs at home, a laptop and a desktop, and they often spend the whole day running AI jobs in the background: writing code, sorting data, producing reports. At home a glance at the screen tells me where things stand. Once I'm out with only a phone, three questions keep nagging: is that job still running, what did the report it just produced say, and if it's heading the wrong way, can I stop it?
+
+My old routine was to turn on Tailscale on the phone (it links your own devices into a private network, so once they're all signed into one account, the phone can reach the PCs from anywhere as if it were at home) and then SSH in from a phone terminal app. It works, but typing commands on a small screen is painful, and things like viewing an image, seeing what code changed or previewing a web page are either impossible in a terminal or locked behind a paid tier.
+
+## Version one: turn what I check most into tappable pages
+
+So I set out to build a page where everything is one tap away. I listed what I actually check when I'm out: which jobs are running, the last lines of a log, the reports folder, a screenshot of the screen, moving files between phone and PC, plus a button to stop a job.
+
+I fixed three design choices from the start. First, it binds only to the Tailscale address and never faces the public internet; it's for watching my own machines, so nobody else needs to reach it. Second, it's one file on the Python standard library, nothing to install, so moving it to another PC means copying one file. Third, there's no "run any command" box; the stop button can only stop the few programs named in the config file.
+
+![A closed ring holds the phone, the laptop and the desktop inside it, while a wall blocks the public internet outside so the incoming arrows never get through, and inside the ring all three devices reach one another.](/figures/dayanjue-tailscale-boundary-en.svg)
+
+Side by side with what I used before, the difference looks roughly like this:
+
+| | Phone SSH terminal | Remote desktop | Dayanjue |
+|---|---|---|---|
+| Is a background job running? | Remember and type the command | Visible, but hard to tap on a small screen | One tap |
+| Read a report or image | Plain text, images are awkward | Works, with lots of zooming | Opens directly |
+| Stop a job | Possible, but a typo stops the wrong thing | Possible | Only allow-listed programs |
+| Talk to the AI on the PC | Possible, but you open a chat UI first | Possible, typing is tiring | Type in the Chat tab |
+| What you install | An SSH app | Remote desktop software | Just a browser |
+
+## Version two: most of the time I just wanted to say one thing to the AI
+
+After half a day of use I noticed that when I opened the page, most of the time I only wanted to tell the AI on the PC something like "hold on" or "what's the gist of that report?" So I added a Chat tab: I type on the phone, the laptop hands it to Claude Code and the desktop hands it to Hermes.
+
+Here I hit a phone limit. A mobile browser drops a request after about a minute without a response, and the AI often takes longer than that to reply. So the chat runs in the background on the PC, the page refreshes itself every 3 seconds and shows the answer when it's ready, and the phone doesn't have to stay open waiting. Finally I added "Add to Home Screen" support, so on the iPhone it becomes an icon that opens like an app.
+
+![In the top row a short bar marks how long the phone will wait, while beside it a clearly longer bar for the reply time runs past the edge of the frame; in the bottom row short polling dots knock again and again, and the long bar finishes on its own separate track.](/figures/dayanjue-waiting-longer-than-the-phone-allows-en.svg)
+
+## Enter the red team: another AI whose only job was to break my page
+
+The afternoon the features were done, I spun up a test machine and asked another AI to play attacker and find any way through. It reported several issues; after re-running them myself, three were real:
+
+1. **Another website could send messages as me.** If my phone was signed in to Dayanjue and I happened to open a malicious page, that page could quietly post a form and type into my Chat tab.
+2. **The stop button could stop the wrong program.** To decide whether a program was stoppable, I checked whether its command line contained the configured name, so any other program whose arguments happened to include that string also qualified.
+3. **The startup message wrote the access code into the log file.** Whoever got the log got the key.
+
+The fixes were direct. Every request that changes something now checks that the browser-supplied origin is this site itself, stopping a program requires an exact name match, and startup prints the URL without the access code. Tests went from 54 to 60, all passing, and every red-team repro script flipped to green. A little after four in the afternoon I pushed the new version to both PCs and considered it done.
+
+![Two command-line bars have the name part marked out; in the top row a "contains" match also hits a same-name fragment buried in another command's arguments, while in the bottom row a whole-string match hits only the program you actually meant.](/figures/dayanjue-contains-versus-whole-name-en.svg)
+
+## After the fix: every message from the iPhone was blocked
+
+Then I typed my first message on the phone and it was rejected. Three tries, same result.
+
+I added a log line at the spot where requests get rejected, printing the headers the browser sent, and the answer showed up right away: the phone's origin field said `null`.
+
+That's the little-noticed rule. Earlier, to keep the access code in the URL from leaking, I had given the page `Referrer-Policy: no-referrer`, meaning "when following links out, don't tell other sites where you came from." I assumed it only governed outbound navigation. But in the WHATWG Fetch spec, when a browser sends anything other than GET or HEAD under a no-referrer policy, the `Origin` header is set to `null`, whether or not the destination is your own site.
+
+![Two panels sit side by side: on the left, with the origin never sent, both the request to your own site and the one to an outside site have an empty origin field and the gate turns both away; on the right, with the origin sent only to your own site, the request to your own site carries an origin and passes the gate while the one to the outside site is still empty.](/figures/dayanjue-no-referrer-nulls-your-own-origin-en.svg)
+
+Worse, the other header that could tell me "this came from my own site," `Sec-Fetch-Site`, is only attached on secure connections such as https. My page runs plain http inside the Tailscale network, so it never arrives. The only clue left was the origin field, and with it set to null my check couldn't tell me apart from an attacker, so it blocked everything.
+
+The fix was to switch the policy to `same-origin`: attach the origin for my own site, and nothing for anyone else. The access code still doesn't leak, and my own messages pass the check. After the change I sent "yes" from the phone, and 14 seconds later the AI on the laptop answered.
+
+Looking back, the red-team verification used only scripts, and scripts fill in the origin themselves, so they could never catch this. What caught it was me pressing Send on a real phone once.
+
+![Two paths lead to the same gate: the script's path fills in the origin field itself, runs fully coloured and passes through, while the real phone's path has an empty origin field and breaks off in front of the gate, so the two paths plainly cover different ground.](/figures/dayanjue-script-path-misses-the-real-device-en.svg)
+
+## What's easiest to miss when you patch a security hole
+
+If you build your own small tools, the trap I'd watch for is assuming a fix only keeps bad actors out, when it can also lock you out. Security settings interact. The two settings here were each correct on their own, and together they fought.
+
+I now do two extra things. First, every time I add a check, I log a line at the point where requests get rejected saying which condition failed; otherwise all you see is a 403 and you're left guessing. Second, verification always includes walking the most common path once on a real device. However thorough the scripts are, they only test the situations you thought of.
+
+The code and all three patch releases are on GitHub at bockybocky/dayanjue, and the README explains why I built it. If your PCs also spend the day running AI jobs, feel free to fork it into your own version.
+
+## The one thing to take with you
+
+**After you fix something, walk through it again the way it's really used.** A fix is designed around the situation you imagined, and real use is often different.
+
+This week, pick one thing you've "fixed" lately, whether it's code, a setting at home or a revised form, and run through it the way it's normally used: open it on a phone, sign in with a different account, or ask someone at home to use it the way they usually would. Check whether it really behaves the way you think it does.
