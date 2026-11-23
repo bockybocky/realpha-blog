@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="一條路徑在分岔口分成兩條，先前說的那條是虛線沒走，實際走的是另一條粗線">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<text class="t" x="60" y="62" font-size="27" fill="var(--ink)">說的那條，與走的那條</text>
+<rect x="60" y="100" width="840" height="320" rx="10" fill="var(--card)"/>
+<circle cx="300" cy="270" r="9" fill="var(--ink)"/>
+<path d="M110 270 L300 270" stroke="var(--ink)" stroke-width="4" fill="none"/>
+<text class="t" x="110" y="246" font-size="16" fill="var(--dim)">缺口擺在那裡</text>
+<path d="M300 270 L560 174 L800 174" stroke="var(--grey)" stroke-width="4" stroke-dasharray="10 8" fill="none"/>
+<path d="M300 270 L560 362 L800 362" stroke="var(--warn)" stroke-width="6" fill="none"/>
+<path d="M800 362 L782 352 L782 372 Z" fill="var(--warn)"/>
+<text class="t" x="590" y="154" font-size="20" fill="var(--dim)">銀行債＋獲利貼補</text>
+<text class="t" x="590" y="344" font-size="20" fill="var(--warn)">市價增發</text>
+<text class="t" x="590" y="200" font-size="16" fill="var(--grey)">財務長先前說的</text>
+<text class="t" x="590" y="390" font-size="16" fill="var(--dim)">股價跌完後做的</text>
+<text class="t" x="60" y="486" font-size="22" fill="var(--ink)">他氣的不是增發，是順序</text>
+</svg>
