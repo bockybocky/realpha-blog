@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="路從投稿鋪到入庫編目就斷掉，缺口對面是第二台機器跑得動的平台，沒有橋面相連">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="bAcc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <text x="60" y="54" font-size="27" font-weight="700" fill="var(--ink)">建庫的人付了儲存那一筆，維護那一筆沒人付</text>
+
+  <text x="60" y="118" font-size="20" font-weight="700" fill="var(--accent)">已鋪好</text>
+  <text x="700" y="118" font-size="20" font-weight="700" fill="var(--warn)">沒有路</text>
+
+  <rect x="60" y="250" width="420" height="22" rx="4" fill="var(--accent)"/>
+  <g fill="var(--card)" stroke="var(--accent)" stroke-width="2.5">
+    <rect x="70" y="180" width="110" height="54" rx="8"/>
+    <rect x="220" y="180" width="110" height="54" rx="8"/>
+    <rect x="370" y="180" width="110" height="54" rx="8"/>
+  </g>
+  <g font-size="16" fill="var(--accent)" text-anchor="middle">
+    <text x="125" y="213">投稿</text>
+    <text x="275" y="213">入庫</text>
+    <text x="425" y="213">編目</text>
+  </g>
+  <g stroke="var(--accent)" stroke-width="2" marker-end="url(#bAcc)">
+    <line x1="182" y1="207" x2="214" y2="207"/>
+    <line x1="332" y1="207" x2="364" y2="207"/>
+  </g>
+  <g stroke="var(--accent)" stroke-width="2">
+    <line x1="100" y1="272" x2="100" y2="330"/>
+    <line x1="260" y1="272" x2="260" y2="330"/>
+    <line x1="440" y1="272" x2="440" y2="330"/>
+  </g>
+
+  <path d="M480 262 C540 300 620 320 660 262" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="7 7"/>
+  <text x="570" y="350" font-size="16" fill="var(--warn)" text-anchor="middle">改到跑得動</text>
+  <text x="570" y="378" font-size="16" fill="var(--warn)" text-anchor="middle">寫文件、留維護的人</text>
+
+  <rect x="660" y="250" width="240" height="22" rx="4" fill="var(--grey)"/>
+  <rect x="700" y="180" width="160" height="54" rx="8" fill="var(--card)" stroke="var(--grey)" stroke-width="2.5"/>
+  <text x="780" y="213" font-size="16" fill="var(--dim)" text-anchor="middle">第二台機器跑得動</text>
+  <g stroke="var(--grey)" stroke-width="2">
+    <line x1="700" y1="272" x2="700" y2="330"/>
+    <line x1="860" y1="272" x2="860" y2="330"/>
+  </g>
+
+  <text x="60" y="490" font-size="22" font-weight="700" fill="var(--ink)">沒有人負責維護的共用資產，會退化成一份目錄</text>
+</svg>

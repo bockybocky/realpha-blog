@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="三台原本相同的機器經過反覆維修後輪廓各自長歪，程式被鎖在各自那台機器上">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="dWarn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--warn)"/>
+    </marker>
+  </defs>
+
+  <text x="60" y="54" font-size="27" font-weight="700" fill="var(--ink)">出廠時一模一樣，修著修著各自長歪</text>
+
+  <text x="60" y="112" font-size="20" font-weight="700" fill="var(--dim)">出廠</text>
+  <g fill="var(--card)" stroke="var(--grey)" stroke-width="2">
+    <rect x="60" y="140" width="150" height="80" rx="8"/>
+    <rect x="60" y="246" width="150" height="80" rx="8"/>
+    <rect x="60" y="352" width="150" height="80" rx="8"/>
+  </g>
+  <g font-size="15" fill="var(--dim)">
+    <text x="78" y="187">同型號</text>
+    <text x="78" y="293">同型號</text>
+    <text x="78" y="399">同型號</text>
+  </g>
+
+  <line x1="240" y1="286" x2="430" y2="286" stroke="var(--warn)" stroke-width="3" marker-end="url(#dWarn)"/>
+  <text x="248" y="262" font-size="16" fill="var(--warn)">真空管壞</text>
+  <text x="248" y="318" font-size="16" fill="var(--warn)">記憶體換</text>
+  <text x="248" y="344" font-size="16" fill="var(--warn)">輸入輸出改</text>
+
+  <text x="470" y="112" font-size="20" font-weight="700" fill="var(--warn)">幾輪維修之後</text>
+  <g fill="var(--card)" stroke="var(--warn)" stroke-width="2.5">
+    <path d="M470 140 h210 v52 h-60 v28 h-150 z"/>
+    <path d="M470 246 h150 v34 h60 v46 h-210 z"/>
+    <path d="M470 352 h96 v-26 h114 v106 h-210 z"/>
+  </g>
+  <g font-size="15" fill="var(--warn)">
+    <text x="488" y="180">機器 A 的樣子</text>
+    <text x="488" y="286">機器 B 的樣子</text>
+    <text x="488" y="400">機器 C 的樣子</text>
+  </g>
+
+  <g fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 4">
+    <rect x="730" y="150" width="170" height="52" rx="6"/>
+    <rect x="730" y="256" width="170" height="52" rx="6"/>
+    <rect x="730" y="362" width="170" height="52" rx="6"/>
+  </g>
+  <g font-size="15" fill="var(--dim)">
+    <text x="748" y="182">只在 A 上跑</text>
+    <text x="748" y="288">只在 B 上跑</text>
+    <text x="748" y="394">只在 C 上跑</text>
+  </g>
+
+  <text x="60" y="502" font-size="22" font-weight="700" fill="var(--ink)">連同型號的鄰居都跑不動，共享先死在這裡</text>
+</svg>

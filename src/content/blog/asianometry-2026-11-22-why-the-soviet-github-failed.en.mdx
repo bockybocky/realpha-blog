@@ -1,0 +1,65 @@
+---
+title: "Asianometry: The Soviet GitHub Held 30,000 Programs and 500 That Worked"
+description: "Notes on the Asianometry episode of 22 November 2026, 'Why the Soviet GitHub Failed', about the national algorithm and program collection that opened in 1968, was consolidated into GosFAP in 1975, and was being called a software graveyard a decade later. The episode cites a 1989 interview with a member of the Collegium of the USSR State Committee for Computer Technology and Information Science: GosFAP listed over 30,000 programs, of which about 500 were workable, against roughly 8,000 high-quality programs then available in the US. It also cites 1980 spending — one dollar on software for every dollar on hardware in America, 1.5 to 2 cents in the Soviet Union. Every number is as stated at the time. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+tldr: "The Soviet national program library held 30,000 programs and about 500 that ran; what was missing was not storage or a catalogue but anyone with a reason to make a program work on a second machine."
+slug: "asianometry-2026-11-22-why-the-soviet-github-failed"
+lang: "en"
+pubDate: 2026-11-23
+category: "investing"
+kind: "podcast-notes"
+tags: ["Soviet technology history", "podcast-notes", "software industry", "standardisation", "knowledge management"]
+ogImage: "/covers/asianometry-2026-11-22-why-the-soviet-github-failed-cover.png"
+cover: "/covers/asianometry-2026-11-22-why-the-soviet-github-failed-cover.png"
+---
+
+![A Soviet-era archive hall, in the near foreground a long run of unlabelled wooden card-catalogue drawers with one drawer pulled open showing blank cards, behind it waist-high stacks of fan-fold printout paper receding into darkness, a single skylight high above dropping one shaft of light full of dust, one person standing in it holding a flashlight](/covers/asianometry-2026-11-22-why-the-soviet-github-failed-cover.png)
+
+> That which is common to the greatest number gets the least care. People think chiefly of their own; they care less for what is held in common.
+>
+> —— Aristotle, *Politics*, Book II (c. 350 BC, my own translation)
+
+The Asianometry episode of 22 November 2026, "Why the Soviet GitHub Failed", is about the Soviet national program collection that opened in 1968, was merged into GosFAP in 1975, and was being called a software graveyard by its own users a decade later. The episode cites a 1989 interview with a member of the Collegium of the USSR State Committee for Computer Technology and Information Science: GosFAP listed over 30,000 programs, about 500 of which were workable, against roughly 8,000 high-quality programs then available in the US. It also cites the 1980 comparison — America spent a dollar on software for every dollar on hardware, the Soviets 1.5 to 2 cents. The host puts the failure down to investment and maintenance incentives, and then admits at the end that he cannot say why the Soviet centralising approach could not have worked. All figures are as stated at the time.
+
+## A tidy explanation: they could not get Western software
+
+Here is the account I had in my head before listening. The Cold War had export controls, the Soviets could not buy IBM machines, could not get compilers or source code, so their software fell behind. And then a more fashionable second line: software is a people business, a planned economy gives individuals no incentive, so nothing good gets written.
+
+Both of those saved me the trouble of thinking. The first blames an external blockade; the second blames a systemic conclusion too large to be wrong. I had used them to explain things like "why can a country build the hardware and not the software", and I had never asked the one question underneath: did programs move around inside the country at all?
+
+## Out of two thousand programs audited, 123 were usable
+
+The episode starts with what happened in America. In 1964 IBM replaced its entire line with the System/360, forcing the hardware into a common standard so that a program written for one machine could be ported to another without modification — unprecedented at the time. In mid-1969, fearing an antitrust suit, IBM announced it would price hardware and software separately, and the packaged program industry was born. Within a decade it was doing a billion dollars — 1 billion in annual revenue — and driving American computerisation.
+
+The Soviet starting point was further back. First- and second-generation machines ran from 1 to 32,000 36-bit words of ferrite core memory; 32,000 words is roughly 144 kilobytes today, while an IBM System/360 Model 65 had 128 kilobytes to 1 megabyte. With memory that expensive, the space a compiler ate was a cost nobody could carry, so programmers avoided higher-level languages and wrote autocode and assembly. They wrote programs out by hand, first in pencil, then in ink, then keypunched them twice onto two card sets that were compared against each other before going to the machine — and each programmer got one run per day. The host says something here I keep coming back to: he will never defame anyone who writes in assembly, because those people are writing the language of silicon.
+
+What actually killed sharing was fragmentation. Machines left the factory identical, and then vacuum tubes, memories, input/outputs and diodes began failing. Every repair meant a modification, and every machine drifted away from its siblings. The code was machine-level, tied to the machine it ran on, so when the machine changed the program had to change, and after enough rounds a common subroutine had become something that would run on that one installation and nowhere else — not even on a supposed family member. So anything a colleague handed you had to be tweaked first. In late 1968 the Central Asian grid dispatch organisation in Tashkent swapped a Ural-2 for a BESM-4 and migrated five years of software by hand; some years later it got an M-4030 and did the whole thing again. That is part of why Soviet machines built in the 1950s stayed in service for decades — replacing one meant rewriting everything.
+
+In February 1966 the State Committee for Science and Technology formed a national collection of algorithms; it launched in 1968, free to deposit and free to retrieve, modelled on a public library. It was run by five people on donations. In 1973 V. Galeev, a laboratory head at a Moscow computing centre, went at it in Pravda: the catalogue listed over 10,000 algorithms and programs, more than half of them obsolete or seriously flawed; one audit of over 2,000 construction and engineering programs found 123 fit for use; there were 18 variants of a single load-bearing frame algorithm for the Minsk-22, and none of the 18 ran. What you collected from the library was a mountain of unreadable machine code on paper, with documentation incomplete or missing. Galeev's diagnosis: five people were just enough to categorise and deposit, nowhere near enough to assess quality first, and neither the authors nor their organisations had any reason to maintain what they deposited. His prescription was more centralisation, and in 1975 the government did it — regional, sectoral and special funds were linked into one State Fund, GosFAP, with a bigger budget and more powerful administrators.
+
+Through the 1970s the Soviets adopted the System/360 standard as Ryad/ES-EVM. Hardware fragmentation did converge and component quality did improve, and it also granted access to Western software — this predates open source, but code could still be had from conferences, journals, Western libraries, in-person exchanges and consulting groups. The host's image is a gamer who cannot play without an aim-bot: being able to take from the West starved the domestic software industry of the investment it needed, which is where that 1980 figure of a dollar against 1.5 to 2 cents comes from. The same underinvestment shows up in training: Moscow State University had two BESM-6s as late as 1976, the Moscow Aviation Institute had three medium-grade Minsk machines and a BESM-2, while major American research universities ran anywhere from 5 to 15 computers in the pre-PC era.
+
+The 1989 interview makes the mechanism plain. Of the 30,000-plus registered programs about 500 worked, and the average rate of program duplication was 100 units in the US against 1.7 in the Soviet Union — Soviet programs barely ever left the machine they were developed on. There is a further layer: fishing the right program out of GosFAP itself required advanced programming skill, so a plant that had just bought a computer would rather make endless phone calls, write letters and send people on business trips across the country than query the official library. The Collegium member's answer was GSPO: since the programs had no owner, the state would be the owner, coordinating development, delivery and maintenance. Two years later the USSR collapsed.
+
+## The bottleneck in a shared library is the five people maintaining it
+
+You have probably lived the small version. A company sets up a shared code library, or a team opens a shared drive, a wiki, a Notion space; everyone is keen at launch, and six months later nobody opens it and people just ask the colleague next to them. Listening to this episode put that next to 30,000 against 500, and they have the same shape: storage and maintenance are two different jobs, and whoever builds the library has usually only paid for storage.
+
+The number I like most is 1.7, because it turns a vague claim into something measurable. What a shared asset is worth tracks how many times a second person got it running in a second environment, not how many entries the catalogue has. That test travels to looking at companies: when a firm talks about the size of its ecosystem, its developer platform, its data assets, the catalogue count is noise and the duplication column is structure — how many outsiders actually installed it and ran it, who maintains compatibility, whether a customer who modified it can still upgrade. Those 18 mutually incompatible Minsk-22 variants, none of which ran, would appear in a filing as 18 assets.
+
+I am not taking "centralisation always fails" away from this episode, and neither does the host. He points out that the broad hardware standardisation of ES-EVM did succeed in assembling scale and improving component quality, so the logic of doing the same for software feels workable — and then says he doubts the Soviets could have pulled it off and cannot put his finger on why, so it is a question for another video. That left me comfortable, because my own judgement stops in the same place: what I am confident about is that "storage plus a catalogue" was not enough, and whether "storage plus a catalogue plus the state as maintainer" would have worked is something the 1989 plan never got to find out.
+
+## Further reading
+
+- The Asianometry episode of 22 November 2026, "Why the Soviet GitHub Failed", the source for this piece
+- The industry history of System/360 full compatibility and how IBM's 1969 unbundling created the packaged software business
+- Technical retrospectives on the Ryad/ES-EVM programme and what copying System/360 did to Soviet hardware quality
+- Western analyses of the Soviet "automated control systems" (ASU) five-year-plan targets against actual results
+- Memoirs and oral histories of Soviet computing, especially how computer user associations passed programs around
+
+## One thing to take away
+
+**A shared asset nobody is paid to maintain decays into a catalogue.**
+
+The Soviets did not lack a collection, a catalogue, or prestige — getting a program into GosFAP was seen as the highest honour a Soviet programmer could achieve. What was missing was anyone who, after the deposit, would make the thing run on a second machine. Five people on donations could manage intake, which left 29,500 of those 30,000 programs as paper with no owner.
+
+Here is something I have tried that works outside investing too. Pick one shared thing you currently rely on — the team's shared folder, the medicine box at home, the pinned spreadsheet in the group chat, the checklist you wrote for yourself last year — and today check two facts: when was the last time anyone touched it, and if it broke or expired tomorrow, who would be the first person to notice. The first one I checked was a schedule list I maintain myself; the last update was eleven months old, and the first person who would notice it was broken was me, on the day I needed it.

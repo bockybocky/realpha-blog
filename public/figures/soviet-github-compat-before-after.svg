@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="左邊三台機器各綁一支自己的程式，一對一；右邊一支程式用三條箭頭射進三台規格相同的機器">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="aGrey" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--grey)"/>
+    </marker>
+    <marker id="aAcc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <text x="60" y="54" font-size="27" font-weight="700" fill="var(--ink)">同一支程式，搬得到幾台機器</text>
+
+  <rect x="60" y="92" width="390" height="358" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="510" y="92" width="390" height="358" rx="12" fill="var(--card)" stroke="var(--line)"/>
+  <text x="84" y="128" font-size="20" font-weight="700" fill="var(--dim)">規格各自為政</text>
+  <text x="534" y="128" font-size="20" font-weight="700" fill="var(--accent)">共同規格之後</text>
+
+  <g fill="none" stroke="var(--grey)" stroke-width="2">
+    <rect x="86" y="160" width="104" height="54" rx="8"/>
+    <rect x="86" y="252" width="104" height="54" rx="8"/>
+    <rect x="86" y="344" width="104" height="54" rx="8"/>
+  </g>
+  <g font-size="15" fill="var(--dim)">
+    <text x="104" y="193">機器 A</text>
+    <text x="104" y="285">機器 B</text>
+    <text x="104" y="377">機器 C</text>
+  </g>
+  <g stroke="var(--grey)" stroke-width="2" marker-end="url(#aGrey)">
+    <line x1="196" y1="187" x2="262" y2="187"/>
+    <line x1="196" y1="279" x2="262" y2="279"/>
+    <line x1="196" y1="371" x2="262" y2="371"/>
+  </g>
+  <g fill="none" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 4">
+    <rect x="268" y="164" width="78" height="46" rx="6"/>
+    <rect x="268" y="256" width="78" height="46" rx="6"/>
+    <rect x="268" y="348" width="78" height="46" rx="6"/>
+  </g>
+  <g font-size="15" fill="var(--dim)">
+    <text x="284" y="193">程式 a</text>
+    <text x="284" y="285">程式 b</text>
+    <text x="284" y="377">程式 c</text>
+  </g>
+  <text x="360" y="430" font-size="15" fill="var(--dim)" text-anchor="middle">一台一支，各寫一次</text>
+
+  <rect x="534" y="252" width="118" height="56" rx="8" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="593" y="286" font-size="16" fill="var(--accent)" text-anchor="middle" font-weight="700">同一支程式</text>
+  <g stroke="var(--accent)" stroke-width="2.5" fill="none" marker-end="url(#aAcc)">
+    <path d="M652 280 C700 280 706 187 756 187"/>
+    <line x1="652" y1="280" x2="756" y2="280"/>
+    <path d="M652 280 C700 280 706 373 756 373"/>
+  </g>
+  <g fill="none" stroke="var(--accent)" stroke-width="2">
+    <rect x="762" y="160" width="104" height="54" rx="8"/>
+    <rect x="762" y="252" width="104" height="54" rx="8"/>
+    <rect x="762" y="344" width="104" height="54" rx="8"/>
+  </g>
+  <g font-size="15" fill="var(--accent)">
+    <text x="780" y="193">機器 1</text>
+    <text x="780" y="285">機器 2</text>
+    <text x="780" y="377">機器 3</text>
+  </g>
+  <text x="705" y="430" font-size="15" fill="var(--accent)" text-anchor="middle">搬過去不用改</text>
+
+  <text x="60" y="502" font-size="22" font-weight="700" fill="var(--ink)">規格統一之後，一支程式才開始有第二個使用者</text>
+</svg>
