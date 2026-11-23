@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="三根高度遞增的柱子，兩根矮柱落在代表市場高度的虛線下方">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;}
+    .h1{font-size:27px;font-weight:700;fill:var(--ink);}
+    .cap{font-size:19px;font-weight:700;fill:var(--dim);}
+    .capA{font-size:19px;font-weight:700;fill:var(--accent);}
+    .big{font-size:34px;font-weight:700;fill:var(--ink);}
+    .unit{font-size:16px;fill:var(--dim);}
+    .kick{font-size:22px;font-weight:700;fill:var(--ink);}
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="48" class="h1" text-anchor="middle">倍數已經在市場底下</text>
+    <line x1="80" y1="430" x2="890" y2="430" stroke="var(--ink)" stroke-width="1.5"/>
+    <line x1="80" y1="130" x2="890" y2="130" stroke="var(--grey)" stroke-width="1.5" stroke-dasharray="7 6"/>
+    <text x="890" y="116" class="cap" text-anchor="end">市場的高度</text>
+    <text x="190" y="372" class="capA" text-anchor="middle">記憶體</text>
+    <rect x="135" y="385" width="110" height="45" rx="3" fill="var(--accent)"/>
+    <text x="190" y="478" class="big" text-anchor="middle">3 倍</text>
+    <text x="190" y="508" class="unit" text-anchor="middle">原本 7 倍</text>
+    <text x="480" y="242" class="capA" text-anchor="middle">NVIDIA</text>
+    <rect x="425" y="250" width="110" height="180" rx="3" fill="var(--accent)"/>
+    <text x="480" y="478" class="big" text-anchor="middle">12 倍</text>
+    <text x="480" y="508" class="unit" text-anchor="middle">用未來獲利算</text>
+    <text x="770" y="122" class="cap" text-anchor="middle">整個市場</text>
+    <rect x="715" y="130" width="110" height="300" rx="3" fill="var(--grey)"/>
+    <text x="770" y="478" class="big" text-anchor="middle">20 倍</text>
+    <text x="480" y="536" class="kick" text-anchor="middle">壞掉的是情緒</text>
+  </g>
+</svg>

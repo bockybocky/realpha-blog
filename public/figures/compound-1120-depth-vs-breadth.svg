@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="兩格零線圖，各有一根深跌的柱子與一根向上的柱子，右格落差更大">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;}
+    .h1{font-size:27px;font-weight:700;fill:var(--ink);}
+    .cap{font-size:19px;font-weight:700;fill:var(--dim);}
+    .capA{font-size:19px;font-weight:700;fill:var(--accent);}
+    .capW{font-size:19px;font-weight:700;fill:var(--warn);}
+    .big{font-size:34px;font-weight:700;fill:var(--ink);}
+    .unit{font-size:16px;fill:var(--dim);}
+    .kick{font-size:22px;font-weight:700;fill:var(--ink);}
+  </style>
+  <rect x="0" y="0" width="960" height="600" fill="var(--page)"/>
+  <g class="t">
+    <text x="480" y="48" class="h1" text-anchor="middle">跌得深，不等於跌得廣</text>
+    <rect x="50" y="80" width="420" height="440" rx="6" fill="var(--card)"/>
+    <text x="260" y="116" class="cap" text-anchor="middle">2000 年那一輪</text>
+    <line x1="80" y1="250" x2="440" y2="250" stroke="var(--ink)" stroke-width="1.5"/>
+    <rect x="130" y="250" width="100" height="208" rx="3" fill="var(--warn)"/>
+    <text x="180" y="492" class="big" text-anchor="middle">69%</text>
+    <text x="180" y="236" class="capW" text-anchor="middle">科技與通訊</text>
+    <rect x="310" y="226" width="100" height="24" rx="3" fill="var(--grey)"/>
+    <text x="360" y="208" class="cap" text-anchor="middle">其餘市場</text>
+    <text x="360" y="300" class="unit" text-anchor="middle">同期小漲</text>
+    <rect x="490" y="80" width="420" height="440" rx="6" fill="var(--card)"/>
+    <text x="700" y="116" class="cap" text-anchor="middle">今年這一輪</text>
+    <line x1="520" y1="250" x2="880" y2="250" stroke="var(--ink)" stroke-width="1.5"/>
+    <rect x="570" y="250" width="100" height="230" rx="3" fill="var(--warn)"/>
+    <text x="620" y="514" class="big" text-anchor="middle">2 兆</text>
+    <text x="620" y="236" class="capW" text-anchor="middle">科技與半導體</text>
+    <rect x="750" y="190" width="100" height="60" rx="3" fill="var(--accent)"/>
+    <text x="800" y="172" class="capA" text-anchor="middle">等權重標普</text>
+    <text x="800" y="300" class="unit" text-anchor="middle">上週還在新高</text>
+    <text x="480" y="566" class="kick" text-anchor="middle">要看的是範圍，不是幅度</text>
+  </g>
+</svg>
