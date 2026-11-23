@@ -88,6 +88,8 @@ Then I pointed slot four of my seven Olauncher slots straight at that page. In t
 
 Login was the part I worried about most. All three sites sit behind Cloudflare Access and need a Google sign-in. I expected to sign in three separate times, typing on an E Ink keyboard, and I was already tired thinking about it. It went better than that. The WebView keeps the session, so on November 22, 2026 I signed in once on the e-reader and all three sites opened. Restarting the app didn't ask me to sign in again.
 
+The source code and the installer are on GitHub: [github.com/bockybocky/yujian](https://github.com/bockybocky/yujian). The installer is on the [Releases page](https://github.com/bockybocky/yujian/releases); download the apk and it installs on an Android e-reader. Feel free to fork it and make your own version.
+
 ## A few other things worth noting
 
 - **Guard your list of addresses against bad entries.** Book search once failed completely. After a lot of poking I found that the app's list of addresses had picked up a few junk entries, fake addresses without a single dot in them, and trying to connect to those hung everything. I added a rule that drops any address whose hostname has no dot, and it hasn't happened since. Bugs like this are quiet. Nothing crashes loudly; the whole feature just looks broken.
