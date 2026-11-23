@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="七天曝曬柱狀圖，第一天超過上限，一條虛線尾巴從它頂端拖過五天才落回底部">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ti { font-size:27px; fill:var(--ink); }
+    .g  { font-size:19px; fill:var(--dim); }
+    .s  { font-size:15px; fill:var(--dim); }
+    .c  { font-size:22px; fill:var(--ink); }
+</style>
+<text class="ti" x="80" y="62">曬過量的那天，身體還要處理五天</text>
+<line x1="120" y1="400" x2="880" y2="400" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="300" x2="860" y2="300" stroke="var(--grey)" stroke-width="2" stroke-dasharray="7 7"/>
+<text class="s" x="866" y="296">今日上限</text>
+<rect x="145" y="205" width="50" height="195" rx="4" fill="var(--warn)"/>
+<rect x="245" y="362" width="50" height="38" rx="4" fill="var(--accent)"/>
+<rect x="345" y="370" width="50" height="30" rx="4" fill="var(--accent)"/>
+<rect x="445" y="356" width="50" height="44" rx="4" fill="var(--accent)"/>
+<rect x="545" y="374" width="50" height="26" rx="4" fill="var(--accent)"/>
+<rect x="645" y="366" width="50" height="34" rx="4" fill="var(--accent)"/>
+<rect x="745" y="372" width="50" height="28" rx="4" fill="var(--accent)"/>
+<path d="M170 190 C 300 190, 330 250, 420 290 C 500 325, 540 345, 570 352" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="6 6"/>
+<circle cx="570" cy="352" r="6" fill="var(--warn)"/>
+<text class="g" x="360" y="245" fill="var(--warn)">體內還在處理</text>
+<text class="s" x="170" y="424" text-anchor="middle">第1天</text>
+<text class="s" x="270" y="424" text-anchor="middle">第2天</text>
+<text class="s" x="370" y="424" text-anchor="middle">第3天</text>
+<text class="s" x="470" y="424" text-anchor="middle">第4天</text>
+<text class="s" x="570" y="424" text-anchor="middle">第5天</text>
+<text class="s" x="670" y="424" text-anchor="middle">第6天</text>
+<text class="s" x="770" y="424" text-anchor="middle">第7天</text>
+<text class="c" x="80" y="490">單日的帳，分五天才還完</text>
+</svg>

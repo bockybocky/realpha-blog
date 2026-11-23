@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="一條平虛線代表猜值，一條折線代表七天實際記錄，兩者在第三四天落差最大">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .ti { font-size:27px; fill:var(--ink); }
+    .g  { font-size:19px; fill:var(--dim); }
+    .s  { font-size:15px; fill:var(--dim); }
+    .c  { font-size:22px; fill:var(--ink); }
+</style>
+<text class="ti" x="80" y="62">連記七天，猜值就現形</text>
+<line x1="120" y1="140" x2="120" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="120" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+<line x1="150" y1="250" x2="760" y2="250" stroke="var(--grey)" stroke-width="3" stroke-dasharray="9 7"/>
+<text class="g" x="770" y="246">猜的</text>
+<polyline points="150,240 250,256 350,330 450,356 550,344 650,362 750,350" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<circle cx="150" cy="240" r="6" fill="var(--accent)"/>
+<circle cx="250" cy="256" r="6" fill="var(--accent)"/>
+<circle cx="350" cy="330" r="6" fill="var(--accent)"/>
+<circle cx="450" cy="356" r="6" fill="var(--accent)"/>
+<circle cx="550" cy="344" r="6" fill="var(--accent)"/>
+<circle cx="650" cy="362" r="6" fill="var(--accent)"/>
+<circle cx="750" cy="350" r="6" fill="var(--accent)"/>
+<text class="g" x="770" y="356" fill="var(--accent)">記下來的</text>
+<path d="M350 256 L 350 324" stroke="var(--dim)" stroke-width="2"/>
+<path d="M350 250 l -6 12 l 12 0 Z" fill="var(--dim)"/>
+<path d="M350 330 l -6 -12 l 12 0 Z" fill="var(--dim)"/>
+<path d="M450 256 L 450 350" stroke="var(--dim)" stroke-width="2"/>
+<path d="M450 250 l -6 12 l 12 0 Z" fill="var(--dim)"/>
+<path d="M450 356 l -6 -12 l 12 0 Z" fill="var(--dim)"/>
+<text class="s" x="400" y="300" text-anchor="middle">差距</text>
+<text class="s" x="150" y="456" text-anchor="middle">第1天</text>
+<text class="s" x="250" y="456" text-anchor="middle">第2天</text>
+<text class="s" x="350" y="456" text-anchor="middle">第3天</text>
+<text class="s" x="450" y="456" text-anchor="middle">第4天</text>
+<text class="s" x="550" y="456" text-anchor="middle">第5天</text>
+<text class="s" x="650" y="456" text-anchor="middle">第6天</text>
+<text class="s" x="750" y="456" text-anchor="middle">第7天</text>
+<text class="c" x="80" y="516">第三天就看出來了</text>
+</svg>

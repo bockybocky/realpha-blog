@@ -1,0 +1,106 @@
+---
+title: "The Half Nobody Measured: The 90 Turns Sunlight Into a Pendant"
+description: "Notes from the 2026-11-23 Medsider interview with The 90 CEO Stacy Salvi: how an environmental variable nobody was measuring became a product, a category, and a fundraising strategy. Educational notes; all figures are the guest's own claims, not independently verified, and nothing here is investment or medical advice."
+slug: "medsider-2026-11-23-designing-health-wearables-people-actually-want-to"
+lang: "en"
+pubDate: 2026-11-23
+category: "investing"
+kind: "podcast-notes"
+tags: ["wearables", "category creation", "hardware design", "startup fundraising", "consumer health"]
+ogImage: "/covers/medsider-2026-11-23-designing-health-wearables-people-actually-want-to-cover.png"
+cover: "/covers/medsider-2026-11-23-designing-health-wearables-people-actually-want-to-cover.png"
+---
+
+![Late afternoon light pours down a long room through a tall window; a small gold pendant at a person's collarbone catches the beam](/covers/medsider-2026-11-23-designing-health-wearables-people-actually-want-to-cover.png)
+
+> The yang qi is like heaven and the sun: lose its place and life is shortened without flourishing — so heaven's course takes its brightness from the sun.
+>
+> —— *Huangdi Neijing, Suwen*, "Shengqi Tongtian Lun" (compiled before the Han, public domain; my own translation)
+
+On the 2026-11-23 episode of *Medsider*, host Scott Nelson interviewed Stacy Salvi, co-founder and CEO of The 90. Her business measures an external variable no device had been tracking: how much ultraviolet light your skin actually receives. The company name comes from her claim that UV is responsible for 90% of photo aging, and the product is a $299 pendant with no subscription; users fill out a 16-point skin survey that places them in one of what she calls hundreds of skin archetypes, which is then blended with live sensor data to estimate how much sun time they have left today. She also said UVA accumulates — overshoot on a single day and your skin is still processing it up to five days later. Every number below is her account on the show, with no third-party verification.
+
+![A seven-day exposure bar chart in which the first day's bar breaks through the limit line, with a dashed tail trailing from its top across five more days before it finally drops to the baseline, showing that the body is still processing a single day's overdose long afterward.](/figures/uva-five-day-tail-en.svg)
+
+## Why won't a sunlight-only pendant get eaten by the Apple Watch and Oura?
+
+Because the signal it captures isn't available to anyone else's sensor, and she deliberately refuses to rebuild the features that already exist.
+
+That discipline came from her last job. As VP of Product and Strategy at Movano Health she took the Evie Ring from concept to launch and collected 16 Best of CES awards. Looking back, she's candid: Movano worked hard on the women's health gap, but the struggle was rebuilding to the standard of consumer incumbents like Oura, Fitbit and the Apple Watch. At The 90 she refused to redo what already ships inside hundreds of millions of devices. Holding a narrow use case, she says, is what let them go deeper.
+
+![Two pits below a ground line, the left one wide and shallow and the right one narrow and deep, showing the difference between spreading the same effort out and driving it downward.](/figures/wide-shallow-vs-narrow-deep-en.svg)
+
+Her own version of the moat: the sun score is derived from what the user is actually exposed to, so AI and software can't reverse-engineer it, and the UV index can't either — and as far as she knows, no other wearable on the market carries this sensor. I take half of that. Sensors get copied; spec-sheet items always do. Two things are harder to copy: a shape people will wear out of the house every day, and the user-days of exposure data already banked. You can only buy the second one with time, and nobody gets to skip the queue.
+
+![Three horizontal bars of very different lengths, running from short to long as sensor specs, a form people will wear out of the house, and tens of thousands of person-days of data, with the longest bar running off the right edge of the frame and cut off.](/figures/moat-copy-time-en.svg)
+
+One small detail I enjoyed: the sun score tops out in the 90s, and the company is called The 90. On the show the two of them laugh about working the branding in. Whether a new category gets remembered often comes down to owning one word.
+
+## Why a pendant first, instead of a ring or a wrist device?
+
+Her answer: the wrist and finger are already built out, and the light needs to reach your face.
+
+"The finger and the wrist real estate are well taken and occupied," she says, laughing — but the logic underneath is firm. User expectations for those two spots are already set, so if you make a ring you're competing with Oura, and then you have to build a lot of other features that have nothing to do with your actual signal. Her signal is photo aging, so she needs what she calls a zone of confidence: a pendant sits on the vertical plane, which makes her far more confident about the light hitting the face than something dangling at the bottom of an arm. She offers no numbers for that, so I'm holding it loosely until there's comparison data.
+
+![A side view of a human figure whose wrist and finger positions are filled with grey dots while a single blue pendant sits at the chest, with angled light from the upper left falling on the face and on the vertical plane of the chest.](/figures/pendant-position-light-en.svg)
+
+Two more decisions sit on top of the form factor. First, modularity: the sensor comes out of the pendant, an accessory line will let it ride on a lapel or a hat, and she says it gives partners somewhere to plug in. Her reason is that style changes — "I might not be wearing a V-neck that works with the pendant." Second, no screen. Her Apple Watch serves her well, she says, but as a miniature phone that keeps her from missing a text and tracks her workouts; to read an environmental signal she doesn't need a third screen telling her the time.
+
+Then materials. Most wearable users are women, she says, and plastic with a woven band may be functional, "but I promise you it doesn't go with my evening outfit." She describes herself as uncompromising here: it had to pass as jewelry rather than look like the data-ingestion engine it is. And she adds a timing note — twelve years ago this was out of reach, components were too large and batteries weren't small enough. Miniaturization only caught up recently.
+
+## How do you create demand for something nobody has ever measured?
+
+She started with people who already believed too much sun ages them, then turned the conversation to the other side.
+
+The first half she was confident about: women drive the anti-aging market and already understand the UV-to-aging link. But once units were in the field, user feedback changed the story — they weren't only skin-health enthusiasts, they also wanted to know what healthy sunlight means for them. So the sun score keeps both ledgers: on one side the inflammation from UVB and the aging load from accumulated UVA, which the app calls sun debt; on the other, the circadian light window, vitamin D synthesis, and nitric oxide — a certain amount of UVA, she says, triggers nitric oxide release, which supports vascular health. That thread comes from her chief medical officer, Dr. Richard Weller, whose research she relays this way: people who got less sunlight had higher all-cause mortality.
+
+The tale of two dads is the part of this episode I most wanted to keep. Her biological father had a bad skin cancer on his nose — remedied, but a long problem. Her stepfather is a dermatologist who stays covered up and gets very little sun; she laughs that he'd admit it if he heard the episode. When she asked him early on, his answer was that you should get vitamin D from supplements, not the sun. That binary, she says, was worth exploring — and the company she went on to build replaces the binary with a scale.
+
+![On the left, two grey cells split by a dashed line; on the right, the same thing redrawn as a graduated band with risk at both ends and a usable range in the middle, with two markers sitting at opposite ends.](/figures/binary-to-scale-en.svg)
+
+As for why the existing UV index isn't enough: she says it overweights UVB and tells you little about UVA, and it's fundamentally a geographic zone — "ZIP code level UV" — that says nothing about your personal exposure. Scott then admits what he used to do: glance at the index and guess. It's a nine or a ten today, it peaks midday, so maybe fifteen or twenty minutes is fine.
+
+![On the left, a three-by-three grid with the same number nine written in every cell; on the right, the same grid with four people scattered through it, each carrying a different number.](/figures/zipcode-uv-vs-personal-en.svg)
+
+She also holds a line worth noting. A large study on sunscreen and skin cancer had just made news; she says the timing helps her, but she won't comment on the underlying science and won't tell anyone to skip sunscreen — only to mind the ingredients and read the label. Founders of new categories usually overstep right there. She didn't.
+
+## Why raise from influencers instead of VCs?
+
+The money had to arrive with distribution attached.
+
+She lays the two experiences side by side. Movano was public, so the conversations were with family offices and people comfortable in public markets. The 90 is private, so the conversations are with people who know them and have watched what she and her co-founder have done in this space. The team is seasoned enough to build in a financially conservative way, she says, which let them be strategic and raise from former operators.
+
+The most concrete name is Lauren Bosstick — host of The Skinny Confidential, author of *Get the F Out of the Sun*, an early voice for "preventative beauty" — whose Dear Media platform, run with her husband, carries roughly 100 podcasts aimed at women. Stacy's line: those are exactly the people we wanted to reach. The point isn't that a famous shareholder brings exposure; it's that the audience of those 100 shows is the same buyer she had just described. Scott adds his own version: he was on Lauren's show back in 2017 or 2018 and the range of people who reached out afterward — from beauty and longevity to someone running a hedge fund — surprised him. At Fast Wave, the cardiovascular device company he runs now, a lot of capital came from physician SPVs and syndicates; when people ask why, his answer is that this is how good brands start.
+
+She relays the word on the street from her week at San Francisco Tech Week and Disrupt: raising from individuals and smaller funds who understand what it takes to operate beats going VC. She doesn't shut the door, and says VC relationships may come later.
+
+I'd add one precondition. This works when your buyers are concentrated inside a few people's audiences — true for preventative beauty, true for cardiovascular devices. Sell into a diffuse market with no opinion leaders and you've just bought expensive money.
+
+![On the left, two circles that do not intersect, joined only by a single arrow labelled money; on the right, two circles overlapping across a large area, and the overlap itself is the target buyer.](/figures/money-with-audience-en.svg)
+
+## So what can I actually do with this episode?
+
+I use it as a checklist for spotting which external variable my own holdings are missing.
+
+First common sticking point: the financials look good, the news looks good, and you still can't say why this company wins. The question this episode handed me is "what does it measure that nobody else can measure?" Data is a kind of inventory; it accrues with time and nobody gets to jump the line. But run the same frame in reverse: an exclusive sensor isn't pricing power, and tight supply isn't bargaining power. The 90 is $299 once, no subscription — her reason is subscription fatigue and a preference for listening before pushing a membership — and that choice puts the cash flow entirely on new-customer acquisition. If I were tracking this company I'd watch retail placement (she says she'd love to be in stores for holiday 2027) and accessory repeat purchases, not how many people are talking about sunlight.
+
+Second sticking point: every theme sounds right, so how do you separate noise from structure? Her "timing" has two layers. The upper one is narrative — the sunscreen study in the news, Huberman-style shows pushing morning light — and narratives rotate. The lower one is structural: we are a very indoor society now, she can see in her own data that she's inside too much, and miniaturization finally reached the point where a sensor can pass as jewelry. Those don't rotate. When you can't tell which layer you're in, wait three quarters and let shipments and repeat rates answer for you.
+
+![A thin wavy band on top, pushed left and right by two arrows, above a thick flat solid slab marked as the part that cannot be swapped out.](/figures/narrative-layer-structure-layer-en.svg)
+
+Third: I don't invest, so what's in this for me? Go back to her own admission — she only learned how much time she spends indoors by looking at her own data. The variables nobody has measured on you were never skipped because they didn't matter.
+
+## Worth a look
+
+- the90.com, The 90's site (a Black Friday deal was coming up the week of the recording)
+- Dr. Richard Weller's research on sunlight and all-cause mortality; he is The 90's chief medical officer
+- Lauren Bosstick, *Get the F Out of the Sun*
+- A recent book on the benefits of sunlight that Scott recommends on air — he says himself that he's getting the title wrong, so look it up before you buy
+- The *Medsider* episode of 2026-11-23 itself
+
+## One Thing to Take With You
+
+One idea: a variable nobody measured isn't an unimportant one — it's one nobody has built you a meter for yet. That's what I kept from the whole episode. UV didn't start hitting people this decade; this is just the decade someone was willing to package it as something you'd wear out of the house. Most of the things you "just know by feel" belong to the same bucket.
+
+Here's something I've tried, if you want it: pick one thing you guess at every day — what time you put the phone down, how far you walked, how many times a week you actually talk to someone at home — change no habits at all, just record it for seven days, and look back on the eighth. I've done two rounds, and both times by day three or four my guess turned out to be far off, and that gap was more useful to me than any amount of self-reflection.
+
+![A flat dashed line marks the original guess while a jagged line traces the actual values logged over seven days, the two pulling furthest apart on the third and fourth days.](/figures/seven-day-guess-gap-en.svg)
