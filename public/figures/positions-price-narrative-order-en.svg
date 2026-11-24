@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="The top chain runs rightward with time and the bottom chain runs leftward against time, so the two point in opposite directions.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <defs>
+    <marker id="f3a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="f3b" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--warn)"/>
+    </marker>
+    <marker id="f3c" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--grey)"/>
+    </marker>
+  </defs>
+  <text x="60" y="58" font-size="27" font-weight="700" fill="var(--ink)">Two orders, opposite directions</text>
+
+  <text x="60" y="150" font-size="19" font-weight="700" fill="var(--accent)">What actually happens</text>
+  <circle cx="220" cy="210" r="13" fill="var(--accent)"/>
+  <circle cx="480" cy="210" r="13" fill="var(--accent)"/>
+  <circle cx="740" cy="210" r="13" fill="var(--accent)"/>
+  <line x1="238" y1="210" x2="455" y2="210" stroke="var(--accent)" stroke-width="5" marker-end="url(#f3a)"/>
+  <line x1="498" y1="210" x2="715" y2="210" stroke="var(--accent)" stroke-width="5" marker-end="url(#f3a)"/>
+  <text x="220" y="180" font-size="19" fill="var(--ink)" text-anchor="middle">Positions</text>
+  <text x="480" y="180" font-size="19" fill="var(--ink)" text-anchor="middle">Price</text>
+  <text x="740" y="180" font-size="19" fill="var(--ink)" text-anchor="middle">Narrative</text>
+
+  <line x1="80" y1="300" x2="880" y2="300" stroke="var(--grey)" stroke-width="3" marker-end="url(#f3c)"/>
+  <text x="884" y="306" font-size="15" fill="var(--dim)">Time</text>
+
+  <text x="60" y="400" font-size="19" font-weight="700" fill="var(--warn)">How I used to read it</text>
+  <circle cx="220" cy="450" r="13" fill="var(--warn)"/>
+  <circle cx="480" cy="450" r="13" fill="var(--warn)"/>
+  <circle cx="740" cy="450" r="13" fill="var(--warn)"/>
+  <line x1="722" y1="450" x2="505" y2="450" stroke="var(--warn)" stroke-width="5" marker-end="url(#f3b)"/>
+  <line x1="462" y1="450" x2="245" y2="450" stroke="var(--warn)" stroke-width="5" marker-end="url(#f3b)"/>
+  <text x="740" y="492" font-size="19" fill="var(--ink)" text-anchor="middle">Narrative</text>
+  <text x="480" y="492" font-size="19" fill="var(--ink)" text-anchor="middle">Find numbers</text>
+  <text x="220" y="492" font-size="19" fill="var(--ink)" text-anchor="middle">Enter</text>
+</svg>

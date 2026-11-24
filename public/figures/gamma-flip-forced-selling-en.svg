@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="A price line steepens after crossing a horizontal dashed line, with three sell arrows of increasing length below it and a loop arrow standing for negative feedback.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <defs>
+    <marker id="f2a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--warn)"/>
+    </marker>
+    <marker id="f2b" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--dim)"/>
+    </marker>
+  </defs>
+  <text x="60" y="58" font-size="27" font-weight="700" fill="var(--ink)">Past the strike, the selling grows itself</text>
+
+  <rect x="60" y="100" width="840" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+  <line x1="60" y1="250" x2="900" y2="250" stroke="var(--grey)" stroke-dasharray="7 7"/>
+  <text x="70" y="240" font-size="16" font-weight="700" fill="var(--ink)">7,100</text>
+
+  <polyline points="90,150 230,185 330,215 430,250 540,300 660,340 820,378"
+            fill="none" stroke="var(--accent)" stroke-width="5"/>
+  <circle cx="430" cy="250" r="9" fill="var(--page)" stroke="var(--accent)" stroke-width="5"/>
+  <text x="408" y="432" font-size="16" font-weight="700" fill="var(--ink)">Gamma flips short</text>
+
+  <line x1="540" y1="412" x2="540" y2="452" stroke="var(--warn)" stroke-width="7" marker-end="url(#f2a)"/>
+  <line x1="660" y1="412" x2="660" y2="482" stroke="var(--warn)" stroke-width="7" marker-end="url(#f2a)"/>
+  <line x1="780" y1="412" x2="780" y2="512" stroke="var(--warn)" stroke-width="7" marker-end="url(#f2a)"/>
+  <text x="820" y="470" font-size="16" fill="var(--dim)">Sell lower</text>
+
+  <line x1="150" y1="470" x2="150" y2="408" stroke="var(--dim)" stroke-width="5" marker-end="url(#f2b)"/>
+  <text x="90" y="500" font-size="16" fill="var(--dim)">Leveraged ETFs</text>
+  <text x="90" y="524" font-size="16" fill="var(--dim)">$35 billion</text>
+
+  <text x="60" y="560" font-size="22" font-weight="700" fill="var(--ink)">Whoever hits sell isn't thinking about AI</text>
+</svg>
