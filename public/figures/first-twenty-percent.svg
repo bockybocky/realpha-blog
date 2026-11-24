@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="一條長條被切成兩段，左邊窄的一小段上色、右邊很寬的一段留灰，兩段下方各有一個往上的指標">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="60" y="66" font-size="27" fill="var(--ink)">這份預測要靠哪一段付錢</text>
+<text x="90" y="128" font-size="16" fill="var(--dim)">企業採用 AI 的進度</text>
+<rect x="90" y="160" width="160" height="72" rx="6" fill="var(--accent)"/>
+<rect x="250" y="160" width="640" height="72" rx="6" fill="var(--grey)"/>
+<text x="170" y="204" font-size="19" fill="var(--page)" text-anchor="middle">20%</text>
+<text x="570" y="204" font-size="19" fill="var(--page)" text-anchor="middle">80%</text>
+<line x1="170" y1="276" x2="170" y2="240" stroke="var(--accent)" stroke-width="3"/>
+<polygon points="162,248 178,248 170,228" fill="var(--accent)"/>
+<text x="170" y="304" font-size="19" fill="var(--accent)" text-anchor="middle">還可信</text>
+<text x="170" y="332" font-size="15" fill="var(--dim)" text-anchor="middle">只要前段付錢</text>
+<line x1="570" y1="276" x2="570" y2="240" stroke="var(--warn)" stroke-width="3"/>
+<polygon points="562,248 578,248 570,228" fill="var(--warn)"/>
+<text x="570" y="304" font-size="19" fill="var(--warn)" text-anchor="middle">不太可能</text>
+<text x="570" y="332" font-size="15" fill="var(--dim)" text-anchor="middle">要靠後段撐住</text>
+<text x="60" y="456" font-size="22" fill="var(--ink)">先問它靠哪一段，再決定信幾分</text>
+</svg>

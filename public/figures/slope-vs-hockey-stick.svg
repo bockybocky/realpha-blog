@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="兩條線從同一起點出發：一條虛線很快拔起成曲棍球桿形狀，另一條實線緩緩往上並整體往右偏，兩線之間的距離越拉越開">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+      --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+@media (prefers-color-scheme: dark) {
+  svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+        --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+}
+text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+</style>
+<text x="60" y="66" font-size="27" fill="var(--ink)">方向一樣，斜率不一樣</text>
+<line x1="130" y1="140" x2="130" y2="440" stroke="var(--line)" stroke-width="3"/>
+<line x1="130" y1="440" x2="890" y2="440" stroke="var(--line)" stroke-width="3"/>
+<text x="130" y="122" font-size="16" fill="var(--dim)" text-anchor="middle">鋪開程度</text>
+<text x="890" y="470" font-size="16" fill="var(--dim)" text-anchor="end">時間</text>
+<path d="M130 436 C 300 430, 380 400, 470 300 S 600 170, 780 150" fill="none" stroke="var(--warn)" stroke-width="3" stroke-dasharray="9 7"/>
+<text x="700" y="196" font-size="19" fill="var(--warn)">假設的斜率</text>
+<path d="M130 436 C 330 424, 560 392, 890 320" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<text x="700" y="356" font-size="19" fill="var(--accent)">實際的斜率</text>
+<circle cx="130" cy="436" r="7" fill="var(--ink)"/>
+<text x="130" y="472" font-size="16" fill="var(--ink)" text-anchor="middle">上市</text>
+<circle cx="430" cy="410" r="7" fill="var(--ink)"/>
+<line x1="430" y1="410" x2="430" y2="440" stroke="var(--dim)" stroke-width="2"/>
+<text x="430" y="472" font-size="16" fill="var(--ink)" text-anchor="middle">四年後才起來</text>
+<text x="60" y="524" font-size="22" fill="var(--ink)">曲棍球桿那個形狀不會出現</text>
+</svg>
