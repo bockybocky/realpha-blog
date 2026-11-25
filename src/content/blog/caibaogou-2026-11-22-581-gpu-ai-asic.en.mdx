@@ -1,0 +1,102 @@
+---
+title: "Caibaogou: The US Changed Its Method for Blocking China's Compute, and GPUs and AI ASICs Part Ways"
+description: "Notes on episode 581 of the Taiwanese podcast Caibaogou, recorded 18 November 2026, where host Weiyu and analyst Xiaozhen discuss the new round of US controls that took effect on 19 November. The method changed. The Biden-era rules capped how much compute a country's data centres could build; these cap how much they may rent to China — Xiaozhen says the threshold is 12 million TPP, above which you file, counted across a group's worldwide footprint. Singapore, Indonesia, Malaysia, Brazil and Thailand are added for case-by-case review, and IC design firms in those five countries now need a licence to order 16/14nm or below. His read is that the whole AI chain gets cut at once, general-purpose GPUs worst (he puts NVIDIA at 80–90% share there), ASICs least and possibly better off over the medium term — conditional on 2027 staying supply-constrained, while he says he has no confidence about 2028. Every number is as stated at the time of recording. Educational listening notes only — no investment advice, no price targets, and the judgements here may be wrong."
+slug: "caibaogou-2026-11-22-581-gpu-ai-asic"
+lang: "en"
+pubDate: 2026-11-25
+category: "investing"
+kind: "podcast-notes"
+tags: ["semiconductors", "podcast-notes", "export controls", "AI compute", "ASIC"]
+ogImage: "/covers/caibaogou-2026-11-22-581-gpu-ai-asic-cover.png"
+cover: "/covers/caibaogou-2026-11-22-581-gpu-ai-asic-cover.png"
+---
+
+![The top of a concrete dam at dusk, an inspector's torch beam falling on a hairline crack at his feet and a thin line of water seeping from it, the dam wall beyond the beam running away into deep perspective and growing darker with distance until it sinks into black](/covers/caibaogou-2026-11-22-581-gpu-ai-asic-cover.png)
+
+> Your servant has heard that the light is the beginning of the heavy, and the small the source of the great; thus a dyke is broken by an ant's hole, and air escapes through the eye of a needle.
+>
+> —— Chen Zhong's memorial to the throne, recorded in the Book of the Later Han, "Biography of Chen Zhong" (compiled by Fan Ye, Liu Song dynasty, from Eastern Han material; my own translation)
+
+In episode 581 of Caibaogou, recorded on 18 November 2026, host Weiyu and analyst Xiaozhen discuss the new round of US controls that took effect the next day, 19 November. The method changed. The Biden-era rules capped how much compute a country's data centres could build; these cap how much they may rent to China. Xiaozhen says the threshold is a compute unit called TPP, set at 12 million, above which you file — and it is counted across a group's entire worldwide footprint, though he adds that the definition is still vague. His read is that the cut runs from data centres all the way up to semiconductor equipment, that general-purpose GPUs take the deepest wound (he puts NVIDIA's share of general-purpose GPUs at 80–90%), and that ASICs are hurt least in the short run with a chance of being better off over the medium term. That read rests on 2027 staying supply-constrained, and he says he has no confidence about 2028. Every number is as stated at the time of recording.
+
+## What the episode is about
+
+Weiyu opens by handing Xiaozhen the question: what does this round of controls cover? Xiaozhen gives the background first. Late in the Biden administration there was an "AI diffusion rule" that sorted countries into three tiers — tier one could build as much compute as it liked, tier two had a ceiling, tier three (China, Russia and the like) was not allowed to build at all. At the time everyone expected it to hit global compute hardware hard if implemented, and it died once Trump came in. Xiaozhen's read is that after the Democrats won the midterms, the China hawks became the mainstream again and Trump's cabinet turned with them, so the same thing came back wearing a different method: restriction in place of market competition.
+
+The document itself runs fifty-odd pages and Xiaozhen says it is written in technical language, so they stick to the main points. The value sits in the second half. The first half is what the rules say; in the second half he walks the whole AI supply chain from downstream to upstream layer by layer, admitting as he goes which parts he is unsure of. Weiyu laughs near the end: I thought you were going to stop once you finished the rules, and you just kept going.
+
+## Route one: not how much you build, but who you rent it to
+
+The Biden version restricted building. This one lets you build and catches you at the renting. Xiaozhen says the threshold is a compute unit called TPP, and above 12 million you file. The arithmetic is the point: it is not split by geography. A group's data centres in Europe, the US and Southeast Asia are added together, and the supply to China gets one single allowance between them — measured across all Chinese customers combined, not one allowance per customer.
+
+Networking around it is written in too: several servers stitched across regions to feed China count as one. Then something more indirect — a Japanese company that looks unaffected rents compute, trains a model, and delivers the result to China; caught, that is a violation. So data centres are required to do their own KYC, to know what the customer renting their machines is doing with them, and it is on them if it goes wrong.
+
+Weiyu asks here the thing I wanted to ask: won't a crowd of small companies appear, co-renting one data centre and each subletting a slice to China? Xiaozhen answers honestly. He says this part is vague and should have been written more clearly; what he is sure of is that cross-border totals within one group are caught, and whether two separate groups adding up over the limit counts, he does not know.
+
+## Route two: shipments to five countries go to case-by-case review
+
+Route two targets smuggling. The old approach listed China, Iran, Russia and others, and high-compute chips could not be shipped in. This round adds five more: Singapore, Indonesia, Malaysia, Brazil and Thailand. Those five are not banned outright — goods headed there need a licence from the US Commerce Department first, reviewed case by case, whether they land locally or merely transit and sit there before re-export. Singapore was already a tier-two country in the Biden version, and it gets named again here. The episode also mentions that channels exist for getting chips into China around the controls, and this is the one the US is trying to close.
+
+## Route three: locking the process node for front companies too
+
+Route three targets ordering through a proxy. China cannot get finished chips, so it can find an IC design company registered offshore to place the order at TSMC. The Biden version blocked this by transistor count: using an advanced node was fine, but a single die above a transistor ceiling triggered the risk, and foundries and packaging houses had to monitor that themselves. The Commerce Department also kept a whitelist of thirty-odd approved IC design firms, and anyone off the list could not use advanced nodes.
+
+Xiaozhen says that left a hole: a Singapore IC design firm makes a chip on TSMC 7nm, keeps the transistor count under the ceiling, and is clear — then uses interconnect to lash a pile of weak chips together for training. This round changes the test: the old version looked at transistor count, the new one looks at registration plus node — an IC design firm from those five countries that wants TSMC 16 or 14nm and below means TSMC has to apply to the US for a licence before work starts. Weiyu's line in this stretch: the US is getting less and less reasonable about this, it is reaching all the way into TSMC. Xiaozhen says the US has been tightening a notch at a time — first block China from doing it at home, then from going offshore to do it, then from ordering through proxies, and now the weak-chip route goes too.
+
+## Shadow demand gets plugged, and the damage queues up from downstream
+
+Xiaozhen flags the two-sidedness early: the rules press down on AI semiconductor compute demand while also limiting part of China's capacity expansion. The demand side has a name — shadow demand: nobody will say it out loud, and it has been holding up real volume. The episode notes the Democrats firing at NVIDIA, saying that while it appears not to sell to China, Singapore revenue once reached nearly 20%, and the real users behind that 20% are Chinese (Xiaozhen marks this as the Democrats' accusation). Plug that, and the demand under the table drops a notch.
+
+What is blocked directly is compute rental, so data centres feel it first. Xiaozhen names Oracle, and his reason is clean: Oracle itself has announced a hundred thousand advanced chips going into Southeast Asia and help for a customer building a data centre in Malaysia. It put that in the open itself. For everyone else he presumes innocence — whether they do China business, outsiders cannot see the proportion.
+
+His chain of reasoning runs like this. The tier-one cloud providers (Google, AWS, Microsoft Azure) cannot even absorb their own demand plus that of the handful of frontier AI labs in North America, so they have little compute to spare for China or sovereign-AI customers. Tier two does not get the most frontier orders, so it leans harder on second-tier model companies, sovereign AI and China. Block Chinese demand and tier two takes the bigger hit.
+
+One layer up, who do tier-two players buy their servers from? Tier one mostly goes to ODMs for custom builds; tier two is short of engineering staff and of money, and branded server vendors supply both deployment support and financing. So Xiaozhen's conclusion is that branded servers get hurt more than whitebox, because whitebox still has tier-one North American procurement underneath it.
+
+## Where GPUs and ASICs part ways: the word "general-purpose"
+
+This is the stretch of reasoning I found most valuable. What China rents offshore is mostly general-purpose GPUs. Xiaozhen's reason is the spec: an ASIC is welded to the system it serves — a TPU is tightly coupled to Google's models and infrastructure and is hard to use away from it — while a GPU runs on an open spec and drops into any data centre. If you are renting to outsiders, what you can rent is the GPU. So when Chinese compute demand is cut, the general-purpose GPU takes the deepest wound, and NVIDIA has 80–90% of that.
+
+The mechanism for ASICs doing better over the medium term he splits in two. Share: the US wants to suppress China's open-source models, which amounts to endorsing the argument that frontier models staying in America serves American interests — and the richest frontier players are the ones moving to in-house ASICs. Their share rises, their ASIC purchases rise with it. Bargaining: the frontier players have had demand they could not get supply for; with Chinese demand gone, the freed supply lands with them, and with fewer buyers their room to push upstream chip vendors on price widens.
+
+Weiyu pushes back with the key question here: is that a benefit, or just the absence of harm? Xiaozhen grants that it depends on how long the shortage lasts, and some people already think it is nearly over; his conclusion is neutral, with a chance of turning positive over the medium term. That "a chance of" is more credible than a confident list of winners.
+
+Memory has no camps to sort into. Xiaozhen says HBM, server DRAM and enterprise SSD get used by both sides, so you can only look at the net: GPU down, ASIC up, and after the offset he sees a net decline in the short run. Weiyu draws a neat inference from it — so the higher NVIDIA's weight in your product mix used to be, the more you get hurt now? Xiaozhen says you can think of it that way, with one more layer: how fast the freed supply can be turned over to whoever else needs it. HBM has not been customised to that degree, and the volume NVIDIA gives back can be picked up by TPUs or others.
+
+Foundry and equipment follow the same logic. TSMC is reduced in the short run, but he thinks 2027 is still supply-constrained, so it will not immediately cut upstream equipment orders — equipment is a lagging indicator and the orders go once downstream can no longer hold. The one place equipment splits into camps is test: Advantest holds a high share of the final test machines for NVIDIA's GPUs, while Teradyne, locked out of NVIDIA's orders, went towards ASICs. He worries about Advantest's 2027–2028 outlook being revised down; Teradyne's direct exposure is smaller, though whether Advantest turns its freed capacity on ASIC orders is another matter.
+
+## He has confidence in 2027, and says he has none in 2028
+
+The line worth copying down is here. Xiaozhen says the AI supply chain top to bottom leans supply-constrained in 2027 and he is confident of that; for 2028 he is not. Three things land in the same year: memory and foundry both have more new capacity coming online in 2028; after the Democrats' win, existing Texas data centre projects are unaffected while new applications get harder; and on top of that, the Chinese compute demand this round of controls removes. Supply up, demand down — whether 2028 is still supply-constrained is what he says people are worried about.
+
+## "The bad news landed and my holding didn't move"
+
+This episode made me think of a familiar frustration: a piece of news that looks heavy comes out, the stock you hold barely reacts, and you start wondering whether the news mattered less than you thought or the market already knew.
+
+The episode offers an honest explanation: you cannot measure it. Weiyu asks straight out — do we have any way to know what share of these data centres' end customers are Chinese? Xiaozhen says it is hard to guess and outsiders do not know. The magnitude is not in the public numbers. You cannot get that proportion, and neither can the market.
+
+What I took from the episode is to anchor on the handful of companies that announced it themselves. Oracle gets named because those projects are ones it announced itself. For the ones with announcements, the magnitude is estimable; for the ones without, write down "don't know" rather than filling a number in from industry logic. My own habit used to run the other way — turning "they probably do some of this too" into "they'll be hurt too", computing an impact off a proportion I had invented, and then, when the share price refused to follow my script, assuming the market was wrong.
+
+## "Same headline, so why does one person call it damage and another a benefit?"
+
+The other uncomfortable spot: one set of rules, and some people say the AI chain is finished while others say it favours one side. Both sound reasonable and the more you listen the less you know who to believe.
+
+The episode's handling is borrowable. His arithmetic was already on show in the memory stretch above: split the directions and subtract. What makes it usable is the time axis he lays on top of it — net down short term, possibly net up over the medium term. Once direction and time are separated, "damage" and "benefit" can both be true; they are describing different cells.
+
+More useful still is that he lands the line on three observables with answers coming: whether the new capacity opens on schedule, whether newly applied-for data centre projects get approved, and how loosely the Commerce Department grants licences. That beats arguing about whether the news is good or bad — write the conclusion as one sentence with a date and an observable in it, and later you can mark it against the answer and see which step was wrong.
+
+## Worth a look
+
+- Caibaogou episode 581 (22 November 2026), the source for this piece
+- The Commerce Department rule document itself, which the episode says runs fifty-odd pages
+- The tiering rules of the Biden-era "AI diffusion rule", the comparison case here
+- Caibaogou's own industry report, where the episode says the detail and numbers live
+- NVIDIA's revenue disclosure by geography in its filings
+
+## The one thing to take with you
+
+**When one shock lands, the general-purpose thing gets hurt first and the welded-in thing gets away.**
+
+The GPU and the ASIC in this episode are the teaching case: a general-purpose GPU is rentable by anyone and drops into anything, so it is what China wants to rent and what the controls want to stop; an ASIC is bound to the system it serves, outsiders cannot rent it away, and the controls cannot bite it. Useful and safe run in opposite directions here.
+
+Something I've tried myself, and it works outside investing. Take a sheet of paper and write down three things in your job that someone else could take over, then one thing only you can pick up — with a reason specific enough to name names: this client only deals with you, this ten-year-old system's workflow is legible only to you, this decision's history is known only to you. Then look at which column your year went into. The first time I did it, the three replaceable things had eaten most of a month, and the one thing only I could pick up turned out to rest on "I happened to be in the room", which holds for whoever else is in the room. That is general-purpose, not welded in.

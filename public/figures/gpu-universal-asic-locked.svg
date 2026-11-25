@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="GPU 一顆對三個插槽都插得上，ASIC 只能對上自家系統那個凹口，對外插槽形狀不合">
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    svg { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; fill:var(--ink); }
+    .g { font-size:20px; fill:var(--ink); }
+    .s { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; fill:var(--ink); }
+</style>
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<text class="t" x="60" y="48">能租出去的，只有通用的那一種</text>
+
+<rect x="60" y="86" width="400" height="356" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="84" y="124">通用 GPU</text>
+<rect x="84" y="240" width="90" height="90" rx="6" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+<text class="s" x="84" y="356">公開規格</text>
+<path d="M174 285 C240 285 250 150 320 150" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<path d="M174 285 L320 285" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<path d="M174 285 C240 285 250 400 320 400" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<rect x="320" y="124" width="116" height="52" rx="6" fill="var(--page)" stroke="var(--line)"/>
+<text class="s" x="338" y="156">任一機房</text>
+<rect x="320" y="259" width="116" height="52" rx="6" fill="var(--page)" stroke="var(--line)"/>
+<text class="s" x="338" y="291">任一機房</text>
+<rect x="320" y="374" width="116" height="52" rx="6" fill="var(--page)" stroke="var(--line)"/>
+<text class="s" x="338" y="406">任一機房</text>
+
+<rect x="500" y="86" width="400" height="356" rx="10" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="524" y="124">ASIC</text>
+<path d="M524 240 L614 240 L614 290 L584 330 L524 330 Z" fill="var(--page)" stroke="var(--accent)" stroke-width="3"/>
+<text class="s" x="524" y="356">綁自家系統</text>
+<path d="M614 265 L700 265" stroke="var(--accent)" stroke-width="3"/>
+<path d="M700 215 L790 215 L790 265 L760 305 L700 305 Z" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text class="s" x="700" y="336">自家系統對得上</text>
+<path d="M614 400 L700 400" stroke="var(--grey)" stroke-width="3"/>
+<rect x="700" y="374" width="80" height="52" rx="6" fill="var(--page)" stroke="var(--grey)"/>
+<path d="M800 376 L852 424 M852 376 L800 424" stroke="var(--grey)" stroke-width="4"/>
+<text class="s" x="700" y="452">外人租不走</text>
+
+<text class="c" x="60" y="508">好租的那一顆，也是最好擋的那一顆</text>
+</svg>
