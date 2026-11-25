@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="When the full-day timeline is enlarged, the time stated in the scam email is only 6 seconds apart from the official confirmation email.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">Exact to the second</text>
+
+  <text class="t" x="60" y="112" font-size="19" fill="var(--dim)">Full day</text>
+  <line x1="120" y1="150" x2="840" y2="150" stroke="var(--grey)" stroke-width="3"/>
+  <text class="t" x="120" y="180" font-size="15" fill="var(--dim)" text-anchor="middle">00:00</text>
+  <text class="t" x="840" y="180" font-size="15" fill="var(--dim)" text-anchor="middle">24:00</text>
+  <circle cx="825" cy="150" r="7" fill="var(--accent)"/>
+
+  <line x1="818" y1="160" x2="300" y2="300" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 5"/>
+  <line x1="832" y1="160" x2="700" y2="300" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 5"/>
+
+  <rect x="260" y="300" width="480" height="150" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="t" x="60" y="332" font-size="19" fill="var(--dim)">Zoom</text>
+  <line x1="300" y1="400" x2="700" y2="400" stroke="var(--grey)" stroke-width="3"/>
+
+  <line x1="340" y1="372" x2="340" y2="428" stroke="var(--warn)" stroke-width="4"/>
+  <text class="t" x="340" y="356" font-size="16" fill="var(--warn)" text-anchor="middle">Scam email</text>
+  <text class="t" x="340" y="448" font-size="15" fill="var(--dim)" text-anchor="middle">23:31:34</text>
+
+  <line x1="660" y1="372" x2="660" y2="428" stroke="var(--accent)" stroke-width="4"/>
+  <text class="t" x="660" y="356" font-size="16" fill="var(--accent)" text-anchor="middle">Official confirmation</text>
+  <text class="t" x="660" y="448" font-size="15" fill="var(--dim)" text-anchor="middle">23:31:40</text>
+
+  <line x1="348" y1="412" x2="652" y2="412" stroke="var(--ink)" stroke-width="1.5"/>
+  <text class="t" x="500" y="402" font-size="16" fill="var(--ink)" text-anchor="middle">6 seconds</text>
+
+  <text class="t" x="60" y="498" font-size="22" font-weight="700" fill="var(--ink)">This precision is no guess</text>
+</svg>

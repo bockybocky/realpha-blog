@@ -1,0 +1,103 @@
+---
+title: "A Scam Email That Knew What I Bought: One Evening of Spotting It, Tracing It, and Reporting It"
+description: "On November 25, 2026, I got a fake 'subscription auto-charge' email that correctly listed the items I had ordered from Costco Taiwan's online store three days earlier, down to the second I checked out. This is how I spotted it, how the raw headers showed it came through Amazon SES from a domain registered about 90 minutes before my order, and what Amazon and the domain registrar actually said when I reported it. I don't know where the data leaked from, so this piece sticks to what I could verify."
+slug: "costco-subscription-scam-email-2026-11"
+lang: "en"
+pubDate: 2026-11-25
+category: "tech"
+tags: ["scam", "security", "email", "data-leak", "life"]
+ogImage: "/covers/costco-subscription-scam-email-2026-11.png"
+cover: "/covers/costco-subscription-scam-email-2026-11.png"
+---
+
+![A traveler holding a letter between a well-worn path and a glowing thread](/covers/costco-subscription-scam-email-2026-11.png)
+
+> *There were no roads at first; when many people walk the same way, a road appears.*
+>
+> —— Lu Xun, "My Old Home" (1921); translation mine
+
+On the afternoon of November 25, 2026, an email arrived with my full name in the subject line, announcing the "auto-charge and shipping schedule" for a subscription I had supposedly signed up for: 12 installments of NT$2,866, NT$34,392 in total, and if I wanted to cancel, I should add their support account @549zeora on LINE, the messaging app most people in Taiwan use. It was a scam. What made it different was the item list: the four products were exactly what I had ordered from Costco Taiwan's online store three days earlier, and the "original order time" matched my checkout to the second. The raw headers showed it went out through Amazon SES from puwiwe.com, a domain registered roughly an hour and a half before I placed that order. Amazon gave me a case number within three minutes of my report. Where the data leaked from, I still don't know.
+
+## First glance: it almost worked
+
+What got me wasn't the amount. It was the shopping list.
+
+I've seen plenty of scam emails. Most give themselves away: the wrong name, a product I never bought, typos everywhere. This one used my real name and listed four items I recognized instantly, because they were sitting unopened from a weekend order. My first thought was "did I tick some subscription box by mistake?" That doubt is the whole point. Once you start second-guessing yourself, you want to ask customer service, and customer service is waiting for you on LINE.
+
+On a second, calmer read, the cracks were everywhere:
+
+| What to check | Scam email | Costco's real email |
+|---|---|---|
+| Sender address | notify@mg.puwiwe.com | ends in service.costco.com.tw |
+| Sender name | "[Shopping Brand] ❤️❤️ Taiwan No.1 Online Subscription Center" | "Costco 好市多" |
+| Order number | date plus a serial number | a plain string of digits, nothing like the scam's |
+| What it asks you to do | add a LINE account to cancel | nothing |
+
+The sender name is almost funny: "[Shopping Brand]" is clearly the template slot where the store name should have gone. What settled it was Costco's own confirmation email, which says in plain words that Costco will never ask you by email or phone to change your payment method or installment settings.
+
+## Lining up the real email: six seconds apart
+
+Once I knew it was fake, the real question was how they knew what I bought.
+
+I pulled up Costco's actual order confirmation. It was sent at 11:31:40 p.m. Taiwan time on November 22. The scam listed the "original order time" as 2026-11-22 15:31:34, which is 23:31:34 in Taiwan. Six seconds before the official confirmation, which looks a lot like the moment I hit checkout.
+
+![A full-day timeline has only one marker, but when enlarged to a scale of several seconds, the scam email and official confirmation email are just 6 seconds apart.](/figures/six-seconds-before-the-real-receipt-en.svg)
+
+That kind of precision isn't a guess. A name, an email and a phone number could have leaked from any website years ago. But "which four things, bought at what second on what day" only lives in the handful of systems that touched this order: the store, the payment processor, the shipper, or my own devices. One email can't tell me which, so I'm not pointing at anyone here. I'm only laying out what lines up.
+
+## Reading the envelope
+
+Every email carries an "envelope" you don't normally see: which servers it passed through and whose name it was sent under. In Gmail it's under "Show original" in the message menu.
+
+This envelope was clear. The email came through Amazon SES, Amazon's cloud email service, which plenty of legitimate companies use for bills and notifications. It left from the Sydney region, from a sending machine at 69.169.232.4. It also passed sender authentication, meaning whoever sent it really controlled puwiwe.com rather than spoofing it.
+
+Domain registrations are public, so I looked up puwiwe.com:
+
+- Registered: November 22, 2026, 13:53 UTC, which is 9:53 p.m. in Taiwan.
+- Registrar: Realtime Register, based in the Netherlands.
+- Registrant: hidden.
+
+Put the times side by side. The domain went live at 9:53 p.m., I ordered at 11:31 p.m., and the scam arrived three days later. The domain wasn't set up for me; it was ready before my order existed. My guess is that whoever runs this has a live feed of new orders, with the domain and sending account prepared in advance, mailing victims one order at a time. That's an inference from timestamps, not something I can prove, and I have no idea how many other people got one.
+
+![A three-day timeline shows the sender domain being registered before I placed my order, followed by a bar indicating continuous availability until the scam email arrived three days later.](/figures/domain-ready-before-my-order-en.svg)
+
+## Amazon replied in three minutes
+
+My first reaction was the same as most people's: is reporting this even worth it? The scammers are abroad, the domain is Dutch, the mail server is in Australia. A cross-border police request could take forever.
+
+Then it clicked that hurting them doesn't require catching anyone. It just requires breaking their tools. Sending mail needs an Amazon account, the web address needs a registrar, and the con needs a LINE account. All three companies prohibit fraud on their services, and all three take abuse reports.
+
+![A scam email rests on a crossbar supported by three pillars, each marked with a cut line, and removing any one pillar makes the structure collapse.](/figures/three-pillars-under-one-scam-letter-en.svg)
+
+At 7:11 p.m. I wrote up the headers and the timeline in an email to Amazon's abuse address. It went faster than I expected:
+
+- 7:12 p.m.: an automatic reply with a case number, saying they would trace which account sent it.
+- 7:14 p.m.: a human reply saying this belonged to the SES team and had been forwarded, and that reports like this go faster to email-abuse@amazon.com, an automated inbox that doesn't reply.
+
+I re-sent the report there at 7:16 p.m. As I write this, I don't know whether or when the account will be shut down.
+
+The registrar was another story. I emailed the abuse address listed in the public registration record and got an auto-reply within a minute whose first line was "We did not receive your abuse report," pointing me to a web form instead. Emailing that address, in other words, counts as not reporting at all. I didn't see that coming. The form also has an "I'm not a robot" check, and the first time I filled it in, the window was too small for the image puzzle to fit on screen, and I only got through after maximizing the window. The confirmation page said the message was received and to allow two business days for a response. I'll update this when I hear back.
+
+| Reported to | Channel | What actually happened |
+|---|---|---|
+| Amazon (cloud services) | Email | case number and a human reply within 3 minutes |
+| Amazon SES abuse team | Email | automated, no reply |
+| Domain registrar | Email → web form | auto-reply said "not received," use the web form; form submitted, reply promised within two business days |
+| LINE account | In-app report | only the account owner can tap it |
+
+## Real data doesn't mean a real caller
+
+What bothers me most is how far this pushes "looks legitimate." The old advice for spotting scams was: if they can't say your name or what you bought, it's fake. This email broke that rule.
+
+![On the upper “how much they know” axis, the scam email lands at the far right yet remains fake, making the dividing line useless; on the lower “what they want me to do” axis, legitimate and fake messages fall cleanly on opposite sides.](/figures/wrong-axis-right-axis-en.svg)
+
+So I've switched tests: **I don't judge by how much the sender knows. I judge by what it wants me to do next.** If it ends with "add us on LINE," "go to an ATM," "give me the code" or "call this number back," it's fake, no matter how accurate everything above it is. To check, I open the store's app or website myself, or call the number on the back of my card. They can steal my data, but they can't steal the route I find on my own.
+
+The other thing I learned is that reporting is closer than it feels. Email providers, registrars and messaging apps don't want to be dragged into fraud, and those few lines buried in an email's raw headers are exactly what they need to find the account. Ten minutes for one email, in exchange for a sending account getting pulled, feels worth it to me.
+
+## The one thing to take away
+
+**To tell whether a message is a scam, look at the next step it asks you to take, not at how much it knows about you.** The next time any notice tries to rush you, whether it's a charge, a package or an account problem, skip the content and find the one action it wants at the end. Ask yourself: "Can I do this myself by opening the official app or website instead?" If yes, close the message and go do it that way. The habit works well beyond scams, too; try it on the next "urgent" request that lands in your inbox at midnight.
+
+
+![A notification splits into two paths: one follows its link to the sender's fake support service, while the other independently opens the official entry point and reaches the real account.](/figures/his-path-versus-my-path-en.svg)
