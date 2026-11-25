@@ -1,0 +1,88 @@
+---
+title: "Tech Wave EP163 Notes: Forty-Odd Days to the Riemann Hypothesis, and Why That Isn't Brute Force"
+description: "Notes on Tech Wave EP163 (23 Nov 2026): Anthropic mathematician Levent Alpöge announced a proof of the Riemann Hypothesis and its generalized form, produced with Claude in roughly forty days, running 250,000 pages and verified in Lean. Host Harry argues from a timing fact — two months earlier the same man was working on a fluid-dynamics problem — that the brute-force dismissal doesn't hold, while admitting nobody has read those 250,000 pages. Educational notes, not investment advice; no price targets, no stock picks, and my reading may be wrong."
+slug: "techwave-2026-11-23-ep163-looped-transformer"
+lang: "en"
+pubDate: 2026-11-25
+category: "investing"
+kind: "podcast-notes"
+tags: ["Tech Wave", "podcast notes", "AI", "Riemann Hypothesis", "Looped Transformer"]
+ogImage: "/covers/techwave-2026-11-23-ep163-looped-transformer-cover.png"
+cover: "/covers/techwave-2026-11-23-ep163-looped-transformer-cover.png"
+---
+
+![A late-night office where one desk lamp lights the nearest stack of continuous printout paper, the stack sliding off the desk and running down a long corridor until it disappears into darkness](/covers/techwave-2026-11-23-ep163-looped-transformer-cover.png)
+
+> Things of a kind follow from one another, each returning to where it belongs; so though the branches divide, they share one trunk, and it is enough to open up a single end of it.
+>
+> —— Liu Hui, preface to his *Commentary on the Nine Chapters on the Mathematical Art* (Cao Wei, 263 CE; my own translation)
+
+In Tech Wave EP163, released on 23 November 2026, host Harry works through a story two days old: Anthropic mathematician Levent Alpöge announced that he and Claude had proved the Riemann Hypothesis, together with the harder generalized version, in a little over forty days, producing a proof 250,000 pages long that passed verification in Lean, a language whose proofs a computer can check step by step. Harry's argument rests on timing — two months earlier Alpöge was working on Navier–Stokes in fluid dynamics, and no single mathematician has historically stood at the frontier of both fields at once, so Harry concludes most of the expertise came from Claude and the "AI just brute-forced it" line on social media doesn't hold. He also states the gap in his own case: nobody has read those 250,000 pages, so how much new mathematics sits inside them is unanswerable today.
+
+## Two months ago he was solving a different problem
+
+Start with the person. Levent Alpöge is a mathematician at Anthropic, and Harry covered him in the September episode. Anthropic and OpenAI were racing on the same Millennium Prize problem, Navier–Stokes, the equations describing fluid motion; OpenAI delivered a proof first and Alpöge came close. The news in this episode is what he did after losing that race: he switched problems, and some forty days later announced the Riemann Hypothesis.
+
+Harry treats those forty days as the hardest piece of evidence in the episode, and his reason lies in how human expertise is distributed. Fluid dynamics and the analytic number theory that studies primes are separate worlds. They share some underlying tools, yet historically no mathematician has been at the leading edge of both — the edge where Millennium problems live. His inference: one person, two months, two fields, both at the frontier, so most of the legs doing the walking were not his. Alpöge's own account points the same way. He says he steered the direction while Claude tried methods and argument paths, and that one whole block of the mathematics in the proof is outside his own expertise.
+
+## Why this problem sat at the top of the list
+
+The Riemann Hypothesis is about how prime numbers are distributed. Riemann looked at 2, 3, 5, 7, 11 and saw that their spacing follows a particular pattern, and he could not prove from theory that the pattern holds all the way out. Once computers arrived, people checked trillions of primes and every one of them fit. There are infinitely many primes, so checking cannot answer whether prime number one-trillion-and-one obeys.
+
+Three quotes locate the problem. Ken Ono of the University of Virginia says hundreds and perhaps thousands of papers are written assuming the hypothesis is true, and that proving it would give mathematical knowledge a quantum leap. Jared Duker Lichtman of Stanford says that if a machine ever produced a proof of the Riemann Hypothesis or one of the Millennium problems, he would treat it as mathematics' Move 37 moment — the AlphaGo move against Lee Sedol that no human expert could read at the time. Out of seven Millennium problems, the one he named was the Riemann Hypothesis.
+
+The sharpest marker of difficulty comes from Terence Tao. A month or two before this news, the episode quotes him saying he is confident the AI companies have spent far more private time on the Riemann Hypothesis than they let on, and they still cannot move the problem; that AI which merely writes code is evidently not enough; and that perhaps by 2050, AI working with humans will make some progress on it. The year he named was 2050, and the phrase was "some progress."
+
+## Where the brute-force label goes wrong
+
+A common reaction to the news was that the AI simply threw existing mathematical tools together until something stuck, which would make it bookkeeping. Harry disagrees, and he does it by going back to what the phrase means. Brute force in the traditional sense is trying every possible combination with no judgment applied. Yet however precisely a human points at a direction, the combinations of mathematical tools available inside that direction have no boundary — forty days does not exhaust them. Finishing in forty days means each attempt landed somewhere roughly right.
+
+His illustration is the one I liked most. Hand an AI a detective novel with the final pages torn out and ask who the murderer is. It guesses the roommate, who had a motive and was nearby that night; wrong, so it guesses the teacher, who also had a motive. Brute force would list every name printed in the book and start asking about the gardener, then the guy smoking outside.
+
+That contrast settles something: running far more attempts than a human could, and grinding through combinations without any sense of direction, are separate things. Alpöge's description of the division of labour draws the line in the same place. He defined the problem and offered a few paths worth exploring; which tools to join together along those paths, and whether the joins hold, was Claude's work.
+
+## The weakest joint in the argument
+
+Harry names the gap himself: he has not seen the conversation logs, and nobody on earth has read the 250,000 pages.
+
+Two questions need separating here. Whether the proof is correct has an answer — Lean checks a proof mechanically, this one passed, and the comments from most mathematicians run along the lines of "this is probably right, and digesting it will take a while." Whether the proof contains new mathematics is a different question, and no one is yet in a position to answer it. You can reasonably believe it hides a mass of tools and connections humans have never touched, and you can reasonably suspect it is a heavy assembly of known technique. Neither guess has evidence behind it today.
+
+The reaction inside mathematics splits along exactly that line. One camp holds that AI has ruined the problem: the Riemann Hypothesis was supposed to be the thing countless mathematicians groped toward, discovering beautiful mathematics along the way, and all that is left now is a result nobody can read. The other camp holds that knowing the answer and working backwards finds new mathematics faster than groping from zero. Harry quotes a line he heard somewhere, that the job of a mathematician now resembles interpreting a sacred text: a higher power tells you the statement is true and here is why, and you go figure out what that means.
+
+What stayed with me is a third possibility neither camp raised: how narrow the given direction actually was has never been quantified. I agree with Harry's instinct that infinitely many combinations remain inside a stated direction, yet how many of them are plausible candidates depends on how finely Alpöge drew those paths. Without the logs the question cannot be pushed further, and it happens to be the core of "how much did Claude contribute." So my position is that the timing evidence is strong enough to retire the brute-force claim, while the degree of invention waits on somebody opening up those 250,000 pages.
+
+## Pure mathematics needs no experiments, so does any of this transfer?
+
+A more practical objection: pure mathematics lives on paper, needs no laboratory, so enough tokens will eventually crack it, and the physical world works differently.
+
+Harry's answer is that theory and experiment have always led each other. You know which experiment to run because a theory produced a hypothesis; the experiment comes back and you revise the theory. He uses the Manhattan Project: it gathered a crowd of theoretical physicists, Oppenheimer among them, to work out candidate approaches on paper before any experimental team knew what to test. With this generation of AI in hand, a loop that took seven days to revise the theory and design the next batch might compress to two hours (he flags the seven days as a number he made up on the spot), and because the direction is better aimed, the total number of experiments falls too.
+
+He draws the boundary himself. Fields whose bottleneck is the experiment cannot be accelerated — a drug needs years of clinical trials and no model fast-forwards that. Work shaped like "make it, measure it, discard it" moves much faster, and he names SpaceX hunting a better heat shield, and the search for a room-temperature ambient-pressure superconductor.
+
+## The capability threshold is behind us; the money hasn't spread
+
+So why hasn't science visibly sped up across the board? Harry points at cost. He puts the token spend on the Navier–Stokes effort in the millions of dollars, flagging that he has forgotten the exact figure, so treat it as an order of magnitude. No scientist inside a particle accelerator facility is getting that budget approved. The resources sit with Anthropic and OpenAI, both of whom are mainly racing each other, which pushes their compute toward whatever produces a headline result fastest — pure mathematics.
+
+That connects back to how the episode opens. Harry says he picked two technical topics because the uncertainty around the new administration, AI infrastructure and the Fed had stacked up into real fear, and he wanted to give his listeners and himself something solid, so he went looking at actual technical progress.
+
+The version of this I can use is a three-layer question for any new technology: is the capability there, has the cost come down, has it spread. The evidence in this episode answers the first layer only. Layers two and three have not moved, so the inference stops at "this happens over the next few years" and cannot reach any company's quarter. When the news frightens me, my own recurring mistake is converting good news at layer one straight into a timetable at layer three, then doubting the technology when prices fail to follow. Asking the three separately saves me at least one round of fooling myself.
+
+## A few other things worth keeping
+
+- **Looped Transformer**: the episode's second topic. A few middle layers of the model run several times over, so part of the reasoning finishes inside the model's own vector state and fewer thinking tokens get emitted. Harry's example: asked who the cashier is at the restaurant in the popular cartoon whose hero is a sponge, an ordinary model writes out SpongeBob, then the Krusty Krab, then Squidward as three separate steps, while a looped model circles three times internally and emits the answer.
+- **Its price tag sits in a paper**: an October 2026 paper from the University of Hong Kong and Yale ran roughly 600 training experiments and found that at fixed training compute, training a standard architecture is the better deal. Harry therefore suspects frontier models are not using it yet; the confirmed users are NVIDIA's 4-billion-parameter Dory and a roughly 26-billion-parameter model from Thinking Machines, both small. His odds: 30% that it becomes a scaling dimension comparable to the known ones, 50% that it becomes common but hits a ceiling quickly, 20% that it ends up a trick for small and on-device models.
+- **The Jensen Huang situation**: the congressional questioning starts in early December, after this episode, so whether anything criminal holds up is unanswerable now. The observation I kept is about the board — members hold little stock and come from scattered backgrounds, so their economic interests sit apart from shareholders', which is a tension the independent-director structure creates by design. One structural detail also stuck: a large share of NVIDIA's orders begin as a handshake on a number, with the purchase order issued later, and what happens to those spoken commitments after a CEO change is unknown.
+- **Two sentences of epilogue**: Harry rates Gemini 4 Neon as arguably comparable to frontier models on coding, and it is a mid-sized model; Starship did, more than a month early, what he expected in the previous episode to land by year end.
+
+## Further reading
+
+- Tech Wave EP163 (2026-11-23), hosted by Harry; the mathematics segment and the Looped Transformer segment stand alone, and the timeline is chaptered
+- Levent Alpöge's own public write-up, plus the Lean community's verification discussion of the proof
+- The October 2026 University of Hong Kong and Yale paper comparing training compute for looped architectures, where the roughly 600-experiment setup and its conclusion can be checked
+- The technical reports for NVIDIA Dory and the Thinking Machines model, which carry the thinking-token comparisons
+
+## The one thing to take away
+
+To tell capability from grinding, watch how fast the second instance arrives. The hardest evidence in this episode is written on a calendar: one person, two months, two non-adjacent fields, both at the frontier. Switching fields resets whatever the previous field accumulated, so fluency built by sheer volume cannot reach that point.
+
+Something I've tried: take someone around you who gets described as merely lucky, or the thing you yourself got described that way for. Skip the argument and write down three things they pulled off, with the three sitting in unrelated areas — changing careers, learning a craft, cleaning up a mess at home all count — and how long each took from zero to done. Times shrinking across unrelated areas is capability that travels; three entries stacked in one lane is fluency from one long road. I did this once and the conclusion ran against my own impression, and that sheet of paper did more than half an hour of arguing.
