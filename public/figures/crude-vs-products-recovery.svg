@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="原油復原到九成、油品只回到五成，兩根柱高度差一半，旁邊柴油等效價格往上衝">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="62" font-size="27" font-weight="700" fill="var(--ink)">你看原油，他買油品</text>
+
+  <line x1="100" y1="130" x2="640" y2="130" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 6"/>
+  <text class="t" x="650" y="136" font-size="16" fill="var(--dim)">衝突前水準</text>
+
+  <rect x="140" y="130" width="130" height="310" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="140" y="161" width="130" height="279" rx="6" fill="var(--accent)" opacity="0.85"/>
+  <text class="t" x="205" y="470" font-size="20" font-weight="700" text-anchor="middle" fill="var(--ink)">原油出口</text>
+  <text class="t" x="205" y="496" font-size="16" text-anchor="middle" fill="var(--dim)">九成</text>
+
+  <rect x="400" y="130" width="130" height="310" rx="6" fill="var(--card)" stroke="var(--line)"/>
+  <rect x="400" y="285" width="130" height="155" rx="6" fill="var(--warn)" opacity="0.85"/>
+  <text class="t" x="465" y="470" font-size="20" font-weight="700" text-anchor="middle" fill="var(--ink)">油品</text>
+  <text class="t" x="465" y="496" font-size="16" text-anchor="middle" fill="var(--dim)">五成</text>
+
+  <line x1="100" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+
+  <path d="M730 430 L730 180" stroke="var(--warn)" stroke-width="5" fill="none"/>
+  <path d="M730 170 l-10 18 l20 0 z" fill="var(--warn)"/>
+  <text class="t" x="752" y="196" font-size="20" font-weight="700" fill="var(--ink)">柴油等效價</text>
+  <text class="t" x="752" y="226" font-size="16" fill="var(--dim)">往 200 美元</text>
+  <text class="t" x="752" y="256" font-size="16" fill="var(--dim)">最壓不下去的品項</text>
+
+  <text class="t" x="480" y="545" font-size="22" font-weight="700" text-anchor="middle" fill="var(--ink)">同一場危機，兩個高度</text>
+</svg>
