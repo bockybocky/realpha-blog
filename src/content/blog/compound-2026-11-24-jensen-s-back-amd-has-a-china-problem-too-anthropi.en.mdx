@@ -1,0 +1,79 @@
+---
+title: "The Compound and Friends Notes: I Used \"Compute Is Always Short\" as a Premise for a Year, Then a 1.5 GW Number Stopped Me"
+description: "Notes on the midweek livestream from The Compound and Friends line, recorded 24 November 2026, where Josh Brown and Michael Batnick talk with Hunterbrook's Sam Koppelman about AMD's China exposure and the market after Anthropic's listing. Sam says Anthropic's closing roadshow argument was that serving every customer's inference next year takes about 1.5 GW, while the industry is building 100 to 110 GW on SemiAnalysis numbers and the three big clouds ran on roughly 5 GW combined before AI. SanDisk is down 75% with analyst EPS estimates unchanged; Dell beat on everything and the stock did not move. That 1.5 GW covers inference only and came from a roadshow with every incentive to stress efficiency. Educational notes, not investment advice; no price targets, no stock picks, and my reading may be wrong."
+slug: "compound-2026-11-24-jensen-s-back-amd-has-a-china-problem-too-anthropi"
+lang: "en"
+pubDate: 2026-11-25
+category: "investing"
+kind: "podcast-notes"
+tags: ["compute demand", "podcast notes", "AMD", "Anthropic", "export controls"]
+ogImage: "/covers/compound-2026-11-24-jensen-s-back-amd-has-a-china-problem-too-anthropi-cover.png"
+cover: "/covers/compound-2026-11-24-jensen-s-back-amd-has-a-china-problem-too-anthropi-cover.png"
+---
+
+![A substation yard before dawn: in the foreground one enormous step-up transformer lit by a single maintenance lamp, frost on its cooling fins, its busbars running away from the camera past identical transformers that grow dimmer with distance until the far end dissolves into a forest of black steel frames not yet energised](/covers/compound-2026-11-24-jensen-s-back-amd-has-a-china-problem-too-anthropi-cover.png)
+
+> I fear what troubles the house of Jisun lies not in Zhuanyu, but inside its own screen wall.
+>
+> —— *Analects*, Book 16 "Jishi" (Spring and Autumn period; my own translation)
+
+On the midweek livestream from the Compound and Friends line, recorded 24 November 2026, Josh Brown and Michael Batnick hosted Sam Koppelman of Hunterbrook's newsroom to talk through his AMD investigation from the week before (the piece disclosed that he was short AMD against long positions in comparable names). The most informative number in the episode came out of Anthropic's roadshow: Sam says the closing argument was that serving inference to all of its customers next year needs only about 1.5 GW, while over the same window the industry is trying to build 100 to 110 GW between 2027 and 2028, by 2030 at the latest, on SemiAnalysis numbers — and before AI, Amazon, Microsoft and Google's clouds ran on roughly 5 GW combined. Two conditions come with that comparison: the 1.5 GW covers inference and excludes training, and the figure comes from a roadshow, where the speaker has every reason to emphasise how little compute the business burns.
+
+## I treated "there will never be enough chips" as settled
+
+For the past year and a half my questions about the AI build-out have been which layer snaps first and whether the layer that snaps has any pricing power. I asked those two often. The sentence underneath them never got checked: the compute shortage runs to 2030, so for the shovel-sellers — chips, memory, cooling, turbines — analyst estimates only have room to go up.
+
+When Nvidia's China trouble surfaced, my first reaction matched the sell-side research of the moment: good for AMD, racks and servers can be filled with its chips instead. Michael put it more bluntly on the show. He said his first thought the day Sam's report landed was "why didn't I think of that" — if Nvidia has a China problem, the next question is obviously who else does. That one stung, because I had not even taken the first step. I treated the shortage as scenery and only picked names standing on top of it.
+
+That premise matters because it sets two numbers at once: unit volume for the shovel-sellers, and their gross margin. In a shortage the seller names the price and margin holds above 70%; once the shortage goes, volume slips a notch and margin follows, and since profit is volume times margin, both columns get revised down together. I had only been watching the first column.
+
+![Two rectangles side by side, where width is units shipped, height is gross margin, and area is profit; on the left, during shortage, the box is both wide and tall, while on the right, once the gap closes, width and height shrink together and the area falls further than either side alone.](/figures/profit-is-volume-times-margin-en.svg)
+
+## The numbers from that day, and a seller in too much of a hurry
+
+Sam put two things side by side. The first is the power arithmetic above: Anthropic says 1.5 GW gets Claude to all of its customers next year, and that line came from the closing section of the roadshow, pitched to get people to subscribe — part of why Brad Gerstner wanted $5 billion of the deal. This is the hinge of the whole episode, so I worked it slowly: 1.5 GW against 100 to 110 GW is a gap of nearly seventy times. Even if Anthropic is a tenth of the market, inference as a whole takes only a dozen-odd gigawatts, leaving a bit over eighty percent of it to be carried by training — and whether training keeps scaling depends on whether the next model pays for itself.
+
+![Three horizontal bars of wildly unequal length: the top one, the 100–110 GW the industry plans to build, spans almost the full width of the chart; the middle one, the 5 GW the three big clouds ran before AI, is only a short stub; and the bottom one, the 1.5 GW Anthropic needs for inference next year, is so thin it is barely visible.](/figures/inference-gw-vs-buildout-gw-en.svg)
+
+The second is the question he set out to answer: if the shortage is as large as everyone says, why is anyone holding inventory in such a hurry to sell. Hunterbrook traced Chinese corporate filings and read the code of Chinese server vendors, and found AMD firmware still showing up in China. The afternoon they published, the House Foreign Affairs Committee declassified documents showing AMD and Nvidia asking to export advanced AI chips to China, with Commerce Department approval. Sam drew the line carefully on air: they did not say these sales were illegal, the legal questions are for courts, regulators and politicians, and he is not a lawyer himself. AMD issued a statement after publication calling the story misleading.
+
+He then raised a second thread: like Nvidia, AMD books a lot of circular revenue, investing in companies that buy its chips, with large warrant packages to OpenAI and Meta that vest against those purchases. So he puts the weight on the forward demand curve: he cannot see public demand for hundreds of gigawatts of data centres. And margins sliding from 70% toward 60% and 50% would be enough on its own to make life hard for Nvidia and AMD, with the component suppliers further downstream worse off.
+
+The part that made me sit up was the price section. SanDisk is 75% off its high and not one analyst estimate has come down — if it earns $32 a share next year, the stock trades under three times earnings. Michael's test is the one I wrote down: a divergence like that resolves one of two ways, the price is wrong or the analysts end up with egg on their faces. On the other side, Dell reported after the close with a beat on earnings, a beat on revenue, raised guidance and a bigger buyback, and the stock did not move. Semiconductors went from under 8% of the S&P 500 before ChatGPT to 19% over the summer and back to 12% now, with the Nasdaq down 19.9% at its worst. Michael's point is that semis cannot fall back to 6% without dragging everything else with them, because half the index's earnings growth comes from tech and more than half of that comes from semis alone.
+
+I want to keep the human part too. Sam says that after publication, people willing to argue with the findings themselves were scarce, while death threats and antisemitism were not, and someone dug up his bar mitzvah photos (he was wearing an Obama rhinestone shirt, and says the pictures were pretty cool). His reading is that the reaction itself is a positioning disclosure — few people want to argue the data, many have money in the way.
+
+![Two lines leave the same starting point: the share-price line drops steeply to a low level while the analyst estimate line runs dead flat, and a bracket on the right marks the widening gap between them.](/figures/price-fell-estimates-flat-en.svg)
+
+## Where I stand now, and three things I cannot answer
+
+I changed the ruler I use on the shortage. I used to watch shipments and lead times; now I look at power first — how many gigawatts actually came online this year, and who has publicly committed to consuming how many next year. Sam's most useful reminder: spot compute is still expensive, yet most of this build has not come online. What is expensive is today's supply, while valuations are paying for 2028 and 2029 supply, and the market has been telling those two as one story for a year.
+
+![Along a single timeline, a small block of already-energised capacity at the left end is labelled as expensive today, while a much larger block of not-yet-energised capacity at the right end is labelled as what the valuation is actually buying, with two arrows pointing at the different positions on the axis.](/figures/spot-price-vs-valuation-horizon-en.svg)
+
+Three things I cannot answer. First, whether training absorbs what inference saves. Sam's position is that since coding, he has not seen good ROI evidence from the next frontier model — that is his claim, not a settled matter, and the answer decides whether the whole chain of reasoning holds. Second, the 1.5 GW came from a roadshow built to make the business look capital-light, and the bar for that same company to say it needs far more compute is low. Third, whether the export controls get enforced is discretionary; Sam notes that Tom Cotton and Elizabeth Warren both want a crackdown, while Commerce has approved these exports before, so the pathway may simply stay open. And Jensen Huang's week showed how fast policy can flip: the board pushed him out, reversed a week later, and where Josh had assumed a return like that takes eighteen months, in his own phrasing it took eighteen hours — both hosts had put the odds under 20% beforehand. Cullen Roche's line was read out on the show: the board should have put him on leave and let the investigation play out, and pushing him out only to turn around a week later means one of the two decisions was wrong.
+
+If you are holding something that got hit, the most useful stretch of this episode answers "why doesn't a beat make the stock go up." Dell's report did everything it was supposed to and the stock still sat there, because what the market is pricing is whether next year's estimates get cut — and that is the double punishment: the price falls 40% first, and when analysts start taking numbers down, one moving and the rest following, nobody gives you credit for the 40% you already lost. Josh says plainly that it is not fair, and that the market has never cared about fair. So I have stopped using "it already fell enough" as a reason on anything that has halved, and I ask one question instead: have the estimates moved yet. If they have not, the risk is still ahead of you.
+
+![A stepped descending line: a steep first drop as the price falls, then a flat shelf where even a beat fails to lift the stock, then another drop as analysts begin cutting estimates, showing the shelf is not the end point.](/figures/double-punishment-two-legs-en.svg)
+
+The upbeat stretch at the end did remind me not to read the whole market as one AI trade: the number Peter Boockvar relayed is November consumer confidence jumping to 103.3 from 91.9, with both the present-situation and expectations components contributing, and spending intentions improving for cars, homes and major appliances, while Dollar Tree posted its best same-store sales in five years. I also noted Josh's method for picking: in the two weeks the market was getting hammered, most people reached for whatever fell the most, and he went the other way and looked for what did not fall, because the things that held up are the next leadership.
+
+## Sources worth your time
+
+- The midweek livestream from The Compound and Friends line, 24 November 2026, with Josh Brown, Michael Batnick and guest Sam Koppelman
+- Hunterbrook's AMD investigation (hntrbrk.com) alongside AMD's statement in response — read both
+- The documents declassified by the House Foreign Affairs Committee on AMD's and Nvidia's export requests and the Commerce Department's approvals
+- SemiAnalysis estimates of data centre capacity in gigawatts for 2027 through 2030, reconciled against what individual companies say publicly about their own power needs
+- Anthropic's listing documents and roadshow materials, to check for yourself whether that compute number counts inference only or includes training
+- Chart Kid Matt's chart of first-year drawdowns in big tech IPOs: every one of them fell roughly 40% or more in year one, including the ones that later recovered
+
+## The one thing worth taking with you
+
+**When someone tells you a thing is scarce, watch how hard the people holding it are trying to sell it.**
+
+That is the one line I took from this episode. The hinge of the whole argument is a contradiction in behaviour: if chips were short, the people holding them would not need to work at selling into a restricted market, would not need to fund the customers who buy their product, would not need to hand out warrants to lock in orders. Saying "shortage" while acting like inventory clearance is what makes it worth going back to check the premise.
+
+![A tilted balance scale: the left pan holds only the claim "it's scarce" and rides high, while the right pan is weighed down by three blocks standing for what the seller actually does.](/figures/scarcity-claim-versus-selling-effort-en.svg)
+
+Here is something I have tried, and it has nothing to do with stocks. Think of something someone recently told you was rare and had to be grabbed quickly — a spot, a house, a seat at a table, a slice of a particular person's time. Set aside whether it is worth having, and ask one question: what did the person telling me it is scarce actually do this week to sell it? Write their moves down, three is enough. Last time I did this I stopped at the second one, because the second one was "he pushed the deadline back again on his own."

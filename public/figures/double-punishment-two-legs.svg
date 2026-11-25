@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="階梯狀下降：先一段陡降，再一段平台，接著又一段下降">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="80" font-size="27" fill="var(--ink)">兩段下跌，中間那段平台不是終點</text>
+  <line x1="120" y1="440" x2="900" y2="440" stroke="var(--line)" stroke-width="2"/>
+  <polyline points="160,160 370,310 580,310 790,405" fill="none" stroke="var(--warn)" stroke-width="5"/>
+  <circle cx="160" cy="160" r="8" fill="var(--ink)"/>
+  <circle cx="790" cy="405" r="8" fill="var(--warn)"/>
+  <line x1="370" y1="330" x2="580" y2="330" stroke="var(--grey)" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="t" x="265" y="210" font-size="19" fill="var(--ink)">第一段：價格先跌</text>
+  <text class="t" x="475" y="362" font-size="19" fill="var(--dim)" text-anchor="middle">財報超標也不漲</text>
+  <text class="t" x="700" y="340" font-size="19" fill="var(--ink)">第二段：預估被砍</text>
+  <text class="t" x="160" y="140" font-size="16" fill="var(--dim)" text-anchor="middle">起點</text>
+  <text class="t" x="120" y="505" font-size="22" fill="var(--ink)">預估沒動過，就還有一段</text>
+</svg>

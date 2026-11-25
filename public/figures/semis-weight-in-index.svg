@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="折線從不到八陡升到十九，再回落到十二，仍遠高於起點">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    .t { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  </style>
+  <rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+  <text class="t" x="60" y="80" font-size="27" fill="var(--ink)">半導體在指數裡的份量</text>
+  <line x1="130" y1="430" x2="880" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <line x1="130" y1="140" x2="130" y2="430" stroke="var(--line)" stroke-width="2"/>
+  <line x1="130" y1="318" x2="880" y2="318" stroke="var(--line)" stroke-width="1" stroke-dasharray="6 6"/>
+  <polyline points="190,318 500,164 820,262" fill="none" stroke="var(--accent)" stroke-width="5"/>
+  <circle cx="190" cy="318" r="8" fill="var(--accent)"/>
+  <circle cx="500" cy="164" r="8" fill="var(--accent)"/>
+  <circle cx="820" cy="262" r="8" fill="var(--warn)"/>
+  <text class="t" x="190" y="300" font-size="20" fill="var(--ink)" text-anchor="middle">8%</text>
+  <text class="t" x="500" y="146" font-size="20" fill="var(--ink)" text-anchor="middle">19%</text>
+  <text class="t" x="820" y="244" font-size="20" fill="var(--warn)" text-anchor="middle">12%</text>
+  <text class="t" x="190" y="458" font-size="16" fill="var(--dim)" text-anchor="middle">ChatGPT 之前</text>
+  <text class="t" x="500" y="458" font-size="16" fill="var(--dim)" text-anchor="middle">今年夏天</text>
+  <text class="t" x="820" y="458" font-size="16" fill="var(--dim)" text-anchor="middle">現在</text>
+  <text class="t" x="130" y="505" font-size="22" fill="var(--ink)">退了一段，離起點還很遠</text>
+</svg>
