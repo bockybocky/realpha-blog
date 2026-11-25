@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="大方塊裡的一小格再套一更小格，旁邊一條窄長條有箭頭往外長">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .k { font-size:22px; font-weight:700; fill:var(--accent); }
+  </style>
+  <rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+  <text class="t" x="60" y="70">分母很小，可是那一小塊會往外長</text>
+
+  <rect x="60" y="110" width="430" height="300" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+  <text class="g" x="80" y="145">整體經濟</text>
+  <rect x="80" y="320" width="70" height="70" rx="6" fill="var(--grey)" opacity="0.5"/>
+  <text class="b" x="165" y="348">資訊科技</text>
+  <text class="b" x="165" y="372">約 1%</text>
+  <rect x="92" y="356" width="22" height="22" rx="3" fill="var(--accent)"/>
+  <text class="b" x="165" y="400">其中的程式任務更小</text>
+
+  <rect x="560" y="110" width="110" height="300" rx="10" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text class="g" x="560" y="145">有尺的領域</text>
+  <text class="b" x="560" y="440">數學</text>
+  <text class="b" x="560" y="466">程式</text>
+  <text class="b" x="560" y="492">機器學習研究</text>
+
+  <line x1="615" y1="190" x2="615" y2="130" stroke="var(--accent)" stroke-width="4"/>
+  <path d="M 615 118 L 607 136 L 623 136 Z" fill="var(--accent)"/>
+  <path d="M 690 240 C 780 240 800 180 870 170" fill="none" stroke="var(--accent)" stroke-width="4"/>
+  <path d="M 882 168 L 864 160 L 866 177 Z" fill="var(--accent)"/>
+  <text class="g" x="720" y="300">往外長</text>
+  <text class="b" x="720" y="330">窄，但每一件都更強</text>
+
+  <text class="k" x="60" y="530">有已驗證指標的地方先被吃掉</text>
+</svg>

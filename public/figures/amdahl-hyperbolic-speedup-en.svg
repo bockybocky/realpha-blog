@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" role="img" aria-label="The automated share moves right linearly while the overall speedup bends sharply upward at the end, so the last stretch captures most of the gain.">
+  <style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .k { font-size:22px; font-weight:700; fill:var(--accent); }
+  </style>
+  <rect x="0" y="0" width="960" height="580" fill="var(--page)"/>
+  <text class="t" x="60" y="70">50% auto, 2x</text>
+  <text class="b" x="60" y="102">Assumes 50x there</text>
+
+  <rect x="100" y="130" width="760" height="330" rx="12" fill="var(--card)"/>
+  <line x1="150" y1="430" x2="840" y2="430" stroke="var(--grey)" stroke-width="2"/>
+  <line x1="150" y1="430" x2="150" y2="160" stroke="var(--grey)" stroke-width="2"/>
+  <text class="b" x="100" y="170">Mult</text>
+  <text class="b" x="780" y="458">Auto %</text>
+
+  <path d="M 150 423 C 420 410 590 395 700 360 C 760 335 800 265 830 170"
+        fill="none" stroke="var(--accent)" stroke-width="5"/>
+
+  <circle cx="490" cy="402" r="7" fill="var(--accent)"/>
+  <text class="g" x="440" y="385">2x</text>
+  <text class="b" x="455" y="458">50%</text>
+
+  <circle cx="700" cy="360" r="7" fill="var(--accent)"/>
+  <text class="g" x="648" y="340">8.5x</text>
+  <text class="b" x="678" y="458">90%</text>
+
+  <circle cx="828" cy="180" r="7" fill="var(--accent)"/>
+  <text class="g" x="740" y="165">30x+</text>
+  <text class="b" x="806" y="458">99%</text>
+
+  <text class="k" x="60" y="510">Linear in, bends</text>
+  <text class="b" x="60" y="542">Same people flip in a year</text>
+</svg>
