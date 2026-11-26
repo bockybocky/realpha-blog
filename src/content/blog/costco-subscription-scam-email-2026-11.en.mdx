@@ -1,9 +1,10 @@
 ---
 title: "A Scam Email That Knew What I Bought: One Evening of Spotting It, Tracing It, and Reporting It"
-description: "On November 25, 2026, I got a fake 'subscription auto-charge' email that correctly listed the items I had ordered from Costco Taiwan's online store three days earlier, down to the second I checked out. This is how I spotted it, how the raw headers showed it came through Amazon SES from a domain registered about 90 minutes before my order, and what Amazon and the domain registrar actually said when I reported it. I don't know where the data leaked from, so this piece sticks to what I could verify."
+description: "On November 25, 2026, I got a fake 'subscription auto-charge' email that correctly listed the items I had ordered from Costco Taiwan's online store three days earlier, down to the second I checked out. This is how I spotted it, how the raw headers showed it came through Amazon SES from a domain registered about 90 minutes before my order, and what Amazon and the domain registrar actually said when I reported it: the registrar suspended the domain two minutes after I submitted its form. I don't know where the data leaked from, so this piece sticks to what I could verify."
 slug: "costco-subscription-scam-email-2026-11"
 lang: "en"
 pubDate: 2026-11-25
+updatedDate: 2026-11-26
 category: "tech"
 tags: ["scam", "security", "email", "data-leak", "life"]
 ogImage: "/covers/costco-subscription-scam-email-2026-11.png"
@@ -16,7 +17,7 @@ cover: "/covers/costco-subscription-scam-email-2026-11.png"
 >
 > —— Lu Xun, "My Old Home" (1921); translation mine
 
-On the afternoon of November 25, 2026, an email arrived with my full name in the subject line, announcing the "auto-charge and shipping schedule" for a subscription I had supposedly signed up for: 12 installments of NT$2,866, NT$34,392 in total, and if I wanted to cancel, I should add their support account @549zeora on LINE, the messaging app most people in Taiwan use. It was a scam. What made it different was the item list: the four products were exactly what I had ordered from Costco Taiwan's online store three days earlier, and the "original order time" matched my checkout to the second. The raw headers showed it went out through Amazon SES from puwiwe.com, a domain registered roughly an hour and a half before I placed that order. Amazon gave me a case number within three minutes of my report. Where the data leaked from, I still don't know.
+On the afternoon of November 25, 2026, an email arrived with my full name in the subject line, announcing the "auto-charge and shipping schedule" for a subscription I had supposedly signed up for: 12 installments of NT$2,866, NT$34,392 in total, and if I wanted to cancel, I should add their support account @549zeora on LINE, the messaging app most people in Taiwan use. It was a scam. What made it different was the item list: the four products were exactly what I had ordered from Costco Taiwan's online store three days earlier, and the "original order time" matched my checkout to the second. The raw headers showed it went out through Amazon SES from puwiwe.com, a domain registered roughly an hour and a half before I placed that order. Amazon gave me a case number within three minutes of my report, and the registrar suspended the domain at 11:59 that night, two minutes after I submitted its abuse form. Where the data leaked from, I still don't know.
 
 ## First glance: it almost worked
 
@@ -76,13 +77,15 @@ At 7:11 p.m. I wrote up the headers and the timeline in an email to Amazon's abu
 
 I re-sent the report there at 7:16 p.m. As I write this, I don't know whether or when the account will be shut down.
 
-The registrar was another story. I emailed the abuse address listed in the public registration record and got an auto-reply within a minute whose first line was "We did not receive your abuse report," pointing me to a web form instead. Emailing that address, in other words, counts as not reporting at all. I didn't see that coming. The form also has an "I'm not a robot" check, and the first time I filled it in, the window was too small for the image puzzle to fit on screen, and I only got through after maximizing the window. The confirmation page said the message was received and to allow two business days for a response. I'll update this when I hear back.
+The registrar was another story. I emailed the abuse address listed in the public registration record and got an auto-reply within a minute whose first line was "We did not receive your abuse report," pointing me to a web form instead. Emailing that address, in other words, counts as not reporting at all. I didn't see that coming. The form also has an "I'm not a robot" check, and the first time I filled it in, the window was too small for the image puzzle to fit on screen, and I only got through after maximizing the window. The confirmation page said the message was received and to allow two business days for a response.
+
+It didn't take two days. I submitted the form at 11:57 p.m. and had a reply at 11:59. The whole message was "Domain(s) suspended.", plus a note that cached DNS records might keep the site reachable for up to 24 hours. They also forwarded the case to the reseller that actually sold the domain. The next day I checked the public registration record myself: the status reads "client hold," last changed at 11:59 p.m. on November 25, Taiwan time, matching the reply. In plain terms, puwiwe.com has been pulled from the internet's address book: the site no longer resolves, and the sending address under it has no records left to pass authentication. From the scam email landing in my inbox to the domain going dark took about nine hours.
 
 | Reported to | Channel | What actually happened |
 |---|---|---|
 | Amazon (cloud services) | Email | case number and a human reply within 3 minutes |
 | Amazon SES abuse team | Email | automated, no reply |
-| Domain registrar | Email → web form | auto-reply said "not received," use the web form; form submitted, reply promised within two business days |
+| Domain registrar | Email → web form | email bounced by an auto-reply; web form answered in 2 minutes, domain suspended |
 | LINE account | In-app report | only the account owner can tap it |
 
 ## Real data doesn't mean a real caller
@@ -93,7 +96,7 @@ What bothers me most is how far this pushes "looks legitimate." The old advice f
 
 So I've switched tests: **I don't judge by how much the sender knows. I judge by what it wants me to do next.** If it ends with "add us on LINE," "go to an ATM," "give me the code" or "call this number back," it's fake, no matter how accurate everything above it is. To check, I open the store's app or website myself, or call the number on the back of my card. They can steal my data, but they can't steal the route I find on my own.
 
-The other thing I learned is that reporting is closer than it feels. Email providers, registrars and messaging apps don't want to be dragged into fraud, and those few lines buried in an email's raw headers are exactly what they need to find the account. Ten minutes for one email, in exchange for a sending account getting pulled, feels worth it to me.
+The other thing I learned is that reporting is closer than it feels. Email providers, registrars and messaging apps don't want to be dragged into fraud, and those few lines buried in an email's raw headers are exactly what they need to find the account. This time one web form got the domain suspended, so they will have to register a new one to keep sending. Ten minutes of writing feels worth it to me.
 
 ## The one thing to take away
 
