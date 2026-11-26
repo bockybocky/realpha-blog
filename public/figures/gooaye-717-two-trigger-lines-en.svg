@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Two vertical scales each carry a horizontal threshold line, the position is drifting down toward it, and breaking below forces action.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="62">Two lines that force action</text>
+<rect x="60" y="96" width="400" height="340" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<rect x="500" y="96" width="400" height="340" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="90" y="134">Compute rent</text>
+<text class="g" x="530" y="134">Collateral value</text>
+<line x1="150" y1="150" x2="150" y2="400" stroke="var(--line)" stroke-width="2"/>
+<circle cx="150" cy="186" r="11" fill="var(--accent)"/>
+<text class="b" x="176" y="192">Where it is now</text>
+<path d="M150 206 L150 282" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<polygon points="150,296 141,278 159,278" fill="var(--accent)"/>
+<line x1="100" y1="318" x2="430" y2="318" stroke="var(--warn)" stroke-width="4"/>
+<text class="g" x="430" y="306" text-anchor="end" fill="var(--warn)">$4–5</text>
+<text class="b" x="100" y="354" fill="var(--warn)">Below: past debt bites back</text>
+<text class="b" x="100" y="384">Above: payback just slows</text>
+<line x1="590" y1="150" x2="590" y2="400" stroke="var(--line)" stroke-width="2"/>
+<circle cx="590" cy="200" r="11" fill="var(--accent)"/>
+<text class="b" x="616" y="206">Collateral still enough</text>
+<path d="M590 220 L590 282" fill="none" stroke="var(--accent)" stroke-width="4"/>
+<polygon points="590,296 581,278 599,278" fill="var(--accent)"/>
+<line x1="540" y1="318" x2="870" y2="318" stroke="var(--warn)" stroke-width="4"/>
+<text class="g" x="870" y="306" text-anchor="end" fill="var(--warn)">LTV 25%</text>
+<text class="b" x="540" y="354" fill="var(--warn)">Below: assets dumped</text>
+<text class="b" x="540" y="384">Above: books look fine</text>
+<text class="c" x="60" y="500">These two aren't forecasts, they're levels that force your hand</text>
+</svg>

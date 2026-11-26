@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="In a two-by-two grid, both cells outside the circle you know best say shrink, and the in-circle cell with frequent changes of mind says the position is too large.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="62">Cut or hold: ask two questions first</text>
+<text class="b" x="60" y="100">Y: times you changed your mind in 3 weeks　X: inside the circle you know best</text>
+<rect x="200" y="130" width="330" height="150" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="530" y="130" width="330" height="150" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="200" y="280" width="330" height="150" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<rect x="530" y="280" width="330" height="150" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+<text class="g" x="365" y="214" text-anchor="middle" fill="var(--warn)">Shrink</text>
+<text class="g" x="695" y="214" text-anchor="middle" fill="var(--warn)">Too large</text>
+<text class="g" x="365" y="364" text-anchor="middle" fill="var(--warn)">Shrink</text>
+<text class="g" x="695" y="364" text-anchor="middle" fill="var(--accent)">Stay on plan</text>
+<text class="b" x="186" y="212" text-anchor="end">Many flips</text>
+<text class="b" x="186" y="362" text-anchor="end">Steady</text>
+<text class="b" x="365" y="462" text-anchor="middle">Outside the circle</text>
+<text class="b" x="695" y="462" text-anchor="middle">In the circle</text>
+<text class="c" x="60" y="520">Fail question one and no price is low enough to count</text>
+</svg>

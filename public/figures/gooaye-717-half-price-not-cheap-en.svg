@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="The price is halved but earnings per share fall even more, so the P/E column grows from ten times to twenty times.">
+<rect x="0" y="0" width="960" height="560" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="62">Price halved: cheaper or pricier</text>
+<rect x="60" y="96" width="400" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<rect x="500" y="96" width="400" height="330" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<text class="g" x="90" y="134">Before</text>
+<text class="g" x="530" y="134">After</text>
+<text class="b" x="90" y="176">Price</text>
+<rect x="150" y="160" width="260" height="22" fill="var(--accent)"/>
+<text class="b" x="90" y="222">EPS</text>
+<rect x="150" y="206" width="26" height="22" fill="var(--accent)"/>
+<text class="b" x="530" y="176">Price</text>
+<rect x="620" y="160" width="130" height="22" fill="var(--warn)"/>
+<text class="b" x="530" y="222">EPS</text>
+<rect x="620" y="206" width="7" height="22" fill="var(--warn)"/>
+<line x1="90" y1="252" x2="430" y2="252" stroke="var(--line)" stroke-width="2"/>
+<line x1="530" y1="252" x2="870" y2="252" stroke="var(--line)" stroke-width="2"/>
+<rect x="150" y="296" width="90" height="100" fill="var(--grey)"/>
+<text class="g" x="195" y="286" text-anchor="middle">10x</text>
+<text class="b" x="90" y="396">P/E</text>
+<rect x="620" y="276" width="90" height="120" fill="var(--warn)"/>
+<text class="g" x="665" y="266" text-anchor="middle" fill="var(--warn)">20x</text>
+<text class="b" x="530" y="396">P/E</text>
+<text class="c" x="60" y="490">When the denominator drops faster than the price, half off costs more</text>
+</svg>

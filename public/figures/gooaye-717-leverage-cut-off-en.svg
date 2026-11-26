@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Two paths dip into the same trough; one recovers and runs to the end, the other is cut off at the bottom and misses the rebound.">
+<rect x="0" y="0" width="960" height="540" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:19px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="62">Same trough, two endings</text>
+<rect x="60" y="100" width="840" height="300" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<line x1="110" y1="370" x2="860" y2="370" stroke="var(--line)" stroke-width="2"/>
+<line x1="110" y1="130" x2="110" y2="370" stroke="var(--line)" stroke-width="2"/>
+<path d="M130 180 L250 220 L360 300 L430 345 L500 320 L600 250 L720 195 L840 155" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linejoin="round"/>
+<path d="M130 200 L250 245 L360 325 L425 352" fill="none" stroke="var(--warn)" stroke-width="5" stroke-linejoin="round"/>
+<line x1="408" y1="338" x2="444" y2="368" stroke="var(--warn)" stroke-width="5"/>
+<line x1="444" y1="338" x2="408" y2="368" stroke="var(--warn)" stroke-width="5"/>
+<circle cx="840" cy="155" r="8" fill="var(--accent)"/>
+<text class="g" x="690" y="138" fill="var(--accent)">Party</text>
+<text class="g" x="856" y="192" text-anchor="end" fill="var(--accent)">No leverage</text>
+<text class="g" x="300" y="392" fill="var(--warn)">Leveraged · exits</text>
+<text class="b" x="118" y="128">Still holding</text>
+<text class="b" x="455" y="333">Same low</text>
+<polygon points="430,300 436,318 424,318" fill="var(--grey)"/>
+<text class="c" x="60" y="470">Everyone meets the trough; only those still in get the rebound</text>
+</svg>

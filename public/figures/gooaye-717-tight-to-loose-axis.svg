@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="從最緊到最鬆的橫軸上，最緊的 NAND 已往鬆的方向移動，DRAM 仍偏緊，長料原本就最鬆">
+<rect x="0" y="0" width="960" height="520" fill="var(--page)"/>
+<style>
+    svg { --page:#ffffff; --card:#f6f8fc; --line:#dde3ee; --ink:#1a212b;
+          --dim:#57616f; --grey:#b9c2d0; --accent:#1f6feb; --warn:#d97706; }
+    @media (prefers-color-scheme: dark) {
+      svg { --page:#0d1117; --card:#161b22; --line:#272e39; --ink:#e6edf3;
+            --dim:#8b949e; --grey:#4a5464; --accent:#58a6ff; --warn:#d29922; }
+    }
+    text { font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+    .t { font-size:27px; font-weight:700; fill:var(--ink); }
+    .g { font-size:20px; font-weight:700; fill:var(--ink); }
+    .b { font-size:16px; fill:var(--dim); }
+    .c { font-size:22px; font-weight:700; fill:var(--ink); }
+</style>
+<text class="t" x="60" y="62">鬆動是從最緊的那一頭開始的</text>
+<rect x="60" y="130" width="840" height="200" rx="14" fill="var(--card)" stroke="var(--line)"/>
+<line x1="110" y1="300" x2="850" y2="300" stroke="var(--line)" stroke-width="3"/>
+<text class="g" x="110" y="336">最緊</text>
+<text class="g" x="850" y="336" text-anchor="end">最鬆</text>
+<circle cx="190" cy="300" r="13" fill="var(--warn)"/>
+<text class="g" x="190" y="266" text-anchor="middle" fill="var(--warn)">NAND</text>
+<path d="M212 288 L330 288" fill="none" stroke="var(--warn)" stroke-width="4"/>
+<polygon points="344,288 326,279 326,297" fill="var(--warn)"/>
+<text class="b" x="248" y="268" fill="var(--warn)">已經在掉</text>
+<circle cx="440" cy="300" r="13" fill="var(--accent)"/>
+<text class="g" x="440" y="266" text-anchor="middle" fill="var(--accent)">DRAM</text>
+<text class="b" x="440" y="192" text-anchor="middle">還撐著</text>
+<circle cx="760" cy="300" r="13" fill="var(--grey)"/>
+<text class="g" x="760" y="266" text-anchor="middle" fill="var(--dim)">長料</text>
+<text class="b" x="760" y="192" text-anchor="middle">本來就鬆</text>
+<text class="c" x="60" y="430">最緊的那個都在鬆，排在它後面的只會更鬆</text>
+</svg>
