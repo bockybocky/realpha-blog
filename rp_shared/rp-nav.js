@@ -46,6 +46,7 @@
     { id: 'invest', label: '投資', sites: [
       { id: 'stock',  host: 'stock',         name: '持股決策', desc: '' },
       { id: 'seller', host: 'seller',        name: '台指選擇權', desc: '' },
+      { id: 'phase',  host: 'phase',         name: '相位路徑圖', desc: '' },
       { id: 'asset',  host: 'asset',         name: '資產彙總', desc: '' },
       { id: 'kline',  host: 'kline',         name: 'K 線台', desc: '' },
       { id: 'cycle',  host: 'cycle',         name: '營運週期', desc: '' },
